@@ -1,0 +1,36 @@
+# Whole Document
+
+- Does Raspberry Pi make any USB accessories?
+- I want to add more USB ports and also get some extra storage. Does Raspberry Pi sell stuff for that?
+- Are these USB accessories only for Raspberry Pi or do they work with regular computers too?
+
+# USB 3 Hub
+
+- I've only got one USB port free on my Pi. Can I plug a hub in and get more ports out of it?
+- How many extra USB ports does the Raspberry Pi hub give me?
+- Will devices plugged into the hub show up the same as if I plugged them straight into my Pi?
+- My keyboard and mouse are both USB. Can I run them both off one of these hubs without needing extra power?
+- How much power can the hub pull from my Pi?
+- I want to plug in something that needs a lot of power through the hub. Is that possible?
+- What's that USB-C port on the hub for? Do I have to use it?
+- How fast is the data transfer on this hub?
+- I've only got USB 2.0 ports on my computer. Will the Raspberry Pi hub still work with it?
+- How long is the cable on the hub?
+- How big is the USB hub? I'm trying to figure out if it'll fit in my setup.
+- If I've got four things plugged into the hub, do they all share the 900 milliamps or does each port get its own?
+- How much power does the hub give out when it's got its own power supply plugged in?
+
+# Flash Drive
+
+- Does Raspberry Pi make a USB memory stick?
+- Can I boot my Pi from the Raspberry Pi flash drive?
+- What storage sizes does the flash drive come in?
+- I'm trying to decide between the 128 gig and 256 gig flash drive. Is there actually a performance difference?
+- Will this flash drive work if I plug it into a USB 2.0 port?
+- How small is the Raspberry Pi flash drive? Like will it fit on a keychain?
+- How heavy is the flash drive? I want to carry it around with me.
+- What's the write speed on the flash drive? I'm copying big files a lot.
+- Does the flash drive keep my files when it's unplugged, or does it need power to hold data?
+- What does IOPS mean and why does it matter for a flash drive?
+- I do a lot of work with small files. Is this flash drive going to be fast enough for that?
+- How thick is the flash drive? I want to make sure it won't block the port next to it.

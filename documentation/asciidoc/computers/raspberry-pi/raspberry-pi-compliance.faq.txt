@@ -1,0 +1,35 @@
+# Product Compliance and Safety
+
+What kind of compliance testing do Raspberry Pi products go through?
+
+# Flammability Rating
+
+What's the flammability rating on Raspberry Pi boards?
+
+Does the UL94-V0 flammability rating cover the whole Pi or just the circuit board?
+
+# Raspberry Pi Compliance Support
+
+I'm building a product that uses a Raspberry Pi inside it. Do I have to do all the compliance testing myself or is there some kind of support for that?
+
+So who actually does the testing if I use the Compliance Support programme — is it Raspberry Pi's own engineers?
+
+I'm a small company and compliance stuff is really confusing. Is there anything that helps make it easier?
+
+# Powered by Raspberry Pi
+
+I'm making a product that has a Raspberry Pi in it and I want to put the Raspberry Pi logo on the box. Am I allowed to do that?
+
+How do I apply for permission to use the Raspberry Pi logo on my product?
+
+# Approved Design Partners
+
+I need help designing something with a Raspberry Pi but I don't know where to start. Is there anyone officially recommended I can hire?
+
+What are the Approved Design Partners? Like are they just random companies or does Raspberry Pi actually vouch for them?
+
+# Whole Document
+
+I want to sell a product built around a Raspberry Pi. What do I need to know about logos, compliance, and getting help with the design?
+
+Is there an official way to get support if I'm building a commercial product using Raspberry Pi?

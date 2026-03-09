@@ -1,0 +1,33 @@
+# Legacy Overclocking Options
+
+# Overclocking
+
+## `never_over_voltage`
+
+What does never over voltage actually do to my Raspberry Pi?
+
+I'm worried about accidentally voiding my warranty. Is there a way to lock down my Pi so it can't be overvolted?
+
+Wait, what's OTP memory? Is that something I need to know about?
+
+So if I set this never over voltage thing, is that permanent? Like can I undo it later?
+
+I want to make sure nobody can mess with my Pi's voltage settings. How do I do that?
+
+## `disable_auto_turbo`
+
+My Raspberry Pi 2 keeps jumping into turbo mode and I don't want it to. How do I stop that?
+
+What even is turbo mode on the Pi 3? Should I be worried about it?
+
+So my GPU is switching into turbo mode on its own. Is there a flag to stop that from happening?
+
+Does turbo mode kick in automatically or do I have to enable it myself?
+
+# Whole Document
+
+I've heard overclocking can void my warranty. Is that true and how does that even work?
+
+What's the difference between these legacy overclocking options and the regular config dot txt ones?
+
+I'm new to this. Should I be messing with overclocking settings at all, or is it risky for a beginner?

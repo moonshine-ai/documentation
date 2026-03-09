@@ -1,0 +1,61 @@
+# Whole Document
+
+What chips have been used in Raspberry Pi boards over the years?
+What's the difference between all the different Broadcom chips in the Raspberry Pi lineup?
+I'm trying to figure out what processor my Pi has. How do I know which chip is in my model?
+Is the Raspberry Pi 5 way more powerful than the Pi 4?
+
+# BCM2835
+
+What chip is in the original Raspberry Pi?
+My Pi Zero — what processor does it actually have inside it?
+I heard the BCM2835 datasheet has errors in it. Is there somewhere I can find a list of what's wrong?
+What kind of processor core does the BCM2835 use?
+
+# BCM2836
+
+What's different between the BCM2835 and the BCM2836?
+I've got an early Raspberry Pi 2. What chip does it have, and how many cores does it have?
+Wait, I heard the BCM2836 was discontinued. What does that mean for my Pi 2?
+
+# BCM2837
+
+My Raspberry Pi 3 — how much faster is it than the Pi 2?
+What processor core does the Pi 3 use, and is it 64-bit?
+I've got a Compute Module 3. What chip is inside it?
+Is the BCM2837 still being made, or was it discontinued?
+
+# BCM2837B0
+
+What's different between the BCM2837 and the BCM2837B0?
+Why is the Pi 3 B+ faster than the original Pi 3?
+I heard the Pi 3 B+ runs cooler than earlier Pi 3 models. Why is that?
+How fast can the BCM2837B0 run compared to the regular BCM2837?
+
+# BCM2711
+
+What's so different about the chip in the Pi 4 compared to older Pis?
+Does the Pi 4 support 4K video?
+How much RAM can the Pi 4 handle?
+My Pi 4 has USB 3. How does that work — is it built into the chip?
+What GPU does the Pi 4 use, and how does it compare to the Pi 3's GPU?
+Does the Pi 4 have built-in Ethernet on the chip itself?
+
+# BCM2712
+
+What chip is in the Raspberry Pi 5?
+How much faster is the Pi 5 compared to the Pi 4?
+Does the Raspberry Pi 5 support Vulkan?
+Can the Pi 5 do 4K at 60fps on two displays at once?
+I've heard there are security vulnerabilities in the Pi 5's processor. Should I be worried?
+How do I check what security vulnerabilities my Pi 5 has and whether they're fixed?
+What's that command to see if my Pi's CPU vulnerabilities are patched?
+Does H264 decoding on the Pi 5 use a lot of CPU compared to the Pi 4?
+What's the RP1 chip I keep hearing about in relation to the Pi 5?
+
+# RP3A0
+
+What chip is inside the Pi Zero 2 W?
+Can I overclock the Pi Zero 2 W, and if so how fast can it go?
+What's a System-in-Package — is that what the Zero 2 W uses?
+How is the Zero 2 W different from the original Pi Zero internally?

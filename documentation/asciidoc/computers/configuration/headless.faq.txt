@@ -1,0 +1,45 @@
+# Whole Document
+
+What even is a headless Raspberry Pi? Like, what does that mean?
+I don't have a spare monitor or keyboard. Can I still use a Raspberry Pi?
+So if my Pi has no screen, how am I supposed to actually control it?
+I just got a Pi and I want to run it without plugging in a monitor. Where do I even start?
+My Pi is headless — what are my options for getting into it remotely?
+
+# Set up a headless Raspberry Pi
+
+Do I need a monitor to set up a Raspberry Pi, or can I do it all from my laptop?
+I want to run my Pi without a keyboard or screen. What do I need to do first?
+How long does it take for a headless Pi to boot up and connect to the network for the first time?
+I set up my Pi headless and it's been a couple minutes and I still can't connect. Is that normal?
+So once I'm connected over SSH, can I still get a graphical desktop somehow?
+
+# Connect to a wired network
+
+I don't want to deal with WiFi. Can I just plug my headless Pi into my router with an ethernet cable?
+My Pi model doesn't have an ethernet port. Can I still use a wired connection?
+Do I have to do anything special to get my Pi on the network if I'm using ethernet, or does it just work?
+
+# Connect to a wireless network
+
+How do I set up WiFi on a headless Pi if I can't log in yet to type in my password?
+Where do I enter my WiFi network name and password for a headless Pi setup?
+I've got a 5 GHz network. Will my Pi definitely connect to it?
+I heard you used to be able to put a wpa_supplicant file on the SD card to set up WiFi. Does that still work?
+
+# Remote access
+
+I've got no keyboard or monitor on my Pi. How do I actually get into it?
+What's the easiest way to enable SSH before my Pi even boots for the first time?
+I just flashed my SD card. How do I turn on SSH before I even plug the Pi in?
+Can I enable SSH without using Raspberry Pi Imager? Like just by messing with the SD card?
+I want a proper desktop on my headless Pi, not just a terminal. How do I get that?
+
+# Configure a user manually
+
+How do I create a user on my Pi if I can't log in yet?
+What's this userconf.txt file I need to make? What goes in it?
+I need to set a password in that userconf file but it has to be encrypted. How do I do that?
+What are the rules for picking a username for my Pi? Are there any restrictions?
+So I run that openssl command on my laptop, not on the Pi itself, right?
+I typed in the openssl command and it asked me for a password. What do I do with the output it gives me?

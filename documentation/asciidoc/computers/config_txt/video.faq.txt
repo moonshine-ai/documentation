@@ -1,0 +1,38 @@
+# HDMI Mode
+
+- My Pi 4 is connected to a 1366x768 monitor and it's not displaying right. What's going on?
+- Why does my Raspberry Pi 4 drop to 1280x720 when my monitor is 1366x768?
+- Where do I go to change my HDMI resolution on a Raspberry Pi?
+- I heard Pi 4 has some issue with certain resolutions. What's that about?
+- Does the Pi 5 handle weird HDMI timings better than the Pi 4?
+
+# Composite Video Mode
+
+- How do I get composite video working on my Pi 4? I'm trying to plug it into an old TV.
+- Where's the composite output on a Raspberry Pi Zero?
+- My Pi 5 doesn't have an RCA jack. How do I connect it to an old TV?
+- I've got a Pi 400 keyboard thing. Can I use composite video with it?
+- How do I turn on composite video output on my Pi 4?
+- Wait, does enabling composite video mean I lose HDMI?
+- I want to use PAL instead of NTSC for my composite output. How do I switch that?
+- What video formats does composite output support? Like can I do PAL or SECAM?
+- Which Raspberry Pi models have composite video built in?
+
+# LCD Displays and Touchscreens
+
+- My official Raspberry Pi touchscreen isn't being detected. How do I fix that?
+- I've got a Pi touchscreen but I don't want it to use the touch part. Can I turn that off?
+- How do I stop my Pi from automatically using the touchscreen display?
+
+# Generic Display Options
+
+- My Pi is picking a weird resolution that my monitor doesn't support. How do I fix that?
+- What does disable_fw_kms_setup actually do? Should I care about it?
+- Is it true that on Pi 5 the firmware doesn't set the video mode itself? How does that work then?
+
+# Whole Document
+
+- I've got an old TV and a new Pi. What are my options for connecting them?
+- I'm confused about all these display settings. Where do I even start if my screen isn't working right?
+- What's the difference between HDMI and composite output on a Raspberry Pi?
+- I don't really understand KMS. Do I need to know about it to set my resolution?

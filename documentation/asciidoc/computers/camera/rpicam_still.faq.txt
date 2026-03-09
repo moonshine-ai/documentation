@@ -1,0 +1,49 @@
+# `rpicam-still`
+
+- What's the difference between `rpicam-jpeg` and `rpicam-still`?
+- How do I take a photo and save it as a JPEG with `rpicam-still`?
+
+# Encoders
+
+- Can `rpicam-still` save images in formats other than JPEG?
+- I want to save my photo as a PNG instead of a JPEG. How do I do that?
+- Does the filename I give it affect what format the image gets saved in?
+- What even is a YUV binary pixel dump? Should I be using that for anything?
+
+# Capture raw images
+
+- What's a raw image and why would I want one instead of a regular JPEG?
+- How do I capture a raw photo alongside my normal JPEG?
+- I captured a raw image and it saved as a DNG file. What app can I use to open that on my Pi?
+- Where does the DNG file get saved when I use the raw option? Does it go to the same place as the JPEG?
+- What kind of info is stored in those DNG files?
+- I've got a DNG file and I want to see its metadata. How do I do that?
+- I see there's an ISO value in the DNG metadata. How do I figure out what the actual analogue gain was?
+
+# Capture long exposures
+
+- How do I do a really long exposure shot, like 100 seconds?
+- I tried doing a long exposure but it takes forever before it even starts. How do I skip that waiting around at the start?
+- Why do I need to turn off auto white balance for long exposures?
+
+# Create a time lapse video
+
+- How do I make a time lapse with my Pi camera?
+- I want `rpicam-still` to automatically take a photo every few seconds. Is there a built-in way to do that?
+- Can I use cron to take time lapse photos instead of doing it all in one command?
+- I set up the timelapse script with cron but now I want to stop it. How do I do that?
+
+# Stitch images together
+
+- I've got a bunch of photos from my time lapse. How do I turn them into a video?
+- What app do I use to combine my time lapse images into an MP4?
+- How do I install ffmpeg on my Raspberry Pi?
+- I'm making a time lapse video with ffmpeg and I want it to play at 10 frames per second. How do I set that?
+- What does that `-pattern_type glob` thing mean in the ffmpeg command?
+
+# Whole Document
+
+- I used to use `raspistill` and now I'm switching to `rpicam-still`. Are they similar?
+- I just want to take a still photo with my Pi camera. What's the simplest command for that?
+- What image formats can I save photos in using the Pi camera tools?
+- I want to do some astrophotography with my Pi. Can it handle really long exposures?

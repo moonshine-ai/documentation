@@ -1,0 +1,61 @@
+# Whole Document
+
+How much power can the USB ports on a Raspberry Pi actually put out?
+
+My USB device keeps cutting out or not working right. Could that be a power problem?
+
+I've got a bunch of USB stuff I want to plug in. Do I need a powered hub or can I just plug everything straight into the Pi?
+
+Does every USB device that works on Linux work on a Raspberry Pi too?
+
+What's the difference between the USB setup on a Pi 4 versus older models?
+
+# Maximum Power Output
+
+My Pi 1 has two USB ports — is the 500mA limit per port or shared across both?
+
+I've got a hard drive plugged into my Pi and it keeps disconnecting. What's going on?
+
+If I plug in a powered USB hub, does that get around the power limit on the Pi's ports?
+
+# Raspberry Pi 5
+
+What power supply do I actually need for the Pi 5? I don't want to get the wrong one.
+
+I bought a 3A charger for my Pi 5 and it's showing some warning on boot. What does that mean?
+
+I want to plug in a hard drive and some other stuff into my Pi 5. Do I need a special power supply for that?
+
+My Pi 5 is showing a message saying USB power is restricted. How do I fix that?
+
+Wait, does the fan on the Pi 5 share power with the USB ports? So plugging in more USB stuff could affect the fan?
+
+# Raspberry Pi 4
+
+How many USB ports does the Pi 4 have, and are they all the same speed?
+
+I heard the Pi 4 has USB 3.0. Does that mean all four ports are USB 3?
+
+# Raspberry Pi Zero, 1, 2 and 3
+
+My Pi Zero only has one USB port and it's a tiny one. What type is it exactly?
+
+I've got an older Pi 3 and I want to plug in a webcam and a USB audio thing and a mouse all at once. Is that going to be a problem?
+
+Why does my older Pi feel slower with USB devices than my Pi 4 does?
+
+# Known USB Issues
+
+I plugged my keyboard and mouse into a USB 3.0 hub on my Pi 3 and neither of them work. What's happening?
+
+My mouse isn't working when it's plugged into my USB 3.0 hub on an older Pi. Is there a fix for that?
+
+I've got a USB 3.0 hub — can I use it with my Pi or not?
+
+My old webcam isn't working great on the Pi. Is there something I can do to make it more reliable?
+
+I bought this fancy high-end USB sound card and it keeps cutting out on my Pi. What can I do?
+
+I've got a USB hub and some of my slower devices keep acting weird. Could it be a single TT hub problem, and what does that even mean?
+
+My keyboard works fine plugged directly into the Pi but goes flaky through my hub. Why would that be?

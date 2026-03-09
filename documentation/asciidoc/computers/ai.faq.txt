@@ -1,0 +1,135 @@
+# Whole Document
+
+So I've got a Raspberry Pi 5 — what do I need to actually run AI models on it?
+
+What's the difference between the AI Kit, the AI HAT+, and the AI HAT+ 2?
+
+I've heard about Hailo NPUs. What even is an NPU and why would I want one instead of just using the CPU?
+
+Which AI hardware should I buy if I'm starting fresh today?
+
+Can I run AI models on a Raspberry Pi 4, or does it have to be a Pi 5?
+
+Do I need the 64-bit version of Raspberry Pi OS for this AI stuff, or will the 32-bit one work?
+
+# Hardware prerequisites
+
+I want to do object detection from a camera. What do I need to buy?
+
+Should I attach the camera before or after I plug in the AI HAT?
+
+I've got an AI Kit from a while back — can I still use it, or is it too old?
+
+What camera do you recommend if I want to run vision AI on my Pi 5?
+
+# Software prerequisites
+
+What's the first thing I need to set up in software after I've attached the AI hardware?
+
+I've got the AI Kit and I want to make sure it's running as fast as possible. Is there something I need to enable?
+
+Why do I need to enable PCIe Gen 3 manually for the AI Kit but not for the AI HAT+?
+
+I'm not sure if my Raspberry Pi OS is up to date enough for this. What do I need to run to update everything?
+
+# Enable PCIe Gen 3.0 (AI Kit only)
+
+How do I enable PCIe Gen 3 on my Pi 5? Is there more than one way to do it?
+
+I don't really want to use the terminal for the PCIe setting. Can I do it through a menu instead?
+
+If I edit config.txt to enable PCIe Gen 3, what exactly do I add to the file?
+
+Do I need to reboot after changing the PCIe speed setting?
+
+# Install required dependencies
+
+What packages do I actually need to install to get the AI hardware working?
+
+I've got an AI HAT+ 2 — do I install the same package as for the AI HAT+ or a different one?
+
+Can I have both `hailo-all` and `hailo-h10-all` installed at the same time?
+
+What's `dkms` and why do I need to install it?
+
+# Reboot and verify
+
+How do I check that my Hailo NPU was detected properly after installing everything?
+
+I ran the verify command and it shows `<N/A>` for serial number and part number. Is that a problem?
+
+What does it mean if `hailortcli fw-control identify` doesn't give me any output?
+
+Is there a way to check the kernel logs to see if the Hailo driver loaded okay?
+
+# Run vision AI models on Raspberry Pi 5
+
+I just want to try the AI demos. Where do I even start?
+
+How do I check that my camera is working before I try running any AI stuff?
+
+What's the `rpicam-hello` command and what does it actually do?
+
+# Run real-time visual AI demos
+
+What are some different AI demos I can try out with my camera?
+
+I want to try object detection. What command do I run?
+
+What's the difference between the different YOLO models? Like YOLOv8 versus YOLOX — which one should I try?
+
+Can I do pose detection with this? Like tracking where someone's arms and legs are?
+
+I want it to just print text output instead of showing a preview window. Is there a flag for that?
+
+Can I use these AI demos to record video, or is it just a live preview?
+
+I want to try the image segmentation demo — what command do I need?
+
+# Package versions for AI Kit and AI HAT+
+
+I built an AI model with a specific version of the Hailo toolchain and now it won't run. What do I need to check?
+
+How do I install a specific older version of the Hailo software packages?
+
+After I pin specific package versions, how do I stop them from getting updated automatically?
+
+# Run LLMs on Raspberry Pi 5 (AI HAT+ 2 only)
+
+Can I run a large language model locally on my Pi 5, like ChatGPT-style stuff?
+
+Wait, do I need the AI HAT+ 2 specifically to run LLMs, or will the regular AI HAT+ do it?
+
+What are the different ways I can actually talk to the LLM once it's set up?
+
+I want a chat interface in my browser instead of typing terminal commands. Is that possible?
+
+# Install the Hailo Ollama server
+
+How do I get the LLM models onto my Pi 5?
+
+# Start the Hailo Ollama server and run LLMs
+
+How do I see what LLM models are available to download?
+
+I want to download a specific model. What command do I use?
+
+Once I've got a model downloaded, how do I actually send it a question?
+
+# Install Docker (for Open WebUI)
+
+Do I have to use Docker for the web chat interface, or is there another way?
+
+Why does Open WebUI need Docker? Can't I just install it normally?
+
+How do I test that Docker installed correctly?
+
+After I add myself to the docker group, do I need to log out and back in for it to work?
+
+# Install and use Open WebUI (optional)
+
+How do I actually open the chat interface once Open WebUI is running?
+
+The Open WebUI container is taking ages to start. Is that normal?
+
+How do I check if the Open WebUI container is still starting up or if something went wrong?

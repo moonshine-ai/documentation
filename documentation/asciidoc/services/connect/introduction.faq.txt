@@ -1,0 +1,31 @@
+# Introduction
+
+What is Raspberry Pi Connect?
+
+I've heard I can access my Pi from anywhere — how does that work?
+
+Does Raspberry Pi Connect come pre-installed or do I have to install it myself?
+
+I'm running the Lite version of Raspberry Pi OS. Can I still use Connect or do I need the full desktop version?
+
+I've got the Lite version of OS — what's the difference between that version of Connect and the regular one?
+
+So with the Lite variant of Connect, I can't see my desktop remotely at all?
+
+How do I actually start using Raspberry Pi Connect? Like what's the first thing I need to do?
+
+Is Raspberry Pi Connect secure? I don't want random people accessing my Pi.
+
+Does my data go through Raspberry Pi's servers when I use Connect?
+
+What happens when Connect can't make a direct connection between my browser and my Pi?
+
+What does Raspberry Pi do with my data when it has to use a relay server?
+
+My Pi is in another room and I want to access it from my laptop browser. Can Connect do that?
+
+What version of Raspberry Pi OS do I need to run Connect? I'm not sure if mine is new enough.
+
+I'm still on Buster or Bullseye — will Connect work for me?
+
+Do I need to make an account somewhere to use Raspberry Pi Connect?

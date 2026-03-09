@@ -1,0 +1,41 @@
+# Whole Document
+
+- I want to control my Raspberry Pi from my laptop without plugging in a monitor and keyboard. What's the easiest way to do that?
+- What's VNC and do I need it for my Pi?
+- I don't want to sit at my Pi every time I use it. How do I control it remotely?
+- Can I access my Pi's desktop from my phone or tablet?
+
+# Screen share with VNC
+
+- So VNC needs something running on both my Pi and my computer. What runs where?
+- What exactly is happening when I use VNC? Like how does it actually work?
+- Does Raspberry Pi OS come with VNC built in or do I have to install something?
+
+# Enable the VNC server
+
+- I've never used VNC before. What do I need to do first to get it working on my Pi?
+- Do I have to turn on VNC before I can connect to it, or is it on by default?
+
+# Enable VNC Server Graphically
+
+- How do I turn on VNC without using the terminal?
+- I'm in the desktop on my Pi. Where do I go to enable VNC?
+- I found the Preferences menu but I don't see anything about VNC. Where's it hiding?
+
+# Enable the VNC server on the command line
+
+- I'm running Pi without a desktop. How do I turn on VNC from the command line?
+- What's the terminal command to enable VNC on my Pi?
+- Can I use raspi-config to switch on VNC?
+
+# Connect to a VNC server
+
+- Okay VNC is enabled on my Pi. Now what do I do on my laptop to actually connect?
+- What app do I use to connect to my Pi with VNC?
+- I've got TigerVNC downloaded. How do I actually connect to my Pi with it?
+- Do both my Pi and my laptop need to be on the same WiFi for VNC to work?
+- I don't know my Pi's IP address. How do I find it so I can connect with VNC?
+- TigerVNC is giving me some warning about a certificate. Should I just click yes?
+- I connected with TigerVNC but I can't see the cursor. Is there a setting to fix that?
+- TigerVNC is asking for a username and password. What do I put in there?
+- I got into my Pi with VNC but the cursor is invisible. What do I do?

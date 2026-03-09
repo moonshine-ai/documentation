@@ -1,0 +1,29 @@
+# BCM2836
+
+What chip is in the early Raspberry Pi 2 Model B?
+
+How is the BCM2836 different from the BCM2835?
+
+The BCM2836 has a quad-core Cortex-A7 — what does that mean compared to the older single-core processor?
+
+I've got an early Pi 2, what processor is actually inside it?
+
+Where can I find the technical docs for the BCM2836?
+
+Is the BCM2836 still being made, or is it discontinued?
+
+I'm trying to find the ARM-local peripherals documentation for the BCM2836, where do I look?
+
+What's the Cortex-A7 MPcore reference manual and do I need it for Pi development?
+
+# Whole Document
+
+Wait, so not all Raspberry Pi 2 Model B boards use the same chip?
+
+I have a Raspberry Pi 2 and I'm not sure which version it is — does it matter what SoC is inside?
+
+What's a SoC anyway, and why does it matter which one my Pi has?
+
+My Pi 2 is an older one — how do I find out if things have changed in newer revisions of the same board?
+
+Where do I find out about hardware changes between different versions of the same Raspberry Pi model?

@@ -1,0 +1,48 @@
+# Whole Document
+
+- What's the RP2040 and what's it good for?
+- I keep hearing about the RP2040. Is that the same thing as a Pico?
+- What boards actually use the RP2040?
+- I'm trying to decide between an RP2040 board and a regular Raspberry Pi. What's the difference?
+
+# RP2040 naming
+
+- Why is it called RP2040? Like what do those numbers actually mean?
+- What does the RP part stand for in RP2040?
+- I heard the RP2040 has two cores. Is that what the 2 in the name means?
+- Does the zero at the end of RP2040 mean it has no flash memory built in?
+- How much RAM does the RP2040 have and why does the name say 4 if it's 264 kilobytes?
+
+# RP2040 features
+
+- What can the RP2040 actually do? Like what are its main features?
+- Does the RP2040 have built-in flash storage or do I need to add my own?
+- How fast does the RP2040 run?
+- What's PIO on the RP2040? I keep seeing it mentioned but I don't really get what it is.
+- Does the RP2040 support USB? Like can I connect it to my computer directly?
+- How many PWM channels does the RP2040 have?
+- Can the RP2040 do I2C and SPI or do I need extra hardware for that?
+- What's the difference between the two cores on the RP2040? Are they the same or different?
+
+# Internal temperature sensor
+
+- Does the RP2040 have a built-in temperature sensor?
+- I'm trying to read the temperature with my Pico but the readings seem way off. What's going on?
+- Do I need to calibrate the RP2040 temperature sensor or does it just work out of the box?
+- Why does the voltage matter so much for the RP2040 temperature sensor?
+- Wait, the sensor voltage goes DOWN when it gets hotter? That seems backwards. Is that right?
+
+# Sleep mode power
+
+- How much power does the RP2040 use when it's in deep sleep?
+- I'm building a battery-powered project and the RP2040 is draining it even in sleep mode. What can I do?
+- Is there a way to get the RP2040 to use basically zero power when it's not doing anything?
+- What affects how much current the RP2040 draws in sleep mode?
+
+# RP2040-based boards
+
+- Can I make my own board based on the RP2040? Is that allowed?
+- Are the Pico design files open source? Can I just use them for my own product?
+- Where can I find the design files for the Raspberry Pi Pico?
+- I want to build something based on the RP2040 but I don't know where to start. Is there like a reference design I can look at?
+- Where should I go if I've got questions about a third-party RP2040 board that isn't an official Pico?

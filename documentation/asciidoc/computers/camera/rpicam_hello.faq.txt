@@ -1,0 +1,27 @@
+# `rpicam-hello`
+
+- How do I show a preview from my camera on the Raspberry Pi?
+- I just want to test that my camera's working. What's the quickest way to do that?
+- How long does rpicam-hello show the preview for by default?
+- I want the camera preview to stay open forever. How do I stop it from closing automatically?
+- How do I close the camera preview once it's open?
+- Can I set how long the preview window stays open, or does it always do the same time?
+
+# Display an image sensor preview
+
+- I'm running the desktop and the preview window won't show up. What could be going wrong?
+- What's DRM and why does my camera preview look different when I'm not using a desktop?
+- I'm trying to forward my camera preview over SSH with X forwarding but it's not working. Is that even supported?
+- I'm SSH'd into my Pi and want to see the camera preview on my main computer. Can I do that?
+- What's this qt-preview flag for? When would I actually need it?
+- I'm getting some weird Glib-GObject errors and the Qt preview won't open. What do I do?
+- I don't want the preview window to pop up at all. Is there a way to just run it without showing anything?
+- Can I show information like the camera settings in the preview window title?
+- How do I display the current gain values in the camera preview?
+- What kind of info can I show in that info text thing on the preview window?
+
+# Whole Document
+
+- I just got a camera module for my Pi. What's the simplest way to check it's connected properly?
+- What's rpicam-hello actually for? Is it just a test thing or can I use it for real stuff?
+- I've never used any of these rpicam apps before. Where do I even start?

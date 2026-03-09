@@ -1,0 +1,37 @@
+# Differences between rpicam and raspicam
+
+I used to use raspicam and now I'm switching to rpicam-apps. What's actually different between them?
+
+I can't find the short version of one of the command line flags I used to use. Did they get rid of short options?
+
+When I take a photo with rpicam-still it doesn't show up in the preview window. Is that a bug or is that just how it works now?
+
+I used to add text annotations to my videos with raspicam. How do I do that in rpicam-apps?
+
+What happened to all the image effects I used to use, like the old special effects filter flag?
+
+I used to use image stabilization in raspicam. Can I do that in rpicam-apps?
+
+I want to rotate my camera image 90 degrees. Is that possible?
+
+I'm confused — I used to set metering and exposure together but now it seems like they're separate. How does that work in rpicam-apps?
+
+How do I turn off auto white balance in rpicam-apps? There's no obvious flag for it.
+
+I've got a NoIR camera and the colors look wrong. How do I get it into greyworld mode?
+
+I don't see an ISO setting anywhere in rpicam-apps. How am I supposed to control ISO?
+
+Is there a way to set the flicker period like I could before?
+
+I want to do burst capture with rpicam-still like I used to. Can I still do that?
+
+What's the best way to capture a bunch of rapid photos if burst mode is gone?
+
+How do I disable defective pixel correction on my HQ camera?
+
+# Whole Document
+
+I just switched from the old raspberry pi camera software to the new one. What do I need to know?
+
+A bunch of features I used to rely on are gone in the new camera apps. Where did they go, did they just get dropped entirely?

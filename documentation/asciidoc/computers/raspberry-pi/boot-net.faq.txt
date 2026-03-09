@@ -1,0 +1,44 @@
+# Whole Document
+
+- I want to boot my Raspberry Pi over the network instead of from an SD card. Where do I even start?
+- Does network booting work on all Raspberry Pis or just certain ones?
+- Can I boot my Pi over WiFi instead of plugging in an ethernet cable?
+- I've got a Pi 4 — is network booting set up the same way as on the Pi 3?
+
+# Network Boot Flow
+
+- Walk me through what actually happens when a Raspberry Pi tries to boot from the network. Like what's it doing step by step?
+- What's TFTP? I keep seeing it mentioned and I don't know what it is.
+- My Pi is trying to network boot but it can't find bootcode.bin. Is that a problem or is that normal?
+- I want to set up separate boot files for different Pis on the same network. Is that possible?
+- How do I figure out the serial number of my Pi so I can set up separate boot directories?
+- Wait, so bootsig.bin gives a file not found error — should I be worried about that?
+
+# Debugging Network Boot Mode
+
+- My Pi isn't booting from the network and I don't know where to start troubleshooting. What should I check first?
+- How do I check if the OTP bit is programmed correctly on my Pi?
+- What should I see in the OTP dump if everything's set up right?
+- My ethernet LEDs aren't lighting up when I try to network boot. How long should I wait before I know something's wrong?
+- How do I capture network packets to see what my Pi is actually sending when it tries to boot?
+
+# DHCP Request / Reply
+
+- What should a normal DHCP exchange look like when my Pi's trying to network boot? How do I know if it's working?
+- There's something called Vendor-Option in the DHCP reply — what does it need to say for network boot to work?
+- I'm looking at my DHCP packets and I'm not sure if the reply looks right. What's the important bit I should be checking?
+
+# TFTP File Read
+
+- What does a normal TFTP file read look like in a packet capture? I'm trying to figure out if mine's working.
+- My Pi seems to request a file and then just stop. Is that a bug or is it supposed to do that sometimes?
+
+# Known Problems
+
+- Are there any known bugs with network booting on the Pi 3B that I should know about?
+- My Pi just stops trying to network boot after a while. What's happening?
+- How many times will my Pi try to get a DHCP address before it gives up?
+- My DHCP server is on a different subnet than my Pi. Will network booting still work?
+- I'm using DHCP relay and network boot isn't working. Is that a known issue?
+- Could two Pis end up with the same IP address when network booting? That seems like it'd cause problems.
+- I'm using dnsmasq as my DHCP server. Is that a good choice for network booting?

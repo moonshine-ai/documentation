@@ -1,0 +1,127 @@
+# kmsprint
+
+What's that `kmsprint` tool for exactly?
+
+How do I check what display modes my monitor supports on my Pi?
+
+I've got a monitor plugged in and I want to see all the resolutions it can do. What command do I run?
+
+Where can I find the source code for `kmsprint` if I want to look at it?
+
+# vclog
+
+How do I see the GPU log messages on my Pi?
+
+I want to check if the VideoCore is throwing any errors. How do I do that?
+
+Why do I have to use `sudo` with `vclog`? Can't I just run it normally?
+
+What's the difference between `vclog --msg` and `vclog --assert`?
+
+# vcgencmd
+
+What even is `vcgencmd` and what can I do with it?
+
+I can't remember all the things `vcgencmd` can do. How do I get a list of all its commands?
+
+# vcos
+
+How do I check what version of firmware my Pi's GPU is running?
+
+I want to see if there are any errors in the VideoCore firmware. How do I check that?
+
+# version
+
+How do I find out when my VideoCore firmware was built?
+
+# get_throttled
+
+My Pi feels sluggish and I think it might be throttling itself. How do I check?
+
+What does it mean when `get_throttled` returns something that isn't zero?
+
+I got a weird number back from `get_throttled` and I don't know what it means. How do I figure out what's going on?
+
+How do I know if my Pi has been throttled at some point, even if it's running fine right now?
+
+What's the difference between "currently throttled" and "throttling has occurred"?
+
+My Pi keeps showing an undervoltage warning. How do I confirm that's actually happening?
+
+# measure_temp
+
+How do I check the temperature of my Raspberry Pi?
+
+Is there a way to check the PMIC temperature on a Pi 4?
+
+My Pi feels hot. How do I actually see what temperature it's running at?
+
+# measure_clock
+
+How do I check what speed the CPU is running at right now?
+
+Can I see the current HDMI clock frequency?
+
+I want to know if my Pi is actually running at full speed or if it's been slowed down. What do I check?
+
+How do I check the GPU core clock speed?
+
+# measure_volts
+
+How do I check the voltage my Pi's GPU core is running at?
+
+Is there a way to see what voltage the SDRAM is getting?
+
+# otp_dump
+
+What's OTP memory on the Pi and how do I read it?
+
+How do I dump the contents of the one-time programmable memory?
+
+# get_config
+
+How do I find out how much total RAM my Pi has using the command line?
+
+I want to see all the integer config settings on my Pi. How do I do that?
+
+How do I check a specific config value on my Pi?
+
+# get_mem
+
+How do I see how much memory the GPU is using versus the CPU?
+
+My Pi only has a gig of RAM but I want to know how it's split between the GPU and the rest. How do I check?
+
+Why does `get_mem arm` only show 1 gig even on a Pi with more RAM than that?
+
+# codec_enabled
+
+How do I check if H.264 is enabled on my Pi?
+
+I want to know if a specific codec is available. How do I check that?
+
+Does `codec_enabled` work for H.265 on the Pi 4?
+
+# mem_oom
+
+How do I tell if my Pi is running out of GPU memory?
+
+What command shows me if there've been any out of memory problems on the VideoCore?
+
+# mem_reloc_stats
+
+How do I check the relocatable memory stats on the VideoCore?
+
+# read_ring_osc
+
+How do I check the ring oscillator speed and temperature all at once?
+
+# Whole Document
+
+What built-in tools does Raspberry Pi OS have for checking what's going on with the hardware?
+
+I want to do some basic diagnostics on my Pi without installing anything extra. What tools have I already got?
+
+My Pi seems to be running slow and hot. What command line tools can I use to figure out what's wrong?
+
+Is there a way to check the GPU info from the command line without any extra software?

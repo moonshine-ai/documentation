@@ -1,0 +1,35 @@
+# Introduction
+
+What's the Bookshelf app on Raspberry Pi OS? Like what does it actually do?
+
+I see some books have a little padlock on them and some don't. What's the difference?
+
+Which versions of Raspberry Pi OS come with Bookshelf already installed? I'm not sure if I have it.
+
+I've got Raspberry Pi OS Lite and I can't find Bookshelf anywhere. Do I need to install it myself?
+
+What's that cloud icon next to some of the books in Bookshelf?
+
+# Become a contributor (Raspberry Pi OS Trixie and later)
+
+I subscribe to the Raspberry Pi print magazine. Does that mean I can get the locked books in Bookshelf?
+
+How do I set up a monthly contribution so I can access the locked titles?
+
+I don't have a Raspberry Pi ID yet. Do I need one to become a contributor?
+
+I signed up for a contribution but the books are still locked. What am I missing?
+
+I've got multiple Raspberry Pis. Can I use the same account to access contributor titles on all of them?
+
+I just flashed a fresh SD card and now I can't see my contributor books anymore. How do I get them back?
+
+# Download titles
+
+How do I actually download a book from Bookshelf? Do I just click on it or is there more to it?
+
+Where do the downloaded books get saved on my Pi?
+
+I cancelled my monthly contribution. Do I lose all the books I already downloaded?
+
+What format do the books download as? Like can I open them in a regular PDF reader?

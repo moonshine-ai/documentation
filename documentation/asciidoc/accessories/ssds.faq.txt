@@ -1,0 +1,35 @@
+# About
+
+What sizes do the official Raspberry Pi SSDs come in?
+
+Do I need anything special to connect an SSD to my Raspberry Pi 5, or does it just plug right in?
+
+I've heard SSD quality matters a lot for Pi performance. Why is that exactly?
+
+I want to add an SSD to my Raspberry Pi — where do I even start?
+
+Is there an official Raspberry Pi SSD or do I just buy any random one?
+
+# Specifications
+
+What interface do the Raspberry Pi SSDs use — like is it NVMe or something else?
+
+What form factor are the Raspberry Pi SSDs? Like what size M.2 are they?
+
+Which Raspberry Pi SSD is the fastest, the 256 gig or the 1 terabyte?
+
+What generation of PCIe do the official SSDs support?
+
+I'm trying to figure out if the Raspberry Pi SSD is fast enough for my project. What are the read and write speeds?
+
+Is there a big difference in speed between the 256 gig and the 512 gig versions?
+
+# Whole Document
+
+Do I need a Raspberry Pi 5 specifically, or will the official SSD work with older models too?
+
+So if I buy the official SSD, do I also have to buy the M.2 HAT separately? That feels like a lot of extra stuff.
+
+Why would I use an SSD with my Raspberry Pi instead of just a microSD card?
+
+I'm not sure what IOPS means — is that basically just how fast the drive is?

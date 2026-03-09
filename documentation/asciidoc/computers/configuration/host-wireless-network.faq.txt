@@ -1,0 +1,29 @@
+# Whole Document
+
+Can I turn my Raspberry Pi into a Wi-Fi hotspot that other devices can connect to?
+My Pi is connected to the internet through an ethernet cable. Can I share that connection over Wi-Fi to my phone and laptop?
+Which Raspberry Pi models can do the hotspot thing without any extra hardware?
+My Pi doesn't have built-in Wi-Fi. Can I still use it as a hotspot somehow?
+
+# Enable hotspot
+
+How do I set up a hotspot on my Raspberry Pi from the command line?
+What's the command to create a Wi-Fi network on my Pi? I want to set a custom name and password.
+I set up a hotspot on my Pi but other devices can't get to the internet through it. What might be wrong?
+I connected my phone to my Pi's hotspot but there's no internet. My Pi is plugged into ethernet though, so what's going on?
+
+# Disable hotspot
+
+I'm done using my Pi as a hotspot and I want it to connect to my regular Wi-Fi again. How do I switch it back?
+How do I turn off the hotspot on my Pi?
+After I disable the hotspot, my Pi's Wi-Fi just stops working entirely. How do I get it reconnected to my normal network?
+
+# Use your Raspberry Pi as a network bridge
+
+What's the difference between the regular hotspot mode and bridging? Why would I want one over the other?
+I want devices on my Pi's hotspot to be able to talk to devices on my main home network. Is that possible?
+So by default the hotspot is kind of isolated from everything else on my network, right? How do I fix that?
+How do I set up a network bridge on my Raspberry Pi so my wireless devices can be on the same network as everything else?
+I already set up a hotspot and now I want to add bridging to it. Do I have to start over or can I just modify what I've got?
+How do I check if the bridge and hotspot are actually running after I set everything up?
+Once I'm connected to my Pi's bridged hotspot, how can I tell if I can actually reach other devices on the main network?

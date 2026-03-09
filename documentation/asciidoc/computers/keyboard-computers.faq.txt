@@ -1,0 +1,104 @@
+# Whole Document
+
+- I've never heard of a keyboard computer before. What even is that?
+- What's the difference between the Pi 400 and the Pi 500?
+- I'm trying to decide between the 500 and the 500 plus. What extra stuff do you get with the 500 plus?
+- Do these keyboard computers use the same chip as the regular Pi boards?
+- I bought a Pi 400 kit. What's included in the box?
+- Does the Pi 500 kit come with a microSD card already set up?
+- I just got my keyboard computer. Where do I start?
+- Do I need to install an operating system myself, or does it come pre-installed?
+
+# Features
+
+- What processor does the Pi 500 use compared to the 400?
+- Is the Pi 500 faster than the 400, and if so by how much?
+- How much RAM does the Pi 500 plus have?
+- Can the Pi 400 do HDR video output?
+- How do I turn off the Pi 400 if there's no power button?
+- Wait, how many HDMI ports do these keyboard computers have?
+- Can I run two 4K monitors from a Pi 500?
+- What's the GPU like on the Pi 500 versus the 400?
+- What's the storage situation with the Pi 500 plus? Does it have a built-in drive?
+- How many USB ports does the Pi 500 have?
+- Do any of these keyboard computers have GPIO pins?
+
+# Keyboard computer kits
+
+- Does the Pi 400 kit come with a mouse?
+- What size microSD card comes with the Pi 500 kit?
+- I got the 500 plus standalone, not the kit. Does it still come with the spudger tool for the SSD?
+- Does the Pi 500 plus kit include a microSD card?
+
+# Raspberry Pi 500+ mechanical keys
+
+- What kind of switches does the Pi 500 plus use?
+- Are the keycaps on the Pi 500 plus compatible with Cherry MX replacements?
+- Why does the Pi 500 plus feel clicky when I type?
+
+# Raspberry Pi 500+ customisation
+
+- What can I actually customise on the Pi 500 plus?
+- Can I change the colour of the keyboard lights on my Pi 500 plus?
+- Can I remap keys on the Pi 500?
+
+# Replace your M.2 SSD
+
+- How do I replace the SSD in my Pi 500 plus?
+- What tools do I need to open up the Pi 500 plus?
+- What sizes of M.2 SSD will fit in the Pi 500 plus?
+- I want to put a bigger SSD in my 500 plus. Is that possible?
+- Can I put something other than an SSD in the M.2 slot?
+
+# Change your keycaps
+
+- How do I pull off the keycaps on my Pi 500 plus without breaking anything?
+- I want to put custom keycaps on my 500 plus. Will third-party ones work?
+- What profiles are recommended for replacement keycaps on the 500 plus?
+- Are SA keycaps okay to use on the Pi 500 plus?
+- Some of my keys look non-standard. Will a typical keycap set cover them all?
+- My keycaps are blocking the backlighting. What kind should I get instead?
+
+# Customise your backlighting
+
+- What lighting is on by default when I start up my Pi 500 plus?
+- What does the LED behind the power button mean? Mine's red right now.
+- How do I cycle through the different lighting presets on my Pi 500 plus?
+- I want a solid white backlight. Which preset is that?
+- How do I change the brightness of the keyboard lights?
+- How do I change the colour of the backlight?
+- My keyboard does a rainbow animation every time it starts up. Can I turn that off?
+
+# Advanced software settings
+
+- What do I need to install to get the advanced keyboard lighting controls working?
+- How do I update the firmware on my Pi 500 plus keyboard?
+- What commands are there for checking the current state of my keyboard before I start changing things?
+
+# Advanced LED settings
+
+- Can I control individual keys' colours on the Pi 500 plus?
+- How do I set a specific colour for just one key?
+- How do I save my custom LED setup so it doesn't disappear after a restart?
+- I want to add a lighting effect but only temporarily until I restart. How do I do that?
+- How do I set the speed of a lighting effect?
+- How do I reset all my lighting back to default?
+- How do I assign a lighting effect to one of the presets permanently?
+- Can I change the startup animation for a specific preset?
+
+# Remap keys on your keyboard
+
+- How do I remap a key on my Pi 500?
+- How do I find out what keycode to use when remapping?
+- How do I check what a key is currently mapped to?
+- Can I watch which keys I'm pressing live in the terminal?
+- I messed up my keyboard layout and now I can't type properly. How do I reset it?
+- I've totally broken my keyboard mapping and I can't type anything on the Pi 500 plus. Is there any way to fix it?
+- What are layers in the key remapping? Do I need to worry about them?
+- Can I use a graphical tool instead of the terminal to remap my keys?
+
+# Flappy Bird game
+
+- Wait, there's a game hidden in the keyboard firmware? How do I play it?
+- How does the Flappy Bird game even work on a keyboard with no screen?
+- How do I quit out of the keyboard game?

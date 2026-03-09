@@ -1,0 +1,27 @@
+# About
+
+What's actually in the Raspberry Pi SSD Kit? Like what do you get in the box?
+
+Does the SSD kit come with everything I need or do I have to buy extra parts?
+
+Can I use the Raspberry Pi SSD Kit with a Pi 5, or is it only for certain models?
+
+Will the SSD kit fit alongside the Active Cooler, or do I have to choose one or the other?
+
+What's the M.2 HAT+ thing that comes with the SSD kit? Do I need to know what that is?
+
+# Install
+
+How do I actually install the SSD kit? Like where do I even start?
+
+I just got the SSD kit in the mail. What do I do first to set it up?
+
+Is the setup for the SSD kit different from setting up the M.2 HAT+ on its own, or is it the same process?
+
+# Whole Document
+
+I want to add an SSD to my Raspberry Pi 5. Is this kit the easiest way to do that?
+
+What's the difference between just buying an SSD and buying this whole kit?
+
+I've never added storage to a Pi before. Is this kit beginner friendly or is it complicated to set up?

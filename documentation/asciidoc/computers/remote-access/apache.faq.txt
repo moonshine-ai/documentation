@@ -1,0 +1,41 @@
+# Whole Document
+
+- I want to turn my Raspberry Pi into a web server. Where do I even start?
+- Can a Raspberry Pi actually host a website, or is it too underpowered for that?
+- What's Apache and why would I want it on my Pi?
+- I've got a Raspberry Pi sitting around doing nothing. Can I use it to host a local website for my home network?
+
+# Set up an Apache web server
+
+- What's the difference between Apache serving regular HTML versus PHP pages?
+
+# Install Apache
+
+- How do I get Apache installed on my Raspberry Pi?
+- Do I need to update anything before installing Apache, or can I just go straight to installing it?
+- What's the command to install Apache on my Pi?
+
+# Test the web server
+
+- Okay I think I installed Apache but how do I know if it's actually working?
+- I want to check my Pi's web server from my laptop. What address do I type in my browser?
+- How do I find out what IP address my Raspberry Pi has?
+- I opened the browser and nothing's showing up. What should I expect to see if Apache is running correctly?
+- Can I test the web server from the Pi itself without using another device?
+
+# Change the default web page
+
+- Where's the default web page file stored on my Pi? I want to edit it.
+- I'm trying to edit the index.html file but it won't let me save changes. What's going on?
+- How do I change who owns a file in Linux? I can't edit the Apache default page.
+- I want to put my own HTML files on the Pi and have them show up in the browser. How do I do that?
+- What folder do I put my website files in so Apache serves them?
+
+# Install PHP for Apache
+
+- I want my Pi's web server to run PHP. How do I set that up?
+- What do I need to install to get PHP working with Apache?
+- I set up PHP but I'm not sure it's actually running. How do I test it?
+- After installing PHP, do I need to do anything special or does Apache just pick it up automatically?
+- How do I create a PHP file and test that the server is processing it correctly?
+- What's a quick way to see all my PHP settings and info on the Pi?

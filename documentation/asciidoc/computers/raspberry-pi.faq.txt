@@ -1,0 +1,249 @@
+# Whole Document
+
+What's the difference between all the different Raspberry Pi models? There's so many of them I can't keep track.
+
+I'm trying to pick between a Pi 4 and a Pi 5 — what's actually better about the 5?
+
+Does any Raspberry Pi have built-in Wi-Fi, or do I always need a dongle?
+
+I've got a project that needs to be really small and low power. Which Pi should I go for?
+
+What's a Compute Module and when would I actually use one instead of a regular Pi?
+
+What's the difference between a Pico and a regular Raspberry Pi? Like, can I run Linux on a Pico?
+
+I heard the Pi 2 is discontinued or something. Is it still safe to buy one?
+
+# Introduction
+
+So I'm confused — what does "Model B" versus "Model A" actually mean on Raspberry Pi boards?
+
+If I buy a Pi Zero without the H at the end, does it come with pins or not? Do I have to solder them myself?
+
+What's the difference between a Zero W and a Zero WH? I keep seeing both and I don't know which to get.
+
+Can the Pico do Wi-Fi? And which version of the Pico has it?
+
+Is there a version of the Raspberry Pi that's built into a keyboard? How does that work?
+
+# Flagship single-board computer (SBC) series
+
+Does the Pi 5 support two monitors? I want to run a dual screen setup.
+
+What kind of power connector does the Raspberry Pi 5 use? Is it the same as the Pi 4?
+
+I need Ethernet on my Pi. Which models have it built in and which ones don't?
+
+The Pi 4 has a bunch of different RAM options. Does it matter which one I get for basic stuff like a desktop?
+
+# Zero series
+
+I want to connect a camera to my Pi Zero. Does it have a camera port?
+
+# Compute Module series
+
+I'm building something into a product and I need a Pi without any ports sticking out. What should I use?
+
+What's the difference between Compute Module 4 and Compute Module 4S? They sound almost the same.
+
+Is the Compute Module 3 still available to buy, or has it been discontinued?
+
+# Pico microcontroller boards
+
+My project needs real-time control, like very precise timing. Should I use a Pico or a regular Pi for that?
+
+How much storage does the Pico have? Can I add more?
+
+What's new in the Pico 2 compared to the original Pico? Is it worth upgrading?
+
+# Frequency management and thermal control
+
+My Pi is getting really hot. Do I need a heatsink or will it just slow itself down automatically?
+
+At what temperature does the Pi start throttling? And what happens exactly when it gets too hot?
+
+How do I check the actual temperature of my Raspberry Pi right now?
+
+What's DVFS and do I need to worry about it?
+
+I've got a Pi 4 and I want to save a bit of power. Can I set a more aggressive CPU governor somehow?
+
+# Use DVFS
+
+I've got a headless Pi 4 server and I want to reduce power consumption as much as possible. Is there a setting for that?
+
+# Measure temperatures
+
+The temperature I'm seeing in Linux doesn't look right. Is there a better way to check the actual chip temperature?
+
+# Add heat sinks
+
+My Pi keeps throttling under load. Would a heatsink actually help, or do I need a fan?
+
+# Fan cases
+
+I've got a Pi 5 and I want to add a fan. What are my options and where does it plug in?
+
+What temperature does the Pi 5 fan kick in at? I'm worried it might be too loud.
+
+Can I change when the Pi 5 fan turns on? I want it to stay off a bit longer.
+
+# Raspberry Pi boot EEPROM
+
+What models use an EEPROM to boot instead of that bootcode.bin file?
+
+# Update the bootloader
+
+How do I update the bootloader on my Pi 4? Is it automatic or do I have to do something?
+
+I want to update my Pi's bootloader but I don't want to mess anything up. What's the safest way to do it?
+
+# Use Raspberry Pi Imager to update the bootloader
+
+Walk me through updating the bootloader using Raspberry Pi Imager. I've never done it before.
+
+# Use `raspi-config` to update the bootloader
+
+Can I update the bootloader just from the terminal without downloading anything extra?
+
+# Update the bootloader configuration
+
+What's the difference between the "default" and "latest" bootloader? Which should I use?
+
+# Bootloader release status
+
+I want to pin my Pi to a specific bootloader version so it doesn't update automatically. Can I do that?
+
+# Boot diagnostics
+
+My Pi won't boot and I don't know why. Is there any way to see what's going wrong on screen?
+
+What does the boot diagnostic screen show? I'm getting a weird screen when my Pi starts up.
+
+# Raspberry Pi boot modes
+
+What boot modes does the Pi support? Like, can it boot from USB or the network?
+
+# USB boot modes
+
+What's the difference between USB device boot and USB host boot?
+
+# USB device boot mode
+
+When would I actually need to use USB device boot mode?
+
+# USB host boot mode
+
+My Pi 3B doesn't seem to want to boot from USB. Do I need to enable something first?
+
+# USB mass storage boot
+
+Can I boot my Raspberry Pi from a USB flash drive instead of an SD card?
+
+I've got a Pi 4. Can it boot from USB out of the box, or do I need to change something?
+
+I'm trying to boot from a USB hard drive and it's not working reliably. Could it be a power issue?
+
+# Enable USB host boot mode with OTP
+
+I've heard that changing OTP settings is permanent and can't be undone. What exactly does enabling USB host boot mode change, and is it safe?
+
+# NVMe SSD boot
+
+Can I boot my Raspberry Pi 5 from an NVMe SSD? What do I need to set up?
+
+How do I change the boot order so my Pi tries the NVMe drive before the SD card?
+
+# HTTP boot
+
+What's HTTP boot and when would I actually use it instead of just booting from an SD card?
+
+# GPIO boot mode
+
+What is GPIO boot mode and what Pis support it?
+
+# Raspberry Pi bootloader configuration
+
+How do I see what my current bootloader settings are?
+
+I want to change the boot order on my Pi so it tries USB before the SD card. How do I do that?
+
+# `BOOT_ORDER`
+
+What do all those hex values in the BOOT_ORDER setting mean? I'm confused by the format.
+
+# `WAKE_ON_GPIO`
+
+Can I set my Pi to wake up from a halted state when I press a button?
+
+# `POWER_OFF_ON_HALT`
+
+I want my Pi to use as little power as possible when it's turned off. What settings do I need to change?
+
+# `DISABLE_HDMI`
+
+My Pi is in a headless setup and I want to disable the HDMI diagnostic screen. How do I do that?
+
+# `NET_INSTALL_ENABLED`
+
+I'm building a headless embedded device and I don't want the network install to run at boot. How do I turn that off?
+
+# GPIO and the 40-pin header
+
+What is the GPIO header on a Raspberry Pi and what can I use it for?
+
+How do I find out which GPIO pin does what on my specific Pi model?
+
+Can the GPIO pins handle 5V signals or are they 3.3V only? I don't want to fry my board.
+
+What's the maximum current I can safely draw from a single GPIO pin?
+
+# GPIO pads control
+
+I'm driving some LEDs directly from GPIO pins. What drive strength should I set them to?
+
+# Serial peripheral interface (SPI)
+
+How do I enable SPI on my Raspberry Pi?
+
+I've got a display that uses SPI. How do I connect it and what pins do I use?
+
+# Universal Serial Bus (USB)
+
+My USB hard drive isn't being detected when I plug it into my Pi. What could be wrong?
+
+I've got a Pi 3 and I'm connecting multiple USB devices. Is there a limit to how many I can use at once?
+
+Why does my USB webcam work on my computer but not reliably on my Pi?
+
+# Raspberry Pi 5
+
+I want to connect lots of USB devices to my Pi 5. Does it matter what power supply I use for that?
+
+# Power supply
+
+What power supply do I need for a Raspberry Pi 5? I've got a spare USB-C charger — will that work?
+
+My Pi keeps showing a low voltage warning. What does that mean and what should I do?
+
+How much power does a Raspberry Pi 4 actually use when it's just sitting idle?
+
+# Real Time Clock (RTC)
+
+Does the Raspberry Pi 5 have a built-in clock that keeps time when it's powered off?
+
+I want my Pi 5 to wake itself up at a specific time and run a job. Is that possible?
+
+What battery do I need for the Pi 5 RTC, and where does it connect?
+
+# Power button
+
+My Pi 5 has a little power button on it. What does a short press do versus holding it down?
+
+Can I add my own power button to a Raspberry Pi 5?
+
+# Raspberry Pi revision codes
+
+How do I find out exactly which version of Raspberry Pi I have?
+
+I'm writing a script that needs to know which Pi model it's running on. How should I detect that properly without it breaking when new models come out?

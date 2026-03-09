@@ -1,0 +1,38 @@
+# Whole Document
+
+- What's `autoboot.txt` even for? Do I actually need it?
+- I'm trying to set up my Pi so it can safely try a new OS update and roll back if something goes wrong. Where do I start with that?
+- What's the difference between `autoboot.txt` and `config.txt`?
+- How big can `autoboot.txt` be? Is there a size limit?
+- I keep hearing about A/B booting. What is that and why would I want it on my Pi?
+
+# `boot_partition`
+
+- How do I tell my Pi which partition to boot from?
+- What happens if I set the partition number to zero? Does it just pick one automatically?
+- I ran `sudo reboot 2` to boot into partition 2. Will `autoboot.txt` override that or does the reboot command take priority?
+- Partition numbers — do they start at zero or one? I always get confused about this.
+- My Pi isn't recognizing my partition as bootable. What does a partition actually need to have on it to count as bootable?
+- Do I need a FAT partition for booting? What formats are supported?
+
+# The `[tryboot]` Filter
+
+- How do I actually boot into tryboot mode? What's the command?
+- What does the `[tryboot]` section in `autoboot.txt` do exactly?
+- If I reboot normally without the tryboot flag, does the `[tryboot]` section just get ignored?
+
+# `tryboot_a_b`
+
+- What does setting `tryboot_a_b` to 1 actually do?
+- I don't really want to have separate `tryboot.txt` files on each partition. Is there a way to use tryboot without doing that?
+- What's the difference between switching at the partition level versus the file level for A/B booting?
+
+# Example Update Flow for A/B Booting
+
+- Can you walk me through how A/B booting actually works on a Pi? Like step by step?
+- So if my update fails during tryboot, does the Pi just go back to the old partition automatically on the next reboot?
+- How does my Pi know if the update actually worked or not? Does it check something automatically?
+- Where do I check whether tryboot is currently active from within the OS?
+- How do I know which partition my Pi booted from after a tryboot reboot?
+- After my update succeeds and I update `autoboot.txt`, do I have to reboot right away or can I wait?
+- If I've already committed an update by changing `autoboot.txt`, what happens if the update service tries to write to the old partition again? Is that dangerous?

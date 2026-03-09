@@ -1,0 +1,77 @@
+# Frequency management and thermal control
+
+What temperature does a Raspberry Pi throttle at?
+
+My Pi feels really hot. Should I be worried about it breaking?
+
+At what point does the Pi actually start slowing itself down to cool off?
+
+Does the Raspberry Pi have any built-in protection against overheating, or do I need to set that up myself?
+
+Can I make my Pi run at a higher temperature than 85 degrees? Like, if I add a big heatsink?
+
+What happens to my Pi when it gets too hot — does it just shut down, or does it slow down first?
+
+# Use DVFS
+
+What's DVFS and do I need to care about it on my Pi 4?
+
+Does DVFS work on all Raspberry Pi models or just some of them?
+
+My Pi 4 is running kind of hot at idle. Is there a setting to make it use less power when it's not doing much?
+
+How do I change the DVFS mode on my Pi 4?
+
+What's the difference between dvfs=1, dvfs=2, and dvfs=3? Which one should I use?
+
+I've got a headless Pi with nothing plugged in. What DVFS setting is best for that?
+
+I've got a Pi 5 — do I need to set DVFS in config.txt?
+
+I set over_voltage in config.txt and now I'm wondering if DVFS is still working?
+
+How do I switch my CPU governor to powersave to reduce idle power?
+
+# Measure temperatures
+
+How do I check the temperature of my Raspberry Pi right now?
+
+Is there a command I can run to see how hot my Pi is?
+
+I heard Linux temperature readings on the Pi aren't very accurate. What should I use instead?
+
+# Add heat sinks
+
+Do I actually need a heatsink on my Raspberry Pi?
+
+Will adding a heatsink make my Pi faster?
+
+What's the best way to position my Pi for better cooling?
+
+# Fan cases
+
+What fans are officially supported for the Pi 5?
+
+What's the difference between the Active Cooler and the Pi 5 case with a fan?
+
+Where does the fan plug in on a Raspberry Pi 5?
+
+I want to overclock my Pi 5 — which cooling option should I get?
+
+At what temperature does the Pi 5 fan kick on?
+
+My Pi 5 fan doesn't seem to be spinning even though the Pi is on. Is that normal?
+
+How fast does the Pi 5 fan spin at different temperatures?
+
+Can I change the temperature thresholds for when the Pi 5 fan turns on?
+
+What are the pins on the Pi 5 fan connector?
+
+# Whole Document
+
+My Pi is getting hot and slowing down. What are my options to fix that?
+
+Is a fan better than a heatsink for keeping my Pi cool?
+
+Does the Raspberry Pi automatically manage its temperature, or do I have to do something to set that up?

@@ -1,0 +1,97 @@
+# Whole Document
+
+- What's the difference between a Raspberry Pi microcontroller and a regular Raspberry Pi?
+- I'm just getting started. Should I get a Pico with RP2040 or RP2350?
+- What languages can I use to program a Pico?
+- Is MicroPython or C++ better for a beginner?
+- What's a microcontroller even used for? Like when would I use one instead of a regular Pi?
+- Can I use both RP2040 and RP2350 with the same code?
+
+# Microcontroller overview
+
+- What's the difference between RP2040 and RP2350?
+- Both chips have two cores — what does that actually mean for my project?
+- What's PIO? I keep seeing it mentioned but I don't know what it does.
+- Does the Pico have built-in USB? Like can it show up as a USB device on my computer?
+- What's SRAM and why does it matter how much the chip has?
+- Do both chips support MicroPython and C++?
+- Can I do PWM on either of these chips?
+- I keep seeing I2C and SPI mentioned — are those built into the chip or do I need extra hardware?
+- What's the clock speed on RP2040 versus RP2350?
+
+# RP2040
+
+- What boards use the RP2040 chip?
+- Does the RP2040 have built-in flash memory or do I need to add it?
+- What does the name RP2040 actually mean? Like why is it called that?
+- How much RAM does the RP2040 have?
+- Can the RP2040 run at higher than 133 MHz if I overclock it?
+- What's the RP2040 package size? I'm trying to fit it on a custom PCB.
+
+## Internal temperature sensor
+
+- Does the RP2040 have a built-in temperature sensor?
+- I'm trying to use the temperature sensor on my Pico but the readings seem way off. What's going on?
+- Do I need to calibrate the temperature sensor on the RP2040?
+- Why does the temperature reading change so much? Is the sensor just bad?
+
+## Sleep mode power
+
+- How much power does the RP2040 use when it's sleeping?
+- I'm running a Pico on batteries and it's draining too fast even in sleep mode. What can I do?
+- What does deep sleep actually do on the RP2040? Does it save much power?
+
+## RP2040-based boards
+
+- Can I design my own board using the RP2040 chip?
+- Are the Pico design files free to use for my own project?
+- Where can I find the schematic for the Raspberry Pi Pico?
+- I want to make a product based on the RP2040. Is that allowed?
+
+# RP2350
+
+- What's new in the RP2350 compared to the RP2040?
+- How many variants of the RP2350 are there?
+- Does the RP2350 have any security features?
+- Can the RP2350 connect to external RAM?
+
+## RP2350 variants
+
+- What's the difference between RP2350A and RP2350B?
+- Which RP2350 variant has built-in flash memory?
+- I need more GPIO pins. Which RP2350 should I get?
+- What's the difference between the RP2350 and RP2354?
+- How big is the RP2350B chip package? I'm designing a PCB and need to know.
+
+## RP2350 naming
+
+- Why is it called RP2350? What does each number mean?
+- What does the A or B at the end of RP2350A mean?
+- If I see RP2354B, what does that tell me about the chip?
+
+## RP2350 features
+
+- Does the RP2350 have more PIO state machines than the RP2040?
+- Does the RP2350 have HDMI or video output of any kind?
+- Can the RP2350B do more analog inputs than the A version?
+- Does the RP2350 support one-time programmable memory?
+
+## Architecture switching
+
+- Can I run RISC-V code on the RP2350?
+- How do I switch the RP2350 to RISC-V mode?
+- If I use RISC-V mode on the RP2350, do I lose any features?
+- Can the RP2350 automatically figure out which processor architecture my code is for?
+
+## RP2350-based boards
+
+- Which Pico board uses the RP2350 chip?
+- Are there reference designs available for building my own RP2350 board?
+
+# USB identifiers
+
+- I'm making my own board with the RP2040 and I need a USB product ID. How do I get one?
+- Do I need a unique USB PID for my custom Pico-based device?
+- My third-party RP2040 board needs a Windows driver. Do I need a special USB ID for that?
+- Can I just use Raspberry Pi's vendor ID for my own RP2040 product?
+- What if I don't need a unique USB PID — can I still tell my device apart from others?

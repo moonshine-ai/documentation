@@ -1,0 +1,66 @@
+# Whole Document
+
+- I'm building a product with a Raspberry Pi inside it. What special things can I do with the hardware that I wouldn't normally need for home use?
+- I've heard there's some one-time programmable memory on the Pi. What's that actually useful for in a real product?
+- What's vcmailbox? I keep seeing it mentioned but I don't really know what it does.
+
+# One-time programmable settings
+
+- How do I see all the OTP values on my Pi?
+- I just want to dump all the OTP data. What command do I run?
+- Where's the serial number stored in the OTP memory?
+- Wait, is the OTP memory different on the newer Pi with the BCM2712 chip? Like are the row numbers the same?
+- How many rows of OTP memory do I actually get to use for my own stuff as a customer?
+
+# Write and read customer OTP values
+
+- How do I write my own values into the OTP memory?
+- I wrote some values into the OTP rows. How do I read them back to check they're right?
+- I'm trying to program three OTP rows at once. Do I have to do them one at a time or can I do them all in one command?
+- This OTP stuff is permanent right? Like if I mess it up I can't fix it?
+
+# Locking OTP on non-BCM2712 devices
+
+- Can I lock the OTP so nobody can change it after I've programmed it?
+- If I lock the OTP values, is that permanent or can I unlock them later?
+
+# Locking OTP on BCM2712 devices
+
+- How do I lock the OTP on a BCM2712 Pi?
+- Wait, on the newer chip the lock isn't permanent? It resets on reboot?
+- So if I want the OTP locked on a BCM2712 every time it starts up, I have to do it on every boot?
+
+# Making customer OTP bits unreadable on non-BCM2712 devices
+
+- Can I make it so nobody can even read my OTP values, not just write to them?
+- If I make the OTP bits unreadable, can I ever get them back?
+
+# Customer MAC addresses on BCM2712 devices
+
+- Can I set a custom MAC address on a BCM2712 Pi?
+- How do I read what MAC address is currently stored in OTP on my Pi?
+- I want to set a custom Wi-Fi MAC address. Is that different from setting the Ethernet one?
+- How do I check that the MAC address I'm about to set is formatted correctly before I actually burn it in?
+- I've heard something about multicast bits in MAC addresses. Is there something I need to watch out for there?
+- What happens if I set the customer MAC address to all F's?
+
+# Device-specific private key
+
+- Can I use the Pi to store a private encryption key on the device itself?
+- I want to use the OTP rows for filesystem encryption. How many rows do I get for that?
+- Is the private key storage on the Pi actually hardware protected, like a proper secure chip?
+- Can any user on the Pi read the private key out of OTP, or is it restricted somehow?
+- Does Raspberry Pi OS support an encrypted root filesystem?
+
+# Program a key into OTP with rpi-otp-private-key
+
+- What's the easiest way to write a private key into the OTP memory without dealing with raw vcmailbox commands?
+- How do I read back the private key that's stored in OTP?
+- Does the rpi-otp-private-key tool work on all Pi models or just certain ones?
+- How do I write a randomly generated key into the OTP private key storage?
+- Can I specify which part of the key storage to use, like if I don't want to start from the beginning?
+
+# Mailbox API for reading/writing the key
+
+- How do I read all the private key rows using vcmailbox directly?
+- I want to write a key directly with vcmailbox instead of using the script. How do I do that?

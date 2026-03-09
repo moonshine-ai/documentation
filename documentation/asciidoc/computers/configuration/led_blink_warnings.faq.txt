@@ -1,0 +1,35 @@
+# LED warning flash codes
+
+My Pi won't boot and the little light is blinking. What does that mean?
+
+How do I read the LED flash codes? Like what am I supposed to be counting?
+
+The LED is doing some long flashes and then some short ones. How do I figure out what that means?
+
+My Pi's light is just blinking 3 times over and over. What's wrong with it?
+
+The LED is flashing 4 short times and then repeating. What does that mean?
+
+My Pi won't start and the light blinks a bunch. Is there a list somewhere of what all those patterns mean?
+
+What does it mean if my Pi flashes once long and then twice short?
+
+I'm seeing two long flashes and one short flash on my Pi. What does that tell me?
+
+The light on my Pi is doing two long and two short blinks. Is that a SD card problem?
+
+What does zero long flashes and eight short flashes mean? Is that a memory problem?
+
+My Pi 4 is blinking three times long and then once short. What's going on?
+
+I see four long flashes and then three short ones. What does RP1 not found even mean?
+
+What does it mean if the LED flashes four long and four short? Is my Pi totally broken?
+
+I'm getting what looks like a power failure error from the LED. What's the difference between power failure type A and type B?
+
+Does the LED pattern just keep repeating or does it stop after a while?
+
+My Pi shows two long and four short flashes. It's a Pi 4 — is that some kind of file corruption thing?
+
+What does it mean when the Pi is in a HALT state? That's the zero long ten short pattern right?

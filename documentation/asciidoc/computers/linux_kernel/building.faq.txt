@@ -1,0 +1,71 @@
+# Whole Document
+
+- I want to build my own kernel for my Raspberry Pi. Where do I even start?
+- What's the difference between building the kernel natively versus cross-compiling it?
+- I'm totally new to this. Do I need Git to build the kernel?
+- Can I build a 64-bit kernel on a 32-bit machine?
+- I've got a regular laptop running Ubuntu. Can I build a Raspberry Pi kernel on that?
+
+# Download kernel source
+
+- How do I download the Raspberry Pi kernel source code?
+- The git clone is taking forever. Is that normal?
+- I only want the latest code, not all the history. How do I do a shallow clone?
+- How do I download a specific branch of the kernel instead of the default one?
+- Where can I see what branches are available for the Raspberry Pi kernel?
+
+# Natively build a kernel
+
+- What packages do I need to install before I can build the kernel natively?
+- I've got a Pi 4. What commands do I run to set up the default kernel config?
+- I'm confused — my Pi 4 runs a 32-bit OS but I want a 64-bit kernel. Is that possible?
+- What's the difference between bcm2711_defconfig and bcm2712_defconfig? Which one do I need?
+- I've got a Pi 5. What config do I use?
+
+# Build configuration
+
+- Do I have to use the default config or can I customize things?
+- I'm running Raspberry Pi OS on a Pi 4 in 32-bit mode. What kernel variable do I set?
+- Wait, my Pi 4 uses a 64-bit kernel even with the 32-bit OS? How does that work?
+
+# Customise the kernel version using `LOCALVERSION`
+
+- Why would I want to set a custom kernel version name?
+- I don't want my new kernel to mess up my existing modules. What should I do?
+- How do I add my own name or label to the kernel so I can tell it apart from the stock one?
+- Can I change the local version through a menu instead of editing the config file directly?
+
+# Build
+
+- How long does building the kernel actually take?
+- What command do I use to build a 64-bit kernel on my Pi?
+- What's that `-j6` flag in the make command? Should I change that number?
+- How do I figure out how many cores my Pi has so I can set the right number for make?
+- I've got a Pi with 4 cores. What number should I pass to make -j?
+
+# Install the kernel
+
+- Okay I've built the kernel. How do I actually install it?
+- Should I back up my old kernel before installing the new one?
+- I built the kernel on a different Pi. How do I put it on my other one's SD card?
+- How do I make sure my new kernel doesn't overwrite the old one, just in case it doesn't boot?
+- I want to keep my custom kernel separate and be able to switch back easily. How do I do that?
+- After I install the kernel, what do I do to actually run it?
+
+# Cross-compile the kernel
+
+- I'm on Ubuntu and I want to cross-compile a kernel for my Pi. What do I need to install?
+- What toolchain do I need for a 64-bit Pi kernel when cross-compiling?
+- I want to build a 32-bit kernel from my laptop. Which cross-compile toolchain do I install?
+
+# Find your boot media
+
+- How do I figure out which device name my SD card is after I plug it in?
+- I plugged in the SD card but I'm not sure which /dev entry it is. How do I check?
+- How do I mount the Pi's SD card partitions on my Linux machine so I can copy files over?
+
+# Install the kernel (cross-compiled)
+
+- I cross-compiled the kernel. Now how do I get it onto the SD card?
+- After copying the kernel to the SD card, do I need to unmount it before putting it in the Pi?
+- I want to save my old kernel as a backup before I copy over the new cross-compiled one. How do I do that?

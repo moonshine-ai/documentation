@@ -1,0 +1,59 @@
+# RM2 Key Features
+
+What wireless standards does the RM2 support?
+
+Does the RM2 do both Wi-Fi and Bluetooth, or just one of them?
+
+What version of Bluetooth does the RM2 have? Does it support the low energy stuff?
+
+It's only 2.4 GHz Wi-Fi right? There's no 5 GHz on this thing?
+
+What chip is inside the RM2?
+
+I've heard of castellated pins but I'm not really sure what they are. Why does the RM2 use them?
+
+So the RM2 is compatible with Pico W software? I already have code written for a Pico W — will it just work?
+
+What's the maximum Wi-Fi speed I can get out of the RM2?
+
+How much power does the RM2 draw? I'm building a battery-powered device and I'm worried about it draining too fast.
+
+Can the RM2 handle cold environments? What temperature range does it work in?
+
+Does the RM2 have a separate antenna for Wi-Fi and Bluetooth, or do they share one?
+
+What's a GPIO expander and why does the RM2 have one built in?
+
+# Technical Specifications
+
+How big is the RM2? I'm trying to figure out if it'll fit on my board.
+
+How thick is the RM2? I've got some tight clearance constraints.
+
+How many pins does the RM2 have?
+
+What's the pin spacing on the RM2?
+
+# Compliance
+
+Is the RM2 already certified, or do I have to do my own radio certification if I use it in my product?
+
+I'm building a product with the RM2 and selling it in the EU. Do I need to get my own wireless certification, or does the RM2's approval cover me?
+
+What's modular approval? Does having it mean I don't have to do any testing at all?
+
+I want to sell a product using the RM2 in India. Do I still need to get my own certification even though the RM2 is already certified?
+
+Which countries is the RM2 approved for use in?
+
+I'm trying to sell my device in a country that's not on the approved list. Who do I contact about that?
+
+Where can I find the actual test reports and certification documents for the RM2?
+
+# Whole Document
+
+What even is the RM2? Is it like a standalone Wi-Fi chip or more of a module you solder onto something?
+
+How does the RM2 compare to what's in the Pico W? Is it basically the same thing?
+
+I'm designing a custom board and want to add Wi-Fi and Bluetooth to it. Would the RM2 be a good fit for that?

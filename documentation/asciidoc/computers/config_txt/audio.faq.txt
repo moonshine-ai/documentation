@@ -1,0 +1,42 @@
+# Onboard analogue audio (3.5 mm jack)
+
+What's the difference between audio PWM mode 1 and mode 2? Like should I change it or just leave it alone?
+I'm getting a hissing sound from my headphone jack, especially when the volume is low. How do I fix that?
+My audio sounds a bit crackly through the 3.5mm jack. Is there a setting I can change to improve the quality?
+Does the high quality audio mode slow down my Pi at all? I heard it uses more resources or something.
+What's dithering? Do I need to worry about it for my Raspberry Pi audio?
+I turned my volume down really low and now there's this annoying background hiss. What's causing that and how do I get rid of it?
+
+# `audio_pwm_mode`
+
+I've got audio_pwm_mode, what should I set it to for the best sound quality out of the headphone jack?
+Does changing the PWM audio mode actually make a noticeable difference, or is it not worth messing with?
+I saw something about audio PWM mode 2 causing issues on some Pi models. What kind of problems are we talking about?
+
+# `disable_audio_dither`
+
+How do I turn off audio dithering on my Pi? There's a hiss and I think that's what's causing it.
+Wait, so dithering is on by default and it might be making my audio worse? Why is it even on then?
+
+# `enable_audio_dither`
+
+When would I actually want to force dithering on for all bit depths? Like what's the use case there?
+
+# `pwm_sample_bits`
+
+What does changing the PWM sample bits actually do to my audio? Is higher always better?
+I accidentally set the bit depth too low and now my audio's completely dead. What happened and how do I fix it?
+What's the default bit depth for the Pi's audio output and should I change it?
+
+# HDMI audio
+
+My Pi is playing audio through HDMI when I want it through the headphone jack. How do I turn off the HDMI audio?
+I don't want any sound coming out of my HDMI port at all. How do I disable that?
+Is HDMI audio on by default on all Raspberry Pi models, or just some of them?
+Where exactly do I add the noaudio thing to turn off HDMI sound? Like which file and where in the file?
+
+# Whole Document
+
+I've got a Raspberry Pi and the audio through the headphone jack sounds terrible. What settings can I tweak to make it better?
+What's the difference between HDMI audio and the 3.5mm jack audio on a Pi? Can I use both at the same time?
+I'm just doing a basic Pi project and I'm getting weird audio issues. Where do I even start to fix audio problems on a Raspberry Pi?

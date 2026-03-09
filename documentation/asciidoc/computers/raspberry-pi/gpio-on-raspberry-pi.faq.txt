@@ -1,0 +1,68 @@
+# Whole Document
+
+- I just got my Raspberry Pi and there's this row of pins along the edge. What are those for?
+- Do all Raspberry Pi boards have GPIO pins?
+- I've got a Pi Zero — does it have GPIO pins or not?
+- What's the difference between GPIO on the regular Zero and the Zero H?
+
+# GPIO and the 40-pin header
+
+- How many pins are on the Raspberry Pi GPIO header?
+- Why aren't the GPIO pin numbers in order? That's really confusing.
+- What's the spacing between the pins on the GPIO header?
+- I see GPIO pins 0 and 1 mentioned but they seem weird — can I use those for my project?
+
+# Outputs
+
+- So if I set a GPIO pin as an output, what voltages can it actually give me?
+- My GPIO pin is set as an output. How do I make it go high?
+
+# Inputs
+
+- How do I read whether a GPIO pin is on or off?
+- What are pull-up and pull-down resistors and do I need to worry about them?
+- Which GPIO pins have built-in pull-up resistors that I can't change?
+
+# View a GPIO pinout for your Raspberry Pi
+
+- I keep forgetting which pin is which. Is there a quick way to look that up right on the Pi?
+- How do I see the GPIO pin layout without looking it up online?
+- I've heard of GPIO Zero — what actually is that, and do I need to install it?
+
+# Permissions
+
+- I made a new user account and now they can't use the GPIO pins. How do I fix that?
+- Do I need to do anything special to get permission to use the GPIO pins?
+- What group do I need to be in to use GPIO?
+
+# GPIO pads
+
+- What does "pad" mean when people talk about GPIO? I keep seeing that word.
+- Can I change how much current a GPIO pin can output?
+- What's Schmitt-trigger filtering and do I need to worry about it for basic stuff?
+
+# Power-on states
+
+- When I restart my Pi, do the GPIO pins stay in whatever state I left them in?
+- What happens to all the GPIO pins when the Pi first boots up?
+
+# Interrupts
+
+- Can a GPIO pin tell my program when something happens instead of me constantly checking it?
+- What's the difference between edge detection and level detection on a GPIO interrupt?
+- Why would I use asynchronous edge detection instead of the regular kind?
+
+# Alternative functions
+
+- I want to use I2C on my Pi — which pins do I use for that?
+- Which pins support hardware PWM? I know software PWM works everywhere but I want the real thing.
+- Can I use SPI on my Raspberry Pi and if so which pins?
+- What's the difference between software PWM and hardware PWM?
+- I want to do serial communication with my Pi — which GPIO pins are TX and RX?
+
+# Voltage specifications
+
+- The GPIO pins are 3.3V right? So I can't just plug in a 5V sensor directly?
+- How much current can I actually pull from a GPIO output pin without breaking anything?
+- I've got a Pi 4 — are the GPIO voltage specs the same as older Pis?
+- What's the maximum current a GPIO pin can handle on a Pi 4?

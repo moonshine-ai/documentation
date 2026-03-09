@@ -1,0 +1,11 @@
+# Schematics
+
+# Whole Document
+
+- Where can I find the schematics for the Debug Probe?
+- Is there a mechanical drawing available for the Debug Probe? Like dimensions and that kind of thing?
+- I'm trying to figure out the physical layout of the Debug Probe. Is there a diagram somewhere?
+- Where are the test points on the Debug Probe? I can see them labeled on the schematic but I don't know where they actually are on the board.
+- I want to make my own enclosure for the Debug Probe. Where do I get the measurements?
+- What's a test point and why would I need to find one on the Debug Probe?
+- I'm looking at the schematic PDF but I can't figure out where the TP labels correspond to on the actual hardware. Is there a diagram that shows that?

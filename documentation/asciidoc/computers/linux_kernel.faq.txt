@@ -1,0 +1,143 @@
+# Introduction
+
+How does Raspberry Pi keep its kernel up to date, like does it just follow Linux exactly?
+
+Why does the Raspberry Pi kernel lag behind the main Linux kernel?
+
+What's the difference between the Raspberry Pi kernel and the upstream Linux kernel?
+
+# Update
+
+How do I update my Raspberry Pi's kernel?
+
+Does the kernel update automatically when I do a normal system update?
+
+I want to try the latest test kernel even if it's unstable. How do I do that?
+
+# Build the kernel
+
+What's the difference between native builds and cross-compilation when it comes to building the kernel?
+
+Can I build a 64-bit kernel from a 32-bit OS or do I need matching versions?
+
+I want to build the kernel from my laptop instead of on the Pi itself. Is that possible?
+
+# Download kernel source
+
+How do I download the Raspberry Pi kernel source code?
+
+Do I need Git to get the kernel source, and how do I install it?
+
+I just want to grab the source quickly without all the history. What's the fastest way to do that?
+
+Can I download a specific branch of the kernel source instead of the main one?
+
+# Natively build a kernel
+
+What packages do I need to install before I can build the kernel natively on my Pi?
+
+I've got a Pi 4 and I want to build a 64-bit kernel. What commands do I run to set that up?
+
+I'm confused — which defconfig do I use for my Pi model? I've got a Pi Zero W.
+
+Wait, so the 32-bit version of Raspberry Pi OS on a Pi 4 actually uses a 64-bit kernel? How does that work?
+
+# Customise the kernel version using `LOCALVERSION`
+
+What's LOCALVERSION and why would I want to set it?
+
+How do I stop my custom kernel from overwriting my existing kernel modules?
+
+I want to see my custom kernel name when I run uname. How do I set that up?
+
+# Build
+
+How long does building the kernel actually take on a Pi?
+
+What's that `-j6` flag in the make command? Should I change that number?
+
+How do I know how many cores to use when building the kernel to make it go faster?
+
+What's the command to build a 64-bit kernel once I've got everything set up?
+
+# Install the kernel
+
+How do I install my newly compiled kernel on my Pi?
+
+Should I back up my old kernel before installing the new one? How do I do that?
+
+I don't want to overwrite my current kernel in case the new one doesn't boot. Can I keep both?
+
+How do I tell my Pi to boot from my custom kernel image instead of the default one?
+
+After installing a custom kernel, I want to be able to quickly go back to the stock one if it breaks. How do I set that up?
+
+# Cross-compile the kernel
+
+What do I need to install on my Linux PC to cross-compile the Pi kernel?
+
+I want to build a 64-bit kernel from my laptop. What toolchain do I need?
+
+# Install the kernel (cross-compiled)
+
+How do I find which device is my SD card when I'm installing a cross-compiled kernel from my PC?
+
+I've cross-compiled the kernel. Now how do I actually get it onto my SD card?
+
+How do I mount my Pi's SD card partitions on my Linux laptop so I can copy the kernel over?
+
+# Configure the kernel
+
+What's menuconfig and how do I use it to change kernel settings?
+
+I want to enable something in the kernel that's not on by default. How do I do that?
+
+Is it risky to mess with kernel config options? Like can I brick my Pi?
+
+How do I navigate around in menuconfig? I'm not sure how to use it.
+
+How do I save my changes in menuconfig?
+
+# Patch the kernel
+
+Why would I need to patch the kernel? What's a use case for that?
+
+How do I check what version of the kernel I'm running?
+
+How do I apply a patch file to the kernel source?
+
+What's a patchset and how is it different from a regular patch file?
+
+I've got a patch in mailbox format. How do I apply that?
+
+# Kernel headers
+
+What are kernel headers and why do I need them?
+
+I want to compile a kernel module. Do I need to clone the whole kernel or can I just install the headers?
+
+How do I install the kernel headers on my Pi?
+
+I'm on 64-bit Raspberry Pi OS. What's the command to get the kernel headers?
+
+The apt version of the kernel headers might be out of date. How do I get the latest ones?
+
+# Contribute
+
+I fixed a bug that's specific to the Raspberry Pi. How do I submit that fix?
+
+I wrote a driver that works on any Linux device, not just Pi. Where do I submit that?
+
+How do I contribute code to the Raspberry Pi kernel on GitHub?
+
+How does Linux kernel development work? Is it on GitHub like the Pi stuff?
+
+# Whole Document
+
+I've never built a kernel before. Where do I even start?
+
+What's the easiest way to build a custom kernel for my Raspberry Pi?
+
+I just want to know — do I really need to compile my own kernel or is there a simpler way to update it?
+
+If my custom kernel doesn't boot, how do I recover and get back to a working kernel?

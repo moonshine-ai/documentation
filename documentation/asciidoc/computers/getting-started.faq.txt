@@ -1,0 +1,129 @@
+# Getting started with your Raspberry Pi
+
+What do I actually need to get a Raspberry Pi up and running?
+
+Do I need a monitor and keyboard to set up a Raspberry Pi, or can I do it without them?
+
+What's a headless setup? Like, why would I want that instead of just plugging in a monitor?
+
+# Power supply
+
+What power supply do I need for a Raspberry Pi 5?
+
+I've got a Raspberry Pi 4 — can I just use any USB-C charger I have lying around, or does it need to be a specific one?
+
+What happens if I plug into the wrong USB port on my Pi Zero? They all look the same.
+
+What's the difference between the 27W and 15W power supplies? Do I need the bigger one?
+
+# Boot media
+
+I don't have an SD card yet. What size should I buy?
+
+Can I use a 4TB SD card with my Raspberry Pi?
+
+I've got a Raspberry Pi Zero and it won't boot. Could the SD card be too big?
+
+Can I boot from a USB drive instead of an SD card?
+
+How much storage do I need on my SD card for Raspberry Pi OS?
+
+# Display
+
+My Raspberry Pi 5 has two HDMI ports. Which one should I plug my monitor into?
+
+I've got a regular HDMI monitor but my Pi 4 has a micro HDMI port. What cable do I need?
+
+Can I use a USB-C monitor with my Raspberry Pi?
+
+Does the Raspberry Pi Zero work with a regular HDMI TV?
+
+# Audio
+
+Does the Raspberry Pi 5 have a headphone jack?
+
+What are my options for getting audio out of a Raspberry Pi 4?
+
+# Networking
+
+Does the Raspberry Pi Zero have Wi-Fi built in?
+
+My Raspberry Pi doesn't have an Ethernet port but I need a wired connection. What can I do?
+
+Which Pi models have Wi-Fi built in?
+
+# Install using Imager
+
+How do I actually get an operating system onto my Raspberry Pi?
+
+Where do I download Raspberry Pi Imager?
+
+Can I use Raspberry Pi Imager on a Mac?
+
+I'm on Linux — how do I install Raspberry Pi Imager?
+
+Can I set up my Wi-Fi password before I even boot the Pi for the first time?
+
+I want to use SSH but I don't want to have to type a password every time. Can I set up SSH keys in Imager?
+
+Can I use my own downloaded OS image with Imager, or does it only use the ones it comes with?
+
+I accidentally chose the wrong storage device in Imager. Will it warn me before it wipes everything?
+
+How long does it take to write the image? Should I just wait?
+
+Can I skip the verification step after Imager finishes writing?
+
+What's the hostname for, and can I change it in Imager before I flash?
+
+# Install over the network
+
+I don't have another computer to use Imager on. How do I install an OS directly on the Pi itself?
+
+What do I need to do the network install thing? Do I need a monitor?
+
+How do I actually start the network install — like what buttons do I press?
+
+Does network install work on a Raspberry Pi 3?
+
+# Set up your Raspberry Pi
+
+Should I plug everything in before I connect the power supply?
+
+# Configuration on first boot
+
+My Pi's been on for five minutes and nothing's showing on the screen. What do I do?
+
+The status LED is flashing. What does that mean?
+
+I skipped all the customisation in Imager. What happens when I boot it up for the first time?
+
+# Bluetooth
+
+Can I use a Bluetooth keyboard during the first boot setup, or do I need a wired one?
+
+# User
+
+I've heard the old default username and password for Raspberry Pi OS is a security risk. What should I do?
+
+# Software updates
+
+The first-time setup is asking me to download updates and it's taking forever. Is that normal?
+
+# Next steps
+
+Where do I find extra apps to install on Raspberry Pi OS?
+
+My Pi is set up but I don't know what to do with it. Where can I find project ideas?
+
+I'm stuck and need help. Is there a Raspberry Pi forum or community somewhere?
+
+# Whole Document
+
+I just bought my first Raspberry Pi. What's the quickest way to get it set up and working?
+
+What's the difference between setting up a Pi with a desktop versus headless?
+
+Can I set everything up — Wi-Fi, username, SSH — without ever plugging in a keyboard and monitor?
+
+I want to access my Pi remotely without messing around with SSH and IP addresses. Is there an easier way?

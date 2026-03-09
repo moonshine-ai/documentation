@@ -1,0 +1,55 @@
+# Use multiple cameras
+
+How many cameras can I connect to a Raspberry Pi 5?
+
+I've got a regular Pi 4, not a Compute Module. Can I still use two cameras at the same time?
+
+What's a Video Mux board and do I need one?
+
+I've got two cameras plugged in but I don't know which one is which. How do I see what cameras are connected?
+
+Can I use two different camera models together, like mix and match?
+
+# Software Camera Synchronisation
+
+Do I need to solder anything to sync two cameras together?
+
+What's the difference between the server camera and the client camera in this sync setup?
+
+My two cameras are on different Raspberry Pis. Can I still sync them?
+
+How accurate is the software sync? Like how close in time will the frames actually be?
+
+My Pi isn't connected to the internet. Will the camera sync still work without NTP?
+
+# The Server
+
+How long does the server wait before it starts recording?
+
+Can I have more than one server running on the same network?
+
+# Clients
+
+Should I start the client or the server first?
+
+What happens if the client isn't ready when the server hits its sync point?
+
+# Usage in `rpicam-vid`
+
+I want to record synced video from two cameras. What commands do I actually run?
+
+Which camera should I make the server and which should be the client?
+
+I ran the sync recording but the videos are dropping frames. What can I do about that?
+
+Why does the framerate need to be lower than the camera's max? Can't I just run it as fast as possible?
+
+# Whole Document
+
+I've got a Compute Module and two cameras. Can I use both at the same time?
+
+Do the two cameras have to be the same model to sync them?
+
+I want to do 3D or stereo vision with two cameras. Does that work?
+
+How do I pick which camera to use when I've got more than one plugged in?

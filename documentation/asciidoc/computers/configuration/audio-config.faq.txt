@@ -1,0 +1,37 @@
+# Audio
+
+What's the default audio output on a Raspberry Pi?
+
+If I don't have an HDMI monitor plugged in, where does the sound come out?
+
+My audio is coming out of HDMI but I want it through the headphone jack. How do I switch that?
+
+I see something called "Pro Audio" in my audio settings. What is that and do I need it?
+
+I plugged in a USB speaker but I can't get the sound to come out of it. How do I switch to USB audio?
+
+# Change audio output
+
+How do I change my audio output on the Raspberry Pi desktop?
+
+I'm running the desktop and I want to switch audio outputs. Is there like a menu or something I can click?
+
+I don't see a volume icon on my taskbar. How do I change audio output without it?
+
+How do I change audio output using raspi-config?
+
+I'm on the command line with no desktop. How do I switch which device my audio comes out of?
+
+I opened raspi-config but I'm not sure where the audio settings are hiding. Where do I look?
+
+What even is Pro Audio profile? Should I be using it or just leave it alone?
+
+I've got multiple audio devices showing up and I'm confused which one to pick. How do I just switch between them easily?
+
+# Whole Document
+
+Does my Raspberry Pi even have a headphone jack? How do I know what audio outputs I've got?
+
+I'm getting no sound at all on my Pi. Where do I even start figuring out what's wrong?
+
+Can I output audio to a USB device on a Raspberry Pi, or does it only do HDMI and the headphone jack?

@@ -1,0 +1,79 @@
+# Whole Document
+
+- I've got one SD card that I use in a few different Raspberry Pis. Can I set it up so each board gets different settings automatically?
+- What even are conditional filters in config.txt? Like what's the point of them?
+- I keep swapping my Pi between two different monitors and the resolution's always wrong. Is there a way to fix that without changing config.txt every time?
+
+# The `[all]` Filter
+
+- What does the `[all]` filter actually do in config.txt?
+- Why do people always put `[all]` at the bottom of their config sections? Is that actually necessary?
+- I messed up my config and now some settings are bleeding into sections they shouldn't. Could that be because I forgot to put `[all]` at the end?
+
+# Model Filters
+
+- I want certain overclocking settings to only apply on my Pi 4 and not my Pi 5. How do I do that?
+- Does the Pi 400 use the same filter as the Pi 4? I don't want settings meant for the Pi 4 to accidentally apply to my Pi 400.
+- How do I set a different kernel for my Pi 1 versus my Pi 2 in the same config file?
+- I've got a Compute Module 4 — does it use `[pi4]` settings or does it have its own filter?
+- I want a setting that applies only to my Pi 3B+ and nothing else. Is there a filter just for that, or does it share one with other models?
+- My Pi Zero W keeps picking up settings I only wanted for the regular Zero. Why is that happening?
+
+# The `[none]` Filter
+
+- I've got a bunch of settings in my config.txt that I want to temporarily disable without deleting them. Is there an easy way to do that?
+- What does the `[none]` filter do? When would I actually use it?
+
+# The Expression Filter
+
+- What's the expression filter for? Like when would I actually need to compare values in config.txt?
+- Can I use math or comparisons inside config.txt to control which settings get applied?
+- What's `boot_arg1` and how is it different from other boot variables?
+
+# `boot_arg1`
+
+- How do I pass a value to my Pi across a reboot? Like set something before rebooting and then read it on the next boot?
+- How do I check what `boot_arg1` is currently set to?
+
+# `bootvar0`
+
+- I want the same SD card image to behave differently on different boards without editing config.txt each time. Is there a way to do that using the EEPROM?
+- How do I use `bootvar0` to switch between different configurations?
+
+# `boot_count`
+
+- Is there a way to track how many times my Pi has booted since it was last powered on?
+- How do I reset the boot count back to zero?
+
+# `boot_partition`
+
+- I've got an A/B boot setup. How do I make config.txt load different settings depending on which partition the Pi booted from?
+
+# The `[tryboot]` Filter
+
+- What's tryboot mode and when would I use that filter?
+
+# The `[EDID=*]` Filter
+
+- I use the same Pi with two different monitors and I want different display settings for each one. Can config.txt figure out which monitor is plugged in?
+- How do I find out the EDID name of my monitor so I can use it in config.txt?
+- I plugged in a different monitor after the Pi booted and the settings didn't change. Shouldn't it detect the new monitor?
+- Does the EDID filter work on Pi 5?
+- I've got a Pi 4 with both HDMI ports in use. Will the EDID filter check both monitors or just one?
+
+# The Serial Number Filter
+
+- How do I set up config.txt settings that only apply to one specific Pi and not any others?
+- How do I find my Pi's serial number?
+- I've got a license key I only want to work on one board. Can I lock it to that Pi's serial number in config.txt?
+
+# The GPIO Filter
+
+- Can I make config.txt apply different settings based on whether a GPIO pin is high or low?
+- I've got a physical switch connected to a GPIO. Can I use that to change boot settings?
+
+# Combine Conditional Filters
+
+- Can I combine filters, like only apply settings if I'm on a Pi 2 AND a specific monitor is connected?
+- If I put `[pi1]` and then `[pi2]` in my config, do both apply or does one cancel out the other?
+- I accidentally stacked a bunch of filters and now weird settings are showing up everywhere. How do I reset them all?

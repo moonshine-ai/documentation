@@ -1,0 +1,39 @@
+# Whole Document
+
+- I've got a USB webcam lying around. Can I actually use it with my Raspberry Pi?
+- What's the difference between using a USB webcam and one of those Pi camera modules?
+- I don't have a camera module, just a regular webcam. Will that work for taking photos and videos?
+
+# Install dependencies
+
+- How do I get my Raspberry Pi to recognize my USB webcam?
+- What do I need to install to use a webcam on my Pi?
+- I'm getting a "permission denied" error when I try to use my webcam. What's going on?
+- How do I add myself to the video group? I keep getting errors.
+- How do I check if my username got added to the right group properly?
+
+# Take a photo
+
+- How do I take a photo with my webcam from the terminal?
+- I ran the command but I'm not sure where the picture got saved. Where does it go?
+- I see something about "corrupt JPEG data" in the output. Should I be worried about that?
+- The photos my webcam takes look really blurry and small. How do I make them higher quality?
+- How do I set the resolution when I'm taking a picture with my webcam?
+- There's a timestamp banner on all my photos and I hate it. How do I get rid of that?
+- Why does it put that timestamp bar at the bottom of every picture? And how do I turn it off?
+
+# Automate image capture
+
+- I want to take a bunch of photos without having to rename the file every time. Is there a way to do that automatically?
+- How do I make it so each photo gets saved with the date and time as the filename?
+- I've never written a bash script before. How do I make one to automate my webcam?
+- I made the script but now it says permission denied when I try to run it. What did I miss?
+- How do I make a script executable on my Pi?
+
+# Capture a time lapse
+
+- I want my Pi to take a photo every minute automatically. How do I set that up?
+- How do I do a time lapse with my webcam on a Raspberry Pi?
+- What's cron and how do I use it to take pictures on a schedule?
+- How do I edit the cron table? I've never done that before.
+- I set up the cron job but I'm not sure if it's actually running. How do I tell?

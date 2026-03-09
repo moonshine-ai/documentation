@@ -1,0 +1,80 @@
+# Whole Document
+
+What's NFS and do I need it on my Raspberry Pi?
+What's the difference between NFS and Samba? Which one should I use?
+I want to share files between my Raspberry Pi and other computers on my network. What's the easiest way to do that?
+I've heard of NAS setups using a Pi. Is NFS a good way to do that?
+Do I need to know anything before I try setting up NFS?
+
+# Set up a basic NFS server
+
+How do I install NFS on my Raspberry Pi?
+I want to share my home directories over the network. Where do I start?
+Why do I need to create a separate export directory instead of just sharing the real folder directly?
+What does the `--bind` option do when I'm mounting a directory?
+I don't want to have to remount everything after a reboot. How do I make it permanent?
+What files do I need to edit to configure my NFS server?
+What's the `/etc/exports` file for?
+I'm getting permission errors when I try to access the NFS share from another machine. What do I do?
+What do I put in `/etc/exports` to share to my whole local network?
+What's `fsid=0` mean in the exports file? Do I need it?
+What's `no_subtree_check` and should I care about it?
+What's the difference between `async` and `sync` in the NFS exports options?
+
+## Portmap lockdown (optional)
+
+I don't want just anyone on my network accessing my NFS share. How do I lock it down?
+How do I restrict NFS access to only certain IP addresses?
+Why do I have to use IP addresses instead of hostnames when locking down NFS access?
+I set up the portmap lockdown and now NFS won't start. What did I do wrong?
+Do I have to include the localhost address when setting up the allowed IPs for NFS?
+
+# Configure an NFS client
+
+How do I connect my Pi to an NFS share from another computer?
+What package do I need to install on the client to use NFS?
+How do I mount an NFS share from the command line?
+Can I use a hostname instead of an IP address when mounting an NFS share?
+How do I make an NFS share automatically mount every time my Pi boots up?
+I mounted an NFS share and `umount` is complaining about not finding it. What's going on?
+I'm on NFSv4. Do I still need to specify `/export` in the mount command?
+
+# Configure a complex NFS server
+
+Why do user permissions get messed up between my NFS server and client?
+How do I make sure users have the same permissions on both the server and the client with NFS?
+There's a user that can't access a directory over NFS even though they should have permission. What could cause that?
+I've got users in a lot of groups. Could that cause problems with NFS?
+What happens if a user is in more than 16 groups and I'm using NFS?
+
+## DNS (optional, only if using DNS)
+
+Should I put my client IPs in `/etc/hosts` even if I'm already using DNS for NFS?
+
+## NIS (optional, only if using NIS)
+
+What's a netgroup and why would I use one with NFS?
+How do I rebuild the NIS database after making changes?
+
+## Package installation and configuration
+
+How do I share a folder to a specific list of IP addresses with NFS?
+How do I share to everyone on my whole subnet instead of listing individual IPs?
+I edited `/etc/exports` but the changes aren't showing up. Do I need to restart something?
+What does `exportfs -ra` do and when should I run it?
+What's the difference between `rw` and `sync` options in the exports file?
+
+## Restart services
+
+After changing my NFS config, what do I need to restart for it to take effect?
+
+## Security items to consider
+
+Is NFS actually secure? Should I be worried about people spoofing access to my shares?
+What's IPSec and do I need it with NFS?
+
+# Troubleshooting
+
+I've got an encrypted home directory and my NFS share won't mount on boot. What's going on?
+My NFS share works fine when I'm logged in but it's not there after a reboot. What's wrong?
+How do I mount an NFS share if my home directory is encrypted?

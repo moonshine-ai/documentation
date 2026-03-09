@@ -1,0 +1,53 @@
+# Whole Document
+
+- What's the RP2350 chip and what's it used for?
+- How does the RP2350 compare to the RP2040? Is it much better?
+- I'm trying to pick between RP2350 and RP2040 for my project. What's actually different between them?
+- Is the RP2350 the chip inside the Pico 2?
+
+# RP2350 variants
+
+- What's the difference between all the RP2350 variants? Like which one should I get?
+- Does the RP2350 come with built-in flash memory or do I have to add my own?
+- What's the difference between the A and B versions of the RP2350?
+- How many GPIO pins does the RP2350 have? Does it depend on which version I get?
+- I need more analog inputs for my project. Which RP2350 variant gives me the most?
+- What's the physical size difference between the RP2350A and RP2350B packages?
+- Which RP2350 variants have built-in flash and which ones don't?
+
+# RP2350 naming
+
+- Why is it called RP2350? Does the number actually mean something?
+- What does the A or B at the end of RP2350A or RP2350B mean?
+- What's the difference between RP2350 and RP2354? Why the different number?
+- So if I see an RP2354B, what does each part of that name tell me about the chip?
+- How much RAM does the RP2350 have? I heard the name tells you somehow?
+
+# RP2350 features
+
+- What's the clock speed on the RP2350?
+- How much RAM does the RP2350 have?
+- I've heard it has RISC-V cores. Does that mean I can use RISC-V instead of Arm?
+- What's PIO and why would I care about it?
+- Does the RP2350 have built-in USB support?
+- Can the RP2350 do video output? I want to drive a display with it.
+- What serial communication stuff is built into the RP2350? Like does it support I2C and SPI?
+- Does the RP2350 have any security features? I need to protect my firmware.
+- Can I connect external RAM to the RP2350 if I need more memory?
+- What's OTP memory and should I be careful about using it?
+- How many PWM channels does the RP2350 have?
+- Does the RP2350 have a temperature sensor built in?
+
+# Architecture switching
+
+- Can I actually run RISC-V code on the RP2350 or is it Arm only?
+- How do I switch between Arm and RISC-V mode on the RP2350?
+- If I use RISC-V mode on the RP2350, do I lose any features?
+- Does the RP2350 automatically know whether to boot into Arm or RISC-V mode?
+
+# RP2350-based boards
+
+- What boards can I use with the RP2350?
+- Can I use the Pico 2 as a starting point for designing my own RP2350 board?
+- Where can I find reference designs for building something with the RP2350?
+- Are there third-party boards that use the RP2350, and where do I find info about them?

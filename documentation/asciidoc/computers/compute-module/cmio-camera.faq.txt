@@ -1,0 +1,67 @@
+# Whole Document
+
+- I want to hook up a camera to my Compute Module. Where do I even start?
+- I've got a Compute Module I/O board and a camera module. How do I get them talking to each other?
+- Can I connect two cameras to a Compute Module at the same time?
+- My Compute Module has CAM1 and CAM0 ports. What's the difference and which one should I use?
+
+# Update your system
+
+- Should I update my Pi before setting up the camera, or does it not matter?
+- How do I make sure my firmware is up to date before I start messing with the camera setup?
+
+# Connect one camera
+
+- I've got a single camera module and a Compute Module. Walk me through connecting them.
+- I have a CM4 and I'm connecting a camera. Do I need to mess with any jumpers?
+- I have an older Compute Module — like a CM3 — and I need to know which GPIO pins to connect with jumper cables for the camera.
+- I disabled the camera auto-detect thing in config.txt. Was that right, or did I break something?
+- Which config.txt line do I add for a v3 camera on a Compute Module?
+- I've got an HQ camera and I don't know what overlay to put in config.txt. What is it?
+- I just wired everything up and rebooted. How do I check if the Compute Module actually sees my camera?
+- Do I need to comment out `camera_auto_detect=1` in config.txt when setting this up, or can I leave it in?
+- I'm on a CM1 and I connected the camera, but do I need that `cm-swap-i2c0` overlay thing? What does it even do?
+
+# Connect two cameras
+
+- I've already got one camera working on CAM1. Now I want to add a second one on CAM0. What extra steps do I need to do?
+- I'm connecting a second camera to CAM0 on a CM4. Do I need to do the jumper thing on J6?
+- What's the overlay I need to add for a v2 camera on the CAM0 port specifically?
+- After connecting both cameras, how do I confirm they're both being detected?
+
+# Software
+
+- What software do I use to actually take a photo with the camera on a Compute Module?
+
+## Take a picture
+
+- How do I take a photo from the command line on my Compute Module?
+- I want to take a picture and save it as a PNG. What's the command for that?
+- Can I set the resolution when I take a photo, or does it just use the default?
+- Is there a way to add a delay before it takes the picture?
+
+## Take a video
+
+- How do I record a video from my camera using the terminal?
+- I want to record about ten seconds of video. What command do I use?
+- What format does the video get saved in by default?
+
+## Specify which camera to use
+
+- I've got two cameras connected. How do I tell my app which one to use?
+- How do I figure out which index number my cameras have?
+- I have an HQ camera and a v3 camera both connected. How do I switch between them?
+
+# I2C mapping of GPIO pins
+
+- I'm using a CM3 I/O board and the camera isn't working. Something about I2C pins being swapped?
+- What does that `cm-swap-i2c0` overlay actually do? Why do I need it for older Compute Modules?
+- I'm using a third-party I/O board that's not the official one. How do I figure out the right I2C pin settings?
+
+# GPIO pins for shutdown
+
+- How does camera shutdown work on the Compute Module? Is there a specific pin for that?
+- I'm on a CM3 and I want to enable the camera regulator pins. How do I do that in config.txt?
+- Can I assign the camera regulator to a specific GPIO pin on my custom board?
+- I want CAM1's regulator on pin 42. What do I put in config.txt?
+- Does the regulator GPIO thing work with expander pins, or only pins directly on the chip?

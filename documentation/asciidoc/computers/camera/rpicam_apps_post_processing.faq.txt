@@ -1,0 +1,75 @@
+# Post-processing with `rpicam-apps`
+
+What even is post-processing in rpicam-apps? Like what does it actually do to my photos?
+
+How do I apply a post-processing effect to my camera? Do I just add a flag or something?
+
+I've got a JSON file for post-processing but I'm not sure how to actually use it with rpicam-hello. What's the command?
+
+Can I run more than one post-processing effect at the same time, or is it just one at a time?
+
+I want to chain a couple of image filters together. Do I put them all in the same JSON file or separate ones?
+
+Where can I find example JSON files for these post-processing stages?
+
+So some stages change the image and some just analyse it — what does "analyse it" actually mean? What does it do with that information?
+
+Why does image analysis use a lower resolution? Is that just to make it faster?
+
+I don't have OpenCV on my Pi. Do I need to install it to use any of these post-processing stages?
+
+I'm on a Pi 3 running 32-bit. Is there anything special I need to do when compiling rpicam-apps to make post-processing faster?
+
+# Built-in stages
+
+## `negate` stage
+
+What does the negate stage actually do to my image?
+
+Are there any settings I can tweak for the negate stage?
+
+How do I use the negate filter with rpicam-hello?
+
+## `hdr` stage
+
+What's the difference between HDR and DRC? I keep seeing both mentioned.
+
+I want to make my photos look better in high contrast situations — should I use HDR or DRC?
+
+How many frames does HDR combine by default, and can I change that?
+
+My HDR processing is too strong and the image looks weird. What settings should I dial back?
+
+How long does HDR processing actually take on a Pi 4? It feels really slow.
+
+When I'm using HDR mode and it's collecting multiple frames, does it show me each frame or just the final result?
+
+How do I use DRC when taking a still photo?
+
+## `motion_detect` stage
+
+I want to detect motion with my Pi camera. How do I set that up?
+
+Does the motion detect stage need any extra libraries installed, like OpenCV?
+
+How does the motion detector actually decide if something moved? Like what's it comparing?
+
+I want to only detect motion in part of the frame, not the whole image. Can I do that?
+
+My motion detection is going off too easily — every tiny thing triggers it. How do I make it less sensitive?
+
+How do I use the motion detect stage and what size should I set the low-res stream to?
+
+What's the `verbose` option in motion detect do? Will it tell me when something moves?
+
+How do I speed up motion detection if it's running too slow on my Pi?
+
+# Whole Document
+
+What's a post-processing stage? I keep seeing that term and I'm not totally sure what it means.
+
+I just want to experiment with some camera effects on my Pi. Where do I even start with post-processing?
+
+Do these post-processing things work with video, or just photos?
+
+Can post-processing stages talk to each other, like pass information between them?

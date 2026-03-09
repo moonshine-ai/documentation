@@ -1,0 +1,37 @@
+# Whole Document
+
+- What's the difference between RM1 and RM2? Like which one can I actually buy?
+- I want to add Wi-Fi to my microcontroller project. Is there a Raspberry Pi module I can use for that?
+- Can I buy the radio module that's built into the Pi 4 separately?
+- Wait, so there are two radio modules but only one I can actually get? Which one is it?
+
+# RM2 key features
+
+- What version of Bluetooth does the RM2 support?
+- Does the RM2 do both Wi-Fi and Bluetooth or just one of them?
+- What chip is inside the RM2?
+- Is RM2 compatible with the Pico W? Like can I use the same code?
+- What Wi-Fi band does RM2 support? Does it do 5 GHz?
+- How fast is the Wi-Fi on the RM2?
+- What's the operating temperature range for the RM2? I'm building something that might get cold.
+- How much power does the RM2 draw? I'm running off a battery and I'm worried about it draining too fast.
+- Does the RM2 have any extra GPIO pins I can use?
+- What does castellated pins mean? Like why does that matter for soldering?
+
+# Technical specifications
+
+- How big is the RM2? I need to know if it'll fit in my enclosure.
+- How thick is the RM2?
+- How many pins does the RM2 have?
+- What material is the RM2 board made from?
+
+# Compliance
+
+- Is the RM2 certified to use in the US?
+- Do I need to get my own radio certification if I build a product using the RM2?
+- I'm building a product with the RM2 in the EU. Do I still have to do my own radio testing?
+- I want to sell a device using the RM2 in India. Do I need extra certification?
+- Where can I find the test reports and certifications for the RM2?
+- What's full modular approval? Does that apply to the RM2?
+- I'm trying to use the RM2 in a country that's not on the approved list. Who do I contact?
+- Does RM2 need any RF tuning on my production line or is it ready to go?

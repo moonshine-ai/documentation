@@ -1,0 +1,31 @@
+# `rpicam-detect`
+
+What even is `rpicam-detect`? Like what does it actually do?
+
+Is `rpicam-detect` included when I install Raspberry Pi OS, or do I have to get it separately?
+
+So I have to build `rpicam-detect` myself? How do I do that?
+
+I heard I need TensorFlow Lite to use `rpicam-detect`. How do I get that set up?
+
+I keep forgetting — when I'm building this with meson, what's that flag I need to pass to enable TensorFlow Lite?
+
+What kinds of objects can `rpicam-detect` actually recognize? Like does it know what a cat is?
+
+How does `rpicam-detect` work — does it just record constantly or does it only save stuff when it sees something?
+
+When `rpicam-detect` spots something, what does it actually save? Is it a video clip or just a photo?
+
+After it takes a photo of something it detected, does it just stop, or does it keep watching?
+
+I want to set up my Pi to secretly take photos of my cats while I'm away. How do I do that with `rpicam-detect`?
+
+What's the `--object` flag for? Like why do I need to specify the object if it can detect loads of things already?
+
+What's the `--lores-width` and `--lores-height` stuff for in the `rpicam-detect` command?
+
+What's the `object_detect_tf.json` file and where does it come from?
+
+If I want it to run forever and not time out, how do I do that?
+
+How does `rpicam-detect` handle the preview while it's also scanning for objects — is it doing both at the same time?

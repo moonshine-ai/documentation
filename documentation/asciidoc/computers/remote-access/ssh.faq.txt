@@ -1,0 +1,75 @@
+# Whole Document
+
+- I want to control my Raspberry Pi from my laptop. Where do I even start?
+- What's SSH and do I need it to access my Pi remotely?
+- I don't want to plug a monitor into my Pi every time. Can I just use my main computer to control it?
+- Is SSH already set up on a fresh Raspberry Pi or do I have to turn it on myself?
+
+# Enable the SSH server
+
+- SSH is off by default? How do I switch it on?
+- I've got my Pi running on the desktop. How do I enable SSH from there?
+- I'm setting up a brand new Pi with Imager. Can I turn SSH on before I even boot it for the first time?
+- I don't have a monitor for my Pi yet. How do I enable SSH so I can connect to it right away?
+- I'm in the terminal on my Pi. What's the quickest way to turn on SSH?
+- What's raspi-config and how do I use it to turn on SSH?
+- I heard you can just create a file to enable SSH. How does that work?
+- After I create that SSH file in the boot partition, do I need to restart for it to work?
+- When I'm flashing the OS with Imager, should I use password login or the key thing for SSH?
+
+# Connect to an SSH server
+
+- Okay SSH is enabled, now how do I actually connect to my Pi from my other computer?
+- What's the command to SSH into my Pi? I know I need the IP address but I'm not sure of the format.
+- I got a security warning when I first tried to connect. Is that normal or did something go wrong?
+- I keep getting "connection timed out" when I try to SSH in. What did I mess up?
+- How do I find out what IP address my Pi is on so I can SSH into it?
+- I connected over SSH but can I only use the terminal, or can I open apps with a window too?
+
+# Forward X11 over SSH
+
+- I want to open a graphical app on my Pi but see it on my laptop's screen. Is that possible over SSH?
+- What's X11 forwarding and do I need it?
+- I'm on a Mac and I want to use X11 forwarding. Do I need to install something extra first?
+- What flag do I add to the SSH command to get graphical apps working?
+
+# Configure SSH without a password
+
+- I'm sick of typing my password every time I SSH into my Pi. How do I stop that?
+- What's an SSH key and why would I use one instead of a password?
+
+# Preconfigure an OS image with Raspberry Pi Imager
+
+- Can I set up SSH keys when I'm first flashing the SD card with Imager?
+- I already have SSH keys on my laptop. Will Imager automatically use those when I set up a new Pi?
+
+# Check for existing SSH public keys
+
+- How do I know if I already have SSH keys on my computer before I go making new ones?
+- What files should I be looking for to see if I've got an existing SSH key?
+
+# Generate new SSH keypair
+
+- I don't have any SSH keys yet. How do I make some?
+- What's the difference between the id_rsa file and the id_rsa.pub file?
+- Do I need a passphrase when I generate SSH keys or can I just leave it blank?
+- I've heard Ed25519 is more secure than RSA for SSH keys. How do I generate one of those instead?
+- After I run ssh-keygen, where do the key files actually get saved?
+
+# Add the SSH key to your list of SSH identities
+
+- What's the SSH agent and do I need to mess with it?
+- How do I add my new SSH key so my computer actually uses it when connecting?
+
+# Copy a public key to your Raspberry Pi
+
+- I've got my SSH keys set up. Now how do I get my Pi to recognize them so I don't need a password?
+- What's the easiest way to copy my public key over to my Pi?
+- Do I still need my password once to run ssh-copy-id, or does it work without it?
+
+# Manually copy a public key to your Raspberry Pi
+
+- ssh-copy-id isn't working on my system. Is there another way to copy my key to the Pi?
+- I'm trying to manually copy my public key to the Pi but I'm not sure what folder to put it in or what to name the file.
+- I already have some keys set up on my Pi and I don't want to wipe them. How do I add a new one without breaking the old ones?
+- What permissions do I need to set on the authorized_keys file for SSH to work properly?

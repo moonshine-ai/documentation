@@ -1,0 +1,25 @@
+# Whole Document
+
+How do I set up my Raspberry Pi to use a proxy server?
+My school or work network uses a proxy. How do I get my Pi to connect through it?
+What do I actually need to know before I start setting up a proxy on my Pi?
+
+# Configure your Raspberry Pi
+
+What are those three environment variables I need to set for a proxy and where do I put them?
+I've got a proxy server at work, how do I tell my Pi to use it?
+My proxy needs a username and password. Where do I put that in?
+What's the no_proxy variable for? Do I really need it?
+I set up the proxy variables but I'm not sure if I did the file right. What should it look like when it's done?
+How do I open that environment file to edit it?
+
+# Update the `sudoers` file
+
+I set up the proxy but when I try to install software with sudo it still doesn't work. What am I missing?
+Why do I need to mess with the sudoers file just to use a proxy?
+How do I make sure sudo commands also go through the proxy?
+
+# Reboot your Raspberry Pi
+
+Do I have to reboot after setting up the proxy or can I just reload something?
+I've done all the proxy setup steps. Now what? Does it just work?

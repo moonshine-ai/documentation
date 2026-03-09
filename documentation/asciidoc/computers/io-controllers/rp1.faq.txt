@@ -1,0 +1,51 @@
+# Whole Document
+
+What's RP1? I keep seeing that term mentioned when reading about the Raspberry Pi 5.
+
+Is RP1 the same thing as the original Raspberry Pi? I've seen people get confused about that.
+
+So the Raspberry Pi 5 has two chips in it? What do they each do?
+
+Why did Raspberry Pi build their own chip instead of just using something off the shelf?
+
+Can I buy an RP1 chip on its own to use in my projects?
+
+# RP1 Overview
+
+How big is the RP1 chip and how does it connect to the main processor?
+
+So the Pi 5 uses two chips working together — what's the split between what each one handles?
+
+# Peripheral Interfaces
+
+What USB ports does the RP1 handle, and is it actually faster than the Pi 4?
+
+I've got a camera and a display I want to connect to my Pi 5. Does RP1 handle both of those?
+
+Does RP1 support GPIO? Like can I still do the normal pins stuff on a Pi 5?
+
+What's the difference between MIPI DSI and CSI-2, and does RP1 support both?
+
+Does the Pi 5 support eMMC storage? I see there are two SDIO interfaces but it says they're not used?
+
+# Internal Features
+
+What processors are inside RP1 itself? Like does it have its own little brain?
+
+What's a DMA controller and why does RP1 have one built in?
+
+Does RP1 have any memory of its own?
+
+# Multimedia and Audio Components
+
+Can the Pi 5 output composite video? Like the old yellow RCA connector kind?
+
+Does RP1 do audio on its own or do I need an external sound card?
+
+What's a PDM microphone and does the Pi 5 support plugging one in directly?
+
+Can I connect a display through the GPIO pins instead of HDMI? How does that work?
+
+# RP1 Naming
+
+Why is it called RP1? Does the number mean anything?

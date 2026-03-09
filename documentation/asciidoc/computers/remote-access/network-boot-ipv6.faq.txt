@@ -1,0 +1,55 @@
+# Whole Document
+
+- I want to boot my Raspberry Pi over the network using IPv6. Where do I even start?
+- Is IPv6 network booting actually stable or is it still experimental?
+- Which Raspberry Pi models can do IPv6 network boot? Does it work on the Pi 3?
+- What's the difference between stateful and stateless network configuration when booting over IPv6?
+- I've got IPv4 network boot working already. How hard is it to switch to IPv6?
+- Do I need a second Raspberry Pi to set up IPv6 network booting, or can I use any computer?
+
+# How it works
+
+- I'm using dnsmasq for my DHCP server. Will that work with IPv6 network boot?
+- What version of the firmware do I need for IPv6 network boot to work?
+- I've heard nfsroot doesn't work with IPv6. So how do I mount the root filesystem over the network then?
+- Does my internet provider need to support IPv6 for this to work, or just my local network?
+
+# Network addresses
+
+- How does the Pi figure out its own IP address when booting over IPv6?
+- What's the difference between stateful and stateless addressing? Like which one uses DHCP and which one doesn't?
+- When the Pi boots over IPv6 how does it find the router first?
+
+# Test setup
+
+- What do I actually need to set up to test IPv6 network booting at home?
+
+# TFTP server
+
+- Can I reuse my existing TFTP server if I already have IPv4 network boot set up, or do I need a separate one for IPv6?
+- How do I install and start a TFTP server on another Pi to use for network booting?
+
+# DHCP server
+
+- Why can't I use dnsmasq for IPv6 network boot? What do I need to use instead?
+- How do I install and set up the ISC DHCP server for IPv6 booting?
+- I don't understand this dhcpd6.conf file. What does the host section do, and do I need to change it?
+- How do I give my DHCP server a static IPv6 address so it can actually serve addresses?
+
+# Bootloader
+
+- What do I need to change in the bootloader config to enable IPv6 network boot?
+- If I try IPv6 boot and it doesn't work, how do I switch back to IPv4 booting?
+
+# Router
+
+- How do I check if my router actually supports IPv6?
+- I ran the rdisc6 command and got no response. What does that mean?
+- How do I tell if my network is using stateful or stateless IPv6 configuration?
+
+# Debugging
+
+- How do I know if IPv6 is actually being used during boot? What should I look for in the logs?
+- I enabled the boot UART. What do the RX6 lines in the output mean?
+- How do I watch the network traffic during an IPv6 network boot to see what's going on?
+- My Pi isn't getting a TFTP server address during IPv6 boot. How do I figure out where it's failing?

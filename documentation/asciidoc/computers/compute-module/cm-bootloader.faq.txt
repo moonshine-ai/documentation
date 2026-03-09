@@ -1,0 +1,39 @@
+# Whole Document
+
+- What's different about the bootloader on Compute Module 4 compared to older ones?
+- I'm setting up Compute Modules for a product. What should I make sure to do before shipping them?
+- Where does the EEPROM bootloader actually live on the Compute Module?
+
+# Compute Module EEPROM Bootloader Best Practices
+
+- I've got a bunch of Compute Modules and I need them all running the same bootloader. How do I make sure they're consistent?
+- My Compute Modules are going into devices I can't physically access later. How do I protect the bootloader from being changed?
+- Where's the most stable bootloader version I can grab?
+
+# Flash Compute Module Bootloader EEPROM
+
+- How do I actually flash the bootloader EEPROM on a Compute Module?
+- Is setting up the hardware for flashing the EEPROM the same as flashing the eMMC?
+- What happens to the write protection pin after I'm done flashing the EEPROM?
+
+# Flash Storage Devices Other Than SD Cards
+
+- Can I flash NVMe or eMMC with something faster than the basic rpiboot tool?
+- I'm trying to debug my Compute Module during flashing. Is there a way to get a console output while I do it?
+- What's mass-storage-gadget and why would I use it instead of regular rpiboot?
+
+# Update the Compute Module Bootloader
+
+- Why isn't the EEPROM update service running on my Compute Module? Did something go wrong?
+- I want to update the bootloader without physically touching the device. Can I do that?
+- What's self-update mode and when would I use it?
+- I heard updating the bootloader over the network can be risky. What could go wrong?
+
+# Modify the Bootloader Configuration
+
+- I want my Compute Module to boot from the network. What do I set the boot order to?
+- How do I change the boot order on a Compute Module's EEPROM bootloader?
+- I want it to try USB first and then fall back to eMMC if that doesn't work. What's the boot order setting for that?
+- How do I turn on write protection for the EEPROM so nobody can mess with the bootloader?
+- After I edit the boot config, what do I run to actually apply the changes to the EEPROM image?
+- What file do I edit to change how the Compute Module boots?

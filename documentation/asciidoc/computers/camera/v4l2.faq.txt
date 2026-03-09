@@ -1,0 +1,24 @@
+# Whole Document
+
+- "What even is V4L2? Do I need to know about it to use my camera?"
+- "Linux is supposed to load my camera drivers automatically but it's not working. What do I do?"
+- "I'm trying to get my camera working and someone mentioned V4L2 drivers. Where do I start?"
+- "Where can I find more info about using V4L2 drivers?"
+
+# Device nodes when using `libcamera`
+
+- "I see all these video devices listed like video0, video10, video11 and I don't know what any of them are. Can you explain what they do?"
+- "What's the difference between video10 and video11?"
+- "Which video device handles encoding?"
+- "I've got two cameras connected. Does each one get its own device node or do they share one?"
+- "What's video12 used for?"
+- "I'm trying to do HEVC decoding. Which device node handles that?"
+- "What's the ISP stuff in the video device list? Like what's video13, video14, video15?"
+- "What does video16 do?"
+- "So video0 and video1 are for CSI-2 receivers — does that mean those are for the camera ribbon cable connectors?"
+- "I have libcamera set up. How do I know which dev video node my camera is on?"
+
+# Use the V4L2 drivers
+
+- "Where do I go to learn how to actually use V4L2?"
+- "I want to use V4L2 directly instead of libcamera. Is there documentation for that somewhere?"

@@ -1,0 +1,27 @@
+# Become a contributor (Raspberry Pi OS Trixie and later)
+
+How do I unlock all the titles in Bookshelf? Like, what do I need to do to get contributor access?
+
+I've got a subscription to the print magazine. Does that mean I already get access to the contributor titles, or do I still have to do something else?
+
+What's a monthly contribution? Is that like a paid subscription or something?
+
+I don't have a Raspberry Pi ID yet. Can I make one during the contributor sign-up process, or do I have to set it up separately first?
+
+I went through the contributor sign-up on the website but Bookshelf still looks the same. What did I miss?
+
+After I sign up as a contributor, how do I actually tell Bookshelf that I'm a contributor? Like, is there a button I tap or something?
+
+I set up my account on one Pi but I just got a new one. Do I have to pay again or can I just sign in and get my titles back?
+
+I flashed a fresh Raspberry Pi OS onto my SD card and now Bookshelf doesn't show my titles anymore. How do I get them back?
+
+# Download titles
+
+How do I actually download a book in Bookshelf? Do I just click on it or is there more to it?
+
+If I cancel my monthly contribution, do I lose all the stuff I already downloaded?
+
+Where does Bookshelf save the PDFs on my Pi? I want to find them in the file manager.
+
+I've downloaded some titles but I don't want to open them in Bookshelf. Can I just access the PDF files directly?

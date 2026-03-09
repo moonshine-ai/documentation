@@ -1,0 +1,18 @@
+# Whole Document
+
+- I want to compile a kernel module but I'm not sure what I need installed first. What do I need?
+- What even are kernel headers? Do I need them for something specific?
+- I'm trying to build a kernel module and it's failing. Could missing kernel headers be the problem?
+
+# Kernel headers
+
+- How do I install the kernel headers on my Raspberry Pi?
+- I've got a 64-bit Raspberry Pi OS. What's the command to get the kernel headers?
+- Wait, how do I know if I'm running 32-bit or 64-bit Raspberry Pi OS? The install command seems different for each.
+- I cloned the whole kernel from GitHub already. Do I still need to install the headers separately?
+- I just ran the apt command to install the kernel headers and nothing's happening. Is it frozen or something?
+- My kernel just updated and now my module won't compile. Could the headers be out of date?
+- I heard there's a delay before the headers on apt match the latest kernel. How do I get the newest ones right away?
+- I don't want to download the entire kernel source just to get the headers. Is there a smaller package I can install?
+- How long does it take to install the kernel headers? It's just sitting there with no output.
+- I'm on a 32-bit Pi and trying to install the headers but I'm not sure which package to use. What's the right one?

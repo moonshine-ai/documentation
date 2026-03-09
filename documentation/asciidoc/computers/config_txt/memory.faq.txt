@@ -1,0 +1,17 @@
+# Whole Document
+
+- "Is there a way to limit how much RAM my Raspberry Pi uses?"
+- "Can I make my Pi 4 act like it has less memory than it actually does?"
+- "Where do I go to change memory settings on a Raspberry Pi?"
+
+# `total_mem`
+
+- "I've got a 4 gig Pi but I want it to only use 1 gig of RAM. How do I do that?"
+- "What's the lowest amount of memory I can limit my Pi to?"
+- "So if I set total mem to like 64 megabytes, will it actually work or is there a minimum?"
+- "I want to test my app on a Pi with less RAM but I only have the 4 gig version. Is there a way to fake having less memory?"
+- "How do I set total mem in the config? Like what's the exact line I need to add?"
+- "If my Pi only has 2 gigs of RAM and I set total mem to 4096, what happens?"
+- "Can I make a Pi 4 behave like an older Pi with less memory for testing purposes?"
+- "What units does total mem use, like megabytes or gigabytes?"
+- "I set total mem really high, higher than what my board actually has. Will it just cap it at the real amount?"

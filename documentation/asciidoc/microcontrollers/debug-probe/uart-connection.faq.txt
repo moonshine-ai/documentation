@@ -1,0 +1,37 @@
+# Serial connections
+
+How do I wire up the Debug Probe to my Pico? Like which pins go where?
+
+I've got the Debug Probe connected but I'm not sure which GPIO pins are for UART. Which ones is it?
+
+What's the physical pin number for UART0 transmit on the Pico?
+
+So once I plug the Debug Probe in, how does my computer actually see the serial connection?
+
+I'm on a Mac, not a Raspberry Pi. Will the serial port show up differently?
+
+I don't have minicom installed. How do I get it?
+
+What's the command to open the serial port with minicom?
+
+How do I close minicom when I'm done? I can't figure out how to exit it.
+
+I want to test if my serial connection is actually working. What's a simple way to do that?
+
+How do I build and run the Hello World example to test serial?
+
+I uploaded the hello_serial program but I don't know what to do next to actually see the output. What should I do?
+
+What baud rate should I be using when I open the serial port?
+
+I'm on Windows and every time I plug in a different device it gets a new COM port number. Is there a way to make it stick to the same one?
+
+What's a CDC UART? I don't really know what that means — is it just a fancy name for a serial port?
+
+Do I need to set the PICO_SDK_PATH every time or just once?
+
+# Whole Document
+
+What even is a Debug Probe and why would I need one for my Pico?
+
+I'm totally new to this — what's the point of a serial connection to the Pico? What can I do with it?

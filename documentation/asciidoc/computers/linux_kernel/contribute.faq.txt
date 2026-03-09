@@ -1,0 +1,23 @@
+# Whole Document
+
+- I wrote some code for my Raspberry Pi and I want to share it with everyone. How do I do that?
+- I fixed a bug in the kernel. Where do I even start if I want to contribute that back?
+- What's the difference between contributing to the Raspberry Pi kernel versus the regular Linux kernel?
+- I've never contributed to an open source project before. Is it hard to get changes into the Raspberry Pi kernel?
+
+# Contribute to the Raspberry Pi Kernel
+
+- I wrote a Raspberry Pi specific fix. How do I actually submit it?
+- So I fork the repo and make my changes — then what? How does it get reviewed?
+- How long does it take for my pull request to get merged into the Pi kernel?
+- Who reviews the pull requests I send to the Raspberry Pi kernel repo?
+- Once my change gets approved, does it go out right away or do I have to wait for a stable release?
+
+# Contribute to the Linux Kernel
+
+- I wrote a driver that could work on any Linux system, not just Raspberry Pi. Should I still submit it to the Pi repo?
+- Wait, the Linux kernel doesn't use GitHub? How do I submit my changes then?
+- I heard you have to use mailing lists for the Linux kernel. How does that actually work?
+- I submitted something to the upstream Linux kernel. Will it eventually get into the Raspberry Pi kernel too?
+- Are there any style rules or guidelines I need to follow before submitting to the Linux kernel?
+- So if my change gets into the main Linux kernel, how long before it actually shows up in Raspberry Pi OS?

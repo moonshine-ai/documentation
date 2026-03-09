@@ -1,0 +1,26 @@
+# `rpicam-apps`
+
+What are all these rpicam apps that come with the Pi? Like what does each one do?
+My Pi is running an older version of Raspberry Pi OS and the rpicam commands aren't working. What's going on?
+I keep seeing both libcamera and rpicam mentioned everywhere. Are they the same thing or different?
+I just set up a fresh Pi with a camera — do I need to install anything to start taking photos, or is it already there?
+I want to capture raw sensor data from my camera, not like a processed image. Is there an app for that?
+I want the camera to automatically take a photo when it sees something, like object detection. How do I set that up?
+
+# `libcamera`
+
+What even is libcamera? Do I need to understand it to just use my Pi camera?
+I heard most of the camera stuff runs on the GPU. Is that still true with libcamera or did that change?
+Does my Pi camera model work with libcamera? I've got the V2 module.
+I bought a third-party camera sensor and I'm not sure if it's supported. Where do I check?
+I want to write my own camera app for the Pi. Where do I even start?
+So libcamera handles things like auto exposure and white balance automatically? I don't have to set those up myself?
+My camera's not on the supported list. Is there any way to get it working, or am I just stuck?
+
+# Whole Document
+
+What's the difference between rpicam-still and rpicam-jpeg? They both take photos, right?
+I used to use raspistill on my old Pi setup. Is that still a thing or has it been replaced?
+Can I make my own custom camera application, or am I limited to the built-in rpicam tools?
+I just want to do a quick test to see if my camera's working. What's the easiest way to do that?
+What's the simplest rpicam app just to check everything's connected right?

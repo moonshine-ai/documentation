@@ -1,0 +1,29 @@
+# Use libcamera with Qt
+
+What's this error I'm getting when I try to use libcamera and Qt together in my project?
+
+I keep getting compile errors mixing Qt and libcamera. Is there a known fix for this?
+
+Why does Qt cause problems with libcamera? Like what's actually going wrong?
+
+I'm building a Qt app with camera support and it just won't compile. Where do I even start?
+
+So I have to include libcamera headers before Qt headers? Is that always going to fix it?
+
+I'm using qmake for my project. What do I add to get rid of these libcamera conflicts with Qt?
+
+My project uses cmake instead of qmake. Is there a different setting I need for the Qt and libcamera keyword problem?
+
+What does it mean that Qt defines things like `emit` and `slot` as macros? Why does that break things?
+
+I tried including the headers in different orders and it's still broken. What else can I try?
+
+Can I just undefine those Qt keywords at the top of my file to fix the conflict with libcamera?
+
+# Whole Document
+
+I'm trying to use libcamera in a Qt app and it's a mess. What are my options for fixing the conflicts?
+
+Does rpicam-apps work with Qt at all, or is it too buggy?
+
+I've never had to deal with macro conflicts before. Can you explain why Qt and libcamera clash like this?

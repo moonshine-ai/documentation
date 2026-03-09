@@ -1,0 +1,112 @@
+# What is config.txt?
+
+- What even is config.txt? Is it like the BIOS for Raspberry Pi?
+- Where does the Pi store its config.txt file?
+- My Pi is running an older OS, where would I find the boot partition?
+- How do I edit config.txt, do I have to take the SD card out to do it?
+- I changed something in config.txt but nothing happened. Do I need to restart?
+- How do I check what settings are actually active right now?
+- What's the command to see all my current config settings?
+- I want to check what my arm_freq is set to. How do I do that?
+
+# File format
+
+- How do I add a comment to config.txt?
+- What format does config.txt use? Like how do I write settings in it?
+- Is there a limit on how long a line in config.txt can be?
+
+# Advanced features
+
+- Can I split my config.txt into multiple files somehow?
+- I want to include another config file inside my config.txt. Is that possible?
+- Are there settings that won't work if I put them in an included file instead of the main config.txt?
+
+# autoboot.txt
+
+- What's autoboot.txt for?
+- How do I make my Pi boot from a specific partition?
+- I want to set up A/B booting so I can test updates safely. Where do I start?
+
+# Common display options
+
+- I've got a 4K monitor and my Pi 4 is only outputting at 30Hz. How do I get 60Hz?
+
+# Common hardware configuration options
+
+- My camera isn't being detected automatically. Is there a setting in config.txt to fix that?
+- How do I disable the automatic camera overlay loading?
+- What does dtoverlay do in config.txt?
+- I want to enable I2C on my Pi. Is that done through config.txt?
+- I've got a Pi 400 and I heard there's a way to boost the clock speed. How do I enable that?
+
+# Onboard analogue audio
+
+- The audio coming out of my headphone jack sounds kind of bad. Is there a setting to improve it?
+- I'm hearing a faint hiss from the audio output even when nothing's playing. How do I get rid of that?
+- What's the default audio quality mode for the 3.5mm jack?
+
+# HDMI audio
+
+- How do I turn off HDMI audio on my Pi?
+
+# Boot options
+
+- Can I tell the Pi to load a different kernel file at boot?
+- My Pi 4 is running a 32-bit kernel. How do I switch to 64-bit?
+- I want to disable that rainbow screen when the Pi boots up. Is there a setting for that?
+- How do I enable serial console output on the GPIO pins?
+- What does initramfs do and how do I set it up in config.txt?
+- Is there a watchdog timer I can set up so the Pi reboots if it freezes?
+
+# GPIO control
+
+- Can I set up GPIO pins to be in a specific state right when the Pi boots, before Linux starts?
+- How do I make a GPIO pin pull up at boot using config.txt?
+
+# Overclocking options
+
+- How do I overclock my Raspberry Pi?
+- What's the max safe temperature for a Pi before it starts throttling?
+- My Pi is overheating and throttling. What temperature does that kick in at?
+- I overclocked my Pi and now it won't boot. How do I fix it?
+- What's force_turbo and should I use it?
+- How do I check what clock speed my Pi is actually running at?
+- Does overclocking void the warranty on a Raspberry Pi?
+- What voltage does my Pi need to run stably? I want to make sure my power supply is good enough.
+
+# Conditional filters
+
+- I've got one SD card I use in different Pi models. Can I set different settings for each model in the same config.txt?
+- How do I make a setting only apply to my Pi 4 and not my Pi 3?
+- I want different overclocking settings depending on which Pi I boot from. Is that possible?
+- Can I apply settings only to one specific Pi using its serial number?
+- How do I find my Pi's serial number?
+- I've got two different monitors and I want different settings for each one. Can config.txt handle that?
+- How do I find the EDID name for my monitor?
+- Can I set a GPIO pin to decide which settings get loaded at boot?
+- What's the `[all]` filter for?
+- What's `[none]` for in config.txt?
+
+# Memory options
+
+- Can I limit how much RAM the Pi uses even if it has more installed?
+
+# Licence key and codec options
+
+- Do I need a codec licence to play MPEG2 videos on a Pi 4?
+- I bought codec licences for several Pis. Can I put them all in one config.txt?
+
+# Video options
+
+- How do I enable composite video output on my Pi 4?
+- My Pi is connected to a TV and I need PAL output instead of NTSC. How do I set that?
+- I've got the official touchscreen but I want to disable it. Is there a config.txt setting for that?
+- How do I stop the camera LED from turning on when I take a photo?
+
+# Whole Document
+
+- What's the difference between config.txt and cmdline.txt?
+- I'm new to Raspberry Pi. What kind of things would I actually change in config.txt?
+- Can I edit config.txt from a Windows PC if I take out the SD card?
+- I messed up my config.txt and now my Pi won't boot. How do I recover?
+- Is there a way to have different config settings for different situations on the same Pi?

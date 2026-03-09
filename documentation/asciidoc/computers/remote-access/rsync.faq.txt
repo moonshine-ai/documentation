@@ -1,0 +1,29 @@
+# Synchronise folders between computers with `rsync`
+
+How do I copy photos from my Raspberry Pi to my laptop automatically?
+
+I've got a folder of pictures on my Pi and I want them to show up on my computer. What's the easiest way to do that?
+
+What info do I need before I can set up rsync between my Pi and my PC?
+
+So if I run the rsync command twice, will it download everything again or is it smart enough to skip what's already there?
+
+I deleted a file on my Pi after syncing it. Will it get deleted on my computer too when I sync again?
+
+I want to sync a folder from my Pi to my Windows PC. Does rsync work for that?
+
+What does the `-avz` part of the rsync command actually do?
+
+Do I need to run this from my Pi or from my personal computer?
+
+I've never used rsync before. Is it hard to set up or is it pretty straightforward?
+
+If I modify a file on the Pi, will the updated version replace the old one on my PC when I sync?
+
+# Whole Document
+
+Wait, so rsync uses SSH? Do I need to have SSH already set up on my Pi for this to work?
+
+How do I find my Pi's IP address? I need it for the rsync command but I'm not sure where to look.
+
+I just want my Pi to automatically back up files to my computer. Is rsync the right tool for that or is there something better?

@@ -1,0 +1,29 @@
+# Troubleshooting
+
+My camera preview looks really glitchy and slow. Is there something I need to turn on to make it work properly?
+
+I'm getting some kind of display driver error with my camera. What do I do about that?
+
+The preview window is all torn and flickery on my desktop. Is there a fix for that?
+
+I think I plugged the ribbon cable in but the camera still isn't working. What should I check?
+
+Wait, there are two similar ports on my Pi and I'm not sure I put the cable in the right one. How do I know which one is for the camera?
+
+My camera was working fine and now it's not. Could a software update help?
+
+I've got a Pi 3 and when I record video at really high resolution the preview just looks broken. Is that a hardware limit or something I can fix?
+
+My Pi 4 is showing corrupted previews when I record wide video. What's going on there?
+
+I've tried everything and my camera module still won't work. Where do I go for help?
+
+Could a bad power supply be causing my camera not to work? Like how would I even know if that's the problem?
+
+I've got an extension cable between my camera and the Pi. Could that be causing issues?
+
+# Whole Document
+
+My camera module just isn't working at all. Where do I even start troubleshooting?
+
+I just got a camera module for my Pi and I have no idea if I've set it up right. What are the most common mistakes people make?

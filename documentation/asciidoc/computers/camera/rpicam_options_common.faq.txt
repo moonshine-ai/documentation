@@ -1,0 +1,58 @@
+# Whole Document
+
+- I've got a bunch of camera settings I want to use every time. Do I have to type them all out each time or is there a way to save them?
+- What's the difference between all these rpicam apps? Like rpicam-hello versus rpicam-still versus rpicam-vid?
+- I want to see all the options available for one of these camera apps. How do I do that?
+- How do I check what version of the camera software I'm running?
+
+# Common options
+
+- How do I see what cameras are connected to my Pi?
+- I've got two cameras plugged in. How do I tell the app which one to use?
+- My preview window just closes after five seconds. How do I keep it open longer, or just make it run forever?
+- Can I make the preview go fullscreen?
+- I don't want any preview window at all, I just want to capture in the background. Is there a flag for that?
+- What's the shortest way to pass options to these camera commands? Like is there a shorthand so I don't have to type out the full option names?
+- How do I set the resolution of what I'm capturing?
+- My image is upside down. How do I flip it?
+- Can I mirror the image horizontally?
+- I only want to capture a small portion of what the camera sees, like zoom into the center. How do I do that?
+- How do I rotate the image 180 degrees?
+- I want to change what text shows up in the preview window title bar. Can I do that?
+- Can I show the current frame rate in the preview window title?
+- Does the Pi camera support HDR? How do I turn that on?
+- I want to run the camera app for exactly 30 seconds. What's the easiest way to specify that?
+- What's the viewfinder width and height for? How is that different from the regular width and height?
+- What does the mode option do? Like what's the difference between packed and unpacked?
+- I'm on a Pi 5 — how does the packed format work differently compared to older Pis?
+
+# Camera control options
+
+- How do I make my photos look sharper?
+- My video looks really washed out. How do I boost the contrast?
+- The image is too dark. What option do I use to make it brighter?
+- How do I make a black and white image? Like can I just turn off the color?
+- What's EV compensation and when should I use it instead of just adjusting brightness?
+- I want to lock the shutter speed to a specific value. How do I do that?
+- How do I set the ISO or gain on the camera?
+- What metering modes are available? Like spot metering versus average?
+- My footage indoors looks really orange. How do I fix the white balance?
+- Can I completely turn off auto white balance and just set fixed color values?
+- How do I turn off noise reduction? I want the raw noisy image.
+- My camera's autofocus keeps hunting around. Can I just lock it to a fixed distance?
+- How do I set the camera to continuously autofocus as things move around?
+- Can I tell the autofocus to only focus on a specific part of the frame?
+- I'm trying to take macro shots but autofocus won't lock onto close objects. Is there a setting for that?
+- How do I change how fast the autofocus moves?
+
+# Output file options
+
+- How do I tell the app where to save the video or photo?
+- I want to save my recording as a bunch of smaller chunks instead of one big file. How do I do that?
+- Can I stream video over the network instead of saving it to a file?
+- I want each recorded segment to have a number in the filename automatically. How do I set that up?
+- How do I make the camera write output straight to the terminal instead of a file?
+- Is there a way to force files to be written to disk right away instead of waiting?
+- How do I save the metadata from a photo, like exposure settings and stuff?
+- Can I get the metadata saved as JSON instead of plain text?
+- My video is dropping frames at high framerates. Is there anything I can tweak to help with that?

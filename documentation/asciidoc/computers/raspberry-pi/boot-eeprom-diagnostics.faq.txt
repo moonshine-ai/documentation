@@ -1,0 +1,39 @@
+# Boot diagnostics
+
+How do I get my Raspberry Pi to show me diagnostic info when it boots?
+
+My Pi won't boot and I just get a black screen. Is there a way to see what's going wrong?
+
+I took out the SD card and now there's some weird screen showing up on my monitor. What is that?
+
+What's that screen with all the text that shows up when my Pi can't find anything to boot from?
+
+I see a QR code on the boot screen. What's that for?
+
+My Pi is stuck on the diagnostics page. How do I get it to reboot from there?
+
+I don't have a power button on my Pi. How do I restart it when it's showing the diagnostics screen?
+
+What does the "boot" line on the diagnostics screen actually tell me?
+
+I'm seeing the diagnostics page but I don't know what half of it means. What does the SD line tell me?
+
+My Pi's showing diagnostics and the SD card says "not detected." Does that mean my card is dead?
+
+What's the difference between the retry count and the restart count on the boot screen?
+
+I can see something about network boot on the diagnostics screen. What info does it show for that?
+
+The display line on my diagnostics screen shows HPD equals zero. What does that mean?
+
+My EEPROM is write protected. Where would I see that on the diagnostics screen?
+
+I don't want this diagnostics screen showing up at all. How do I turn it off?
+
+Does this boot diagnostics thing work on all Raspberry Pi models or just certain ones?
+
+# Whole Document
+
+My Pi won't boot and I don't know where to start troubleshooting. What can I do to figure out what's wrong?
+
+If my Pi can't find a bootable SD card or network, what happens exactly?

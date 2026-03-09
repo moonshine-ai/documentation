@@ -1,0 +1,73 @@
+# Install Python packages using `apt`
+
+How do I install a Python library on my Raspberry Pi?
+
+What's the difference between installing Python packages with `apt` versus `pip`?
+
+I'm trying to find a Python package but I don't know what it's called in `apt`. How do I search for it?
+
+Why should I use `apt` instead of `pip` when I can?
+
+# Bookworm changes to `pip` installation
+
+I just tried to install something with `pip` and got this "externally managed environment" error. What's going on?
+
+I'm used to just doing `pip install` for everything but now it's not working on my Pi. Did something change?
+
+I want to install a Python library so every user on my Pi can use it. How do I do that?
+
+Wait, why can't I just use `pip` normally anymore? Who decided that?
+
+I got an error that says something about `--break-system-packages`. Should I just use that flag to get past the error?
+
+# Use `pip` with virtual environments
+
+What even is a virtual environment? Do I need one just to install a Python library?
+
+How do I create a virtual environment on my Pi?
+
+I created a virtual environment but I'm not sure how to actually start using it. What do I do?
+
+How do I know if I'm currently inside a virtual environment or not?
+
+I'm done working on my project. How do I get out of the virtual environment?
+
+Should I make a separate virtual environment for every project, or just one for everything?
+
+I want one virtual environment I can use for all my Python projects instead of making a new one every time. How do I set that up?
+
+I want my virtual environment to already have all my system Python packages in it. Is there a way to do that?
+
+I installed a package inside my virtual environment but I'm worried it'll mess up my system Python. Will it?
+
+# Create a virtual environment
+
+How do I actually make a virtual environment? What's the command?
+
+# Enter a virtual environment
+
+How do I activate a virtual environment once I've made it?
+
+I activated my virtual environment but I want to double check it's actually working. How do I confirm I'm in it?
+
+# Exit a virtual environment
+
+How do I exit a virtual environment when I'm done?
+
+# Use the Thonny editor
+
+I want to write Python on my Pi without using the terminal. What should I use?
+
+I'm using Thonny but I want it to use my virtual environment instead of the system Python. How do I switch that?
+
+Does Thonny come with Raspberry Pi OS or do I need to install it?
+
+# Whole Document
+
+I'm totally new to Python on the Pi. What's the right way to install libraries without breaking anything?
+
+I keep hearing I need a virtual environment to install Python stuff now. Is that really necessary or can I get around it?
+
+My Pi is running an older version of Raspberry Pi OS. Does all this virtual environment stuff still apply to me?
+
+What's the safest way to install Python packages on a Raspberry Pi without messing up the operating system?

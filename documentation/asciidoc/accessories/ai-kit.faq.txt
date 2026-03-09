@@ -1,0 +1,39 @@
+# Whole Document
+
+- I've got a Raspberry Pi 5 and I want to add AI stuff to it. What's the AI Kit and is it still available to buy?
+- What's actually in the box when you get the AI Kit?
+- Does the AI Kit work with older Raspberry Pi boards or just the Pi 5?
+- I heard the AI Kit is discontinued. What should I get instead?
+
+# Hardware
+
+- What chip is in the AI Kit and how powerful is it?
+- How many TOPS does the AI Kit do? Like is it fast enough for real-time stuff?
+- Do I need anything else besides the AI Kit to get it working?
+- Do I need a special screwdriver to install this thing?
+- What's an NPU? Do I need to know what that means to use the AI Kit?
+- Is a cooling fan included or do I have to buy that separately?
+- What's the M.2 HAT that comes with the AI Kit actually for?
+
+# Step 1. Mount an Active Cooler (recommended)
+
+- How do I attach the Active Cooler to my Pi 5?
+- Do I have to put the cooler on first before fitting the AI Kit, or can I do it after?
+- There's a piece of paper on the bottom of my cooler. Do I peel that off?
+- How do I know the cooler is properly attached? Like what am I looking for?
+- Can I take the cooler off later if I need to?
+- Where does the fan cable plug in on the Pi 5?
+
+# Step 2. Mount the M.2 HAT+
+
+- What order do I put everything together? Like do the spacers go on before or after the ribbon cable?
+- I'm confused about the ribbon cable. Which way does it go in — does it matter which direction the metal contacts face?
+- How do I know if the PCIe ribbon cable is properly inserted? It feels a bit loose.
+- Do I have to turn off my Pi before connecting the AI Kit or can I do it while it's running?
+- I've got the ribbon cable in but I'm not sure if the retaining clip is holding it. What should it look like when it's done right?
+- Which screws go where? There seem to be different sizes.
+
+# Next steps: Run AI models
+
+- Okay I've got everything installed. Now how do I actually run an AI model on it?
+- Where can I find example models to try out on my Pi with the AI Kit?

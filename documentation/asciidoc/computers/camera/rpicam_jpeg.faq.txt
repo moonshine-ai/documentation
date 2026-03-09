@@ -1,0 +1,31 @@
+# `rpicam-jpeg`
+
+How do I take a photo with my Raspberry Pi camera?
+
+How do I save a picture to a file using the camera?
+
+What's the basic command to capture a JPEG image?
+
+I want to take a photo but the preview window stays open too long. How do I make it shorter?
+
+The preview is only showing for five seconds and I want it longer. Can I change that?
+
+How do I take a picture at a lower resolution, like 640 by 480?
+
+I don't want a full resolution image, just a smaller one. How do I set the size?
+
+I ran the command and a window popped up for a few seconds then closed. Did it actually save a photo or did something go wrong?
+
+What format does rpicam-jpeg save in? Is it always JPEG?
+
+I want to take a quick snapshot without waiting five seconds for the preview. Is there a way to speed that up?
+
+Can I change the filename when I save the image, or is it always test.jpg?
+
+# Whole Document
+
+What even is rpicam-jpeg? Is that how I take photos on a Raspberry Pi?
+
+I've got a Raspberry Pi with a camera module. What's the simplest way to just take a picture?
+
+Is there a way to take a photo from the command line without having a big preview window pop up?

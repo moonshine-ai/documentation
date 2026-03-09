@@ -1,0 +1,77 @@
+# Raspberry Pi Touch Display
+
+What Pi models work with the official touch display? Like, does it work with the Pi Zero?
+
+What's the resolution on the official Pi touch display?
+
+How many touch points does the Pi touchscreen support — is it proper multi-touch?
+
+How long is the backlight supposed to last on the Pi touch display?
+
+How much power does the touch display use?
+
+What are the actual dimensions of the Pi touch display?
+
+# Mount the Touch Display
+
+How do I physically attach my Pi to the back of the touch display?
+
+I'm setting up my touch display and I just see a solid color or nothing at all. What's wrong?
+
+When I'm connecting that ribbon cable, which way do the contacts face? I don't want to put it in backwards.
+
+# Power the Touch Display
+
+What's the easiest way to power the touch display — do I need a separate power supply or can the Pi do it?
+
+I want to power the touch display from the Pi's GPIO pins. Which pins do I use?
+
+What if pin 4 on my Pi is already being used? Can I connect the display's 5V to a different pin?
+
+I don't want to use GPIO to power my screen. Can I just plug a USB cable into it instead?
+
+Wait, if I'm powering the display with its own USB cable, do I still need to connect the GPIO pins too?
+
+# Use an on-screen keyboard
+
+I connected the touch display but there's no keyboard showing up when I tap a text box. How do I get an on-screen keyboard?
+
+I want the on-screen keyboard to always be visible, not just pop up automatically. How do I do that?
+
+I'm running an older version of Raspberry Pi OS and there's no Squeekboard. What should I use instead?
+
+# Change Screen Orientation
+
+My touch display is mounted upside down. How do I rotate the screen to fix it?
+
+I'm running Pi OS without a desktop and I need to rotate the screen. How do I do that without a GUI?
+
+I rotated my screen but now the touch input is all wrong — like I tap in one corner and it registers in the wrong spot. How do I fix the touch rotation?
+
+Can I rotate just the touchscreen display without rotating my HDMI output at the same time?
+
+I want to flip the touch coordinates but I'm worried it'll mess with my input library. Should I use the device tree overlay or is there a safer way?
+
+How do I completely disable touch input on the Pi touch display?
+
+How do I change the resolution of the touch display through the config file?
+
+# Installation on Compute Module based devices
+
+I'm using a Compute Module and my touch display isn't being detected automatically. Why not, and how do I fix it?
+
+# Legacy Support
+
+I've got an original Raspberry Pi Model A and I'm trying to get the touch display working. What's different about setting it up compared to a newer Pi?
+
+I'm using an old Pi Model B with the touch display. Should I power it through the Pi's USB port or the display's USB port?
+
+The touch display isn't being detected on my original Pi. How do I turn on detection for it?
+
+# Whole Document
+
+Does the Pi touch display work right out of the box with Raspberry Pi OS or do I need to configure a bunch of stuff first?
+
+I bought the official Pi touch display but I'm not sure which models it works with. Will it fit any Pi?
+
+What's the viewing angle like on the Pi touch display? Is it actually usable from the side?

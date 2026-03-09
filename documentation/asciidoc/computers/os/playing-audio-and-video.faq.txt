@@ -1,0 +1,56 @@
+# Whole Document
+
+- Does VLC come already installed on Raspberry Pi OS or do I have to install it myself?
+- I just want to watch a video on my Pi. What's the easiest way to do that?
+- Can I play both audio and video files with VLC, or is it just for video?
+
+# VLC GUI
+
+- I've got a video file on my desktop. How do I open it without using the terminal?
+- My audio is coming out through HDMI but I want it through the headphone jack. How do I change that?
+- Where do I find VLC if I want to open it from the desktop menu?
+- I opened VLC but I can't find my file. How do I navigate to it?
+
+# `vlc` CLI
+
+- How do I play a video from the command line with VLC?
+- After my video finishes, VLC just stays open. How do I make it close automatically when it's done?
+- I just want the video to go fullscreen automatically. Is there a flag for that or something?
+- I heard fullscreen can make playback smoother. Is that actually true?
+- How do I download that Big Buck Bunny test clip to my Pi?
+
+# Use `cvlc` to play media without a GUI
+
+- Can I run VLC without the window popping up, like just from the command line with no interface?
+- What's the difference between `vlc` and `cvlc`? When would I use one over the other?
+
+# Play audio and video on Raspberry Pi OS Lite
+
+- I installed the Lite version and there's no VLC. How do I get it?
+- Does VLC work on Pi OS Lite or do I need the full version?
+- I'm on Raspberry Pi OS Lite and I just want to play an MP3. What do I need to install?
+
+# Specify an audio output device
+
+- What even is ALSA? Do I need to know about it to force audio to a specific output?
+- How do I make audio come out of the headphone jack instead of HDMI when I'm using the command line?
+- How do I see what audio devices I've got available on my Pi?
+- I've got a Pi 4 with two HDMI ports. How do I tell VLC which one to send audio to?
+
+# Specify a video output device
+
+- How do I force a video to play on my touchscreen instead of the HDMI output?
+- I've got two monitors connected to my Pi 4. How do I pick which one the video plays on?
+- How do I see what video outputs my Pi has?
+
+# Specify both audio and video output devices
+
+- Can I send audio and video to different outputs at the same time? Like video to the touchscreen but sound through the headphone jack?
+- What's the command to play a video on the touch display with audio through the headphone jack?
+
+# Improve stream playback performance
+
+- I recorded a video with my Pi camera and it plays really badly in VLC. How do I fix that?
+- What's an H.264 stream and why does it play differently than a regular MP4?
+- How do I convert a raw camera recording to MP4 so it plays better?
+- I've got a `.h264` file from my camera module. How do I turn that into an MP4?

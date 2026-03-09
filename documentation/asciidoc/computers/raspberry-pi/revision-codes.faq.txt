@@ -1,0 +1,56 @@
+# Whole Document
+
+- How do I find out what model my Raspberry Pi is?
+- I want to know which version of the Pi I have. What's the easiest way to check?
+- My Pi's revision code — where do I even find that?
+- I'm writing a script that needs to know what Pi it's running on. What's the best way to do that?
+
+# Old-style revision codes
+
+- My Pi has revision code 0004 — what model is that exactly?
+- I've got an old Pi and the revision code starts with 000 something. How do I figure out what it is?
+- What's the difference between revision codes 000d and 0006? They're both Model B right?
+
+# New-style revision codes
+
+- I ran cat /proc/cpuinfo and got this revision code. How do I actually decode what it means?
+- What does the F bit in the revision code mean? Like why does it matter if it's new style or old style?
+- So the warranty bit gets set if I overclock? Does that mean my Pi is actually broken or just flagged?
+- Wait, all Pis report BCM2835 in cpuinfo even if they have a different chip? How am I supposed to know what processor I actually have then?
+- I see my revision code is a02082 — how do I figure out how much RAM that means I have?
+- How do I tell from the revision code whether my Pi was made by Sony or Embest or whoever?
+
+# New-style revision codes in use
+
+- I've got revision code c03115 — what Pi is that?
+- My Pi shows d03114 as its revision. What model and how much RAM does that mean?
+- Is there a list somewhere of all the revision codes and what they mean?
+
+# Using revision codes for board identification
+
+- How do I actually read and decode my Pi's revision code from the command line?
+- I got revision code c03111 back from cpuinfo. How do I figure out what model that is?
+- OK so I've got the hex revision code, how do I break it apart to get the model number out of it?
+
+# Getting the revision code in your program
+
+- I'm writing a Python script and I need to detect what Pi model it's running on. How do I do that?
+- Is there a C example for reading the Pi's revision code programmatically?
+- How do I check in code whether my Pi has at least 2 gigs of RAM?
+- I want my program to know if it's running on a Pi 4B. What bits in the revision code should I be checking?
+
+# Best practices for revision code usage
+
+- I've got a list of supported revision codes in my app but it keeps breaking when new Pi versions come out. What am I doing wrong?
+- Should I be checking the exact revision code or is there a better way to tell if a board is supported?
+- What's the right way to check if my code is running on a Pi 4 with enough RAM, without it breaking every time a new revision comes out?
+- I keep having to update my supported boards list every time a new Pi revision is released. Is there a smarter approach?
+- What's this "New flag" bit and why do I need to check it before anything else?
+
+# Check Raspberry Pi model and CPU across distributions
+
+- I'm not running Raspberry Pi OS, I'm on Ubuntu. How do I check what Pi model I have?
+- The cpuinfo stuff doesn't seem to work the same on my distro. Is there another way to check the model?
+- How do I find out what CPU my Pi has without relying on cpuinfo?
+- I want to check the Pi model in a way that works on any Linux distro. What should I use instead of cpuinfo?
+- What does the device tree compatible file actually output and how do I read it?

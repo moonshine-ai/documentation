@@ -1,0 +1,26 @@
+# Whole Document
+
+- What's the difference between USB device boot and USB host boot on a Raspberry Pi?
+- How does my Raspberry Pi decide which USB boot mode to use?
+- What are OTP bits? Do I need to worry about them for USB booting?
+
+# USB device boot mode
+
+- My Pi won't boot from the SD card. Does it do anything automatically as a fallback?
+- Which Pi models actually support USB device boot? I've got a Zero and I'm not sure if mine works.
+- So when the Pi goes into device boot mode, what actually happens? Like what's it waiting for?
+- Where can I find example code for how the host is supposed to talk to the Pi during device boot?
+- What does it mean when USB device boot returns 0x80? Is that an error?
+
+# USB host boot mode
+
+- I've got a Raspberry Pi 3B and I want to boot from a USB drive. Do I need to change any settings first?
+- How do I enable USB host boot on my Pi 3B? Like what do I actually need to add to the config file?
+- Does the Pi 3A+ support booting from the network over USB? I thought it did but I'm not sure.
+- Which Pi models support USB host boot without needing to change any settings?
+- Wait, if I change the OTP to enable USB host boot on my 3A+, can I undo that later?
+- My Pi only supports USB 2.0 for host boot? So a USB 3.0 drive won't work at all?
+- How long does the Pi wait for a USB device to show up when it's trying to boot from USB?
+- What's this program_usb_boot_timeout setting? Does it give me more time for a device to connect?
+- I want to boot from a USB hub with multiple drives attached. Does the Pi handle that or does it only look at one device?
+- Does USB host boot try mass storage first, or does it try network booting first?

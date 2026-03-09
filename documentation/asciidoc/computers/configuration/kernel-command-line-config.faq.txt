@@ -1,0 +1,38 @@
+# Whole Document
+
+- What's that cmdline dot txt file in my boot partition? What does it actually do?
+- I want to change some kernel settings at boot. Where do I even start?
+- How do I see what kernel options my Pi is actually booting with right now?
+
+# Kernel command line (`cmdline.txt`)
+
+- How do I edit the kernel command line on my Raspberry Pi?
+- I ran cat on cmdline.txt and then checked slash proc slash cmdline and they look different. Is something wrong?
+- Wait, do I need to keep everything on one line in cmdline.txt, or can I put stuff on separate lines?
+
+# Command line options
+
+- What do all those entries in cmdline.txt actually mean? Like what's "root" and "quiet" and all that?
+- My Pi shows loads of text during boot and I want to hide it. Is there a way to make it quieter?
+- What does the quiet parameter actually do to my boot messages?
+- There's a "console" entry in my cmdline.txt with two lines. What are those for?
+
+# Set the KMS display mode
+
+- I'm running Raspberry Pi OS Lite and my display resolution is wrong. How do I fix it?
+- How do I force my Pi to use a specific screen resolution?
+- I want to rotate my display 90 degrees. Can I do that from cmdline.txt?
+- My monitor isn't being detected at the right resolution automatically. Can I override that?
+- What's EDID and why does my Pi care about it?
+- I've got a Pi 4 with two HDMI ports. How do I know which one to put in the video setting, like is it HDMI-A-1 or HDMI-A-2?
+- Can I flip my display horizontally in the kernel command line?
+- I tried adding rotation to my video setting but it's not working. Do I need to also specify the resolution?
+
+# Other entries
+
+- My wireless mouse is really laggy and jumpy. Is there something I can tweak on my Pi to fix that?
+- What does the splash parameter do in cmdline.txt?
+- I've got Plymouth running but now I can't see any boot messages on my serial console. How do I get them back?
+- Should I mess with the dwc underscore otg dot speed setting, or is that just for troubleshooting?
+- My monitor has a terrible built-in EDID and the resolution is all wrong. Can I override it with my own?
+- What does turning off turbo mode on the wired network driver actually do?

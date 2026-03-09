@@ -1,0 +1,27 @@
+# Whole Document
+
+- I've got a Pi 4 and my 4K monitor is only running at 30Hz. How do I get it up to 60Hz?
+- What's the difference between `dtoverlay` and `dtparam`? I keep seeing both in config files and I'm confused.
+- I just want to check — does enabling 4K 60Hz on a Pi 4 have any downsides?
+- Where do I actually put all these settings? Like what file do I edit?
+
+# Common Display Options
+
+- My Pi 4 is connected to a 4K TV but it's stuck at 30Hz. Can I force it to 60?
+- Wait, if I enable 4K 60Hz on my Pi 4, can I run it on both HDMI ports at the same time?
+- I've got a Pi 400 and a 4K monitor. Will enabling 60Hz mess anything up, like overheat it or something?
+- Does the 4K 60Hz option work on all Pi 4 models or just certain ones?
+
+# Common Hardware Configuration Options
+
+- I plugged in a camera module and nothing happened. Does the Pi detect it automatically or do I need to set something up?
+- How do I turn off the automatic camera detection? I want to load the overlay myself.
+- I've got a DSI touchscreen and I'm not sure if it'll just work or if I need to configure something first.
+- What's a device tree overlay? I keep seeing `dtoverlay` in config files and I don't really know what it does.
+- I want to enable I2C on my Pi. Is that something I do with `dtparam` or is there another way?
+- I've got a HAT and I don't want it loading its overlay automatically. How do I stop that?
+- What's the line length limit when I'm adding overlay parameters? I feel like my config line is getting really long.
+- My Pi 4B feels a bit slow. I heard there's a way to boost the clock speed — how do I do that?
+- Does the `arm_boost` thing work on all Pi 4s or only certain ones?
+- What's `power_force_3v3_pwm` and when would I actually need to use it?
+- I'm using a Pi 5 and I've seen `power_force_3v3_pwm` in some configs. What does it actually do?

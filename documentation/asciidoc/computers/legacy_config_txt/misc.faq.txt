@@ -1,0 +1,19 @@
+# Whole Document
+
+- I've got some old Raspberry Pi config settings and I'm not sure if they still apply. Where would I find info on the legacy options?
+- What are these miscellaneous config options actually for?
+
+# `avoid_warnings`
+
+- My Pi is showing low-voltage warnings but I still want to use turbo mode. Is that possible?
+- I've got a dodgy power supply but I don't want it throttling my Pi. Is there a setting to let turbo mode run anyway even with low voltage?
+- What does `avoid_warnings=2` actually do?
+- Wait, so I can just ignore the low-voltage thing and force turbo mode? How do I do that?
+- My Pi keeps slowing itself down because of voltage warnings. Is there a way to stop that?
+
+# `logging_level`
+
+- How do I change the logging level for VideoCore?
+- What's VideoCore logging and do I need to worry about it?
+- I'm trying to debug something with VideoCore. How do I get more detailed logs?
+- What's a bitmask? Like, how do I actually figure out what value to set for the logging level?

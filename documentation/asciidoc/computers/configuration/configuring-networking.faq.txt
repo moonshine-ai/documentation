@@ -1,0 +1,51 @@
+# Whole Document
+
+- I'm trying to get my Raspberry Pi online but I don't know where to start. How do I connect it to WiFi?
+- What's the difference between setting up networking on the desktop version versus the Lite version?
+- Hey, what even is Network Manager and do I need to know about it?
+- I've got an older Pi with an older version of Raspberry Pi OS. Is the WiFi setup any different?
+
+# Connect to a wireless network
+
+## via the desktop
+
+- There's a network icon in the corner but I'm not sure what to do with it. How do I actually connect to WiFi from there?
+- I clicked the network icon and it just says "No APs found - scanning." Is something broken or do I just wait?
+- My Pi has dual-band wireless but it won't connect to anything. What's going on?
+- I bought a Pi 3B+ and WiFi just refuses to work. Someone mentioned something about a country setting — what's that about?
+- How do I set my wireless country on the desktop? I think that's what's blocking my WiFi.
+- The WiFi list popped up and I clicked my network but nothing happened. Do I need to enter a password somewhere?
+
+### Connect to a hidden network
+
+- My home network is hidden so it won't show up in the list. How do I connect to it anyway?
+- I'm trying to connect to a hidden network on the desktop. Where do I even find that option?
+- What security type should I pick for a hidden network? Like most home routers use WPA2 right?
+
+## via the command line
+
+- I'm running the Lite version with no desktop. How do I connect to WiFi just from the terminal?
+- I just flashed a fresh install and WiFi doesn't work at all from the command line. What do I need to do first?
+- Why do I have to set a country before WiFi works? That seems weird.
+- How do I set the WiFi country from the command line?
+- I ran the WiFi command and it says "disabled." How do I turn WiFi back on?
+- How do I see what WiFi networks are nearby from the terminal?
+- I want to connect to my network from the command line. What's the command for that?
+- I tried connecting and it said "Secrets were required but not provided." What does that mean? Did I mess up my password?
+- How do I check if my Pi is actually connected to WiFi from the terminal?
+- My network doesn't have a password. How do I connect to it from the command line?
+- Should I be worried about connecting to an open WiFi network with my Pi?
+- I'm using a hidden network. How do I connect to it from the command line?
+- My Pi keeps connecting to the wrong WiFi network when there are two it knows about. How do I make it prefer one over the other?
+- How do I check what priority my saved networks have?
+- I want my Pi to always use my home network instead of my neighbor's guest network it somehow learned. How do I set that up?
+- Can I give a network a really low priority so the Pi only uses it as a last resort?
+
+# Configure DHCP
+
+- What happens if DHCP fails on my Pi? Does it just have no internet or what?
+
+# Assign a static IP address
+
+- I want my Pi to always have the same IP address. How do I do that?
+- What's the best way to give my Pi a fixed IP — do I change something on the Pi itself or on my router?

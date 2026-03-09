@@ -1,0 +1,39 @@
+# Configuration
+
+I've got a third-party camera attached and it's not working. Do I need to change something in the config?
+
+I'm using an older V1 camera module. What do I put in the config file to make it work?
+
+What's the difference between automatic camera detection and setting an overlay manually? When would I need to do the manual one?
+
+How do I disable automatic camera detection? Like what exactly do I type and where?
+
+I added an overlay to my config file but nothing changed. Did I forget to reboot or something?
+
+I've got a Pi 5 with two camera ports and I want to use the one labeled zero. How do I tell it which connector to use?
+
+Wait, if I don't specify which camera connector to use, which one does it default to?
+
+I have an IMX290 camera and I'm not sure which clock frequency to use. Where do I find that out?
+
+# Tweak camera behaviour with tuning files
+
+What even is a tuning file? Do I need to mess with one to get my camera working?
+
+I bought the NoIR version of the camera module and the colors look really off. Is there something I need to change?
+
+How do I use a different tuning file for my camera? Like is there a flag I add to the command?
+
+I've got a Pi 4, not a Pi 5. Are the tuning files in a different location or something?
+
+I want to tweak how my camera processes images. Can I edit the tuning files myself or do I have to use them as-is?
+
+I've got a Soho Enterprises camera. Does it have a tuning file I can use, or do I have to make my own?
+
+# Whole Document
+
+I just got a new camera module and plugged it in but it's not being detected. Where do I even start troubleshooting?
+
+Do most cameras just work out of the box, or do I always have to mess with the config file?
+
+I'm not sure if my camera is officially supported or not. How do I find out what I need to do to get it working?

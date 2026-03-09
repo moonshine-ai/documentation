@@ -1,0 +1,39 @@
+# Whole Document
+
+What's the power button actually do on a Raspberry Pi 5?
+
+Does the Raspberry Pi 5 have a power button or do I just unplug it to turn it off?
+
+When I first plug in my Pi, do I need to press the power button to turn it on?
+
+# Power button
+
+I'm running Raspberry Pi Desktop and I want to shut it down cleanly. Do I just press the power button?
+
+How do I shut down without just yanking the power cord?
+
+Wait, so if I'm running the desktop I press the power button twice to shut down, but if I'm on the Lite version I only press it once? Did I get that right?
+
+I pressed the power button and a window popped up. What are my options there?
+
+I'm on Raspberry Pi OS Lite with no desktop and I want to shut it down using the power button. How do I do that?
+
+# Restart
+
+My Pi is off but still plugged in. Can I turn it back on without unplugging it?
+
+I've got a HAT I want to connect. Is there anything I need to watch out for before I plug it in?
+
+Wait, what's a PMIC? And why does connecting a HAT mess with it?
+
+# Hard shutdown
+
+My Pi is totally frozen and not responding. How do I force it to turn off?
+
+# Add your own power button
+
+I want to add my own power button to my Raspberry Pi 5. Is that something I can actually do?
+
+What's the J2 jumper and where do I find it on the board?
+
+What kind of switch do I need if I want to wire up my own power button to the Pi 5?

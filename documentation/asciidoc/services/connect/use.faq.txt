@@ -1,0 +1,74 @@
+# Link a Raspberry Pi device with a Connect account
+
+- I just set up my Pi and I want to link it to my Connect account. How do I do that from the desktop?
+- I don't have a desktop, I'm just using the terminal. How do I sign into Connect from the command line?
+- What's an auth key and why would I need one instead of just signing in normally?
+- I've got multiple Pis I want to add to Connect. Do I need a separate auth key for each one?
+- My auth key expired before I got a chance to use it. What do I do?
+- I saved my auth key to a file. How do I use that file to sign in instead of typing the key out?
+- Where do I put my auth key file so Connect just picks it up automatically?
+- I don't have a Raspberry Pi ID yet. Where do I go to make one?
+- I linked my device but I got an email saying something I don't recognize signed in. What should I do?
+- Does Connect still work if I move my SD card to a different Pi?
+
+# Finish linking your Raspberry Pi
+
+- After I sign in, do I have to give my Pi a name or is that optional?
+- I'm an admin for an organization. Can I add my Pi to the organization's account instead of my personal one?
+- How do I know if my Pi actually connected successfully? Is there some indicator?
+
+# Screen sharing
+
+- Can I share my Pi's screen through a browser without installing anything extra?
+- I'm on Raspberry Pi OS Lite and I want to use screen sharing. Will that work?
+- I need to copy some text from my Pi's screen to my laptop. Is there a way to do that through Connect?
+- How do I know if someone is currently screen sharing my Pi?
+- I want to stop people from being able to screen share my Pi but keep it connected to Connect. How do I do that?
+- I turned off screen sharing from the command line. How do I turn it back on again?
+
+# Remote shell
+
+- Can I get a terminal on my Pi through just a browser, without SSH or anything like that?
+- I'm trying to copy and paste in the remote shell but Ctrl+C isn't working. What do I do instead?
+- I ran a background process in a remote shell session and then closed it. Did that process keep running?
+- How do I close a remote shell session when I'm done?
+- I want to disable remote shell access on my Pi but keep it signed into Connect. How do I do that?
+
+# Enable remote shell at all times
+
+- My Pi rebooted and now I can't connect to it remotely. What went wrong and how do I fix it?
+- I've got a headless Pi with no automatic login. How do I make sure Connect still works after a reboot?
+- What's user-lingering and why do I need it for Connect?
+
+# Disable the animated icon
+
+- The Connect icon keeps spinning when I'm in a session and it's driving me crazy. Can I turn that off?
+
+# Manage devices
+
+- I've got a bunch of Pis in my Connect dashboard. How do I tell them apart or rename them?
+- How do I completely remove a Pi from my Connect account?
+- If I delete a device from the Connect dashboard, does it automatically sign out on the Pi too?
+
+# Update
+
+- How do I update Connect to the latest version?
+- I've got Connect Lite installed, not the regular version. Does the update command work the same way?
+
+# Disconnect a device from Connect
+
+- How do I sign my Pi out of Connect without uninstalling it?
+
+# Uninstall
+
+- How do I completely remove Connect from my Pi?
+- I uninstalled Connect but my Pi still shows up in the dashboard. Is that normal?
+- I reinstalled Connect on my Pi with a fresh SD card. Will it show up as a new device or use the old name?
+
+# Whole Document
+
+- What even is Raspberry Pi Connect and why would I use it instead of just SSH-ing in?
+- Do I need anything besides a browser to remotely access my Pi through Connect?
+- Does Connect work on the Lite version of Raspberry Pi OS?
+- I want to access my Pi from anywhere without setting up port forwarding or a VPN. Is Connect the right tool for that?
+- What's the difference between screen sharing and remote shell in Connect?

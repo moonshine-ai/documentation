@@ -1,0 +1,200 @@
+# Whole Document
+
+- I've heard about these Raspberry Pi keyboard computers. What even are they, like are they full computers inside a keyboard?
+- What's the difference between the 400, 500, and 500+? I'm trying to figure out which one to buy.
+- Does the Raspberry Pi 500+ come with an SSD already or do I need to buy one separately?
+- Which one's the most powerful, the 400 or the 500?
+- I just got one of these keyboard computers, what do I need to get started?
+- Do these keyboard computers have Wi-Fi built in or do I need a dongle?
+- How much RAM does the 500+ have compared to the regular 500?
+- Wait, does the Raspberry Pi 400 even have a power button?
+
+# Features
+
+- What processor does the Raspberry Pi 500 use and how fast is it?
+- I want to use two monitors. Can these keyboard computers actually do that?
+- Does the Raspberry Pi 400 support HDR on its HDMI outputs?
+- How do I turn off the Raspberry Pi 400 if it doesn't have a power button?
+- What's the GPU difference between the 400 and the 500?
+- Does the 500+ have mechanical keys or are they the regular squishy membrane ones?
+- How big is the 500+ compared to the regular 500? I need to know if it'll fit on my desk.
+- What kind of storage does the 500+ have? I heard it's different from the others.
+- How much power does the Raspberry Pi 500 need? Like what wattage power supply?
+
+# Keyboard computer kits
+
+- What comes in the box if I buy the Raspberry Pi 500 kit?
+- Does the kit come with an SD card already set up, or do I have to install the OS myself?
+- I'm buying the 500+ kit. Does it come with a mouse?
+- What size SD card comes with the 500 kit?
+- What's that spudger thing that comes with the 500+ kit? What's it for?
+
+# Raspberry Pi 500+ mechanical keys
+
+- What kind of switches does the 500+ use? Are they clicky or silent?
+- I want to replace the keycaps on my 500+. Are they a standard size, like Cherry MX compatible?
+- What does clicky mean for the switches on the 500+?
+
+# Raspberry Pi 500+ customisation
+
+- What can I actually customise on the 500+? Like what are my options?
+- Can I remap the keys on the 500+?
+- Can I change the keyboard lighting on the 500+?
+
+# Replace your M.2 SSD
+
+- How do I swap out the SSD in my Raspberry Pi 500+?
+- What size M.2 SSD can I put in the 500+? Like does it support 2280 or just smaller ones?
+- What tools do I need to replace the SSD in my 500+?
+- I'm nervous about opening my 500+. Do I need to be careful about any cables when I open it up?
+- Can I put something other than an SSD in that M.2 slot on the 500+?
+
+# Change your keycaps
+
+- How do I remove a keycap from my 500+ without breaking anything?
+- Can I use any Cherry MX keycaps on the 500+, or are there some that won't work?
+- Are there keycap profiles I should avoid for the 500+?
+- I want to clean under the keys on my 500+. Do I have to remove the keycaps to do that?
+- How do I put a keycap back on after I've taken it off?
+
+# Keyboard layout
+
+- I want to buy a third-party keycap set for my 500+. Are there any keys that won't have a matching cap?
+- Will a standard keycap set have a key with the Raspberry Pi logo on it?
+- The volume and lighting keys on my 500+ look different from a keycap set I want to buy. Is that normal?
+
+# Keycap profiles
+
+- What keycap profile should I get for my 500+? There are so many options and I don't know which ones fit.
+- Why can't I use SA keycaps on the 500+?
+- What's the difference between DSA and Cherry profile keycaps?
+
+# Customise your backlighting
+
+- The keyboard on my 500+ is pretty dark. How do I turn the backlighting on?
+- What does the little light behind the power button mean on the 500+? It keeps changing colour.
+- How do I cycle through the lighting presets on my 500+?
+- How do I make the keyboard brighter or dimmer?
+- Can I turn off that rainbow animation that plays when the 500+ starts up?
+- How do I change the backlight colour on my 500+?
+- What are all the lighting presets on the 500+? I want to know what I can choose from.
+- What's that typing heatmap preset? How does it work?
+
+# Advanced software settings
+
+- What software do I need to install to remap keys or change the lighting on my 500+?
+- How do I update the firmware on my 500+ keyboard?
+- Wait, there's a Flappy Bird game hidden in the 500+?
+
+# Firmware setup
+
+- What commands do I run to set up the keyboard config tool on my 500+?
+- Do I need to do anything before I can remap keys on my 500?
+
+# Basic information commands
+
+- How do I see what lighting effects are available on my 500+?
+- What command do I run to just check the current state of my keyboard?
+- How do I see all the commands available in the keyboard config tool?
+
+# Advanced LED settings
+
+- Can I set individual keys to different colours on my 500+?
+- I want to change the lighting beyond just the basic presets. What are my options?
+
+# Lighting effects
+
+- How do I temporarily try out a lighting effect without saving it?
+- Can I speed up one of the animated lighting effects on my 500+?
+- How do I see which lighting effect is currently active?
+
+# View presets
+
+- How do I jump straight to a specific lighting preset without cycling through all of them?
+- What command shows me the details of a particular preset?
+
+# Reassign presets
+
+- Can I change what effect is stored in one of the presets on my 500+?
+- If I mess up my presets, can I get the original ones back?
+
+# Change preset startup animation
+
+- How do I turn off the startup animation for a specific preset?
+- What startup animations can I choose from for my 500+ presets?
+
+# Effect and preset parameters
+
+- How do I slow down an animated lighting effect on my 500+?
+- What's the default speed if I don't set one for an effect?
+- I want to change the hue of an effect but not the global hue. How do I do that?
+
+# Global lighting controls
+
+- How do I just check what brightness my 500+ keyboard is currently set to?
+- What command sets the global brightness of the keyboard lighting?
+
+# Individual LED controls
+
+- I want to make just one specific key a certain colour. How do I do that?
+- How do I find out the row and column number for a specific key on my 500+?
+- If I set individual LED colours, how do I save that so it doesn't disappear on restart?
+- How do I turn off all the LEDs except the power button?
+
+# Reset presets and LED customisations
+
+- I've totally messed up my lighting presets. How do I just reset everything back to default?
+
+# Remap keys on your keyboard
+
+- Can I remap keys on the regular 500, or is it only the 500+?
+- I'm a gamer and I want to remap some keys for my game. Can I do that on the 500+?
+- Is there a graphical way to remap keys, or do I have to use the terminal?
+
+# List keycodes
+
+- How do I find out what keycode to use when remapping a key?
+- Can I filter the keycode list to just see basic keys?
+
+# View keymap
+
+- How do I see how all my keys are currently mapped?
+- I want to check what a specific key is mapped to. How do I do that?
+
+# Remap keys
+
+- How do I actually remap a key on my 500+? Like what's the command?
+- I accidentally remapped a key and I don't know what I set it to. How do I check?
+
+# Watch key presses
+
+- How do I monitor which keys I'm pressing in the config tool?
+- My keyboard is locked and I can't watch key presses. How do I unlock it?
+- How do I lock the keyboard again after I'm done watching key presses?
+- Can I watch key presses without the keys lighting up red?
+
+# Manage layers
+
+- What's the deal with layers on the 500+ keyboard? I don't really understand what they are.
+- How many layers can I set up on my 500+?
+- How do I switch between layers while using my keyboard?
+
+# Reset to default keyboard layout
+
+- I've completely messed up my key mapping. How do I just reset it back to normal?
+
+# Remap keys with Vial
+
+- Can I use Vial to remap my 500+ keys instead of the command line?
+- How do I use the Vial web interface with my 500+?
+
+# Return to default settings
+
+- How do I factory reset all my keyboard settings, like lighting and key mapping, back to default?
+- I've remapped my keys so badly that I can't type anything anymore on my 500+. Is there any way to fix it?
+
+# Flappy Bird game
+
+- Wait, there's actually a game on the 500+? How do I play it?
+- How does the Flappy Bird game work on the 500+ if it uses the keyboard lights as a screen?
+- How do I quit the Flappy Bird game on the 500+?

@@ -1,0 +1,30 @@
+# Whole Document
+
+How do I control GPIO pins from Python on my Raspberry Pi?
+What's the easiest way to get started with GPIO and Python?
+I've heard of GPIO Zero — is that the best library to use for beginners?
+
+# LED Control
+
+I've got an LED wired up to GPIO17. How do I make it blink with Python?
+What methods can I use to control an LED with GPIO Zero? Like what can I actually do with it?
+I don't just want it to blink — can I just turn an LED on and leave it on?
+How do I make an LED flash on and off repeatedly?
+I'm using Thonny to write my code. Can I control GPIO pins from there?
+Is there a toggle function for LEDs, or do I have to manually switch between on and off?
+
+# Read Button State
+
+I've got a button connected to GPIO2. How do I check if it's being pressed in Python?
+How do I know in my code whether someone's holding a button down versus just pressing it?
+Can I set it up so something automatically happens when a button gets pressed, instead of checking it in a loop?
+What's the difference between `when_pressed` and `wait_for_press`? I'm confused about which one to use.
+How do I detect when a button's released, not just when it's pressed?
+
+# Control an LED with a Button
+
+I want to turn an LED on when I press a button and off when I let go. How do I wire that up in code?
+What's the simplest way to link a button to an LED in Python?
+I've seen a few different ways to connect a button to an LED in GPIO Zero — like what's actually the difference between using `wait_for_press` and `when_pressed`?
+Can I do it without a loop? Like just tell it "when button pressed, turn on LED" and leave it at that?
+I'm getting confused by the different approaches to button and LED code. Which one should a beginner start with?

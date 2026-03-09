@@ -1,0 +1,33 @@
+# Change a user's password
+
+How do I change my password on the Raspberry Pi?
+I forgot what password I set up. Can I reset it from the command line?
+What's the quickest way to change the password without opening raspi-config?
+
+# Add a user
+
+How do I add a new user account on my Pi?
+I want to set up a separate account for my kid. How do I do that?
+Where does a new user's files get stored?
+I added a new user but they can't run sudo. How do I fix that?
+I made a new account but I'm not sure if it has the right permissions. How do I check?
+My new user seems to have the wrong keyboard layout after I added them. How do I fix that?
+
+# Delete a user
+
+How do I delete a user account I don't need anymore?
+I want to remove a user but keep their files. Can I do that?
+Does deleting a user also wipe out all their files?
+
+# Change the default user
+
+How do I change which user automatically logs in when the Pi starts up?
+I don't want it to log in as the default user on boot. Can I change that?
+I switched the auto-login user but nothing changed. Do I need to reboot or something?
+
+# Whole Document
+
+Wait, do I need to be an admin to do any of this user stuff?
+What's the difference between using raspi-config and just typing commands directly to manage users?
+I'm setting up a Pi for multiple people. What do I need to know about managing separate accounts?
+How do I make sure a new user has all the same access as the main account?

@@ -1,0 +1,14 @@
+# Manually start and stop Connect
+
+- I don't want Connect running all the time. How do I turn it off when I'm not using it?
+- What's the command to turn Connect on from the terminal?
+- I just want to quickly switch Connect off. Is there a command for that?
+- How do I start Connect Lite from the command line?
+- Can I just turn Connect on and off whenever I want, like manually?
+- I turned Connect off and now I want it back on. What do I type?
+
+# Whole Document
+
+- So there's a way to control when Connect is running? How does that work?
+- I don't want Connect starting automatically, I just want to switch it on when I need it. Is that possible?
+- What's the difference between Connect and Connect Lite? Do they use the same commands?

@@ -1,0 +1,62 @@
+# Serial Peripheral Interface (SPI)
+
+What's SPI and why would I use it on a Raspberry Pi?
+What kind of devices can I connect using SPI?
+I've heard of I2C and SPI — what's the difference and when should I use SPI?
+
+# SPI Hardware
+
+How many SPI buses does my Raspberry Pi have?
+I've got a Pi 4 — does it have more SPI buses than the older models?
+Does the Pi Zero have SPI?
+I'm using a Compute Module — are there any extra SPI options I get that the regular Pi doesn't have?
+Which pins do I use for SPI0 on the GPIO header?
+What header pin is MOSI on SPI0?
+I want to use SPI1 — which GPIO pins do I need?
+What's CE0 and CE1 in SPI? Are those the chip select pins?
+
+# Master Modes
+
+What does MOSI and MISO actually mean?
+What's the difference between standard SPI mode and bidirectional mode?
+I keep seeing "LoSSI mode" mentioned — what is that and do I need it?
+When would I actually use LoSSI instead of regular SPI?
+
+# Transfer Modes and Speed
+
+What transfer modes does SPI support on the Pi?
+How do I control the SPI clock speed?
+Is there a maximum SPI speed I should stick to so things don't break?
+I've heard over 50MHz might not work — is that true?
+
+# SPI Software and Linux Driver
+
+SPI isn't working and I think it might be disabled. How do I turn it on?
+How do I enable SPI using config.txt?
+I only need one chip select for SPI0 — do I need to change anything?
+How do I enable SPI1 with two chip select lines?
+I want to enable SPI3 on my Pi 4 — how do I do that?
+Can I use any GPIO pin as a chip select instead of the default ones?
+How do I see all the available SPI overlays I can use?
+
+# spidev
+
+What's spidev and why would I use it instead of a kernel driver?
+How do I use SPI from a Python script?
+What Python library should I install to talk to SPI devices?
+Can I test SPI from the command line without writing any code?
+How do I write data to an SPI device from bash?
+
+# Troubleshooting
+
+My SPI isn't working — how do I test if it's even sending and receiving properly?
+How do I do a loopback test on SPI?
+What do I need to do physically to run the SPI loopback test?
+Where do I find the loopback test program for SPI?
+
+# Whole Document
+
+I'm a beginner trying to connect a display to my Pi over SPI — where do I even start?
+What's the easiest way to use SPI on a Raspberry Pi if I'm just writing a quick Python script?
+I don't want to write a kernel driver — can I control SPI from userspace?
+Does SPI work on all Raspberry Pi models or just some of them?

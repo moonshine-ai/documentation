@@ -1,0 +1,43 @@
+# Introduction
+
+What's Raspberry Pi OS actually based on?
+
+How often do they release new versions of Raspberry Pi OS?
+
+What's the difference between Raspberry Pi OS and regular Debian?
+
+Is Raspberry Pi OS free?
+
+What version of Raspberry Pi OS is the latest one?
+
+# Get Raspberry Pi OS
+
+What's the difference between the regular desktop version and the full version?
+
+I want LibreOffice on my Pi. Which version of the OS should I download?
+
+Does the desktop version come with a web browser already installed?
+
+What's included in Raspberry Pi OS with desktop? Like what apps does it come with?
+
+I've got a Raspberry Pi Zero. Which version of the OS should I use?
+
+What's the Lite version for? Is it just a stripped down version with no desktop?
+
+I'm setting up a headless server. Which version of Raspberry Pi OS should I pick?
+
+I see there's 32-bit and 64-bit versions. How do I know which one to get?
+
+I'm running an older version of Raspberry Pi OS and I want to upgrade to the latest one. Can I just do that in place or do I need to reinstall?
+
+I tried to update to the new major version and someone told me not to do an in-place upgrade. Why not?
+
+Where do I actually download Raspberry Pi OS? Like what's the website?
+
+# Whole Document
+
+So is Raspberry Pi OS just Debian but tweaked for the Pi, or is it something completely different?
+
+I've never set up a Pi before. What version of the OS should I start with?
+
+Does Raspberry Pi OS have access to normal Debian software packages?

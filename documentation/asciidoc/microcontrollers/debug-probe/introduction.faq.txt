@@ -1,0 +1,47 @@
+# About the Debug Probe
+
+What even is the Raspberry Pi Debug Probe? Like what does it actually do?
+
+Does the Debug Probe need soldering or does it just plug right in?
+
+I've got a Pico but my computer doesn't have GPIO pins. How am I supposed to connect to it for debugging?
+
+Does the Debug Probe work on Windows, or is it just for Linux?
+
+I've heard of SWD but I don't really know what it is. Do I need to understand it to use the Debug Probe?
+
+What's CMSIS-DAP? Is that something I need to install or is it built into the probe?
+
+Does the Debug Probe work with OpenOCD?
+
+Can I update the firmware on the Debug Probe if I need to?
+
+# The Debug Probe
+
+What voltage does the Debug Probe run at? I don't want to fry anything.
+
+What cables come in the box with the Debug Probe?
+
+I've got the Debug Probe and there are three cables. Which one do I use for what?
+
+What do the wire colors mean on the header cables? Like which one is ground and which is TX?
+
+I'm connecting the Debug Probe to a breadboard. Which cable should I use for that?
+
+My target board is powered from a separate USB cable. Is it safe to just plug in the Debug Probe signal wires?
+
+Wait, do I need to connect ground first before anything else? Could I damage the probe if I don't?
+
+There are five LEDs on the Debug Probe. What do they all mean?
+
+The two DAP LEDs on my Debug Probe turned off. Does that mean something disconnected?
+
+I'm using OpenOCD and the DAP lights came on. Is that normal or is something wrong?
+
+# Whole Document
+
+I'm trying to debug a Pico from my Mac. What do I need to get started?
+
+So the Debug Probe does both UART and SWD? Can I use both at the same time?
+
+I've got an older Raspberry Pi board without that three-pin debug connector. Can I still use the Debug Probe with it?

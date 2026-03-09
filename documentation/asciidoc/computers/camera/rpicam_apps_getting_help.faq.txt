@@ -1,0 +1,27 @@
+# Getting help
+
+Where do I go if I'm having trouble with my Raspberry Pi camera?
+
+There's a forum for camera stuff, right? How do I find it?
+
+My camera app keeps crashing and I don't know who to ask. What should I do?
+
+I want to post on the forum about my camera problem but I'm not sure what information to include. What do they need to know?
+
+How do I find out what version of libcamera I've got installed?
+
+I'm using a third party camera module and I'm having issues. Will Raspberry Pi support help me with that?
+
+What's the command to check my operating system version before posting on the forum?
+
+Should I post on the forum or file a GitHub issue if my camera app is crashing?
+
+I want to report a bug in rpicam-apps. Where do I do that?
+
+# Whole Document
+
+My camera isn't working and I have no idea where to start. Who can help?
+
+I'm totally stuck with my Pi camera setup. What's the best way to get help?
+
+What info do I need to gather before asking for help with a camera problem?

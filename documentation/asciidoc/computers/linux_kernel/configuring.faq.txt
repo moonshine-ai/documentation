@@ -1,0 +1,45 @@
+# Whole Document
+
+I want to customize my Raspberry Pi's kernel. Where do I even start?
+
+I've heard you can configure the Linux kernel but it sounds really complicated. Is there a menu-based way to do it instead of editing files by hand?
+
+I'm an advanced user and I want to enable support for some new hardware in my kernel. What's the general process for doing that?
+
+# Prepare to configure
+
+I'm trying to run menuconfig but it's throwing errors right away. What do I need to install first?
+
+What's ncurses and why do I need it just to configure the kernel?
+
+I've got my kernel source downloaded. What do I need to do before I can actually start changing settings?
+
+# menuconfig
+
+How do I actually launch the menuconfig thing once everything's installed?
+
+I'm trying to cross-compile a 64-bit kernel for my Pi. What's the menuconfig command for that?
+
+Wait, is the command different if I'm building a 32-bit kernel versus a 64-bit one?
+
+I've got menuconfig open but I don't know how to move around in it. How do I navigate the menus?
+
+How do I go back to the previous menu in menuconfig? I keep accidentally going deeper into submenus.
+
+I see options with arrows next to them in menuconfig. How do I open those?
+
+How do I turn an option on or off in menuconfig?
+
+I don't understand what one of the options in menuconfig does. Is there a way to get more info on it?
+
+I just opened menuconfig for the first time and there are like a million options. Should I just start enabling everything I think sounds useful?
+
+# Save your changes
+
+I've finished making my changes in menuconfig. How do I save everything before I close it?
+
+Where does menuconfig actually save my configuration to?
+
+Can I back up my kernel config so I can reuse it later or share it with someone?
+
+I saved my kernel config and now I want to build the kernel. What do I do next?

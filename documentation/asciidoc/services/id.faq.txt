@@ -1,0 +1,27 @@
+# Create a Raspberry Pi ID
+
+- I want to use Raspberry Pi services but I don't have an account yet. Where do I sign up?
+- Do I need an account to use Raspberry Pi services, or can I just jump in?
+- I made an account but I never got a verification email. What should I do?
+- After I sign up, what happens next? Do I need to do anything else before I can log in?
+- I verified my email and now I want to log into a Raspberry Pi service. How do I do that?
+
+# Enable Two-factor authentication
+
+- What even is two-factor authentication? Do I actually need it for my Raspberry Pi account?
+- I want to make my Raspberry Pi ID more secure. How do I turn on two-factor authentication?
+- What app should I use for two-factor authentication on my Raspberry Pi account? Does it matter which one I pick?
+- I've got an iPhone. Is there an easy way to set up two-factor auth without downloading a separate app?
+- I scanned the QR code but I'm not sure what to do next. How do I actually finish setting up two-factor auth?
+- Where do I find the QR code to scan with my authenticator app?
+- I lost my phone and now I can't get into my Raspberry Pi account. Is there any way back in?
+- What's a recovery code and why do I need to save it?
+- I set up two-factor authentication but I've changed my mind and want to turn it off. Can I do that?
+- Every time I log in now it's asking for a six digit code. Where do I get that from?
+
+# Whole Document
+
+- I'm totally new to Raspberry Pi. Do I need to create an account just to get started?
+- What's a Raspberry Pi ID and do I actually need one?
+- Is my Raspberry Pi ID the same login for everything Raspberry Pi related?
+- I've heard about two-factor authentication but I'm not very tech savvy. Is it hard to set up for a Raspberry Pi account?

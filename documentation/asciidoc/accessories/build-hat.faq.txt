@@ -1,0 +1,77 @@
+# Whole Document
+
+- What even is the Build HAT? Is it like a LEGO controller for my Raspberry Pi?
+- Does the Build HAT work with my Pi Zero?
+- Can I use the Build HAT with Python or do I have to use something else?
+- I've got a Raspberry Pi 5, will the Build HAT work with it?
+- Do I need to buy a separate power supply for the Build HAT or can I just use the one I already have for my Pi?
+- What LEGO sensors actually work with this thing?
+- I'm running Raspberry Pi OS Trixie, will the Build HAT work?
+
+# About
+
+- How many motors can the Build HAT control at once?
+- Is the power supply included when I buy the Build HAT or do I need to get it separately?
+- What's the difference between the SPIKE Prime Set 45678 and the expansion set?
+- Can I still access the GPIO pins when the Build HAT is attached?
+- I've got a Raspberry Pi 400, can I use the Build HAT with that?
+- What's that little chip on the Build HAT that handles the motor stuff?
+
+# Prepare your Build HAT
+
+- How do I attach the Build HAT to my Pi? Does it just push on?
+- Wait, all the components are on the bottom of the Build HAT? Won't that cause problems?
+- Which GPIO pins does the Build HAT use? I don't want to accidentally connect something to them.
+- How do I set up the serial port for the Build HAT? I'm in the graphical desktop.
+- I'm running my Pi headless, how do I configure the serial port for the Build HAT using raspi-config?
+- Do I need to disable the serial console? I'm not sure why that matters.
+- What kind of power connector does the Build HAT use? Like what size barrel jack?
+- Can I use any 8V power supply or does it have to be the official one?
+- I want to just read from a motor encoder, do I still need that external 8V power supply?
+- The colour sensor isn't working. Does it need the external power supply or can I just use USB?
+
+# Use the Build HAT from Python
+
+- How do I install the Build HAT Python library?
+- I'm running an older version of Raspberry Pi OS and the apt install isn't working. How else can I get the library?
+- I plugged the motor connector in and it doesn't seem to seat properly, what am I doing wrong?
+- When I first run my Build HAT program there's this long pause, is that normal?
+- My motor's turning the wrong direction, how do I reverse it?
+- How do I read the position of the motor shaft while it's moving?
+- I don't want to use an external power supply just to read from a force sensor, is that okay?
+- How do I make the colour sensor turn on its LED and then tell me what colour it sees?
+
+# Use the Build HAT from .NET
+
+- How do I get .NET installed on my Raspberry Pi?
+- Is there an easy way to install .NET without doing everything manually?
+- How do I create a new Build HAT project in .NET?
+- My .NET program just hangs and never finishes. What's going on?
+- How do I get the firmware version and voltage info from the Build HAT in C#?
+- How can I tell in code whether something connected to a port is a motor or a sensor?
+- I want my code to do something whenever the motor position changes. How do events work for that?
+- My program tries to use the sensor before it's ready. How do I make it wait until something's actually connected?
+- What's the difference between passive and active motors in .NET?
+- What are SetPowerLimit and SetBias for? Why would I need them?
+- How do I make a train motor speed up gradually in C#?
+- Can active motors tell me their exact position, or just their speed?
+- How do I move a motor to a specific position and wait for it to get there before doing the next thing?
+- What does "float" mode do for a motor?
+- How do I use the force sensor in .NET to detect when it's pressed?
+- Can I control the brightness of the train lights in C#?
+- How do I read the distance from the ultrasonic sensor in .NET?
+- I want to count objects passing in front of the colour sensor. Can the Build HAT do that?
+- How do I control individual LEDs on that little 3x3 matrix display?
+
+# Further Resources
+
+- Where can I find more documentation on the Build HAT serial protocol?
+- Are there any example projects I can follow along with using the Build HAT and LEGO?
+
+# Device Compatibility
+
+- Which LEGO motors are supported by the Build HAT?
+- Does the WeDo 2.0 tilt sensor work with the Build HAT?
+- I've got the colour and distance sensor, is that fully supported or only partially?
+- What sets do I need to buy to get the SPIKE Prime force sensor?
+- Is the 3x3 LED matrix supported in Python?

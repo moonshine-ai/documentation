@@ -1,0 +1,40 @@
+# What is MicroPython?
+
+- So what even is MicroPython? Is it just regular Python or something different?
+- I've heard of Python but what's MicroPython and why would I use it on a Pico instead?
+- Does MicroPython run all of Python 3 or just some of it?
+- What's a REPL? I keep seeing that word and I don't know what it means.
+- Can I talk to my Pico directly through USB like type commands and see results immediately?
+- Does the Pico have its own filesystem built in?
+
+# Drag-and-Drop MicroPython
+
+- How do I get MicroPython onto my Pico? Like where do I even start?
+- I've got a Pico W, not a regular Pico. Do I need a different file to install MicroPython?
+- What's a UF2 file? Is that something special I need to worry about?
+- I plugged in my Pico but nothing happened. Do I need to hold a button or something while plugging it in?
+- My Pico isn't showing up as a drive on my computer. What am I doing wrong?
+- After I drop the file onto the Pico it just disappears from my computer. Did something go wrong or is that normal?
+- I've got a Pico 2 W, is there a different MicroPython download for that compared to the regular Pico 2?
+- Does the Pico W version of MicroPython support Bluetooth or just WiFi?
+- What's Thonny and do I need it to program my Pico?
+- I don't want to use the command line. Is there a friendlier way to write MicroPython on my Pico?
+
+# Where can I find documentation?
+
+- Where's the best place to look stuff up when I'm stuck with MicroPython on my Pico?
+- Is there official documentation specifically for the Pico's version of MicroPython, or do I just use the general MicroPython docs?
+- I want to connect my Pico W to WiFi. Is there a guide for that?
+
+# Which hardware am I running on?
+
+- I can't remember if I flashed the Pico or Pico W version of MicroPython. How do I check which one I've got?
+- Is there a way to tell from my code whether it's running on a Pico W or a regular Pico?
+- How do I check if my Pico has WiFi support from inside MicroPython?
+
+# Whole Document
+
+- I'm brand new to this. What's the quickest way to get MicroPython running on my Pico?
+- Does MicroPython work the same on all the Pico models or are there differences I need to know about?
+- Can I use my Pico W's wireless features with MicroPython or do I need C for that?
+- I've got a non-Raspberry Pi board that uses the RP2040 chip. Will MicroPython work on it too?

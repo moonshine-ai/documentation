@@ -1,0 +1,125 @@
+# Whole Document
+
+What's an NPU and why would I want one for my Raspberry Pi?
+
+I've got a Pi 5 — can I run AI models on it?
+
+What's the difference between the AI Kit, AI HAT+, and AI HAT+ 2? Which one should I get?
+
+I found an AI Kit for sale, is that still a good option or is it outdated?
+
+Do I need any special version of Raspberry Pi OS to use the Hailo NPU?
+
+Can I run an LLM locally on my Raspberry Pi 5?
+
+What kinds of AI stuff can the AI HAT+ 2 do that the regular AI HAT+ can't?
+
+# Hardware Prerequisites
+
+Do I need a camera to use the Hailo NPU, or is it only for non-vision stuff too?
+
+What camera should I get to use with the AI HAT+?
+
+Should I plug the camera in before or after attaching the AI HAT+?
+
+# Software Prerequisites
+
+What do I need to set up software-wise before I can run AI on my Pi 5?
+
+I just got my AI HAT+ 2 — what's the first software thing I need to do?
+
+## Enable PCIe Gen 3.0 (AI Kit only)
+
+Do I need to enable PCIe Gen 3 for the AI HAT+ or is that just the AI Kit?
+
+How do I enable PCIe Gen 3 on my Raspberry Pi 5? Is there an easy way to do it without editing files?
+
+I don't want to use raspi-config. Can I just edit a config file to turn on PCIe Gen 3?
+
+What line do I add to config.txt to enable PCIe Gen 3?
+
+## Update Raspberry Pi OS
+
+Do I need to update my Pi before installing the AI stuff, or can I just go straight to installing?
+
+What commands do I run to make sure everything's up to date before setting up the NPU?
+
+## Install Required Dependencies
+
+What do I actually need to install to get the Hailo NPU working?
+
+I've got an AI HAT+ 2 — what package do I install for that? Is it the same as the regular AI HAT+?
+
+Wait, can I have both the AI Kit and AI HAT+ 2 packages installed at the same time?
+
+## Reboot and Verify
+
+How do I check that my Hailo NPU is actually working after I set everything up?
+
+I ran the verify command and it says N/A for the serial number. Is my AI HAT+ broken?
+
+What does it look like if the NPU is working correctly after running the verify command?
+
+Is there a way to check the kernel logs to see if the Hailo driver loaded properly?
+
+# Run Vision AI Models on Raspberry Pi 5
+
+## Step 1 Install Camera Dependencies
+
+What package do I need to install to get the camera working with the AI demos?
+
+How do I test that my camera's working before I try running the AI demos?
+
+## Step 2 Run Real-Time Visual AI Demos
+
+How do I run the object detection demo on my Pi 5?
+
+What's the difference between the different YOLO models? Like is YOLOv8 better than YOLOv6?
+
+Which YOLO model should I use if I want to detect faces and people specifically?
+
+I want to try the pose estimation demo. What command do I run?
+
+How do I run the image segmentation demo that puts color masks on objects?
+
+Can I use these AI demos to save a video instead of just showing a preview?
+
+How do I turn off the preview window and just get text output from the object detection demo?
+
+## Package Versions for AI Kit and AI HAT+
+
+I need to use a specific older version of the Hailo tools. How do I install that?
+
+If I lock the Hailo packages to a specific version, how do I stop them from getting updated accidentally?
+
+# Run LLMs on Raspberry Pi 5 (AI HAT+ 2 Only)
+
+How do I actually chat with an LLM once I've set everything up? Is there a nice interface or do I have to use the terminal?
+
+## Step 1 Install the Hailo Ollama Server
+
+How do I install the Hailo Ollama server on my Pi?
+
+## Step 2 Start the Hailo Ollama Server and Run LLMs
+
+How do I start the LLM server and actually ask it a question?
+
+How do I see what LLMs are available to download?
+
+I downloaded a model — how do I send it a message from the terminal?
+
+## Step 3 Install Docker (for Open WebUI)
+
+Why do I need Docker just to use the web interface for chatting with the LLM?
+
+How do I install Docker on my Raspberry Pi 5?
+
+How do I check that Docker installed correctly?
+
+## Step 4 Install and Use Open WebUI (Optional)
+
+How do I get the web chat interface working so I can talk to the LLM in a browser?
+
+What address do I go to in my browser to open the chat interface?
+
+The Open WebUI container is taking forever to load. Is that normal?

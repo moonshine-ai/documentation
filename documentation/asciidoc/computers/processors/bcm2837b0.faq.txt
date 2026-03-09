@@ -1,0 +1,29 @@
+# BCM2837B0
+
+What's the difference between the BCM2837 and the BCM2837B0?
+
+Which Raspberry Pi models actually use the BCM2837B0 chip?
+
+So the 3B+ is faster than the original Pi 3? Like how much faster are we talking?
+
+What speed can the ARM cores run at on the BCM2837B0?
+
+I keep hearing about the VideoCore IV — what speed does it run at on the Pi 3B+?
+
+Is the ARM core on the BCM2837B0 64-bit or 32-bit?
+
+Why does the 3B+ run cooler than older Pi 3 models? Is there something different about the chip?
+
+What's that metal thing on top of the BCM2837B0 chip? Is it just for looks or does it actually do something?
+
+Does the Compute Module 3+ use the same chip as the Pi 3B+?
+
+# Whole Document
+
+What chip is inside the Raspberry Pi 3B+?
+
+I've got a Pi 3 Model A+ — what processor is in it?
+
+How is the BCM2837B0 different from what's in the older Pi 3 models?
+
+Why does the Pi 3B+ handle heat better than the original Pi 3?

@@ -1,0 +1,17 @@
+# Whole Document
+
+- How do I change the language on my Raspberry Pi?
+- I set up my Pi in the wrong time zone. How do I fix that?
+- My keyboard's typing the wrong characters, like it thinks it's a UK keyboard but I've got a US one. How do I sort that out?
+- Is there one place I can change all the regional settings, like language and time zone and keyboard?
+
+# Localise your Raspberry Pi
+
+- How do I change the language the desktop uses?
+- I moved to a different country and the time on my Pi is all wrong now. How do I update the time zone?
+- My keyboard layout's wrong and I keep getting weird symbols when I type. How do I fix it?
+- What's raspi-config and how do I open it?
+- I just installed Raspberry Pi OS and I want to switch it to my language. Where do I even start?
+- Can I change the keyboard layout and time zone from the terminal, or do I need a desktop for that?
+- I've got a French keyboard but my Pi keeps acting like it's English. How do I tell it the right layout?
+- How do I get into raspi-config? Do I just type it in the terminal or something?

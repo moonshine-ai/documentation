@@ -1,0 +1,31 @@
+# BCM2835
+
+What chip is in the original Raspberry Pi?
+
+What processor does the Raspberry Pi Zero use?
+
+I've got a Raspberry Pi 1 Model B. What's the chip inside it called?
+
+Does the Compute Module 1 use the same chip as the Raspberry Pi Zero?
+
+How many cores does the BCM2835 have?
+
+I'm trying to find technical details about the BCM2835. Where do I look?
+
+I found the datasheet for the BCM2835 but some stuff in it seems wrong. Is it just me or are there actually errors in it?
+
+Where can I find known mistakes in the BCM2835 peripheral spec?
+
+I want to read up on the GPU in the BCM2835. Is there any documentation for that?
+
+Where can I find the ARM1176 processor docs?
+
+Is there an open-source driver for the BCM2835 GPU?
+
+# Whole Document
+
+Which Raspberry Pi models use the BCM2835?
+
+What's the difference between the chips in the Pi 1 and later models?
+
+I'm trying to do some low-level programming on a Pi Zero. Where do I even start finding chip documentation?

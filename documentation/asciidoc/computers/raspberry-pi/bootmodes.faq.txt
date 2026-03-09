@@ -1,0 +1,28 @@
+# Whole Document
+
+- I'm having trouble getting my Pi to boot and I'm not sure where to start. What are the different ways a Pi can boot?
+- Does every Raspberry Pi boot the same way or are there different methods depending on the model?
+- I've got a Pi 4 and a Pi 2 — do they boot differently from each other?
+
+# Special `bootcode.bin`-only boot mode
+
+- My Pi 1 isn't booting from USB. Is there a way to get it working?
+- I want to boot my Pi over the network but I'm not sure if my model supports it. Which ones can actually do that?
+- My Pi 3B keeps failing to boot. Is there anything I can try to fix it?
+- Wait, does the Pi 4 even use bootcode.bin? I thought all Pis used the same boot files.
+- I formatted an SD card and put bootcode.bin on it but it's still not booting. What am I missing?
+- My USB drive isn't being detected when I boot. Is there anything I can do to give it more time to initialize?
+- I've got a Pi 3A+ and I want to boot it over the network. Can I do that?
+- What format does the SD card need to be for the bootcode.bin method to work?
+- So if I have a Pi 4, do I just ignore all the bootcode.bin stuff completely?
+
+# `bootcode.bin` UART Enable
+
+- My Pi isn't booting and I want to see what's going wrong. How do I get some kind of debug output during boot?
+- How do I know if my version of bootcode.bin even supports UART?
+- I want to enable UART in bootcode.bin — is that something I have to edit manually or is there a command for it?
+- What pins do I need to connect to for serial output on my Raspberry Pi?
+- I'm on Windows and I want to connect to the Pi's serial output. What program do I use?
+- What baud rate do I need to set to read the bootcode.bin serial output?
+- I've enabled UART in bootcode.bin but I'm not sure what to connect it to on my laptop. What's the easiest way to do this?
+- Does the UART debug stuff work on Pi 4 or just older models?

@@ -1,0 +1,25 @@
+# Whole Document
+
+- What's the difference between rpicam-apps and rpicam-apps-lite?
+- Do I need to install the camera software myself or does it come with Raspberry Pi OS?
+- I'm using Raspberry Pi OS Lite and I want to use the camera. Is the software already on there?
+- What camera apps come pre-installed on a Raspberry Pi?
+
+# Install `libcamera` and `rpicam-apps`
+
+- I've got the regular Raspberry Pi OS, not the Lite version. Is rpicam-apps already installed or do I need to get it myself?
+- I'm on Raspberry Pi OS Lite and trying to use the camera preview on my desktop but it's not working. Why?
+- What's this lite version of rpicam-apps missing compared to the full one?
+- I just want to use my Pi camera without a desktop environment. Which version of the software do I need?
+
+# Dependencies
+
+- Do I need to manually install all the extra libraries that rpicam-apps needs or does that happen automatically?
+- I'm installing rpicam-apps and I'm worried about missing libraries. Do I have to hunt those down myself?
+- What are those library packages it depends on? Do I need to install them myself?
+
+# Dev packages
+
+- I want to rebuild rpicam-apps but I really don't want to have to rebuild libcamera from scratch. Is that possible?
+- Can I recompile the camera apps without doing a full libcamera build?
+- I made some changes and need to rebuild rpicam-apps. Do I have to rebuild everything including libcamera or can I skip that part?

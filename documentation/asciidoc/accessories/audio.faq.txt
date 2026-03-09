@@ -1,0 +1,97 @@
+# Overview
+
+What's the difference between all these audio boards? Like which one should I get?
+
+Which board do I need if I want to connect regular hi-fi speakers, not ones with a built-in amp?
+
+Does any of these boards have a built-in microphone?
+
+What's the highest audio quality I can get from a Raspberry Pi audio board?
+
+I've got headphones with like 80 ohm impedance — will these boards actually drive them properly?
+
+What's a balanced output? Do I need that or is it just for studios?
+
+I want to connect my Raspberry Pi audio board to my existing hi-fi amplifier. Which output should I use?
+
+What's the difference between line out and aux out? They both seem to do the same thing.
+
+What's XLR? I keep seeing it mentioned but I don't know what it is.
+
+I want to record audio from my phone into my Raspberry Pi. Can any of these boards do that?
+
+The Codec Zero sounds interesting — what kind of projects is it good for?
+
+Can I connect a normal mono speaker, like from a transistor radio, to one of these boards?
+
+# Configuration
+
+I just plugged in my audio HAT and I'm not sure if the Pi detected it. How do I check?
+
+I'm running Raspberry Pi OS headless and there's no desktop. How do I set the audio HAT as the default audio device?
+
+How do I switch between the Pi's built-in audio and the HAT audio?
+
+I need to disable the onboard audio on my Pi so the HAT takes over. How do I do that?
+
+I edited the config.txt file but I'm not sure I saved it right. What are the steps again?
+
+My audio board is the old black IQaudIO one, not the green Raspberry Pi branded one. Do I need to do anything different?
+
+How do I tell if my board is the newer Raspberry Pi version or the old IQaudIO version?
+
+I've got the Codec Zero and I want to use the built-in microphone. What do I need to set up?
+
+My Codec Zero settings keep resetting every time I reboot. How do I make them stick?
+
+I want my Codec Zero to automatically use the right microphone and speaker settings on startup. How do I do that?
+
+I'm using the Codec Zero without a desktop and I want it to be the default audio device. What do I need to do?
+
+Wait, should I create that .asoundrc file or not? I'm confused about when I actually need it.
+
+I plugged in my external mic to the Codec Zero and now the built-in mic stopped working. Is that normal?
+
+The DigiAMP+ starts up muted every time. How do I get it to automatically unmute when I start playing audio?
+
+How do I mute and unmute the DigiAMP+ from the command line?
+
+Do I need to solder anything to attach the audio HAT to my Pi?
+
+I'm getting a "Remote I/O error" when I run the alsactl restore command. Is that serious?
+
+# Getting Started
+
+I want to build the chatter box project. What hardware do I actually need?
+
+How does the chatter box know when to record versus when to play something back?
+
+How do I make my Python script run automatically every time the Pi boots up?
+
+I want to record audio on the Codec Zero. What command do I use?
+
+The chatter box project sounds cool — can I add an LED that lights up when it's recording?
+
+# Hardware Information
+
+Can I use other GPIO pins for my own sensors if I've got an audio HAT attached?
+
+What size screws do I need for mounting these audio boards?
+
+What power supply do I need for the DigiAMP+?
+
+# Whole Document
+
+I'm a complete beginner. Which Raspberry Pi audio board should I just start with?
+
+Do these audio boards work with all Raspberry Pi models?
+
+Do I need to install any special drivers or do these boards just work when I plug them in?
+
+I've heard of ALSA and AlsaMixer but I don't really know what they are. Do I need to understand them to use these boards?
+
+How do I save my audio mixer settings so they don't get lost when I reboot?
+
+I'm using Music Player Daemon and the volume control isn't working with my DAC board. How do I fix that?
+
+How do I update the firmware on my audio HAT?

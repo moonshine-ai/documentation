@@ -1,0 +1,50 @@
+# Whole Document
+
+- What's Unicam? I keep seeing that word in the Pi camera docs.
+- I've got a Raspberry Pi 5 and I'm trying to hook up two cameras. Is that actually possible?
+- What's the difference between a regular Pi and a Compute Module when it comes to camera connections?
+- I want to connect a non-standard camera to my Pi. Where do I even start?
+- Do I need special software to use the camera interface on a Pi?
+
+# Software interfaces
+
+- I heard there used to be other ways to talk to the camera hardware. Are those still supported?
+- Do I need libcamera installed to use V4L2 with the camera? Or can I skip that?
+- What kernel module handles the camera on a Raspberry Pi?
+- So the Pi just dumps raw camera frames into memory with no processing? Is that right?
+- I've got a Sony IMX477 — is that the HQ camera? Will it work with a regular Pi?
+- What cameras work out of the box with a Raspberry Pi?
+- I want to connect an HDMI source to my Pi's camera port. Is there a chip or adapter that does that?
+- Can I connect an analog video source, like an old composite camera, to my Raspberry Pi?
+
+# Write a third-party driver
+
+- I've got a camera that's not on the supported list. Can I write my own driver for it?
+- Do I have to share the source code if I write a kernel driver for my Pi camera? Or can I keep it private?
+- I want to write a driver for a new camera sensor. What's a good existing driver to base it on?
+- What controls does a typical camera sensor driver need to support? Like exposure and gain and stuff?
+- How does the driver actually flip the image horizontally or vertically? Is there a control for that?
+- I want to output a test pattern from my camera sensor for debugging. Is there a way to do that?
+- Where do I find the Device Tree overlay for the IMX219 camera?
+- What parameters do I need to set in Device Tree for a camera sensor?
+
+# Bridge chips
+
+- I want to capture HDMI video on my Pi. What hardware do I need for that?
+- What's the difference between how you handle an analog video source versus a digital one like HDMI?
+- I'm getting corrupted images from my analog video bridge. What might cause that?
+- How do I make sure the video format is set correctly before I start streaming from an HDMI bridge?
+- Can my Pi automatically detect when the HDMI input source changes?
+- I've got an ADV7282-M chip. How do I load the driver for that?
+- I want to capture analog composite video on my Pi. What chip should I be looking at?
+- Does the ADV728x support interlaced video? I'm getting weird output.
+- I'm trying to use the TC358743 for HDMI capture. What's the max resolution it can handle?
+- I'm using the TC358743 with only two CSI-2 lanes. Can I still do 1080p60?
+- How do I tell the TC358743 what resolutions my Pi can accept over HDMI?
+- How do I set the EDID for the TC358743 so it negotiates the right resolution?
+- How do I match the driver settings to whatever's coming in over HDMI?
+- I want to capture HDMI audio as well as video on my Pi. Is that possible with the TC358743?
+- What wiring do I need to get audio from the Auvidea B101 board into my Pi's 40-pin header?
+- What overlays do I need in config.txt to get HDMI audio capture working with the TC358743?
+- I'm recording audio from the TC358743 but getting warnings. What's going on?
+- How do I check what sample rate the incoming HDMI audio is using?

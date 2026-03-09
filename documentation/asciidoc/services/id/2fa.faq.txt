@@ -1,0 +1,39 @@
+# Whole Document
+
+What's two-factor authentication and do I need it for my Raspberry Pi account?
+
+How do I make my Raspberry Pi ID more secure?
+
+I've never set up 2FA before. Is it hard to do on a Raspberry Pi account?
+
+# Enable Two-factor authentication
+
+What's a TOTP and why does Raspberry Pi ID use it?
+
+So I need my phone to log into my Raspberry Pi ID now? How does that work?
+
+I've got an iPhone. Can I use iCloud Keychain instead of downloading a separate app?
+
+# Install a 2FA application
+
+What app should I use for two-factor authentication with my Raspberry Pi ID?
+
+Does it matter which 2FA app I use, or will any of them work?
+
+I don't have Google Authenticator. What else can I use?
+
+# Enable 2FA
+
+How do I actually turn on two-factor authentication for my Raspberry Pi ID?
+
+I'm in my Raspberry Pi ID account. Where do I go to set up 2FA?
+
+I scanned the QR code with my app but I'm not sure what to do next. Where do I enter the code?
+
+Wait, after I set it up there was a recovery code. What's that for and where should I keep it?
+
+What happens if I lose my phone? Can I still get into my Raspberry Pi account?
+
+I didn't save my recovery code. Is there another way to get back into my account if I lose my 2FA app?
+
+I set up 2FA but now I want to turn it off. Can I do that?

@@ -1,0 +1,42 @@
+# Whole Document
+
+- I'm trying to attach a touchscreen LCD to my Compute Module. Where do I even start?
+- Do I need to update my software before hooking up the touch display, or can I just plug it in?
+- What's the difference between setting up Touch Display 1 and Touch Display 2 on a Compute Module?
+
+# Connect a display to DISP1/DSI1
+
+- I want to connect my display to the DISP1 port on my Compute Module IO board. What do I do?
+- I've got a CM4S and I'm trying to wire up a display. Which GPIO pins do I need to jumper together?
+- Wait, can I use the Raspberry Pi Zero camera cable instead of that display adapter? It looks like it fits.
+- I connected the display to DISP1 but nothing's showing up. Did I forget a step in config.txt?
+- What do I add to config.txt to get the 7 inch touch display working on DSI1?
+- I've got a CM5 and I'm not sure which jumpers to add. Where does it tell me which ones to use?
+- After I connect the display and change config.txt, do I need to reboot for it to show up?
+
+# Connect a display to DISP0/DSI0
+
+- How do I connect my display to DSI0 instead of DSI1 on my CM4?
+- For CM1 and CM3, which GPIO pins do I jumper when using the DISP0 port?
+- What's the config.txt line I need if I'm using the display on DSI0 instead of DSI1?
+- My CM4 IO board has a J6 jumper block for DISP0. How do I know which jumpers to add?
+
+# Disable touchscreen
+
+- I want to use the screen but turn off the touch part. How do I do that?
+- What do I put in config.txt to disable just the touchscreen without turning off the display?
+- Do I need to do anything special to get the touchscreen working, or does it just work when I plug it in?
+
+# Disable display
+
+- I've got the touch display connected but I want the Compute Module to just ignore it completely. How do I do that?
+- What's the config.txt setting to make it act like there's no display attached at all?
+
+# Attaching the Touch Display 2 LCD panel
+
+- What sizes does the Touch Display 2 come in?
+- I've got the 5 inch Touch Display 2. What overlay do I add to config.txt to get it working on DISP1?
+- How is setting up Touch Display 2 on a Compute Module different from the original Touch Display?
+- I want to use Touch Display 2 on DSI0 instead of DSI1. What do I change in config.txt?
+- I've got the 7 inch Touch Display 2 and I want it on DSI0. What's the full overlay line I need?
+- Do I still need to mess with the J6 jumpers when using Touch Display 2?

@@ -1,0 +1,48 @@
+# Whole Document
+
+- What is HTTP boot on Raspberry Pi and how does it work?
+- Can I boot my Pi over the network using HTTP?
+- I want to boot my Pi from files on my own web server. Is that possible?
+- What do I need to get HTTP boot working on my Raspberry Pi?
+- I'm trying to set up network boot. Do I need a WiFi connection or does it have to be wired?
+
+# HTTP boot
+
+- What's the difference between network install and HTTP boot mode?
+- I want HTTP boot to kick in only as a backup if everything else fails. How do I set that up?
+- Can I trigger HTTP boot using a GPIO pin?
+- I disabled network install but I still want to use HTTP boot sometimes. Is that allowed?
+- What are those `boot.img` and `boot.sig` files that get downloaded during HTTP boot?
+- I put boot mode 7 in my boot order but it's being ignored. What's going on?
+
+# Requirements
+
+- What version of bootloader do I need for HTTP boot to work?
+- My Pi is pretty old. Do I need to update anything before I can use HTTP boot?
+- I want to use my own certificates for HTTP boot. Does every Pi support that or just certain ones?
+- Do I need to update my bootloader to use custom certificates, and if so how old is too old?
+
+# Keys
+
+- How do I host the Raspberry Pi network install image on my own server?
+- I want to use my own server for network install but I'm not sure how signing works. Can you walk me through it?
+- I updated my EEPROM and now my public key is gone. What happened and how do I fix it?
+- What tool do I use to add a public key to the EEPROM?
+- How do I sign my own boot image with my private key?
+- Where do I put the `boot.img` and `boot.sig` files once I've signed them?
+
+# Certificates
+
+- How do I set up HTTPS instead of HTTP for network boot downloads?
+- I want to download OS images from my own website securely. How do I add my own certificate to the Pi?
+- What format does the certificate need to be in to add it to the EEPROM?
+- How do I generate a hash of my certificate and where does it go?
+- What's the difference between using HTTP and HTTPS during network boot and how does the Pi decide which one to use?
+- I set up my own server for network boot. How do I check in the boot output that it's actually using HTTPS?
+
+# Secure boot
+
+- If I've got secure boot turned on, can I still use network install?
+- I enabled secure boot and now network boot isn't working. What do I need to do?
+- Does my `boot.img` need to be signed if secure boot is on?
+- I turned on secure boot but didn't set HTTP_HOST. Why did network install stop working?

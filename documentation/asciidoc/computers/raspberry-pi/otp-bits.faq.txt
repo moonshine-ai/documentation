@@ -1,0 +1,30 @@
+# Whole Document
+
+What's OTP memory on a Raspberry Pi and do I need to worry about it?
+How do I see what's stored in the OTP memory on my Pi?
+Wait, what does "one-time programmable" actually mean? Like once it's written it can never be changed?
+I just want to dump all the OTP contents. What command do I run?
+
+# OTP registers on non-BCM2712 devices
+
+How do I know if secure boot is turned on or off on my Pi?
+My Pi 4 ignores the boot mode stuff in OTP — is that normal or did I break something?
+I've got a Compute Module 4 and I want to know if it has Wi-Fi built in. How do I check that from the OTP?
+What's the difference between register 28 and register 29 in OTP? Why does one seem like the opposite of the other?
+I want to know my Pi's serial number. Which OTP register has that?
+There are these customer OTP values — what are those even for? Can regular people use them?
+Where does the revision code live in OTP, and what can I actually do with it?
+I've got a Raspberry Pi 400 and I want to know what keyboard country code it's set to by default. Where do I find that?
+Does the Pi use a custom MAC address if I set one in OTP, or does it just always generate one from the serial number?
+What happens if I try to program OTP twice? Is it actually permanent?
+
+# OTP Registers on BCM2712 devices
+
+I've got a Pi 5 — how do I disable USB booting from OTP?
+Where's the serial number stored on BCM2712 devices? I heard it's split across two registers or something.
+How do I find my Pi's full 64-bit serial number from the operating system without using the OTP dump?
+Where does my Pi 5 get its Wi-Fi MAC address from? Is that in OTP too?
+I want to override the Ethernet MAC address on my Pi 5 with a custom one. Can I do that?
+What's this factory device UUID thing? Is that the same as the serial number or something different?
+Where can I find the UUID in the device tree on a BCM2712 Pi?
+My Pi 5 has a Bluetooth MAC address — where's that stored and how does the OS know about it?

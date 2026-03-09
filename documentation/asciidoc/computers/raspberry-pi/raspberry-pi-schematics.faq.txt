@@ -1,0 +1,49 @@
+# Whole Document
+
+- Where can I find the schematics and mechanical drawings for my Raspberry Pi?
+- I'm designing a case for my Pi. Where do I get the official dimensions?
+- Do you have STEP files for any of the Raspberry Pi boards? I need one for CAD.
+- Which Pi models have official case drawings available?
+
+# Raspberry Pi 5
+
+- Where do I find the mechanical drawings for the Pi 5?
+- I need a STEP file for the Raspberry Pi 5 for a 3D design project. Where do I get that?
+
+# Raspberry Pi 4 Model B
+
+- Where can I get the schematics for the Pi 4 Model B?
+- I need the dimensions for the Pi 4 to design a mounting bracket. Is there a DXF file or something?
+- What revision are the Pi 4 Model B schematics on?
+
+# Raspberry Pi 3 Model B+
+
+- Are there case drawings available for the Pi 3 Model B+?
+- I need the schematics for the Pi 3 B+. Where do I find those?
+- Does the Pi 3 B+ have DXF mechanical drawings, or just PDF?
+
+# Raspberry Pi 3 Model A+
+
+- Where do I get the schematics for the Pi 3 Model A+?
+- Are there case drawings for the Pi 3 A+?
+
+# Raspberry Pi 1 Model A+
+
+- I've got a Pi 1 Model A+ and I need the mechanical drawings. Where do I find those?
+- Wait, do the Pi 1 Model A+ and the Pi 3 Model A+ share the same mechanical drawings?
+
+# Raspberry Pi Zero 2 W
+
+- Where can I find the schematics for the Pi Zero 2 W?
+- What are those test pads on the bottom of the Pi Zero 2 W? What are they actually for?
+- I'm trying to reset my Pi Zero 2 W. Which test pad do I connect to ground to do that?
+- Where exactly is the 5V test pad on the Pi Zero 2 W? Like, what are the coordinates?
+- What's the STATUS_LED test pad do on the Zero 2 W? Is low on or off?
+- I want to check the Bluetooth power status on my Zero 2 W. Is there a test pad for that?
+- Is there a test pad position document for the Pi Zero 2 W?
+
+# Raspberry Pi Zero
+
+- Does the Pi Zero have case drawings available? I want to 3D print a case for it.
+- Are there different case drawing versions for the Pi Zero depending on what lid I want?
+- Where do I find the schematics for the original Pi Zero?

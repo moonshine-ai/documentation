@@ -1,0 +1,25 @@
+# Create a Raspberry Pi ID
+
+What's a Raspberry Pi ID and do I actually need one?
+
+I want to use Raspberry Pi services but I don't have an account yet. Where do I go to make one?
+
+How do I sign up for a Raspberry Pi account?
+
+I made my account but I never got a verification email. What should I do?
+
+I clicked the verify button in the email but nothing happened. Did it work?
+
+Do I need a separate account for each Raspberry Pi service or is one login enough?
+
+I verified my email and now I'm trying to log in. What button am I looking for?
+
+What website do I go to to create a Raspberry Pi ID?
+
+I'm trying to sign up but it won't let me. Do I need a specific kind of email address?
+
+# Whole Document
+
+I keep hearing about Raspberry Pi services but don't know where to start. Do I need an account for all of them?
+
+Is there a Raspberry Pi account system or do different services have different logins?

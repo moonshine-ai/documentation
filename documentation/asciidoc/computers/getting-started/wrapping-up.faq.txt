@@ -1,0 +1,29 @@
+# Whole Document
+
+- I just got my Raspberry Pi set up. What do I do next?
+- I'm new to this. Where do I even start after the initial setup?
+
+# Recommended Software
+
+- What apps come pre-installed on Raspberry Pi OS?
+- How do I find and install extra software on my Raspberry Pi?
+- Where's the package manager? I can't find it anywhere.
+- I want to install some extra stuff. Is there like an app store or something on Raspberry Pi OS?
+- I need to write documents on my Pi. Is there anything like Microsoft Word available?
+- Is LibreOffice free to install on the Raspberry Pi?
+- I have trouble seeing the screen clearly. Are there any accessibility tools I can get for Raspberry Pi OS?
+- What's Orca and do I need it?
+- I clicked the raspberry icon but I'm not sure where to go from there. How do I get to the recommended software list?
+
+# Tutorials
+
+- I want to learn to code on my Raspberry Pi. Where should I start?
+- Are there beginner projects I can follow along with?
+- I want to do something fun with my Pi, like build a project or something. Where do I find ideas?
+- Can my Raspberry Pi control external devices? How would I even learn to do that?
+
+# Support
+
+- I'm having trouble with my Raspberry Pi and I don't know who to ask. Where can I get help?
+- Is there a community forum where I can talk to other Raspberry Pi users?
+- Where do I go if something's not working right with my Pi?

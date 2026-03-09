@@ -1,0 +1,147 @@
+# Whole Document
+
+- What even is Raspberry Pi Connect and how does it work?
+- I want to control my Pi from somewhere else. What do I need to set that up?
+- Does Connect come pre-installed or do I have to install it myself?
+- My Pi needs to be running Bookworm for this to work, right? How do I know what version I'm on?
+- Is this thing secure? Like, can anyone else see what I'm doing on my Pi?
+- What's the difference between Connect and Connect Lite?
+- I'm worried about privacy. Does Raspberry Pi see my screen when I use Connect?
+
+# Introduction
+
+- So Connect works through a browser? I don't need to install any app on my phone or laptop?
+- What happens if it can't connect directly? Does it just fail or is there a backup?
+- I've got Connect Lite but I want screen sharing too. What do I need to change?
+- Do I need to open any ports on my router to get this working?
+
+# Manually start and stop Connect
+
+- How do I turn Connect on from the command line?
+- I want to temporarily disable Connect. How do I shut it off without uninstalling it?
+- What's the command to start Connect again after I've turned it off?
+
+# Link a Raspberry Pi device with a Connect account
+
+- I just installed Connect. Now what? How do I actually link it to my account?
+- I don't have a Raspberry Pi ID yet. Where do I go to make one?
+- I'm trying to link my Pi from the command line. What do I run?
+- What's an auth key and why would I use one instead of just signing in normally?
+- My auth key expired before I could use it. How long do they last and can I make a new one?
+- I saved my auth key to a file. How do I use that file when signing in?
+- I set up my Pi with Imager. Do I still need to manually link it to Connect?
+
+# Finish linking your Raspberry Pi
+
+- After I sign in, it's asking me to name my device. Does the name matter or can I put anything?
+- I got an email saying a new device was added to my account but I didn't do it. What should I do?
+- How do I know if my Pi is actually signed in and connected? Is there some indicator?
+- I'm an admin of an organization. Can I add the Pi to the org instead of my personal account during setup?
+
+# Access your Raspberry Pi device
+
+- How do I actually get to my Pi once it's set up with Connect?
+- I've got multiple Pis linked. How do I pick which one to connect to?
+
+# Screen sharing
+
+- How do I share my Pi's screen to my browser?
+- I can't see the screen sharing option for my device. Why not?
+- I'm on Raspberry Pi OS Lite. Can I use screen sharing?
+- My Pi is using X instead of Wayland. Will screen sharing work?
+- How do I copy and paste text between my computer and my Pi's screen?
+- I've got two monitors on my Pi. Which one does Connect share?
+
+# Stop screen sharing
+
+- How do I disconnect from the screen sharing session when I'm done?
+
+# Disallow screen sharing
+
+- I want to keep Connect running but turn off the screen sharing part. Can I do that?
+- What's the command to disable screen sharing from the terminal?
+- I turned off screen sharing earlier. How do I turn it back on?
+
+# Remote shell
+
+- Can I get a terminal on my Pi through Connect without screen sharing?
+- I'm trying to copy something in the remote shell but Ctrl+C isn't working. What do I do?
+- I ran a background process in a remote shell session and then disconnected. Did it keep running?
+- How do I keep things running between remote shell sessions?
+
+# End your remote shell session
+
+- How do I close the remote shell when I'm done?
+
+# Disallow remote shell access
+
+- I want to block remote shell access but stay signed in to Connect. Is that possible?
+- What command turns off remote shell access?
+- I accidentally turned off remote shell. How do I get it back?
+
+# Enable remote shell at all times
+
+- I rebooted my Pi and now I can't connect to it remotely anymore. What happened?
+- My Pi is headless and I'm worried I'll lock myself out after a reboot. How do I prevent that?
+- What's user-lingering and why do I need it?
+- How do I make Connect stay running even when nobody's logged into the Pi?
+
+# Disable the animated icon
+
+- The Connect icon keeps spinning whenever I'm in a session and it's distracting. Can I turn that off?
+- How do I stop the taskbar icon from animating during a remote session?
+
+# Manage devices
+
+- I want to rename one of my devices in Connect. How do I do that?
+- How do I remove a device from my Connect account?
+- If I delete a device from Connect, does it sign out of Connect on the Pi itself too?
+
+# Update
+
+- How do I update Connect to the latest version?
+- I've got Connect Lite installed. Does the update command change?
+
+# Disconnect a device from Connect
+
+- How do I sign my Pi out of Connect from the command line?
+- What's the difference between signing out and actually removing the device from my account?
+
+# Uninstall
+
+- How do I completely remove Connect from my Pi?
+- I uninstalled Connect but my device is still showing up on the dashboard. Is that normal?
+- If I reinstall Connect on the same Pi later, will it remember the old device name?
+
+# Connect for Organisations
+
+- What's Connect for Organisations and is there a free trial?
+- How do I create an organization in Connect?
+- I want to invite someone to my organization. How do I do that and what permissions can I give them?
+- What's the difference between a Member and an Administrator in an organization?
+- I want to move a Pi from my personal account to an organization. How do I do that?
+- How does billing work after the free trial ends?
+- What happens to my devices if the trial ends and I haven't set up billing yet?
+- I want to see what's been happening in my organization. Is there a log or something?
+- How far back does the audit log go?
+- What's a management API access token and what can I do with it?
+
+# Troubleshooting
+
+- My Pi says screen sharing isn't available. How do I figure out what's wrong?
+- There's a command to diagnose Connect problems, right? What is it?
+- I restarted my Pi and now I can't connect to it through Connect. What went wrong?
+- Connect seems to be blocked on my work network. How do I know for sure and what ports need to be open?
+- How do I check if Connect is actually running and signed in?
+- I want to see detailed logs for Connect. How do I turn on debug mode?
+- Where do I look to see Connect's logs?
+- I'm trying to upgrade Connect but it keeps dropping my remote shell connection when I do. How do I handle that?
+- I'm upgrading from version 1 to version 2 of Connect. Is there anything special I need to do?
+- Screen sharing works sometimes but not after I end an SSH session. Why does that happen?
+
+# Security
+
+- How is the connection actually encrypted? Is it like VPN or something?
+- Can Raspberry Pi staff see my screen when I'm using Connect?
+- What happens to my data when it goes through one of their relay servers?
+- Does the connection go through Raspberry Pi's servers or is it direct?

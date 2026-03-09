@@ -1,0 +1,55 @@
+# Whole Document
+
+- What's different about how the Raspberry Pi 4 boots compared to older models?
+- I've got a Pi 4 and I'm trying to understand how it boots. Where does it load the bootloader from?
+- What even is an EEPROM and why does the Pi use it for booting?
+- My Pi isn't booting and I don't know where to start. What's the order it tries things in?
+
+# First Stage Bootloader
+
+- What's the very first thing that happens when a Raspberry Pi 4 powers on?
+- What's `recovery.bin` and when does my Pi use it?
+- If the SPI EEPROM is corrupted or missing, what does the Pi do?
+- My Pi is stuck and won't boot. Does it keep retrying USB boot or does it just give up?
+- What's `nRPIBOOT` and do I need to worry about it?
+- So if the EEPROM fails to load, does the Pi just hang forever or does it try something else?
+
+# Second Stage Bootloader
+
+- What order does the Pi try different boot sources, like SD card versus USB versus network?
+- I want my Pi to boot from USB. How does the bootloader know to try that?
+- My Pi shows an error pattern on the LED and won't boot. What does that mean?
+- What's BOOT_ORDER and how do I change it?
+- Can my Pi boot from an NVMe drive? How does that work?
+- What happens if none of the boot modes work? Does it just restart and try again?
+- How does network booting work on the Pi? Like what protocols does it use?
+- What's RPIBOOT mode and when would I use it?
+- I want my Pi to shut off completely when it halts instead of just sleeping. Is there a setting for that?
+- What's `WAKE_ON_GPIO` and how do I use it to wake my Pi up?
+
+# Differences on Raspberry Pi 5
+
+- On a Pi 5, how do I wake it up from sleep? Is it still GPIO 3 like older models?
+- My Pi 5 isn't booting from USB. Is USB boot disabled by default or something?
+- I've got a Pi 5 on a 3A power supply and USB boot isn't working. What do I do?
+- Does the Pi 5 still use `start.elf` for booting or did they change that?
+- If I press the power button to enable USB boot on my Pi 5, will that setting stick after a reboot?
+
+# Bootloader Updates
+
+- How does the Pi update its own bootloader? Does it happen automatically?
+- What's `pieeprom.upd` and when does it get used?
+
+# Fail-safe OS Updates (tryboot)
+
+- What's `tryboot` and why would I use it?
+- I want to test an OS update but make sure my Pi falls back to the old one if it crashes. How do I do that?
+- How do I actually trigger `tryboot`? What's the command?
+- If my Pi crashes during a `tryboot` update, will it go back to normal on the next reboot automatically?
+- Does `tryboot` work on all Pi models or just newer ones?
+- I've got an older Pi 4 revision 1.0. Are there any limitations with `tryboot` I should know about?
+
+# tryboot_a_b Mode
+
+- What's `tryboot_a_b` mode and how is it different from regular `tryboot`?
+- Why would I set `tryboot_a_b` to 1 in `autoboot.txt`? What does that actually do?

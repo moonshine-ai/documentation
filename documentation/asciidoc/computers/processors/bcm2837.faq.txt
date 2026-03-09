@@ -1,0 +1,31 @@
+# BCM2837
+
+What chip is in the Raspberry Pi 3 Model B?
+
+What's the difference between the BCM2837 and the BCM2836?
+
+My Pi 3 feels faster than my old Pi 2 — is it actually, and by how much?
+
+What speed do the ARM cores run at on the BCM2837?
+
+What's the VideoCore IV running at on this chip?
+
+I've got a Raspberry Pi 2 and I'm not sure which chip it has. Could it be a BCM2837?
+
+Where do I find the peripheral specs for the BCM2837? Does it have its own datasheet?
+
+What ARM architecture is the BCM2837 using — is it 32-bit or 64-bit?
+
+Is the BCM2837 still being made, or is it discontinued?
+
+I've got a Compute Module 3 — what chip does that use?
+
+# Whole Document
+
+What's a SoC and why does it matter which one my Pi has?
+
+I'm trying to pick between an older Pi 2 and a Pi 3 — what's actually different under the hood?
+
+My Raspberry Pi is pretty old and I'm wondering if the chip in it is still supported. How do I find out?
+
+Where can I look up the technical details for the processor in my Raspberry Pi 3?

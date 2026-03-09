@@ -1,0 +1,42 @@
+# SDK Setup
+
+- I'm on a Raspberry Pi and want to start coding for the Pico. What's the quickest way to get the toolchain set up?
+- Is there a setup script I can just run to get everything installed, or do I have to do it all manually?
+- Should I update my Raspberry Pi before running the setup script, or does it matter?
+
+# Raspberry Pi Pico C/C++ SDK
+
+- I've never used the Pico SDK before. Where do I even start?
+- Can I use Visual Studio Code with the Pico, or do I have to use the command line?
+- I'm building something for a Pico W, not a regular Pico. Do I need to do anything different when compiling?
+- I've got an Adafruit Feather RP2040, not an actual Pico. Can I still use the C++ SDK with it?
+- Where can I find example projects to look at while I'm learning?
+- Is the SDK source code open or do I have to pay for it?
+- I want to connect my Pico W to WiFi in my C project. How do I pass in my network name and password at build time?
+
+# Your First Binaries
+
+- I just got my Pico and I want to make the LED blink. How do I do that without writing any code yet?
+- How do I get my Pico into bootloader mode so I can drop a file onto it?
+- My Pico isn't showing up as a drive on my computer. What am I supposed to do?
+- What's the LED connected to on a regular Pico versus a Pico W? Are they different?
+- I want to try the Hello World thing but I don't know how to see the output. What do I need to install?
+- I ran the Hello World example but nothing's showing up in my terminal. What command do I use to connect to it?
+- What baud rate do I use when connecting to the Pico over serial?
+
+# Quick-start your own project
+
+- I want to start my own C project from scratch for the Pico. What do I actually need to install first?
+- How do I point my project to the Pico SDK? Do I clone it or install it some other way?
+- I don't really understand CMake. What's the bare minimum CMakeLists file I need to get a Pico project building?
+- I built my project and got a .uf2 and an .elf file. What's the difference and which one do I use?
+- How do I build for a Pico W instead of a regular Pico? Do I need to change something in CMake?
+- I want to print output over USB instead of the UART. Is there an example for that somewhere?
+- What's the simplest possible C program I can write for the Pico just to make sure everything's working?
+
+# Whole Document
+
+- I'm totally new to microcontrollers. Is the Pico a good place to start and how hard is it to get set up?
+- Do I need a Raspberry Pi to develop for the Pico, or can I use my regular Windows or Mac computer?
+- What programming languages can I use with the Pico? Is C++ the only option?
+- I've been using MicroPython but want to switch to C for my Pico project. Where do I start?

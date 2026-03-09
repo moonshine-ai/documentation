@@ -1,0 +1,39 @@
+# Boot Sequence
+
+What's the boot order on a Raspberry Pi 3? Like, what does it try first, second, and so on?
+
+My Pi 3 isn't booting from USB. Do I need to turn that on somewhere, or should it just work?
+
+How long does the Pi wait when there's no SD card before it gives up and tries USB?
+
+I want my Pi to boot faster from USB. Right now it's sitting there waiting because there's no SD card. Is there a way to skip that wait?
+
+I'm confused — what even is OTP memory? And why does it matter for booting?
+
+Does the boot sequence work the same way on a Pi 4 as it does on a Pi 3?
+
+Can a Raspberry Pi boot from a USB hard drive, or just USB flash drives?
+
+What's GPIO boot mode and why would I ever use it?
+
+My Pi is taking forever to boot from USB and I think it's because of a hard drive spinning up. Can I make it wait longer?
+
+Can the Pi boot from an Ethernet connection? Like without any SD card at all?
+
+What file does the Pi look for when it's trying to boot? I keep hearing about bootcode.bin but I'm not sure what it does.
+
+My Raspberry Pi Zero — can I boot it from a PC over USB?
+
+What's the difference between USB host boot and USB device boot? I don't really get the distinction.
+
+Does it matter which partition my boot files are on? Like does it have to be the very first partition on the drive?
+
+Can the Pi boot from a drive that's been partitioned on a Mac or Windows machine, or does it have to be formatted a specific way?
+
+# Whole Document
+
+I've got a Pi 3 and I want to boot from USB without an SD card. What do I actually need to do to set that up?
+
+What models does this boot sequence actually apply to? I want to make sure I'm reading the right info for my Pi.
+
+My Pi is just sitting there not booting and I don't know if it's trying SD, USB, or what. How does it decide what to try?

@@ -1,0 +1,61 @@
+# Whole Document
+
+How do I find out what my Raspberry Pi's IP address is so I can connect to it from my laptop?
+
+I need to SSH into my Pi but I don't know its IP address. What are my options for finding it?
+
+I've got my Pi running headless with no screen attached. How do I figure out what IP address it got?
+
+# Desktop
+
+I'm on the Raspberry Pi desktop and I just want to quickly see my IP address. What's the easiest way?
+
+Where do I hover to see my IP address on the desktop? Like is there a little icon somewhere?
+
+# Command Line
+
+What's the quickest command I can type to see my Pi's IP address?
+
+# Boot Output
+
+I boot my Pi straight to the command line instead of the desktop. Will it show me the IP address somewhere during startup?
+
+# Network Manager
+
+I want to see more details about my network connection, not just the IP. How do I do that?
+
+I ran that nmcli command and got a bunch of stuff back. How do I figure out which part has my actual IP address in it?
+
+I'm connected over WiFi, not ethernet. Which part of the nmcli output do I look at to find my IP?
+
+What's the difference between all those network interfaces showing up in the output? Like there's wlan0 and eth0 and lo, what are those?
+
+# Resolve `raspberrypi.local` with mDNS
+
+Can I just use a name instead of the IP address to reach my Pi? Like type in something memorable instead of a bunch of numbers?
+
+I changed my Pi's hostname and now raspberrypi.local doesn't work anymore. What address should I be using?
+
+I don't remember what I called my Pi when I set it up. How do I find it on the network without knowing the hostname?
+
+# Check your router's list of devices
+
+I don't want to mess with the command line at all. Can I just find my Pi's IP through my router somehow?
+
+I'm looking at my router's device list but I can't figure out which one is my Pi. Any tips for narrowing it down?
+
+# Find devices with `nmap`
+
+What's nmap and how do I use it to find my Pi on the network?
+
+I'm on a Mac and I want to use nmap to scan for my Pi. How do I set that up?
+
+I ran nmap but I don't know what subnet address to give it. How do I figure that out on Windows?
+
+How long does the nmap scan usually take? I don't want to sit here forever waiting.
+
+# Find devices with a smartphone app
+
+I don't have a laptop handy, just my phone. Is there an app I can use to find my Pi's IP address?
+
+I've got the Fing app open. What do I actually do to find my Raspberry Pi in the list?

@@ -1,0 +1,61 @@
+# Whole Document
+
+What's the Raspberry Pi TV HAT and what does it actually do?
+
+I want to watch live TV on my Raspberry Pi. Is that something I can do?
+
+Can I use the TV HAT to stream TV to other devices on my network instead of watching it on the Pi itself?
+
+I'm in the US. Will this TV HAT work for me?
+
+What Raspberry Pi models work with the TV HAT?
+
+I've got an older Raspberry Pi, like a first gen. Will the TV HAT work okay on it?
+
+# About
+
+What tuner chip does the TV HAT use?
+
+What TV standards does the TV HAT support?
+
+What frequencies does the TV HAT pick up?
+
+# About DVB-T
+
+What even is DVB-T? Do I need to understand it to use the TV HAT?
+
+I'm in Canada. Does this TV HAT support the TV standard used here?
+
+What countries can actually use this TV HAT?
+
+# Install
+
+How do I physically attach the TV HAT to my Raspberry Pi?
+
+What software do I need to install to actually watch TV with the TV HAT?
+
+How do I install TVHeadend on my Raspberry Pi?
+
+I installed TVHeadend but now it's asking me for an admin account name and password. What should I put?
+
+I've installed TVHeadend on my Pi. How do I actually access it from my laptop?
+
+I'm going through the TVHeadend setup wizard and there's a field for "Allowed network." Should I fill that in or leave it blank?
+
+How do I find my local TV transmitter during the TVHeadend setup?
+
+The TVHeadend setup is asking me to pick a network type. What should I choose for the TV HAT?
+
+How long does the channel scan take in TVHeadend?
+
+I finished scanning and got a bunch of services found. What do I do next to actually watch something?
+
+I want to watch a channel in my browser through TVHeadend. How do I do that?
+
+The video in the browser is really choppy and keeps stuttering. Is there a fix for that?
+
+Can I watch TV through VLC using the TV HAT?
+
+Are there any phone apps that work with TVHeadend on the Pi?
+
+How many channels can the TV HAT pick up at once? Like can it tune into multiple channels simultaneously?

@@ -1,0 +1,69 @@
+# Whole Document
+
+- I'm building a custom board with a Compute Module. Where do I even start when it comes to wiring up peripherals?
+- What's the difference between a Compute Module and a regular Raspberry Pi when it comes to connecting stuff to it?
+- I've got a Compute Module but I'm confused about how it boots. Can you walk me through what actually happens when it starts up?
+- Do I need to design my own motherboard to use a Compute Module?
+- What's the minimum power I need to supply to a Compute Module to get it working?
+
+# BCM283x GPIOs
+
+- How many GPIO pins does the BCM283x actually have?
+- I've heard I shouldn't use Bank 2 on the Compute Module. Why not?
+- How do I check if my GPIO pins are set up correctly and doing what I think they're doing?
+- Wait, so which GPIO banks am I actually allowed to use on a Compute Module?
+
+# BCM283x boot process
+
+- What actually runs first when a Compute Module powers on? Is it the CPU or something else?
+- I'm confused — what's the GPU got to do with booting? I thought that was just for graphics.
+- What's the difference between `bootcode.bin` and `start.elf`? When does each one run?
+- So `dt-blob.bin` gets read during boot — when exactly does that happen and why does it matter?
+- What happens if the Pi can't find `bootcode.bin` on boot?
+
+# Device Tree
+
+- What even is a Device Tree and why do I need one?
+- Should I make a full custom Device Tree for my Compute Module project or is there a better way?
+- What's a Device Tree overlay and how is it different from a regular Device Tree file?
+- Where does Raspberry Pi OS expect overlay files to live?
+- How do I tell the Pi to load my custom overlay on boot?
+- If I just use overlays instead of a custom Device Tree, can I still use the standard Raspberry Pi OS image?
+
+# dt-blob.bin
+
+- What's `dt-blob.bin` for? Is it the same as the regular Device Tree?
+- Do I need a `dt-blob.bin` for my Compute Module project or can I skip it?
+- What kinds of things go in `dt-blob.bin` that wouldn't go in a normal Device Tree?
+- How do I compile a `.dts` file into a `dt-blob.bin`? What tool do I use?
+- How do I install the Device Tree compiler on my Pi?
+- I've got a `.dts` file and I need to turn it into a `dt-blob.bin`. What's the exact command for that?
+
+# Arm Linux Device Tree
+
+- After `dt-blob.bin` is read, what happens next in the boot process?
+- Which Device Tree file does the Compute Module 3 use?
+- If `dt-blob.bin` and the Arm Device Tree both set GPIO states, which one wins?
+
+# Device Tree source and compilation
+
+- Where can I find the source files for the default Raspberry Pi Device Tree overlays?
+- I want to write my own overlay. Is there a good example I can start from?
+- How do I compile a `.dts` file into a `.dtb` file?
+
+# Device Tree debugging
+
+- My Device Tree doesn't seem to be working right. How do I see what the fully assembled tree actually looks like at runtime?
+- How do I check what functions my GPIO pins are currently set to?
+- Something's going wrong during boot and I think it's GPU-related. How do I see the GPU log messages?
+- I want even more detail in the boot diagnostics. Is there a way to turn that up?
+
+# Examples
+
+- I want to connect an I2C real-time clock to my Compute Module IO Board. How do I do that?
+- I've wired up an RTC to GPIO44 and 45 but I'm not sure how to configure the Device Tree for it. What do I need to change?
+- Why would I bother setting pin states in `dt-blob.bin` if Linux is just going to reconfigure them anyway during boot?
+- How do I verify my RTC is actually working after I've set everything up?
+- I want to add an ENC28J60 SPI Ethernet controller to my Compute Module. Do I need to write a custom overlay for that?
+- After I add the ENC28J60 overlay and reboot, how do I check that it's actually working and I've got network connectivity?
+- How do I confirm my SPI pins are set to the right function after adding the Ethernet controller overlay?

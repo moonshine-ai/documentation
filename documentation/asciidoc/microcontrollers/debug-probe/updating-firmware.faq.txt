@@ -1,0 +1,31 @@
+# Whole Document
+
+How do I update the firmware on my Debug Probe?
+
+What's the latest version of the Debug Probe firmware?
+
+I think I accidentally overwrote my Debug Probe firmware. How do I fix that?
+
+# Updating the firmware on the Debug Probe
+
+How do I check what firmware version my Debug Probe is running?
+
+I ran that lsusb command and it says bcdDevice 2.23 — what version is that actually?
+
+When I check openocd it says FW Version 2.0.0 — does that mean my firmware is out of date?
+
+Wait, the version number openocd reports is different from what lsusb shows. Which one's the real firmware version?
+
+Where do I download the firmware update for the Debug Probe?
+
+So I've got the UF2 file downloaded. How do I actually get it onto the Debug Probe?
+
+I plugged in my Debug Probe but nothing's showing up as a drive. What am I doing wrong?
+
+Do I need to hold the BOOTSEL button the whole time I'm copying the file, or just when I plug it in?
+
+After I copy the file over, does it install automatically or do I have to do something else?
+
+The RPI-RP2 volume disappeared while I was copying — did something go wrong or is that supposed to happen?
+
+How do I open up the Debug Probe casing to get to the BOOTSEL button?

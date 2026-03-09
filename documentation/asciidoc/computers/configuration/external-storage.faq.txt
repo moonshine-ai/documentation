@@ -1,0 +1,41 @@
+# Whole Document
+
+- I've got a USB hard drive I want to use with my Pi. How do I get started with that?
+- Does the Raspberry Pi support external storage like USB drives and SSDs?
+- I'm using the Lite version of Raspberry Pi OS and my USB drive isn't showing up automatically. Is that normal?
+- What file systems does the Pi actually support for external drives?
+
+# External Storage
+
+- I plugged in my USB drive and nothing happened. Where does it normally show up?
+- My drive just shows up automatically when I plug it in — where exactly does it mount to?
+- I'm on Pi OS Lite and my USB stick isn't automounting. What do I do?
+
+# Mount a Storage Device
+
+- How do I see what drives are connected to my Pi right now?
+- I want my external drive to always mount to the same folder. How do I do that?
+- I've got an exFAT drive but it's not working. Do I need to install something extra for that?
+- My NTFS drive is read-only and I want to be able to write to it too. How do I fix that?
+- How do I find out what partition name my USB drive got, like sda1 or whatever?
+- I just mounted my drive — how do I check it actually worked?
+- What folder should I put my mount point in? Is there a standard place people use?
+
+# Automatically Mount a Storage Device
+
+- How do I make my external drive mount automatically every time the Pi boots up?
+- What's a UUID and why do I need it to set up automounting?
+- How do I find the UUID of my drive?
+- I want to edit the fstab file but I'm not sure how to open it. What do I do?
+- My Pi takes forever to boot when I forget to plug in my external drive. Is there a way to make it give up faster?
+- I've got a FAT drive and I want all users to be able to read and write to it. Is there something extra I need to add to fstab?
+- If I set up automounting, can I still boot the Pi without the drive plugged in?
+
+# Unmount a Storage Device
+
+- How do I safely unplug my external drive without just yanking it out?
+- Do I have to unmount my drive before shutting down, or does the Pi handle that for me?
+- I tried to unmount my drive and it said "target is busy." What does that mean?
+- I'm getting a "target is busy" error when I try to unmount. How do I figure out what's using the drive?
+- How do I install lsof and what do I use it for?
+- I closed everything I can think of but my drive still won't unmount. What else can I try?

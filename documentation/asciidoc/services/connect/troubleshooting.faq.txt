@@ -1,0 +1,56 @@
+# Whole Document
+
+- I'm having a bunch of problems with Connect and I don't know where to start. What's the best way to diagnose what's wrong?
+- Does Connect have any known bugs I should know about before I start using it?
+- How do I check if Connect is actually running right now?
+
+# Known Issues
+
+- My Pi is connected to two monitors and Connect keeps sharing the wrong one. Is there a fix for that?
+- I can't type certain keyboard shortcuts into my Connect window. Is that a known thing or is something broken on my end?
+- I tried to upgrade rpi-connect from inside a remote shell session and it just dropped my connection. What happened?
+- I'm on version 1 of Connect and I want to upgrade to version 2. How do I do that without breaking everything?
+- I've got rpi-connect-lite installed and I want to switch to the full version. Do I just install it or is there something else I need to do first?
+- Does Connect work with on-screen keyboards, or do I need a physical keyboard plugged in?
+- What browsers work with Connect? I'm not sure if mine is new enough.
+
+# Screen Sharing Not Available
+
+- Connect keeps telling me screen sharing is unavailable. How do I figure out why?
+- There's a command to check if everything's working with screen sharing, right? What is it?
+- I ran the doctor command and got a bunch of X marks. What does that even mean and how do I fix it?
+- Screen sharing was working before and now it's not. How do I check what's going on with the services?
+- Do I need Wayland for screen sharing to work? I think I might be using X instead.
+- I'm using KDE on my Pi and screen sharing won't work. Is KDE the problem?
+- Nobody's logged into the desktop when my Pi boots up. Could that be why screen sharing isn't working?
+
+# Can't Connect After Restarting or Ending SSH Session
+
+- Every time I restart my Pi, Connect stops working and I can't get back in remotely. What's going on?
+- I closed my SSH session and now I can't connect at all. Why does that happen?
+- Is there a way to keep Connect running even when nobody's logged in?
+- I want screen sharing to just be available whenever I need it, even after a reboot. What do I need to set up?
+
+# Networking and Firewall Issues
+
+- Connect isn't working at my office and I think it might be the firewall. How do I check?
+- My network admin is asking me what ports Connect needs open. What do I tell them?
+- I ran the doctor command and the STUN and TURN checks are failing. What does that mean?
+- What's the difference between STUN and TURN in Connect? Do I need both?
+
+# View Connect Status
+
+- How do I check if I'm actually signed into Connect?
+- I think Connect might not be running. How do I check, and how do I start it if it's not?
+- How do I see how many active screen sharing or remote shell sessions there are right now?
+
+# Enable Enhanced Logging
+
+- Something's going wrong with Connect and I want to see more detailed logs. How do I turn on debug mode?
+- How do I enable verbose logging for rpi-connect?
+- I want to get more detail out of the WayVNC part of Connect specifically. How do I do that?
+
+# View Connect Logs
+
+- How do I actually read the Connect logs? Like what command do I run?
+- Where do Connect's logs live and how do I watch them in real time?

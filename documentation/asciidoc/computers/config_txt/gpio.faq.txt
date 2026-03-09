@@ -1,0 +1,43 @@
+# GPIO control
+
+## `gpio`
+
+How do I set a GPIO pin to a specific mode when the Pi boots up?
+
+I want GPIO 12 to be an output and start high at boot. How do I do that in config.txt?
+
+Can I set a whole range of GPIO pins at once, or do I have to do them one by one?
+
+I used to need a custom dt-blob.bin file to set up GPIO at boot. Is there an easier way now?
+
+What's the difference between `pu` and `pd` when setting GPIO pins?
+
+If I set the same GPIO pin twice in config.txt, which one wins?
+
+Can I use different GPIO settings depending on which Raspberry Pi model I'm using?
+
+I set up a GPIO pin in config.txt but it doesn't show up in sysfs. Why not?
+
+My GPIO settings in config.txt aren't kicking in right at boot — there seems to be a delay. Is that normal?
+
+The delay before my GPIO settings take effect is even longer than usual. I'm booting from USB. Could that be why?
+
+Can my GPIO settings from config.txt get overridden by something else later?
+
+How do I set a pin as an input with no pull resistor?
+
+I want to configure pins 17 through 21 all as inputs. Do I have to list them separately or can I do them all at once?
+
+## `enable_jtag_gpio`
+
+How do I enable the JTAG interface on my Raspberry Pi?
+
+Which GPIO pins get used when I turn on JTAG?
+
+Does `enable_jtag_gpio` work on all Raspberry Pi models or just certain ones?
+
+# Whole Document
+
+What do I put in config.txt to control GPIO pins at startup without writing custom firmware?
+
+I don't want to write a dt-blob.bin file just to set up some GPIO pins. Is there another way?

@@ -1,0 +1,163 @@
+# Edit the Configuration
+
+- How do I check what's currently in my bootloader's EEPROM config?
+- I want to change my bootloader settings. What command do I run to edit them?
+- Do I need to update anything before I mess with the EEPROM config?
+
+# BOOT_UART
+
+- How do I get debug output from the bootloader? Like, can I see what it's doing on startup?
+- I want to see bootloader messages through GPIO pins. How do I turn that on?
+
+# UART_BAUD
+
+- Can I change the speed of the bootloader's UART output on my Pi 5?
+
+# WAKE_ON_GPIO
+
+- I ran `sudo halt` and now my Pi won't wake up properly. What's the deal with the GPIO wake setting?
+- My Pi 5 has a power button. Do I still need to worry about that `WAKE_ON_GPIO` thing?
+
+# POWER_OFF_ON_HALT
+
+- I want my Pi to use as little power as possible when it's halted. How do I make it actually cut power instead of just idling?
+- I halted my Pi and now it won't turn back on without shorting some pins. Did I misconfigure something?
+- My HAT stopped working after I changed the halt power settings. Could that be a 5V issue?
+
+# WAIT_FOR_POWER_BUTTON
+
+- On my Pi 5, I want it to wait for me to press the power button instead of booting automatically when I plug it in. Is there a setting for that?
+
+# BOOT_ORDER
+
+- How does the Pi decide what order to try booting from? Like SD card first, then USB?
+- I want my Pi to try booting from USB before the SD card. How do I change that?
+- Can I set it up to try NVMe first and then fall back to USB?
+- What happens if none of the boot options work? Does it just hang?
+- What does that `0xf` mean at the start of a boot order value?
+- I want my Pi to keep looping through boot options instead of stopping if none work. How do I do that?
+
+# BOOT_WATCHDOG_TIMEOUT
+
+- My Pi sometimes gets stuck booting and I can't SSH in to fix it remotely. Is there a way to make it automatically restart if it can't boot?
+- What's a boot watchdog timer and should I be using one?
+
+# BOOT_WATCHDOG_PARTITION
+
+- If the watchdog resets my Pi because it couldn't boot, can I make it boot a recovery partition instead of trying the same thing again?
+
+# MAX_RESTARTS
+
+- I don't want my Pi looping through boot modes forever. Can I tell it to just do a hard reset after a certain number of tries?
+
+# SD_BOOT_MAX_RETRIES
+
+- My SD card sometimes fails on the first try but works on the second. Can I make the bootloader retry before giving up and trying USB?
+
+# SD_OVERCURRENT_CHECK
+
+- My Pi keeps detecting an overcurrent on the SD card but I think it's a false alarm. Can I disable that check?
+
+# NET_BOOT_MAX_RETRIES
+
+- My network isn't always up right when the Pi boots. Can I make it retry network boot a few times before giving up?
+
+# DHCP_TIMEOUT / DHCP_REQ_TIMEOUT
+
+- My network boot is really slow and I think it's timing out on DHCP. Can I make it wait longer?
+- How long does the Pi wait to get a DHCP address before giving up on network boot?
+
+# TFTP_FILE_TIMEOUT
+
+- My TFTP downloads keep failing because they're timing out. Can I increase that timeout?
+
+# TFTP_IP
+
+- I don't want my Pi to get the TFTP server address from DHCP. Can I just hardcode the IP?
+
+# TFTP_PREFIX
+
+- I've got multiple Pis doing network boot and I want each one to have its own boot folder. How does that work with TFTP?
+- How do I set the TFTP directory prefix to use MAC address instead of serial number?
+
+# Static IP address configuration
+
+- Can I skip DHCP entirely and just give my Pi a static IP for network booting?
+
+# DISABLE_HDMI
+
+- How do I turn off that bootloader diagnostics screen that shows up on HDMI?
+
+# HDMI_DELAY
+
+- That bootloader diagnostic screen flashes up briefly every time I boot and it's annoying. Can I make it not show at all during a normal boot?
+
+# ENABLE_SELF_UPDATE
+
+- Can my Pi update its own bootloader from a USB drive or over the network?
+
+# FREEZE_VERSION
+
+- I don't want my bootloader updating itself automatically. How do I lock it to the current version?
+
+# HTTP_HOST / HTTP_PORT / HTTP_PATH
+
+- Can I set up my Pi to do HTTP boot from my own server instead of Raspberry Pi's servers?
+- How do I point network install at a different server?
+
+# NET_INSTALL_ENABLED
+
+- What even is network install and how do I turn it off? It's adding a second to my boot time.
+- My Pi is in an embedded device and I want to disable that keyboard detection on startup. How do I do that?
+
+# NET_INSTALL_AT_POWER_ON
+
+- Every time I power on my Pi there's a brief network install screen. How do I stop that from showing?
+
+# NETCONSOLE
+
+- Is there a way to get bootloader debug messages sent over the network instead of UART?
+- How do I enable that NETCONSOLE thing for debugging boot problems remotely?
+
+# PARTITION
+
+- How do I make my Pi boot from a specific partition? Not the default one, like a recovery partition?
+- I've got a button I want to use to boot into a rescue partition. Is there a bootloader setting for that?
+
+# PARTITION_WALK
+
+- I'm setting up an A/B boot thing and I want the Pi to find a working partition automatically if the main one fails. Is there a setting for that?
+
+# PSU_MAX_CURRENT
+
+- My Pi 5 keeps complaining about the power supply. Can I just tell it to assume I've got a high-current supply?
+
+# USB_MSD_EXCLUDE_VID_PID
+
+- I've got a slow USB device that's messing up boot enumeration. Can I tell the bootloader to just ignore it?
+
+# USB_MSD_DISCOVER_TIMEOUT
+
+- My Pi times out trying to find my USB drive on boot because the drive takes ages to spin up. Can I give it more time?
+
+# USB_MSD_STARTUP_DELAY
+
+- My USB hard drive takes a while to initialize and the bootloader keeps giving up before it's ready. Can I add a delay before it starts looking?
+
+# XHCI_DEBUG
+
+- How do I turn on USB debug logging in the bootloader? I'm trying to figure out why my USB drive won't boot.
+
+# config.txt section
+
+- Can I put stuff in the bootloader EEPROM that automatically gets added to config.txt on every boot?
+- I want to apply a dtoverlay to every OS I run on this Pi without editing each one's config.txt. Is there a way to do that?
+
+# Whole Document
+
+- What even is the EEPROM on a Raspberry Pi and why would I need to edit its config?
+- How is the bootloader config different from config.txt?
+- I messed up my bootloader config and now my Pi won't boot. What do I do?
+- Can I use conditional filters in the bootloader config like I can in config.txt?
+- Where do I start if I want to change the boot order on my Pi?
+- My Pi 4 and Pi 5 — do they have the same bootloader settings, or are some things different between them?

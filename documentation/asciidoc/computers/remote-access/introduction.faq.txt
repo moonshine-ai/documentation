@@ -1,0 +1,29 @@
+# Whole Document
+
+- My Raspberry Pi is stuck in a wall and I can't plug in a monitor. How do I still use it?
+- I don't have a spare monitor for my Pi. What are my options for controlling it remotely?
+- What's the easiest way to access my Pi from another computer?
+- I've got my Pi running in a robot and I need to control it somehow. What do I do?
+
+# Remote control over the local network
+
+- What's the difference between SSH and VNC? Which one should I use?
+- I just want to see my Pi's desktop on my laptop. What do I need for that?
+- So do I need to know my Pi's IP address to connect to it remotely?
+- SSH, VNC, Raspberry Pi Connect — which one's easiest for a beginner?
+- I've heard of SSH but I don't really know what it does. What is it exactly?
+- Can I control my Pi from my phone if it's on the same wifi network?
+
+# Share files between devices over the local network
+
+- I don't want to fully control my Pi, I just want to grab some files off it. How do I do that?
+- What's the easiest way to copy files from my Pi to my laptop over wifi?
+- There's so many options — NFS, SCP, Samba, rsync. Which one should I just use to move files around?
+- I've heard of Samba but I thought that was a Windows thing. Does it work with Raspberry Pi?
+
+# Remote control over the Internet
+
+- Can I access my Pi when I'm away from home, not just on my local network?
+- What's Raspberry Pi Connect? Is it free?
+- I want to SSH into my Pi from outside my house. Is that safe to just open up to the internet?
+- What's a VPN and do I need one to remotely access my Pi from somewhere else?

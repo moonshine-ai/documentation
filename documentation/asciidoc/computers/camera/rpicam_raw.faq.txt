@@ -1,0 +1,18 @@
+# `rpicam-raw`
+
+- I want to record raw video straight from the sensor. How do I do that?
+- Does `rpicam-raw` show a preview while it's recording?
+- I recorded a raw file but I have no idea how to read it. How do I know what format the pixel data is in?
+- My raw recording is coming out as one massive file. Can I split it so each frame gets its own file?
+- I'm using the HQ camera and frames are getting dropped. What framerate should I stay under to avoid that?
+- Wait, can `rpicam-raw` save files as DNG? I want to edit them in a photo app.
+- How do I record a raw clip for just a couple of seconds?
+- I want each frame saved separately. What's that percent thing in the filename for?
+- How fast can the Pi actually write those big 12-megapixel raw frames to disk?
+- I'm recording at full resolution with the HQ camera and it keeps dropping frames. What do I do?
+
+# Whole Document
+
+- What's the difference between `rpicam-raw` and `rpicam-still` for capturing raw images?
+- I just want unprocessed sensor data, no encoding or anything. Which tool should I use?
+- Can I record raw frames without any preview window showing up?

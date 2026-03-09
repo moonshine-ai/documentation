@@ -1,0 +1,22 @@
+# Use `libcamera` from Python with Picamera2
+
+- What's Picamera2 and why would I use it instead of the old Picamera library?
+- I've got a Python project that needs to control the camera. What's the easiest way to do that?
+- Is Picamera2 already on my Raspberry Pi or do I have to install it?
+
+# Installation
+
+- How do I install Picamera2 on my Pi?
+- I'm using Raspberry Pi OS Lite and I want to use the camera in Python. Do I need to install anything extra?
+- I installed Picamera2 with pip a while back. Does that cause any problems if I try to install it the proper way now?
+- I don't need any graphical stuff, just the basic camera functionality. Is there a way to install it without all the extra GUI stuff?
+- Wait, can you still see a preview image on Lite even without the GUI dependencies installed?
+- My Pi OS image is pretty old and I don't think it came with Picamera2. How do I get it?
+- I accidentally installed Picamera2 with pip instead of apt. How do I fix that?
+
+# Whole Document
+
+- I used to use the old Picamera library in Python but I heard it's outdated. What should I switch to?
+- Where can I find the full docs for Picamera2? Is there like a manual or something?
+- I just want to control my Pi camera from a Python script. Where do I even start?
+- Does Picamera2 work on all versions of Raspberry Pi OS?

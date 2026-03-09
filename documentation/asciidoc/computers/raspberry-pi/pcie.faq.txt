@@ -1,0 +1,38 @@
+# Whole Document
+
+What's the PCIe connector on the Raspberry Pi 5 actually for?
+Where is the PCIe connector located on the Pi 5?
+I've never heard of PCIe before. Do I need to know about it for normal Pi use?
+Does my Pi 5 support PCIe, or is that only on newer models?
+
+# Raspberry Pi connector for PCIe
+
+I've got a HAT+ device — do I need to do anything special to get it working with PCIe, or does it just work?
+I'm trying to connect a non-HAT+ PCIe device to my Pi 5. It's not being detected. What do I need to do?
+What's an FPC connector? Is that the little ribbon cable slot thing on the Pi 5?
+I want to build my own PCIe accessory for the Pi. Where do I find the pinout information?
+Does every PCIe device work with the Pi 5, or are there some that won't work?
+
+# Enable PCIe
+
+My PCIe device isn't showing up and it's not a HAT+. How do I turn on the PCIe connector?
+So the PCIe port is just off by default? How do I switch it on?
+I added the PCIe line to config.txt but nothing happened. Do I need to restart?
+Is there a shortcut name I can use instead of typing out the full pciex1 parameter?
+
+# Boot from PCIe
+
+Can I boot my Pi 5 from an NVMe drive over PCIe?
+I've got an NVMe SSD connected via PCIe and I want it to be the boot drive. How do I set that up?
+I'm trying to boot from a PCIe device that isn't a HAT+. Is there something extra I need to do?
+How do I edit the bootloader settings to change the boot order on a Pi 5?
+What does that BOOT_ORDER number actually mean? Like why is it 0xf416?
+
+# PCIe Gen 3.0
+
+Can I run PCIe at Gen 3 speeds on my Pi 5?
+I heard Gen 3 PCIe is faster — should I just enable it for better performance?
+What's the difference between Gen 2 and Gen 3 PCIe speeds on the Pi 5?
+How do I enable PCIe Gen 3 on my Pi 5? Is there a setting somewhere?
+I enabled Gen 3 PCIe and things seem a bit unstable. Is that normal?
+Can I turn on Gen 3 PCIe through raspi-config instead of editing a file?

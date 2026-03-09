@@ -1,0 +1,29 @@
+# About
+
+What's the deal with SD card quality? Does it actually matter which one I use with my Raspberry Pi?
+
+Why would a slow SD card affect performance even on a really powerful Pi?
+
+I've heard the official Raspberry Pi SD cards are better. What makes them different from just any random card?
+
+What sizes do the official Raspberry Pi SD cards come in?
+
+Can I get a Raspberry Pi SD card that already has the operating system on it?
+
+What's command queueing and why does it matter for my Pi?
+
+# Specifications
+
+What speed class ratings do the official Raspberry Pi SD cards have?
+
+What's the difference in speed between using the official SD card on a Pi 4 versus a Pi 5?
+
+I keep seeing things like U3 and V30 on SD cards. What do those mean and does the official Pi card have them?
+
+What form factor are the Raspberry Pi SD cards? Like physically, what size are they?
+
+What read and write speeds can I expect from the official SD card on my Pi 5?
+
+My Pi 4 feels a bit slow. Would switching to the official Raspberry Pi SD card make a noticeable difference?
+
+What SD specification do the official Raspberry Pi cards use?

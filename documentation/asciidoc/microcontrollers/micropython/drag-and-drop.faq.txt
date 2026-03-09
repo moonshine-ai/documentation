@@ -1,0 +1,37 @@
+# Drag-and-Drop MicroPython
+
+How do I get MicroPython onto my Pico?
+
+I've got a Pico W, not a regular Pico. Do I need a different file to install MicroPython?
+
+I just downloaded the UF2 file but I don't know what to do with it. How do I actually put it on my Pico?
+
+I plugged in my Pico but nothing's showing up on my computer. Do I need to hold a button down or something while I plug it in?
+
+What's this BOOTSEL button I keep hearing about and what do I do with it?
+
+My Pico isn't showing up as a drive on my computer. What am I doing wrong?
+
+So after I drag the file over, what happens? Does it just restart itself?
+
+What's a UF2 file? Is that something specific to Raspberry Pi?
+
+I've got a Pico 2 W, not the original Pico W. Does it use the same MicroPython file?
+
+After I've installed MicroPython, how do I actually start using it? Like how do I type commands into it?
+
+What's the REPL and do I need it?
+
+I'm not using a Pico, I've got a different board that uses the same chip. Can I still get MicroPython for it?
+
+I want to use the Wi-Fi on my Pico W with MicroPython. Where do I find out how to do that?
+
+Is Thonny the only way to program a Pico in MicroPython or can I use the command line?
+
+# Whole Document
+
+I'm completely new to this. What's the easiest way to get started programming a Raspberry Pi Pico?
+
+I've got a Pico and I want to use MicroPython. Where do I even start?
+
+What's the difference between the regular Pico and the Pico W when it comes to MicroPython?

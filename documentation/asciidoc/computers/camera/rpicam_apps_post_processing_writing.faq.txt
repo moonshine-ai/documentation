@@ -1,0 +1,35 @@
+# Whole Document
+
+- I want to write my own post-processing stage for rpicam-apps. Where do I even start?
+- Can I use OpenCV in my own custom post-processing stage?
+- Does TensorFlow Lite work with the rpicam-apps post-processing framework?
+- I wrote a custom stage but I'm not sure how to get the system to actually use it. What do I need to do?
+
+# Basic post-processing stages
+
+- What's the minimum I need to implement to make a working post-processing stage?
+- I made a custom stage class but I forgot to do something and it's not showing up. What am I missing?
+- My post-processing is making the video stutter. What's the right way to handle slow algorithms?
+- I want to do some heavy image analysis in my stage. Should I just run it in the Process method?
+- Do I need to copy image buffers when I'm passing work to another thread?
+- I don't need full resolution for my image analysis. Is there a way to use a lower resolution stream instead?
+- I'm using OpenCV inside my stage and I'm worried about performance. Is there anything I should watch out for with threading?
+- What image format does the low resolution stream use? I'm trying to feed it into an OpenCV function and something's off.
+- What's the fastest way to modify images in a post-processing stage?
+- When exactly does Configure get called, and what should I use it for?
+- What's the difference between Stop and Teardown in a post-processing stage?
+- What does it mean if Process returns true? Does that drop the frame or something?
+- I want to see a really simple example of a custom stage to understand the structure. Is there one available?
+- I added my custom stage file but it's not being compiled. Did I miss a step?
+- What's the AdjustConfig method for? Do I always need to fill it in?
+
+# TensorFlow Lite stages
+
+- I want to use TensorFlow Lite in my stage. Should I still derive from PostProcessingStage or is there something else?
+- What does TfStage actually handle for me? Do I still need to implement all those member functions myself?
+- The one thing TfStage doesn't implement for me — what is it?
+- I'm using TfStage and I want to check that my model has the right input and output dimensions. Where do I do that?
+- When does interpretOutputs run? Is it on the main thread or a separate one?
+- I want to draw bounding boxes on frames based on my model's results. Which function in TfStage should I be doing that in?
+- Is there an example of a TensorFlow Lite post-processing stage I can look at to understand how it all fits together?
+- My TFLite stage needs the full resolution stream, not just the low res one. Can it access that?

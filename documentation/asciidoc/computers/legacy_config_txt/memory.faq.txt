@@ -1,0 +1,35 @@
+# Whole Document
+
+- I've got a Raspberry Pi 5 — do I need to worry about any of these GPU memory settings?
+- What even is GPU memory? Like, why does the Pi need to reserve some of its RAM just for graphics?
+- I'm confused about whether changing GPU memory actually makes my Pi faster. Does it?
+
+# `gpu_mem`
+
+- What's the default GPU memory on a Raspberry Pi with 1 gig of RAM?
+- I'm trying to get the best performance out of Linux on my Pi. Should I set GPU memory high or low?
+- My graphics aren't working right — could it be a GPU memory issue? How do I fix it?
+- I've got a Pi 4. Can I use less GPU memory than on older Pis?
+- What's the lowest I can set GPU memory to, and what breaks if I go that low?
+- I set GPU memory really high and now my Pi won't boot. What happened?
+- I'm using the camera on my Pi — do I need to bump up the GPU memory for that?
+- What's the maximum GPU memory I should set on a Pi with 512 megs of RAM?
+
+# `gpu_mem_256`
+
+- I'm swapping the same SD card between different Pis with different amounts of RAM. Do I have to keep editing the config file every time?
+- What does `gpu_mem_256` actually do differently from just setting `gpu_mem`?
+
+# `gpu_mem_512`
+
+- If I set `gpu_mem_512` but I'm running it in a Pi with 1 gig of RAM, does it do anything?
+
+# `gpu_mem_1024`
+
+- I've got a Pi with 2 gigs of RAM. Which GPU memory setting applies to me — is it the 1024 one?
+
+# `disable_l2cache`
+
+- What's the L2 cache and why would I ever want to disable it?
+- My Pi uses a BCM2835 chip — what's the default setting for the L2 cache thing?
+- Do I need to do anything special to disable the L2 cache, like use a different kernel?

@@ -1,0 +1,59 @@
+# GPIO pads control
+
+What even is GPIO drive strength? I thought it was just how much current a pin can put out.
+
+So drive strength isn't a current limit? Then what does it actually mean?
+
+I'm connecting a device to a GPIO pin — how do I know what drive strength to set it to?
+
+# Control drive strength
+
+How does it work under the hood when I change the drive strength setting?
+
+I've got a Pi 4 and the drive strength numbers seem off compared to what I've read online. Is there something different about the 4-series?
+
+# Current value
+
+Wait, if drive strength isn't the current the pin delivers, what IS it?
+
+I set my GPIO pin high but it's not reading as high on the other end. Could the drive strength be the problem?
+
+What happens if I short a GPIO pin to ground while it's trying to drive high? Will it break?
+
+Can a GPIO pin actually get damaged if it's fighting against a voltage on the line?
+
+What are those VOL and VOH values? Do I need to care about them as a beginner?
+
+I set my drive strength to 2mA but I need to pull more current than that — is that going to fry the pin?
+
+# Safe current
+
+So what's the maximum safe current I can pull from a GPIO pin without killing my Pi?
+
+I accidentally drew too much current from a pin — did I damage it? What's the safe limit?
+
+# GPIO addresses
+
+I want to configure the GPIO pads directly using registers. Where do I find the addresses for that?
+
+What's that password field in the GPIO pad register? Do I have to include it every time I write to it?
+
+What does the slew rate setting actually do, and should I mess with it?
+
+What's input hysteresis on GPIO? Is it on by default?
+
+# Drive strength list
+
+So what are the actual drive strength values I can set? Like what number maps to what current?
+
+How do I set a GPIO pin to 16mA drive strength? What value do I write?
+
+# Whole Document
+
+I've got a bunch of GPIO pins all switching at the same time and my Pi's acting weird. Could that be a power problem?
+
+I'm powering several things off GPIO and I'm worried about the 3.3V rail. How much can I safely pull total?
+
+My SD card keeps having issues and I've got a lot of GPIO stuff going on. Could the GPIO be causing interference somehow?
+
+I'm new to GPIO — do I really need to understand all this drive strength stuff, or can I just leave it at defaults?

@@ -1,0 +1,37 @@
+# Whole Document
+
+- I've got a monitor plugged into my Pi but it's not displaying at the right resolution. How do I fix that?
+- I just got a Raspberry Pi and I'm confused about what cables I actually need for the HDMI. Can you help?
+- What's the difference between how a Pi 4 and a Pi 5 handle 4K displays?
+
+# Support for HDMI monitors
+
+- I've got a Pi Zero and my HDMI cable won't fit. What's going on?
+- I want to use two monitors with my Pi 4. What do I need to make that work?
+- Can I get 4K 60fps out of my Pi 4, or is that not possible?
+- I've got a Pi 5 and I want two 4K monitors. Do I need to change any settings for that or does it just work?
+- I plugged in my HDMI monitor but nothing's showing up. Should I have connected the cable before turning it on?
+- My Pi 4 only has those tiny HDMI ports, not the normal sized ones. Do I need a special adapter?
+- I want 4K at 60 hertz on my Pi 4. What do I need to change in the config file?
+
+# Set resolution and rotation
+
+- How do I change my screen resolution on the Pi desktop?
+- I want to rotate my display. Where do I go to do that?
+- What's the raindrop command do? I've never heard of it.
+- I don't have raindrop installed. How do I get it?
+- I've got this old tool called arandr and I want to switch to the newer one. How do I do that?
+
+# Manually set resolution and rotation
+
+- How do I find out what my display is actually called so I can configure it manually?
+- I want to rotate my screen from the command line. How do I do that?
+- I'm trying to rotate my display over SSH but the command isn't working. What am I missing?
+- Can I flip my display and rotate it at the same time?
+- I'm running Wayland, how do I rotate my screen 90 degrees?
+
+# Console resolution and rotation
+
+- I'm not running a desktop, just the console. Can I still change the resolution?
+- I've got two monitors but I'm in console mode and they're rotating differently. Wait, is that even possible or do they all have to match?
+- Where do I go to change the rotation when I'm not using the desktop at all?

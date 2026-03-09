@@ -1,0 +1,65 @@
+# libav-format
+
+How do I set the output format when recording video with libav?
+
+I want to save my video as an MP4. What do I need to do?
+
+Can I stream video with the libav backend, or is it just for saving files?
+
+I didn't set a format option but my video still saved fine. Is that normal or did I get lucky?
+
+What formats can I use with libav? Like MP4, AVI, that kind of thing?
+
+# libav-audio
+
+How do I get audio recording working with libav?
+
+I tried to enable audio but it's not recording anything. Do I need to set something else besides just turning it on?
+
+# audio-codec
+
+What's the default audio codec when I'm recording with libav?
+
+How do I see all the audio codecs I can use? I don't know what's available on my Pi.
+
+I want to use MP3 instead of the default codec. Can I do that and how do I switch it?
+
+# audio-bitrate
+
+How do I set the audio bitrate when I'm recording a video?
+
+What's the bitrate in that MP4 recording example? Is 16 kilobits per second good enough for decent audio?
+
+# audio-samplerate
+
+What happens if I don't set an audio sample rate? Does it just guess or what?
+
+I want to keep the original sample rate from my microphone. Do I need to set anything for that or just leave it alone?
+
+# audio-device
+
+How do I find out what audio input devices I've got connected to my Pi?
+
+I've got a USB headset plugged in. How do I make the video recorder use that instead of the built-in audio?
+
+What even is ALSA? Do I need to know about it to pick my audio device?
+
+I ran the command to list audio devices but I'm not sure which one to pick. How do I tell which one is my microphone?
+
+# av-sync
+
+My audio and video are slightly out of sync in my recordings. Is there a way to fix that?
+
+The audio in my video is a little bit ahead of the video. Can I shift it back and how do I do that?
+
+# Whole Document
+
+I want to record video with audio on my Pi. Where do I even start?
+
+What's the libav backend and why would I use it instead of the default?
+
+How do I enable the libav backend? Is it off by default?
+
+I'm trying to record a video with sound and save it as an MP4. What's the full command for that?
+
+Can I do live streaming with this, or is it just for saving files locally?

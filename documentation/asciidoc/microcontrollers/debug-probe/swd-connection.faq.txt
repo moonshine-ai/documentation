@@ -1,0 +1,41 @@
+# Starting a Debug Session
+
+How do I load a new program onto my Pico without having to unplug it and hold that BOOTSEL button every time?
+
+What's the Debug Probe actually for? Like what does it do for me?
+
+I've got my binary built. How do I upload it to my Pico using the Debug Probe?
+
+Wait, do I use the UF2 file or the ELF file when uploading through the Debug Probe?
+
+I'm confused about the difference between the ELF file and the UF2 file. Which one do I need?
+
+Is there like an easier way to set all this up without doing everything manually in the terminal?
+
+# Standalone program upload
+
+What's the command to flash a binary to my Pico using OpenOCD?
+
+I built my blink program and I just want to get it onto the Pico. What do I run?
+
+# Standalone debug session
+
+How do I actually use breakpoints with my Pico? Like where do I even start?
+
+I want to step through my code line by line on the Pico. How do I do that?
+
+My program's crashing and I can't figure out why. How do I set up a proper debug session?
+
+I built my project but the debugger's not giving me much info. What am I doing wrong?
+
+What's the difference between a Debug build and a Release build, and why does it matter for debugging?
+
+I'm on a Mac and I'm trying to debug my Pico. What version of GDB do I need?
+
+I'm on Linux and I want to debug an Arm chip. Is regular GDB going to work or do I need something different?
+
+How do I start OpenOCD in server mode so I can attach GDB to it?
+
+Okay I've got OpenOCD running. Now how do I actually connect GDB to it?
+
+Do I need two terminal windows open to do a debug session, or can I do it all in one?

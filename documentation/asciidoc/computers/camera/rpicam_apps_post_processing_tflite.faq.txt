@@ -1,0 +1,47 @@
+# Whole Document
+
+- I want my Raspberry Pi camera to recognize objects using AI. Where do I even start?
+- Do I need to install anything special before I can use these TensorFlow post-processing stages?
+- I'm on Raspberry Pi OS Trixie. How do I get TensorFlow Lite installed?
+- After I install the TensorFlow Lite package, is that it or do I have to do something else before it'll work?
+- What's the difference between all these TensorFlow stages? Like object classify, object detect, pose estimation — aren't they kind of the same thing?
+
+# Prerequisites
+
+- I installed the TFLite library but the post-processing stages still don't work. Did I miss a step?
+- I ran the apt install for TensorFlow Lite but now what? Do I just restart or is there more to it?
+- I'm on an older version of Raspberry Pi OS. Can I still use TensorFlow Lite post-processing or is it only for Trixie and newer?
+
+# `object_classify_tf` stage
+
+- I want my camera to tell me what it's looking at. Which stage does that?
+- Where do I download the model file for object classification? I don't see it bundled with anything.
+- Oh wait, I need a labels file too? Where do I get that?
+- What does `top_n_results` do — like if I set it to 2, does it only show the top 2 guesses?
+- What's the difference between `threshold_high` and `threshold_low`? Why are there two of them?
+- I want labels showing up on my camera preview. Which setting turns that on?
+- My object classifier is running really slow and killing the framerate. Is there something I can tweak to make it run less often?
+- Why does the command need `--lores-width 224 --lores-height 224`? Can't I just use any size?
+
+# `pose_estimation_tf` stage
+
+- Can my Raspberry Pi camera detect where someone's arms and legs are in the frame?
+- I set up pose estimation but nothing's being drawn on the image. Is there a separate thing I need to enable for that?
+- What does the `confidence_threshold` do in the pose drawing stage, and why would I ever set it below zero?
+- Why does pose estimation need 258 instead of 257 for the image size? That seems weirdly specific.
+
+# `object_detect_tf` stage
+
+- What's the difference between object classification and object detection? They sound like the same thing to me.
+- I want bounding boxes drawn around detected objects. How do I get those to show up?
+- How do I make the bounding box lines thicker? They're really hard to see.
+- What does `overlap_threshold` mean? Like what happens if I set it really low?
+- Why does the object detection example use 400×300 instead of exactly 300×300?
+
+# `segmentation_tf` stage
+
+- What does segmentation actually do? Is it like outlining different objects in the scene?
+- I want to see the segmentation map on my preview. Is there a setting to show it?
+- Can segmentation handle a non-square camera image or does it have to be square?
+- Where do I get the labels file for the segmentation stage?
+- My segmentation output is really noisy with tiny little regions everywhere. Can I filter that out somehow?

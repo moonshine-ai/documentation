@@ -1,0 +1,154 @@
+# Whole Document
+
+- My Pi's HDMI isn't working at all. What's a quick setting I can add to config.txt to try to fix it?
+- Wait, what even is EDID? Why does my Pi need to read it from my monitor?
+- I've got a Pi 4 with two HDMI ports. Can I run 4K on both at the same time?
+- My monitor isn't in any of the standard resolution lists. Can I just make up a custom resolution for it?
+- I'm setting up a Pi without a monitor. How do I stop it from trying to use HDMI output?
+
+# HDMI mode
+
+## hdmi_safe
+
+- My Pi isn't showing anything on my TV. Is there some kind of safe mode I can try?
+- What does hdmi_safe actually do? Is it just one setting or does it change a bunch of things?
+
+## hdmi_ignore_edid
+
+- My display has wrong info being sent to my Pi. How do I just tell the Pi to ignore whatever the monitor says about itself?
+
+## hdmi_edid_file
+
+- Can I make my Pi read the display information from a file instead of from the monitor itself?
+
+## hdmi_edid_filename
+
+- I've got a Pi 4 with two HDMI ports and different screens on each. Can I use separate EDID files for each port?
+
+## hdmi_force_edid_audio
+
+- My TV says it doesn't support DTS audio but I think it actually does. Is there a way to just force the Pi to send it anyway?
+
+## hdmi_ignore_edid_audio
+
+- My HDMI audio isn't working and I want it to just fall back to the headphone jack automatically. How do I do that?
+- If I tell the Pi to ignore HDMI audio, where does the sound go instead?
+
+## hdmi_ignore_cec_init
+
+- Every time I reboot my Pi it switches my TV on and changes the channel. That's really annoying. How do I stop that?
+
+## hdmi_ignore_cec
+
+- I don't want my Pi talking to my TV over CEC at all. How do I just turn that off completely?
+
+## cec_osd_name
+
+- My TV shows "Raspberry Pi" in the device list. Can I change what name shows up?
+
+## hdmi_pixel_encoding
+
+- My colors look kind of washed out. Could the pixel encoding be wrong, and how do I change it?
+
+## hdmi_blanking
+
+- When my Pi goes to sleep, the screen just goes blank but doesn't actually turn off. How do I make it fully power down the display?
+- Does the screen blanking setting work the same on a Pi 4 as on older models?
+
+## hdmi_drive
+
+- I'm not getting any sound over HDMI. Do I need to set a specific mode to enable HDMI audio?
+- What's the difference between HDMI mode and DVI mode on the Pi?
+
+## config_hdmi_boost
+
+- I'm getting flickering or snow on my HDMI. Is there a setting to boost the signal strength?
+- I've got a really long HDMI cable and it looks terrible. Would turning up the HDMI boost help?
+
+## hdmi_group and hdmi_mode
+
+- I want to set my Pi to 1080p 60Hz. What settings do I put in config.txt?
+- What's the difference between CEA and DMT? Like, which one should I use for a TV versus a computer monitor?
+- I want 720p at 50Hz. What mode number is that?
+- Does the Pi 4 support 4K output? What mode number do I use for that?
+- I want to block all 4K modes from being used. How would I do that?
+
+## hdmi_timings
+
+- My monitor needs a completely custom resolution that isn't in any list. Can I define my own timing values?
+
+## hdmi_force_mode
+
+- I set my HDMI mode but the Pi keeps picking a different one. Is there a way to lock it to only use what I specified?
+
+# Which values are valid for my monitor?
+
+- How do I find out which resolutions my monitor actually supports?
+
+# Custom mode
+
+- My monitor needs an 800 by 480 resolution and it's not in any list. How do I set a custom resolution like that?
+- I created a custom resolution but the Pi isn't using it. Do I need extra settings to actually activate it?
+
+# Composite video mode
+
+## sdtv_mode
+
+- I'm using the composite video output. How do I switch it between PAL and NTSC?
+- I'm in Brazil and the PAL here is slightly different. Is there a special setting for that?
+
+## sdtv_aspect
+
+- The picture on my composite TV looks stretched. How do I set the aspect ratio for composite output?
+
+## sdtv_disable_colourburst
+
+- Can I make my composite output black and white? I heard it might actually look sharper.
+
+# LCD displays and touchscreens
+
+## display_default_lcd
+
+- I've got the official Pi touchscreen but I want HDMI to be my main display. How do I change the default?
+
+## lcd_rotate
+
+- My Pi touchscreen is upside down. How do I flip it without it being slow?
+
+## enable_dpi_lcd
+
+- I've got a third party LCD connected to the GPIO pins. How do I enable that?
+
+# Generic display options
+
+## hdmi_force_hotplug
+
+- My Pi switches to composite output because it doesn't detect my HDMI monitor on boot. How do I force it to always use HDMI?
+
+## disable_overscan
+
+- There are big black borders around my screen. How do I get rid of the overscan?
+- The edges of my desktop are getting cut off by my TV. Is that an overscan problem and how do I fix it?
+
+## overscan settings
+
+- The text on my screen is running off the right edge. Which overscan setting do I tweak for that?
+- There's a black bar at the top of my screen. How do I adjust the overscan to fix it?
+
+## framebuffer_depth
+
+- I changed my framebuffer depth to 32-bit but now the display looks messed up. What am I missing?
+
+## max_framebuffers
+
+- I've got a Pi 3 with two displays connected but only one is working. Do I need to change something to enable both?
+
+## display_hdmi_rotate
+
+- How do I rotate my HDMI screen 90 degrees? Like for a portrait monitor.
+- Can I flip my HDMI display horizontally? It's mounted as a mirror.
+- I want to rotate my screen 180 degrees because it's mounted upside down. What value do I set?
+
+## display_rotate
+
+- I saw display_rotate in an old tutorial. Should I still be using that or is there something better now?

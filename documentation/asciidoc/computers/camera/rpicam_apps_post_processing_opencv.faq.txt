@@ -1,0 +1,38 @@
+# Whole Document
+
+- I want to do some computer vision stuff with my Raspberry Pi camera. What OpenCV post-processing stages are available?
+- Do I need to do anything special to get OpenCV working with my camera setup?
+- I rebuilt rpicam-apps but I'm not sure if I did it with OpenCV support. How would I know if these stages are available?
+
+# `sobel_cv` stage
+
+- How do I make my camera highlight edges in the image?
+- What's a Sobel filter and how do I use it with my Pi camera?
+- I want that effect where edges in the image get emphasized. Is there a stage for that?
+- There's just one setting for the Sobel filter stage — what does `ksize` actually do?
+- How do I set up the Sobel filter? Like what does the JSON config look like?
+
+# `face_detect_cv` stage
+
+- Can my Raspberry Pi camera detect faces automatically?
+- I'm trying to do face detection with my Pi camera. Where do I even start?
+- Does the face detection work when I'm taking still photos or just video?
+- What resolution does the face detector run at? I want to make sure my setup is compatible.
+- How do I get boxes drawn around faces in my camera feed?
+- The face detector keeps finding things that aren't faces. Which setting do I tweak to make it less sensitive?
+- What's the `refresh_rate` setting in face detect do? Does it run every single frame?
+- What's a Haar cascade and why does the face detection need one?
+- Can I set a minimum size for faces so it doesn't pick up tiny faces in the background?
+- Where's the Haar cascade file supposed to be on my Pi?
+
+# `annotate_cv` stage
+
+- How do I put a timestamp on my video using the camera?
+- I want to overlay some text onto my camera feed. Is there a way to do that?
+- How do I get the date and time to show up on my recordings?
+- What format does the date show up in when I use the annotate stage?
+- Can I change the text color in the annotation stage?
+- How do I make the annotation text bigger?
+- Can other post-processing stages write their own text onto the image, or is it just whatever I put in the config file?
+- What does the `alpha` setting do in the annotate stage? Is that like transparency?
+- What substitutions can I use in the text for the annotate stage, like to show camera info?

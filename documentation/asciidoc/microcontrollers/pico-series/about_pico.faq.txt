@@ -1,0 +1,83 @@
+# Whole Document
+
+- What's the difference between the Pico and the Pico 2?
+- I'm trying to decide which Pico to buy. What are my options?
+- Does the Pico run Linux?
+- What languages can I use to program a Pico?
+- Wait, so the Pico doesn't have an SD card slot? How do I get code onto it?
+- What's the difference between all these Pico variants — like there's a W and an H and a WH, what does all that mean?
+- I just want a Pico that has Wi-Fi. Which one should I get?
+- How many pins does the Pico have?
+
+# Raspberry Pi Pico
+
+- What chip is inside the original Pico?
+- How fast is the processor on the Pico?
+- How much RAM does the Pico have?
+- How much storage does the Pico have?
+- Can the Pico act as a USB host, or only a device?
+- What's the difference between the Pico and the Pico H? Like, is it just the pins?
+- What's the difference between the Pico W and the Pico WH?
+- Does the Pico W have Bluetooth or just Wi-Fi?
+- I want to use my Pico in an enclosure. Is there a 3D model of the board I can download?
+- Can I use the Pico design to make my own board? Like, are the design files open?
+- What's a PIO state machine and does the Pico have them?
+- How many PWM channels does the Pico have?
+- My Pico W has Wi-Fi — what security protocols does it support?
+- Can the Pico W create its own Wi-Fi network, or can it only connect to one?
+- How many devices can connect to the Pico W when it's acting as an access point?
+- Does the Pico W support Bluetooth Low Energy?
+
+# Raspberry Pi Pico 2
+
+- What chip is in the Pico 2?
+- How is the Pico 2 different from the original Pico?
+- I heard the Pico 2 can run RISC-V. Is that true?
+- How much RAM does the Pico 2 have compared to the original?
+- How much flash storage does the Pico 2 have?
+- How fast can the Pico 2's clock run?
+- Is the Pico 2 compatible with code I wrote for the original Pico?
+- How many PWM channels does the Pico 2 have? I thought it had more than the original.
+- Does the Pico 2 W have the same wireless features as the Pico W?
+- Why don't the Pico 2 variants use "H" in the name like the original Pico does?
+
+# Wireless models
+
+- What wireless chip do the Pico W boards use?
+- I've got a Pico W and I'm getting bad Wi-Fi signal. What could cause that?
+- Should I keep anything away from the antenna on the Pico W?
+- Can I use the Pico W's wireless features in a commercial product?
+- What's the deal with the wireless software licensing — do I have to pay for anything?
+- I noticed the Pico W can't always read the voltage while doing wireless stuff. Why's that?
+
+# Board layouts
+
+- Where's the BOOTSEL button on the Pico?
+- Where's the USB port on the Pico — top, bottom, side?
+- Where's the onboard LED on the Pico?
+- How do I turn off the Pico with code? Like, is there a pin I can pull low?
+- What's the VSYS pin for?
+- What's the VBUS pin and where is it?
+- What does the ADC_VREF pin do?
+- What's the RUN pin on the Pico?
+- Is the pin layout the same between the Pico and the Pico 2?
+- Is the pin layout the same between the Pico W and the Pico 2 W?
+
+# Debug connector (SWD)
+
+- What is SWD and why does my Pico have it?
+- What signals does the SWD connector carry?
+- Does the SWD connector have a power pin?
+- Where's the debug connector on the Pico W? I can't find it.
+- My Pico H has a little plug on the bottom — what kind of connector is that?
+- Can I use one Pico to debug another Pico?
+- How do I set up a Pico as a debugger for another Pico?
+
+# Software utilities
+
+- How do I find out what program is already on my Pico?
+- I picked up a secondhand Pico and don't know what's on it. How do I check?
+- My Pico seems bricked. Can I recover it?
+- How do I completely erase the flash on my Pico and start fresh?
+- Can I permanently brick a Pico by flashing bad code to it?
+- What's picotool and how do I use it?

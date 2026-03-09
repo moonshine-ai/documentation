@@ -1,0 +1,43 @@
+# BCM2711
+
+# Whole Document
+
+What chip does the Raspberry Pi 4 use?
+
+Is the Raspberry Pi 4 64-bit?
+
+How much faster is the Pi 4 compared to the Pi 3B+?
+
+What Raspberry Pi models use the BCM2711?
+
+Does the Pi 400 use the same chip as the Pi 4?
+
+What's the GPU on the Pi 4 and how fast does it run?
+
+How much RAM can the Pi 4 support?
+
+What video formats can the Pi 4 decode?
+
+Can the Pi 4 do 4K video?
+
+My Pi 4 gets really hot. Does it have any built-in heat management or do I need a heatsink?
+
+Does the Pi 4 support USB 3?
+
+How many HDMI ports does the Pi 4 have?
+
+What's the difference between the BCM2711 and the chip in the Pi 3?
+
+Does the Pi 4 have a built-in Ethernet port?
+
+How many SPI ports does the Pi 4 expose?
+
+I want to hook up a camera to my Pi 4. How many CSI ports does it actually have available to use?
+
+What kind of memory does the BCM2711 use?
+
+Does the Pi 4 support OpenGL?
+
+What's the L2 cache size on the BCM2711?
+
+Can the Pi 4 do 1080p video encoding, not just decoding?

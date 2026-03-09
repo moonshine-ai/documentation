@@ -1,0 +1,53 @@
+# Whole Document
+
+How do I make my Raspberry Pi more secure? Like what are the basics I should set up?
+I'm running my Pi as a server. What should I do to protect it from attacks?
+I'm new to this and worried about security. Where do I even start?
+
+# Require a password for `sudo` commands
+
+By default do I need a password to run sudo commands on my Pi?
+I want sudo to ask for my password every time. How do I set that up?
+How do I edit that sudoers file to require a password for sudo?
+
+# Update Raspberry Pi OS
+
+How often should I be updating my Pi's operating system?
+Does keeping my Pi updated actually help with security?
+
+# Automatically update your SSH server
+
+I use SSH to connect to my Pi. Is there a way to keep it updated automatically so I don't have to think about it?
+How do I set up a cron job to auto-update my SSH server?
+
+# Improve SSH security
+
+I'm connecting to my Pi over SSH with just a username and password. Is that safe enough or should I do something more?
+What's key-based authentication and is it better than using a password for SSH?
+
+## Enable and disable SSH users
+
+I want to stop certain users from being able to log in over SSH. How do I do that?
+How do I allow only specific users to connect via SSH and block everyone else?
+I added some SSH restrictions but they don't seem to be working. Do I need to restart something?
+I've got multiple user accounts and I only want one of them to be able to SSH in. How do I set that up?
+
+# Use a firewall
+
+Should I bother setting up a firewall on my Raspberry Pi?
+What's UFW? Is that easier than iptables for setting up a firewall?
+How do I install and turn on a firewall on my Pi?
+I set up UFW but I'm worried it's going to block my SSH connection. How do I make sure port 22 stays open?
+How do I check what rules my firewall currently has?
+Can I test what a UFW command would do without actually changing anything?
+I want to block a specific IP address from accessing my Pi. Can UFW do that?
+Someone keeps trying to brute-force my SSH login. Is there a way to limit how many times they can try to connect?
+
+# Block suspicious activity with `fail2ban`
+
+What's fail2ban and do I need it?
+Someone keeps trying to log into my Pi over SSH with wrong passwords. How do I automatically block them?
+How do I install and set up fail2ban on my Raspberry Pi?
+I want to permanently ban anyone who fails to log in more than three times. How do I configure fail2ban to do that?
+How many failed login attempts does fail2ban allow by default before it blocks someone?
+Where's the fail2ban config file and how do I edit it?

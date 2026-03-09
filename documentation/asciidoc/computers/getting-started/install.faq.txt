@@ -1,0 +1,63 @@
+# Whole Document
+
+- I just got my Raspberry Pi and I have no idea where to start. What do I need to get it up and running?
+- Do I need another computer to set up my Raspberry Pi?
+- What's the best way to install an OS on a Raspberry Pi for a beginner?
+
+# Install an operating system
+
+- What does my Raspberry Pi actually boot from?
+- Can I boot my Pi from something other than an SD card?
+- I don't have an SD card — can I use a USB drive instead?
+
+# Install using Imager
+
+- What even is Raspberry Pi Imager? Do I need it?
+- Does Raspberry Pi Imager work on Mac and Windows or just Linux?
+- I downloaded an Ubuntu image myself — can I use that with Imager or does it only work with official Raspberry Pi images?
+- What file types does Imager support? Like can I use a zip file?
+
+# Step 1. Install and launch Imager
+
+- How do I get Raspberry Pi Imager on my Windows computer?
+- I'm already running Raspberry Pi OS — can I install Imager without going to the website?
+- I'm on Linux but not Raspberry Pi OS. How do I install Imager?
+
+# Step 2. Configure the fundamentals
+
+- Walk me through the basic steps of setting up Imager for the first time.
+- I connected my SD card and I'm not sure which storage device to pick in Imager. How do I make sure I don't accidentally wipe the wrong drive?
+- I've got my own OS image I downloaded. How do I use that in Imager instead of one of the built-in ones?
+
+# Step 3. Customise your operating system
+
+- Can I set up my Wi-Fi and password before I even boot the Pi for the first time?
+- What happens if I skip all the customisation stuff in Imager?
+- I want to be able to SSH into my Pi right away without plugging in a monitor. What do I need to set up in Imager?
+- Can I set a hostname for my Pi in Imager, and what's that even used for?
+- My network doesn't broadcast its name publicly. Can I still connect my Pi to it through Imager?
+- I want to use SSH keys instead of a password to log in to my Pi. Can I set that up in Imager?
+- What's Raspberry Pi Connect and do I need it?
+- How do I link my Pi to my Raspberry Pi Connect account when I'm setting it up?
+- I'm trying to set up Raspberry Pi Connect in Imager but the token expired before I booted my Pi. What do I do?
+
+# Step 4. Set the Imager options
+
+- Can I make Imager play a sound when it's done writing?
+- Is Imager sending any data about me back to Raspberry Pi?
+
+# Step 5. Write the image to the storage device
+
+- How long does it take for Imager to write the image to an SD card?
+- Do I have to wait for Imager to verify the image or can I skip that?
+- Imager finished but I'm not sure if it worked. Does it tell you if something went wrong?
+
+# Install over the network
+
+- I don't have another computer at all — can I still install an OS on my Pi somehow?
+- What is Network Install and how does it work?
+- Does Network Install work on all Raspberry Pi models?
+- My Pi is older — will Network Install work on it?
+- How do I actually start the Network Install process on my Pi?
+- Do I need Wi-Fi for Network Install or does it have to be a wired connection?
+- What happens if the download fails during Network Install?

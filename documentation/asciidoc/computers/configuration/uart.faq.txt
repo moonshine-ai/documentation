@@ -1,0 +1,105 @@
+# Configure UARTs
+
+What even is a UART? Do I need one for my Raspberry Pi project?
+
+Are the UARTs on a Raspberry Pi safe to connect to a 5V device?
+
+I want to connect my Pi's UART to something that runs on 5V. How do I do that without frying it?
+
+# Raspberry Pi Zero, 1, 2 and 3
+
+How many UARTs does a Raspberry Pi 3 have?
+
+What types of UART does the Pi Zero have?
+
+# Raspberry Pi 4 and 400
+
+How many UARTs does the Pi 4 have, and are they all turned on by default?
+
+I've got a Pi 4 and I need more serial ports. How do I enable the extra UARTs?
+
+# Raspberry Pi 5
+
+Does the Pi 5 have a mini UART?
+
+How many UARTs does the Pi 5 have?
+
+# CM1, CM3, CM3+ and CM4
+
+I'm using a Compute Module and I can't seem to use the UART. Why isn't it working?
+
+How do I enable a UART on a Compute Module and pick which GPIO pins it uses?
+
+# Primary UART
+
+Which GPIO pins does the primary UART show up on?
+
+I'm confused — which pin number on the header is GPIO 14?
+
+Where does the primary UART appear on a Pi 5? It doesn't seem to be on the main GPIO header.
+
+# Secondary UART
+
+Why can't I see the secondary UART on my GPIO pins?
+
+What's the secondary UART connected to by default on a Pi that has Bluetooth?
+
+# Primary and Secondary UART
+
+On a Pi 4, which UART is the one connected to Bluetooth?
+
+I've got a Pi 3 and I want to use UART0 — is that the console one or the Bluetooth one?
+
+What's the difference between `/dev/serial0` and `/dev/ttyAMA0`?
+
+I want to use `/dev/serial1` but it doesn't exist on my Pi. What happened to it and how do I get it back?
+
+# Mini-UART and CPU Core Frequency
+
+Why does my baud rate keep changing when I use the mini UART?
+
+I'm trying to use the mini UART but it seems disabled. How do I turn it on?
+
+What do I put in `config.txt` to fix the clock speed so the mini UART works properly?
+
+# Disabling the Linux Serial Console
+
+I want to use the serial port for my own project but Linux keeps using it as a console. How do I stop that?
+
+How do I turn off the serial console using raspi-config?
+
+# Enabling early console for Linux
+
+My Pi is crashing really early in the boot process and I can't see any error messages. How do I get kernel logs from that early?
+
+How do I enable earlycon on a Pi 4? What do I add to `cmdline.txt`?
+
+I picked the wrong earlycon setting and now my Pi won't boot. What did I do wrong?
+
+# UARTs and Device Tree
+
+I want to disable Bluetooth and use UART0 as the main serial port. How do I do that?
+
+What does the `miniuart-bt` overlay actually do?
+
+How do I enable UART2, UART3, UART4, or UART5 on a Pi 4?
+
+How do I apply a UART device tree overlay? Where do I put it?
+
+# PL011 and mini-UART
+
+What's the practical difference between a PL011 and a mini UART? Should I care which one I use?
+
+Why does the mini UART keep dropping characters at high baud rates?
+
+Does the mini UART support parity checking?
+
+# Whole Document
+
+I'm totally new to serial communication on the Pi. Where do I even start?
+
+I've got a GPS module that talks over serial. What's the best way to connect it to my Pi?
+
+How do I know which `/dev` device to use for the serial port on my Pi?
+
+My Pi has Bluetooth — does that interfere with the serial port?

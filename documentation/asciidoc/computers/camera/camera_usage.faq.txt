@@ -1,0 +1,51 @@
+# Whole Document
+
+How do I use a camera with my Raspberry Pi?
+
+What camera modules does Raspberry Pi officially support?
+
+I've got an old Pi running Bullseye — will these camera instructions work for me?
+
+I'm just getting started with a Pi camera. Where do I even begin?
+
+What's the difference between all the different Raspberry Pi camera modules?
+
+I keep seeing references to raspistill and raspivid online — can I still use those?
+
+I want to do some photography with my Pi. What camera should I get?
+
+# Camera Modules Overview
+
+What's the highest resolution camera Raspberry Pi makes?
+
+I want to film fast-moving stuff without motion blur — is there a camera for that?
+
+I've heard about an AI camera for Raspberry Pi. What does it actually do?
+
+What's the difference between the Camera Module 2 and the Camera Module 3?
+
+What is the High Quality Camera and when would I use that instead of a regular camera module?
+
+I want to use my own lens with a Pi camera. Which one lets me do that?
+
+I need a camera that can see in the dark or capture infrared. Is there one that does that?
+
+My Pi camera is the original 5-megapixel one. Can I still use it?
+
+What does global shutter mean and why would I care about it?
+
+What's the Sony IMX500 and why does the AI camera use it?
+
+# Legacy Camera Stack Warning
+
+I've been using raspistill on my Pi — is that still supported?
+
+What happened to the old camera software like raspivid?
+
+I'm using Picamera in my Python project. Is that still going to work?
+
+I'm on an older version of Raspberry Pi OS and the camera stuff I used to use has stopped working. What's going on?
+
+Does the legacy camera stack work with the Camera Module 3?
+
+I've got a project using the old Picamera library — should I update it to Picamera2?

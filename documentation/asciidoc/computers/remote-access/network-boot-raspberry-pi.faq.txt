@@ -1,0 +1,55 @@
+# Network Boot Your Raspberry Pi
+
+Do I need two Raspberry Pis to do network booting, or can I get away with just one?
+How many SD cards do I actually need for this whole network boot setup?
+My network boot isn't working and I'm not sure where to start. Is there anything on the router side that might be blocking it?
+What's the difference between the server Pi and the client Pi in this setup?
+
+# Configure a Network Boot Client
+
+## Raspberry Pi 3 Model B
+
+I've got a Pi 3 Model B and I want to network boot it. Do I need to do anything special to set it up first?
+What's OTP memory and why does it matter for network booting?
+After I run that command to enable USB boot mode, how do I know if it actually worked?
+I enabled USB boot mode on my Pi 3B but now I want to undo it. Can I?
+Wait, do I need to remove that line from config.txt after enabling USB boot, or can I just leave it?
+
+## Raspberry Pi 4 Model B
+
+How do I turn on network boot on a Pi 4?
+I went into raspi-config to set network boot but I'm not sure it saved. How do I check if it worked?
+What's the boot order code I should see after setting up network boot on a Pi 4?
+
+# Ethernet MAC Address
+
+How do I find the MAC address of my Pi's ethernet port?
+I need the serial number of my Pi for the TFTP server setup. How do I get it?
+Does the MAC address on a Pi 4 match up with its serial number somehow?
+
+# Configure a Network Boot Server
+
+How do I copy the server's file system over so the client Pi has something to boot from?
+Why do I need to regenerate SSH keys on the client filesystem?
+How do I find my router's IP address from the terminal?
+I'm setting up the network config files and I'm not sure what IP address to put in. Where do I find that?
+What's dnsmasq and why do I need it for network booting?
+How do I check if the client Pi is actually sending out DHCP requests when it powers on?
+I set up dnsmasq but my client Pi still can't boot. What should I be watching in the logs?
+Where does the broadcast address go in the dnsmasq config?
+
+## Set Up NFS Root
+
+What's NFS and why do I need it for network booting?
+My client Pi gets as far as trying to load the root filesystem and then fails. What do I need to set up?
+How do I edit the boot command line so the client Pi knows to boot from the network?
+I keep seeing an error about bootcode.bin not being found. What do I do about that?
+The Pi doesn't boot on the first try. Should I just keep trying or is something actually broken?
+What do I need to change in the fstab file on the client's filesystem?
+
+# Whole Document
+
+I've got a Pi 3B and a Pi 4 sitting around. Can I use either of them as the server, or does it have to be a specific model?
+Is this whole network boot thing just for when you don't want to use an SD card at all?
+What services do I need running on the server Pi to make all this work?
+This whole setup looks really complicated. Is there a way to test whether it's working at each step?

@@ -1,0 +1,20 @@
+# Whole Document
+
+- I've got a camera attached to my Raspberry Pi and I want to tweak how it behaves. Where do I even start with that?
+- What kind of settings can I change for the Raspberry Pi camera?
+
+# `disable_camera_led`
+
+- My camera's little red light keeps turning on when I take pictures and it's causing a reflection in the window. How do I turn that off?
+- Is there a way to stop the camera LED from lighting up when I'm recording?
+- I'm trying to do some discreet recording and I don't want that red light coming on. Can I disable it?
+- The LED on my camera module, can I just turn it off permanently?
+
+# `awb_auto_is_greyworld`
+
+- I've got a NoIR camera and my footage looks really weird with strange colors. What do I do to fix that?
+- What even is the greyworld algorithm and do I need it for my NoIR camera?
+- My NoIR camera isn't producing the right colors automatically. Is there a setting I can change?
+- I removed the IR filter from my High Quality camera and now the colors look off. Is there a fix for that?
+- My app doesn't support the greyworld option but I'm using a NoIR camera. Is there a workaround to still get decent looking images?
+- When would I actually need to use that greyworld auto white balance thing? Is it just for NoIR cameras or what?

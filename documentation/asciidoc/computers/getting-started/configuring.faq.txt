@@ -1,0 +1,83 @@
+# Set up your Raspberry Pi
+
+Should I plug everything in before connecting power, or does it matter?
+
+I just got my Pi set up — what order should I connect things in?
+
+My Pi powered on but I don't see anything on the screen. Is that normal?
+
+How do I know if my Raspberry Pi actually turned on?
+
+I plugged in my Pi but the status LED isn't lighting up. What's wrong?
+
+My Pi's been sitting there for like 10 minutes and still hasn't booted. What should I do?
+
+The LED is flashing on my Pi — what does that mean?
+
+I tried booting from a USB drive but it's not working. Should I just use an SD card instead?
+
+# Configuration on first boot
+
+I skipped the customization stuff in Imager. What happens when I first turn it on?
+
+Do I need a mouse for the first boot setup wizard?
+
+My Pi won't boot at all. What can I try to fix it?
+
+# Bluetooth
+
+I've got a Bluetooth keyboard — do I need to do anything special to get it working with my Pi?
+
+Can I use a USB Bluetooth dongle if my Pi doesn't have Bluetooth built in?
+
+I want to pair my Bluetooth mouse during first boot. Does it do that automatically or do I have to do something?
+
+# Locale
+
+Where do I set my timezone and keyboard layout when setting up my Pi for the first time?
+
+My keyboard's typing the wrong characters — how do I fix the layout?
+
+# User
+
+What's the default username on Raspberry Pi OS?
+
+I heard the old default password was "raspberry" — is that still the case, and should I be worried about it?
+
+# Wi-Fi
+
+How do I connect to Wi-Fi during the first boot setup?
+
+I don't see my Wi-Fi network in the list. What should I do?
+
+# Browser
+
+Can I choose between Firefox and Chrome when setting up my Pi?
+
+If I pick Firefox as my default, does Chromium get removed automatically?
+
+# Raspberry Pi Connect
+
+What's Raspberry Pi Connect and do I need it?
+
+I want to access my Pi remotely without messing with network settings. Is there something built in for that?
+
+# Software Updates
+
+How long do updates take during the first boot wizard?
+
+I'm setting up a Pi 500 for the first time and the updates are taking forever. Is that normal?
+
+Do I have to update during the setup wizard or can I skip it and do it later?
+
+# Finish
+
+After I finish the setup wizard, does it restart automatically or do I have to do something?
+
+# Whole Document
+
+I just got my first Raspberry Pi — what's the very first thing I should do to get it running?
+
+Do I need a keyboard and mouse and monitor to set up a Raspberry Pi, or can I do it without them?
+
+I used Imager to set everything up already — do I still have to go through the setup wizard when it boots?

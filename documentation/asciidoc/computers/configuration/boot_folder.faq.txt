@@ -1,0 +1,83 @@
+# Whole Document
+
+What files does my Raspberry Pi load when it boots up?
+
+Where does the Pi store all its boot files?
+
+I've got an older version of Raspberry Pi OS and someone mentioned the boot partition moved. What changed?
+
+# `bootcode.bin`
+
+What's bootcode.bin actually for?
+
+Does my Raspberry Pi 4 use bootcode.bin?
+
+I've got a Pi 5 and I can't find bootcode.bin anywhere. Is that normal?
+
+# `start*.elf`
+
+There are like a bunch of different start.elf files in my boot folder. What are they all for?
+
+What's the difference between start.elf and start_x.elf?
+
+When would I use start_db.elf?
+
+What does start_cd.elf do and why would I want a cut-down version of the firmware?
+
+I have a Pi 4 and I see files called start4.elf. Are those different from the regular start.elf?
+
+Does the Pi 5 use those elf firmware files?
+
+# `fixup*.dat`
+
+What are all these fixup.dat files in my boot folder?
+
+# `cmdline.txt`
+
+What's cmdline.txt used for?
+
+# `config.txt`
+
+What's the config.txt file for? Do I actually need it?
+
+I've got a Pi 5 and heard there's something important about config.txt. What do I need to know?
+
+# `issue.txt`
+
+What's issue.txt? Do I need to worry about it?
+
+# `initramfs*`
+
+What's the initramfs file in my boot folder doing?
+
+How do I turn on the initial ramdisk on Bookworm?
+
+# `ssh` or `ssh.txt`
+
+I just set up a fresh Pi and SSH isn't working. How do I enable it from the boot partition?
+
+Does the ssh file need anything written in it or can it just be empty?
+
+# Device Tree blob files (`*.dtb`)
+
+What are all those .dtb files in my boot folder?
+
+Do I need to mess with the device tree blob files myself or does the Pi just handle that automatically?
+
+# Kernel files (`*.img`)
+
+There are a bunch of different kernel image files in my boot folder. Which one does my Pi actually use?
+
+What kernel file does a Pi 4 use?
+
+What's the difference between kernel8.img and kernel_2712.img?
+
+My Pi 5 has both kernel8.img and kernel_2712.img. Which one runs?
+
+I ran lscpu and it says armv7l. Does that mean I'm running a 32-bit kernel?
+
+# `overlays` folder
+
+What's in the overlays folder on my boot partition?
+
+I've got a third-party sound board and someone said I need to use an overlay. Where do I even start?

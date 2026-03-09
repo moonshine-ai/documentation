@@ -1,0 +1,81 @@
+# Whole Document
+
+- What's raspi-config and do I actually need it?
+- I've got a fresh Raspberry Pi set up. What's the easiest way to configure it?
+- Does raspi-config change my config.txt file or does it have its own settings somewhere?
+- I don't see raspi-config in the menu anywhere. How do I get to it?
+- Wait, is there a difference between raspi-config in the terminal and the Control Centre thing in the desktop?
+
+# Getting Started
+
+- How do I open raspi-config from the desktop?
+- I'm in the terminal. How do I launch the config tool?
+- How do I navigate raspi-config? My mouse isn't doing anything.
+- I'm in raspi-config and I can't figure out how to confirm my selection. What do I press?
+- Is there a quick way to jump to a specific thing in raspi-config instead of scrolling through everything?
+
+# System Options
+
+- I want to connect my Pi to Wi-Fi. Where do I do that in raspi-config?
+- How do I change where my audio comes out of?
+- I want to change my Pi's password. Where's that in raspi-config?
+- My Pi shows up with a weird name on the network. How do I rename it?
+- I want my Pi to boot straight to the desktop without me having to log in. How do I set that up?
+- Can I make my Pi wait until it's connected to the internet before it finishes booting?
+- How do I turn off that boot splash screen? I want to see what's happening when it starts up.
+- Is there a way to change what the power LED does on my Pi?
+- How do I change the default web browser on my Pi?
+
+# Display Options
+
+- The edges of my screen are getting cut off. How do I fix that?
+- How do I stop my Pi's screen from going blank when I'm not using it?
+- I'm running my Pi without a monitor. How do I set the resolution for VNC?
+- How do I enable 4K 60fps output on my Pi?
+
+# Interface Options
+
+- How do I turn on SSH so I can connect to my Pi remotely?
+- I want to enable VNC on my Pi. Where do I do that?
+- How do I enable I2C on my Pi? I'm trying to connect a sensor.
+- I want to use SPI on my Pi. How do I turn that on?
+- I've got a temperature sensor that uses the 1-wire interface. How do I enable that?
+- How do I turn on remote GPIO access?
+- What's Raspberry Pi Connect and how do I enable it?
+
+# Performance Options
+
+- Can I overclock my Pi through raspi-config? Is it safe?
+- I overclocked my Pi and now it's unstable. How do I turn off overclocking without being able to boot properly?
+- How do I give my GPU more memory?
+- I want my Pi's fan to turn on at a different temperature. Can I change that?
+
+# Localisation Options
+
+- How do I change the timezone on my Pi?
+- My keyboard is typing the wrong characters. How do I change the keyboard layout?
+- How do I change the language or locale on my Pi?
+- I can't get Wi-Fi to work and I heard something about setting a country code. How do I do that?
+
+# Advanced Options
+
+- I cloned my Pi's SD card to a bigger one but it's not using all the space. How do I fix that?
+- Will it ask me to confirm before it expands the filesystem? I don't want to accidentally mess things up.
+- How do I change what order my Pi tries to boot from? Like USB first instead of SD card.
+- My Pi updated its bootloader and now something's broken. Can I go back to the old version?
+- How do I switch between X11 and Wayland on my Pi?
+- How do I switch from PulseAudio to PipeWire?
+
+# Non-Interactive raspi-config
+
+- Can I run raspi-config without the interactive menu? Like just from a script?
+- I'm trying to connect my Pi to Wi-Fi from the command line without any menus. How do I do that?
+- I've got a hidden Wi-Fi network. How do I connect my Pi to it from the terminal?
+- How do I enable SSH from the command line without going through the raspi-config menus?
+- I want to set the timezone from a script. What's the command for that?
+- How do I turn on I2C without using the interactive raspi-config menu?
+- I'm scripting a Pi setup and I need to set the hostname automatically. How do I do that?
+- How do I expand the filesystem from the command line?
+- I want to set my Pi to boot to desktop automatically using a script. What command do I use?
+- How do I overclock my Pi from the command line?
+- Can I update raspi-config itself from the terminal without going through the menus?

@@ -1,0 +1,34 @@
+# Whole Document
+
+- What's the easiest way to move files between my Pi and my laptop?
+- I need to transfer some files to my Pi without plugging in a USB drive. What are my options?
+- Does scp work on Windows or is it just for Mac and Linux?
+- I've heard of scp but I don't really know what it is. Can you explain it simply?
+
+# Copy files to your Raspberry Pi
+
+- How do I send a file from my computer to my Pi?
+- I want to copy a text file over to my Pi. What's the command for that?
+- I'm trying to copy a file to a specific folder on my Pi but I'm not sure how the command works. Can you walk me through it?
+- Will scp create the folder for me automatically if it doesn't exist yet, or do I need to make it first?
+- What do I replace in the scp command? Like where do I put my username and IP address?
+
+# Copy files from your Raspberry Pi
+
+- How do I grab a file off my Pi and bring it to my main computer?
+- I've got a file sitting on my Pi and I want to download it to my laptop. How do I do that?
+- What's the command to copy something from the Pi to wherever I am on my computer?
+
+# Copy multiple files with one command
+
+- Can I copy more than one file at a time with scp or do I have to do them one by one?
+- I want to grab all my text files off my Pi at once. Is there a shortcut for that?
+- How do wildcards work with scp? Like can I copy everything that ends in dot txt?
+- My file has a space in the name and the command keeps breaking. What do I do?
+- I've got a bunch of files starting with the same letter. Can I copy all of them at once somehow?
+
+# Copy a folder
+
+- How do I copy an entire folder to my Pi, not just a single file?
+- I want to send a whole project directory over to my Raspberry Pi. Is there a way to do that with scp?
+- What's that dash r flag for in scp? Do I need it for folders?

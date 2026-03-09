@@ -1,0 +1,53 @@
+# BCM2712
+
+What processor does the Raspberry Pi 5 use?
+
+Is the Pi 5 chip any faster than the Pi 4's?
+
+What's the difference between the BCM2712 and the BCM2711?
+
+How many CPU cores does the Raspberry Pi 5 have?
+
+What speed does the Pi 5's processor run at?
+
+I've got a Pi 5 and I want to drive two 4K monitors — can it actually do that?
+
+Does the Pi 5 support Vulkan?
+
+What GPU does the Pi 5 have, and is it better than the Pi 4's?
+
+Can the Pi 5 decode 4K video in hardware?
+
+What happens with H264 decoding on the Pi 5 — does it use hardware or software?
+
+I'm trying to play 1080p60 H264 video on my Pi 5 and it's using a lot of CPU. Is that normal?
+
+How much faster is the Pi 5 compared to the Pi 4 for everyday tasks?
+
+Does the Pi 5 support PCIe? I want to attach an NVMe drive.
+
+What memory interface does the BCM2712 use, and how fast is it?
+
+# Vulnerabilities and mitigations
+
+I heard the Pi 5's CPU has some security vulnerabilities. Should I be worried?
+
+How do I check what security vulnerabilities my Pi 5 has?
+
+What's the command to see if my Raspberry Pi has any CPU vulnerabilities?
+
+Are the Spectre vulnerabilities fixed on the Pi 5?
+
+How do I know if my Pi's security mitigations are up to date?
+
+I'm running a third-party OS on my Pi 5 — do I still get all the security patches?
+
+Where do the security fixes come from on Raspberry Pi — is it firmware or the kernel?
+
+# Whole Document
+
+What Raspberry Pi models use the BCM2712 chip?
+
+I'm deciding between a Pi 4 and a Pi 5 — what's actually better about the Pi 5's chip?
+
+Does the Compute Module 5 use the same processor as the Pi 5?

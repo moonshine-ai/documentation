@@ -1,0 +1,69 @@
+# Whole Document
+
+What's the Sense HAT and what can it do?
+Does the Sense HAT work with any Raspberry Pi?
+I've got a project that needs to track movement and position. Would the Sense HAT help with that?
+What's the Astro Pi thing? Is that related to the Sense HAT?
+Is there official Python support for the Sense HAT?
+
+# Features
+
+What sensors are actually built into the Sense HAT?
+Does the Sense HAT have a temperature sensor?
+Wait, it can detect colour? How does that work?
+What's that little joystick on the Sense HAT for?
+How big is the LED grid on the Sense HAT?
+Where can I find the technical drawings or schematics for the Sense HAT?
+
+# LED matrix
+
+What kind of display is the LED matrix exactly?
+How do I actually control the LED matrix, like from code?
+
+# Joystick
+
+How does the joystick show up to my Raspberry Pi? Like does it act like a keyboard or what?
+I want to use the joystick in my Python game. What library should I use for that?
+Can I use pygame to handle the joystick on the Sense HAT?
+
+# Install
+
+What do I need to set up before I can use the Sense HAT?
+How do I install the Sense HAT software on my Pi?
+Do I need to enable anything special before the Sense HAT will work?
+I just plugged in my Sense HAT but nothing's happening. Did I forget a step?
+Do I have to reboot after installing the Sense HAT stuff?
+
+# Calibrate
+
+My compass readings seem way off. How do I calibrate the magnetometer?
+How do I calibrate the Sense HAT sensors?
+What's this waggling the board around thing about during calibration? Why do I have to do that?
+I finished calibrating and got an ini file. What do I do with it?
+What's the ellipsoid fit calibration option and do I need it?
+After calibration, where does the settings file need to go?
+
+# Getting started
+
+Where do I find example code for the Sense HAT?
+I just installed everything. Where do I start to learn how to use it?
+
+# Use the Sense HAT with Python
+
+What's the official Python library for the Sense HAT called?
+Where can I find the full docs for the Sense HAT Python library?
+
+# Use the Sense HAT with C++
+
+Can I use C++ with the Sense HAT instead of Python?
+What library do I use if I want to write C++ code for the Sense HAT?
+How do I compile the C++ examples for the Sense HAT?
+There's a pre-compiled example for the Sense HAT. How do I run it and how do I stop it?
+
+# Troubleshooting
+
+How do I read the EEPROM data from my Sense HAT?
+How do I write new data to the Sense HAT EEPROM?
+I want to write to the Sense HAT EEPROM. Is that going to damage anything if something goes wrong?
+I've got a Raspberry Pi 3 Model B and the EEPROM steps aren't working. What's going on?
+How do I turn off write protection on the Sense HAT EEPROM?

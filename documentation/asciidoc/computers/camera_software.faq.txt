@@ -1,0 +1,264 @@
+# Whole Document
+
+- I just got a camera module for my Pi. What software do I need to actually use it?
+- What's the difference between `rpicam-apps` and `libcamera`? Are they the same thing?
+- I've got an older Raspberry Pi OS and it's still using `libcamera-still` instead of `rpicam-still`. Is that okay?
+- Does the camera work right out of the box on a fresh Raspberry Pi OS install, or do I have to install something first?
+- I'm on Bullseye and I've been using `raspistill`. Can I keep using that?
+- What camera modules does the Raspberry Pi officially make?
+- I want to do some AI stuff with the camera. Which module should I get for that?
+- My camera works fine but I just want to check — what version of `rpicam-apps` am I running?
+- I need help with my camera and I want to post on the forums. What info should I have ready?
+
+# `rpicam-apps`
+
+- What are all the different `rpicam` camera apps and what does each one do?
+- I want to just test my camera's working. What's the simplest command I can run?
+- Can I write my own camera app using the same stuff the Pi camera tools use?
+- What's `rpicam-detect` and do I need to install anything extra to use it?
+- I installed Raspberry Pi OS Lite. Do I still get the camera apps?
+
+# `rpicam-hello`
+
+- How do I just show a live preview from my camera?
+- I ran `rpicam-hello` and the preview closed after 5 seconds. How do I keep it open?
+- Can I stop the preview window from showing up at all?
+- How do I show the frame rate or exposure info in the preview window title?
+- I'm connecting over SSH and I want to see the camera preview on my remote machine. How do I do that?
+- My preview window crashed and I'm using Gtk2 with OpenCV. Is there a fix for that?
+
+# `rpicam-jpeg`
+
+- How do I take a photo and save it as a JPEG?
+- I want the preview to only show for 2 seconds before it takes a photo. How do I do that?
+- Can I take a photo at a lower resolution than the full camera resolution?
+
+# `rpicam-still`
+
+- What's the difference between `rpicam-jpeg` and `rpicam-still`?
+- How do I save a photo as a PNG instead of a JPEG?
+- I want to save the raw image straight from the sensor. How do I do that?
+- My raw image saved as a DNG file. What apps can I use to open it?
+- I want to take a really long exposure photo, like 100 seconds. How do I do that?
+- I'm trying to do a long exposure but auto exposure keeps messing things up. How do I turn that off?
+- How do I set up a time lapse with `rpicam-still`?
+- I've got a bunch of time lapse photos and I want to turn them into a video. How do I do that with ffmpeg?
+- What does the `--timelapse` option take as a value — is it seconds or milliseconds?
+
+# `rpicam-vid`
+
+- How do I record a 10 second video and save it to a file?
+- I recorded a video with `rpicam-vid` but VLC won't play it properly. What should I use instead?
+- How do I save video directly as an MP4?
+- Does Raspberry Pi 5 handle MP4 differently than older Pis?
+- Can I record video as MJPEG instead of H.264?
+- I want to record really high framerate video, like 120fps. What settings do I need to tweak?
+- My high framerate video keeps dropping frames. What can I do about that?
+- I want to include audio in my video recording. How do I do that?
+- Can I save my video in segments instead of one big file?
+- I'm streaming video over a network and the latency is really bad on my Pi 5. Is there anything I can do?
+- What does the `--inline` flag do for video recording?
+
+# `rpicam-raw`
+
+- How do I record raw video straight from the sensor?
+- `rpicam-raw` is making one huge file. Can I split it into separate frames?
+- I want to record at full resolution on the HQ camera but I'm dropping frames. What framerate should I use?
+- Can `rpicam-raw` save DNG files? I thought raw meant DNG.
+
+# `rpicam-detect`
+
+- How does `rpicam-detect` know what objects to look for?
+- `rpicam-detect` isn't installed on my Pi. How do I get it?
+- I want to automatically take a photo whenever my cat walks in front of the camera. Can the Pi do that?
+
+# Configuration
+
+- My third-party camera module isn't being detected. How do I configure it manually?
+- How do I tell my Pi to use a specific camera overlay in `config.txt`?
+- I turned off auto camera detection. Now my camera isn't working. What did I do wrong?
+- I've got a Pi with two camera connectors. How do I specify which connector to use?
+- What's a camera tuning file and do I need to mess with it?
+- I've got the NoIR camera and the colours look wrong. Is there a tuning file for that?
+
+# Use multiple cameras
+
+- Can I use two cameras at the same time on my Raspberry Pi?
+- How do I list all the cameras connected to my Pi?
+- How do I tell `rpicam-vid` which camera to use?
+- I've got two cameras running at the same time but I can't sync them. Is there a way to do that?
+
+# Software Camera Synchronisation
+
+- How does software camera sync actually work? Like, what's the server and client thing about?
+- Do I need any special hardware to sync two cameras frame by frame?
+- I want to record synced video from two cameras. Which one should I start first — the client or the server?
+- My cameras are on different Raspberry Pis. Can software sync still work across the network?
+- My synced cameras have slightly different framerates and they keep drifting apart. Is that a known issue?
+
+# Install `libcamera` and `rpicam-apps`
+
+- What's the difference between the `rpicam-apps` and `rpicam-apps-lite` packages?
+- I'm using Raspberry Pi OS Lite. Which camera apps package do I get?
+
+# Stream video over a network with `rpicam-apps`
+
+- How do I stream camera video over the network from my Pi?
+- Which streaming method should I use — UDP, TCP, or RTSP?
+- I'm trying to stream H.264 over UDP with VLC and it's not working. What's the deal?
+- How do I view a stream on my laptop that my Pi is sending over UDP?
+- How do I set up RTSP streaming from my Pi?
+- Can I stream video with audio included?
+- How do I use GStreamer with the Pi camera?
+
+# Streaming with MediaMTX
+
+- What is MediaMTX and how do I use it with my Pi camera?
+- How do I install MediaMTX on my Raspberry Pi?
+- My MediaMTX stream keeps pausing. What might be causing that?
+- How do I watch a MediaMTX stream in a web browser?
+- Can MediaMTX control the Pi camera directly without me running `rpicam-vid` myself?
+
+# Streaming with MistServer
+
+- How do I set up MistServer to stream my Pi camera?
+- How do I watch a MistServer camera stream using RTSP?
+
+# Streaming with go2rtc
+
+- How do I set up go2rtc with my Pi camera?
+- Which go2rtc binary should I download for a 64-bit Raspberry Pi?
+- How do I watch a go2rtc stream in a web browser?
+
+# `rpicam-apps` options reference
+
+## Common options
+
+- How do I see all the options available for `rpicam-apps`?
+- How do I set a timeout so my camera runs indefinitely?
+- Can I save my options in a config file instead of typing them every time?
+- How do I make the preview window full screen?
+- How do I flip the camera image horizontally?
+- How do I zoom in on just part of the camera's field of view?
+- I want to rotate my camera image 180 degrees. Is there an option for that?
+- What's HDR mode and does my camera support it?
+- How do I run the camera with both high res and a lower res stream at the same time?
+
+## Camera control options
+
+- How do I adjust the sharpness of my camera image?
+- How do I make the image brighter without overexposing it?
+- What's EV compensation and how do I use it?
+- How do I lock the exposure time to a specific value?
+- How do I change the white balance mode on my camera?
+- How do I completely turn off auto white balance?
+- How do I reduce noise in my video, and does it affect performance?
+- I want to manually set the focus on my Camera Module 3. How do I do that?
+- How do I make the camera continuously auto focus?
+- Can I set the autofocus to only look at part of the frame?
+
+## Output file options
+
+- How do I stream directly to a network address instead of saving a file?
+- How do I save each captured segment to a different numbered file automatically?
+- How do I apply post-processing effects to my camera output?
+- How do I save image metadata alongside my photos?
+
+## Image options
+
+- How do I set the JPEG quality when taking photos?
+- How do I take a photo in PNG format?
+- How do I take a series of photos with a timestamp in the filename?
+- How do I capture a raw DNG file alongside my JPEG?
+- How do I add extra EXIF data to my photos?
+- How do I take a photo immediately without waiting for the preview?
+
+## Video options
+
+- How do I control the bitrate of my H.264 video?
+- How do I record video in segments and save each to its own file?
+- How do I pause and resume recording with a keypress?
+- How do I record a specific number of frames instead of using a timeout?
+- Can I record video to a circular buffer and only save it when I quit?
+
+## `libav` options
+
+- How do I record video with audio using `rpicam-vid`?
+- What audio codecs can I use when recording video?
+- How do I choose which microphone to record from?
+- The audio and video are out of sync in my recording. Is there a way to fix that?
+
+# Post-processing with `rpicam-apps`
+
+- What is post-processing in `rpicam-apps` and how do I use it?
+- How do I apply a filter like a negate effect to my camera output?
+- Can I run multiple post-processing stages at the same time?
+- I want to detect motion with my Pi camera. Is there a built-in way to do that?
+- How do I add a text overlay with the date and time to my camera feed?
+- I want to detect faces with the camera. Do I need any extra libraries for that?
+- What's the HDR post-processing stage and how is it different from DRC?
+
+# Post-processing with TensorFlow Lite
+
+- How do I install TensorFlow Lite for use with the Pi camera?
+- Can the Pi camera automatically recognise objects in view?
+- I want to do pose estimation with my Pi camera. What do I need to set up?
+- How do I get `rpicam-detect` working with TensorFlow Lite?
+
+# Advanced `rpicam-apps`
+
+## Build `libcamera` and `rpicam-apps`
+
+- Why would I want to build `rpicam-apps` from source instead of just using `apt`?
+- How do I build `rpicam-apps` without having to rebuild `libcamera` from scratch?
+- I want to build `rpicam-apps` with OpenCV support. What do I need to do?
+- How do I rebuild `libcamera` from source?
+- I'm running a 32-bit OS on a Pi 4. Is there an optimised build I can use?
+- How do I uninstall the pre-installed `rpicam-apps` before installing my own build?
+- My Pi only has 1GB of RAM and the build is running out of memory. What can I do?
+
+## Use `libcamera` with Qt
+
+- I'm building an app with Qt and `libcamera` and I'm getting weird symbol errors. What's going on?
+
+## Use `libcamera` from Python with Picamera2
+
+- How do I control the Pi camera from Python?
+- Is Picamera2 pre-installed on Raspberry Pi OS?
+- I had the old Picamera installed with pip. Should I uninstall it before using Picamera2?
+- I'm on Raspberry Pi OS Lite. Can I still use Picamera2?
+
+# Use a USB webcam
+
+- Can I use a regular USB webcam with my Raspberry Pi?
+- How do I take a photo with a USB webcam?
+- My webcam photo has a timestamp banner on it. How do I turn that off?
+- How do I take webcam photos at a higher resolution?
+- I want to do a time lapse with my USB webcam. How do I set that up with cron?
+- How do I save webcam photos with the date and time in the filename automatically?
+
+# V4L2 drivers
+
+- What are the V4L2 device nodes used by the Pi camera and what does each one do?
+
+# Unicam
+
+- What is Unicam on the Raspberry Pi?
+- I want to connect a third-party camera sensor to my Pi. Where do I start?
+- Can I connect an HDMI source to my Pi and use it as a camera input?
+
+# Differences between `rpicam` and `raspicam`
+
+- I used to use `raspistill` and now I'm switching to `rpicam-still`. What's changed?
+- Does `rpicam-apps` support burst capture like `raspicam` did?
+- I was using `--imxfx` for image effects in the old apps. How do I do that now?
+- How do I disable auto white balance in `rpicam-apps`? There's no `--awb off` option.
+
+# Troubleshooting
+
+- My camera preview is really slow and choppy. What can I do?
+- My camera isn't being detected at all. What should I check first?
+- The preview window shows tearing on my desktop. Is that fixable?
+- My cable looks fine but the camera still isn't working. What else could it be?
+- I accidentally plugged my camera into the display port instead of the camera port. Could that damage anything?
+- My Pi seems to lose power when I connect the camera. What could cause that?

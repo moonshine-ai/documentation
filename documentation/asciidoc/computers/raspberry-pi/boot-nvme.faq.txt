@@ -1,0 +1,59 @@
+# Whole Document
+
+What even is NVMe and why would I want to boot from it instead of an SD card?
+
+Can a Raspberry Pi boot from an NVMe SSD?
+
+I've got an NVMe drive and I want to use it with my Pi. Where do I even start?
+
+Does this work on all Raspberry Pi models or just some of them?
+
+# Prerequisites
+
+What hardware do I need to connect an NVMe drive to my Raspberry Pi 5?
+
+I've got a Compute Module 4 — what adapter do I need to connect an NVMe SSD to it?
+
+I just plugged in my NVMe drive. How do I check if the Pi actually sees it?
+
+What's the command to verify my NVMe drive is connected properly?
+
+I ran that command and got something about `/dev/nvme0`. Does that mean it's working?
+
+Do I need to update anything before I set up NVMe boot?
+
+# Edit the bootloader boot priority
+
+How do I actually tell the Pi to boot from the NVMe drive instead of the SD card?
+
+I want to change the boot order so NVMe comes first. How do I do that?
+
+I opened raspi-config but I'm not sure where to find the boot order setting. Where is it?
+
+I've got a CM4 — do I change the boot order the same way as on a regular Pi 5?
+
+What's this `rpiboot` thing for the CM4? Do I need it just to boot from NVMe?
+
+I have a CM4 Lite. Do I need to do anything special to get it to boot from NVMe?
+
+# NVMe `BOOT_ORDER`
+
+What boot mode number do I need to use for NVMe in the EEPROM settings?
+
+I keep seeing `BOOT_ORDER` mentioned. What number do I put in there for NVMe?
+
+# Example
+
+What does it look like when the Pi successfully finds and boots from an NVMe drive?
+
+Once Linux is booted from the NVMe drive, what does the drive show up as?
+
+I booted from my NVMe and I want to check the partitions on it. What command do I run?
+
+What are the two partitions on the NVMe drive after a normal install?
+
+# Troubleshooting
+
+My Pi won't boot from the NVMe drive. What should I do?
+
+The boot is failing and I don't know why. Is there somewhere I can report the problem and get help?

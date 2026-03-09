@@ -1,0 +1,153 @@
+# Introduction
+
+- What exactly is Raspberry Pi OS and is it free to use?
+- Is Raspberry Pi OS based on another operating system, or is it built from scratch?
+- How often does Raspberry Pi OS get a new major version?
+- What's the latest version of Raspberry Pi OS right now?
+
+# Get Raspberry Pi OS
+
+- What's the difference between the regular desktop version and the Full version of Raspberry Pi OS?
+- I'm setting up a headless server, which version of Raspberry Pi OS should I use?
+- I've got a Raspberry Pi Zero — which version of the OS should I be running?
+- Does the desktop version come with a web browser already installed?
+- I upgraded my Pi OS to the new version using the terminal update commands but it doesn't seem to have actually upgraded. What went wrong?
+- I'm on an old version of Raspberry Pi OS and want to get the new one. Can I just run the update command or do I need to reinstall?
+- Where do I actually download Raspberry Pi OS from?
+
+# Update software
+
+- How do I keep my Raspberry Pi's software up to date?
+- What's the difference between `apt update` and `apt full-upgrade`? Why do I need both?
+- Why should I use `full-upgrade` instead of just `upgrade` on my Pi?
+- Does updating my software with apt also update the Linux kernel?
+- Will running the regular update commands upgrade me to a new major version of the OS?
+
+## Manage software packages with APT
+
+- How do I search for a package I want to install?
+- How do I find out more info about a package before I install it, like how big it is or who made it?
+- How do I install a package without it asking me to confirm?
+- I want to completely remove a package including all its settings files. How do I do that?
+- How do I check if I have enough space before doing a big upgrade?
+- My SD card is getting full and I think it's old downloaded packages taking up space. How do I clear those out?
+
+## Upgrade your operating system to a new major version
+
+- Can I upgrade to a new major version of Raspberry Pi OS in place, or do I have to start fresh?
+- What's the safest way to move to a new major version without losing all my files?
+
+## Upgrade your firmware
+
+- How do I update the firmware on my Raspberry Pi?
+- Is it safe to just run `rpi-update` whenever I want to keep things fresh?
+- What does `rpi-update` actually do to my Pi?
+- I updated my firmware and now things are broken. How do I go back to the stable version?
+
+## Convert Raspberry Pi OS Lite into Raspberry Pi OS Desktop
+
+- I installed the Lite version but now I want a desktop. Can I add it without starting over?
+- How do I add a graphical desktop to Raspberry Pi OS Lite?
+- I added the desktop to my Lite install but I want to go back to just the command line. Do I have to uninstall everything?
+
+# Play audio and video
+
+- Does Raspberry Pi OS come with a media player?
+- How do I play a video file on my Raspberry Pi?
+
+## VLC media player
+
+- My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
+- How do I open a video file in VLC without using the terminal?
+
+## `vlc` CLI
+
+- How do I play a video from the command line?
+- VLC keeps staying open after my video finishes. How do I make it close automatically when it's done?
+- I want to play a video fullscreen from the terminal. Is there a flag for that or something?
+
+## Use `cvlc` to play media without a GUI
+
+- Can I play a video without the VLC window popping up at all?
+- What's the difference between `vlc` and `cvlc`?
+
+## Play audio and video on Raspberry Pi OS Lite
+
+- Does VLC work on Raspberry Pi OS Lite?
+- I'm on the Lite version and I want to play audio. What do I need to install?
+
+## Specify an audio output device
+
+- How do I force audio to come out of the headphone jack instead of HDMI?
+- What even is ALSA? Do I need to know about it to change my audio output?
+- How do I see what audio devices are available on my Pi?
+
+## Specify a video output device
+
+- How do I make video play on my touchscreen instead of the HDMI?
+- How do I find out what video output devices my Pi has?
+
+## Specify both audio and video output devices
+
+- Can I send audio to the headphones and video to the touchscreen at the same time?
+
+## Improve stream playback performance
+
+- I recorded a video with my Pi camera and playback in VLC is really choppy. Is there a way to fix that?
+- How do I convert a raw H.264 file into an MP4?
+
+# Utilities
+
+## `kmsprint`
+
+- How do I see what display modes my monitor supports when it's connected to my Pi?
+
+## `vcgencmd`
+
+- How do I check the temperature of my Raspberry Pi?
+- How do I find out if my Pi is being throttled because of heat or low voltage?
+- How do I check how much memory my Pi has available for the GPU versus the main processor?
+- How do I check the current clock speed of my Pi's CPU?
+
+## `get_throttled`
+
+- My Pi seems sluggish. How do I check if it's being throttled?
+- What does it mean if my Pi detects undervoltage?
+
+# Use Python on a Raspberry Pi
+
+- I tried to install a Python package with pip and got some weird error about an externally managed environment. What does that mean?
+- Why can't I just install Python packages normally with pip anymore?
+- What's a Python virtual environment and do I actually need one?
+- How do I install a Python library so it's available for everyone on the system, not just in a virtual environment?
+
+## Install Python packages using `apt`
+
+- How do I find Python packages I can install with apt?
+- What's the naming convention for Python packages in apt?
+
+## Use `pip` with virtual environments
+
+- How do I create a virtual environment for my Python project?
+- How do I activate a virtual environment once I've created one?
+- How do I leave a virtual environment when I'm done?
+- Should I make one virtual environment per project or one for my whole account?
+
+## Use the Thonny editor
+
+- How do I use a virtual environment in Thonny instead of the system Python?
+
+# Use GPIO from Python
+
+- What's the easiest way to control GPIO pins with Python?
+- How do I make an LED blink using Python on my Raspberry Pi?
+- How do I read a button press in Python on the Pi?
+- How do I make a button control an LED in Python?
+
+# Whole Document
+
+- I just got a Raspberry Pi. Where do I even start with the software?
+- What's the best version of Raspberry Pi OS for a beginner?
+- I want to use my Pi as a media player. What do I need to set up?
+- My Pi seems really slow and hot. What tools can I use to figure out what's going on?
+- I want to do some Python programming on my Pi. What do I need to know before I start?

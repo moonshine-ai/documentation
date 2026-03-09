@@ -1,0 +1,73 @@
+# Whole Document
+
+What's the Raspberry Pi AI Camera and what makes it different from a regular camera module?
+
+Does the AI processing happen on the camera itself or does my Pi have to do all the work?
+
+I've got a Raspberry Pi 4 — can I use the AI Camera with it or is it only for the Pi 5?
+
+Can I run my own neural network on the AI Camera or is it locked to the built-in ones?
+
+# Getting Started
+
+How do I set up the AI Camera? Like what do I physically need to do first?
+
+What software do I need to install to get the AI Camera working?
+
+I just updated my Pi but the camera's still not working. Do I need to install something else on top of the regular updates?
+
+How long does it take to load the firmware when the camera starts up? It seems like it's just hanging.
+
+Why does it take so long to start up the first time? Is that normal?
+
+Do I need to reboot after installing the camera firmware or can I just run it straight away?
+
+# Run Example Applications
+
+How do I run object detection on the AI Camera? Like what's the actual command?
+
+I want to try the demo that detects objects and draws boxes around them. How do I do that?
+
+Can I record a video with the object detection boxes shown in it, not just preview it?
+
+How do I try the pose estimation thing that tracks people's joints and limbs?
+
+What's the difference between the MobileNet SSD demo and the PoseNet demo?
+
+I want to try the Picamera2 examples but I don't know where to get them. Where do I download them from?
+
+Do I need OpenCV installed to run the Picamera2 AI examples?
+
+How do I run the YOLOv8 object detection demo with Picamera2?
+
+Can I change how many objects it tries to detect at once?
+
+There's loads of false detections — it's picking up random stuff. Can I make it less sensitive somehow?
+
+The object detection results are really jumpy and flickery. Is there a way to smooth that out?
+
+# Under the Hood
+
+I don't really get how the AI Camera works differently from just using a normal camera and doing AI on the Pi. Can you explain it?
+
+What's an input tensor? I keep seeing that term.
+
+What's a region of interest and why would I want to change it?
+
+What are output tensors? Is that just the results from the AI?
+
+# Model Deployment
+
+Can I use my own trained neural network model with the AI Camera?
+
+I've got a PyTorch model I trained. What do I need to do to get it running on the AI Camera?
+
+Do I need special Sony software to convert my model for the AI Camera?
+
+Can I do all the model conversion steps on my Raspberry Pi or do I need a separate computer?
+
+What file format does the AI Camera use for neural network models?
+
+I converted my model but I'm not sure how to load it onto the camera. What's the last step I'm missing?
+
+What's an RPK file? Is that what gets loaded onto the camera?

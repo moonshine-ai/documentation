@@ -1,0 +1,61 @@
+# Whole Document
+
+- Where does Raspberry Pi actually put all its open source code? Like is there one place I can find everything?
+- I want to look at how Raspberry Pi OS works under the hood. Where do I even start?
+- Does Raspberry Pi make all its software open source or are some parts closed off?
+- I'm trying to find the source code for something in Raspberry Pi OS but I don't know where to look. What are my options?
+- How many GitHub organizations does Raspberry Pi have? I keep finding different ones and getting confused.
+
+# Finding software sources in Raspberry Pi OS
+
+- I want to download the source code for a package that came with Raspberry Pi OS. How do I do that through apt?
+- I've heard some packages in Raspberry Pi OS are patched versions of upstream software. How do I tell which ones those are?
+- What's the `+rpt` tag I keep seeing on some packages? Does that mean Raspberry Pi modified them?
+- I'm trying to get the source for a package but apt source isn't working. Do I need to change something in my apt settings first?
+- What files do I need to edit to enable source packages in apt? I can't remember where they are.
+- I'm on a 64-bit Pi — which sources file do I need to edit?
+- After I edit the apt sources files, do I need to run an update command or does it pick up the changes automatically?
+- How do I actually build a package once I've downloaded its source? Like what commands do I run?
+- What's devscripts and why do I need it to build a package?
+- I downloaded the source for labwc but now I don't know what to do with it. How do I build it?
+
+# Our GitHub organizations
+
+- What are the three GitHub organizations Raspberry Pi uses? I can never remember all of them.
+- Is there a difference between the raspberrypi and raspberrypi-ui GitHub organizations, or do they just split stuff up randomly?
+
+# Main sources
+
+- Where's the Linux kernel source for Raspberry Pi? Does it work on all Pi models?
+- Is the Raspberry Pi firmware open source? I heard some of it isn't.
+- Where can I find a changelog for the Pi firmware so I can see what changed between versions?
+- I want to look at device tree overlays — where's the README for those?
+- Where do I find the bootloader EEPROM stuff for Pi 4 and Pi 5? Like the source and release notes?
+
+# Libraries and applications
+
+- What's picamera2 and how is it different from rpicam-apps? I'm confused about which one to use for camera stuff.
+- I want to control my Pi's camera with Python. Is there a library for that?
+- Where's the source for libcamera on Raspberry Pi? Is it the same as the regular upstream libcamera?
+- I need to access GPIO pins directly. Is there an official Raspberry Pi way to do that?
+
+# Desktop
+
+- Where's the source code for the Pi desktop taskbar? Like the thing at the top of the screen?
+- Is the taskbar different depending on whether I'm using Wayland or the old X desktop?
+- Where can I find the code for the file manager in Raspberry Pi OS?
+- I want to look at how the Raspberry Pi configuration tool works. Where's that source?
+
+# Applications
+
+- Where's the source code for Raspberry Pi Imager? I want to see how it works.
+- Is the SD Card Copier app open source? Where can I find it?
+- I want to report a bug in the current version of Raspberry Pi OS. Where do I do that?
+
+# Raspberry Pi Pico
+
+- Where do I get the Pico SDK? Is there a quick setup tool or do I have to do it all manually?
+- I'm just getting started with the Pico. Are there example projects I can look at?
+- Where's the VS Code extension for Pico development? I can't find it in the marketplace.
+- What's picotool and what do I use it for?
+- I want to use a Debug Probe with my Pico. Where's the source for that?

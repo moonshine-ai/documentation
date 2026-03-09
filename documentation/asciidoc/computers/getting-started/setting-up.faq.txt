@@ -1,0 +1,66 @@
+# Whole Document
+
+- I just got a Raspberry Pi, what do I actually need to get it up and running?
+- What's the bare minimum I need to start using my Raspberry Pi?
+- I want to set up my Pi without a monitor or keyboard, is that possible?
+- I've never used a Raspberry Pi before, where do I even start?
+
+# Getting started with your Raspberry Pi
+
+- Do I need a keyboard and mouse for my Raspberry Pi or can I set it up without them?
+- What's a headless setup? I keep seeing that word and I'm not sure what it means.
+- If I'm doing a headless setup, what can I actually configure before I boot it up for the first time?
+
+# Power supply
+
+- What power supply do I need for my Raspberry Pi 5?
+- I've got an old phone charger lying around, can I use that to power my Raspberry Pi?
+- My Pi 4 keeps showing a lightning bolt on screen. Is it not getting enough power?
+- What's the difference between powering a Pi 5 with 5 amps versus 3 amps?
+- Which port do I plug the power into? There's a few ports that look the same on my Zero.
+- I've got a Pi 3 — does it use USB-C or micro USB for power?
+
+# Boot media
+
+- Does the Raspberry Pi have any built-in storage or do I need to bring my own?
+- Can I boot my Raspberry Pi from a USB drive instead of an SD card?
+- What size SD card do I need for Raspberry Pi OS?
+- I'm installing the Lite version, how much storage do I actually need on my SD card?
+- Is there a maximum SD card size I should stick to?
+- My Raspberry Pi Zero won't boot and I'm using a 512 GB SD card, could that be the problem?
+- Does a faster SD card actually make a difference on a Raspberry Pi?
+
+# Keyboard
+
+- Can I use a Bluetooth keyboard with my Raspberry Pi?
+- I don't have a USB keyboard, can I connect a wireless one?
+
+# Mouse
+
+- What kind of mouse works with a Raspberry Pi?
+- Can I use my wireless Bluetooth mouse with a Pi?
+
+# Display
+
+- My monitor doesn't have a micro HDMI port, how do I connect it to my Pi 5?
+- I've got two HDMI ports on my Pi 4, which one should I use for my main screen?
+- Can I connect my Raspberry Pi to a monitor using USB-C?
+- Does the Raspberry Pi Zero use a regular HDMI cable?
+- I want to connect my Pi to an old TV, can I do that?
+- My Pi 5 has two micro HDMI ports, can I run two monitors at the same time?
+
+# Audio
+
+- How do I get audio out of my Raspberry Pi?
+- Does the Raspberry Pi have a headphone jack?
+- Can I connect Bluetooth headphones to my Raspberry Pi?
+- I've got a Pi 5 but I can't find a headphone jack on it, where did it go?
+- Can I get audio through the HDMI cable on my Raspberry Pi?
+
+# Networking
+
+- Does my Raspberry Pi have built-in WiFi?
+- Which Raspberry Pi models have Bluetooth?
+- My Pi doesn't have an Ethernet port, can I still connect it to a wired network somehow?
+- Does the Raspberry Pi Zero have WiFi?
+- I've got a Pi 3 Model A, does it have an Ethernet port?

@@ -1,0 +1,35 @@
+# Whole Document
+
+- What even is DPI and why would I use it instead of HDMI for a display?
+- I've got a display that doesn't use HDMI or DSI. Can I connect it to a Raspberry Pi somehow?
+- Does every Raspberry Pi support DPI displays or just some of them?
+
+# GPIO Pins
+
+- Which GPIO pins get used up when I'm running a DPI display?
+- I want to use DPI but I also need some GPIO pins for other stuff. Which ones does DPI actually take?
+- What's the difference between RGB565, RGB666, and RGB888 and which one should I pick?
+- I've heard DPI uses alternate functions on the GPIO. What does that mean exactly?
+
+# Disable Other GPIO Peripherals
+
+- I'm trying to set up a DPI display but I also have I2C stuff connected. Will that cause problems?
+- Do I have to turn off SPI and I2C before I can use DPI, or can they all run at the same time?
+- How do I disable I2C in config.txt so it doesn't conflict with my DPI display?
+
+# Configure a Display
+
+- How do I get my Pi to automatically figure out what DPI display I've connected?
+- I connected a DPI display but nothing showed up. Do I need to add something to config.txt?
+- Wait, is auto detect on by default or do I have to turn it on myself?
+- How do I turn off display auto detect if I don't want it?
+
+- I've got a third party DPI display that's not the official Raspberry Pi one. How do I set it up?
+- I'm using Bookworm and I've seen old guides using dpi_output_format in config.txt but I heard that changed. What do I do now instead?
+- My display manufacturer gave me some timing values but I don't know where to put them. How do I configure that manually?
+- I've got a display with no overlay in the kernel. Is there still a way to make it work?
+- I keep getting an error setting up my device tree and I think my config line is too long. What's the limit and how do I fix it?
+- What does the clock-frequency parameter actually do when I'm setting up a DPI display?
+- I need to control the backlight on my DPI display from the Pi. Is there a way to do that?
+- What's the difference between hsync-invert and just regular hsync? When would I need to invert it?
+- How do I tell the Pi what physical size my screen is in millimetres?

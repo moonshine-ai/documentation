@@ -1,0 +1,46 @@
+# Whole Document
+
+- What is rpicam-vid and what does it actually do?
+- I just want to record a video with my Raspberry Pi camera. What's the simplest command to do that?
+- Does rpicam-vid show a preview while it's recording?
+- What file format does rpicam-vid save videos in by default?
+
+# `rpicam-vid`
+
+- I recorded a video with rpicam-vid and now I can't play it back. What player should I use?
+- I tried opening my H.264 file in VLC and it's just showing garbled frames. What's going on?
+- How do I record a ten-second video with rpicam-vid?
+- I want to save my video as an MP4 instead of H.264. How do I do that?
+- I've got a Raspberry Pi 4 and I want to save an MP4 file. Is that possible or is it only on Pi 5?
+- What's the difference between the raw H.264 output and an MP4? Why does it matter?
+
+# Encoders
+
+- Can I record video as individual JPEG frames instead of one big video file?
+- What video formats can rpicam-vid actually encode into? Like what are my options?
+- I want to save motion JPEG video. How do I tell rpicam-vid to use that format?
+- Does the file extension matter when I'm saving the video, like does calling it .mp4 actually change the format?
+- How do I split my recording into separate chunk files instead of one long video?
+
+# Capture high framerate video
+
+- I'm trying to record at over 60fps but I keep dropping frames. What can I do to fix that?
+- How do I record 120fps video on a Raspberry Pi?
+- Does turning off the preview window actually help with high framerate recording?
+- I want to do high framerate video. Should I lower the resolution to make it work?
+- What's that force_turbo setting and do I need it for high speed video?
+- I'm on a Pi 4 and want better video performance. Can I overclock anything to help?
+
+# `libav` integration with `rpicam-vid`
+
+- Can rpicam-vid record audio along with the video?
+- How do I record video with sound using rpicam-vid?
+- I want to save an AVI file with audio. How do I do that?
+- What's libav and why would I use it instead of the default encoder?
+
+# Low latency video with the Pi 5
+
+- I'm streaming live video from a Pi 5 and there's too much delay. How do I reduce the latency?
+- I heard the Pi 5 uses software encoding. Does that make it worse for real-time streaming?
+- What does the low-latency option actually do and is there a downside to using it?
+- Will using low latency mode mess up my video quality or framerate?

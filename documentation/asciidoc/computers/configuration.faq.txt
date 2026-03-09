@@ -1,0 +1,181 @@
+# Getting Started
+
+- How do I open raspi-config on my Pi?
+- I don't have a desktop on my Pi, how do I get to the config tool?
+- What's the difference between the Control Centre and running raspi-config in the terminal?
+- I keep hearing about raspi-config but I don't know how to navigate it. How do I move around in it?
+
+# System Options
+
+- How do I change my Wi-Fi network on the Pi?
+- I want to change where my audio comes out. How do I do that in raspi-config?
+- How do I change my password on a Raspberry Pi?
+- My Pi shows up with a weird name on my network. How do I change that?
+- I want my Pi to boot straight to the desktop without asking me to log in. Is that something I can set up?
+- My Pi keeps trying to do stuff before it's connected to the internet. Can I make it wait for the network before booting?
+- How do I turn off that splash screen that shows up when my Pi starts?
+- Can I change what the power light does on my Pi?
+- How do I change the default web browser on Raspberry Pi OS?
+
+# Display Options
+
+- The edges of my screen are getting cut off, there's stuff disappearing off the sides. How do I fix that?
+- I don't want my screen to go blank after a while. How do I turn that off?
+- I'm running my Pi without a monitor and using VNC. How do I set the screen resolution for that?
+- How do I enable 4K at 60Hz on my Raspberry Pi?
+
+# Interface Options
+
+- How do I turn on SSH so I can connect to my Pi remotely?
+- I want to access my Pi remotely without fiddling with network settings. What's the easiest way to do that?
+- How do I enable VNC on my Raspberry Pi?
+- I'm trying to use SPI on my Pi. How do I turn it on?
+- How do I enable I2C on my Raspberry Pi?
+- I've got a DS18B20 temperature sensor. How do I enable the 1-wire interface for it?
+- How do I enable remote GPIO access on my Pi?
+
+# Performance Options
+
+- Can I overclock my Raspberry Pi and how do I do it?
+- I'm worried about overclocking breaking things. Is there a way to temporarily turn it off when booting?
+- How do I give more memory to the GPU?
+- What does the overlay filesystem option do in raspi-config?
+
+# Localisation Options
+
+- How do I change the language or locale on my Pi?
+- My Pi has the wrong timezone. How do I fix that?
+- My keyboard is typing the wrong characters. How do I change the keyboard layout?
+- I can't connect to Wi-Fi and I think it's a country code thing. How do I set that?
+
+# Advanced Options
+
+- I cloned my SD card to a bigger one but I'm not getting all the space. How do I expand the filesystem?
+- I want my Pi 4 to boot from USB instead of the SD card. Where do I set that up?
+- How do I switch between X11 and Wayland on my Raspberry Pi?
+- How do I switch between PulseAudio and PipeWire?
+- How do I update raspi-config itself?
+
+# Non-Interactive raspi-config
+
+- Can I change raspi-config settings from a script without having to go through all the menus?
+- I'm writing a setup script for my Pi. How do I connect to Wi-Fi from the command line without any interactive prompts?
+- What's the command to set the hostname from the terminal without going into the menus?
+- How do I set my Pi to automatically log in from the command line?
+- I want to enable SSH from a script. What's the command for that?
+- How do I enable I2C without opening the raspi-config menus?
+- I want to expand the filesystem from a script. How do I do that without clicking through menus?
+- How do I set my timezone from the command line in raspi-config?
+- Can I overclock my Pi from a script? What are the overclock level options?
+
+# Displays
+
+- My Pi isn't using the best resolution for my monitor. How does it decide what resolution to use?
+- I've got a Pi Zero and I need an adapter for HDMI, right? What kind?
+- Can my Raspberry Pi 4 run two monitors at once?
+- How do I change the screen resolution and rotation on my Pi?
+- How do I figure out what my display is called so I can configure it manually?
+- I'm running Wayland and I want to rotate my screen 90 degrees. How do I do that?
+- I want to rotate my display but I'm connecting over SSH. How do I run that rotation command remotely?
+
+# Audio
+
+- My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
+- What's the Pro Audio profile I keep seeing in the audio settings? Do I need it?
+- How do I change audio output on Raspberry Pi OS without using the terminal?
+
+# Networking
+
+- How do I connect my Pi to Wi-Fi from the command line?
+- My Pi won't connect to Wi-Fi. I think I need to set the country code first. How do I do that?
+- How do I scan for available Wi-Fi networks from the terminal?
+- I typed my Wi-Fi password wrong and now it won't connect. How do I try again?
+- How do I connect to a hidden Wi-Fi network on a Pi?
+- I've got two Wi-Fi networks my Pi knows about. How do I tell it which one to prefer?
+- How do I check if my Pi is actually connected to Wi-Fi from the command line?
+
+# Screen Blanking
+
+- How do I stop my Pi's screen from going blank when I'm not using it?
+- I'm running my Pi without a desktop, just in console mode. How do I stop the screen from blanking?
+- How do I check what my current screen blanking timeout is set to?
+- Can I completely disable screen blanking on my Pi?
+
+# Custom Fullscreen Splash Image
+
+- How do I show my own image on screen when my Pi boots instead of all those text messages?
+- What format does the splash screen image need to be in?
+- My splash image is showing upside down at boot. How do I fix that?
+
+# Users
+
+- How do I add a new user on my Raspberry Pi?
+- I want to delete a user account from my Pi. How do I do that?
+- How do I change the user that automatically logs in when my Pi starts up?
+- I added a new user and their keyboard layout is wrong. How do I fix that?
+
+# External Storage
+
+- I plugged in a USB drive to my Pi but I don't know how to access it. How do I mount it?
+- How do I make my Pi automatically mount my USB drive every time it starts up?
+- I'm getting a "target is busy" error when I try to unmount my USB drive. What do I do?
+- My USB drive uses exFAT. Do I need to install something to use it on my Pi?
+
+# Kernel Command Line
+
+- Where does my Pi store the kernel boot options and how do I edit them?
+- How do I check what options the kernel actually booted with?
+- How do I set a custom screen resolution for my Pi when it's running in console mode without a desktop?
+
+# Security
+
+- How do I make my Pi ask for a password when using sudo instead of just letting anyone run anything?
+- How do I set up SSH keys so I don't have to use a password to log in?
+- How do I block or allow specific users from SSH-ing into my Pi?
+- What's a simple firewall I can set up on my Pi?
+- My Pi is acting as a server and I'm worried about brute force login attempts. How do I protect against that?
+
+# Headless Raspberry Pi
+
+- I don't have a monitor or keyboard for my Pi. How do I set it up?
+- How do I enable SSH before first boot so I can connect to my headless Pi?
+- How do I set up Wi-Fi before the first boot on a headless Pi?
+- My headless Pi takes ages to boot. Is there something I can do to speed that up?
+
+# Wireless Hotspot
+
+- Can my Raspberry Pi broadcast its own Wi-Fi network?
+- How do I turn my Pi into a Wi-Fi hotspot from the command line?
+- I set up a hotspot on my Pi but devices connected to it can't talk to the rest of my network. How do I bridge them together?
+- How do I turn off the hotspot on my Pi?
+
+# Boot Folder Contents
+
+- What's the deal with all the files in the boot partition of my Pi's SD card?
+- What does cmdline.txt actually do?
+- Why are there so many different kernel image files in the boot folder?
+- My Pi is flashing an LED in a pattern instead of booting. What does that mean?
+
+# UARTs
+
+- How do I use the serial port on my Raspberry Pi?
+- I want to use the serial port for my own project but it seems to be used for the console. How do I free it up?
+- What's the difference between the mini UART and the PL011 on a Raspberry Pi?
+- I've got a Pi 4 and I need more serial ports. Is that possible?
+
+# Device Trees and Overlays
+
+- What is a Device Tree on Raspberry Pi and why do I need to care about it?
+- How do I enable a hardware interface like SPI or I2C using a device tree overlay?
+- I want to add a HAT to my Pi. Do I need to do anything to make it work with the device tree?
+- How do I load and remove device tree overlays while the Pi is running without rebooting?
+- How do I see what device tree overlays are currently active?
+
+# Whole Document
+
+- What is raspi-config and what can I do with it?
+- I just got a Raspberry Pi. What should I configure first?
+- I need to set up my Pi remotely with no monitor or keyboard attached. Where do I even start?
+- What's the difference between raspi-config and just editing config.txt directly?
+- I want to make my Raspberry Pi more secure. What are the main things I should do?
+- Can I do everything in raspi-config from a script, or do some things require going through the menus?

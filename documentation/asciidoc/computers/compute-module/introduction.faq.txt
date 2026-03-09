@@ -1,0 +1,67 @@
+# Whole Document
+
+- What's the difference between a Compute Module and a regular Raspberry Pi?
+- I keep hearing about Compute Modules but I don't really get what they're for. Can you explain?
+- What's a CMIO board and do I actually need one?
+- I want to use a Raspberry Pi for an industrial project. Should I use a Compute Module?
+- What Compute Modules are available right now?
+- I'm not sure which Compute Module to buy. What's the newest one?
+- What does "Lite" mean when it comes to Compute Modules?
+
+# Compute Modules
+
+- What's the difference between CM4 and CM5?
+- Do all Compute Modules come with Wi-Fi built in?
+- I want a Compute Module with wireless connectivity. Which ones support that?
+- How much RAM can I get on a CM5?
+- I need on-board storage on my Compute Module. What are my options?
+- What's eMMC storage and why do Compute Modules use it?
+- I've got an older project using CM3. Is that still supported?
+- My project uses a CM3 and I just heard it's discontinued. What should I switch to?
+- What's the difference between CM4 and CM4S?
+- Why did CM4 change the physical connector layout from the older modules?
+
+# IO Boards
+
+- What does an IO board actually do?
+- Will the CM5IO board work with a CM4?
+- Can I use the CM4IO board with a CM5?
+- I've got a CM4S. Which IO board should I use with it?
+- What's the difference between CMIO and CMIO3?
+- How do I power the CM5IO board?
+- Does the CM5IO have a PCIe slot?
+- Can I plug a regular HAT into a Compute Module IO board?
+- Does the CM5IO board support PoE?
+- I want to connect two cameras to my CM4IO. Is that possible?
+
+# CM5 and CM5IO accessories
+
+- What accessories can I get for CM5?
+
+# CM5IO Case
+
+- What's inside the CM5IO case? Like what does it come with?
+- Can I fit an M.2 SSD inside the CM5IO case?
+- Does the CM5IO case have a fan?
+- Can I fit both a cooler and a fan inside the CM5IO case at the same time?
+- I've got the original CM5IO case. Can I use a cooler with it?
+- How do I tell if I have version 1 or version 2 of the CM5IO case?
+- How big is the CM5IO case?
+- How do I assemble the CM5IO case? What order do I do things?
+- My SD card is stuck in the CM5IO case slot. How do I get it out?
+- Can I connect a camera inside the CM5IO case?
+
+# Antenna (CM4 and CM5)
+
+- Can I add an external antenna to boost the Wi-Fi on my CM5?
+- How do I attach the antenna to the CM5 inside the case?
+- How do I actually enable the external antenna in software once it's connected?
+- How long is the antenna cable?
+- Does the antenna work with both CM4 and CM5?
+
+# CM5 Cooler
+
+- What is the CM5 Cooler and do I need it?
+- How do I attach the cooler to my CM5?
+- Do I need to screw the cooler down or will it stay on its own?
+- Can I fit the cooler inside the CM5IO case?

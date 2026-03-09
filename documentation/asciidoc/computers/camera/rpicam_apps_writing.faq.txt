@@ -1,0 +1,35 @@
+# Whole Document
+
+- I want to build my own camera app using the Raspberry Pi camera libraries. Where do I even start?
+- What's a CompletedRequest and why do I keep seeing it everywhere in the camera code?
+- I'm writing a custom camera app and it keeps freezing up or running out of buffers. What's going on?
+- Why do I need to recycle buffers? Can't the camera just handle that automatically?
+- I've looked at the rpicam apps source code and it's pretty confusing. Which one's the simplest to start with?
+
+# `rpicam-hello`
+
+- I want to understand how the camera preview works under the hood. What's the simplest example I can look at?
+- What's a shared pointer and why does it matter when I'm writing camera code for the Pi?
+- My camera app keeps running out of buffers. How does the buffer recycling actually work?
+- What's CompletedRequestPtr? Is that just a pointer to the frame data or something more?
+- I don't understand when the buffer gets freed. Does it happen automatically or do I have to do it myself?
+
+# `rpicam-vid`
+
+- I want to write an app that records video and does something custom with each encoded frame. How does that work?
+- What's this callback thing in rpicam-vid? Like, when does it actually fire?
+- My custom video app isn't freeing memory properly. Could it be because the encoder is still holding onto the buffer?
+- Why does rpicam-vid need three different things to all let go of the buffer before it gets recycled?
+
+# `rpicam-raw`
+
+- What's a NullEncoder? That sounds like it doesn't do anything — what's the point of it?
+- I want to grab raw uncompressed frames from the camera. How does rpicam-raw handle that without actually encoding anything?
+- Why doesn't rpicam-raw show a preview? Is that by design?
+- I'm trying to process raw frames in my own app. Should I bother using a NullEncoder or just send images straight to the output?
+
+# `rpicam-jpeg`
+
+- How does rpicam-jpeg switch from showing the preview to actually taking the photo? Does it just grab a frame mid-preview?
+- My camera app needs to do a preview first and then capture a still. How does the official jpeg app handle that switch?
+- Does rpicam-jpeg capture multiple frames or just the very first one it gets after switching to still mode?

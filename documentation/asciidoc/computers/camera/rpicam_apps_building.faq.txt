@@ -1,0 +1,71 @@
+# Whole Document
+
+Why would I even bother building this stuff myself instead of just using what comes pre-installed?
+
+I've got a Pi Zero and I'm trying to build libcamera but it keeps running out of memory. What do I do?
+
+I'm on a Pi 3 running a 32-bit OS. Is there anything special I should do to get better performance when building?
+
+I want to add OpenCV support to my camera apps. How do I do that from scratch?
+
+I'm totally lost — where do I even start if I want to build and install my own version of the camera software?
+
+# Remove pre-installed `rpicam-apps`
+
+Before I build my own version, do I need to get rid of the one that came with Raspberry Pi OS first?
+
+What's the command to completely remove the pre-installed camera apps?
+
+# Building `rpicam-apps` without building `libcamera`
+
+Do I have to rebuild libcamera too, or can I just rebuild the camera apps on their own?
+
+I'm on Raspberry Pi OS Lite and I need to build rpicam-apps. Do I need to install git separately?
+
+I want libav support for recording video. What extra packages do I need to install?
+
+I don't care about the Qt preview window. Can I skip those packages?
+
+# Building `libcamera`
+
+When should I actually bother building libcamera from scratch instead of just installing it with apt?
+
+What's the full list of stuff I need to install before I can build libcamera?
+
+I'm on Raspberry Pi OS Lite and want to build libcamera. Is there anything extra I need to do first?
+
+How do I actually download the Raspberry Pi version of libcamera? Do I just grab it from GitHub?
+
+I want to disable the GStreamer plugin when building libcamera. How do I do that?
+
+My Pi only has 1 gig of RAM and the build keeps crashing. Is there a way to slow it down so it doesn't run out of memory?
+
+Does libcamera have a stable binary interface? Like, can I build rpicam-apps separately later without rebuilding libcamera?
+
+# Building `rpicam-apps`
+
+I'm running Raspberry Pi OS Lite with no desktop. Do I use a different build command than someone with a full desktop?
+
+After I install my newly built rpicam-apps, how do I check it's actually using my new version and not the old one?
+
+I built and installed everything but my system can't find the new rpicam-apps. What might fix that?
+
+I want TensorFlow Lite support in my camera apps. What flag do I add when building?
+
+# `rpicam-apps` meson flag reference
+
+What does the neon flag actually do? Is it worth enabling?
+
+What's the difference between setting something to `disabled` versus `auto` in the meson config?
+
+What does the DRM flag do? Do I need it if I don't have a desktop?
+
+The Qt preview sounds heavy — why would anyone even use it?
+
+I enabled something in the meson config but it failed because a dependency wasn't there. Is there a way to make it just skip it instead of failing?
+
+# Building `libepoxy`
+
+Do I really need to rebuild libepoxy, or can I just leave it alone?
+
+How do I build libepoxy from scratch if I really need to?

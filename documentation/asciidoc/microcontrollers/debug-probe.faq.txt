@@ -1,0 +1,83 @@
+# About the Debug Probe
+
+What even is the Raspberry Pi Debug Probe? Like what does it actually do?
+
+Do I need to solder anything to use the Debug Probe, or does it just plug in?
+
+What's SWD? I keep seeing it mentioned but I don't know what it is.
+
+I'm on Windows and want to debug my Pico. Does the Debug Probe work on Windows?
+
+What cables come in the box with the Debug Probe?
+
+I've got the Debug Probe and I'm looking at the wires — what do the different colors mean?
+
+My Pico is powered from a separate USB cable. Is it safe to just connect the Debug Probe straight away?
+
+What are all the little LEDs on the Debug Probe for?
+
+# Getting Started
+
+I've got a Pico H with that little JST connector. How do I wire it up to the Debug Probe?
+
+I only have the regular Pico, not the H version, so there's no JST connector. Can I still use the Debug Probe with it?
+
+Wait, so RX goes to TX and TX goes to RX? That seems backwards. Is that right?
+
+# Install Tools
+
+What software do I actually need to install to start using the Debug Probe?
+
+I'm on a Mac — what's the easiest way to get everything set up for debugging with the Debug Probe?
+
+Is there a way to install all the debugging tools at once instead of doing everything manually?
+
+I'm on Windows, should I install all the tools by hand or is there a better way?
+
+# Starting a Debug Session
+
+Do I still have to hold the BOOTSEL button every time I want to upload new code if I'm using the Debug Probe?
+
+What's the command to upload a program to my Pico using the Debug Probe?
+
+Wait, do I use the UF2 file or the ELF file when I'm uploading through the Debug Probe?
+
+How do I actually set up breakpoints and step through my code with GDB and the Debug Probe?
+
+I'm trying to debug but I'm not getting much useful info from GDB. What am I doing wrong?
+
+I'm not on a Raspberry Pi, I'm on Linux. Which version of GDB do I need?
+
+I'm on a Mac and want to debug Arm stuff. Which GDB should I use?
+
+# Serial Connections
+
+Which pins on the Pico do I connect the Debug Probe's UART cables to?
+
+Once I've got the Debug Probe connected, how do I actually see the serial output on my computer?
+
+I've plugged in the Debug Probe and I'm on a Raspberry Pi. What device name does the serial port show up as?
+
+How do I exit minicom? I'm stuck in it and can't get out.
+
+How do I test that my serial connection is actually working?
+
+# Updating the Firmware on the Debug Probe
+
+How do I check what firmware version my Debug Probe is running?
+
+My Debug Probe isn't working right and I think I might have messed up the firmware. How do I reinstall it?
+
+How do I update the firmware on the Debug Probe?
+
+# Whole Document
+
+I just got a Debug Probe. Where do I even start?
+
+What's the difference between the D port and the U port on the Debug Probe?
+
+Can I use the Debug Probe just for serial output, without doing any actual debugging?
+
+I've never done hardware debugging before. Do I need to know about SWD and OpenOCD or can I just use a GUI for all of this?
+
+Where can I find the schematics for the Debug Probe if I want to look at how it's built?

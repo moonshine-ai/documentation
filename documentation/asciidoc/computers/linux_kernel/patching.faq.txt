@@ -1,0 +1,22 @@
+# Whole Document
+
+- I want to add support for some new hardware to my Pi's kernel. Do I need to apply patches for that?
+- What's a patchset and why would I need one?
+- I'm trying to get my Pi working for real-time stuff. Is there a way to do that with kernel patches?
+
+# Identify your kernel version
+
+- How do I check what version of the kernel my Pi is running?
+- I've got the kernel source downloaded but I'm not sure what version it is. How do I find out?
+- Wait, do I need to check my kernel version before patching it or can I just go ahead?
+- The `uname -r` command and the Makefile both show versions — which one do I actually need to look at?
+
+# Apply patches
+
+- I downloaded a patch file for my kernel. How do I actually apply it?
+- The patch I got is a `.gz` file. Do I need to unzip it before I can use it or does the patch command handle that?
+- Someone gave me a folder full of patch files instead of just one. How do I apply all of those?
+- I'm trying to apply mailbox patches with Git but it's throwing errors. Do I need to set up my name and email first or something?
+- How do I use `wget` to grab a kernel patch and apply it all in one go?
+- The patch distributor said I need to patch against a specific commit. What does that even mean and should I be worried about it?
+- I'm not sure if I should use `patch` or `git` for my patches. How do I know which one to use?

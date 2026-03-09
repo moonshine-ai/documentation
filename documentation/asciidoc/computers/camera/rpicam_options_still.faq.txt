@@ -1,0 +1,85 @@
+# Whole Document
+
+- What are these image-only options for — like, do they work with video too?
+- I keep forgetting to put the two dashes before option names. Is that always required?
+- Some of these options don't take a value and some do. How do I know which is which?
+
+# `quality`
+
+- What's the default JPEG quality when I take a photo, and how do I change it?
+- My photos are too big. Can I lower the quality to make the file size smaller?
+- What's the shorthand for the quality option? I don't want to type out the whole thing.
+
+# `exif`
+
+- How do I add EXIF data to my photos, like who took them or what camera settings were used?
+- I tried adding an EXIF tag and it printed a warning in the terminal. Should I be worried about that?
+- I want to tag my photos with the artist name. How do I do that?
+- Can I add any EXIF tag I want, or are some of them not supported?
+
+# `timelapse`
+
+- I want to take a photo every 30 seconds for an hour. How do I set that up?
+- How do I save each timelapse photo as a separate file instead of overwriting the same one?
+- My timelapse is saving everything to the same file. What do I need to do to get numbered files?
+
+# `framestart`
+
+- My timelapse filenames start at zero. Can I make them start at a different number?
+- What does the frame counter thing do exactly, and why would I want to change the starting number?
+
+# `datetime`
+
+- I want my photos to automatically get the date and time in the filename. Is there an option for that?
+- What format does the datetime option use for the filename? I want to know what to expect.
+
+# `timestamp`
+
+- Can I use a Unix timestamp as the filename for my photos?
+- What's the difference between the datetime option and the timestamp one?
+
+# `restart`
+
+- What are JPEG restart markers? Do I need them for anything?
+- I heard restart markers help with corrupted images. How do I enable that?
+
+# `immediate`
+
+- I don't want any delay when I take a photo. How do I make it capture right away?
+
+# `keypress`
+
+- Can I set it up so a photo gets taken when I press Enter?
+- How do I exit without actually capturing a photo when I'm in keypress mode?
+
+# `signal`
+
+- I want to trigger a photo from a script using a signal. How does that work?
+- What's the difference between SIGUSR1 and SIGUSR2 in this context?
+
+# `thumb`
+
+- How do I change the size of the thumbnail that gets embedded in my JPEG?
+- Can I turn off the thumbnail entirely? I don't need it.
+
+# `encoding`
+
+- How do I save photos as PNG instead of JPEG?
+- Does the file extension I give it actually determine the format, or do I have to set the encoding separately?
+- What encoding options are available? Can it do BMP or PNG or just JPEG?
+
+# `raw`
+
+- How do I save a RAW version of my photo at the same time as the JPEG?
+- What information gets stored in the DNG raw file?
+- Can I open the raw files from my Pi camera in something like RawTherapee?
+
+# `latest`
+
+- I want to always know which photo was taken most recently without sorting by date. Is there a way to do that automatically?
+
+# `autofocus-on-capture`
+
+- Can I make the camera autofocus right before it takes a shot?
+- I've got a Camera Module 3. Does autofocus on capture work with that?
+- What's the difference between autofocus-on-capture and just setting the autofocus mode to continuous?

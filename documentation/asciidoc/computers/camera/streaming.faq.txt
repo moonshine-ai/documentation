@@ -1,0 +1,85 @@
+# Whole Document
+
+- I want to stream my Pi camera over the network. Where do I even start?
+- What's the difference between UDP, TCP, and RTSP streaming? Which one should I use?
+- Can I watch a stream from my Pi on my laptop or phone?
+- I've heard of MediaMTX and MistServer. Which one's better for streaming my Pi camera?
+- Do I need libav installed to stream video over the network?
+- Can I stream both video and audio from my Pi camera at the same time?
+
+# UDP
+
+- How do I stream video from my Pi over UDP?
+- I want to watch a UDP stream on my Pi. What command do I run?
+- I'm trying to use VLC to watch my UDP stream and it's not working. What's going on?
+- Why won't VLC play my H.264 stream? Do I need to change something?
+- What's an MPEG-2 Transport Stream and why would I use it instead of plain H.264?
+- I got the UDP stream working with ffplay but can I use VLC instead somehow?
+
+# TCP
+
+- How do I set my Pi up as a TCP video streaming server?
+- I'm trying to watch a TCP stream from my Pi. What do I need to type on the client side?
+- My TCP video stream looks choppy. Is there something I can do to fix the playback command?
+- Can I use VLC to watch a TCP stream from my Pi?
+
+# RTSP
+
+- How do I stream from my Pi camera using RTSP?
+- I want to set up an RTSP server on my Pi. Do I need extra software?
+- How do I watch an RTSP stream coming from my Pi?
+- Can I use both ffplay and VLC to watch an RTSP stream?
+- I want a preview window on my Pi while it's streaming. How do I get that?
+
+# `libav` and Audio
+
+- How do I add audio to my network stream from the Pi?
+- I've got video streaming working but there's no audio. What flag do I add?
+- Does audio streaming work over UDP or just TCP?
+
+# GStreamer
+
+- What is GStreamer and do I need it for streaming?
+- How do I stream from my Pi using GStreamer?
+- I've got a Pi 5. Is the GStreamer playback command different from a Pi 4?
+- I want to test my GStreamer setup without using two devices. Can I do that on just one Pi?
+
+# `libcamerasrc` GStreamer element
+
+- What's libcamerasrc and how's it different from just using rpicam-vid?
+- Can I stream directly from the camera using GStreamer without running rpicam-vid separately?
+- The GStreamer command I found uses v4l2h264enc but I've got a Pi 5. Do I need to change that?
+
+# Third-party streaming servers
+
+- What third-party streaming servers work with the Pi camera?
+- Can I stream to a web browser from my Pi camera?
+- Do any of these streaming servers work with WebRTC?
+
+# Streaming with MediaMTX
+
+- How do I install MediaMTX on my Pi?
+- Which MediaMTX download do I pick for a 64-bit Pi OS?
+- How do I set up MediaMTX to stream from my Pi camera?
+- I don't want MediaMTX to grab the camera until someone's actually watching. Can I do that?
+- My MediaMTX video stream keeps pausing every few seconds. What's causing that?
+- How do I watch a MediaMTX stream in my web browser?
+- How do I connect to a MediaMTX stream with VLC?
+- I'm getting buffer issues with my MediaMTX stream. How do I fix it permanently?
+
+# Streaming with MistServer
+
+- How do I install MistServer on my Pi?
+- Where do I go to configure MistServer after I've installed it?
+- How do I add my Pi camera as a stream in MistServer?
+- Can I watch a MistServer stream in a regular web browser?
+- What's the difference between MistServer and MediaMTX for Pi camera streaming?
+
+# Streaming with go2rtc
+
+- How do I install go2rtc on my Pi?
+- I've got a Pi Zero. Which go2rtc binary do I download?
+- How do I add my camera as a stream in go2rtc?
+- Where do I find the go2rtc management page once it's running?
+- How do I watch a go2rtc stream with VLC?
+- Can I run go2rtc on a different computer and still stream from my Pi camera?

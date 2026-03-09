@@ -1,0 +1,66 @@
+# Whole Document
+
+- What are all the different types of Raspberry Pi boards?
+- I'm totally new to this. Which Raspberry Pi should I get?
+- What's the difference between all these Pi models? There are so many of them.
+- Does the Raspberry Pi run Linux?
+- I want to do a project but I don't know which Pi to pick. Can you walk me through what's available?
+
+# Flagship single-board computer (SBC) series
+
+- What's the difference between a Model A and a Model B?
+- My Pi 4 has two HDMI ports but my old Pi 3 only had one. Why'd they change that?
+- Does the Raspberry Pi 5 have a headphone jack?
+- How much RAM does the Pi 5 come with? Are there different options?
+- Does the Pi 4 support USB 3?
+- What's PoE? I see it mentioned on the Pi 4's ethernet port.
+- Does the Pi 3 B+ have Wi-Fi built in?
+- I've got an older Pi 2 Model B — is it still supported?
+- What power supply does the Pi 5 need? Like how many watts?
+- Does the Pi 5 have a slot for a regular SD card?
+- My Pi 4 only has micro HDMI ports. Do I need an adapter for my regular HDMI cable?
+- What's the difference between the Pi 3 B and the Pi 3 B+?
+- Does the Raspberry Pi 5 have a PCIe slot or anything like that?
+- Does the Pi 3 Model A+ have ethernet?
+
+# Keyboard computer (X00) series
+
+- What's a Raspberry Pi 400? Is it just a Pi 4 in a keyboard?
+- Does the Pi 400 have Wi-Fi?
+- What's the difference between the Pi 400 and the Pi 500?
+- Does the Pi 500 plus have built-in storage beyond the SD card?
+- How much memory does the Pi 400 come with?
+
+# Zero series
+
+- What's a Pi Zero? How's it different from a regular Pi?
+- Does the Pi Zero have Wi-Fi?
+- What does the W mean at the end of Pi Zero W?
+- I bought a Pi Zero and there are no pins on it. Do I have to solder them myself?
+- What's the difference between a Zero WH and a Zero W?
+- Does the Pi Zero 2 W have Bluetooth?
+- Can I connect a camera to a Pi Zero?
+- How much RAM does the Pi Zero have?
+
+# Compute Module series
+
+- What's a Compute Module? How's it different from a normal Pi?
+- Does the Compute Module have HDMI and USB ports built in?
+- I'm building an industrial product. Should I use a Compute Module or a regular Pi?
+- Does the Compute Module 4 have Wi-Fi?
+- What's the difference between CM4 and CM4S?
+- How much storage can I get on a Compute Module 5?
+- I have a design using CM3 — I just heard it's discontinued. What should I use instead?
+
+# Pico microcontroller boards
+
+- What's a Pico? Is it like a regular Raspberry Pi?
+- Does the Pico run Linux?
+- What's the difference between a Pico and a Pi Zero?
+- Does the Pico W have Bluetooth?
+- I want to do a real-time control project. Should I use a Pico or a regular Pi?
+- What does the H mean on a Pico H?
+- How do you put code on a Pico? Like, there's no SD card slot, right?
+- What's the difference between the Pico 2 and the original Pico?
+- Does the Pico 2 W have Wi-Fi?
+- How much memory does a Pico have?

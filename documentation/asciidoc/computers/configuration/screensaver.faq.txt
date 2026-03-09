@@ -1,0 +1,67 @@
+# Screen Blanking
+
+How do I stop my Raspberry Pi from turning off the screen when I'm not using it?
+
+My screen keeps going black after a few minutes. How do I turn that off?
+
+Where do I find screen blanking settings in the desktop?
+
+I don't have a desktop, just the command line. Can I still control screen blanking?
+
+How long does it take before the screen blanks by default?
+
+# Desktop
+
+I'm on the desktop environment. What's the easiest way to turn off screen blanking?
+
+Wait, I thought it was called Raspberry Pi Configuration, but I can't find it. Has it been renamed or something?
+
+How do I get to the Control Centre? I can't find it.
+
+I'd rather use the terminal than click through menus. How do I turn off screen blanking from the command line?
+
+I'm SSH'd into my Pi and want to change the screen blanking setting. Can I do that without being at the desktop?
+
+# Console
+
+I'm running my Pi without a desktop, just a terminal. How do I change how long before the screen blanks?
+
+What's this consoleblank thing and how do I use it?
+
+I want my Pi's screen to never turn off when I'm in console mode. How do I do that?
+
+How do I check what the current screen blanking timeout is set to?
+
+Do I need to reboot after changing the consoleblank setting, or does it take effect right away?
+
+I edited the cmdline.txt file but nothing changed. Did I forget something?
+
+# Custom Fullscreen Splash Image
+
+Can I show a custom image when my Raspberry Pi boots up instead of all that text?
+
+What format does the splash screen image need to be in? Can I just use a regular PNG?
+
+My image is bigger than my screen. Will it get scaled down automatically?
+
+Is there an easy way to set up a boot splash screen, or do I have to do a bunch of manual config?
+
+What's this rpi-splash-screen-support package and do I need it for a splash screen?
+
+My splash image shows up upside down when the Pi boots. How do I fix that?
+
+I want to set up a boot splash but I don't want to use the apt package, I'd rather do it manually. How do I do that?
+
+The splash screen shows up but then disappears and I get a login prompt. Is that normal?
+
+How do I convert my PNG to the right format for the splash screen?
+
+I added the splash image but the cursor is still flashing on top of it. How do I get rid of that?
+
+# Whole Document
+
+How do I stop my Pi's screen from going to sleep?
+
+Can I show a custom image when my Raspberry Pi starts up?
+
+What's the difference between screen blanking on the desktop versus console mode?

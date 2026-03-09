@@ -1,0 +1,17 @@
+# The `[HDMI:*]` filter
+
+- I've got a Raspberry Pi 4 with two HDMI ports. How do I set different resolutions for each one?
+- What's the HDMI filter thing in config dot txt? Like what does putting HDMI colon zero in brackets actually do?
+- Does the HDMI filter work on Pi 3 or just the Pi 4?
+- I'm trying to set hdmi_mode for both screens on my Pi 4 but I don't know how to tell it which port I mean. How do I do that?
+- There's two ways to write HDMI settings for the Pi 4 — like with the bracket filter or with a colon and a number. Are they the same thing or is one better?
+- My Pi 4 is connected to two monitors and I want them running at different resolutions. Where do I put that in config dot txt?
+- Wait, so if I just write hdmi_group without specifying a port, does it apply to both screens or just one?
+- How do I target just the second HDMI port in config dot txt? Is it HDMI colon 1 or HDMI colon 2?
+
+# Whole Document
+
+- What even are conditional filters in config dot txt? Like what are they for?
+- I've got a Pi 4 with two HDMI outputs and I want them configured differently. Where do I start?
+- Can I use the colon syntax like hdmi_group colon zero instead of putting things under a bracket section? Do they do the same thing?
+- I'm confused about the difference between the bracket filter style and the variable colon index style. Which one should I use?

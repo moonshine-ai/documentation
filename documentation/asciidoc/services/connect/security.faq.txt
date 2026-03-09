@@ -1,0 +1,31 @@
+# Security
+
+# Whole Document
+
+Is my screen sharing encrypted when I use Raspberry Pi Connect, or can someone intercept it?
+
+What technology does Raspberry Pi Connect use for encryption? Like is it the same as Zoom or Teams?
+
+Does my remote access traffic go through Raspberry Pi's servers, or is it direct between my Pi and my browser?
+
+I'm worried about privacy. Can Raspberry Pi actually see my screen when I'm using Connect?
+
+What happens if a direct connection isn't possible? Does my data still stay private?
+
+What are those TURN servers, and should I be worried about my data going through them?
+
+Where are the relay servers located? Like if I'm far from the UK or California, does that affect anything?
+
+How long does Raspberry Pi Connect store my connection info like IP addresses?
+
+Is Raspberry Pi Connect actually secure? Has anyone tested it?
+
+Who did the security testing for Raspberry Pi Connect?
+
+What version of TLS does Raspberry Pi Connect support? Is older stuff like TLS 1.0 allowed?
+
+I run Connect for Organisations. Can I see a history of who's been logging in?
+
+How far back does the activity log go for Connect for Organisations?
+
+Does Raspberry Pi Connect store my location when I connect?

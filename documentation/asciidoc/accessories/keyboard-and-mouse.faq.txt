@@ -1,0 +1,43 @@
+# Getting Started with your Keyboard
+
+What are those little red numbers on the letter keys for?
+
+There's a light on my keyboard that I accidentally turned on. What do the three lights in the corner mean?
+
+How do I use the number keys on the letter keys of the Raspberry Pi keyboard?
+
+I want to type capital letters but I don't want to hold Shift the whole time. Is there a lock for that?
+
+Can I use the cursor keys to scroll through a webpage without touching the mouse?
+
+How do I turn on Scroll Lock on the Raspberry Pi keyboard?
+
+The keyboard has a micro USB port and regular USB ports on it. What's each one for?
+
+Can I plug a USB drive into the keyboard instead of the Pi itself?
+
+# Getting Started with your Mouse
+
+My mouse isn't moving right. It's on a shiny plastic desk. Is that the problem?
+
+Does the official Raspberry Pi mouse work on any surface or do I need a mouse mat?
+
+How many buttons does the official Raspberry Pi mouse have?
+
+# Connecting it all Together
+
+I plugged the power into my keyboard and then connected the keyboard to the Pi. Is that wrong?
+
+What's the right way to connect the power supply, the keyboard, and the Pi together?
+
+Wait, should I plug power into the Pi or into the keyboard? I'm confused about which one to use.
+
+# Whole Document
+
+I just got the official Raspberry Pi keyboard and mouse. How do I set it all up?
+
+Does the keyboard have its own USB hub built in, or do I need a separate one?
+
+Can I connect my mouse to the keyboard instead of directly to the Pi?
+
+I've got the official keyboard — does it work as a USB hub for other stuff too?

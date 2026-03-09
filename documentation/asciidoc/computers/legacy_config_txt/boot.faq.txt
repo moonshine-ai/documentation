@@ -1,0 +1,80 @@
+# Whole Document
+
+- What are these legacy boot options even for? Are they still worth using?
+- I'm confused about all these boot settings. Where do I even start?
+- Are these settings still supported or are they deprecated?
+
+# `start_x`, `start_debug`
+
+- What's the easiest way to pick a firmware configuration on my Pi?
+- I want to enable the camera or extra codec support. Do I need to set `start_x=1` or something?
+- Does `start_x=1` work differently on a Pi 4 compared to older models?
+- What's `start_debug` actually for? Is it for troubleshooting boot problems?
+- What files does `start_x=1` actually load behind the scenes?
+
+# `disable_commandline_tags`
+
+- What are ATAGS and do I ever need to disable them?
+- My kernel's doing something weird with memory at boot. Could the ATAGS be causing that?
+
+# `arm_control`
+
+- I saw `arm_control` mentioned somewhere. Should I be using that to switch to 64-bit?
+- Wait, is `arm_control` deprecated? What should I use instead to enable a 64-bit kernel?
+
+# `arm_peri_high`
+
+- What's high peripheral mode on the Pi 4 and do I need to turn it on manually?
+- I tried enabling `arm_peri_high` and now my Pi won't boot. What did I do wrong?
+- Does the Pi 4 set high peripheral mode automatically or do I have to do it myself?
+
+# `kernel_address`
+
+- Where in memory does the Pi load the kernel by default?
+- I'm loading a custom kernel and need to know what memory address it goes to. How does that work?
+- Does the default kernel load address change between 32-bit and 64-bit?
+
+# `kernel_old`
+
+- What does setting `kernel_old` to 1 actually do?
+- Why would I want to load the kernel at address zero? Is that ever useful?
+
+# `init_uart_baud`
+
+- What's the default baud rate for the UART on a Raspberry Pi?
+- I'm trying to set up a serial connection and need to know what baud rate the Pi starts with. What is it?
+
+# `init_uart_clock`
+
+- What's the default UART clock speed on a Raspberry Pi?
+- I'm getting weird baud rate issues with UART. Could the clock frequency be the problem?
+- I'm using a Pi 3 and the UART's behaving strangely. Is the clock different on that model?
+- What's the max baud rate I can actually use on the Pi's UART?
+
+# `bootcode_delay`
+
+- My Pi doesn't detect my monitor properly on first boot but it works fine after a restart. What's going on?
+- How do I add a delay before my Pi tries to read the monitor's display info?
+- My Pi and monitor share the same power supply and the display detection's messed up. Is there a fix for that?
+
+# `boot_delay`
+
+- My Pi sometimes fails to boot from the SD card. Could adding a boot delay help?
+- How do I add a delay before the kernel loads on startup?
+- What's the difference between `boot_delay` and `boot_delay_ms`?
+
+# `boot_delay_ms`
+
+- I need a really precise boot delay in milliseconds. How do I set that?
+- Can I combine `boot_delay` and `boot_delay_ms` together or do I have to pick one?
+
+# `enable_gic` (Raspberry Pi 4 Only)
+
+- What's the GIC-400 on the Pi 4 and should I be worried about it?
+- If I disable the GIC on my Pi 4, what actually changes with how interrupts work?
+
+# `upstream_kernel`
+
+- What does `upstream_kernel=1` actually do differently compared to normal booting?
+- I want to use upstream Linux kernel DTB files. How do I tell the Pi to prefer those?
+- If the upstream DTB file isn't found, does the Pi just fail to boot or does it fall back to something?

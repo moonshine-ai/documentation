@@ -1,0 +1,45 @@
+# Whole Document
+
+- I've got a Compute Module and I want to put an OS on it. Where do I even start?
+- What's the difference between a regular Compute Module and a Lite one when it comes to flashing?
+- I'm trying to flash my Compute Module but my computer isn't recognizing it. What should I do?
+- Can I use a Windows PC to flash a Compute Module or do I need Linux?
+- What do I actually need to buy or have before I can flash a Compute Module?
+- I want to flash the same image onto a bunch of Compute Modules at once. Is there a way to do that without doing them one at a time?
+
+# Set up the IO Board
+
+- I've got a CM5 IO board. How do I set it up to flash the eMMC?
+- What's that jumper thing I need to set before flashing? Like where does it go?
+- I have a CM4 IO board. Do I use USB-C or micro USB to connect it to my computer?
+- I connected everything up but my host computer still doesn't see the Compute Module. Could it be the USB hub causing problems?
+- The Compute Module doesn't seem to be sitting flat on the IO board. Is that a problem?
+
+# Set up the host device
+
+- I'm on a Mac and I want to flash a Compute Module. What do I need to install first?
+- How do I install rpiboot on Linux?
+- I ran rpiboot but now what? How do I know if the Compute Module showed up as a storage device?
+- I'm on Windows 11. Do I need to install any special drivers to get this working?
+- What's rpiboot even do? Why do I need it?
+- After I run rpiboot on my Mac it says the disk isn't readable. Did I do something wrong or is that normal?
+- Which Raspberry Pi should I use as a host device if I have a choice?
+
+# Flash the eMMC
+
+- Can I just use Raspberry Pi Imager to flash the Compute Module like I would a normal SD card?
+- How do I use dd to write an image to the Compute Module's eMMC?
+- After I flash it, how do I know it worked? Like what should I see?
+- I flashed the image but I want to edit some files on it before I boot. Can I mount the partitions?
+
+# Boot from eMMC
+
+- Okay I've flashed the image, now how do I get it to actually boot from the eMMC?
+- I set the jumper to disable eMMC boot for flashing. What do I change it back to so it boots normally?
+- Do I need to unplug the USB cable before it'll boot from the eMMC?
+
+# Known issues
+
+- My CM3 won't boot after I flashed it. Is that a known problem?
+- I'm having boot problems with my CM3 and someone mentioned something about the FAT32 partition. How do I fix that?
+- Is the USB bug with CM1 boards something I need to worry about?
