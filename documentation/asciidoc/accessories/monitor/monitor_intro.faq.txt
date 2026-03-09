@@ -1,0 +1,69 @@
+# Whole Document
+
+What's the Raspberry Pi Monitor and is it any good for a beginner setup?
+
+Does the Raspberry Pi Monitor work with all Pi models?
+
+I'm thinking about getting the official Raspberry Pi monitor — what do I need to connect it?
+
+# Controls
+
+Where are the buttons on the Raspberry Pi Monitor? I don't see any on the front.
+
+How do I adjust the brightness on the Raspberry Pi Monitor?
+
+How do I turn the volume up on the built-in speakers?
+
+How do I put the monitor into standby?
+
+# On screen display messages
+
+My monitor just went blank and showed some kind of message. What does it mean when it says there's no HDMI signal?
+
+I'm getting a weird message on screen about an unsupported resolution. What's going on?
+
+The monitor keeps warning me it's about to go into standby. Why does it keep doing that?
+
+There's a message on screen about power saving mode — what does that mean and should I be worried?
+
+I pressed the power button to wake the monitor up but the red light just flashed and nothing happened. What's wrong?
+
+The brightness scale — does it go from like one to ten or what?
+
+# Position the Monitor
+
+How can I mount this monitor on a wall or arm? Does it have VESA holes?
+
+Can I hang the Raspberry Pi Monitor on a wall without buying a separate stand?
+
+I want to wall mount it using the built-in stand. How far apart do the holes need to be?
+
+# Power the Monitor
+
+What kind of power supply do I need for the Raspberry Pi Monitor?
+
+Can I just power the monitor directly from my Raspberry Pi's USB port?
+
+My monitor's brightness only goes up to about halfway and the volume seems limited too. Why can't I get full brightness?
+
+What's the difference between full power mode and power saving mode on this monitor?
+
+How do I get out of power saving mode and into full power mode?
+
+My monitor keeps flashing on and off. What's causing that and how do I fix it?
+
+Will the official Raspberry Pi 5 power supply work with this monitor?
+
+# Specification
+
+What resolution does the Raspberry Pi Monitor support?
+
+Does the monitor have built-in speakers?
+
+Is there a headphone jack on the Raspberry Pi Monitor?
+
+What resolutions can I actually use with this monitor — like can it do 720p?
+
+How big is the Raspberry Pi Monitor?
+
+How much does the Raspberry Pi Monitor weigh?

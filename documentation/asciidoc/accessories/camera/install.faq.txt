@@ -1,0 +1,39 @@
+# Whole Document
+
+- I just got a Raspberry Pi camera. How do I set it up?
+- Do I need any special tools to connect a camera to my Pi?
+- I'm not sure if my Pi even has a camera connector. How do I figure that out?
+- What's the difference between all the camera cable types? I don't know which one I need.
+
+# Step 1. Prepare
+
+- I just opened my camera and there's this blue plastic film on the lens. Do I leave that on or take it off?
+- How do I avoid breaking the camera from static electricity? I don't have one of those special wrist straps.
+- I've got a Raspberry Pi 5. Do I need a special cable for the camera or can I use any cable?
+- Wait, I have a Pi Zero. Is the camera cable the same as a regular Pi?
+- I have a Compute Module IO board. What cable do I need for connecting a camera?
+
+# Step 2. Connect the cable to your Raspberry Pi
+
+- Does my Pi need to be powered off before I plug in the camera cable?
+- I have a Pi 5 with the Active Cooler on it and I can't reach the camera connector. What should I have done differently?
+- Where exactly is the camera port on a Pi 4? I can't find it.
+- Where's the camera connector on a Pi Zero? I'm looking at the board and I'm not sure which slot it is.
+- I've got a Pi 5 and there are two connectors that look the same. Which one do I use for the camera?
+- How do I open that little flap thing on the camera connector without breaking it?
+- Which way does the cable go in? Like, which side do the metal contacts face?
+- I pushed the cable in but I'm not sure it's in right. How do I know if it's seated properly?
+- How do I take the camera cable back out without damaging anything?
+
+# Step 3. Connect the cable to the camera
+
+- My camera came with a cable already attached but I want to use a different one. Can I swap it out?
+- Which side of the camera module has the connector on it? I don't want to bend it the wrong way.
+- The metal contacts on the cable — do they face toward the camera board or away from it when I plug it in?
+
+# Step 4. Prepare the software
+
+- Okay I've plugged in the camera, now what do I do to get it working in software?
+- Do I need to update my Pi before the camera will work?
+- What's rpicam-apps and do I need it for the camera to work?
+- I want to use Python with my camera. What library do I need to install?

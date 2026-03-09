@@ -1,0 +1,16 @@
+# Whole Document
+
+- How do I start using the Build HAT with Python?
+- I just got a Build HAT and I want to control it from Python. Where do I begin?
+
+# Install the Build HAT Python Library
+
+- How do I install the Build HAT Python library?
+- What's the command to get the Build HAT library set up?
+- I'm trying to use the Build HAT with Python but I don't have the library yet. How do I get it?
+- I'm running an older version of Raspberry Pi OS and the apt install isn't working. What do I do instead?
+- Does it matter which version of Raspberry Pi OS I have when installing this library?
+- I've got Bookworm on my Pi. Do I use apt or pip to install the Build HAT library?
+- Wait, why can't I just use apt on older versions? Do I have to use pip instead?
+- I keep seeing both apt and pip mentioned. Which one should I actually use for the Build HAT library?
+- Where can I find more info about what I can actually do with the Build HAT Python library once it's installed?

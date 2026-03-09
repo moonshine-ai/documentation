@@ -1,0 +1,26 @@
+# Whole Document
+
+- What's the Codec Zero and what does it do?
+- I've got a Raspberry Pi Zero and I want to add audio to it. Is the Codec Zero what I need?
+- What kind of projects is the Codec Zero good for?
+- Does the Codec Zero work with any Raspberry Pi or just the Zero?
+- What's a HAT? Is that what the Codec Zero is?
+
+# Raspberry Pi Codec Zero
+
+- What audio quality does the Codec Zero support? Like how many bits and what sample rates?
+- Does the Codec Zero have a built-in microphone or do I need to plug one in?
+- I want to plug in an external microphone. Can the Codec Zero handle that?
+- What happens to the built-in mic when I plug in an external one?
+- Can I plug in speakers directly to the Codec Zero?
+- How powerful is the speaker output on this thing? Will it drive a small speaker?
+- I want stereo audio input. Can the Codec Zero do that?
+- What are those RCA connectors on the Codec Zero for?
+- Does the Codec Zero have any kind of EQ or audio processing built in?
+- What's ALC and does the Codec Zero support it?
+- I noticed there are LEDs on the Codec Zero. What are those for and can I control them?
+- There's a button on the Codec Zero board. What's that for?
+- What GPIO pins does the Codec Zero use for the LEDs and the button?
+- What's an EEPROM and why does the Codec Zero have one?
+- I'm thinking of building a smart speaker with a Pi Zero. Would the Codec Zero work for that?
+- Could I use this for a walkie-talkie type project?

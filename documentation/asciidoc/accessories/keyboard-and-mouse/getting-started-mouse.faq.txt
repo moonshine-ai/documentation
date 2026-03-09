@@ -1,0 +1,18 @@
+# Whole Document
+
+- I just got my Raspberry Pi mouse. What do I need to know to get started with it?
+- Is there anything special about the official Raspberry Pi mouse?
+- My mouse isn't working properly. What could be causing that?
+
+# Getting Started with your Mouse
+
+- How many buttons does the official Raspberry Pi mouse have?
+- What's the scroll wheel actually for?
+- My mouse isn't detecting movement properly. What's going on?
+- I've got a really smooth glossy desk and my mouse just won't move right. What should I do?
+- Does the Raspberry Pi mouse work on any surface or do I need a mouse mat?
+- Why does my mouse work fine on some surfaces but not others?
+- I'm using a clear acrylic desk and the mouse keeps freezing up. Is that normal?
+- What kind of surface should I be using my mouse on?
+- Can I use the Raspberry Pi mouse on a glass or plastic table top?
+- The mouse is sliding around and not tracking well. Do I need a mat for it?

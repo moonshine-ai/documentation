@@ -1,0 +1,33 @@
+# Raspberry Pi DAC+
+
+What exactly is the DAC+ and what does it do?
+
+What does 24-bit 192 kHz mean for audio quality? Is that actually better than what I'd normally get?
+
+I've got phono connectors on my DAC+ — what are those for exactly?
+
+Does the DAC+ need its own power supply or does it just run off the Pi?
+
+What chip does the DAC+ use for the audio?
+
+So the DAC+ has a headphone amp built in? How does that work?
+
+What's the voltage output on the analogue out? I'm trying to figure out if it'll work with my amp.
+
+What's the MUTE signal on the P1 connector? Is that something I need to worry about?
+
+I'm looking at the P6 connector — what are all those pins for?
+
+How does the headphone detect feature work on this thing?
+
+# Whole Document
+
+I want really high quality audio from my Raspberry Pi. Is the DAC+ the right thing to get?
+
+Can I use the DAC+ with any Raspberry Pi or just certain models?
+
+I want to connect my Pi to my stereo system with proper RCA cables. Will this let me do that?
+
+Does this replace the Pi's built-in audio, or does it work alongside it?
+
+I'm not great with electronics — is the DAC+ hard to set up or does it just plug in and work?

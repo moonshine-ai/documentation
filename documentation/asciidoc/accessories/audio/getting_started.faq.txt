@@ -1,0 +1,57 @@
+# Whole Document
+
+What's a chatter box and how do I build one with my Raspberry Pi?
+
+I've got a Codec Zero board — what kind of projects can I make with it?
+
+Do I need any special hardware to follow along with this project, or can I just use what's on the board?
+
+# Hardware and Wiring
+
+What kind of speaker do I need for this project? Does it have to be anything special?
+
+I don't have a fancy button — can I just use the one that's already on the Codec Zero?
+
+Which GPIO pin does the built-in button on the Codec Zero use?
+
+How do I connect a speaker to the Codec Zero? Like do I solder it or what?
+
+I want to add an LED to my button. Where do I wire that on the Codec Zero?
+
+# Set Up Your Raspberry Pi
+
+Which version of Raspberry Pi OS should I use for this project?
+
+Do I need to do anything to the Codec Zero before running this project, like enable the microphone or something?
+
+# Program Your Raspberry Pi
+
+How do I get the Python script onto my Pi? Do I have to type the whole thing out?
+
+I'm not sure what to put where it says username in the script. Is that literally my login name?
+
+What does the script do when I press the button for a really long time, like over 20 seconds?
+
+So if I hold the button for ten seconds, what happens exactly?
+
+Where does the burp sound come from? Does the script download it automatically?
+
+How do I make the script run automatically every time the Pi boots up?
+
+What's a crontab and why do I need it for this project?
+
+I saved the file but I'm not sure how to make it actually run. What do I do after saving the script?
+
+# Use the Toy Chatter Box
+
+Okay so how do I actually record a sound with this thing? What's the sequence of button presses?
+
+I recorded a bunch of sounds and want to delete them all. How do I do that without going into the code?
+
+Will it always play the same recording when I press the button, or is it random?
+
+# Next Steps
+
+What could I add to this project to make it cooler? Like any ideas for upgrades?
+
+Could I turn this into something like a walkie-talkie that works over my home network?

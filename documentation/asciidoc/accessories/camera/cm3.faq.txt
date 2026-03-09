@@ -1,0 +1,41 @@
+# Camera Module 3
+
+What's the resolution on the Camera Module 3?
+
+How many megapixels is the Camera Module 3?
+
+What sensor does the Camera Module 3 use?
+
+Does the Camera Module 3 have autofocus?
+
+What's the longest exposure time I can get with the Camera Module 3?
+
+What's the difference between the standard and NoIR versions of the Camera Module 3?
+
+I've got a NoIR camera — why would I use that blue gel square that came with it?
+
+Can the Camera Module 3 see in the dark?
+
+What versions of the Camera Module 3 are there? Like, what are all the different options?
+
+Does the wide angle version have the same sensor as the regular one?
+
+I want to monitor my plants — which Camera Module 3 should I get?
+
+My Camera Module 3 seems to be messing with my GPS. Is that a known thing?
+
+Wait, can the Camera Module 3 actually interfere with GPS? That seems weird.
+
+What frequencies does the Camera Module 3 capture? Like, can it see infrared?
+
+Does the standard Camera Module 3 pick up infrared light at all?
+
+# Whole Document
+
+What camera options does Raspberry Pi make?
+
+I want to do some night vision stuff with my Pi — what camera should I get?
+
+What's the difference between all the Raspberry Pi camera modules?
+
+I'm not sure which Pi camera to buy. What are my options?

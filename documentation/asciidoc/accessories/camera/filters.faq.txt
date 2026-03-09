@@ -1,0 +1,37 @@
+# Whole Document
+
+What even is an IR filter and why does my camera have one?
+
+Does the High Quality Camera have an IR filter built in?
+
+I want to take photos of plants and I heard removing the IR filter makes the colours better. Is that true?
+
+Can I use my Pi camera for night vision?
+
+# IR Filter
+
+Wait, if I remove the IR filter can I put it back later?
+
+I tried to remove the IR filter and it cracked. Is there any way to fix it?
+
+Does removing the IR filter void the warranty?
+
+What size hex key do I need to take apart the HQ camera?
+
+I'm worried about dust getting on the sensor when I open up the camera. What should I do?
+
+I'm trying to separate the board from the housing but it's really stuck. What can I do to loosen it?
+
+So once I get the board off, where do I put it down without damaging the sensor?
+
+What's the safest way to push the filter out without breaking it? I don't want to crack it.
+
+I removed the filter but now I'm worried about dust getting into the sensor cavity. Is there something I can put over it?
+
+I'm putting the camera back together and I've got these washers but I'm not sure what order they go in. Which one goes on first?
+
+Do I need to tighten the hex screws really hard when I put it back together?
+
+Can I glue the IR filter back in if I change my mind?
+
+Does this work the same way on the Global Shutter Camera, or is it different?

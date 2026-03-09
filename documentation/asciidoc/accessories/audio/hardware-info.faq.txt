@@ -1,0 +1,55 @@
+# Hardware Information
+
+What size screws do I need for the PCB?
+
+What are the standoffs for connecting a Raspberry Pi to an audio board?
+
+I'm trying to mount my audio board in a case. What standoffs should I be using?
+
+What kind of power connector does the DigiAMP+ use?
+
+What voltage does the DigiAMP+ need? I want to make sure I get the right power supply.
+
+Can I use any rotary encoder with these audio boards or does it have to be a specific one?
+
+What wire gauge can I use with the Codec Zero speaker terminal?
+
+# GPIO Usage
+
+Which GPIO pins do the audio boards use? I want to make sure nothing conflicts with my other stuff.
+
+I've got a sensor I want to add alongside my audio board. Which pins are free to share?
+
+Does the audio board take over all the GPIO pins or just some of them?
+
+What pins are only for the audio board and can't be shared with anything else?
+
+# DAC PRO, DAC+, DigiAMP+, Codec Zero
+
+Can I still use other sensors and stuff if I've got a DAC board plugged in?
+
+I've got a DAC PRO and I want to add something to the I2C bus. Is that going to work or will it conflict?
+
+# Saving AlsaMixer Settings
+
+I changed my audio settings in AlsaMixer but I'm worried they'll reset when I reboot. How do I save them?
+
+How do I restore my AlsaMixer settings after a reboot?
+
+I want to save my mixer settings to a file so I can reload them later. How do I do that?
+
+# MPD-Based Audio with Volume Control
+
+I'm using MPD and I can't control the volume through it. How do I fix that?
+
+I've got a DAC+ and MPD isn't seeing the volume control. What do I need to change in the config?
+
+What do I need to add to my MPD config file to get volume control working with these audio boards?
+
+# Whole Document
+
+I just got a DigiAMP+ and I'm trying to figure out what power supply to buy. What do I need?
+
+I'm setting up one of these Raspberry Pi audio boards for the first time. Which GPIO pins are going to be taken up?
+
+Can I use more than one of these audio boards at the same time, or will they conflict?

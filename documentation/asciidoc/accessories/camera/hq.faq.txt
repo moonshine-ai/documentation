@@ -1,0 +1,24 @@
+# High Quality Camera
+
+What's the megapixel count on the High Quality Camera?
+What sensor does the High Quality Camera use?
+I've heard there are two different versions of the High Quality Camera — what's the difference between the M12 and C/CS mount?
+What's the maximum exposure time on the High Quality Camera?
+Can I use the High Quality Camera with different lenses?
+What resolution does the High Quality Camera shoot at?
+
+# Transmission Characteristics
+
+What's a Hoya CM500 and why does my camera have one?
+I want my camera to pick up more infrared light. Is there a way to do that?
+If I remove the infrared filter, can I put it back later?
+Does removing the IR filter void the warranty?
+What happens to the camera's sensitivity if I take out the IR filter?
+What even is an infrared filter and what does it do to my photos?
+
+# Whole Document
+
+Can I use multiple High Quality Cameras at the same time and sync them up somehow?
+I want to trigger the camera from an external signal rather than just from software. Is that possible?
+What's the difference between the High Quality Camera and the regular Raspberry Pi camera?
+I'm trying to pick a camera for a project that needs really long exposures. Would the High Quality Camera work for that?

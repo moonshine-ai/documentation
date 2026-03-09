@@ -1,0 +1,33 @@
+# Camera Module 2
+
+What's the resolution on the Camera Module 2?
+
+How many megapixels does the Camera Module 2 have?
+
+What sensor does the Camera Module 2 use?
+
+What's the longest exposure time I can set on this camera?
+
+I've heard there are different versions of the Camera Module 2. What's the difference between them?
+
+Why would I want the NoIR version instead of the regular one?
+
+Wait, does the regular Camera Module 2 capture infrared light or not?
+
+I want to do some night vision stuff with my Pi. Which camera module do I need?
+
+What's the blue gel thing that comes with the NoIR camera for?
+
+I'm trying to monitor my plants. Is there a camera that would help with that?
+
+Can the Camera Module 2 see in the dark?
+
+What's the difference between NoIR and the standard camera? I keep seeing both mentioned and I'm confused.
+
+# Whole Document
+
+I'm just getting started with cameras on my Raspberry Pi. What are my options?
+
+Does Raspberry Pi make its own cameras or do I have to use third party ones?
+
+I want to take high quality photos with my Pi. What camera should I get?

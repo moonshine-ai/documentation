@@ -1,0 +1,45 @@
+# Install
+
+- I just got a Sense HAT, what do I need to do to set it up?
+- Do I need to do anything special to my Pi before plugging in the Sense HAT?
+- What's I2C and do I need to turn it on for the Sense HAT to work?
+- I ran the install command but do I need to reboot after? Like is that actually necessary?
+- What's the full process to get the Sense HAT working from scratch?
+- I haven't updated my Pi in a while. Does that matter for the Sense HAT?
+
+# Calibrate
+
+- How do I calibrate the Sense HAT's sensors?
+- Do I actually need to calibrate the Sense HAT or can I just skip that?
+- So during calibration I have to physically move the Pi around? What's the point of that?
+- I finished calibrating and now there's a new file. Where does it need to go?
+- What does the ellipsoid calibration do and is it different from the regular one?
+- I'm doing the magnetometer calibration and the numbers just keep changing. When do I stop?
+- I finished calibrating but I'm not sure I moved it around enough. How do I know if it worked?
+
+# Getting started
+
+- Where do I find the example code after I install everything?
+- I want to use the Sense HAT with Python. What library do I use?
+- Is there a way to use the Sense HAT without Python, like with C++?
+- Where's the documentation for the Python library?
+- I'm using C++ and I'm getting inaccurate sensor readings. What should I check?
+- How do I run the RTIMULibDrive11 example and how do I close it when I'm done?
+- Do I need to compile the C++ examples myself or are they ready to go?
+
+# Troubleshooting
+
+- The Sense HAT doesn't seem to be working. What can I try?
+- How do I read the EEPROM data from the Sense HAT?
+- I want to write to the Sense HAT's EEPROM. Is that going to break anything?
+- What do I need to change in config dot txt to get the EEPROM stuff working?
+- I've got a Raspberry Pi 3 Model B and the EEPROM steps aren't working. What's going on?
+- What's the write protection thing about when writing to the EEPROM? Do I need to turn it back on after?
+
+# Whole Document
+
+- I just bought a Sense HAT. Walk me through everything I need to do to get it up and running.
+- Does the Sense HAT need any special setup or can I just plug it in and go?
+- I'm a beginner. Is the Sense HAT hard to get working?
+- What languages can I use to program the Sense HAT?
+- My Sense HAT sensors seem to be giving wrong readings. What should I do?

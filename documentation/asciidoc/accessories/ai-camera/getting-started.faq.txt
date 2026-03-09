@@ -1,0 +1,75 @@
+# Getting Started
+
+What Raspberry Pi boards work with the AI Camera?
+
+I've got a Raspberry Pi Zero 2 W — can I use the AI Camera with that or is it only for Pi 5?
+
+How do I attach the AI Camera to my Raspberry Pi?
+
+Do I need to update my Pi before setting up the AI Camera?
+
+What's the first thing I should do after plugging in the AI Camera?
+
+# Install the IMX500 Firmware
+
+What's IMX500 firmware and why do I need it?
+
+How do I install the firmware for the AI Camera?
+
+My camera is taking forever to start up — is that normal or did something go wrong?
+
+What does the `imx500-all` package actually install on my Pi?
+
+Where does it put the neural network model files when I install the firmware?
+
+Why does my Pi show a progress bar when the camera starts?
+
+After installing everything do I need to restart my Pi or can I just run it straight away?
+
+# Run Example Applications
+
+What example apps can I run with the AI Camera?
+
+# rpicam-apps
+
+How do I run object detection on the AI Camera?
+
+What's the command to start the live camera view with bounding boxes around objects?
+
+I want to record a video with object detection boxes showing on it — how do I do that?
+
+How do I limit how many objects it tries to detect at once?
+
+The object detection seems really jumpy and noisy — is there a way to smooth that out?
+
+How do I turn off the temporal filtering on the object detection?
+
+What confidence threshold does the object detection use, and can I change it?
+
+How do I try the pose estimation thing that tracks body joints?
+
+What's the difference between how object detection and pose estimation work on the AI Camera — does it all run on the camera itself?
+
+What JSON files do I need for the post-processing and where are they stored?
+
+# Picamera2
+
+How do I run the AI Camera examples using Picamera2?
+
+I want to try the Picamera2 object detection demo — what do I need to install first?
+
+How do I get the Picamera2 example scripts onto my Pi?
+
+What's the command to run YOLOv8 object detection with Picamera2?
+
+How do I try pose estimation using Picamera2?
+
+# Whole Document
+
+I just got the Raspberry Pi AI Camera — where do I even start?
+
+Do I need any special software to use the AI Camera or does it work out of the box?
+
+What kind of AI stuff can the Raspberry Pi AI Camera actually do?
+
+Does the AI processing happen on the camera itself or does my Pi have to do all the work?

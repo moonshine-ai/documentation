@@ -1,0 +1,55 @@
+# Synchronous Captures
+
+What even is synchronous capture? Like why would I want two cameras taking pictures at the exact same time?
+
+I've got two HQ cameras and I want them to trigger at the same time. How do I set that up?
+
+Do I need to solder anything to get the cameras to sync up?
+
+What's the XVS pin and why do I need to connect it between cameras?
+
+I've got two Global Shutter cameras I want to sync. Is that different from syncing two HQ cameras?
+
+Can I sync a Global Shutter camera with an HQ camera at the same time?
+
+Wait, I thought there was a way to sync cameras without any wires? What's that about?
+
+I soldered the XVS pins together on my two cameras but do I also need to connect the ground pins?
+
+I've got two GS cameras and I'm trying to sync them. Do I need to do anything extra with the MAS pad?
+
+How do I edit the config file to set one camera as the source and one as the sink?
+
+I'm using a Raspberry Pi 5 with a camera on the CAM0 port. Is there anything different I need to put in the config file?
+
+I don't want to hardcode which camera is the source and which is the sink. Can I change that at runtime instead?
+
+How do I set one camera as the source using the terminal instead of the config file?
+
+Do I need to run those trigger mode commands every time I reboot, or just once?
+
+My cameras keep timing out before they all start. How do I fix that?
+
+Where do I find the config file to increase the timeout for the cameras?
+
+How do I change the camera timeout to something like 60 seconds?
+
+Which camera do I start first, the source or the sink?
+
+How do I make sure both cameras capture exactly the same number of frames?
+
+I'm using GS cameras in sync mode and the recordings are different lengths. Why does that happen?
+
+My GS camera sink is recording one fewer frame than the source. Is that normal or am I doing something wrong?
+
+I used to have a pull-up resistor on the XVS pin. Do I still need that?
+
+I've got two cameras connected to the same Raspberry Pi. How do I set that up in config dot txt?
+
+# Whole Document
+
+I've got two cameras and I want them to both capture at exactly the same moment. What are my options?
+
+What's the difference between wired sync and software sync for cameras?
+
+I'm a total beginner with multiple cameras on a Pi. What's the easiest way to get them to shoot at the same time?

@@ -1,0 +1,17 @@
+# About
+
+# Whole Document
+
+- What's the Raspberry Pi AI Camera and what makes it different from the regular camera?
+- I've got a Raspberry Pi camera, is this the same thing as the AI Camera or are they different products?
+- Does the AI Camera work with the normal camera software or do I need something special?
+- I want to run a neural network on my Pi. Is the AI Camera the way to do that?
+- Can I use my own custom model with the AI Camera or does it only work with built-in ones?
+- What's the IMX500 sensor? Do I need to know about it to use this camera?
+- Does the AI Camera work with Picamera2 or just the older camera tools?
+- I've heard about rpicam-apps. Does the AI Camera support that?
+- How hard is it to get a neural network running on this camera? Like, is it beginner-friendly?
+- What even is inference data? I keep seeing that term and I'm not sure what it means in this context.
+- So the AI processing happens on the camera itself, not on the Pi? Is that right?
+- I want to do object detection on my Pi without it being super slow. Would this camera help with that?
+- Can I use the AI Camera for a project even if I don't know much about machine learning?

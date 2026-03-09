@@ -1,0 +1,67 @@
+# Whole Document
+
+What Raspberry Pi models work with the official touch display?
+
+I've got a Pi Zero — will the touch display work with it?
+
+What's the resolution on the Raspberry Pi touch display?
+
+How long does the backlight last on the touch display?
+
+What are the physical dimensions of the touch display?
+
+How much power does the touch display use?
+
+# Mount the Touch Display
+
+How do I physically attach the Pi to the back of the touch display?
+
+I connected the cable but I'm just getting a blank screen or a solid color. What's wrong?
+
+Which way do the contacts on the ribbon cable face when I'm connecting it to the Pi versus the display?
+
+# Power the Touch Display
+
+What's the easiest way to power the touch display — do I need a separate power supply?
+
+I want to power the display from the Pi's GPIO pins. Which pins do I use?
+
+What if pin 4 or pin 6 is already taken — can I use different pins to power the display?
+
+Can I just plug a micro USB cable into the display to power it instead of using the GPIO?
+
+Wait, if I'm powering the display through micro USB, should I also connect the GPIO pins?
+
+# Use an on-screen keyboard
+
+I've got a touchscreen attached but there's no keyboard showing up. How do I get an on-screen keyboard?
+
+How do I bring up the keyboard manually if it's not popping up automatically?
+
+Can I make the on-screen keyboard stay on permanently?
+
+I'm running an older version of Raspberry Pi OS. What on-screen keyboard should I use instead of the built-in one?
+
+# Change Screen Orientation
+
+I mounted my display sideways. How do I rotate the screen to match?
+
+I'm running Pi OS without a desktop. How do I rotate the screen?
+
+Can I rotate just the touchscreen display without rotating the HDMI output too?
+
+I rotated the display but the touch input is all wrong now — it's registering touches in the wrong direction. How do I fix that?
+
+How do I invert the touch coordinates on the Pi touch display?
+
+Can I swap the X and Y axes on the touch input?
+
+Is there a way to completely disable touch input on the display?
+
+I want to set a custom resolution for the touch display. How do I do that?
+
+# Installation on Compute Module based devices
+
+Why doesn't the touch display auto-detect when I'm using a Compute Module?
+
+I'm using a Compute Module and the touch display isn't working. How do I set it up manually?

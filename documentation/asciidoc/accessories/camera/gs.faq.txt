@@ -1,0 +1,29 @@
+# Rolling or Global shutter?
+
+- I keep getting this weird wobbly distortion when I photograph spinning things. What's causing that?
+- What's the difference between a rolling shutter and a global shutter? Like, in plain English?
+- I'm trying to photograph drone propellers and they look all warped. Is there a camera that fixes that?
+- Why does my camera make fast-moving things look distorted? Is that normal?
+- I want to sync two cameras to take a photo at exactly the same moment. Can the global shutter camera do that?
+- How fast can the global shutter camera's exposure time go? Like what's the shortest it can handle?
+- I'm doing stereo imaging with two cameras and the images don't quite line up right. Could the shutter type be causing that?
+- What makes the global shutter camera good for machine vision stuff?
+
+# Transmission characteristics
+
+- Does the global shutter camera pick up infrared light?
+- What IR filter does the global shutter camera use?
+- Can I remove the IR filter to get better infrared sensitivity?
+- If I take off the IR filter, can I put it back later or is that permanent?
+- Will removing the IR filter void my warranty?
+
+# Whole Document
+
+- What resolution does the global shutter camera shoot at?
+- What kind of lens mount does the global shutter camera use? Can I use my own lenses with it?
+- I want to trigger multiple cameras at the same time. Can I do that with the global shutter camera?
+- What sensor does the global shutter camera use?
+- How does the global shutter camera's sensor size compare to the HQ camera?
+- I'm new to this — what even is a global shutter and do I need one?
+- Is the global shutter camera good for action shots or sports photography?
+- Why does the global shutter camera have lower resolution than some other cameras? Is that a problem?

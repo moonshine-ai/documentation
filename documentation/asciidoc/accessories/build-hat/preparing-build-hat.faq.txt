@@ -1,0 +1,40 @@
+# Whole Document
+
+- I just got a Build HAT, where do I even start?
+- Do I need to do anything special to my Raspberry Pi before plugging the Build HAT in?
+- What's the difference between using Python or .NET with the Build HAT?
+
+# Prepare your Build HAT
+
+- Which way up does the Build HAT go? I don't want to put it on wrong.
+- Wait, the components are on the bottom of the Build HAT? That seems backwards, why is it like that?
+- What are those spacers for? Do I actually need them?
+
+# Access the GPIO Pins
+
+- Can I still use the GPIO pins if I've got the Build HAT on top?
+- Are there any pins I shouldn't touch when using the Build HAT?
+- I want to hook up some extra stuff to the GPIO — do I need a special header or something?
+- Which GPIO pins does the Build HAT use? I don't want to accidentally connect something to the wrong one.
+
+# Set up your Raspberry Pi
+
+- Where do I go to turn on the serial port on my Raspberry Pi?
+- I've got the Build HAT attached but I'm not sure what settings I need to change. What do I do in the Raspberry Pi settings?
+
+# Use your Raspberry Pi headless
+
+- I'm running my Pi headless so I don't have a desktop. How do I set up the serial port without it?
+- I'm using raspi-config, how do I enable the serial port for the Build HAT?
+- Do I need to disable the serial console? What even is that and why does it matter?
+- I made changes in raspi-config, do I need to restart my Pi after?
+
+# Power the Build HAT
+
+- How do I power the Build HAT? Can I just use the normal Raspberry Pi USB power?
+- Can I use any power supply or does it have to be the official one?
+- What kind of power connector does the Build HAT use? I want to know if my supply will fit.
+- I've got a Raspberry Pi 400 — can the Build HAT power it?
+- I just want to read from a sensor, do I still need the big external power supply?
+- The motors aren't doing anything, could that be a power problem?
+- My SPIKE colour sensor isn't working, do I need a special power supply for that?

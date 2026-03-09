@@ -1,0 +1,37 @@
+# Connect a Motor
+
+How do I plug in the motor to the Build HAT? It doesn't seem to fit.
+
+My motor connector won't slide in. What am I doing wrong?
+
+Which port should I connect my motor to when I'm just getting started?
+
+# Work with Motors
+
+How do I actually get a motor spinning with Python? What's the basic code I need?
+
+I just ran my first Build HAT program and it froze for a few seconds. Is that normal or did something break?
+
+What's the green and red LED thing about on the Build HAT? My red light just turned off.
+
+My motor ran but it was really slow. How do I make it go faster?
+
+How do I make the motor spin the other way, like counterclockwise?
+
+I want the motor to run for a specific amount of time. How do I do that in Python?
+
+Can I control the speed when I'm running the motor for a set number of seconds?
+
+How do I read the position of the motor shaft while it's turning? Like, can I track where it is?
+
+I want to print out the motor's angle as I turn it by hand. How would I do that?
+
+# Whole Document
+
+I've got a Build HAT and some LEGO motors. Where do I even start with controlling them from Python?
+
+What IDE should I use to write Python code for the Build HAT?
+
+Why does my Build HAT program take ages to start the first time but then it's faster after that?
+
+I just want a simple example of making a motor move with Python. What does that look like?

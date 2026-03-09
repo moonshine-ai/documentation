@@ -1,0 +1,33 @@
+# Further Resources
+
+Where can I find the full documentation for the Build HAT Python library?
+
+Is there a .NET version of the Build HAT library, or is it only Python?
+
+I want to learn more about the serial protocol for the Build HAT. Where do I find that?
+
+Where's the best place to look if I'm stuck with the Python library and need detailed reference docs?
+
+Are there any beginner projects I can follow along with to get started with the Build HAT?
+
+I want to build something with LEGO and my Raspberry Pi. Are there any guided projects out there?
+
+What's ReadTheDocs? Is that where I should go for the Python library docs?
+
+I'm more comfortable with .NET than Python. Can I still use the Build HAT?
+
+Is there a LEGO robot project I can build with the Build HAT? Like something that actually drives around?
+
+I want to make a LEGO game controller with my Pi. Does something like that exist already?
+
+# Whole Document
+
+What even is the Build HAT and what can I use it for?
+
+I've got a bunch of LEGO Technic motors. Can I control them with a Raspberry Pi somehow?
+
+Do I need to know Python to use the Build HAT, or are there other options?
+
+Where do I even start if I just got a Build HAT and have no idea what I'm doing?
+
+Can I use the Build HAT with .NET, or is it Python only?

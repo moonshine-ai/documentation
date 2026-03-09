@@ -1,0 +1,29 @@
+# Whole Document
+
+- I just got my Pico, what's the first thing I should try doing with it?
+- What's the difference between the Pico and the Pico W when it comes to running these basic programs?
+- I've never used a microcontroller before. Where do I even start?
+
+# Blink an LED
+
+- How do I make the LED on my Pico blink?
+- Where's the LED on the Pico? Like, which pin is it connected to?
+- I've got a Pico W, not a regular Pico. Do I download a different file to make the LED blink?
+- What's a UF2 file? I keep seeing that term and I'm not sure what it means.
+- I dragged the file onto my Pico but nothing happened. Did I do something wrong?
+- My Pico isn't showing up as a drive when I plug it in. What am I missing?
+- Do I have to hold the BOOTSEL button the whole time I'm plugging it in or just at first?
+- Where's the BOOTSEL button on the Pico?
+- The LED isn't blinking after I copied the file over. What should I check?
+- Can I see the actual code for the blink program somewhere?
+
+# Say "Hello World"
+
+- How do I get my Pico to print Hello World?
+- What's minicom and do I really need to install it just to see some text from my Pico?
+- I ran minicom but I'm not seeing anything printed. What's going wrong?
+- What does the dash b 115200 part mean in that minicom command?
+- My computer doesn't have a dev ttyACM0. How do I figure out what port my Pico is on?
+- Do I need to do the BOOTSEL button thing again for the Hello World program too?
+- I'm on Windows, not a Raspberry Pi. Can I still do the Hello World thing, and how would I open a serial connection?
+- Where can I find the source code for the Hello World example?

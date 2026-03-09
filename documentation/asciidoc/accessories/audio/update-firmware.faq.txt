@@ -1,0 +1,27 @@
+# Whole Document
+
+- What even is an EEPROM and why would I need to update it on my audio board?
+- I just got a Raspberry Pi audio board and I'm wondering if I need to do anything to it before using it.
+- How do I update the firmware on my Raspberry Pi audio HAT?
+
+# Updating your firmware
+
+- Do I need to do anything to my Pi before I start updating the audio board firmware?
+- I want to update my audio board's EEPROM but I don't know where to start.
+
+# The EEPROM write-protect link
+
+- There are two little pads on my audio board — do I need to connect them to do anything?
+- Wait, do I actually have to solder something to update the firmware? What's the write-protect link thing about?
+- My Codec Zero board already has a tiny resistor bridging those two pads. Does that mean I don't need to do anything extra before flashing?
+
+# Program the EEPROM
+
+- Okay so how do I actually flash the firmware once the write-protect is dealt with?
+- What's the command to install the audio flashing tools?
+- I ran the flash tool and it's asking me to pick my hardware but I'm not sure which one to choose. Is there a list somewhere?
+- It says no HAT is present but I definitely have one plugged in. What do I do?
+- The firmware already says it's up to date — do I still need to flash it or can I just skip it?
+- My firmware failed to install and I got an error. What should I try first?
+- I seated the HAT again like it said but it's still failing. Is there anything else I can try?
+- How do I know when the firmware update is actually done?

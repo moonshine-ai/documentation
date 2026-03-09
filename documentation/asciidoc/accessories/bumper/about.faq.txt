@@ -1,0 +1,24 @@
+# About
+
+- What's the Raspberry Pi Bumper exactly? Like what does it actually do?
+- Does the bumper cover the whole board or just parts of it?
+- I've got a Raspberry Pi 4, will the bumper fit on it?
+- Wait, if I put the bumper on, can I still use the mounting holes?
+- What's the bumper made of?
+
+# Assembly instructions
+
+- Do I need to turn off my Pi before putting the bumper on, or can I just snap it on while it's running?
+- Why do I have to take the SD card out before putting the bumper on?
+- I'm trying to put the bumper on but I'm not sure how to line it up. Any tips?
+- How hard do I need to press to get the bumper to snap on properly?
+- How do I get the bumper off without breaking anything?
+- I'm scared of damaging the components when I'm putting the bumper on. What should I watch out for?
+- Do I have to disconnect power before taking the bumper off, or can I just peel it off?
+
+# Whole Document
+
+- I just got a Pi 5 and want to protect it. Is the bumper worth getting?
+- Does the bumper protect the top of the board too, or just the bottom and sides?
+- Will the bumper still let me access all the ports and connectors?
+- Is this thing easy to put on and take off, or is it a big hassle?

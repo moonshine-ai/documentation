@@ -1,0 +1,58 @@
+# Whole Document
+
+- What's the M.2 HAT+ actually for? Like what does it let me do with my Pi 5?
+- What's the difference between the M.2 HAT+ and the M.2 HAT+ Compact? Which one should I get?
+- Does the M.2 HAT+ work with any Raspberry Pi or just the Pi 5?
+- I want to add an NVMe SSD to my Pi 5. What do I need to buy?
+- How fast is the connection on the M.2 HAT+? Like what speeds can I expect?
+
+# About
+
+- Can I fit the M.2 HAT+ inside the official Raspberry Pi 5 case?
+- I've got the Pi 5 case with the fan already in it. Will the M.2 HAT+ Compact fit in there?
+- What size M.2 drives are supported? Like will a 2280 drive work?
+- I want to use the Active Cooler with the M.2 HAT+. Is that possible?
+- Does Raspberry Pi OS automatically recognize the HAT+ or do I have to configure something?
+- What's actually included in the box when I buy the M.2 HAT+?
+- Does the Compact version come with a GPIO stacking header?
+
+# Prepare your Raspberry Pi
+
+- Do I need to update anything before installing the M.2 HAT+?
+- How do I check if my Pi's firmware is new enough to use the M.2 HAT+?
+- My firmware is from before December 2023. How do I update it?
+- Do I need to turn off my Pi before putting the HAT+ on?
+
+# Install the M.2 HAT+
+
+- Should I install the Active Cooler before or after putting the M.2 HAT+ on?
+- Which way does the ribbon cable go in? Like which side faces which direction?
+- I'm inserting the ribbon cable and I'm not sure which way the copper contacts should face. Can you help?
+- How do I actually attach the SSD to the board? Is there a screw or something?
+- I'm trying to push my M.2 drive in and it's not going. Am I doing something wrong?
+- How tight should I make the screw holding the SSD down?
+
+# Install the M.2 HAT+ Compact
+
+- Does the Compact version install the same way as the regular M.2 HAT+?
+- Wait, does the Compact have a ribbon cable already attached, or do I connect it myself?
+- Which way do the copper contacts face when I plug the ribbon cable into the Pi for the Compact version?
+
+# Start your Raspberry Pi
+
+- After I install the HAT+ and boot up, how do I know the drive is being detected?
+- Where does the NVMe drive show up in the file system?
+- Can I set it up so the drive mounts automatically when the Pi starts?
+- Is it safe to just unplug the drive from the M.2 slot while the Pi is running?
+
+# Boot from NVMe
+
+- How do I get my Pi to boot from the NVMe drive instead of the SD card?
+- My Pi still boots from the SD card even though I have an NVMe drive in the HAT+. How do I change that?
+- If I take the SD card out, will it automatically boot from the NVMe?
+- How do I put an OS onto the NVMe drive in the first place?
+
+# Enable PCIe Gen 3
+
+- Can I get faster PCIe speeds by enabling Gen 3? And is it safe to do that?
+- I heard you can enable PCIe Gen 3 on the Pi 5. Should I bother doing that?

@@ -1,0 +1,41 @@
+# Device Compatibility
+
+What LEGO devices actually work with the Build HAT library?
+
+Does it support Mindstorms Robot Inventor kit stuff, or just SPIKE Prime?
+
+I've got a SPIKE Essentials set. Are those motors and sensors going to work with the Build HAT?
+
+What's the difference between the two SPIKE Prime Expansion Sets? I'm confused about which one to get.
+
+I have the LEGO Technic XL motor, the grey one. Is that supported?
+
+Does the colour and distance sensor work properly, or is it only partially supported?
+
+I've got a WeDo 2.0 tilt sensor. Will that work with the Build HAT?
+
+What's the LEGO item number for the Large Angular Motor?
+
+I have the 3x3 LED panel from SPIKE Essentials. Can I control that with Python?
+
+My force sensor is from the SPIKE Prime set. Does that work in Python?
+
+Does the system train motor work with the Build HAT library?
+
+I've got PoweredUp LED lights, the black ones. Are those supported in Python?
+
+What's the deal with the colour plus distance sensor — it says partial support. What does that actually mean, like what works and what doesn't?
+
+Is the medium angular motor from Mindstorms Robot Inventor the same as the one from SPIKE Prime, or are they different?
+
+I have a WeDo 2.0 Motion sensor. Will the Build HAT library support it?
+
+# Whole Document
+
+What LEGO kits are compatible with the Build HAT overall?
+
+I'm trying to figure out if my LEGO motors will work with the Raspberry Pi Build HAT. Where do I even start?
+
+What's the difference between active and passive devices in the Build HAT compatibility list?
+
+I want to control LEGO motors with Python on my Raspberry Pi. Which motors are actually supported?

@@ -1,0 +1,73 @@
+# Whole Document
+
+- What even is the Touch Display 2? Like what's it actually for?
+- I'm trying to figure out if this display will work with my Raspberry Pi. Which models are compatible?
+- Does the Touch Display 2 work with the Pi Zero?
+- I've got a Pi Keyboard — will this display work with it?
+- What's included in the box when I buy one of these displays?
+- I just got my Touch Display 2 set up but nothing's showing on screen. How long does it take to start working?
+- Don't forget to unplug your Pi before connecting the display, right? Is that actually important?
+
+# Specifications
+
+- What size options does the Touch Display 2 come in?
+- What's the resolution on this display?
+- How many touch points does it support at once? Like can multiple fingers work at the same time?
+- Do I need a mouse if I'm using the Touch Display 2?
+- Do I need a separate power supply for the display or does it just get power from the Pi?
+- How thick is the 7-inch version? I'm trying to figure out if it'll fit in a case.
+- What are the actual physical dimensions of the 5-inch display?
+
+# Hardware
+
+- What cable do I use to connect this to a Pi 5 versus a regular Pi?
+- I've got a Pi 4 — which FFC cable do I need for this display?
+- Wait, there are two different ribbon cables in the box. Which one's for which Pi?
+- How does this display actually connect to the Pi — like what ports does it use?
+
+# Connect to Raspberry Pi
+
+- Which end of the ribbon cable goes into the display and which goes into the Pi?
+- Which way do the metal contacts face when I'm plugging in the ribbon cable?
+- I can see there are two DSI ports on my Pi. Which one should I use for this display?
+- Where exactly do I plug the GPIO power cable into the Pi? Which pins?
+- What's the J1 port on the back of the display?
+- I plugged in the power cable wrong — could that damage the display?
+- Do I have to screw the Pi onto the back of the display or is that optional?
+- How do I mount the Pi to the back of the display using those screws?
+
+# Use an on-screen keyboard
+
+- Does the Touch Display 2 come with an on-screen keyboard?
+- The keyboard keeps popping up even when I don't want it. How do I turn it off?
+- The keyboard isn't showing up when I tap on a text box. What do I do?
+- How do I permanently hide the on-screen keyboard?
+- Where do I go in the menus to change the keyboard settings?
+- I want to turn the on-screen keyboard on from the command line. How do I do that?
+
+# Change screen orientation
+
+- I want to mount this display sideways. How do I rotate the screen?
+- How do I flip the display upside down?
+- What's the default orientation — portrait or landscape?
+- I don't have a desktop installed. Can I still rotate the display?
+- I'm running the desktop and want to rotate to landscape. Where do I go to do that?
+- Which file do I edit to rotate the screen without a desktop?
+- I rotated the display using cmdline.txt but my video player isn't rotating. Why not?
+- If I'm using HDMI and DSI at the same time, can I rotate them separately?
+
+# Customise touchscreen settings
+
+- The touch input feels like it's mirrored left to right. How do I fix that?
+- My touch is registering in the wrong direction vertically. How do I invert the Y axis?
+- How do I swap the X and Y axes on the touch input?
+- I want to disable touch completely on this display. How do I do that?
+- Where do I go to change the touchscreen settings?
+- What's the overlay called for the 5-inch version of the display?
+- How do I set a custom touch resolution?
+
+# Connect to a Compute Module
+
+- I'm using a Compute Module and the display isn't working. Why doesn't it just detect automatically?
+- What's the easiest way to get the Touch Display 2 working on a Compute Module?
+- Why do Compute Modules need extra configuration for this display when regular Pis don't?

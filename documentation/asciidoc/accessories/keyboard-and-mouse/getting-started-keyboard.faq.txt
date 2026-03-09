@@ -1,0 +1,18 @@
+# Whole Document
+
+- I just got the official Raspberry Pi keyboard. What do I need to know to get started with it?
+- How do I connect the keyboard to my Raspberry Pi?
+- Can I plug a mouse into the keyboard itself, or do I need a separate USB port on the Pi?
+- Wait, so the keyboard has its own USB ports on it? How many?
+- Does the keyboard need its own power supply or does it get power from the Pi?
+
+# Keyboard Features
+
+- There are some red numbers on my keyboard keys but I can't figure out how to use them. What's going on?
+- How do I type capital letters without holding shift the whole time?
+- I accidentally hit something and now my cursor keys are doing weird scrolling stuff instead of moving my cursor. How do I fix that?
+- What are those three little lights in the corner of my keyboard for?
+- How do I turn Caps Lock off? I keep typing in all capitals.
+- I want to use a number pad but I don't have one. Is there a way to use the keyboard as one?
+- How do I enable Scroll Lock? I can't find a dedicated key for it.
+- I'm in Caps Lock mode but I need to type one lowercase letter. Do I have to turn off Caps Lock or is there a shortcut?

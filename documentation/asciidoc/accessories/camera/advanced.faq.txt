@@ -1,0 +1,43 @@
+# Whole Document
+
+- I'm trying to do something custom with my Pi camera and I need the technical specs. Where do I find those?
+- I've got a Camera Module 2 and a Camera Module 3 — are they the same size? Can I swap them out without changing my mount?
+- I'm building a custom camera enclosure and I need the exact dimensions. Where do I get those?
+
+# Mechanical drawings and schematics
+
+- Where can I download the mechanical drawings for the HQ Camera Module?
+- I need the schematic for the camera connector on my Pi. Where do I find that?
+- I've got a Camera Module 3 and a Pi Zero case with the camera lid. Will it fit?
+- Wait, the Camera Module 2 and 3 are the same size but they're NOT compatible with the Zero case lid? What's going on there?
+- Where do I find the official schematics for the Global Shutter camera?
+
+# Pinout information
+
+- I need to know what each pin does on the camera connector. Where do I find that info?
+
+# Locating pin 1
+
+- I'm trying to figure out which end is pin 1 on my camera cable. How do I work that out?
+- I've got my Pi sitting in front of me but I'm not sure which side of the connector is pin 1. How do I figure it out?
+- My Pi Zero doesn't have a logo on the top. How am I supposed to orient it to find pin 1?
+- When I'm holding the camera module itself, where's pin 1 on that end of the cable?
+
+# Camera connector pinout (15-Pin)
+
+- Which Pi models use the 15-pin camera connector?
+- What's the voltage on the I2C lines for the camera connector?
+- What's CAM_IO0 actually used for on the camera connector?
+- I'm trying to wire up a custom camera board. What pin gives me the 3.3 volt supply on the 15-pin connector?
+- Some of my camera pins are just labeled ground. How many ground pins are there on the 15-pin connector?
+- What does CAM_IO1 do? I heard some cameras don't even have it?
+
+# Camera connector pinout (22-Pin)
+
+- Does the Raspberry Pi 5 use a different camera connector than older Pis?
+- I've got a Pi Zero — does it use the 15-pin or 22-pin camera connector?
+- What's the big difference between the 15-pin and 22-pin camera connectors?
+- The 22-pin connector has way more lanes than the 15-pin one. What are those extra lanes for?
+- What pin is the 3.3 volt supply on the 22-pin camera connector?
+- I'm using a Compute Module IO board. Does it use the 15-pin or 22-pin camera connector?
+- What connector part number is compatible with the 22-pin camera socket on the Pi 5?

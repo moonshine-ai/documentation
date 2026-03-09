@@ -1,0 +1,17 @@
+# SDK Setup
+
+# Whole Document
+
+- I want to start coding for the Pico in C. Where do I even begin?
+- What's the quickest way to get the Pico SDK set up if I'm working on a Raspberry Pi?
+- I've got a Raspberry Pi and I want to program my Pico with it. How do I get everything installed?
+- Is there a setup script or do I have to install everything manually?
+- I'm totally new to this. Is there like a beginner guide for getting started with Pico development in C?
+- Do I need to update my Pi before running the setup script, or can I just run it straight away?
+- I haven't updated my Raspberry Pi in a while. Does that matter if I'm trying to set up the Pico SDK?
+- What happens if I run the setup script on an outdated version of Raspberry Pi OS? Will it break anything?
+- I don't want to read through a whole PDF. Can I just run a script and have everything set up for me?
+- I'm on a regular computer, not a Raspberry Pi. Can I still use this setup script or is it only for Pi?
+- Wait, there's a script that sets everything up automatically? How do I run it?
+- Where do I find the setup script for the Pico C SDK?
+- I've got my Raspberry Pi ready to go. What's the very first thing I should do to start developing for Pico?

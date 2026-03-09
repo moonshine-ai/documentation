@@ -1,0 +1,37 @@
+# Whole Document
+
+- I've got a neural network model and I want to run it on the Raspberry Pi AI Camera. What are the steps I need to follow?
+- Do I have to do all the setup stuff on my Raspberry Pi or can I use my desktop?
+- What's the general process for getting a custom AI model onto that Sony camera module?
+
+# Model Creation
+
+- I don't really know how to make a neural network model from scratch. Where do I even start?
+- Can I use an existing model I found online, or do I have to build one myself?
+- What AI frameworks work with this whole process?
+
+# Model Compression and Conversion
+
+- How do I install the Edge-MDT tools?
+- I use PyTorch, not TensorFlow. Does that change how I install things?
+- Can I install both the PyTorch and TensorFlow versions at the same time?
+- Wait, if I install both TensorFlow and PyTorch versions together will they conflict with each other?
+- What does quantising a model actually mean, and why do I need to do it?
+- What's the Model Compression Toolkit and do I need to install it separately?
+- What format does my model need to be in after compression?
+
+# Conversion
+
+- How do I actually convert my compressed model so it'll work on the camera?
+- I've got an ONNX file from PyTorch. What command do I run to convert it?
+- What does the converter spit out when it's done?
+- I want to save memory on the camera sensor. Is there a flag I should add when converting?
+- If I use that memory-saving option, is there anything I lose out on?
+
+# Packaging
+
+- I've converted my model and now I need to get it onto the camera. What do I do next?
+- Wait, do I have to be on my Raspberry Pi to do the packaging step? Can't I just do it all on my desktop?
+- What command do I run to package the model up?
+- What file does the packaging step create, and what do I do with it?
+- I don't have the packaging tools installed yet. How do I get them?

@@ -1,0 +1,24 @@
+# Whole Document
+
+- What even is the DigiAMP+ and what would I use it for?
+- I want to build a hi-fi system with my Raspberry Pi. Is there a HAT that can drive proper speakers?
+- How powerful of speakers can I connect to the DigiAMP+?
+- Do I need a separate power supply for this thing or can it just run off the Pi?
+- What kind of power supply does the DigiAMP+ need exactly?
+- I've got a 9V DC adapter lying around. Will that work with the DigiAMP+?
+- What's the recommended power supply for the DigiAMP+?
+- My DigiAMP+ just arrived and the LED is lit up but I'm getting no sound. Is something wrong?
+- Why is the amp muted when I first turn it on? Is that normal?
+- How do I unmute the DigiAMP+ in software?
+- Which GPIO pin controls the mute and the LED on the DigiAMP+?
+- Wait, so the DigiAMP+ powers the Raspberry Pi too? How does that work?
+- Can I plug in the Pi's usual power cable AND use the DigiAMP+ at the same time?
+- I accidentally left the Pi's power cable plugged in while using the DigiAMP+. Did I break something?
+- What size is the barrel connector on the DigiAMP+?
+
+# Pinouts
+
+- What's the P5 connector for on the DigiAMP+?
+- I want to hardwire the DigiAMP+ into a permanent installation. Which connector do I use for that?
+- Does it matter which way round I wire up the P5 connector? Like does polarity matter?
+- What's P8 used for on the DigiAMP+?

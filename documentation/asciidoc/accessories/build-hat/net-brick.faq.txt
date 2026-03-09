@@ -1,0 +1,37 @@
+# Whole Document
+
+- I'm trying to use a Build HAT with .NET and I don't really know where to start. What's the basic setup?
+- Do I need to do anything special to clean up after my program finishes using the Build HAT?
+- What even is the Build HAT Serial Protocol? Do I need to understand it to use this in .NET?
+
+# Use the Build HAT from .NET
+
+- How do I create a brick object in C sharp to talk to the Build HAT?
+- My program just hangs and never closes after running. What did I forget to do?
+- I don't want to have to remember to call dispose myself. Is there a cleaner way to handle that?
+- What's the difference between using `brick.Dispose()` and the `using` statement? Which one should I use?
+
+# Display Build HAT information
+
+- How do I check what firmware version my Build HAT is running?
+- Can I read the input voltage on the Build HAT from my code?
+- Wait, does it read the voltage continuously or just once? Like if the voltage drops later, will I know?
+
+# Getting sensors and motors details
+
+- How do I figure out what's plugged into each port on my Build HAT?
+- I've got something connected but I'm not sure if my code sees it as a motor or a sensor. How do I check?
+- What's an ActiveSensor and how is it different from a regular sensor?
+
+# Events
+
+- I want my code to do something every time a motor position changes. How do I set that up?
+- What's the difference between PropertyChanged and PropertyUpdated? I'm confused about when each one fires.
+- How do I stop listening to events once I'm done with them?
+- Can I use a motor kind of like a tachometer and get notified when the position changes?
+
+# Wait for initialisation
+
+- My sensors aren't being detected when my program starts. Is there a way to wait for them to connect?
+- How do I wait for a specific port to be ready before my code continues?
+- Can I add like a timeout or a warning if the sensor takes too long to connect?

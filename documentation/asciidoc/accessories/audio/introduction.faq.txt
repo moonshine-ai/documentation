@@ -1,0 +1,41 @@
+# Overview
+
+What are the Raspberry Pi audio boards and what do they do?
+
+I've got a Raspberry Pi and I want better audio quality. What options do I have from Raspberry Pi themselves?
+
+How many audio HATs does Raspberry Pi make?
+
+Do these audio boards work with all Raspberry Pi models?
+
+What does HAT actually stand for?
+
+# Features at a glance
+
+What's the difference between all the audio boards? I don't know which one to get.
+
+I want to connect my Raspberry Pi to my existing hi-fi system. Which board should I get?
+
+Can any of these boards drive regular passive speakers directly, or do I need an amplifier?
+
+I want to record audio with my Raspberry Pi. Which board lets me do that?
+
+What's the highest audio quality I can get from these boards?
+
+I just need something small and simple with a built-in microphone. Which board is best for that?
+
+Does the Codec Zero support as high a sample rate as the other boards?
+
+What's the difference between line out and aux out? They both sound like audio outputs.
+
+What even is a balanced output? Do I need that for a normal home setup?
+
+I've got studio monitor speakers. Which board would connect to those?
+
+My headphones are pretty high impedance. Will these boards actually drive them properly?
+
+If I plug in an external microphone to the Codec Zero, does the built-in mic turn off automatically or do I have to do something?
+
+What's the difference between an external mic input and a built-in mic? Why would I want one over the other?
+
+I want to hook up two regular hi-fi speakers without built-in amps. Which board handles that?

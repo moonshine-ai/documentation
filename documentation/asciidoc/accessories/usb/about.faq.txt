@@ -1,0 +1,30 @@
+# Whole Document
+
+- Does Raspberry Pi make any USB accessories I can buy?
+- I want to add more USB ports and also get some extra storage — does Raspberry Pi sell stuff like that?
+
+# USB 3 Hub
+
+- I've only got one USB port free on my Pi but I need to plug in like four things. Is there a hub that works with it?
+- How many extra USB ports does the Raspberry Pi hub give me?
+- My keyboard and mouse are plugged into the hub but I want to add a hard drive too. Will the hub have enough power for that?
+- Wait, so the hub draws power from the Pi itself? Won't that cause problems?
+- There's a USB-C port on the hub — what's that for? Do I have to use it?
+- How much power can I get out of the hub if I plug in that external USB-C power supply?
+- Does the Raspberry Pi USB hub work with USB 2 devices or only USB 3?
+- How fast is the data transfer on the Raspberry Pi hub?
+- How big is the USB hub? I'm trying to figure out if it'll fit in my project case.
+- How long is the cable on the hub?
+
+# Flash Drive
+
+- Does Raspberry Pi make a USB stick? I just need something simple to transfer files.
+- Can I actually boot my Pi from the Raspberry Pi flash drive, or is it just for storing files?
+- What sizes does the Raspberry Pi flash drive come in?
+- What's the difference between the 128 gig and 256 gig version — is it just storage or does the speed change too?
+- I'm copying loads of big files and it feels slow. What's the write speed on this thing?
+- Is the flash drive fast enough to run an OS off it, or will it be laggy?
+- How small is the Raspberry Pi flash drive? I want to just leave it plugged in all the time without it sticking out too much.
+- Can I put the flash drive on my keychain?
+- Does the flash drive work if I plug it into a USB 2 port?
+- Does it keep the data when I unplug it, or do I need to do something first to save it?

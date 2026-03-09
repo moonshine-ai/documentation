@@ -1,0 +1,47 @@
+# Features
+
+What sensors does the Sense HAT have on it?
+
+Does the Sense HAT have any buttons or controls, or is it just sensors?
+
+I've got a Sense HAT — does it measure temperature and humidity or just one of those?
+
+Wait, does the Sense HAT do colour detection too? I didn't know that was a thing.
+
+Where can I download the schematics for the Sense HAT?
+
+Is there a difference between the Sense HAT and the Sense HAT V2? Like are the specs different?
+
+# LED matrix
+
+So the LED grid on the Sense HAT — how does my code actually talk to it?
+
+I want to write pixels to the LED matrix. How does that work at a low level?
+
+What's the framebuffer ID for the Sense HAT's LED display?
+
+I've heard there's a snake example included with the Sense HAT. What does it actually show you how to do?
+
+Is the LED matrix full colour or just single colour?
+
+# Joystick
+
+How do I read button presses from the joystick on the Sense HAT?
+
+What's the joystick actually mapped to — like what keys does it show up as?
+
+I want to use pygame to handle the joystick input on my Sense HAT. Will that work?
+
+What libraries can I use to read input from the Sense HAT joystick?
+
+My game needs to detect when someone presses the little joystick button in the middle. What does that map to?
+
+The Sense HAT joystick — does it show up as a regular input device or do I need some special driver for it?
+
+# Whole Document
+
+I just got a Sense HAT. What can it actually do, like what's the full list of stuff?
+
+I'm a beginner and I want to start playing with the Sense HAT. Is there example code somewhere to get me started?
+
+Can I use the Sense HAT to build a weather station kind of thing?

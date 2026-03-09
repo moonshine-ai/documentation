@@ -1,0 +1,46 @@
+# Whole Document
+
+- I just got a Raspberry Pi audio board. Do I need to do anything special to set it up or does it just work?
+- I'm running my Pi without a monitor or keyboard. Can I still use one of these audio HATs?
+- What's the difference between the black audio boards and the green ones?
+
+# Configuration
+
+- I plugged in my audio HAT but the Pi is still using the built-in audio. How do I switch to the HAT?
+- I'm running my Pi headless and there's no desktop, so I can't right-click anything. How do I make the HAT the main audio device?
+- Which file do I need to edit to disable the onboard audio on my Pi?
+- I'm in the config.txt file and I see the dtparam=audio=on line. What do I do with it?
+- I made changes to config.txt but it doesn't seem to have done anything. Do I need to restart?
+- I don't have SSH set up. Can I just edit the config.txt file directly from my computer using the SD card?
+
+# Attach the HAT
+
+- Do I need to solder anything to attach the audio board to my Pi?
+- What hardware comes included with the audio board? Like do I need to buy screws separately?
+- How tight should I screw the standoffs? I don't want to break anything.
+
+# Hardware versions
+
+- How do I know which version of the audio board I have?
+- I ran that grep command and it says IQaudIO Limited. What do I need to do differently?
+- I ran the check command and it says no such file or directory. Does that mean the board is broken?
+- The power LED on my audio card isn't lighting up. Should I be worried?
+
+# Extra Codec Zero configuration
+
+- I've got the Codec Zero and I want to use the built-in microphone. How do I set that up?
+- I want to record from an external mic plugged into the Codec Zero. Is that possible?
+- Where do I get those preconfigured scripts for the Codec Zero?
+- I don't have git installed on my Pi. How do I get it?
+- I ran the alsactl command and got a bunch of error messages. Did something go wrong?
+- How do I make sure the Codec Zero uses the right audio settings every time the Pi boots up?
+- I'm using the Codec Zero headless and audio isn't working. Someone mentioned an .asoundrc file — what's that about?
+- Wait, should I actually create that .asoundrc file if I'm running the desktop version of Raspberry Pi OS?
+- I keep seeing ALSA mentioned. What even is ALSA and do I need to deal with it directly?
+
+# Mute and unmute the DigiAMP+
+
+- My DigiAMP+ is just silent. How do I unmute it?
+- Is there a way to make the DigiAMP+ automatically mute itself when nothing's playing?
+- I don't want to use the device tree stuff for muting. Can I just write a script to handle it myself?
+- How do I mute the DigiAMP+ again after I've unmuted it?

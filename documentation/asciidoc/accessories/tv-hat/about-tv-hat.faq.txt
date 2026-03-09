@@ -1,0 +1,38 @@
+# Whole Document
+
+- What's the TV HAT actually for? Like what can I do with it?
+- I'm in the US. Will this TV HAT work for me?
+- Can I use this HAT with my older Raspberry Pi, like a Pi 1?
+- Does the TV HAT work with all Raspberry Pi models?
+
+# About
+
+- What tuner chip does the TV HAT use?
+- What TV standards does it support? Like DVB-T2 and stuff?
+- I want to watch TV directly on my Pi. Is that gonna work okay or will it be slow?
+- Can I use this thing as a TV server to stream to other devices, or does it only work on the Pi itself?
+- What frequencies does this thing pick up?
+
+# About DVB-T
+
+- I'm in Canada. Will this TV HAT work for me?
+- What even is DVB-T? Do I need to understand it to use the HAT?
+- Does this thing support ATSC? That's what we use in North America.
+- Which countries can actually use this TV HAT?
+
+# Install
+
+- How do I install the TV HAT onto my Pi? Like do I just push it on?
+- What software do I need to install to actually watch TV with this thing?
+- How do I install TVHeadend? What's the command?
+- It's asking me for an admin username and password during the TVHeadend install. Do I need to remember this?
+- I've got TVHeadend installed. How do I actually open it up?
+- I'm trying to connect to TVHeadend from another computer. What address do I type in?
+- It's asking me to set up user access in TVHeadend and I don't really know what to put. Can I just leave it open?
+- I don't know which TV transmitter to pick in the setup. How do I find my local one?
+- How long does the channel scan take?
+- I tried watching TV in the browser but it's really jerky and stuttery. What can I do?
+- Can I watch TV through VLC instead of the browser?
+- I've got an iPhone. Is there an app that works with TVHeadend?
+- What's a mux? I keep seeing that word and I don't know what it means.
+- The TV HAT can only do one mux at a time. Does that mean I can only watch one channel?

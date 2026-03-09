@@ -1,0 +1,18 @@
+# Mechanical Drawings
+
+- I'm trying to design an enclosure for my Build HAT. Where can I find the exact dimensions?
+- Does the Build HAT have mounting holes? If so, where are they located?
+- I need to know how thick the Build HAT is. Like the total height including all the connectors and stuff.
+- I'm trying to 3D print a case that fits the Build HAT. What are the exact measurements I need?
+- How wide is the Build HAT? Does it stick out past the edges of a regular Pi?
+- I want to stack something on top of my Build HAT. How much clearance do I need above it?
+- Where are the connectors positioned on the Build HAT? I need to know so I can cut holes in my case.
+- Does the Build HAT fit the standard Raspberry Pi footprint or is it a different size?
+
+# Whole Document
+
+- What even is a Build HAT? Like what's it for?
+- Does the Build HAT work with all Raspberry Pi models or just certain ones?
+- I want to use LEGO motors with my Raspberry Pi. Is the Build HAT what I need for that?
+- How do I attach the Build HAT to my Pi? Does it just plug onto the GPIO pins?
+- Is there anything I need to install on my Pi before the Build HAT will work?

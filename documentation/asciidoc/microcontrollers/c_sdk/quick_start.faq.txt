@@ -1,0 +1,24 @@
+# Whole Document
+
+- I want to start a new Pico project from scratch. Where do I even begin?
+- I've never set up a C project for the Pico before. What's the quickest way to get something running?
+- Do I need special software installed before I can start coding for the Pico?
+
+# Quick-start your own project
+
+- What do I need to install first to start writing C code for the Pico?
+- I'm on Linux and I want to set up a Pico project. What's the install command I need to run?
+- How do I get the Pico SDK onto my computer?
+- So I cloned the SDK, now what? What file do I need to copy into my project?
+- What's the `PICO_SDK_PATH` thing and do I actually need to set it?
+- I've never written a CMakeLists.txt before. What should a basic one look like for a Pico project?
+- What's the simplest possible program I can write for the Pico? Like just a hello world?
+- I wrote my hello world file, what do I add to CMakeLists.txt to actually build it?
+- I want to print to USB instead of the regular serial port. How do I do that?
+- How do I set up the build folder and run CMake?
+- I'm building for a Pico W, not a regular Pico. Do I need to do anything different when I run CMake?
+- How do I tell CMake I'm using a different board? Like what's the actual flag I need?
+- Where can I find a list of all the board names the SDK supports?
+- After CMake is done, how do I actually build my program?
+- I've built my project and I see a `.uf2` file and an `.elf` file. What's the difference and which one do I use?
+- How do I get my compiled program onto the Pico? Do I just drag and drop the file or what?

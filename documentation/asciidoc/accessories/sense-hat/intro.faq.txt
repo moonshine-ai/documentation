@@ -1,0 +1,33 @@
+# About
+
+What is the Sense HAT exactly?
+
+What kind of sensors does the Sense HAT have on it?
+
+I've heard of the Sense HAT but I don't really know what it does. Can you give me a quick rundown?
+
+Does the Sense HAT work with all Raspberry Pi models?
+
+What's the LED matrix on the Sense HAT for?
+
+I heard the Sense HAT was used in space. Is that actually true?
+
+What's the Astro Pi programme?
+
+My Pi only has a 26-pin GPIO header. Will the Sense HAT still work with it?
+
+What programming language do I use with the Sense HAT?
+
+I want to track movement and orientation in my project. Would the Sense HAT be good for that?
+
+Can I use the Sense HAT to display stuff on a little screen or something?
+
+What's the joystick on the Sense HAT for?
+
+# Whole Document
+
+I'm a complete beginner. Is the Sense HAT something I can actually learn to use, or is it too complicated?
+
+Does the Sense HAT need any extra software installed, or does it just work when I plug it in?
+
+I want to build a weather station kind of thing. Could the Sense HAT help with that?

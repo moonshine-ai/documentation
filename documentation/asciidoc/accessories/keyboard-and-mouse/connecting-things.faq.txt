@@ -1,0 +1,17 @@
+# Connecting it all Together
+
+- I've got the keyboard, the mouse, and the Pi all here. What's the best way to hook everything up?
+- Does it matter which USB port the keyboard plugs into on the Pi?
+- Wait, should the power supply go into the Pi directly or into the keyboard hub?
+- I plugged the power into the keyboard and now my Pi's acting weird. Is that the problem?
+- My keyboard has a built-in USB hub. Can I use that for plugging in USB drives?
+- Is there a recommended way to set all this up so the cables aren't a mess?
+- Can I use the mouse either left or right handed with the official setup?
+- Does the official mouse cable reach far enough to use it comfortably?
+
+# Whole Document
+
+- I just got the official Raspberry Pi keyboard and mouse. How do I set everything up?
+- What's the right way to connect the official keyboard, mouse, and Pi together?
+- I've got the Pi keyboard with the little hub on it. What should I plug in where?
+- Does it matter how I connect everything or can I just plug things in wherever?

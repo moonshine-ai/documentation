@@ -1,0 +1,63 @@
+# Whole Document
+
+- What's the difference between active and passive sensors when I'm using .NET with the Build HAT?
+- I've got a bunch of LEGO sensors — which ones are considered passive and which are active?
+- Do I need to do anything special to wait for a sensor to connect before I use it in my code?
+
+# Button/Touch Passive Sensor
+
+- How do I detect when a button sensor gets pressed in my .NET code?
+- I want my program to stop when someone presses the button sensor. How do I set that up?
+- What property do I check to see if a button sensor is currently being pressed?
+- How do events work with the button sensor? Like, how do I listen for when it gets pressed?
+
+# Passive Light
+
+- I've got one of those LEGO train light attachments. Can I control the brightness of it from .NET?
+- How do I turn on a passive light and then dim it a bit after a couple seconds?
+- What's the difference between using `light.On(50)` and setting `light.Brightness` directly?
+
+# Active Sensor
+
+- What's this `ValueAsString` property on active sensors? When would I actually need that?
+- I want to change what measurement mode my sensor is running. How do I do that without breaking things?
+- Wait, if I switch modes on an active sensor, does it stop the old mode automatically?
+- What are Combi modes? Do I need to worry about them for basic sensor reading?
+
+# WeDo Tilt Sensor
+
+- How do I read the tilt values from a WeDo tilt sensor in .NET?
+- What range of values does the WeDo tilt sensor give back? Like, is it degrees or something else?
+- I want to keep reading tilt data continuously in a loop. Do I need to set something up first?
+
+# WeDoDistance Sensor
+
+- How do I get the distance reading from a WeDo distance sensor?
+- What units does the WeDo distance sensor use — is it centimetres or millimetres or what?
+
+# SPIKE Prime Force Sensor
+
+- How do I check if someone's pressing down on the SPIKE force sensor?
+- Can I read how hard someone's pressing on the force sensor, not just whether it's pressed?
+- I want my loop to keep running until the force sensor gets pressed. How do I write that?
+
+# SPIKE Essential 3×3 Colour Light Matrix
+
+- How do I light up individual LEDs on that little 3×3 matrix display?
+- Can I show a progress bar on the 3×3 LED matrix? How does that work?
+- I want to cycle through different colours on the whole 3×3 matrix. Is there an easy way to do that?
+- How do I set each pixel on the matrix to a different brightness?
+
+# SPIKE Prime Colour Sensor and Colour and Distance Sensor
+
+- How do I read the colour from a SPIKE colour sensor in my .NET code?
+- What's the difference between reflected light and ambient light on the colour sensor?
+- I want to count objects passing in front of my sensor. Can the colour and distance sensor do that?
+- What's the maximum distance the colour and distance sensor can actually measure?
+- Why shouldn't I switch measurement modes really quickly on the colour sensor?
+- Does the colour and distance sensor support continuous measurement mode?
+
+# SPIKE Prime Ultrasonic Distance Sensor
+
+- How do I use the SPIKE ultrasonic distance sensor to get a distance reading in millimetres?
+- Does the SPIKE ultrasonic sensor support continuous measurement, or do I have to keep polling it?
