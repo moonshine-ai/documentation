@@ -1,42 +1,73 @@
 # Onboard analogue audio (3.5 mm jack)
 
-What's the difference between audio PWM mode 1 and mode 2? Like should I change it or just leave it alone?
-I'm getting a hissing sound from my headphone jack, especially when the volume is low. How do I fix that?
-My audio sounds a bit crackly through the 3.5mm jack. Is there a setting I can change to improve the quality?
-Does the high quality audio mode slow down my Pi at all? I heard it uses more resources or something.
-What's dithering? Do I need to worry about it for my Raspberry Pi audio?
-I turned my volume down really low and now there's this annoying background hiss. What's causing that and how do I get rid of it?
+Q: I'm getting a weird hissing sound from the headphone jack. What's causing that and can I fix it?
+A: Dithering causes hiss; set disable_audio_dither to 1 to turn it off.
+
+Q: What's the difference between audio_pwm_mode 1 and 2?
+A: Mode 1 is low quality legacy audio; mode 2 is high quality and the default.
+
+Q: I've got mode 2 audio enabled and my Pi seems sluggish. Could that be related?
+A: Mode 2 uses more GPU compute resources and can interfere with some use cases.
+
+Q: What's the default setting for audio_pwm_mode, do I need to change anything?
+A: The default is mode 2, which gives high quality audio automatically.
 
 # `audio_pwm_mode`
 
-I've got audio_pwm_mode, what should I set it to for the best sound quality out of the headphone jack?
-Does changing the PWM audio mode actually make a noticeable difference, or is it not worth messing with?
-I saw something about audio PWM mode 2 causing issues on some Pi models. What kind of problems are we talking about?
+Q: Is there a way to get better quality sound out of the headphone jack?
+A: Set audio_pwm_mode to 2 for high quality audio using an advanced modulation scheme.
+
+Q: What's legacy audio mode on the Pi jack — should I be using that?
+A: Legacy mode 1 gives low-quality analogue audio; mode 2 is the better default choice.
 
 # `disable_audio_dither`
 
-How do I turn off audio dithering on my Pi? There's a hiss and I think that's what's causing it.
-Wait, so dithering is on by default and it might be making my audio worse? Why is it even on then?
+Q: What even is dithering? Do I need it turned on?
+A: Dithering adds a small noise signal to audio; it's on by default for analogue output.
+
+Q: The volume on my Pi is turned down low and there's a hiss. Is that a known thing?
+A: Yes, dithering can cause audible hiss at low ALSA volume levels.
+
+Q: How do I turn off that background hiss on the headphone jack?
+A: Set disable_audio_dither to 1 in your config to disable dithering.
 
 # `enable_audio_dither`
 
-When would I actually want to force dithering on for all bit depths? Like what's the use case there?
+Q: I'm using higher quality audio samples and dithering seems to be off. Is that normal?
+A: Yes, dithering is normally disabled when audio samples are larger than 16 bits.
+
+Q: Can I force dithering on even with high bit depth audio?
+A: Yes, set enable_audio_dither to 1 to force dithering for all bit depths.
 
 # `pwm_sample_bits`
 
-What does changing the PWM sample bits actually do to my audio? Is higher always better?
-I accidentally set the bit depth too low and now my audio's completely dead. What happened and how do I fix it?
-What's the default bit depth for the Pi's audio output and should I change it?
+Q: Can I change the audio bit depth on the headphone jack output?
+A: Yes, use pwm_sample_bits to adjust it; the default is 11.
+
+Q: I set the bit depth really low and now there's no audio. What happened?
+A: Bit depths below 8 result in nonfunctional audio due to PLL frequency being too low.
+
+Q: Why would anyone lower the bit depth on their audio? What's the point?
+A: It's mainly useful for demonstrating how bit depth affects quantisation noise.
 
 # HDMI audio
 
-My Pi is playing audio through HDMI when I want it through the headphone jack. How do I turn off the HDMI audio?
-I don't want any sound coming out of my HDMI port at all. How do I disable that?
-Is HDMI audio on by default on all Raspberry Pi models, or just some of them?
-Where exactly do I add the noaudio thing to turn off HDMI sound? Like which file and where in the file?
+Q: Does HDMI audio work automatically on the Pi or do I have to set it up?
+A: HDMI audio output is enabled by default on all Raspberry Pi models with HDMI.
+
+Q: I don't want any sound going through HDMI. How do I turn that off?
+A: Append ,noaudio to the dtoverlay=vc4-kms-v3d line in /boot/firmware/config.txt.
+
+Q: Where exactly do I put the noaudio setting to disable HDMI sound?
+A: Add it to the dtoverlay=vc4-kms-v3d line in /boot/firmware/config.txt.
 
 # Whole Document
 
-I've got a Raspberry Pi and the audio through the headphone jack sounds terrible. What settings can I tweak to make it better?
-What's the difference between HDMI audio and the 3.5mm jack audio on a Pi? Can I use both at the same time?
-I'm just doing a basic Pi project and I'm getting weird audio issues. Where do I even start to fix audio problems on a Raspberry Pi?
+Q: I want the best possible sound from the 3.5mm jack. What settings should I check?
+A: Use audio_pwm_mode 2 and consider adjusting disable_audio_dither and pwm_sample_bits settings.
+
+Q: I've got audio going out both HDMI and the headphone jack. Can I control them separately?
+A: You can disable HDMI audio with noaudio; analogue jack has its own separate config options.
+
+Q: There's hiss from the headphone jack but only when it's quiet. What's going on?
+A: Default dithering can cause audible background hiss, especially at low ALSA volume levels.

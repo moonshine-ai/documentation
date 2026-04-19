@@ -1,21 +1,29 @@
 # About
 
-- What's actually in the Raspberry Pi SSD Kit? Like what comes in the box?
-- I'm looking at getting an SSD for my Pi 5. What's this SSD Kit thing all about?
-- Does the SSD Kit come with everything I need, or do I have to buy extra stuff?
-- Can I use the SSD Kit with the Active Cooler at the same time, or do they conflict?
-- What sizes does the Raspberry Pi SSD come in?
-- So the SSD Kit includes the HAT and the actual SSD drive together? They're bundled?
+Q: What's actually in the Raspberry Pi SSD Kit? What do you get?
+A: You get an M.2 HAT+, an SSD, stacking header, spacers, and screws.
+
+Q: Does the SSD Kit work with the Active Cooler, or do I have to choose one or the other?
+A: The kit includes hardware to fit it alongside the Active Cooler on Pi 5.
+
+Q: I'm looking at the SSD Kit but I don't know what an M.2 HAT+ is. What's it for?
+A: The M.2 HAT+ is a separate Raspberry Pi accessory bundled with the SSD.
+
+Q: What sizes does the Raspberry Pi SSD come in for this kit?
+A: Not specified in this section.
 
 # Install
 
-- How do I actually install the SSD Kit on my Pi 5?
-- I just got the SSD Kit and I'm not sure where to start with putting it together. What do I do?
-- Is there a separate install guide for the SSD Kit or do I just follow the M.2 HAT+ instructions?
+Q: Okay I've got the SSD Kit, how do I actually put it together?
+A: Follow the installation instructions for the Raspberry Pi M.2 HAT+.
+
+Q: Is there a separate install guide for the SSD Kit or do I just follow the HAT+ instructions?
+A: You follow the M.2 HAT+ installation instructions to install the SSD Kit.
 
 # Whole Document
 
-- I want to add fast storage to my Raspberry Pi 5. Is this SSD Kit the best way to do that?
-- What's the difference between just buying an M.2 HAT+ on its own versus getting the whole SSD Kit?
-- Will this SSD Kit work on older Pi models or just the Pi 5?
-- I've never added an SSD to a Pi before. Is this kit beginner friendly or is it complicated to set up?
+Q: I've got a Raspberry Pi 5 and I want to add an SSD. Is this kit what I need?
+A: Yes, the SSD Kit is designed to work with Raspberry Pi 5.
+
+Q: Can I use the SSD Kit and the Active Cooler at the same time on my Pi 5?
+A: Yes, the kit includes a stacking header and spacers to enable that.

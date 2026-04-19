@@ -1,181 +1,461 @@
-# Getting Started
+# `raspi-config`
 
-- How do I open raspi-config on my Pi?
-- I don't have a desktop on my Pi, how do I get to the config tool?
-- What's the difference between the Control Centre and running raspi-config in the terminal?
-- I keep hearing about raspi-config but I don't know how to navigate it. How do I move around in it?
+Q: How do I open the raspi-config tool on my Raspberry Pi?
+A: Run `sudo raspi-config` in terminal, or use Preferences then Control Centre on desktop.
 
-# System Options
+Q: I'm trying to navigate raspi-config but I don't know how to use it. How do I move around?
+A: Use arrow keys to scroll, Tab or right arrow to reach Select and Finish options.
 
-- How do I change my Wi-Fi network on the Pi?
-- I want to change where my audio comes out. How do I do that in raspi-config?
-- How do I change my password on a Raspberry Pi?
-- My Pi shows up with a weird name on my network. How do I change that?
-- I want my Pi to boot straight to the desktop without asking me to log in. Is that something I can set up?
-- My Pi keeps trying to do stuff before it's connected to the internet. Can I make it wait for the network before booting?
-- How do I turn off that splash screen that shows up when my Pi starts?
-- Can I change what the power light does on my Pi?
-- How do I change the default web browser on Raspberry Pi OS?
+Q: Does raspi-config change actual system files or is it just a visual thing?
+A: Changes modify `/boot/firmware/config.txt` and other configuration files on your system.
 
-# Display Options
+Q: I used the Control Centre app before but now I can't find it. What happened to it?
+A: It was renamed from Raspberry Pi Configuration to Control Centre in newer OS versions.
 
-- The edges of my screen are getting cut off, there's stuff disappearing off the sides. How do I fix that?
-- I don't want my screen to go blank after a while. How do I turn that off?
-- I'm running my Pi without a monitor and using VNC. How do I set the screen resolution for that?
-- How do I enable 4K at 60Hz on my Raspberry Pi?
+# System options
 
-# Interface Options
+Q: How do I change my Wi-Fi network on the Raspberry Pi?
+A: Use the Wireless LAN option under System Options in raspi-config to set SSID and passphrase.
 
-- How do I turn on SSH so I can connect to my Pi remotely?
-- I want to access my Pi remotely without fiddling with network settings. What's the easiest way to do that?
-- How do I enable VNC on my Raspberry Pi?
-- I'm trying to use SPI on my Pi. How do I turn it on?
-- How do I enable I2C on my Raspberry Pi?
-- I've got a DS18B20 temperature sensor. How do I enable the 1-wire interface for it?
-- How do I enable remote GPIO access on my Pi?
+Q: I want to change where my audio comes out. Is there a setting for that?
+A: Yes, the Audio option under System Options lets you specify the audio output destination.
 
-# Performance Options
+Q: How do I rename my Raspberry Pi on the network so I can find it more easily?
+A: Set a custom hostname under System Options in raspi-config to change its network name.
 
-- Can I overclock my Raspberry Pi and how do I do it?
-- I'm worried about overclocking breaking things. Is there a way to temporarily turn it off when booting?
-- How do I give more memory to the GPU?
-- What does the overlay filesystem option do in raspi-config?
+Q: Can I make my Pi log in automatically when it boots up without asking for a password?
+A: Yes, use Boot/Auto Login under System Options to enable automatic login on boot.
 
-# Localisation Options
+Q: My Pi keeps booting before the network is ready. Is there a way to make it wait?
+A: Enable Network at Boot under System Options to wait for a connection before proceeding.
 
-- How do I change the language or locale on my Pi?
-- My Pi has the wrong timezone. How do I fix that?
-- My keyboard is typing the wrong characters. How do I change the keyboard layout?
-- I can't connect to Wi-Fi and I think it's a country code thing. How do I set that?
+Q: How do I turn off that splash screen that shows up when my Pi is booting?
+A: Toggle the Splash Screen option under System Options in raspi-config to disable it.
 
-# Advanced Options
+# Display options
 
-- I cloned my SD card to a bigger one but I'm not getting all the space. How do I expand the filesystem?
-- I want my Pi 4 to boot from USB instead of the SD card. Where do I set that up?
-- How do I switch between X11 and Wayland on my Raspberry Pi?
-- How do I switch between PulseAudio and PipeWire?
-- How do I update raspi-config itself?
+Q: My screen has a black border around everything. How do I get rid of it?
+A: Disable overscan in Display Options, which makes the picture fill the whole screen.
 
-# Non-Interactive raspi-config
+Q: I'm running my Pi without a monitor and connecting via VNC. How do I set the resolution?
+A: Use the VNC Resolution option under Display Options to define headless video resolution.
 
-- Can I change raspi-config settings from a script without having to go through all the menus?
-- I'm writing a setup script for my Pi. How do I connect to Wi-Fi from the command line without any interactive prompts?
-- What's the command to set the hostname from the terminal without going into the menus?
-- How do I set my Pi to automatically log in from the command line?
-- I want to enable SSH from a script. What's the command for that?
-- How do I enable I2C without opening the raspi-config menus?
-- I want to expand the filesystem from a script. How do I do that without clicking through menus?
-- How do I set my timezone from the command line in raspi-config?
-- Can I overclock my Pi from a script? What are the overclock level options?
+Q: Can I run 4K at 60 frames per second on my Pi's HDMI output?
+A: Enable the 4Kp60 HDMI option under Display Options to turn on 4K 60Hz support.
+
+# Interface options
+
+Q: SSH isn't working on my Pi. Is it turned off by default?
+A: Yes, SSH is disabled by default and must be enabled under Interface Options in raspi-config.
+
+Q: What's RPi Connect and do I need it to access my Pi remotely?
+A: Raspberry Pi Connect lets you access your Pi remotely with no manual network configuration needed.
+
+Q: I want to hook up an I2C sensor. Do I need to enable something first?
+A: Yes, enable I2C under Interface Options to turn on the interface and load the kernel module.
+
+Q: I've got a DS18B20 temperature sensor. What interface do I need to turn on for that?
+A: Enable the 1-Wire interface under Interface Options, which is used for those sensors.
+
+Q: How do I enable SPI on my Raspberry Pi?
+A: Go to Interface Options in raspi-config and enable SPI to activate it and load the module.
+
+# Performance options
+
+Q: Is overclocking safe for my Pi? I want to speed it up a bit.
+A: Overclocking may reduce your Pi's lifetime and cause instability if set too high.
+
+Q: I accidentally overclocked too high and my Pi won't boot properly. What do I do?
+A: Hold down Shift during boot to temporarily disable overclocking and regain access.
+
+Q: How do I give my GPU more memory on the Raspberry Pi?
+A: Use the GPU Memory option under Performance Options in raspi-config to change the allocation.
+
+# Localisation options
+
+Q: How do I change the time zone on my Raspberry Pi?
+A: Set your time zone under Localisation Options using Region/City format, like Europe/London.
+
+Q: My keyboard layout is wrong and typing weird characters. How do I fix it?
+A: Open raspi-config, go to Localisation Options, and select the correct keyboard layout there.
+
+Q: I can't connect to 5GHz Wi-Fi. Could it be a country code thing?
+A: Yes, set the WLAN country under Localisation Options so the correct frequency bands are used.
+
+# Advanced options
+
+Q: I cloned my OS to a bigger SD card but it's not using all the space. How do I fix that?
+A: Use Expand Filesystem under Advanced Options to fill the whole storage device with your OS partition.
+
+Q: Warning, there's no confirmation when expanding the filesystem, right? It just goes?
+A: Correct, selecting Expand Filesystem begins partition expansion immediately with no confirmation step.
+
+Q: My Pi 4 is booting from the SD card but I want it to boot from USB instead. How do I change that?
+A: Set boot order under Advanced Options to specify USB or network boot priority on Pi 4 and later.
+
+Q: Should I switch from PulseAudio to PipeWire on my Raspberry Pi?
+A: Raspberry Pi OS Bookworm and later use PipeWire by default; earlier versions used PulseAudio.
+
+Q: I heard there's more stuff available in the command line version of raspi-config. Is that true?
+A: Yes, some advanced configuration is only available in the raspi-config CLI, not the GUI.
+
+# non-interactive `raspi-config`
+
+Q: Can I run raspi-config without any menus, just straight from the command line?
+A: Yes, use `sudo raspi-config nonint` followed by a command and arguments for non-interactive mode.
+
+Q: I want to script my Pi setup. Can I set the Wi-Fi password without going through menus?
+A: Yes, run `sudo raspi-config nonint do_wifi_ssid_passphrase` with your SSID and passphrase.
+
+Q: How do I connect to a hidden Wi-Fi network using the command line raspi-config?
+A: Pass `1` as the hidden argument: `do_wifi_ssid_passphrase myssid mypassphrase 1`.
+
+Q: How do I enable SSH without opening any menus, like from a script?
+A: Run `sudo raspi-config nonint do_ssh 0` to enable SSH from the command line.
+
+Q: I want to set my Pi to boot straight to desktop and log in automatically. What's the command?
+A: Run `sudo raspi-config nonint do_boot_behaviour B4` to boot to desktop with auto login.
+
+Q: How do I set the hostname from the command line without going through the raspi-config menus?
+A: Run `sudo raspi-config nonint do_hostname` followed by your desired hostname.
+
+Q: I want to enable VNC from a script. What's the command for that?
+A: Run `sudo raspi-config nonint do_vnc 0` to enable VNC from the command line.
+
+Q: How do I overclock my Pi from the terminal without using the interactive menu?
+A: Run `sudo raspi-config nonint do_overclock` with a setting like Modest, Medium, High, or Turbo.
+
+Q: What overclock levels are available when using raspi-config from the command line?
+A: Options are None, Modest, Medium, High, and Turbo, going from no overclock up to 125 percent of maximum.
+
+Q: I need to change the time zone in a setup script. What's the command?
+A: Run `sudo raspi-config nonint do_change_timezone` followed by your Region/City timezone string.
+
+Q: How do I expand the filesystem from the command line?
+A: Run `sudo raspi-config nonint do_expand_rootfs` to expand immediately with no confirmation.
+
+Q: Can I switch my Pi's audio backend from PulseAudio to PipeWire using a command?
+A: Yes, run `sudo raspi-config nonint do_audioconf 2` to switch to the PipeWire backend.
+
+Q: How do I update the raspi-config tool itself from the command line?
+A: Run `sudo raspi-config nonint do_update` to update the tool to the latest version.
+
+Q: I want the power LED to flash when there's disk activity instead of staying on. How do I do that?
+A: Run `sudo raspi-config nonint do_leds 0` to set the LED to flash for disk activity.
+
+Q: The 0 and 1 values in raspi-config commands are confusing. Does 0 always mean enable?
+A: No, the meaning of 0 and 1 varies between options, so always check the documentation first.
 
 # Displays
 
-- My Pi isn't using the best resolution for my monitor. How does it decide what resolution to use?
-- I've got a Pi Zero and I need an adapter for HDMI, right? What kind?
-- Can my Raspberry Pi 4 run two monitors at once?
-- How do I change the screen resolution and rotation on my Pi?
-- How do I figure out what my display is called so I can configure it manually?
-- I'm running Wayland and I want to rotate my screen 90 degrees. How do I do that?
-- I want to rotate my display but I'm connecting over SSH. How do I run that rotation command remotely?
+Q: My HDMI monitor isn't showing the right resolution. How does the Pi decide what to use?
+A: Raspberry Pi OS reads the monitor's EDID and automatically picks the best supported resolution.
+
+Q: I have a Pi 4 and want to use two monitors. Do I need any special cables?
+A: Yes, you need a micro-HDMI-to-full-size-HDMI cable or adapter for each display you attach.
+
+Q: Can my Pi 4 do 4K at 60Hz?
+A: Yes, connect to HDMI0 and set `hdmi_enable_4kp60=1` in `/boot/firmware/config.txt`.
+
+Q: My Pi 5 has two screens and I want both at 4K 60Hz. Do I need to configure anything?
+A: No, Pi 5, 500, and 500+ support two 4K 60Hz displays with no additional configuration needed.
+
+Q: How do I change the screen resolution on my Pi desktop?
+A: Go to Preferences, Control Centre, then the Screens tab to adjust resolution and orientation.
+
+Q: I'm running Pi OS Lite without a desktop. How do I set the resolution?
+A: Configure the `video` entry in kernel command line using KMS, like `video=HDMI-A-1:1920x1080M@60`.
+
+Q: Can I rotate my display on a Pi that's running without a desktop?
+A: Yes, add rotate and reflect parameters to the video entry in `cmdline.txt`, but you must also specify resolution.
 
 # Audio
 
-- My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
-- What's the Pro Audio profile I keep seeing in the audio settings? Do I need it?
-- How do I change audio output on Raspberry Pi OS without using the terminal?
+Q: My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
+A: Right-click the volume icon in the system tray and select your preferred audio output device.
+
+Q: What is the Pro Audio profile I'm seeing in my audio settings? Do I need it?
+A: Pro Audio exposes maximum channels across audio devices; unless you need fine control, use a different profile.
+
+Q: How do I change audio output using raspi-config?
+A: Run raspi-config, go to System Options, select Audio, then choose your required output mode.
+
+Q: Where does my Pi send audio by default if there's nothing plugged into HDMI?
+A: If no HDMI output is available, audio goes to the headphone jack or a connected USB audio device.
 
 # Networking
 
-- How do I connect my Pi to Wi-Fi from the command line?
-- My Pi won't connect to Wi-Fi. I think I need to set the country code first. How do I do that?
-- How do I scan for available Wi-Fi networks from the terminal?
-- I typed my Wi-Fi password wrong and now it won't connect. How do I try again?
-- How do I connect to a hidden Wi-Fi network on a Pi?
-- I've got two Wi-Fi networks my Pi knows about. How do I tell it which one to prefer?
-- How do I check if my Pi is actually connected to Wi-Fi from the command line?
+Q: I'm on Pi OS Lite and there's no desktop. How do I connect to Wi-Fi from the command line?
+A: Use `nmcli` to configure wireless networking from the terminal without graphical tools.
 
-# Screen Blanking
+Q: How do I check if my Wi-Fi radio is actually turned on?
+A: Run `nmcli radio wifi` to check; if it says disabled, run `nmcli radio wifi on` to enable it.
 
-- How do I stop my Pi's screen from going blank when I'm not using it?
-- I'm running my Pi without a desktop, just in console mode. How do I stop the screen from blanking?
-- How do I check what my current screen blanking timeout is set to?
-- Can I completely disable screen blanking on my Pi?
+Q: How do I see what Wi-Fi networks are nearby from the terminal?
+A: Run `nmcli dev wifi list` to scan and display available wireless networks.
 
-# Custom Fullscreen Splash Image
+Q: I typed my Wi-Fi password wrong and now it won't connect. What does the error message look like?
+A: You'll see "Secrets were required, but not provided" if you entered an incorrect password.
 
-- How do I show my own image on screen when my Pi boots instead of all those text messages?
-- What format does the splash screen image need to be in?
-- My splash image is showing upside down at boot. How do I fix that?
+Q: I have two Wi-Fi networks my Pi knows about. How do I tell it to prefer one over the other?
+A: Use `nmcli connection modify` with `connection.autoconnect-priority` to set network priority numbers.
+
+Q: How do I connect to a hidden Wi-Fi network from the command line?
+A: Run `sudo nmcli --ask dev wifi connect` with your SSID and add `hidden yes` at the end.
+
+Q: What networking tool does Raspberry Pi OS use now? I've seen references to dhcpd and Network Manager.
+A: Starting with Bookworm, Network Manager is the default; earlier versions used dhcpd and other tools.
+
+Q: My dual-band Wi-Fi isn't working at all on a fresh setup. What might be wrong?
+A: Dual-band devices disable networking until you assign a wireless LAN country in the settings.
+
+Q: I want to turn my Pi into a Wi-Fi hotspot. How do I do that?
+A: Run `sudo nmcli device wifi hotspot ssid` with your network name and password to create one.
+
+Q: How do I turn off the hotspot and go back to using my Pi as a regular Wi-Fi client?
+A: Run `sudo nmcli device disconnect wlan0`, then `sudo nmcli device up wlan0` to reconnect.
+
+Q: Can devices on my Pi hotspot talk to devices on my main wired network?
+A: Not by default, but you can configure a network bridge to allow communication between both networks.
+
+Q: I want a static IP for my Pi. Do I set it on the Pi itself or somewhere else?
+A: Reserve an address on your router by MAC address; the Pi still uses DHCP but always gets the same address.
+
+# Screen blanking
+
+Q: My monitor keeps going to sleep after a few minutes. How do I stop that?
+A: Disable screen blanking via Control Centre under Display settings, or use raspi-config.
+
+Q: How long does it take before the screen blanks by default?
+A: Raspberry Pi OS blanks the screen after ten minutes of inactivity by default.
+
+Q: I'm running Pi in console mode without a desktop. How do I control screen blanking there?
+A: Set the `consoleblank` kernel parameter in `/boot/firmware/cmdline.txt` with seconds of inactivity.
+
+Q: How do I stop the console from ever blanking the screen?
+A: Add `consoleblank=0` to `/boot/firmware/cmdline.txt` and reboot to disable blanking entirely.
+
+Q: How do I check what my current console blanking timeout is set to?
+A: Run `cat /sys/module/kernel/parameters/consoleblank` to see the timeout in seconds.
+
+# Custom fullscreen splash image
+
+Q: Can I show a custom image when my Pi boots up instead of all those text messages?
+A: Yes, you can configure a fullscreen splash image to display during boot instead of console messages.
+
+Q: What file format does the splash image need to be in?
+A: It must be an uncompressed TGA file with 24-bit colour depth and a maximum of 224 unique colours.
+
+Q: My splash image is smaller than my screen. Will it get scaled up to fill it?
+A: No, scaling isn't applied; smaller images are centred with a solid colour border from the top-left pixel.
+
+Q: What's the easiest way to set up a boot splash image?
+A: Install the `rpi-splash-screen-support` package and run `sudo configure-splash` with your image file.
+
+Q: My splash image appears upside down when booting. How do I fix it?
+A: Add the `-flip` flag to the convert command, then run `configure-splash` again to update the image.
 
 # Users
 
-- How do I add a new user on my Raspberry Pi?
-- I want to delete a user account from my Pi. How do I do that?
-- How do I change the user that automatically logs in when my Pi starts up?
-- I added a new user and their keyboard layout is wrong. How do I fix that?
+Q: How do I change my password on the Raspberry Pi?
+A: Run `sudo raspi-config` and select option 2, or just run the `passwd` command directly.
 
-# External Storage
+Q: How do I add a new user to my Raspberry Pi?
+A: Run `sudo adduser` followed by the username you want to create, then enter a password when prompted.
 
-- I plugged in a USB drive to my Pi but I don't know how to access it. How do I mount it?
-- How do I make my Pi automatically mount my USB drive every time it starts up?
-- I'm getting a "target is busy" error when I try to unmount my USB drive. What do I do?
-- My USB drive uses exFAT. Do I need to install something to use it on my Pi?
+Q: I created a new user but they can't use sudo. How do I give them the right permissions?
+A: Run `sudo usermod -a -G` with the appropriate groups including sudo, replacing username with theirs.
 
-# Kernel Command Line
+Q: How do I delete a user and get rid of all their files?
+A: Run `sudo deluser -remove-home` followed by the username to delete the user and their home directory.
 
-- Where does my Pi store the kernel boot options and how do I edit them?
-- How do I check what options the kernel actually booted with?
-- How do I set a custom screen resolution for my Pi when it's running in console mode without a desktop?
+Q: My new user has the wrong keyboard layout. How do I fix that?
+A: Sign in as that user and run `sudo raspi-config nonint update_labwc_keyboard` to fix it.
 
-# Security
+Q: How do I change which user automatically logs in when the Pi boots?
+A: Run raspi-config, select option 1 for Boot/Auto Login, then reboot for changes to take effect.
 
-- How do I make my Pi ask for a password when using sudo instead of just letting anyone run anything?
-- How do I set up SSH keys so I don't have to use a password to log in?
-- How do I block or allow specific users from SSH-ing into my Pi?
-- What's a simple firewall I can set up on my Pi?
-- My Pi is acting as a server and I'm worried about brute force login attempts. How do I protect against that?
+# External storage
 
-# Headless Raspberry Pi
+Q: I plugged in a USB drive but I don't know where it shows up. How do I find it?
+A: Run `sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL` to list all disk partitions.
 
-- I don't have a monitor or keyboard for my Pi. How do I set it up?
-- How do I enable SSH before first boot so I can connect to my headless Pi?
-- How do I set up Wi-Fi before the first boot on a headless Pi?
-- My headless Pi takes ages to boot. Is there something I can do to speed that up?
+Q: How do I mount a USB drive so I can access it at a specific folder location?
+A: Create a folder, get the device path with `sudo blkid`, then run `sudo mount` to attach it there.
 
-# Wireless Hotspot
+Q: I want my external drive to automatically mount every time my Pi boots. How do I set that up?
+A: Add an entry to `/etc/fstab` using the drive's UUID so it mounts automatically on startup.
 
-- Can my Raspberry Pi broadcast its own Wi-Fi network?
-- How do I turn my Pi into a Wi-Fi hotspot from the command line?
-- I set up a hotspot on my Pi but devices connected to it can't talk to the rest of my network. How do I bridge them together?
-- How do I turn off the hotspot on my Pi?
+Q: My USB drive uses exFAT. Do I need to install anything extra to use it?
+A: Yes, install the exFAT driver by running `sudo apt install exfat-fuse` before mounting it.
 
-# Boot Folder Contents
+Q: I'm trying to unplug my drive but it says "target is busy." What does that mean?
+A: A program has files open on the drive; close those programs, then try unmounting again.
 
-- What's the deal with all the files in the boot partition of my Pi's SD card?
-- What does cmdline.txt actually do?
-- Why are there so many different kernel image files in the boot folder?
-- My Pi is flashing an LED in a pattern instead of booting. What does that mean?
+Q: If my Pi starts without the external drive attached, does it slow down boot?
+A: Yes, without the drive it takes about 90 extra seconds; add a timeout in fstab to reduce that wait.
 
-# UARTs
+# Kernel command line (`cmdline.txt`)
 
-- How do I use the serial port on my Raspberry Pi?
-- I want to use the serial port for my own project but it seems to be used for the console. How do I free it up?
-- What's the difference between the mini UART and the PL011 on a Raspberry Pi?
-- I've got a Pi 4 and I need more serial ports. Is that possible?
+Q: Where does the Raspberry Pi store the boot command line arguments for the kernel?
+A: They're stored in `/boot/firmware/cmdline.txt`, which you can edit with any text editor.
 
-# Device Trees and Overlays
+Q: I edited cmdline.txt and want to check what actually got passed to the kernel. How do I do that?
+A: Run `cat /proc/cmdline` to see the actual command line, though it may differ slightly from the file.
 
-- What is a Device Tree on Raspberry Pi and why do I need to care about it?
-- How do I enable a hardware interface like SPI or I2C using a device tree overlay?
-- I want to add a HAT to my Pi. Do I need to do anything to make it work with the device tree?
-- How do I load and remove device tree overlays while the Pi is running without rebooting?
-- How do I see what device tree overlays are currently active?
+Q: I keep adding new lines to cmdline.txt but it's not working. What am I doing wrong?
+A: All parameters in cmdline.txt must stay on a single line; do not use newlines.
+
+Q: What does the `quiet` parameter do in cmdline.txt?
+A: It sets kernel log level to suppress all but very serious messages during boot.
+
+Q: I'm running Pi OS Lite and need to set a specific display resolution. How do I do that?
+A: Add a `video` entry to cmdline.txt like `video=HDMI-A-1:1920x1080M@60` to set resolution.
+
+# Secure your Raspberry Pi
+
+Q: How do I make sudo ask for a password instead of just running anything?
+A: Edit the sudoers file with `sudo visudo /etc/sudoers.d/010_pi-nopasswd` and add PASSWD requirement.
+
+Q: What's the best way to make SSH more secure on my Pi?
+A: Use key-based authentication instead of username and password for SSH connections.
+
+Q: Can I block specific users from logging in over SSH?
+A: Yes, add a `DenyUsers` line with usernames to `/etc/ssh/sshd_config`, then restart the SSH service.
+
+Q: I want to set up a firewall on my Pi. What's the easiest option?
+A: Install UFW with `sudo apt install ufw`; it's simpler than configuring iptables directly.
+
+Q: How do I stop brute force login attempts on my Pi's SSH?
+A: Install fail2ban, which monitors logs and blocks IPs after too many failed login attempts.
+
+Q: How many failed attempts does fail2ban allow before blocking someone by default in the example config?
+A: The example SSH configuration shown allows six retries before blocking activity.
+
+# Set up a headless Raspberry Pi
+
+Q: I want to run my Pi without a monitor or keyboard. What do I need to set up first?
+A: You need network access and SSH; set these up during imaging or configure SSH using raspi-config.
+
+Q: My headless Pi took forever to connect to Wi-Fi the first time. Is that normal?
+A: Yes, your Pi may take up to five minutes to boot and connect to Wi-Fi on first boot.
+
+Q: How do I configure Wi-Fi for a headless Pi before I even boot it for the first time?
+A: Enter network information in the Customisation Wi-Fi tab in Raspberry Pi Imager before flashing.
+
+Q: Can I still use a wpa_supplicant.conf file to set up Wi-Fi like I used to?
+A: No, that method is no longer available from Raspberry Pi OS Bookworm onwards.
+
+Q: How do I enable SSH on a headless Pi without ever connecting a monitor to it?
+A: Enable SSH in Raspberry Pi Imager's Remote Access tab, or create an empty file named `ssh` on the boot partition.
+
+Q: I want to set up a user manually for a headless Pi. How do I do that?
+A: Create a `userconf.txt` file on the boot partition with a username and encrypted password on one line.
+
+Q: How do I generate an encrypted password for the userconf.txt file?
+A: Run `openssl passwd -6` on another computer, enter your password, and use the output it generates.
+
+# Host a wireless network from your Raspberry Pi
+
+Q: Can my Raspberry Pi act as a Wi-Fi hotspot for other devices?
+A: Yes, Pi 5, 4, 3, Zero W, and Zero 2 W can host a wireless network using built-in wireless.
+
+Q: How do I create a Wi-Fi hotspot on my Pi from the command line?
+A: Run `sudo nmcli device wifi hotspot ssid` with your chosen network name and password.
+
+Q: I turned on the hotspot and now I can't connect my Pi back to my regular Wi-Fi. How do I switch back?
+A: Run `sudo nmcli device disconnect wlan0`, then `sudo nmcli device up wlan0` to reconnect normally.
+
+# Use a proxy server
+
+Q: My network requires a proxy to access the internet. How do I set that up on my Pi?
+A: Set the `http_proxy`, `https_proxy`, and `no_proxy` environment variables in `/etc/environment`.
+
+Q: I set up proxy environment variables but sudo commands still don't use the proxy. What's wrong?
+A: Update sudoers with `Defaults env_keep+="http_proxy https_proxy no_proxy"` to pass them through.
+
+# `boot` folder contents
+
+Q: Where does Raspberry Pi OS keep all the boot files?
+A: Boot files are stored on the first FAT-formatted partition, mounted at `/boot/firmware/` in Linux.
+
+Q: What's the difference between start.elf and start_x.elf in the boot folder?
+A: `start_x.elf` includes additional codecs that the basic `start.elf` firmware doesn't have.
+
+Q: What does it mean when the Pi shows a certain number of LED flashes when it won't boot?
+A: The LED blinks long and short flashes to indicate specific failure codes like missing kernel or SDRAM failure.
+
+Q: My Pi is flashing the LED 4 times long and 4 times short. What does that mean?
+A: That pattern indicates an unsupported board type error during boot.
+
+Q: What does 0 long flashes and 7 short flashes mean on the LED?
+A: That indicates the kernel image was not found during boot.
+
+Q: I need SSH enabled on first boot without a monitor. Can I do that with just a file on the SD card?
+A: Yes, create an empty file named `ssh` on the boot partition and SSH will be enabled on startup.
+
+# Configure UARTs
+
+Q: What types of UART does the Raspberry Pi have?
+A: Raspberry Pi has PL011 and mini UART; PL011 is more capable while mini UART has a reduced feature set.
+
+Q: Are the UART pins on my Pi safe to connect to 5V devices?
+A: No, all Raspberry Pi UARTs are 3.3V only and will be damaged if connected to 5V systems.
+
+Q: My Pi 5 doesn't seem to have a mini UART. Is that right?
+A: Correct, Raspberry Pi 5 does not have a mini UART; it only has PL011 UARTs.
+
+Q: I want to use the serial port for my own project but it's being used by the Linux console. How do I free it up?
+A: Use raspi-config, go to Interface Options, Serial Port, and disable the login shell over serial.
+
+Q: Why does my mini UART baud rate keep changing on its own?
+A: The mini UART clock is linked to the VPU core clock, so baud rate changes when core frequency changes.
+
+Q: How do I fix the mini UART baud rate so it stops changing?
+A: Set `enable_uart=1` in config.txt to fix the core clock to 250MHz and stabilise the mini UART.
+
+# Device Trees, overlays, and parameters
+
+Q: What is a Device Tree and why does my Pi need one?
+A: A Device Tree describes hardware to the kernel so it knows what's connected and can load drivers.
+
+Q: What's a Device Tree overlay and when would I need one?
+A: Overlays are partial Device Trees that add optional hardware descriptions, like for HATs or accessories.
+
+Q: How do I load a Device Tree overlay on my Raspberry Pi?
+A: Add a `dtoverlay=overlay-name` line to `/boot/firmware/config.txt` to load an overlay at boot.
+
+Q: How do I change a Device Tree parameter without editing the overlay files directly?
+A: Add a `dtparam=parameter=value` line to config.txt to set parameters exposed by overlays or the base DTB.
+
+Q: Can I load and unload Device Tree overlays while my Pi is running, without rebooting?
+A: Yes, use the `dtoverlay` command to load and remove overlays at runtime on supported kernels.
+
+Q: I have a HAT attached to my Pi. Does it automatically set up its Device Tree overlay?
+A: Yes, the HAT EEPROM contains overlay information that the firmware loads automatically on boot.
+
+Q: I think my overlay isn't loading correctly. How do I debug Device Tree issues?
+A: Add `dtdebug=1` to config.txt for extra logging, or run `sudo vclog --msg` to check for errors.
+
+Q: How do I see the current state of the Device Tree on my running Pi?
+A: Run `dtc -I fs /proc/device-tree` to get a human-readable view of the current Device Tree state.
 
 # Whole Document
 
-- What is raspi-config and what can I do with it?
-- I just got a Raspberry Pi. What should I configure first?
-- I need to set up my Pi remotely with no monitor or keyboard attached. Where do I even start?
-- What's the difference between raspi-config and just editing config.txt directly?
-- I want to make my Raspberry Pi more secure. What are the main things I should do?
-- Can I do everything in raspi-config from a script, or do some things require going through the menus?
+Q: What's the main tool for configuring a Raspberry Pi's settings?
+A: `raspi-config` is the main configuration tool, available as a GUI and command line interface.
+
+Q: I just got a Raspberry Pi and don't know where to start with setup. What should I configure first?
+A: Start with raspi-config to set up wireless LAN, locale, time zone, and enable SSH if needed.
+
+Q: Can I do everything through the desktop GUI or do I need to use the terminal sometimes?
+A: Some advanced configuration is only available in the raspi-config CLI, not the desktop Control Centre.
+
+Q: My Pi won't boot and is just flashing the LED. How do I figure out what's wrong?
+A: Count the long and short LED flashes; each combination indicates a specific boot failure status.
+
+Q: I want my Pi to be more secure. What are the main things I should do?
+A: Require a password for sudo, use SSH key authentication, keep OS updated, and consider installing a firewall.
+
+Q: What version of Raspberry Pi OS changed a lot of the default networking and audio tools?
+A: Bookworm introduced Network Manager as default networking and PipeWire as the default audio backend.

@@ -1,62 +1,99 @@
-# Serial Peripheral Interface (SPI)
+# Serial peripheral interface (SPI)
 
-What's SPI and why would I use it on a Raspberry Pi?
-What kind of devices can I connect using SPI?
-I've heard of I2C and SPI — what's the difference and when should I use SPI?
+Q: What kinds of things can I actually connect to my Pi using SPI?
+A: SPI connects displays, network controllers, Ethernet, CAN bus, UARTs, and more.
 
-# SPI Hardware
+Q: I want to write my own SPI driver in Python. Is that even possible?
+A: Yes, the spidev API lets you write userspace SPI drivers in many languages.
 
-How many SPI buses does my Raspberry Pi have?
-I've got a Pi 4 — does it have more SPI buses than the older models?
-Does the Pi Zero have SPI?
-I'm using a Compute Module — are there any extra SPI options I get that the regular Pi doesn't have?
-Which pins do I use for SPI0 on the GPIO header?
-What header pin is MOSI on SPI0?
-I want to use SPI1 — which GPIO pins do I need?
-What's CE0 and CE1 in SPI? Are those the chip select pins?
+# SPI hardware
 
-# Master Modes
+Q: How many SPI buses does a Raspberry Pi 4 have?
+A: The Pi 4 has six SPI buses total, including four extra ones SPI3 through SPI6.
 
-What does MOSI and MISO actually mean?
-What's the difference between standard SPI mode and bidirectional mode?
-I keep seeing "LoSSI mode" mentioned — what is that and do I need it?
-When would I actually use LoSSI instead of regular SPI?
+Q: I've got a Pi Zero — how many SPI controllers does it have?
+A: Raspberry Pi Zero has three SPI controllers: SPI0, SPI1, and SPI2.
 
-# Transfer Modes and Speed
+Q: Does SPI1 work on the original Raspberry Pi Model B?
+A: No, SPI1 is not available on the original Raspberry Pi 1 Model A and Model B.
 
-What transfer modes does SPI support on the Pi?
-How do I control the SPI clock speed?
-Is there a maximum SPI speed I should stick to so things don't break?
-I've heard over 50MHz might not work — is that true?
+Q: I'm using a Compute Module and need SPI2. Which ones support it?
+A: SPI2 is only available on Compute Module 1, 3, and 3+.
 
-# SPI Software and Linux Driver
+Q: What header pin is SPI0's MOSI on?
+A: SPI0 MOSI is on header pin 19, which is GPIO10.
 
-SPI isn't working and I think it might be disabled. How do I turn it on?
-How do I enable SPI using config.txt?
-I only need one chip select for SPI0 — do I need to change anything?
-How do I enable SPI1 with two chip select lines?
-I want to enable SPI3 on my Pi 4 — how do I do that?
-Can I use any GPIO pin as a chip select instead of the default ones?
-How do I see all the available SPI overlays I can use?
+Q: I need the chip enable pins for SPI1. Which header pins are those?
+A: SPI1 CE0 is pin 12, CE1 is pin 11, and CE2 is pin 36.
 
-# spidev
+Q: What's the difference between standard SPI mode and bidirectional mode?
+A: Bidirectional mode uses one shared data wire instead of separate MOSI and MISO wires.
 
-What's spidev and why would I use it instead of a kernel driver?
-How do I use SPI from a Python script?
-What Python library should I install to talk to SPI devices?
-Can I test SPI from the command line without writing any code?
-How do I write data to an SPI device from bash?
+Q: What does LoSSI mode do and when would I use it?
+A: LoSSI lets you send commands and data to peripherals like LCD controllers using 9-bit values.
+
+Q: How do I set the SPI clock speed?
+A: Set the clock divider CDIV field in the CLK register; speed equals core clock divided by CDIV.
+
+Q: What happens if I set the clock divider to zero?
+A: Setting CDIV to zero makes the divisor 65536.
+
+Q: How early does the chip select line get asserted before a transfer in DMA mode?
+A: CS is asserted at least three core clock cycles before the first byte's most significant bit.
+
+# SPI software
+
+Q: SPI0 isn't working on my Pi. Is it on by default?
+A: No, SPI0 is disabled by default and must be enabled via raspi-config or config.txt.
+
+Q: How do I turn on SPI0 without using raspi-config?
+A: Add or uncomment the line dtparam=spi=on in /boot/firmware/config.txt.
+
+Q: I want to enable SPI1 with two chip select lines. What do I put in config.txt?
+A: Add dtoverlay=spi1-2cs to /boot/firmware/config.txt to enable SPI1 with two chip selects.
+
+Q: Can I use any GPIO pin as a chip select instead of the hardware ones?
+A: Yes, the driver supports arbitrary GPIO pins as software chip selects instead of hardware ones.
+
+Q: What's the fastest speed I should realistically try with SPI?
+A: Anything over 50 MHz is unlikely to work, though results may vary.
+
+Q: Does the Pi's SPI driver support 3-wire bidirectional mode?
+A: Yes, bidirectional 3-wire mode is supported by the spi-bcm2835 kernel module.
+
+Q: I'm trying to use 3-wire mode and my transfers keep failing. What am I missing?
+A: In 3-wire mode, either the tx or rx field of spi_transfer must be a NULL pointer.
+
+Q: Which SPI buses support DMA transfers?
+A: SPI0 and SPI3 through SPI6 support DMA transfers; all buses support interrupt mode.
+
+Q: How do I install a Python library to use SPI?
+A: Run pip install spidev or use the SPI-Py library available on GitHub.
+
+Q: Can I send SPI data straight from the command line without writing any code?
+A: Yes, you can write to /dev/spidev0.0 directly using echo with hex values in bash.
+
+Q: Is it okay to use other libraries that directly manipulate the SPI hardware?
+A: No, directly manipulating the SPI hardware from userspace libraries is not recommended.
 
 # Troubleshooting
 
-My SPI isn't working — how do I test if it's even sending and receiving properly?
-How do I do a loopback test on SPI?
-What do I need to do physically to run the SPI loopback test?
-Where do I find the loopback test program for SPI?
+Q: How do I test if SPI is actually working on my Pi?
+A: Connect a wire between MOSI and MISO, then run the loopback test with spidev_test.
+
+Q: Does the loopback test check the chip enable pins too?
+A: No, the loopback test does not test CE0 and CE1.
+
+Q: Where do I get the loopback test program for SPI?
+A: Download spidev_test.c from the Raspberry Pi Linux repository on GitHub using wget.
 
 # Whole Document
 
-I'm a beginner trying to connect a display to my Pi over SPI — where do I even start?
-What's the easiest way to use SPI on a Raspberry Pi if I'm just writing a quick Python script?
-I don't want to write a kernel driver — can I control SPI from userspace?
-Does SPI work on all Raspberry Pi models or just some of them?
+Q: What's spidev and do I need it?
+A: spidev provides a userspace interface to SPI chip select lines via ioctl calls.
+
+Q: I've got a Pi 4 versus an older Pi 3 — are the SPI options different?
+A: Yes, Pi 4 has four extra SPI buses SPI3 to SPI6 that older Pi 3 models don't have.
+
+Q: What's MOSI and MISO? I keep seeing those terms.
+A: MOSI means master out slave in, and MISO means master in slave out.

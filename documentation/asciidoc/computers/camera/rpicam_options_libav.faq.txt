@@ -1,65 +1,69 @@
-# libav-format
+# `libav-format`
 
-How do I set the output format when recording video with libav?
+Q: How do I set the output format when recording video with libav?
+A: Use the `--libav-format` option with mkv, mp4, avi, h264, or mpegts.
 
-I want to save my video as an MP4. What do I need to do?
+Q: I didn't set a format option. What format will my video be saved in?
+A: The file extension you give the output option determines the format.
 
-Can I stream video with the libav backend, or is it just for saving files?
+Q: What formats can I use with libav, like can I do MP4?
+A: Libav supports mkv, mp4, avi, h264 streaming, and mpegts streaming.
 
-I didn't set a format option but my video still saved fine. Is that normal or did I get lucky?
+# `libav-audio`
 
-What formats can I use with libav? Like MP4, AVI, that kind of thing?
+Q: I want to record audio along with my video. How do I turn that on?
+A: Pass `--libav-audio` and also specify an audio codec with `--audio-codec`.
 
-# libav-audio
+Q: Does the libav-audio option need a value after it or just the flag?
+A: It does not accept a value; just pass the option by itself.
 
-How do I get audio recording working with libav?
+# `audio-codec`
 
-I tried to enable audio but it's not recording anything. Do I need to set something else besides just turning it on?
+Q: What audio codec does libav use by default?
+A: The default audio codec is AAC.
 
-# audio-codec
+Q: How do I see what audio codecs are available on my Pi?
+A: Run `ffmpeg -codecs` to list all available codecs on your system.
 
-What's the default audio codec when I'm recording with libav?
+# `audio-bitrate`
 
-How do I see all the audio codecs I can use? I don't know what's available on my Pi.
+Q: I want to record audio at a lower bitrate to save space. How do I set that?
+A: Use `--audio-bitrate` followed by the bitrate value in bits per second.
 
-I want to use MP3 instead of the default codec. Can I do that and how do I switch it?
+Q: What's an example of recording video with a specific audio bitrate?
+A: Run `rpicam-vid --codec libav -o test.mp4 --audio_codec mp2 --audio-bitrate 16384`.
 
-# audio-bitrate
+# `audio-samplerate`
 
-How do I set the audio bitrate when I'm recording a video?
+Q: What's the default sample rate when recording audio with libav?
+A: The default is zero, which means it just uses the input's sample rate.
 
-What's the bitrate in that MP4 recording example? Is 16 kilobits per second good enough for decent audio?
+Q: Can I set a custom audio sample rate or does it just pick one automatically?
+A: You can set a custom rate in Hz using `--audio-samplerate` with a numeric value.
 
-# audio-samplerate
+# `audio-device`
 
-What happens if I don't set an audio sample rate? Does it just guess or what?
+Q: What even is ALSA? Do I need to know about it to pick an audio input?
+A: ALSA is the audio system; use `--audio-device` to select your recording input.
 
-I want to keep the original sample rate from my microphone. Do I need to set anything for that or just leave it alone?
+Q: How do I find out what audio input devices are available on my Pi?
+A: Run `pactl list | grep -A2 'Source #' | grep 'Name: '` to list them.
 
-# audio-device
+# `av-sync`
 
-How do I find out what audio input devices I've got connected to my Pi?
+Q: My audio and video are out of sync in my recordings. Is there a way to fix that?
+A: Use `--av-sync` to shift the audio timestamp by a value in microseconds.
 
-I've got a USB headset plugged in. How do I make the video recorder use that instead of the built-in audio?
-
-What even is ALSA? Do I need to know about it to pick my audio device?
-
-I ran the command to list audio devices but I'm not sure which one to pick. How do I tell which one is my microphone?
-
-# av-sync
-
-My audio and video are slightly out of sync in my recordings. Is there a way to fix that?
-
-The audio in my video is a little bit ahead of the video. Can I shift it back and how do I do that?
+Q: Can the av-sync option only shift audio forward or can it go backwards too?
+A: It accepts both positive and negative values to shift audio either direction.
 
 # Whole Document
 
-I want to record video with audio on my Pi. Where do I even start?
+Q: How do I even enable the libav backend? I don't see it doing anything.
+A: Pass `--codec libav` to your rpicam command to enable the libav backend.
 
-What's the libav backend and why would I use it instead of the default?
+Q: I want to put a flag before the option name. How do I do that exactly?
+A: Prefix every option name with two dashes, like `--libav-format` or `--audio-codec`.
 
-How do I enable the libav backend? Is it off by default?
-
-I'm trying to record a video with sound and save it as an MP4. What's the full command for that?
-
-Can I do live streaming with this, or is it just for saving files locally?
+Q: Are there shorthand versions of these options so I don't have to type everything out?
+A: Some options have short aliases like `-h`; they save typing but reduce readability.

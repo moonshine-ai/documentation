@@ -1,59 +1,81 @@
-# Whole Document
-
-- I'm trying to figure out which Compute Module is right for my project. What versions are even available?
-- What's the difference between all these Compute Modules? There's like CM1, CM3, CM4, CM5 — where do I even start?
-- I want to build something with a Compute Module. Where do I find the technical specs and design files?
-
 # Compute Module 5 datasheet
 
-- I just got a CM5 and I need the datasheet for it. Where do I find that?
-- I'm designing a board for the CM5 IO Board and I need the design files. How do I get those?
+Q: Where do I find the full specs and datasheet for the CM5?
+A: The CM5 datasheet is available at pip.raspberrypi.com linked documents.
+
+Q: I'm building something with a Compute Module 5 and need the design files. Where do I get those?
+A: CM5 design files are available at rpltd.co/cm5-design-files.
 
 # Compute Module 5 IO Board datasheet
 
-- Where can I find the specs for the CM5 IO Board?
-- I need the design files for the CM5 IO Board to make my own PCB. Where do I get them?
+Q: I need the design files for the CM5 IO Board. Where do I find them?
+A: CM5IO design files and datasheet are available from Raspberry Pi's official documentation links.
 
 # Compute Module 4 datasheet
 
-- I've got a CM4 and I need to look up the specs. Where's the datasheet?
-- I want to disable some features on my CM4 that I don't need. Is there a guide for that?
-- I'm not using WiFi on my CM4 and I want to turn it off. How do I do that?
+Q: I've got a CM4 and I want to disable some of the hardware interfaces I'm not using. Is there a guide for that?
+A: Yes, a white paper describes disabling various CM4 hardware and software interfaces.
+
+Q: Where can I read about the different hardware configurations available for the CM4?
+A: The CM4 configure white paper covers different hardware configurations and disabling unused features.
 
 # Compute Module 4 IO Board datasheet
 
-- Where do I find the CM4 IO Board datasheet?
-- I want to design my own PCB based on the CM4 IO Board. Are there KiCad files available for that?
+Q: I want to design my own board using the CM4 IO Board as a reference. Are there design files available?
+A: Yes, KiCad PCB design files are available for the CM4 IO Board.
 
 # Compute Module 4S datasheet
 
-- Wait, what even is the CM4S? How's it different from the regular CM4?
-- I've heard about CM4S but I'm confused about what form factor it uses. Can you explain that?
-- Where do I find the datasheet for the CM4S?
+Q: What even is the CM4S? How is it different from the regular CM4?
+A: CM4S has CM4 internals but uses the older DDR2-SODIMM form factor.
+
+Q: Does the CM4S use the same connector as the older Compute Modules?
+A: Yes, CM4S uses the DDR2-SODIMM form factor like CM1, CM3, and CM3+.
 
 # Compute Module 3+ datasheet
 
-- Is the CM3+ still supported or is it discontinued?
-- How long is the CM3+ going to be supported? I want to know if it's safe to use in a long-term project.
+Q: Is the CM3+ still being supported or is it discontinued?
+A: CM3+ is a supported product with end-of-life no earlier than January 2028.
 
 # Compute Module 1 and Compute Module 3 datasheet
 
-- Are CM1 and CM3 still supported? I've got an older project using one of them.
-- I'm trying to move from a CM1 to a CM4. Is there a guide for that?
-- I've got an old CM3 project and I want to upgrade it to CM4. Where do I start?
+Q: Are CM1 and CM3 still being made or are they getting discontinued soon?
+A: CM1 and CM3 are supported with end-of-life no earlier than January 2026.
+
+Q: I'm moving from a CM1 to a CM4 for my project. Is there any migration guide?
+A: Yes, a white paper exists specifically to help developers migrate from CM1 or CM3 to CM4.
+
+Q: I need the schematics for my original Compute Module 1. Where do I find those?
+A: CM1 schematics are available as a linked document at pip.raspberrypi.com.
 
 # Compute Module IO Board schematics
 
-- I've got a CM3+ and I'm not sure which IO Board version works with it. Can you help?
-- What's the difference between CMIO version 1 and version 3? Which one do I need?
-- Does the CM4S work with the standard Compute Module IO Board?
+Q: What's the difference between the CMIO Version 1 and Version 3?
+A: Version 1 only supports CM1, while Version 3 supports CM1, CM3, CM3+, and CM4S.
+
+Q: I've got a CM3+ and I'm looking for a compatible IO board. Will the standard CMIO work?
+A: Yes, CMIO Version 3 is compatible with CM3+.
+
+Q: Someone mentioned CMIO3 in a forum post. What does that mean exactly?
+A: CMIO3 is shorthand for Compute Module IO Board Version 3.
 
 # Compute Module Camera/Display Adapter Board schematics
 
-- I want to connect a camera to my Compute Module. Is there a special board I need for that?
-- Where do I find the schematics for the camera and display adapter for Compute Modules?
+Q: I want to connect a camera to my Compute Module. Is there an adapter board for that?
+A: Yes, the Compute Module Camera/Display Adapter Board provides camera and display interfaces.
+
+Q: Where do I find the design documents for the camera and display adapter board?
+A: Design documents for CMCDA Version 1.1 are available at pip.raspberrypi.com.
 
 # Under-voltage detection
 
-- My Raspberry Pi keeps showing that low voltage warning. How does it actually detect that?
-- What's the under-voltage detection circuit on a Raspberry Pi? How does that work?
+Q: I've seen a warning about low voltage on my Pi before. Is there a schematic showing how that detection works?
+A: Yes, a schematic shows the under-voltage detection circuit used in older Raspberry Pi models.
+
+# Whole Document
+
+Q: I'm trying to figure out which Compute Module and IO board to use together. Is there a reference for all of them?
+A: Datasheets and design files are available for CM1, CM3, CM3+, CM4, CM4S, and CM5.
+
+Q: I need to do some hardware design work with a Compute Module. Where do I even start looking for official docs?
+A: Official datasheets and design files for all Compute Modules are linked at pip.raspberrypi.com.

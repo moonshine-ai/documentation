@@ -1,24 +1,41 @@
 # About
 
-- What sizes do the official Raspberry Pi SSDs come in?
-- Do I need anything special to connect an SSD to my Raspberry Pi 5?
-- I've got a Raspberry Pi 5 and I want to add an SSD. What adapter do I need?
-- Why would I buy an official Raspberry Pi SSD instead of just any random one?
-- Does the SSD just plug straight into the Pi or do I need extra stuff?
+Q: What sizes do the official Raspberry Pi SSDs come in?
+A: Raspberry Pi SSDs are available in 256 GB, 512 GB, and 1 TB.
+
+Q: Do I need anything special to connect an SSD to my Raspberry Pi?
+A: You need a Raspberry Pi 5-compatible M.2 adapter like the M.2 HAT+.
+
+Q: Why would I bother getting an official Raspberry Pi SSD instead of just any SSD?
+A: Official SSDs are tested for compatibility with Raspberry Pi models and peripherals.
+
+Q: Will any Raspberry Pi work with these SSDs or just certain ones?
+A: You need a Raspberry Pi 5-compatible M.2 adapter, implying Raspberry Pi 5 is required.
 
 # Specifications
 
-- What kind of SSD slot does the Raspberry Pi use? Like is it M.2 or something else?
-- I keep hearing NVMe and M.2 thrown around. What type does the Raspberry Pi SSD use?
-- What's the read and write speed on the official Raspberry Pi SSDs?
-- Is the 1 TB version faster than the 256 GB one?
-- Does the Raspberry Pi SSD work with PCIe 3?
-- What's the difference in speed between the 256 gig and the 512 gig versions?
-- I'm trying to pick between the 512 GB and 1 TB SSD. Is there a speed difference?
+Q: What's the form factor for the Raspberry Pi SSD? Like will it fit in a standard M.2 slot?
+A: Raspberry Pi SSDs use the M.2 2230 form factor.
+
+Q: Is the Raspberry Pi SSD PCIe Gen 3 or Gen 4?
+A: Raspberry Pi SSDs are PCIe Gen 3-compliant.
+
+Q: Which NVMe version do the Raspberry Pi SSDs use?
+A: Raspberry Pi SSDs use the NVMe 1.4 register interface and command set.
+
+Q: I'm trying to pick between the 512 GB and 1 TB — is there a speed difference?
+A: The 1 TB model reads at 90,000 IOPS versus 50,000 IOPS for the 512 GB.
+
+Q: What's the read speed on the 256 GB Raspberry Pi SSD?
+A: The 256 GB SSD has a random read speed of 40,000 IOPS.
+
+Q: Does the bigger SSD actually write faster, or is it the same speed across all sizes?
+A: Write speeds vary: 70,000, 90,000, and 90,000 IOPS for 256 GB, 512 GB, and 1 TB respectively.
 
 # Whole Document
 
-- What even is an M.2 HAT? Do I need one to use an SSD with my Pi?
-- I want to use an SSD with my Raspberry Pi instead of an SD card. Where do I start?
-- Are the official Raspberry Pi SSDs actually worth it or can I just use any M.2 drive?
-- What Raspberry Pi models support these SSDs?
+Q: I want to add fast storage to my Pi. What do I actually need to buy?
+A: Buy a Raspberry Pi SSD and a compatible M.2 HAT+ or M.2 HAT+ Compact adapter.
+
+Q: Are these SSDs actually tested to work properly, or are they just rebranded generic drives?
+A: They are tested to ensure compatibility with Raspberry Pi models and peripherals.

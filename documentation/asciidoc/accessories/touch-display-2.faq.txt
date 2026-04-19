@@ -1,90 +1,157 @@
-# Whole Document
-
-- What even is the Touch Display 2? Is it just a regular screen for the Pi?
-- Does the Touch Display 2 work with any Raspberry Pi?
-- I've got a Raspberry Pi Zero — will this screen work with it?
-- Do I need to buy any extra cables or does everything come in the box?
-- Can I use this as a tablet kind of thing, like without a keyboard or mouse?
-
 # Specifications
 
-- What sizes does the Touch Display 2 come in?
-- Is there actually a difference between the 5-inch and 7-inch versions other than the size?
-- How many fingers can I use on the touchscreen at once?
-- Do I need a separate power supply for the display or does it run off the Pi?
-- Can I use this screen without a physical keyboard? Like is there an on-screen keyboard built in?
+Q: What sizes does the Touch Display 2 come in?
+A: It comes in two sizes, five-inch and seven-inch, measured diagonally.
+
+Q: Do the five and seven inch versions have different features?
+A: No, aside from physical size they have identical features and functionality.
+
+Q: How many touch points can this screen handle at once?
+A: It supports up to five simultaneous touch points with multitouch support.
+
+Q: Do I need a separate power supply for this display?
+A: No, it's powered directly by the host Raspberry Pi, no separate supply needed.
+
+Q: Can I use this without a mouse or keyboard plugged in?
+A: Yes, it supports full desktop control and an on-screen keyboard without physical peripherals.
+
+Q: What's the resolution on this thing?
+A: The Touch Display 2 has 720 by 1280 pixel resolution with 24-bit RGB colour.
 
 # Hardware
 
-- What cables come with the Touch Display 2?
-- Why are there two different cables in the box? Which one do I actually need?
-- I've got a Raspberry Pi 5 — which of the two cables should I use for that?
+Q: What cables and stuff come in the box?
+A: The box includes the display, eight M2.5 screws, two FFCs, and a GPIO power cable.
+
+Q: Which cable do I use if I've got a Raspberry Pi 5?
+A: Use the 22-way to 15-way FFC included in the box for Raspberry Pi 5.
+
+Q: Will this display work with my Raspberry Pi Zero?
+A: No, the Zero series lacks a DSI connector and is not compatible with this display.
+
+Q: What models is this display compatible with?
+A: It works with all Raspberry Pi models from 1B onwards, except Zero and Keyboard series.
 
 # Connectors
 
-- What's an FFC? Do I need to know what that is to set this up?
-- My Raspberry Pi has two display connectors on it. Which one should I use?
-- Does this display work with a Raspberry Pi 1?
+Q: How does the display actually connect to the Pi?
+A: It uses a DSI connector for video and touch data, plus the GPIO header for power.
+
+Q: I've got an older Pi, not a Pi 5. Which cable should I use?
+A: For all Raspberry Pi models other than Pi 5, use the 15-way to 15-way FFC.
 
 # Connect to Raspberry Pi
 
-- How long does it take before the screen actually shows something after I plug it in?
-- Should I have the Pi powered on when I'm connecting the display?
+Q: How long does it take for the display to show something after I plug it in?
+A: It can take up to one minute for Raspberry Pi OS to start displaying output.
 
-## Step 1. Connect FFC to Touch Display 2
+Q: Do I need to unplug my Pi before connecting the display?
+A: Yes, you must disconnect your Raspberry Pi from power before connecting the display.
 
-- Which way do the metal contacts face when I plug the ribbon cable in?
-- I'm not sure I've got the cable in right — should the metal bits be facing up or down toward the screen?
+# Step 1. Connect FFC to Touch Display 2
 
-## Step 2. Connect FFC to Raspberry Pi
+Q: Which way do the metal contacts face when I plug the cable into the display?
+A: Metal contacts should face upwards, away from the Touch Display 2.
 
-- Which port on the Pi am I supposed to plug this ribbon cable into?
-- The metal contacts on the cable — which direction should they face when plugging into the Pi?
+Q: I'm using the 22-way to 15-way cable. Which end goes into the display?
+A: Insert the larger 15-way end into the Touch Display 2 FFC connector.
 
-## Step 3. Connect the GPIO power cable
+# Step 2. Connect FFC to Raspberry Pi
 
-- Which pins on the GPIO does the power cable go to?
-- I've got the power cable but I'm not sure which end goes to the display and which goes to the Pi. How do I figure that out?
-- What happens if I plug the power cable in wrong? Will it break anything?
+Q: How do I know which port on my Pi is the display port?
+A: Look for a port labelled DISPLAY, CAM/DISP, or DISP on your Raspberry Pi.
 
-## Step 4. Mount your Raspberry Pi to the Touch Display 2 (optional)
+Q: My Pi has two display connectors. Which one should I use?
+A: Raspberry Pi recommends using the port labelled 1 if there are multiple DSI connectors.
 
-- Can I actually attach my Pi directly to the back of the screen?
-- What screws do I need to mount the Pi to the display?
+Q: Which way do the contacts face when plugging into the Pi's DSI connector?
+A: Metal contacts should face toward the Ethernet and USB-A ports on your Raspberry Pi.
+
+# Step 3. Connect the GPIO power cable
+
+Q: Where does the small end of the power cable go on the display?
+A: Plug the smaller end into the J1 port on the Touch Display 2.
+
+Q: What happens if I plug the power cable in wrong?
+A: Connecting it incorrectly might cause damage to the display, so be careful.
+
+Q: Which GPIO pins does the power cable connect to?
+A: The red cable connects to pin 2 and the black ground cable connects to pin 6.
+
+# Step 4. Mount your Raspberry Pi to the Touch Display 2 (optional)
+
+Q: Can I attach my Pi directly to the back of the display?
+A: Yes, optionally use the included M2.5 screws to mount your Raspberry Pi to the back.
 
 # Use an on-screen keyboard
 
-- The keyboard isn't popping up automatically when I tap a text box. What's going on?
-- How do I turn off the on-screen keyboard if I don't need it?
-- I want the keyboard to always be visible. How do I make that happen?
-- What version of Raspberry Pi OS do I need for the on-screen keyboard to work?
+Q: Does the keyboard pop up automatically when I need to type something?
+A: Yes, the keyboard automatically appears when you can enter text and disappears when you can't.
 
-# Change Screen Orientation
+Q: How do I turn off the on-screen keyboard permanently?
+A: Go to Preferences, Control Centre, Display, or use raspi-config from the command line.
 
-- The screen is showing in portrait mode but I want it sideways. How do I rotate it?
-- What are my options for rotating the display?
-- I've mounted the screen upside down. Can I flip the display in software?
+Q: What version of Raspberry Pi OS do I need for the on-screen keyboard to work?
+A: Raspberry Pi OS Bookworm and later already includes the Squeekboard on-screen keyboard.
 
-## With a Desktop
+Q: An app I'm using doesn't trigger the keyboard automatically. How do I bring it up?
+A: Tap the keyboard icon at the right side of the taskbar to manually show or hide it.
 
-- How do I rotate the screen if I'm running the desktop?
+# Change screen orientation
 
-## Without a Desktop
+Q: I want to mount my display sideways in landscape mode. How do I rotate it?
+A: Use the Screen Configuration tool under Preferences or edit the cmdline.txt boot file.
 
-- I'm running Raspberry Pi OS Lite with no desktop. How do I rotate the screen?
-- I rotated the display in the config but my video player is still showing the wrong way. Why isn't it working?
-- Can I have the HDMI output rotated differently from the touchscreen?
+Q: What are my rotation options for this display?
+A: You can rotate 0, 90, 180, or 270 degrees clockwise from the default portrait orientation.
 
-# Customise Touchscreen Settings
+Q: I don't have a desktop installed. Can I still rotate the screen?
+A: Yes, add a video parameter with your rotation value to the cmdline.txt boot file.
 
-- The touch is registering in the wrong direction — like when I tap the left side it registers on the right. How do I fix that?
-- How do I flip the touch axis so it matches how I've mounted the screen?
-- Can I disable the touchscreen completely but still use the display?
-- Where do I actually put these settings to change how the touchscreen works?
-- What's the overlay name I need for the 7-inch display?
-- I want to swap the X and Y axes on the touch — is there a setting for that?
+Q: I rotated the screen in cmdline.txt but my video player isn't rotating. What's going on?
+A: Apps writing directly to DRM won't use that rotation setting and need their own rotation options.
+
+Q: Can I rotate my DSI display one way and my HDMI display a different way using cmdline.txt?
+A: No, when using DSI and HDMI simultaneously they share the same rotation value.
+
+# Customise touchscreen settings
+
+Q: How do I flip the touch controls if the touch direction feels backwards?
+A: Use the invx or invy Device Tree overlay parameters in your config.txt file.
+
+Q: Where do I go to change the touchscreen settings like inverting the axes?
+A: Edit the dtoverlay line in the boot configuration file at /boot/firmware/config.txt.
+
+Q: What's the overlay called for the seven inch version of this display?
+A: The overlay for the 7-inch display is called vc4-kms-dsi-ili9881-7inch.
+
+Q: Can I disable the touchscreen entirely but still use the display?
+A: Yes, add the disable_touch parameter to the dtoverlay line in config.txt.
+
+Q: I want to swap the X and Y touch axes. How do I do that?
+A: Add the swapxy parameter to your dtoverlay line in config.txt to swap touch axes.
 
 # Connect to a Compute Module
 
-- I'm using a Compute Module and the display isn't working. Why doesn't it just detect automatically like on a normal Pi?
-- What's the easiest way to get the Touch Display 2 working on a Compute Module?
+Q: I'm using a Compute Module and the display isn't being detected. What do I do?
+A: Compute Modules don't auto-detect displays, so you must manually specify the Device Tree overlay.
+
+Q: Why does it auto-detect on a regular Pi but not on a Compute Module?
+A: Regular Pi connections are fixed so the system knows what's connected, but Compute Modules expose all interfaces for flexibility.
+
+Q: What's the easiest way to get this display working with a Compute Module?
+A: Adding an overlay entry in config.txt is described as the simplest option for Compute Modules.
+
+# Whole Document
+
+Q: What kind of projects is this display designed for?
+A: It's designed for tablets, entertainment systems, and information dashboards requiring touchscreen interaction.
+
+Q: I just got the Touch Display 2. What do I need to connect it to my Pi?
+A: You need the included FFC cable for DSI video and the GPIO power cable for power.
+
+Q: Does this display work in landscape mode or only portrait?
+A: It defaults to portrait but can be rotated to landscape using orientation settings.
+
+Q: Can I use this display without any desktop environment installed?
+A: Yes, you can configure rotation and settings via command line and boot configuration files.

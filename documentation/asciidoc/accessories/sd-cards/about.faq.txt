@@ -1,33 +1,44 @@
 # About
 
-What makes an SD card good for a Raspberry Pi? Like, does it actually matter which one I buy?
+Q: Does the SD card actually matter for a Raspberry Pi or can I just use any old one?
+A: SD card quality critically affects overall user experience on a Raspberry Pi.
 
-What's command queueing and why does it matter for my Pi?
+Q: What's so special about the official Raspberry Pi SD cards compared to random ones?
+A: They support DDR50, SDR104 bus speeds and command queueing for optimal performance.
 
-I want to buy an SD card that already has Raspberry Pi OS on it. Is that a thing?
+Q: What's command queueing and why do I care about it for my Pi?
+A: It allows pipelining of random read operations, ensuring optimal SD card performance.
 
-What sizes do the official Raspberry Pi SD cards come in?
+Q: Can I get a Pi SD card that already has the operating system on it?
+A: Yes, Raspberry Pi SD cards are available pre-programmed with the latest Raspberry Pi OS.
 
-Why does my Pi feel slow even though I've got a decent processor? Could it be the SD card?
+Q: What sizes do the official Raspberry Pi SD cards come in?
+A: They're available in 32 GB, 64 GB, and 128 GB sizes.
 
 # Specifications
 
-What speed class should I look for when buying an SD card for my Pi?
+Q: What speed class rating do the official Pi SD cards have? Like U1 or U3?
+A: Raspberry Pi SD cards are rated C10, U3, V30, and A2.
 
-I've got a Pi 5 — how fast is the official SD card on it compared to a Pi 4?
+Q: What form factor are the Raspberry Pi SD cards, like full size or micro?
+A: They use the microSDHC and microSDXC form factor.
 
-What's the difference between DDR50 and SDR104? Does it matter which one my Pi uses?
+Q: How fast is the official SD card on a Pi 5 compared to a Pi 4?
+A: Pi 5 gets 5,000 read and 2,000 write IOPS versus Pi 4's 3,200 and 1,200.
 
-I keep seeing ratings like U3 and V30 on SD cards. What do those mean for my Raspberry Pi?
+Q: What spec standard do the Raspberry Pi SD cards follow?
+A: Raspberry Pi SD cards use the SD6.1 SD specification.
 
-What read and write speeds can I actually expect from an official Raspberry Pi SD card?
+Q: I've got a Pi 4 — what read and write speeds can I actually expect from the official card?
+A: Pi 4 gets 3,200 IOPS read and 1,200 IOPS write using 4 kB random data.
 
 # Whole Document
 
-Should I just buy the official Raspberry Pi SD card or is any microSD card fine?
+Q: I'm buying my first Pi — should I just get the official SD card or will anything work?
+A: Official cards offer optimized bus speeds and command queueing for best performance.
 
-I'm building a project and I want the best performance possible. Does the SD card I use actually make a big difference?
+Q: Wait, does the Pi 5 get better SD card speeds than the Pi 4?
+A: Yes, Pi 5 uses SDR104 and gets significantly faster read and write speeds.
 
-What's the fastest SD card setup I can get for a Pi 5?
-
-I don't really understand SD card specs. What should I actually be looking for when picking one for my Raspberry Pi?
+Q: I just want something ready to go out of the box. Is there an SD card that comes with the OS already installed?
+A: Yes, Raspberry Pi SD cards can be bought pre-programmed with Raspberry Pi OS.

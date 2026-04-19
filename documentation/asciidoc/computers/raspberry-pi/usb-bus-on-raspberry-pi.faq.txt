@@ -1,61 +1,100 @@
-# Whole Document
+# Universal Serial Bus (USB)
 
-How much power can the USB ports on a Raspberry Pi actually put out?
+Q: Can I use pretty much any USB device with my Raspberry Pi?
+A: Generally yes, every Linux-supported device works, with some pre-Pi-4 limitations.
 
-My USB device keeps cutting out or not working right. Could that be a power problem?
+Q: My USB device keeps acting weird. Could it be a power problem?
+A: Yes, power issues often cause USB problems; try a powered hub to rule it out.
 
-I've got a bunch of USB stuff I want to plug in. Do I need a powered hub or can I just plug everything straight into the Pi?
+# Maximum power output
 
-Does every USB device that works on Linux work on a Raspberry Pi too?
+Q: How much power can the USB ports on a Pi 4 give out total?
+A: Raspberry Pi 2, 3, and 4 provide 1200mA total across all USB ports.
 
-What's the difference between the USB setup on a Pi 4 versus older models?
+Q: I've got a Pi Zero — how much power does its USB port supply?
+A: Raspberry Pi Zero USB ports supply a maximum of 500mA per port.
 
-# Maximum Power Output
-
-My Pi 1 has two USB ports — is the 500mA limit per port or shared across both?
-
-I've got a hard drive plugged into my Pi and it keeps disconnecting. What's going on?
-
-If I plug in a powered USB hub, does that get around the power limit on the Pi's ports?
+Q: What's different about the power on a Pi 5 depending on which power supply I use?
+A: Pi 5 gives 600mA with a 3A supply, or 1600mA with a 5A supply.
 
 # Raspberry Pi 5
 
-What power supply do I actually need for the Pi 5? I don't want to get the wrong one.
+Q: What kind of power supply does the Pi 5 actually need to boot?
+A: It needs a USB-C supply capable of delivering 3A at 5V, which is 15W.
 
-I bought a 3A charger for my Pi 5 and it's showing some warning on boot. What does that mean?
+Q: I plugged in my Pi 5 and it's warning me about restricted power to peripherals. What does that mean?
+A: Your supply can't provide 5A at 5V, so peripheral current draw is limited to 600mA.
 
-I want to plug in a hard drive and some other stuff into my Pi 5. Do I need a special power supply for that?
+Q: I want to run a hard drive off my Pi 5. What power supply should I get?
+A: Use a USB-PD supply capable of 5A at 5V, which is 25W.
 
-My Pi 5 is showing a message saying USB power is restricted. How do I fix that?
+Q: Does the fan on the Pi 5 share power with the USB ports?
+A: Yes, the power budget is shared between USB ports and the fan header.
 
-Wait, does the fan on the Pi 5 share power with the USB ports? So plugging in more USB stuff could affect the fan?
+Q: If my Pi 5 detects a 25W power supply, does it unlock more USB power?
+A: Yes, firmware increases USB peripheral current limit to 1.6A with a 5A supply detected.
 
 # Raspberry Pi 4
 
-How many USB ports does the Pi 4 have, and are they all the same speed?
+Q: How many USB 3.0 ports does the Pi 4 have?
+A: Raspberry Pi 4 has two USB 3.0 ports and two USB 2.0 ports.
 
-I heard the Pi 4 has USB 3.0. Does that mean all four ports are USB 3?
+Q: Does the Pi 4 have any USB limitations I should know about?
+A: All four ports share a single USB 2.0 hub internally, limiting USB 1.1 and 2.0 bandwidth.
 
 # Raspberry Pi Zero, 1, 2 and 3
 
-My Pi Zero only has one USB port and it's a tiny one. What type is it exactly?
+Q: How many USB ports does the Pi 3 have?
+A: Raspberry Pi 1 Model B+, 2, and 3 boards all offer four USB 2.0 ports.
 
-I've got an older Pi 3 and I want to plug in a webcam and a USB audio thing and a mouse all at once. Is that going to be a problem?
+Q: What kind of USB port does the Pi Zero have?
+A: The Pi Zero has one micro USB on-the-go, or OTG, port.
 
-Why does my older Pi feel slower with USB devices than my Pi 4 does?
+Q: Is there a speed limit on USB for older Pi models?
+A: Yes, older Pi models have a single USB bus operating at a maximum of 480Mbps.
 
-# Known USB Issues
+Q: I've got a webcam and a keyboard plugged into my Pi 3. Are those different USB speeds?
+A: Keyboards are low speed; webcams are typically high speed devices per USB 2.0 spec.
 
-I plugged my keyboard and mouse into a USB 3.0 hub on my Pi 3 and neither of them work. What's happening?
+Q: Can I plug lots of high-speed USB devices into an older Pi without problems?
+A: Generally there are no issues connecting multiple high-speed USB devices to a Raspberry Pi.
 
-My mouse isn't working when it's plugged into my USB 3.0 hub on an older Pi. Is there a fix for that?
+# Known USB issues
 
-I've got a USB 3.0 hub — can I use it with my Pi or not?
+## Interoperability with USB 3.0 hubs
 
-My old webcam isn't working great on the Pi. Is there something I can do to make it more reliable?
+Q: I plugged my keyboard into a USB 3.0 hub connected to my Pi and it's not working. What's going on?
+A: A bug in most USB 3.0 hub hardware prevents older Pi models from talking to low-speed devices.
 
-I bought this fancy high-end USB sound card and it keeps cutting out on my Pi. What can I do?
+Q: My mouse doesn't work through my USB 3.0 hub on my Pi 3. Is there a fix?
+A: Plug a USB 2.0 hub between the Pi and USB 3.0 hub, then connect your mouse there.
 
-I've got a USB hub and some of my slower devices keep acting weird. Could it be a single TT hub problem, and what does that even mean?
+Q: Does a USB 2.0 hub work fine when plugged into a USB 3.0 hub on an older Pi?
+A: Yes, USB 2.0 high-speed devices including USB 2.0 hubs work correctly via a USB 3.0 hub.
 
-My keyboard works fine plugged directly into the Pi but goes flaky through my hub. Why would that be?
+## USB 1.1 webcams
+
+Q: My old webcam is really unreliable on my Pi. Is there anything I can do?
+A: Try using the camera at a lower resolution to reduce data transfer demands.
+
+Q: Why does my older webcam have trouble working reliably on a Pi?
+A: Old webcams can be full-speed devices, causing high data transfer and extra software overhead.
+
+## Esoteric USB sound cards
+
+Q: I've got a fancy high-end USB DAC and it's not working reliably on my Pi. Any ideas?
+A: Force the output to CD quality, 44.1 or 48 kHz 16-bit, to reduce USB bandwidth usage.
+
+Q: Will my 192 kHz USB sound card work reliably on a Raspberry Pi?
+A: Reliable operation with 96kHz or 192kHz DACs is not guaranteed on Raspberry Pi.
+
+## Single TT USB hubs
+
+Q: What's the difference between a single TT and multi TT USB hub?
+A: Single TT has one translator for all ports; multi TT has one translator per port.
+
+Q: I've got lots of low-speed devices and my single TT hub is acting up. What should I do?
+A: Use a multi TT hub, or spread low-speed devices between the Pi's own ports and the hub.
+
+Q: My USB hub has some devices behaving unreliably. Could the hub type be the problem?
+A: Yes, too many low or full-speed devices on a single TT hub can cause unreliable behavior.

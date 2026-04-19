@@ -1,22 +1,25 @@
 # Use `libcamera` from Python with Picamera2
 
-- What's Picamera2 and why would I use it instead of the old Picamera library?
-- I've got a Python project that needs to control the camera. What's the easiest way to do that?
-- Is Picamera2 already on my Raspberry Pi or do I have to install it?
+Q: What's Picamera2 and why would I use it instead of regular Picamera?
+A: Picamera2 is an easy-to-use Python API replacing the legacy Picamera library.
 
-# Installation
+Q: Where can I find the docs for Picamera2?
+A: Documentation is available on GitHub and in the official Picamera2 manual.
 
-- How do I install Picamera2 on my Pi?
-- I'm using Raspberry Pi OS Lite and I want to use the camera in Python. Do I need to install anything extra?
-- I installed Picamera2 with pip a while back. Does that cause any problems if I try to install it the proper way now?
-- I don't need any graphical stuff, just the basic camera functionality. Is there a way to install it without all the extra GUI stuff?
-- Wait, can you still see a preview image on Lite even without the GUI dependencies installed?
-- My Pi OS image is pretty old and I don't think it came with Picamera2. How do I get it?
-- I accidentally installed Picamera2 with pip instead of apt. How do I fix that?
+Q: I've got Pi OS Lite — does it come with Picamera2 already or do I need to install it?
+A: Lite images include Picamera2 but without the GUI dependencies pre-installed.
 
-# Whole Document
+Q: Can I still see a camera preview on Pi OS Lite even without the GUI stuff?
+A: Yes, preview images can still be displayed using DRM/KMS on Lite.
 
-- I used to use the old Picamera library in Python but I heard it's outdated. What should I switch to?
-- Where can I find the full docs for Picamera2? Is there like a manual or something?
-- I just want to control my Pi camera from a Python script. Where do I even start?
-- Does Picamera2 work on all versions of Raspberry Pi OS?
+Q: How do I install Picamera2 on my Pi?
+A: Run `sudo apt install -y python3-picamera2` to install it with GUI dependencies.
+
+Q: I don't need any of the GUI stuff, just the basic camera library. How do I install it without all that extra baggage?
+A: Run `sudo apt install -y python3-picamera2 --no-install-recommends` to skip GUI dependencies.
+
+Q: I installed Picamera2 with pip a while back. Do I need to do anything before reinstalling it properly?
+A: Uninstall the old version first by running `pip3 uninstall picamera2`.
+
+Q: Does the full version of Raspberry Pi OS come with Picamera2 already on it?
+A: Yes, recent Raspberry Pi OS images include Picamera2 with all GUI dependencies.

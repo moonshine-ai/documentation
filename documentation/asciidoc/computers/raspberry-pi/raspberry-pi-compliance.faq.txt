@@ -1,35 +1,42 @@
-# Product Compliance and Safety
+# Product compliance and safety
 
-What kind of compliance testing do Raspberry Pi products go through?
+Q: Has the Raspberry Pi been tested for safety and compliance?
+A: Yes, all Raspberry Pi products have undergone extensive compliance testing.
 
-# Flammability Rating
+Q: Where do I find compliance info for my Raspberry Pi?
+A: Check the Product Information Portal at pip.raspberrypi.com for compliance details.
 
-What's the flammability rating on Raspberry Pi boards?
+# Flammability rating
 
-Does the UL94-V0 flammability rating cover the whole Pi or just the circuit board?
+Q: Is the Raspberry Pi board fire resistant or anything like that?
+A: The PCBs used in Raspberry Pi devices adhere to the UL94-V0 flammability rating.
+
+Q: Does the whole Pi meet the UL94-V0 flammability standard or just the board?
+A: The UL94-V0 flammability rating applies to the PCBs only, not the whole device.
 
 # Raspberry Pi Compliance Support
 
-I'm building a product that uses a Raspberry Pi inside it. Do I have to do all the compliance testing myself or is there some kind of support for that?
+Q: I'm building a product with a Raspberry Pi inside and I'm worried about compliance testing. Is there any help available?
+A: The Compliance Support programme connects you with engineers who tested Raspberry Pi products themselves.
 
-So who actually does the testing if I use the Compliance Support programme — is it Raspberry Pi's own engineers?
+Q: Who actually does the compliance testing if I use that support programme?
+A: A dedicated team at UL assesses and tests your product through the programme.
 
-I'm a small company and compliance stuff is really confusing. Is there anything that helps make it easier?
+Q: I don't really know how to handle compliance for my Pi-based product. Where do I even start?
+A: Look into the Raspberry Pi Compliance Support Programme at raspberrypi.com for industry.
 
 # Powered by Raspberry Pi
 
-I'm making a product that has a Raspberry Pi in it and I want to put the Raspberry Pi logo on the box. Am I allowed to do that?
+Q: I want to put the Raspberry Pi logo on my product. Am I allowed to do that?
+A: You can apply through the Powered by Raspberry Pi program online for logo usage.
 
-How do I apply for permission to use the Raspberry Pi logo on my product?
+Q: My product uses a Raspberry Pi inside it. Can I say it's "powered by Raspberry Pi"?
+A: Yes, the programme covers products with Raspberry Pi computers or silicon inside them.
 
 # Approved Design Partners
 
-I need help designing something with a Raspberry Pi but I don't know where to start. Is there anyone officially recommended I can hire?
+Q: I need help designing something with Raspberry Pi but I don't know where to find someone.
+A: Raspberry Pi has a list of Approved Design Partners offering hardware, software, and mechanical services.
 
-What are the Approved Design Partners? Like are they just random companies or does Raspberry Pi actually vouch for them?
-
-# Whole Document
-
-I want to sell a product built around a Raspberry Pi. What do I need to know about logos, compliance, and getting help with the design?
-
-Is there an official way to get support if I'm building a commercial product using Raspberry Pi?
+Q: Are there consultants Raspberry Pi actually recommends for design work?
+A: Yes, Approved Design Partners are consultancies Raspberry Pi works closely with and supports.

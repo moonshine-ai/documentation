@@ -1,53 +1,56 @@
 # BCM2712
 
-What processor does the Raspberry Pi 5 use?
+Q: What Raspberry Pi products use the BCM2712 chip?
+A: BCM2712 is used in Raspberry Pi 5, 500, 500+, and Compute Module 5.
 
-Is the Pi 5 chip any faster than the Pi 4's?
+Q: How fast is the CPU in the Raspberry Pi 5?
+A: The quad-core Arm Cortex-A76 runs at up to 2.4 GHz.
 
-What's the difference between the BCM2712 and the BCM2711?
+Q: How much faster is the Pi 5 compared to the Pi 4?
+A: BCM2712 delivers a 2 to 3 times performance uplift over Raspberry Pi 4.
 
-How many CPU cores does the Raspberry Pi 5 have?
+Q: Does the Pi 5 support playing 4K video?
+A: Yes, it supports 4Kp60 HEVC hardware decode and dual 4Kp60 display output.
 
-What speed does the Pi 5's processor run at?
+Q: What graphics API does the Pi 5 GPU support? Like does it do Vulkan?
+A: VideoCore VII supports OpenGL ES 3.1 and Vulkan 1.3.
 
-I've got a Pi 5 and I want to drive two 4K monitors — can it actually do that?
+Q: I want to run two 4K monitors off my Pi 5. Is that actually possible?
+A: Yes, BCM2712 includes an HDMI controller capable of driving dual 4Kp60 displays.
 
-Does the Pi 5 support Vulkan?
+Q: What happens with H264 video if there's no hardware decoder for it?
+A: H264 runs in software, using roughly 10 to 60 percent CPU depending on resolution.
 
-What GPU does the Pi 5 have, and is it better than the Pi 4's?
-
-Can the Pi 5 decode 4K video in hardware?
-
-What happens with H264 decoding on the Pi 5 — does it use hardware or software?
-
-I'm trying to play 1080p60 H264 video on my Pi 5 and it's using a lot of CPU. Is that normal?
-
-How much faster is the Pi 5 compared to the Pi 4 for everyday tasks?
-
-Does the Pi 5 support PCIe? I want to attach an NVMe drive.
-
-What memory interface does the BCM2712 use, and how fast is it?
+Q: How much cache does the Pi 5 CPU have?
+A: Each core has 512 kB L2 cache, plus a 2 MB shared L3 cache.
 
 # Vulnerabilities and mitigations
 
-I heard the Pi 5's CPU has some security vulnerabilities. Should I be worried?
+Q: Does the Pi 5 have any security vulnerabilities I should worry about?
+A: Known Cortex-A76 vulnerabilities exist but are all mitigated in Raspberry Pi OS.
 
-How do I check what security vulnerabilities my Pi 5 has?
+Q: How do I check what security vulnerabilities my Raspberry Pi has?
+A: Run lscpu piped through grep Vulnerability to list active mitigations.
 
-What's the command to see if my Raspberry Pi has any CPU vulnerabilities?
+Q: I'm using a third-party OS on my Pi 5. Should I be worried about security?
+A: Third-party OSes may not include all latest kernel-level mitigations, so check carefully.
 
-Are the Spectre vulnerabilities fixed on the Pi 5?
+Q: Wait, how does Raspberry Pi fix CPU vulnerabilities if there's no microcode?
+A: Arm processors used by Raspberry Pi don't use microcode, so all mitigations are kernel-level.
 
-How do I know if my Pi's security mitigations are up to date?
+Q: The vulnerability list in the docs looks old. Is it still accurate?
+A: The list was correct as of April 2025 but may have been superseded; run lscpu yourself.
 
-I'm running a third-party OS on my Pi 5 — do I still get all the security patches?
-
-Where do the security fixes come from on Raspberry Pi — is it firmware or the kernel?
+Q: Where can I find more info about the CPU security issues from Arm directly?
+A: Check developer.arm.com Arm Security Center using the Vendor ID from lscpu output.
 
 # Whole Document
 
-What Raspberry Pi models use the BCM2712 chip?
+Q: What's the difference between the BCM2712 and the BCM2711?
+A: BCM2712 succeeds BCM2711, sharing architectural features but with significant performance improvements.
 
-I'm deciding between a Pi 4 and a Pi 5 — what's actually better about the Pi 5's chip?
+Q: What's the memory bandwidth like on the Pi 5?
+A: The 32-bit LPDDR4X interface provides up to 17 GB per second of memory bandwidth.
 
-Does the Compute Module 5 use the same processor as the Pi 5?
+Q: Does the Pi 5 have PCIe support?
+A: Yes, it has both times-one and times-four PCIe interfaces for high-bandwidth external peripherals.

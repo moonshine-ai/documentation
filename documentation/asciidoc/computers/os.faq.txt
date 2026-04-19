@@ -1,153 +1,230 @@
 # Introduction
 
-- What exactly is Raspberry Pi OS and is it free to use?
-- Is Raspberry Pi OS based on another operating system, or is it built from scratch?
-- How often does Raspberry Pi OS get a new major version?
-- What's the latest version of Raspberry Pi OS right now?
+Q: What even is Raspberry Pi OS? Like what's it based on?
+A: It's a free Debian-based operating system optimised for Raspberry Pi hardware.
+
+Q: How often do they release a new version of Raspberry Pi OS?
+A: Releases happen roughly every two years, following Debian's release cycle.
+
+Q: What's the latest version of Raspberry Pi OS based on?
+A: The latest version is based on Debian Trixie.
 
 # Get Raspberry Pi OS
 
-- What's the difference between the regular desktop version and the Full version of Raspberry Pi OS?
-- I'm setting up a headless server, which version of Raspberry Pi OS should I use?
-- I've got a Raspberry Pi Zero — which version of the OS should I be running?
-- Does the desktop version come with a web browser already installed?
-- I upgraded my Pi OS to the new version using the terminal update commands but it doesn't seem to have actually upgraded. What went wrong?
-- I'm on an old version of Raspberry Pi OS and want to get the new one. Can I just run the update command or do I need to reinstall?
-- Where do I actually download Raspberry Pi OS from?
+Q: Where do I actually get Raspberry Pi OS? Like where do I download it?
+A: Get it through Raspberry Pi Imager or from raspberrypi.com/software/operating-systems.
+
+Q: What's the difference between the regular version and the full version?
+A: The full version adds LibreOffice, KiCad, Scratch, and many other applications.
+
+Q: I'm setting up a headless server, which version of Raspberry Pi OS should I use?
+A: Use Raspberry Pi OS Lite, recommended for headless servers and similar use cases.
+
+Q: I've got a Pi Zero, which version of Raspberry Pi OS should I get?
+A: Raspberry Pi OS Lite is recommended for Pi 1, 2, and Zero computers.
+
+Q: Does VLC come included with Raspberry Pi OS?
+A: VLC media player is included in the desktop edition of Raspberry Pi OS.
+
+Q: I'm running an old version and want to upgrade to the new major version. Can I just update in place?
+A: No, Raspberry Pi recommends starting fresh with a new image instead.
 
 # Update software
 
-- How do I keep my Raspberry Pi's software up to date?
-- What's the difference between `apt update` and `apt full-upgrade`? Why do I need both?
-- Why should I use `full-upgrade` instead of just `upgrade` on my Pi?
-- Does updating my software with apt also update the Linux kernel?
-- Will running the regular update commands upgrade me to a new major version of the OS?
+Q: How do I keep my Raspberry Pi's software up to date?
+A: Run sudo apt update then sudo apt full-upgrade regularly to update all packages.
 
-## Manage software packages with APT
+Q: Why should I use full-upgrade instead of just upgrade?
+A: Package dependencies sometimes change, so full-upgrade handles those correctly.
 
-- How do I search for a package I want to install?
-- How do I find out more info about a package before I install it, like how big it is or who made it?
-- How do I install a package without it asking me to confirm?
-- I want to completely remove a package including all its settings files. How do I do that?
-- How do I check if I have enough space before doing a big upgrade?
-- My SD card is getting full and I think it's old downloaded packages taking up space. How do I clear those out?
+Q: Does updating with apt also update the kernel and firmware?
+A: Yes, apt updates keep the Linux kernel and firmware up to date too.
 
-## Upgrade your operating system to a new major version
+Q: I ran apt full-upgrade but it didn't jump me to the new major version. Why not?
+A: The apt upgrade commands won't upgrade to a new major OS version automatically.
 
-- Can I upgrade to a new major version of Raspberry Pi OS in place, or do I have to start fresh?
-- What's the safest way to move to a new major version without losing all my files?
+# Search for software
 
-## Upgrade your firmware
+Q: How do I search for a package I want to install?
+A: Use apt-cache search followed by a keyword to search available packages.
 
-- How do I update the firmware on my Raspberry Pi?
-- Is it safe to just run `rpi-update` whenever I want to keep things fresh?
-- What does `rpi-update` actually do to my Pi?
-- I updated my firmware and now things are broken. How do I go back to the stable version?
+Q: How do I find out more details about a specific package before installing it?
+A: Run apt-cache show with the package name to see detailed information.
 
-## Convert Raspberry Pi OS Lite into Raspberry Pi OS Desktop
+# Install a package
 
-- I installed the Lite version but now I want a desktop. Can I add it without starting over?
-- How do I add a graphical desktop to Raspberry Pi OS Lite?
-- I added the desktop to my Lite install but I want to go back to just the command line. Do I have to uninstall everything?
+Q: How do I install something with apt without it asking me to confirm?
+A: Add the -y flag to your sudo apt install command to skip confirmation.
+
+# Uninstall a package
+
+Q: I removed a package but I think it left config files behind. How do I get rid of everything?
+A: Use purge instead of remove to completely remove the package including config files.
+
+# Manage apt disk usage
+
+Q: My Pi is running low on space and I think apt is hoarding old downloads. How do I clean that up?
+A: Run sudo apt clean to delete lingering downloaded package files.
+
+Q: Where does apt store all those downloaded package files?
+A: apt stores downloaded package files in /var/cache/apt/archives.
+
+# Upgrade your operating system to a new major version
+
+Q: What's the right way to upgrade to a new major version of Raspberry Pi OS?
+A: Image a second SD card with the new release and copy your files across to it.
+
+# Upgrade your firmware
+
+Q: Should I use rpi-update to keep my Pi's firmware up to date regularly?
+A: No, don't use rpi-update as part of any regular update process.
+
+Q: What does rpi-update actually install on my Pi?
+A: It installs the latest pre-release kernel, modules, device tree files, and VideoCore firmware.
+
+Q: I ran rpi-update, do I need to restart my Pi for it to work?
+A: Yes, reboot your Raspberry Pi after running rpi-update for changes to take effect.
+
+# Downgrade firmware to the last stable release
+
+Q: I updated my firmware and now things are broken. How do I go back?
+A: Run sudo apt update then sudo apt install --reinstall raspi-firmware to restore stable firmware.
+
+# Convert Raspberry Pi OS Lite into Raspberry Pi OS Desktop
+
+Q: I installed the Lite version but now I want a desktop. Do I have to start over?
+A: No, you can add desktop packages using apt without reinstalling from scratch.
+
+Q: I added the desktop to my Lite install but I still want to boot to command line sometimes. Can I do that?
+A: Yes, use raspi-config to set your Pi to boot to the command line.
+
+Q: Which desktop windowing system should I install when adding a desktop to Raspberry Pi OS Lite?
+A: Wayland is the recommended option when installing a desktop windowing system.
 
 # Play audio and video
 
-- Does Raspberry Pi OS come with a media player?
-- How do I play a video file on my Raspberry Pi?
+Q: Does VLC use hardware acceleration on the Pi?
+A: Yes, VLC uses hardware acceleration in Raspberry Pi OS.
 
-## VLC media player
+# VLC GUI
 
-- My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
-- How do I open a video file in VLC without using the terminal?
+Q: My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
+A: Right-click the speaker icon in the system tray and select a different audio output.
 
-## `vlc` CLI
+Q: How do I just open a video file without using the terminal?
+A: Double-click the file in the file manager and VLC will launch automatically.
 
-- How do I play a video from the command line?
-- VLC keeps staying open after my video finishes. How do I make it close automatically when it's done?
-- I want to play a video fullscreen from the terminal. Is there a flag for that or something?
+# vlc CLI
 
-## Use `cvlc` to play media without a GUI
+Q: I want VLC to close automatically when the video finishes. Is there a flag for that?
+A: Yes, add the --play-and-exit flag to your vlc command.
 
-- Can I play a video without the VLC window popping up at all?
-- What's the difference between `vlc` and `cvlc`?
+Q: I just want the video to go fullscreen automatically. Is there a flag for that or something?
+A: Yes, add the --fullscreen flag to your vlc command for fullscreen playback.
 
-## Play audio and video on Raspberry Pi OS Lite
+# Use cvlc to play media without a GUI
 
-- Does VLC work on Raspberry Pi OS Lite?
-- I'm on the Lite version and I want to play audio. What do I need to install?
+Q: Can I run VLC without any window popping up at all, just from the command line?
+A: Yes, use cvlc instead of vlc and no GUI will be shown.
 
-## Specify an audio output device
+# Play audio and video on Raspberry Pi OS Lite
 
-- How do I force audio to come out of the headphone jack instead of HDMI?
-- What even is ALSA? Do I need to know about it to change my audio output?
-- How do I see what audio devices are available on my Pi?
+Q: I installed the Lite version and there's no VLC. What do I need to get it?
+A: Install vlc-bin and vlc-plugin-base packages using apt with --no-install-recommends.
 
-## Specify a video output device
+# Specify an audio output device
 
-- How do I make video play on my touchscreen instead of the HDMI?
-- How do I find out what video output devices my Pi has?
+Q: What even is ALSA? Do I need to know about it to pick which speaker my audio goes to?
+A: ALSA is the audio system; pass -A alsa and --alsa-audio-device to choose your output.
 
-## Specify both audio and video output devices
+Q: How do I get a list of all the audio devices available on my Pi?
+A: Run aplay -L | grep sysdefault to list all available ALSA devices.
 
-- Can I send audio to the headphones and video to the touchscreen at the same time?
+Q: What's the ALSA device name I'd use for the headphone jack?
+A: Use sysdefault:CARD=Headphones for the headphone jack output.
 
-## Improve stream playback performance
+# Specify a video output device
 
-- I recorded a video with my Pi camera and playback in VLC is really choppy. Is there a way to fix that?
-- How do I convert a raw H.264 file into an MP4?
+Q: How do I force video to play on my touchscreen instead of the HDMI output?
+A: Use --drm-vout-display DSI-1 to direct video output to the touchscreen.
 
-# Utilities
+Q: How do I see what video output devices my Pi has available?
+A: Run kmsprint | grep Connector to list all available DRM devices.
 
-## `kmsprint`
+# Specify both audio and video output devices
 
-- How do I see what display modes my monitor supports when it's connected to my Pi?
+Q: Wait, can I send audio and video to different outputs at the same time?
+A: Yes, combine --drm-vout-display and -A alsa --alsa-audio-device options together.
 
-## `vcgencmd`
+# Improve stream playback performance
 
-- How do I check the temperature of my Raspberry Pi?
-- How do I find out if my Pi is being throttled because of heat or low voltage?
-- How do I check how much memory my Pi has available for the GPU versus the main processor?
-- How do I check the current clock speed of my Pi's CPU?
+Q: I recorded video with my Pi camera and playback in VLC is choppy. Is there a fix?
+A: Wrap the H.264 stream in an MP4 container using ffmpeg to improve VLC playback.
 
-## `get_throttled`
+# kmsprint
 
-- My Pi seems sluggish. How do I check if it's being throttled?
-- What does it mean if my Pi detects undervoltage?
+Q: How do I find out what display modes my monitor supports when connected to my Pi?
+A: Use kmsprint to see monitor details, or kmsprint -m to list all supported display modes.
+
+# vcgencmd
+
+Q: How do I see all the commands that vcgencmd supports?
+A: Run vcgencmd commands to get a list of all supported commands.
+
+Q: How do I check the temperature of my Pi?
+A: Use vcgencmd measure_temp to read the temperature from the internal sensor.
+
+Q: My Pi seems slow. How do I check if it's being throttled?
+A: Run vcgencmd get_throttled to see the throttle state as a bit pattern.
+
+Q: What does it mean if bit 0 is set in get_throttled output?
+A: Bit 0 means undervoltage has been detected on your Raspberry Pi.
+
+Q: How do I check how much memory my Pi has available for the CPU versus the GPU?
+A: Use vcgencmd get_mem arm for CPU memory and vcgencmd get_mem gpu for GPU memory.
+
+# Accessibility options
+
+Q: Is there a screen reader available for Raspberry Pi OS for visually impaired users?
+A: Yes, Orca screen reader is available through the Recommended Software menu.
+
+Q: Is there a quick shortcut to install the screen reader without digging through menus?
+A: Yes, press Ctrl + Alt + Space to automatically install Orca.
 
 # Use Python on a Raspberry Pi
 
-- I tried to install a Python package with pip and got some weird error about an externally managed environment. What does that mean?
-- Why can't I just install Python packages normally with pip anymore?
-- What's a Python virtual environment and do I actually need one?
-- How do I install a Python library so it's available for everyone on the system, not just in a virtual environment?
+Q: I tried to install a Python package with pip and got an error about externally managed environment. What's going on?
+A: Since Bookworm, pip installs must go into a Python virtual environment, not system-wide.
 
-## Install Python packages using `apt`
+Q: What's the safest way to install Python packages on my Pi?
+A: Use apt for pre-packaged system libraries, or pip inside a virtual environment.
 
-- How do I find Python packages I can install with apt?
-- What's the naming convention for Python packages in apt?
+# Use pip with virtual environments
 
-## Use `pip` with virtual environments
+Q: How do I create a virtual environment for my Python project?
+A: Run python -m venv followed by your chosen environment name to create one.
 
-- How do I create a virtual environment for my Python project?
-- How do I activate a virtual environment once I've created one?
-- How do I leave a virtual environment when I'm done?
-- Should I make one virtual environment per project or one for my whole account?
+Q: How do I actually start using a virtual environment I created?
+A: Run source env/bin/activate from your project folder to enter the virtual environment.
 
-## Use the Thonny editor
+Q: How do I get out of a virtual environment when I'm done?
+A: Run deactivate from any directory to leave the virtual environment.
 
-- How do I use a virtual environment in Thonny instead of the system Python?
+Q: I want my virtual environment to have access to packages I've already installed system-wide. Is that possible?
+A: Yes, pass --system-site-packages flag when creating your virtual environment.
+
+# Use the Thonny editor
+
+Q: I'm using Thonny and want it to use my virtual environment instead of system Python. How do I do that?
+A: Click the interpreter menu in the bottom right of Thonny to select your virtual environment.
 
 # Use GPIO from Python
 
-- What's the easiest way to control GPIO pins with Python?
-- How do I make an LED blink using Python on my Raspberry Pi?
-- How do I read a button press in Python on the Pi?
-- How do I make a button control an LED in Python?
+Q: What Python library should I use to control GPIO pins on my Pi?
+A: Use the GPIO Zero library to easily control GPIO devices with Python.
 
-# Whole Document
+Q: I've got an LED on GPIO17. How do I make it blink with Python?
+A: Import LED from gpiozero, then call led.on() and led.off() in a loop with sleep.
 
-- I just got a Raspberry Pi. Where do I even start with the software?
-- What's the best version of Raspberry Pi OS for a beginner?
-- I want to use my Pi as a media player. What do I need to set up?
-- My Pi seems really slow and hot. What tools can I use to figure out what's going on?
-- I want to do some Python programming on my Pi. What do I need to know before I start?
+Q: What methods are available for controlling an LED with GPIO Zero?
+A: LED methods include on(), off(), toggle(), and blink().

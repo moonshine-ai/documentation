@@ -1,30 +1,79 @@
-# Whole Document
+# OTP register and bit definitions
 
-What's OTP memory on a Raspberry Pi and do I need to worry about it?
-How do I see what's stored in the OTP memory on my Pi?
-Wait, what does "one-time programmable" actually mean? Like once it's written it can never be changed?
-I just want to dump all the OTP contents. What command do I run?
+Q: What even is OTP memory on a Raspberry Pi?
+A: It's a built-in one-time programmable memory block in every Pi's SoC.
+
+Q: How do I actually see what's stored in the OTP memory on my Pi?
+A: Run the command `vcgencmd otp_dump` in your terminal.
+
+Q: How big is the OTP memory, like how many values does it store?
+A: Non-BCM2712 devices store 66 values; BCM2712 devices store 192 values.
 
 # OTP registers on non-BCM2712 devices
 
-How do I know if secure boot is turned on or off on my Pi?
-My Pi 4 ignores the boot mode stuff in OTP — is that normal or did I break something?
-I've got a Compute Module 4 and I want to know if it has Wi-Fi built in. How do I check that from the OTP?
-What's the difference between register 28 and register 29 in OTP? Why does one seem like the opposite of the other?
-I want to know my Pi's serial number. Which OTP register has that?
-There are these customer OTP values — what are those even for? Can regular people use them?
-Where does the revision code live in OTP, and what can I actually do with it?
-I've got a Raspberry Pi 400 and I want to know what keyboard country code it's set to by default. Where do I find that?
-Does the Pi use a custom MAC address if I set one in OTP, or does it just always generate one from the serial number?
-What happens if I try to program OTP twice? Is it actually permanent?
+Q: Which OTP register controls the boot mode on older Pi boards?
+A: Register 17 is the bootmode register on non-BCM2712 devices.
+
+Q: I want to enable USB host booting on my Pi. Which OTP bit do I need?
+A: Register 17, bit 29 enables USB host booting including ethernet and mass storage.
+
+Q: Does the OTP bootmode register work the same on BCM2711 as other Pis?
+A: No, BCM2711 uses the bootloader EEPROM configuration instead of OTP.
+
+Q: Where's the serial number stored in OTP?
+A: Register 28 stores the serial number; register 29 stores its bitwise complement.
+
+Q: My Compute Module 4 — how do I tell from OTP whether it has Wi-Fi fitted?
+A: Check register 33, bit 30; zero means Wi-Fi fitted, one means no Wi-Fi.
+
+Q: How do I check if my Compute Module 4 has eMMC or is the Lite version?
+A: Register 33, bit 31 indicates this; zero means eMMC, one means no eMMC.
+
+Q: Can I temporarily test a different board revision extended value without burning OTP?
+A: Yes, set `board_rev_ext` in `config.txt` to temporarily override it.
+
+Q: Where's the customer OTP area on non-BCM2712 devices?
+A: Registers 36 through 43 are the customer OTP values.
+
+Q: I want to set a custom MAC address on my Pi. Which OTP registers handle that?
+A: Registers 64 and 65 store the MAC address, overriding the auto-generated one.
+
+Q: What's the ETH_CLK frequency options in the advanced boot register?
+A: Bit 25 of register 66 sets it; zero means 25 MHz, one means 24 MHz.
+
+Q: Where does secure boot store its RSA public key hash in OTP?
+A: Registers 47 through 54 store the SHA256 of the RSA public key.
 
 # OTP Registers on BCM2712 devices
 
-I've got a Pi 5 — how do I disable USB booting from OTP?
-Where's the serial number stored on BCM2712 devices? I heard it's split across two registers or something.
-How do I find my Pi's full 64-bit serial number from the operating system without using the OTP dump?
-Where does my Pi 5 get its Wi-Fi MAC address from? Is that in OTP too?
-I want to override the Ethernet MAC address on my Pi 5 with a custom one. Can I do that?
-What's this factory device UUID thing? Is that the same as the serial number or something different?
-Where can I find the UUID in the device tree on a BCM2712 Pi?
-My Pi 5 has a Bluetooth MAC address — where's that stored and how does the OS know about it?
+Q: How do I disable USB booting on a BCM2712 Pi using OTP?
+A: Set bit 12 in register 22 to disable booting from USB.
+
+Q: Where's the full 64-bit serial number stored on BCM2712 devices?
+A: Registers 31 and 35 hold the lower and upper 32 bits respectively.
+
+Q: I want to find my Pi 5's serial number from the filesystem. Where is it?
+A: The full 64-bit serial number is available at `/proc/device-tree/serial-number`.
+
+Q: Where are the Wi-Fi and Bluetooth MAC addresses stored in OTP on BCM2712?
+A: Wi-Fi is in registers 52-53 and Bluetooth is in registers 54-55.
+
+Q: Can I override the factory Ethernet MAC address on a BCM2712 Pi?
+A: Yes, set registers 87-88 with a customer Ethernet MAC address to override it.
+
+Q: What's this factory device UUID in OTP and where can I read it?
+A: It's a 16-digit ID matching the device barcode, readable at `/proc/device-tree/chosen/rpi-duid`.
+
+Q: Where are the customer OTP values on BCM2712 devices?
+A: Registers 77 through 84 are the customer OTP values on BCM2712 devices.
+
+# Whole Document
+
+Q: Does every single register in OTP have public documentation?
+A: No, only publicly available registers are listed; undefined ones are not public.
+
+Q: Are the OTP registers the same between older Pis and the Pi 5?
+A: No, BCM2712 devices have different register layouts and more OTP space available.
+
+Q: Can I use OTP to store my own custom data on a Raspberry Pi?
+A: Yes, there are dedicated customer OTP value registers available on all devices.

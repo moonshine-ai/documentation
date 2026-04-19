@@ -1,97 +1,119 @@
 # Power Supply
 
-What power supply do I need for my Raspberry Pi 4?
+Q: What voltage do all Raspberry Pis need?
+A: All Raspberry Pi models require a 5.1V power supply to operate.
 
-I've got a Raspberry Pi 5 — what's the recommended power supply for it?
+Q: My Pi 4 needs a new power supply. What connector type does it use?
+A: Raspberry Pi 4, Pi 400, and Pi 5 all use a USB-C connector.
 
-Do all Raspberry Pis use the same power connector?
-
-My Pi 3 uses micro USB right? Or is it USB-C?
-
-What's the difference between the connectors on older Pis versus the Pi 4 and 5?
+Q: I've got an older Pi 3. Does it use the same power connector as the Pi 4?
+A: No, Pi 3 and earlier models use a micro USB power connector instead.
 
 # Recommended Power Supplies
 
-I just bought a Pi 3 — what power supply should I get for it?
+Q: What power supply should I get for my Raspberry Pi 5?
+A: Raspberry Pi recommends the 27W USB-C Power Supply for the Pi 5.
 
-Does it matter if I use a generic USB charger instead of the official one?
+Q: I've got a Pi 4. What's the recommended power supply for it?
+A: Raspberry Pi recommends the 3A USB-C Supply made for the Pi 4.
 
-I've got a third-party USB power supply that has multiple ports. Is it okay to plug other stuff into it while my Pi's running?
+Q: Does the Raspberry Pi support USB-PPS charging?
+A: No, no Raspberry Pi models support USB-PPS.
 
-Wait, what happens if I plug something else into my multi-port charger while the Pi is on?
+Q: I'm using a multi-port USB-PD charger and my Pi randomly booted when it was off. What happened?
+A: Plugging another device into a shared USB-PD supply can trigger renegotiation, potentially booting a powered-down Pi.
 
 # Power over Ethernet (PoE) Connector
 
-Can I power my Raspberry Pi through the ethernet cable?
+Q: Can I power my Pi 5 through the ethernet cable?
+A: Yes, the Pi 5 Ethernet jack supports PoE+ using the IEEE 802.3at-2009 standard.
 
-My Pi 4 has an ethernet port — does that mean I can use PoE with it?
+Q: My Pi 4B has an ethernet port. Can I power it over ethernet?
+A: Yes, Pi 4B supports PoE using the IEEE 802.3af-2003 standard, but needs a PoE HAT.
 
-Do I need any extra hardware to use PoE with my Pi?
+Q: Do I need any extra hardware to use PoE on my Pi?
+A: Yes, all PoE-capable Pi models need a HAT to actually draw power through Ethernet.
 
-What's the difference between PoE and PoE plus? Which one does my Pi 5 support?
+Q: Which PoE HAT should I get for a Pi 5?
+A: For Pi 5, which supports PoE+, Raspberry Pi recommends the PoE+ HAT.
 
 # Typical Power Requirements
 
-How many amps does a Raspberry Pi 5 need?
+Q: How much power does a Raspberry Pi Zero use?
+A: The Pi Zero draws about 100mA at idle and needs a 1.2A power supply.
 
-I want to plug a bunch of USB stuff into my Pi — how much power can the USB ports actually provide?
+Q: I'm connecting a bunch of USB devices to my Pi 4. How much current can it give them?
+A: Pi 4 can provide up to 1.2A total to downstream USB peripherals.
 
-I've got a Pi Zero W. How much power does it need?
+Q: My Pi 5 is only giving 600mA to USB devices. Is that a problem with my Pi?
+A: No, Pi 5 limits USB power to 600mA unless your power supply provides 5A at 5V.
 
-My Pi 5 only seems to give 600mA to USB devices. Is that normal or is something wrong?
+Q: How do I check how much power my Pi is giving to its USB ports?
+A: Run the command `vcgencmd get_config usb_max_current_enable` in the terminal.
 
-How much power does the Pi use when it's just sitting there idle?
+Q: I want to connect an external hard drive to my Pi but I'm worried it won't get enough power. What should I do?
+A: Use an externally-powered USB hub for devices that need more current than the Pi provides.
 
-I'm trying to figure out if my power supply is big enough. How much does a Pi 4 draw when it's under heavy load?
+Q: How much current can I safely pull from all the GPIO pins together?
+A: All GPIO pins combined can safely draw 50mA, with each individual pin up to 16mA.
 
-Can I run a USB hard drive off my Pi's USB port, or will it draw too much power?
+Q: How much power does the HDMI port use on a Pi?
+A: The HDMI port consumes 50mA of power.
 
-How much power does the HDMI port use on a Raspberry Pi?
-
-I've got a camera module connected to my Pi. Does that use a lot of power?
-
-How do I check how much current my Pi's USB ports are putting out?
+Q: My camera module isn't working reliably. Could it be a power issue?
+A: Possibly — the Camera Module requires 250mA, so check your power supply is adequate.
 
 # Decrease Raspberry Pi 5 Wattage When Turned Off
 
-My Pi 5 is still using a bunch of power even when it's shut down. Is there a way to fix that?
+Q: My Pi 5 is still using a lot of power even when it's turned off. Is there a way to reduce that?
+A: Yes, edit the EEPROM config with `sudo rpi-eeprom-config -e` and set POWER_OFF_ON_HALT=1.
 
-How do I make my Pi 5 use less electricity when it's turned off?
+Q: How much power does a Pi 5 use when it's shut down normally?
+A: By default, a powered-down Pi 5 consumes around 1W to 1.4W.
 
-What's the lowest power consumption I can get from a Pi 5 when it's not running?
+Q: If I change the EEPROM settings to reduce idle power on my Pi 5, how low can it go?
+A: With the right EEPROM settings, power consumption when off drops to around 0.01W.
 
 # Power Supply Warnings
 
-I keep seeing a low voltage warning in my Pi's logs. What does that mean?
+Q: I'm seeing low voltage warnings in my Pi's logs. What does that mean?
+A: It means your supply voltage dropped below 4.63V, and you should switch to a better power supply.
 
-My Pi's acting really weird and crashing randomly. Could it be a power problem?
+Q: Can a bad power supply actually damage my files?
+A: Yes, low quality power supplies can corrupt storage or cause unpredictable behaviour.
 
-What voltage does the Pi need before it starts throwing low voltage warnings?
+Q: Why would my Pi's voltage keep dropping? I haven't changed anything.
+A: Too many high-demand USB devices, an inadequate supply, or thin power cable wires can cause drops.
 
-Why would my power supply voltage be dropping? I thought I had a good one?
-
-Can a bad power supply actually corrupt my SD card?
+Q: Which Pi models have low voltage detection built in?
+A: All Pi models since the B+ in 2014 have it, except the Zero range.
 
 # Power Supplies and Raspberry Pi OS
 
-How do I check what voltage my Pi is actually getting right now?
+Q: How can I check what the PMIC is actually measuring on my Pi?
+A: Run `vcgencmd pmic_read_adc` to view ADC measurements from the PMIC.
 
-Is there a command I can run to see the power info on my Pi?
+Q: Can I monitor the core voltage on my Pi?
+A: Yes, using `vcgencmd pmic_read_adc` can show useful measurements like core voltage.
+
+Q: Why doesn't the PMIC reading add up to the total wattage of my power supply?
+A: USB current and anything connected directly to 5V bypasses the PMIC, so it won't show up.
 
 # Back-Powering
 
-What's back-powering and should I be worried about it?
+Q: What's back-powering and should I be worried about it?
+A: Back-powering is when a USB hub supplies power back to your Pi, bypassing its protection circuitry.
 
-I've got a powered USB hub connected to my Pi. Could that actually be sending power back into the Pi?
-
-Is it dangerous to use a powered USB hub with a Raspberry Pi?
+Q: I plugged in a powered USB hub and now my Pi seems to be getting power from it. Is that okay?
+A: No, back-powering bypasses Pi's protection circuits, leaving it vulnerable to damage from power surges.
 
 # Whole Document
 
-I just got my first Raspberry Pi and I have no idea what power supply to buy. Where do I start?
+Q: I just bought a Pi 5. What power supply, connector type, and current does it need?
+A: Pi 5 needs a 27W USB-C supply with 5A capacity and uses a USB-C connector.
 
-Can using a cheap phone charger actually damage my Pi?
+Q: Does it matter if I use a cheap power supply with my Pi?
+A: Yes, low quality supplies can corrupt storage and cause unpredictable behaviour on your Pi.
 
-Do I need a special power supply or can I just use whatever USB charger I've got lying around?
-
-My Pi keeps freezing and I don't know why. Could it be the power supply?
+Q: I've got a Pi 3B and a Pi 4. Do they need different power supplies?
+A: Yes, Pi 3 needs a 2.5A micro USB supply and Pi 4 needs a 3A USB-C supply.

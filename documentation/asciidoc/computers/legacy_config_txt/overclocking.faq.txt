@@ -1,33 +1,32 @@
-# Legacy Overclocking Options
-
-# Overclocking
-
-## `never_over_voltage`
-
-What does never over voltage actually do to my Raspberry Pi?
-
-I'm worried about accidentally voiding my warranty. Is there a way to lock down my Pi so it can't be overvolted?
-
-Wait, what's OTP memory? Is that something I need to know about?
-
-So if I set this never over voltage thing, is that permanent? Like can I undo it later?
-
-I want to make sure nobody can mess with my Pi's voltage settings. How do I do that?
-
-## `disable_auto_turbo`
-
-My Raspberry Pi 2 keeps jumping into turbo mode and I don't want it to. How do I stop that?
-
-What even is turbo mode on the Pi 3? Should I be worried about it?
-
-So my GPU is switching into turbo mode on its own. Is there a flag to stop that from happening?
-
-Does turbo mode kick in automatically or do I have to enable it myself?
-
 # Whole Document
 
-I've heard overclocking can void my warranty. Is that true and how does that even work?
+Q: What are these legacy overclocking options actually for?
+A: They prevent overvoltaging and disable automatic GPU turbo mode.
 
-What's the difference between these legacy overclocking options and the regular config dot txt ones?
+Q: I'm trying to overclock my Pi but don't want to void my warranty. What should I know?
+A: Setting `never_over_voltage` locks the device and prevents warranty bit being set.
 
-I'm new to this. Should I be messing with overclocking settings at all, or is it risky for a beginner?
+# `never_over_voltage`
+
+Q: What's OTP memory? Like why does it matter for overclocking?
+A: OTP is one-time programmable memory; changes to it are permanent and irreversible.
+
+Q: I accidentally want to make sure nobody can overvolt my Pi. Is there a setting for that?
+A: Yes, `never_over_voltage` sets a permanent bit preventing any overvoltage on the device.
+
+Q: What does the warranty bit thing mean? Can I lose my warranty from overclocking?
+A: Overvoltaging can set a warranty bit; `never_over_voltage` prevents that from happening.
+
+Q: So if I set `never_over_voltage`, is that reversible or is it permanent?
+A: It's permanent — it writes to one-time programmable memory, which can't be undone.
+
+# `disable_auto_turbo`
+
+Q: My Pi 2 keeps boosting its speed on its own. How do I stop that from happening?
+A: Set `disable_auto_turbo` to stop the GPU automatically moving into turbo mode.
+
+Q: Does the Pi 3 automatically speed itself up under heavy load? Can I turn that off?
+A: Yes, it can; set `disable_auto_turbo` to disable that automatic GPU turbo behaviour.
+
+Q: What exactly triggers turbo mode on a Pi 2 or 3?
+A: The documentation says turbo mode activates under particular loads, without more detail.

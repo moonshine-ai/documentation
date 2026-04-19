@@ -1,41 +1,48 @@
 # Overview
 
-What are the Raspberry Pi audio boards and what do they do?
+Q: What's the difference between all these Raspberry Pi audio boards? I don't know which one to get.
+A: There are four HAT options, each with different features and audio quality levels.
 
-I've got a Raspberry Pi and I want better audio quality. What options do I have from Raspberry Pi themselves?
+Q: Do these audio boards work with any Raspberry Pi?
+A: They fit any Raspberry Pi with a 40-pin GPIO header.
 
-How many audio HATs does Raspberry Pi make?
+Q: I want the best possible audio quality. Which board should I get?
+A: DAC Pro, DAC Plus, or DigiAMP Plus all support up to full HD audio at 192 kHz.
 
-Do these audio boards work with all Raspberry Pi models?
+Q: I'm building something small and I need a microphone built in. Which board has that?
+A: The Codec Zero has a built-in microphone and supports up to 96 kHz audio.
 
-What does HAT actually stand for?
+Q: What's the max audio quality the Codec Zero supports?
+A: Codec Zero supports up to HD audio at 96 kHz sample rate.
 
 # Features at a glance
 
-What's the difference between all the audio boards? I don't know which one to get.
+Q: I want to plug these boards into my existing hi-fi with RCA cables. Which ones have that?
+A: DAC Pro and DAC Plus both have line out via phono RCA connectors.
 
-I want to connect my Raspberry Pi to my existing hi-fi system. Which board should I get?
+Q: Can any of these boards drive regular passive speakers directly?
+A: DigiAMP Plus has stereo speaker outputs for two passive 25-watt speakers.
 
-Can any of these boards drive regular passive speakers directly, or do I need an amplifier?
+Q: I just want to plug headphones in. Which boards support that?
+A: DAC Pro, DAC Plus, and Codec Zero all have headphone output jacks.
 
-I want to record audio with my Raspberry Pi. Which board lets me do that?
+Q: What impedance headphones can these boards handle?
+A: The DAC boards can drive headphones up to 80 or 90 ohms impedance.
 
-What's the highest audio quality I can get from these boards?
+Q: I want to record audio coming in from my phone. Which board lets me do that?
+A: Codec Zero has an aux in input accepting analogue audio up to 1V RMS.
 
-I just need something small and simple with a built-in microphone. Which board is best for that?
+Q: What's the difference between line out and aux out on these boards?
+A: Aux out delivers reduced volume up to 1V RMS versus line out's 2V RMS signal.
 
-Does the Codec Zero support as high a sample rate as the other boards?
+Q: What's the balanced output connector actually for? I've never used one.
+A: It's an XLR connector used in studio setups, high-end hi-fi, and active monitor speakers.
 
-What's the difference between line out and aux out? They both sound like audio outputs.
+Q: I've got an external microphone. Can any of these boards take that?
+A: Codec Zero has a 3.5mm socket for an external electret microphone.
 
-What even is a balanced output? Do I need that for a normal home setup?
+Q: If I plug an external mic into the Codec Zero, does the built-in mic still work?
+A: No, the built-in MEMS microphone is automatically disabled when an external mic is connected.
 
-I've got studio monitor speakers. Which board would connect to those?
-
-My headphones are pretty high impedance. Will these boards actually drive them properly?
-
-If I plug in an external microphone to the Codec Zero, does the built-in mic turn off automatically or do I have to do something?
-
-What's the difference between an external mic input and a built-in mic? Why would I want one over the other?
-
-I want to hook up two regular hi-fi speakers without built-in amps. Which board handles that?
+Q: The DigiAMP Plus has speaker terminals — are those for powered speakers or regular ones?
+A: Those screw terminals are for passive speakers without built-in amplification.

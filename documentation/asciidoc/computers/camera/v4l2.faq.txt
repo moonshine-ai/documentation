@@ -1,24 +1,58 @@
-# Whole Document
+# V4L2 drivers
 
-- "What even is V4L2? Do I need to know about it to use my camera?"
-- "Linux is supposed to load my camera drivers automatically but it's not working. What do I do?"
-- "I'm trying to get my camera working and someone mentioned V4L2 drivers. Where do I start?"
-- "Where can I find more info about using V4L2 drivers?"
+Q: What are V4L2 drivers even for? Like why do I need them?
+A: They provide a standard Linux interface for accessing camera and codec features.
+
+Q: Do I have to manually load the camera drivers or does that happen on its own?
+A: Linux usually loads drivers automatically at boot, but sometimes you load them manually.
+
+Q: I'm having trouble getting my camera to work. Could it be that the driver didn't load automatically?
+A: Yes, in some situations you may need to load camera drivers explicitly.
 
 # Device nodes when using `libcamera`
 
-- "I see all these video devices listed like video0, video10, video11 and I don't know what any of them are. Can you explain what they do?"
-- "What's the difference between video10 and video11?"
-- "Which video device handles encoding?"
-- "I've got two cameras connected. Does each one get its own device node or do they share one?"
-- "What's video12 used for?"
-- "I'm trying to do HEVC decoding. Which device node handles that?"
-- "What's the ISP stuff in the video device list? Like what's video13, video14, video15?"
-- "What does video16 do?"
-- "So video0 and video1 are for CSI-2 receivers — does that mean those are for the camera ribbon cable connectors?"
-- "I have libcamera set up. How do I know which dev video node my camera is on?"
+Q: What's the video0 device actually connected to?
+A: It's the Unicam driver for the first CSI-2 receiver on your Pi.
+
+Q: I've got two camera ports on my Pi. What device node handles the second one?
+A: The second CSI-2 receiver uses the video1 Unicam driver.
+
+Q: Which device node do I use if I want to do video encoding?
+A: Video encoding is handled by the video11 device node.
+
+Q: And what about decoding video, is there a separate node for that?
+A: Yes, video decoding uses the video10 device node.
+
+Q: What does video12 do exactly?
+A: It's a simple ISP that handles RGB/YUV conversion, resizing, and Bayer to RGB/YUV conversion.
+
+Q: What's the difference between video14 and video15?
+A: Video14 gives high resolution ISP output; video15 gives low resolution ISP output.
+
+Q: I want image statistics from the ISP. Which device node gives me that?
+A: Image statistics from the fully programmable ISP come from video16.
+
+Q: Is there a node specifically for HEVC decoding?
+A: Yes, video19 handles HEVC decode.
+
+Q: What's video13 used for?
+A: It's the input node for the fully programmable ISP.
 
 # Use the V4L2 drivers
 
-- "Where do I go to learn how to actually use V4L2?"
-- "I want to use V4L2 directly instead of libcamera. Is there documentation for that somewhere?"
+Q: Where can I actually learn how to use these V4L2 drivers properly?
+A: The official V4L2 documentation at kernel.org has everything you need.
+
+Q: I want to dig deeper into V4L2. Is there any official documentation somewhere?
+A: Yes, check the V4L2 documentation available on the kernel.org website.
+
+# Whole Document
+
+Q: I don't really know what CSI-2 is. Do I need to understand it to use my camera?
+A: Not specified in this section.
+
+Q: So there are like multiple video device nodes on a Pi. How do I know which one my app is using?
+A: Each node has a specific role, like encoding, decoding, or camera input via CSI-2.
+
+Q: What's an ISP and why does the Pi seem to have more than one?
+A: Not specified in this section.

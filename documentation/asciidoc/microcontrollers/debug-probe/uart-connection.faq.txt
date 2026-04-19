@@ -1,37 +1,39 @@
 # Serial connections
 
-How do I wire up the Debug Probe to my Pico? Like which pins go where?
+Q: How do I wire up the Debug Probe to my Pico's UART pins?
+A: Connect GND to pin 3, UART0_TX to pin 1, and UART0_RX to pin 2.
 
-I've got the Debug Probe connected but I'm not sure which GPIO pins are for UART. Which ones is it?
+Q: Which GPIO pins are used for UART0 on the Pico by default?
+A: UART0_TX is GP0 and UART0_RX is GP1 by default.
 
-What's the physical pin number for UART0 transmit on the Pico?
+Q: I connected the Debug Probe but I don't know where the serial port shows up on my computer. Where do I look?
+A: On Raspberry Pi it's `/dev/ttyACM0`; on macOS it appears as `/dev/cu.usbmodemXXXX`.
 
-So once I plug the Debug Probe in, how does my computer actually see the serial connection?
+Q: I've never used minicom before. How do I install it?
+A: Run `sudo apt install minicom` to install it on your system.
 
-I'm on a Mac, not a Raspberry Pi. Will the serial port show up differently?
+Q: What's the command to actually open the serial connection with minicom?
+A: Run `minicom -b 115200 -o -D /dev/ttyACM0` to open the serial port.
 
-I don't have minicom installed. How do I get it?
+Q: I'm stuck in minicom and can't figure out how to quit. Help!
+A: Press CTRL-A followed by X to exit minicom.
 
-What's the command to open the serial port with minicom?
+Q: I want to test if serial is working. What's a good simple program to try?
+A: Build and upload the "Hello World" example from the pico-examples tree.
 
-How do I close minicom when I'm done? I can't figure out how to exit it.
+Q: After I upload the Hello World example and open minicom, what should I see?
+A: You should see "Hello, world!" printed to the console.
 
-I want to test if my serial connection is actually working. What's a simple way to do that?
+Q: I'm on Windows and my COM port number keeps changing every time I plug in. Is that normal?
+A: The unique serial number makes COM port numbering sticky per device on Windows.
 
-How do I build and run the Hello World example to test serial?
-
-I uploaded the hello_serial program but I don't know what to do next to actually see the output. What should I do?
-
-What baud rate should I be using when I open the serial port?
-
-I'm on Windows and every time I plug in a different device it gets a new COM port number. Is there a way to make it stick to the same one?
-
-What's a CDC UART? I don't really know what that means — is it just a fancy name for a serial port?
-
-Do I need to set the PICO_SDK_PATH every time or just once?
+Q: What baud rate do I need to use when connecting to the Pico's serial output?
+A: Use 115200 baud when opening the connection with minicom.
 
 # Whole Document
 
-What even is a Debug Probe and why would I need one for my Pico?
+Q: I'm totally new to this. What's the point of the Debug Probe for serial stuff?
+A: It relays UART traffic from your Pico and exposes it as a CDC UART on your computer.
 
-I'm totally new to this — what's the point of a serial connection to the Pico? What can I do with it?
+Q: Where can I find a full guide to building the hello serial example from scratch?
+A: Chapter 4 of "Getting Started with Raspberry Pi Pico" covers the full walkthrough.

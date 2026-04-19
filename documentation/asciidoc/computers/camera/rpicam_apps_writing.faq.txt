@@ -1,35 +1,60 @@
-# Whole Document
+# Write your own `rpicam` apps
 
-- I want to build my own camera app using the Raspberry Pi camera libraries. Where do I even start?
-- What's a CompletedRequest and why do I keep seeing it everywhere in the camera code?
-- I'm writing a custom camera app and it keeps freezing up or running out of buffers. What's going on?
-- Why do I need to recycle buffers? Can't the camera just handle that automatically?
-- I've looked at the rpicam apps source code and it's pretty confusing. Which one's the simplest to start with?
+Q: I want to build my own camera app. Where should I even start?
+A: Start with `rpicam-hello`, the smallest and simplest `rpicam-apps` example.
+
+Q: What's a CompletedRequest? I keep seeing it in the code.
+A: It contains all images from one camera frame plus camera and post-processing metadata.
+
+Q: Why does my camera seem to run out of buffers after a while?
+A: CompletedRequests must be recycled; unreferenced ones are automatically returned via shared pointers.
+
+Q: I don't get why buffers need recycling. What happens if they don't get recycled?
+A: The camera runs out of buffers for new frames if old ones aren't recycled.
 
 # `rpicam-hello`
 
-- I want to understand how the camera preview works under the hood. What's the simplest example I can look at?
-- What's a shared pointer and why does it matter when I'm writing camera code for the Pi?
-- My camera app keeps running out of buffers. How does the buffer recycling actually work?
-- What's CompletedRequestPtr? Is that just a pointer to the frame data or something more?
-- I don't understand when the buffer gets freed. Does it happen automatically or do I have to do it myself?
+Q: How does rpicam-hello actually work at a basic level?
+A: It extracts a CompletedRequestPtr from a message and forwards it to the preview window.
+
+Q: When does rpicam-hello actually free up the buffer it's using?
+A: When both the event loop discards the message and the preview thread discards its reference.
+
+Q: Does rpicam-hello do anything special to recycle memory, or is that automatic?
+A: Recycling happens automatically using C++ shared pointers and custom deleters.
 
 # `rpicam-vid`
 
-- I want to write an app that records video and does something custom with each encoded frame. How does that work?
-- What's this callback thing in rpicam-vid? Like, when does it actually fire?
-- My custom video app isn't freeing memory properly. Could it be because the encoder is still holding onto the buffer?
-- Why does rpicam-vid need three different things to all let go of the buffer before it gets recycled?
+Q: How does rpicam-vid differ from rpicam-hello?
+A: rpicam-vid adds encoding to the event loop using a callback configured before the loop starts.
+
+Q: Where does the encoded video actually go in rpicam-vid?
+A: The encoded buffer goes to an Output object, which writes to a file or streams it.
+
+Q: Why can't rpicam-vid recycle buffers as quickly as rpicam-hello?
+A: Buffers can't recycle until the event loop, preview window, and encoder all discard references.
 
 # `rpicam-raw`
 
-- What's a NullEncoder? That sounds like it doesn't do anything — what's the point of it?
-- I want to grab raw uncompressed frames from the camera. How does rpicam-raw handle that without actually encoding anything?
-- Why doesn't rpicam-raw show a preview? Is that by design?
-- I'm trying to process raw frames in my own app. Should I bother using a NullEncoder or just send images straight to the output?
+Q: What's a NullEncoder? I see it mentioned in rpicam-raw.
+A: NullEncoder uses the input image directly as output instead of encoding it with a codec.
+
+Q: Does rpicam-raw show a preview while it's recording?
+A: No, rpicam-raw doesn't forward anything to the preview window.
+
+Q: Why does rpicam-raw use NullEncoder instead of just sending images straight to output?
+A: NullEncoder keeps heavy work off the event loop by handling processing in other threads.
+
+Q: How does rpicam-raw make sure a buffer isn't overwritten before it's been saved?
+A: NullEncoder only discards its buffer reference after the output callback fully completes.
 
 # `rpicam-jpeg`
 
-- How does rpicam-jpeg switch from showing the preview to actually taking the photo? Does it just grab a frame mid-preview?
-- My camera app needs to do a preview first and then capture a still. How does the official jpeg app handle that switch?
-- Does rpicam-jpeg capture multiple frames or just the very first one it gets after switching to still mode?
+Q: How does rpicam-jpeg capture a photo? Like what's the sequence of steps?
+A: It runs preview mode, then stops, switches to still capture, restarts, and saves the first frame.
+
+Q: Does rpicam-jpeg grab multiple frames or just one when it takes a picture?
+A: It grabs only the first frame returned from still mode and saves it as a JPEG.
+
+Q: What happens right before rpicam-jpeg actually takes the photo?
+A: When the timer completes, it stops the preview and switches to still capture mode.

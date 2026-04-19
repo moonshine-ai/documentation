@@ -1,36 +1,63 @@
-# Whole Document
-
-- Wait, what even is the AI Kit? Is it the same as the AI HAT?
-- I've got an AI Kit but I can't find it on the store anymore. Is it discontinued or something?
-- Does the AI Kit work with any Raspberry Pi or just the Pi 5?
-
 # Hardware
 
-- What's actually in the box when you get the AI Kit?
-- What's an NPU? Like do I need to know what that means to use this thing?
-- How fast is the Hailo chip that comes with it? I've heard people talk about TOPS but I don't really know what that means.
-- Do I need to buy anything else to get this working, or does the kit come with everything?
-- I don't have an Active Cooler. Do I absolutely need one or is it just recommended?
-- What screwdriver do I need? I don't want to go buy the wrong one.
+Q: What's actually in the AI Kit box when I get one?
+A: It includes M.2 HAT+, Hailo AI module, thermal pad, mounting hardware, and GPIO header.
+
+Q: Does the AI Kit work with any Raspberry Pi or just the Pi 5?
+A: The AI Kit is designed specifically for use with Raspberry Pi 5.
+
+Q: What's the performance like on that Hailo chip inside the AI Kit?
+A: The Hailo-8L chip delivers thirteen tera-operations per second for neural network inference.
+
+Q: Do I need to buy anything else besides the AI Kit to get it working?
+A: You also need a Raspberry Pi 5, a Phillips crosshead screwdriver, and optionally a cooler.
+
+Q: What size is the Hailo AI module? I'm trying to figure out if it fits.
+A: The Hailo AI module uses an M.2 2242 form factor.
 
 # Step 1. Mount an Active Cooler (recommended)
 
-- My Pi 5 already has a cooler on it. Do I still need to do this step?
-- How do I know if I've clicked the push pins in properly? Like what am I feeling for?
-- I accidentally removed the cooler after fitting it. Is that a big deal?
-- Do I need to peel anything off the thermal pads before I stick the cooler on?
-- Where does the fan cable plug in on the Pi 5?
+Q: Do I need the Active Cooler or can I skip it?
+A: It's recommended but optional; skip it if your Pi 5 already has one mounted.
+
+Q: How do I actually attach the cooler to my Pi 5? I've never done this before.
+A: Remove pad covers, align push pins with heatsink holes, press down until they click.
+
+Q: I put the cooler on but I'm not sure if it's secure. How do I know it's properly attached?
+A: Ensure the push pins are undamaged and securely clipped to the Raspberry Pi 5.
+
+Q: Can I take the cooler off later if I need to?
+A: Removing the cooler degrades push pins and thermal pads, potentially causing product damage.
 
 # Step 2. Mount the M.2 HAT+
 
-- Which holes do the spacers go in? I don't want to screw them in the wrong place.
-- Does it matter which way round the GPIO stacking header goes?
-- The ribbon cable has metallic contacts on it. Which way do they face when I'm inserting it into the Pi?
-- I'm nervous about the ribbon cable connector. How do I open it without breaking it?
-- Can I plug in the HAT while the Pi is still powered on, or do I need to shut it down first?
-- I got the HAT mounted but forgot to connect the ribbon cable first. Do I have to take it all apart again?
+Q: Which way do I insert the ribbon cable into the Pi? I don't want to break anything.
+A: Insert with metallic contact points facing inwards, toward the USB ports.
+
+Q: Do I have to turn off my Pi before connecting anything to the M.2 slot?
+A: Always disconnect your Raspberry Pi from power before connecting or disconnecting M.2 devices.
+
+Q: The GPIO header — does it matter which direction I put it on?
+A: Orientation doesn't matter as long as all GPIO pins are correctly aligned and inserted.
+
+Q: How do I get the ribbon cable out of the HAT to start with?
+A: Slide retaining clips outward from both sides of the PCIe connector, then gently pull.
 
 # Next steps: Run AI models
 
-- Okay I've got it all put together. Now what? How do I actually run something on it?
-- Where can I find example AI models to try out on my Pi 5?
+Q: Okay I've got it all assembled. Now what do I do to actually run AI stuff on my Pi?
+A: Check the AI software section for guidance on running AI-accelerated visual models.
+
+Q: Where can I find what AI models are available to try out?
+A: Hailo's Model Explorer website lists available example models you can try.
+
+# Whole Document
+
+Q: Wait, is the AI Kit still being sold? I've been trying to find one.
+A: The Raspberry Pi AI Kit is no longer in production; use an AI HAT instead.
+
+Q: What's the difference between the AI Kit and the AI HAT plus?
+A: The Hailo-8L variant of AI HAT+ is functionally equivalent to the discontinued AI Kit.
+
+Q: I've got an AI Kit already installed. Is this page still useful to me?
+A: This page exists for reference purposes only, for existing AI Kit users.

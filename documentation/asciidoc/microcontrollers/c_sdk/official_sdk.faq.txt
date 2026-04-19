@@ -1,20 +1,31 @@
-# Whole Document
-
-- I want to start coding for the Pico in C. Where do I even begin?
-- What IDEs can I use with the Pico C SDK? Like can I use VS Code?
-- Is the Pico SDK free and open source or do I have to pay for anything?
-- I've never done microcontroller programming before. Is there a getting started guide or something?
-- Where can I find example projects for the Pico?
-
 # Raspberry Pi Pico C/C++ SDK
 
-- I don't want to use the command line. Can I code for the Pico in something like Visual Studio Code instead?
-- Where do I download the C SDK for the Pico?
-- I'm not building for a regular Pico, I've got a Pico W. Do I need to do anything different when compiling?
-- I'm using an Adafruit Feather RP2040 board, not an actual Raspberry Pi Pico. Can I still use the Pico SDK with it, and how?
-- Wait, how do I tell CMake which board I'm building for? Like if it's not the standard Pico?
-- I want to connect my Pico W to wifi. Is there extra stuff I need to pass when building?
-- Where's the API documentation for the C SDK? Like the full list of functions and libraries?
-- I want to look at the SDK source code itself. Is that available somewhere?
-- What's the difference between all these different docs? There's like a getting started guide, an SDK reference, API docs... which one do I actually need?
-- I've got a third party RP2040 board, not made by Raspberry Pi. How do I know what name to use for the PICO_BOARD flag?
+Q: Can I use Visual Studio Code with the Pico C SDK or do I need something else?
+A: Yes, the C SDK works with Visual Studio Code, Eclipse, and CLion.
+
+Q: Where do I even start with the C SDK for Pico? Like what do I download first?
+A: Download the C SDK and examples, then check the getting started documentation.
+
+Q: I want to code in C for my Pico W and connect it to WiFi. Is there a guide for that?
+A: Yes, there's a guide called "Connecting to the Internet with Raspberry Pi Pico W."
+
+Q: Is the Pico SDK source code available somewhere, like on GitHub?
+A: Yes, the SDK source code is open source on the pico-sdk GitHub repository.
+
+Q: I'm not building for a regular Pico, I've got an Adafruit Feather RP2040. How do I set that up?
+A: Pass `-DPICO_BOARD=adafruit_feather_rp2040` to CMake when building your application.
+
+Q: How do I build stuff for the Pico W instead of the regular Pico?
+A: Pass `-DPICO_BOARD=pico_w` to CMake when building your application.
+
+Q: I need to connect my Pico W to my WiFi network during the build. How do I pass in my password?
+A: Pass `-DWIFI_SSID="Your Network"` and `-DWIFI_PASSWORD="Your Password"` to CMake.
+
+Q: Where can I find example projects for the Pico C SDK?
+A: Example projects are available in the pico-examples repository on GitHub.
+
+Q: Can I just use the command line with the C SDK or do I need an IDE?
+A: You can use the C SDK from the command line or from popular IDEs.
+
+Q: Where do I find a list of supported boards for the Pico SDK?
+A: Check the `boards/` directory in the Raspberry Pi Pico SDK on GitHub.

@@ -1,143 +1,168 @@
 # Introduction
 
-How does Raspberry Pi keep its kernel up to date, like does it just follow Linux exactly?
+Q: Where does Raspberry Pi keep its kernel source code?
+A: The Raspberry Pi kernel is hosted on GitHub at raspberrypi/linux.
 
-Why does the Raspberry Pi kernel lag behind the main Linux kernel?
+Q: Does the Pi kernel always match the latest Linux kernel?
+A: No, updates lag behind upstream Linux; Raspberry Pi integrates long-term releases.
 
-What's the difference between the Raspberry Pi kernel and the upstream Linux kernel?
+Q: How does Raspberry Pi decide when to update the main kernel branch?
+A: After extensive testing and discussion, they merge the next branch into main.
 
 # Update
 
-How do I update my Raspberry Pi's kernel?
+Q: My Pi's kernel seems outdated. Does it update automatically or do I have to do something?
+A: The normal Raspberry Pi OS update process automatically updates your kernel.
 
-Does the kernel update automatically when I do a normal system update?
-
-I want to try the latest test kernel even if it's unstable. How do I do that?
+Q: I want to try a newer kernel that's not fully stable yet. How do I get that?
+A: You can manually update to the latest unstable test kernel using rpi-update.
 
 # Build the kernel
 
-What's the difference between native builds and cross-compilation when it comes to building the kernel?
+Q: What's the difference between a native build and cross-compilation? I keep seeing both terms.
+A: Native builds compile on the target device; cross-compilation builds for a different target.
 
-Can I build a 64-bit kernel from a 32-bit OS or do I need matching versions?
-
-I want to build the kernel from my laptop instead of on the Pi itself. Is that possible?
+Q: Can I build a 64-bit kernel from my 32-bit Pi?
+A: Yes, cross-compilation lets you build a 64-bit kernel from a 32-bit OS.
 
 # Download kernel source
 
-How do I download the Raspberry Pi kernel source code?
+Q: I want to build the kernel but I don't know where to start. What do I need first?
+A: First install Git, then clone the Raspberry Pi kernel source from GitHub.
 
-Do I need Git to get the kernel source, and how do I install it?
+Q: The git clone is taking forever. Is there a faster way to just grab what I need?
+A: Use the --depth=1 flag to download only the current branch without full history.
 
-I just want to grab the source quickly without all the history. What's the fastest way to do that?
-
-Can I download a specific branch of the kernel source instead of the main one?
+Q: I want a specific branch of the kernel, not just the default one. How do I do that?
+A: Add --branch and the branch name to the git clone command with --depth=1.
 
 # Natively build a kernel
 
-What packages do I need to install before I can build the kernel natively on my Pi?
+Q: I'm building the kernel right on my Pi. What packages do I need to install first?
+A: Install bc, bison, flex, libssl-dev, and make as build dependencies.
 
-I've got a Pi 4 and I want to build a 64-bit kernel. What commands do I run to set that up?
+Q: I've got a Pi 4 and I want to build a 64-bit kernel natively. What commands do I run?
+A: Set KERNEL=kernel8 and run make bcm2711_defconfig inside the linux directory.
 
-I'm confused — which defconfig do I use for my Pi model? I've got a Pi Zero W.
+Q: What command do I use to build a 64-bit kernel natively?
+A: Run make -j6 Image.gz modules dtbs to build a 64-bit kernel.
 
-Wait, so the 32-bit version of Raspberry Pi OS on a Pi 4 actually uses a 64-bit kernel? How does that work?
+Q: Building the kernel is so slow on my Pi. Is there anything I can do to speed it up?
+A: Use make -j with 1.5 times your processor count to use multiple cores.
+
+Q: How do I find out how many processors my Pi has for the make command?
+A: Run nproc to see how many processors your device has.
 
 # Customise the kernel version using `LOCALVERSION`
 
-What's LOCALVERSION and why would I want to set it?
+Q: I built my own kernel and now it's overwriting my existing modules. How do I stop that?
+A: Adjust LOCALVERSION in .config to give your custom kernel a unique version name.
 
-How do I stop my custom kernel from overwriting my existing kernel modules?
-
-I want to see my custom kernel name when I run uname. How do I set that up?
-
-# Build
-
-How long does building the kernel actually take on a Pi?
-
-What's that `-j6` flag in the make command? Should I change that number?
-
-How do I know how many cores to use when building the kernel to make it go faster?
-
-What's the command to build a 64-bit kernel once I've got everything set up?
+Q: I want to see my custom kernel name when I run uname. How do I set that up?
+A: Change the CONFIG_LOCALVERSION line in .config to include your custom name.
 
 # Install the kernel
 
-How do I install my newly compiled kernel on my Pi?
+Q: I've compiled the kernel. Now how do I actually get it onto my Pi?
+A: Install modules with modules_install, then copy kernel image and device tree blobs to boot.
 
-Should I back up my old kernel before installing the new one? How do I do that?
+Q: Should I back up my old kernel before installing the new one I compiled?
+A: Yes, copy the existing kernel image to a backup file before installing the new one.
 
-I don't want to overwrite my current kernel in case the new one doesn't boot. Can I keep both?
+Q: I don't want to overwrite my working kernel in case my new one breaks. Is there another way?
+A: Copy the kernel with a different filename and set the kernel= entry in config.txt.
 
-How do I tell my Pi to boot from my custom kernel image instead of the default one?
-
-After installing a custom kernel, I want to be able to quickly go back to the stock one if it breaks. How do I set that up?
+Q: After installing my compiled kernel, how do I actually boot into it?
+A: Run sudo reboot to restart and load the freshly-compiled kernel.
 
 # Cross-compile the kernel
 
-What do I need to install on my Linux PC to cross-compile the Pi kernel?
+Q: I want to cross-compile on my laptop. What do I need to install?
+A: Install bc, bison, flex, libssl-dev, make, libc6-dev, libncurses5-dev, and a toolchain.
 
-I want to build a 64-bit kernel from my laptop. What toolchain do I need?
+Q: I'm cross-compiling a 64-bit kernel. Which toolchain package do I need?
+A: Install crossbuild-essential-arm64 for building a 64-bit kernel.
 
-# Install the kernel (cross-compiled)
+Q: Which Linux distro should I use as my cross-compilation host?
+A: Ubuntu is recommended since compilation commands are similar to Raspberry Pi OS.
 
-How do I find which device is my SD card when I'm installing a cross-compiled kernel from my PC?
+# Install the kernel (cross-compile)
 
-I've cross-compiled the kernel. Now how do I actually get it onto my SD card?
+Q: I've cross-compiled my kernel. How do I find out which device is my SD card?
+A: Run lsblk before and after inserting the SD card to identify the new device.
 
-How do I mount my Pi's SD card partitions on my Linux laptop so I can copy the kernel over?
+Q: After cross-compiling, how do I mount the SD card to copy the kernel over?
+A: Mount the FAT32 partition to mnt/boot and root partition to mnt/root.
 
 # Configure the kernel
 
-What's menuconfig and how do I use it to change kernel settings?
+Q: I want to change some kernel settings. What's the easiest way to do that?
+A: Use the make menuconfig interface to configure kernel options graphically.
 
-I want to enable something in the kernel that's not on by default. How do I do that?
+Q: How do I navigate around in menuconfig? I can't figure out the controls.
+A: Use arrow keys to navigate, Enter to enter submenus, and Escape twice to go back.
 
-Is it risky to mess with kernel config options? Like can I brick my Pi?
+Q: I'm in menuconfig and I want to toggle something on or off. How do I do that?
+A: Press the space bar to toggle the state of a binary option.
 
-How do I navigate around in menuconfig? I'm not sure how to use it.
+Q: I keep accidentally breaking my kernel config. Any advice for beginners?
+A: Start small and get comfortable with the process before enabling or disabling many things.
 
-How do I save my changes in menuconfig?
+Q: Where does menuconfig save my changes when I'm done?
+A: By default it saves to the .config file in the kernel source directory.
+
+Q: I need to install menuconfig but I'm missing something. What package do I need?
+A: Install libncurses5-dev to get the headers menuconfig needs to compile.
 
 # Patch the kernel
 
-Why would I need to patch the kernel? What's a use case for that?
+Q: How do I check which version of the kernel I'm currently running?
+A: Run uname -r to see the kernel version currently running on your device.
 
-How do I check what version of the kernel I'm running?
+Q: Why would I even want to patch the kernel? What's that useful for?
+A: Patches can support new hardware or enable features like a fully pre-emptible real-time kernel.
 
-How do I apply a patch file to the kernel source?
+Q: I've got a patch file downloaded. How do I actually apply it?
+A: Use the patch utility with cat patch-file | patch -p1 to apply it.
 
-What's a patchset and how is it different from a regular patch file?
-
-I've got a patch in mailbox format. How do I apply that?
+Q: What if the patches I got are a whole folder of files instead of one file?
+A: If patches are in mailbox format, use git am to apply the whole folder at once.
 
 # Kernel headers
 
-What are kernel headers and why do I need them?
+Q: I'm trying to compile a kernel module and it's failing. Do I need the kernel headers?
+A: Yes, kernel headers provide function and structure definitions needed to compile modules.
 
-I want to compile a kernel module. Do I need to clone the whole kernel or can I just install the headers?
+Q: What's the easiest way to get kernel headers on a 64-bit Raspberry Pi OS?
+A: Run sudo apt install linux-headers-rpi-v8 to install the headers.
 
-How do I install the kernel headers on my Pi?
+Q: I installed the kernel headers but nothing seemed to happen. Is that normal?
+A: Yes, installation can take several minutes with no progress indicator shown.
 
-I'm on 64-bit Raspberry Pi OS. What's the command to get the kernel headers?
-
-The apt version of the kernel headers might be out of date. How do I get the latest ones?
+Q: My Pi just got a new kernel. Will the apt kernel headers package match it right away?
+A: No, it can take several weeks for the apt package to reflect the latest kernel version.
 
 # Contribute
 
-I fixed a bug that's specific to the Raspberry Pi. How do I submit that fix?
+Q: I fixed a bug that's specific to the Raspberry Pi. Where do I send that?
+A: Submit a pull request to the Raspberry Pi kernel repository on GitHub.
 
-I wrote a driver that works on any Linux device, not just Pi. Where do I submit that?
+Q: I wrote a new Linux driver that works on any system, not just Pi. Where does that go?
+A: Submit it to the upstream Linux kernel first, then it'll eventually reach the Pi kernel.
 
-How do I contribute code to the Raspberry Pi kernel on GitHub?
+Q: How do I submit changes to the Linux kernel? Is it through GitHub like the Pi kernel?
+A: No, Linux kernel development happens on mailing lists, not GitHub; submit changes as patches.
 
-How does Linux kernel development work? Is it on GitHub like the Pi stuff?
+Q: I submitted a change to the upstream Linux kernel. Will it automatically get into the Pi kernel?
+A: Once tested for compatibility with the Raspberry Pi kernel, your changes reach a stable release.
 
 # Whole Document
 
-I've never built a kernel before. Where do I even start?
+Q: I just got a Pi and I want to try building my own kernel. Where do I even begin?
+A: Install Git, clone the kernel source, install build dependencies, then configure and build.
 
-What's the easiest way to build a custom kernel for my Raspberry Pi?
+Q: Can I build a kernel for my Pi 5 the same way as for a Pi 4?
+A: No, Pi 5 uses kernel_2712 and bcm2712_defconfig, while Pi 4 uses different settings.
 
-I just want to know — do I really need to compile my own kernel or is there a simpler way to update it?
-
-If my custom kernel doesn't boot, how do I recover and get back to a working kernel?
+Q: I'm nervous about messing up my working kernel. Is there a safe way to test a custom one?
+A: Save the kernel with a different filename and select it in config.txt, keeping the original safe.

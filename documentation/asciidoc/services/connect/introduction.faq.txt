@@ -1,31 +1,31 @@
 # Introduction
 
-What is Raspberry Pi Connect?
+Q: What even is Raspberry Pi Connect? Like what does it actually do?
+A: It lets you securely access your Raspberry Pi from anywhere worldwide.
 
-I've heard I can access my Pi from anywhere — how does that work?
+Q: Do I need to install Connect or does it come already on my Pi?
+A: Connect comes pre-installed on Raspberry Pi OS Desktop and Full versions.
 
-Does Raspberry Pi Connect come pre-installed or do I have to install it myself?
+Q: I'm running Raspberry Pi OS Lite. Do I get Connect on that too?
+A: Yes, but only the Lite variant, which supports remote shell access only.
 
-I'm running the Lite version of Raspberry Pi OS. Can I still use Connect or do I need the full desktop version?
+Q: Wait, so the Lite version of Connect can't do screen sharing?
+A: Correct, the Lite Connect variant only supports remote shell access.
 
-I've got the Lite version of OS — what's the difference between that version of Connect and the regular one?
+Q: How do I actually use Connect once it's set up? Where do I go?
+A: Visit connect.raspberrypi.com to access your Pi's desktop or shell.
 
-So with the Lite variant of Connect, I can't see my desktop remotely at all?
+Q: Is Connect secure? I don't want random people accessing my Pi.
+A: Yes, Connect uses a secure encrypted connection between your Pi and browser.
 
-How do I actually start using Raspberry Pi Connect? Like what's the first thing I need to do?
+Q: My Pi and browser can't connect directly. Does that mean it just won't work?
+A: No, Connect falls back to a relay server when a direct connection fails.
 
-Is Raspberry Pi Connect secure? I don't want random people accessing my Pi.
+Q: I've got an older Pi running an older OS. Will Connect work on it?
+A: Connect requires Raspberry Pi OS Bookworm or later to work.
 
-Does my data go through Raspberry Pi's servers when I use Connect?
+Q: What's the first thing I need to do to get Connect working?
+A: You need to link your device with a Connect account first.
 
-What happens when Connect can't make a direct connection between my browser and my Pi?
-
-What does Raspberry Pi do with my data when it has to use a relay server?
-
-My Pi is in another room and I want to access it from my laptop browser. Can Connect do that?
-
-What version of Raspberry Pi OS do I need to run Connect? I'm not sure if mine is new enough.
-
-I'm still on Buster or Bullseye — will Connect work for me?
-
-Do I need to make an account somewhere to use Raspberry Pi Connect?
+Q: I heard Connect uses a relay server sometimes. Does Raspberry Pi store my data then?
+A: Only metadata needed to operate Connect is retained in relay situations.

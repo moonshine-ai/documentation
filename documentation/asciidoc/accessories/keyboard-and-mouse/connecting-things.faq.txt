@@ -1,17 +1,22 @@
 # Connecting it all Together
 
-- I've got the keyboard, the mouse, and the Pi all here. What's the best way to hook everything up?
-- Does it matter which USB port the keyboard plugs into on the Pi?
-- Wait, should the power supply go into the Pi directly or into the keyboard hub?
-- I plugged the power into the keyboard and now my Pi's acting weird. Is that the problem?
-- My keyboard has a built-in USB hub. Can I use that for plugging in USB drives?
-- Is there a recommended way to set all this up so the cables aren't a mess?
-- Can I use the mouse either left or right handed with the official setup?
-- Does the official mouse cable reach far enough to use it comfortably?
+Q: Where should I plug in the power supply, into the Pi or the keyboard?
+A: Always connect the power supply directly to the Raspberry Pi itself.
 
-# Whole Document
+Q: Does it matter which order I connect things? Like can I just plug power into the keyboard hub?
+A: No, plugging power into the keyboard causes the keyboard to not work correctly.
 
-- I just got the official Raspberry Pi keyboard and mouse. How do I set everything up?
-- What's the right way to connect the official keyboard, mouse, and Pi together?
-- I've got the Pi keyboard with the little hub on it. What should I plug in where?
-- Does it matter how I connect everything or can I just plug things in wherever?
+Q: I've got the official keyboard with the built-in hub — what's that hub actually useful for?
+A: The keyboard hub gives you easy access to plug in USB drives.
+
+Q: Why is the mouse cable long on the official mouse? Is there a reason for that?
+A: The cable is long enough to use the mouse left- or right-handed comfortably.
+
+Q: I'm setting up my Pi with the official keyboard and mouse. What's the recommended way to connect everything?
+A: Connect power to the Pi, keyboard to the Pi, and mouse through the keyboard hub.
+
+Q: Wait, so the keyboard goes into the Pi, not the other way around? I'm confused about the setup.
+A: Yes, the keyboard connects to the Raspberry Pi, not the Pi to the keyboard.
+
+Q: I plugged power into the keyboard hub and now my keyboard isn't working right. What did I do wrong?
+A: Power must go to the Pi directly; powering via the keyboard causes incorrect keyboard operation.

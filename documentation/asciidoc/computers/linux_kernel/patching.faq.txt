@@ -1,22 +1,41 @@
-# Whole Document
-
-- I want to add support for some new hardware to my Pi's kernel. Do I need to apply patches for that?
-- What's a patchset and why would I need one?
-- I'm trying to get my Pi working for real-time stuff. Is there a way to do that with kernel patches?
-
 # Identify your kernel version
 
-- How do I check what version of the kernel my Pi is running?
-- I've got the kernel source downloaded but I'm not sure what version it is. How do I find out?
-- Wait, do I need to check my kernel version before patching it or can I just go ahead?
-- The `uname -r` command and the Makefile both show versions — which one do I actually need to look at?
+Q: How do I check what version of the kernel I'm running on my Pi?
+A: Run `uname -r` in the terminal to see your current kernel version.
+
+Q: I've downloaded some kernel source code and I'm not sure what version it is. How do I check?
+A: Run `head Makefile -n 4` in the kernel source directory to check.
+
+Q: What does the output of that Makefile command actually tell me about the version?
+A: It shows VERSION, PATCHLEVEL, and SUBLEVEL numbers that make up the version.
+
+Q: Why should I bother checking the kernel version before patching? Does it really matter?
+A: Always check first to ensure your patches match your exact kernel version.
 
 # Apply patches
 
-- I downloaded a patch file for my kernel. How do I actually apply it?
-- The patch I got is a `.gz` file. Do I need to unzip it before I can use it or does the patch command handle that?
-- Someone gave me a folder full of patch files instead of just one. How do I apply all of those?
-- I'm trying to apply mailbox patches with Git but it's throwing errors. Do I need to set up my name and email first or something?
-- How do I use `wget` to grab a kernel patch and apply it all in one go?
-- The patch distributor said I need to patch against a specific commit. What does that even mean and should I be worried about it?
-- I'm not sure if I should use `patch` or `git` for my patches. How do I know which one to use?
+Q: I've got a patch file I downloaded and I want to apply it. How do I do that?
+A: Download, uncompress with gunzip, then apply it using the `patch` utility.
+
+Q: What's mailbox format? I keep seeing that when looking at kernel patches.
+A: It's a folder containing multiple patch files, applied using Git.
+
+Q: I need to set up Git before applying mailbox patches. What info does it need?
+A: Configure Git with your name and email using `git config --global` commands.
+
+Q: What's the actual command to apply mailbox patches once Git is set up?
+A: Run `git am -3 /path/to/patches/*` to apply mailbox formatted patches.
+
+Q: Do I always just apply a patch the same way or does it depend on who made it?
+A: Always follow the patch distributor's instructions, as some require specific steps.
+
+# Whole Document
+
+Q: Why would I even want to patch my Pi's kernel in the first place?
+A: Patches can support new hardware or enable real-time kernel usage on Pi.
+
+Q: I want a real-time kernel on my Pi. Is that actually possible?
+A: Yes, patchsets exist specifically to enable a fully pre-emptible real-time kernel.
+
+Q: So hardware makers send out kernel patches too? What's that about?
+A: They provide patches temporarily to support new hardware before it's officially included.

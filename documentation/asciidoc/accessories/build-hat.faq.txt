@@ -1,77 +1,221 @@
-# Whole Document
-
-- What even is the Build HAT? Is it like a LEGO controller for my Raspberry Pi?
-- Does the Build HAT work with my Pi Zero?
-- Can I use the Build HAT with Python or do I have to use something else?
-- I've got a Raspberry Pi 5, will the Build HAT work with it?
-- Do I need to buy a separate power supply for the Build HAT or can I just use the one I already have for my Pi?
-- What LEGO sensors actually work with this thing?
-- I'm running Raspberry Pi OS Trixie, will the Build HAT work?
-
 # About
 
-- How many motors can the Build HAT control at once?
-- Is the power supply included when I buy the Build HAT or do I need to get it separately?
-- What's the difference between the SPIKE Prime Set 45678 and the expansion set?
-- Can I still access the GPIO pins when the Build HAT is attached?
-- I've got a Raspberry Pi 400, can I use the Build HAT with that?
-- What's that little chip on the Build HAT that handles the motor stuff?
+Q: What's the Build HAT actually for? Like what does it do?
+A: It lets you control LEGO Technic motors and sensors with a Raspberry Pi.
+
+Q: Does the Build HAT work with my Raspberry Pi Zero?
+A: Yes, it works with all Raspberry Pi computers that have a 40-pin GPIO header.
+
+Q: How many motors can I hook up to the Build HAT at once?
+A: The Build HAT provides four connectors for LEGO Technic motors and sensors.
+
+Q: I've got a Raspberry Pi 5. Will the Build HAT work with it?
+A: Not specified in this section.
+
+Q: What LEGO sensors can I use with this thing?
+A: Supported sensors include distance, colour, and force sensors from the SPIKE Portfolio.
+
+Q: Does the Build HAT have its own chip or does it just pass everything through to the Pi?
+A: It has an onboard RP2040 microcontroller that manages low-level control of devices.
+
+Q: Can I control the Build HAT with Python or do I have to use something else?
+A: You can control it using Python or .NET.
+
+Q: I'm running the newest Raspberry Pi OS. Will the Build HAT work?
+A: Build HAT is not yet supported on Trixie; stay on Bookworm for now.
+
+Q: Does the Build HAT come with a power supply or do I have to buy that separately?
+A: The Raspberry Pi Build HAT power supply is available separately.
+
+Q: I've got a Raspberry Pi keyboard computer. Can I use the Build HAT with it?
+A: Yes, with a ribbon cable or extension device, but it can't power Keyboard-series devices.
 
 # Prepare your Build HAT
 
-- How do I attach the Build HAT to my Pi? Does it just push on?
-- Wait, all the components are on the bottom of the Build HAT? Won't that cause problems?
-- Which GPIO pins does the Build HAT use? I don't want to accidentally connect something to them.
-- How do I set up the serial port for the Build HAT? I'm in the graphical desktop.
-- I'm running my Pi headless, how do I configure the serial port for the Build HAT using raspi-config?
-- Do I need to disable the serial console? I'm not sure why that matters.
-- What kind of power connector does the Build HAT use? Like what size barrel jack?
-- Can I use any 8V power supply or does it have to be the official one?
-- I want to just read from a motor encoder, do I still need that external 8V power supply?
-- The colour sensor isn't working. Does it need the external power supply or can I just use USB?
+Q: What do I need to do before I even start setting up the Build HAT?
+A: First set up your Raspberry Pi and install the latest OS using Raspberry Pi Imager.
 
-# Use the Build HAT from Python
+Q: Which GPIO pins does the Build HAT use? I don't want to accidentally connect something to them.
+A: It uses GPIO 0/1, 4, 14, 15, 16, and 17; don't connect anything to those pins.
 
-- How do I install the Build HAT Python library?
-- I'm running an older version of Raspberry Pi OS and the apt install isn't working. How else can I get the library?
-- I plugged the motor connector in and it doesn't seem to seat properly, what am I doing wrong?
-- When I first run my Build HAT program there's this long pause, is that normal?
-- My motor's turning the wrong direction, how do I reverse it?
-- How do I read the position of the motor shaft while it's moving?
-- I don't want to use an external power supply just to read from a force sensor, is that okay?
-- How do I make the colour sensor turn on its LED and then tell me what colour it sees?
+Q: I want to still access the GPIO pins after putting the Build HAT on. Is that possible?
+A: Yes, you can add an optional tall header and use 15mm spacers to access GPIO pins.
+
+Q: Wait, which side do the components face on the Build HAT? I don't want to put it on backwards.
+A: All components are on the bottom, leaving the top clear for breadboards or LEGO elements.
+
+# Set up your Raspberry Pi
+
+Q: How do I change the serial settings for the Build HAT on my Raspberry Pi?
+A: Open Control Centre from Preferences, select the Interfaces tab, and adjust serial settings.
+
+# Use your Raspberry Pi headless
+
+Q: I'm running my Pi headless with raspi-config. How do I set it up for the Build HAT?
+A: Go to Interface Options, select P6 Serial Port, disable the serial console, and enable serial hardware.
+
+Q: Do I need to restart my Pi after changing those serial settings?
+A: Yes, you'll need to reboot if you've made any changes.
+
+# Power the Build HAT
+
+Q: What kind of power supply do I need for the Build HAT?
+A: You need an 8V plus or minus 10% supply capable of 48W via a DC 5521 barrel connector.
+
+Q: Do I need to plug a USB power cable into my Pi separately if I'm using the Build HAT power supply?
+A: No, unless you're using a Keyboard-series device.
+
+Q: I only want to read from motor encoders, not actually drive motors. Do I still need the big external power supply?
+A: No, for encoders and the SPIKE force sensor you can just use normal USB power.
+
+Q: Why do the colour and distance sensors need external power but the force sensor doesn't?
+A: Colour and distance sensors, like motors, require external power; the force sensor does not.
+
+# Install the Build HAT Python Library
+
+Q: How do I install the Build HAT Python library?
+A: Run `sudo apt install python3-build-hat` in a terminal window.
+
+Q: I'm on an older version of Raspberry Pi OS and apt can't find the Build HAT library. What do I do?
+A: On versions before Bookworm, install it using `sudo pip3 install buildhat` instead.
+
+# Use Motors from Python
+
+Q: My motor connector doesn't seem to want to go in. Am I doing something wrong?
+A: The LPF2 connector must be the right way up; if it won't slide in, rotate 180 degrees and retry.
+
+Q: I ran my first Build HAT program and it just sat there for a few seconds doing nothing. Is that normal?
+A: Yes, the first run pauses while firmware copies to the board; subsequent runs won't have that pause.
+
+Q: What do those lights on the Build HAT mean when I run a program?
+A: The red LED extinguishes and the green LED illuminates once firmware is successfully loaded.
+
+Q: How do I make a motor spin faster in Python?
+A: Pass a higher speed value, like `run_for_seconds(5, speed=50)`, to the motor method.
+
+Q: Can I make the motor spin backwards in Python?
+A: Yes, use a negative speed value like `speed=-50` to make the motor turn anti-clockwise.
+
+Q: How do I read the current position of a motor while it's running?
+A: Call `motor_a.get_aposition()` to get the current angular position of the motor.
+
+# Use Sensors from Python
+
+Q: Do I need an external power supply just to use sensors, or only for motors?
+A: If you're not driving a motor, a standard USB power supply is fine for sensors.
+
+Q: How do I make the colour sensor turn on only when I press the force sensor?
+A: Set `button.when_pressed` to a handler that calls `cs.on()` and reads the colour.
+
+# Install the .NET Framework
+
+Q: Can I just use apt to install .NET on my Raspberry Pi?
+A: No, the .NET framework from Microsoft isn't available via apt on Raspberry Pi.
+
+Q: I want to use .NET with my Build HAT. Is there a quick way to get it installed?
+A: There's a simplified third-party script, but read it carefully before running it as root.
+
+# Run C# Code
+
+Q: How do I actually run my C# program for the Build HAT?
+A: Use the `dotnet run` command from within your project directory.
 
 # Use the Build HAT from .NET
 
-- How do I get .NET installed on my Raspberry Pi?
-- Is there an easy way to install .NET without doing everything manually?
-- How do I create a new Build HAT project in .NET?
-- My .NET program just hangs and never finishes. What's going on?
-- How do I get the firmware version and voltage info from the Build HAT in C#?
-- How can I tell in code whether something connected to a port is a motor or a sensor?
-- I want my code to do something whenever the motor position changes. How do events work for that?
-- My program tries to use the sensor before it's ready. How do I make it wait until something's actually connected?
-- What's the difference between passive and active motors in .NET?
-- What are SetPowerLimit and SetBias for? Why would I need them?
-- How do I make a train motor speed up gradually in C#?
-- Can active motors tell me their exact position, or just their speed?
-- How do I move a motor to a specific position and wait for it to get there before doing the next thing?
-- What does "float" mode do for a motor?
-- How do I use the force sensor in .NET to detect when it's pressed?
-- Can I control the brightness of the train lights in C#?
-- How do I read the distance from the ultrasonic sensor in .NET?
-- I want to count objects passing in front of the colour sensor. Can the Build HAT do that?
-- How do I control individual LEDs on that little 3x3 matrix display?
+Q: I forgot to dispose my brick object in .NET and my program just hangs. What's going on?
+A: If you don't call `brick.Dispose()`, your program will not terminate.
+
+Q: Is there a cleaner way to make sure the brick gets cleaned up automatically in C sharp?
+A: Yes, create your brick with the `using` statement and it disposes automatically at program end.
+
+Q: How do I check the firmware version and input voltage of my Build HAT from .NET?
+A: Use `brick.BuildHatInformation` for version and firmware date, and `brick.InputVoltage.Volts` for voltage.
+
+Q: Does the voltage reading on the Build HAT update in real time?
+A: No, the input voltage is read only once at boot time and not again afterwards.
+
+# Events
+
+Q: I want my program to react when a motor moves past a certain position. How do I do that in .NET?
+A: Subscribe to `PropertyChanged` on the motor and check the Position property in your handler.
+
+Q: What's the difference between PropertyChanged and PropertyUpdated on a sensor in .NET?
+A: PropertyChanged fires when the value changes; PropertyUpdated fires on any successful property update.
+
+# Wait for initialisation
+
+Q: My .NET program crashes because the sensor isn't ready yet when the code runs. How do I fix that?
+A: Use `brick.WaitForSensorToConnect(SensorPort.PortB)` to wait before accessing the sensor.
+
+# Use Motors from .NET
+
+Q: What's the difference between passive and active motors in the .NET library?
+A: Active motors give you position, absolute position, and speed; passive motors only support speed control.
+
+Q: What does SetBias do for a motor in .NET? I've never heard of that before.
+A: It adds to positive drive values and subtracts from negative ones, compensating for motor startup resistance.
+
+Q: What are the default power limit and bias values when I create a motor in .NET?
+A: The defaults are 0.7 for power limit and 0.3 for bias.
+
+Q: Can I move an active motor to a specific position in .NET?
+A: Yes, use `MoveToPosition` or `MoveToAbsolutePosition` with a target position and optional thread blocking.
+
+Q: What does floating a motor mean in the .NET library?
+A: Float mode removes all constraints on the motor, letting you move it freely like a tachometer.
+
+# Use Sensors from .NET
+
+Q: How do I check if a touch sensor is being pressed in .NET?
+A: The `ButtonSensor` class has an `IsPressed` property that's true when the button is pressed.
+
+Q: What can I do with the colour and distance sensor in .NET beyond just getting the colour?
+A: You can also get reflected light, ambient light, distance, and count objects passing in front of it.
+
+Q: How far away can the colour and distance sensor detect objects?
+A: The distance measurement is limited to a range of 0 to 10 centimetres.
+
+Q: Can I control each LED on the 3x3 matrix display individually in .NET?
+A: Yes, the `ColorLightMatrix` class lets you control each of the nine LEDs individually.
+
+Q: Is there a continuous measurement mode for the SPIKE force sensor in .NET?
+A: Yes, set `force.ContinuousMeasurement = true` to enable continuous measurement.
+
+Q: I'm switching measurement modes on my colour sensor really fast and getting weird readings. What's going on?
+A: Changing modes too quickly isn't recommended; colour integration may not complete properly.
 
 # Further Resources
 
-- Where can I find more documentation on the Build HAT serial protocol?
-- Are there any example projects I can follow along with using the Build HAT and LEGO?
+Q: Where can I find more detailed documentation for the Build HAT Python library?
+A: Full Python library documentation is available on ReadTheDocs at buildhat.readthedocs.io.
+
+Q: Are there any project ideas to help me get started with the Build HAT?
+A: Yes, the Raspberry Pi Foundation has projects including a LEGO game controller, robot car, and plotter.
 
 # Device Compatibility
 
-- Which LEGO motors are supported by the Build HAT?
-- Does the WeDo 2.0 tilt sensor work with the Build HAT?
-- I've got the colour and distance sensor, is that fully supported or only partially?
-- What sets do I need to buy to get the SPIKE Prime force sensor?
-- Is the 3x3 LED matrix supported in Python?
+Q: What LEGO sets are compatible with the Build HAT? Like which ones should I buy?
+A: The Build HAT supports devices from the SPIKE Portfolio, Mindstorms Robot Inventor, and PoweredUp connector devices.
+
+Q: I've got the SPIKE Prime Expansion Set. Does it matter which version I have?
+A: Yes, product code 45681 includes the Maker Plate; the original 45680 does not.
+
+Q: Do the WeDo tilt and motion sensors work with the Build HAT?
+A: Not specified in this section.
+
+# Whole Document
+
+Q: Can I use the Build HAT with both Python and C sharp dot NET?
+A: Yes, the Build HAT supports both Python and .NET programming approaches.
+
+Q: I want to build a LEGO robot with my Raspberry Pi. What do I actually need to buy?
+A: You need a Build HAT, a compatible Pi, an external 8V PSU, and LEGO SPIKE Portfolio devices.
+
+Q: Does the Build HAT work with Raspberry Pi OS Lite or does it need the full desktop version?
+A: Not specified in this section.
+
+Q: How many things can I connect to the Build HAT at once — like motors AND sensors together?
+A: You can connect up to four LEGO Technic motors and sensors total across the four ports.
+
+Q: I'm totally new to this. Which programming language is easier to start with for the Build HAT, Python or .NET?
+A: Not specified in this section.

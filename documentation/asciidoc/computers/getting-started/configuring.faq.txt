@@ -1,83 +1,90 @@
 # Set up your Raspberry Pi
 
-Should I plug everything in before connecting power, or does it matter?
+Q: Do I need to unplug my Pi before connecting the SD card and other stuff?
+A: Yes, unplug the power supply before connecting any peripherals or storage.
 
-I just got my Pi set up — what order should I connect things in?
+Q: I just inserted my SD card and plugged everything in. How do I know it's actually turning on?
+A: The status LED lights up when your Raspberry Pi powers on successfully.
 
-My Pi powered on but I don't see anything on the screen. Is that normal?
-
-How do I know if my Raspberry Pi actually turned on?
-
-I plugged in my Pi but the status LED isn't lighting up. What's wrong?
-
-My Pi's been sitting there for like 10 minutes and still hasn't booted. What should I do?
-
-The LED is flashing on my Pi — what does that mean?
-
-I tried booting from a USB drive but it's not working. Should I just use an SD card instead?
+Q: How long should I wait before I see something on my screen after plugging in?
+A: You should see the boot screen on your display within minutes of powering on.
 
 # Configuration on first boot
 
-I skipped the customization stuff in Imager. What happens when I first turn it on?
+Q: I set everything up in Imager already. Do I still have to go through a setup wizard?
+A: No, if you customised the OS in Imager, your device is already ready to use.
 
-Do I need a mouse for the first boot setup wizard?
+Q: My Pi's been on for like five minutes and nothing's happening. What do I do?
+A: Check the status LED; if it's flashing, look up the LED warning flash codes.
 
-My Pi won't boot at all. What can I try to fix it?
+Q: It just won't boot at all. What can I try?
+A: Try booting from an SD card, re-imaging it, or updating the bootloader first.
+
+Q: I skipped all the customisation in Imager. Will it ask me to set things up later?
+A: Yes, your Raspberry Pi runs a configuration wizard on the very first boot.
+
+Q: Do I need a mouse to get through the setup wizard?
+A: A monitor and keyboard are required for the wizard; a mouse is optional.
 
 # Bluetooth
 
-I've got a Bluetooth keyboard — do I need to do anything special to get it working with my Pi?
+Q: I've got a Bluetooth keyboard. Will the Pi find it automatically during setup?
+A: Yes, the Pi scans for pairable devices and connects to the first one it finds.
 
-Can I use a USB Bluetooth dongle if my Pi doesn't have Bluetooth built in?
-
-I want to pair my Bluetooth mouse during first boot. Does it do that automatically or do I have to do something?
+Q: I don't have built-in Bluetooth on my Pi. Can I still use a Bluetooth keyboard with a USB adapter?
+A: Yes, it works with a USB Bluetooth adapter; just plug it in before booting.
 
 # Locale
 
-Where do I set my timezone and keyboard layout when setting up my Pi for the first time?
-
-My keyboard's typing the wrong characters — how do I fix the layout?
+Q: Where do I set my language and time zone during setup?
+A: The Locale page lets you configure country, language, time zone, and keyboard layout.
 
 # User
 
-What's the default username on Raspberry Pi OS?
+Q: What's the default username when setting up a Raspberry Pi?
+A: Older versions of Raspberry Pi OS set the default username to "pi."
 
-I heard the old default password was "raspberry" — is that still the case, and should I be worried about it?
+Q: I'm using the username "pi" — is there a password I should avoid?
+A: Yes, avoid the old default password "raspberry" to keep your Pi secure.
 
 # Wi-Fi
 
-How do I connect to Wi-Fi during the first boot setup?
-
-I don't see my Wi-Fi network in the list. What should I do?
+Q: Can I connect to Wi-Fi during the first boot setup?
+A: Yes, the Wi-Fi page lets you choose a network and enter a password if needed.
 
 # Browser
 
-Can I choose between Firefox and Chrome when setting up my Pi?
+Q: Can I pick which browser I want during setup, like Firefox or Chrome?
+A: Yes, you can choose Firefox or Chromium as your default browser during setup.
 
-If I pick Firefox as my default, does Chromium get removed automatically?
+Q: If I pick one browser, can I just get rid of the other one?
+A: Yes, you can optionally uninstall whichever browser you don't set as default.
 
 # Raspberry Pi Connect
 
-What's Raspberry Pi Connect and do I need it?
+Q: What's Raspberry Pi Connect and why would I want to turn it on?
+A: It lets you access your Raspberry Pi remotely with no manual network configuration needed.
 
-I want to access my Pi remotely without messing with network settings. Is there something built in for that?
+# Software updates
 
-# Software Updates
+Q: Should I bother doing the software update during the wizard or can I skip it?
+A: The wizard can update your OS and software to latest versions if you have internet.
 
-How long do updates take during the first boot wizard?
+Q: How long do updates take during first setup?
+A: Updates may take several minutes; a Raspberry Pi 500's first update can take thirty minutes.
 
-I'm setting up a Pi 500 for the first time and the updates are taking forever. Is that normal?
-
-Do I have to update during the setup wizard or can I skip it and do it later?
+Q: What happens to the browser I said I wanted to uninstall — when does it actually get removed?
+A: It gets removed during the software update step of the wizard.
 
 # Finish
 
-After I finish the setup wizard, does it restart automatically or do I have to do something?
+Q: Once the wizard's done, do I have to do anything or does it just restart itself?
+A: Click Restart at the end of the wizard to reboot and apply your configuration.
 
 # Whole Document
 
-I just got my first Raspberry Pi — what's the very first thing I should do to get it running?
+Q: I've never set up a Raspberry Pi before. What's the basic order of steps?
+A: Install OS, connect storage and peripherals, power on, then complete the setup wizard.
 
-Do I need a keyboard and mouse and monitor to set up a Raspberry Pi, or can I do it without them?
-
-I used Imager to set everything up already — do I still have to go through the setup wizard when it boots?
+Q: Do I need a display to set my Pi up from scratch?
+A: A monitor is needed for the first-boot configuration wizard if you skipped Imager customisation.

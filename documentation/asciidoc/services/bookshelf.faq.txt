@@ -1,35 +1,52 @@
 # Introduction
 
-What's the Bookshelf app on Raspberry Pi OS? Like what does it actually do?
+Q: What's the Bookshelf app actually for on Raspberry Pi OS?
+A: It gives you access to books and magazines published by Raspberry Pi Press.
 
-I see some books have a little padlock on them and some don't. What's the difference?
+Q: I see some books have a little cloud icon and some have a padlock. What's the difference?
+A: Cloud icons are free downloads; padlocks mean the title requires contributor access.
 
-Which versions of Raspberry Pi OS come with Bookshelf already installed? I'm not sure if I have it.
+Q: I'm not on the latest OS version. Does Bookshelf still work for me?
+A: Contributor-only titles are only available since Raspberry Pi OS Trixie.
 
-I've got Raspberry Pi OS Lite and I can't find Bookshelf anywhere. Do I need to install it myself?
+Q: I installed Raspberry Pi OS Lite and I can't find Bookshelf anywhere. Why?
+A: Bookshelf is only included in the Desktop and Full versions of Raspberry Pi OS.
 
-What's that cloud icon next to some of the books in Bookshelf?
+Q: Can anyone download the free titles or do I need an account?
+A: Free titles marked with the cloud icon can be downloaded by anyone.
 
 # Become a contributor (Raspberry Pi OS Trixie and later)
 
-I subscribe to the Raspberry Pi print magazine. Does that mean I can get the locked books in Bookshelf?
+Q: I want access to the locked books. What do I need to do?
+A: Sign in with a Raspberry Pi ID linked to a subscription or monthly contribution.
 
-How do I set up a monthly contribution so I can access the locked titles?
+Q: How do I actually set up the monthly contribution thing inside Bookshelf?
+A: Select Contribute in the bottom left to open the contributor page on the website.
 
-I don't have a Raspberry Pi ID yet. Do I need one to become a contributor?
+Q: I already have a Raspberry Pi ID. Do I need to make a new one to contribute?
+A: No, just sign in with your existing username and password during the setup process.
 
-I signed up for a contribution but the books are still locked. What am I missing?
+Q: I got a new Raspberry Pi. Do I have to pay again to get my contributor books back?
+A: Just sign in with your Raspberry Pi ID again and re-download your favourite titles.
 
-I've got multiple Raspberry Pis. Can I use the same account to access contributor titles on all of them?
-
-I just flashed a fresh SD card and now I can't see my contributor books anymore. How do I get them back?
+Q: After I sign up as a contributor, how do I know it actually worked?
+A: The Contribute button disappears and all titles become available to download.
 
 # Download titles
 
-How do I actually download a book from Bookshelf? Do I just click on it or is there more to it?
+Q: How do I actually open one of the books once I find it in Bookshelf?
+A: Double-click any available title to download it as a PDF and open it.
 
-Where do the downloaded books get saved on my Pi?
+Q: I cancelled my subscription. Do I lose all the books I already downloaded?
+A: No, you keep any titles already downloaded even after stopping your contribution.
 
-I cancelled my monthly contribution. Do I lose all the books I already downloaded?
+Q: Where does Bookshelf actually save the PDF files on my Pi?
+A: PDFs are stored in the Bookshelf folder inside your home directory.
 
-What format do the books download as? Like can I open them in a regular PDF reader?
+# Whole Document
+
+Q: What even is Bookshelf? I've never heard of it before.
+A: It's a Raspberry Pi OS app for accessing Raspberry Pi Press books and magazines.
+
+Q: So do I need to pay anything to use Bookshelf at all?
+A: No, free titles are available to anyone; contributor-only titles require a subscription or contribution.

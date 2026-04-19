@@ -1,41 +1,59 @@
-# Whole Document
-
-- I want to turn my Raspberry Pi into a web server. Where do I even start?
-- Can a Raspberry Pi actually host a website, or is it too underpowered for that?
-- What's Apache and why would I want it on my Pi?
-- I've got a Raspberry Pi sitting around doing nothing. Can I use it to host a local website for my home network?
-
 # Set up an Apache web server
 
-- What's the difference between Apache serving regular HTML versus PHP pages?
+Q: What even is Apache and why would I want it on my Pi?
+A: Apache is a web server app that lets your Pi serve web pages.
+
+Q: Does Apache only do basic HTML or can it do fancier stuff too?
+A: Apache serves HTML over HTTP, and modules add support for PHP and more.
 
 # Install Apache
 
-- How do I get Apache installed on my Raspberry Pi?
-- Do I need to update anything before installing Apache, or can I just go straight to installing it?
-- What's the command to install Apache on my Pi?
+Q: How do I actually get Apache installed on my Raspberry Pi?
+A: Run sudo apt update, then sudo apt install apache2 -y in Terminal.
+
+Q: Do I need to update my packages before installing Apache or can I just go straight to installing it?
+A: Yes, run sudo apt update first before installing the apache2 package.
 
 # Test the web server
 
-- Okay I think I installed Apache but how do I know if it's actually working?
-- I want to check my Pi's web server from my laptop. What address do I type in my browser?
-- How do I find out what IP address my Raspberry Pi has?
-- I opened the browser and nothing's showing up. What should I expect to see if Apache is running correctly?
-- Can I test the web server from the Pi itself without using another device?
+Q: I just installed Apache. How do I know if it's actually working?
+A: Browse to http://localhost/ on your Pi and look for the success message.
 
-# Change the default web page
+Q: I want to check my Pi's web server from my laptop. What address do I type in?
+A: Use your Pi's IP address, like http://192.168.1.10, from another computer.
 
-- Where's the default web page file stored on my Pi? I want to edit it.
-- I'm trying to edit the index.html file but it won't let me save changes. What's going on?
-- How do I change who owns a file in Linux? I can't edit the Apache default page.
-- I want to put my own HTML files on the Pi and have them show up in the browser. How do I do that?
-- What folder do I put my website files in so Apache serves them?
+Q: How do I find my Pi's IP address to test the web server from another device?
+A: Type hostname -I at the command line to find your Pi's IP address.
+
+## Change the default web page
+
+Q: Where's the default Apache web page actually stored on my Pi?
+A: The default page is at /var/www/html/index.html on the filesystem.
+
+Q: I want to edit that default web page but I can't save changes. What's going on?
+A: The file is owned by root, so change ownership using sudo chown username: index.html.
+
+Q: I changed the index.html file. How do I see if it worked?
+A: Save the file, then refresh your browser to see the web page update.
 
 # Install PHP for Apache
 
-- I want my Pi's web server to run PHP. How do I set that up?
-- What do I need to install to get PHP working with Apache?
-- I set up PHP but I'm not sure it's actually running. How do I test it?
-- After installing PHP, do I need to do anything special or does Apache just pick it up automatically?
-- How do I create a PHP file and test that the server is processing it correctly?
-- What's a quick way to see all my PHP settings and info on the Pi?
+Q: I want my Pi's web server to run PHP. What do I need to install?
+A: Install php and libapache2-mod-php using sudo apt install php libapache2-mod-php -y.
+
+Q: After installing PHP, why do I have to delete the index.html file?
+A: Not specified in this section.
+
+Q: I've set up PHP on Apache. How do I do a quick test to make sure it's working?
+A: Create index.php with <?php echo "hello world"; ?> and refresh your browser.
+
+Q: Is there a way to check all my PHP settings through the browser on my Pi?
+A: Yes, create a PHP file containing <?php phpinfo(); ?> and open it in your browser.
+
+# Whole Document
+
+Q: Can I host a website on my local network using just a Raspberry Pi?
+A: Yes, put your HTML files in /var/www/html/ and serve them locally.
+
+Q: I've never set up a web server before. Is this something a beginner can actually do on a Pi?
+A: Yes, Apache installs with one command and works immediately with minimal configuration.

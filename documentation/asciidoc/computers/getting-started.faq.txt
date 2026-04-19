@@ -1,129 +1,202 @@
 # Getting started with your Raspberry Pi
 
-What do I actually need to get a Raspberry Pi up and running?
+Q: Do I need a monitor and keyboard to set up my Raspberry Pi, or can I do it without?
+A: No, you can set it up headless using just a network connection and SSH.
 
-Do I need a monitor and keyboard to set up a Raspberry Pi, or can I do it without them?
+Q: What's the bare minimum I need to get my Pi running?
+A: You need a power supply and boot media like a microSD card.
 
-What's a headless setup? Like, why would I want that instead of just plugging in a monitor?
+Q: What does headless mean for a Raspberry Pi?
+A: Headless means accessible only over the network, without a monitor or keyboard.
 
 # Power supply
 
-What power supply do I need for a Raspberry Pi 5?
+Q: I've got a Raspberry Pi 5 — what power supply does it need?
+A: It needs a 5V/5A USB-C supply, like the official 27W USB-C power supply.
 
-I've got a Raspberry Pi 4 — can I just use any USB-C charger I have lying around, or does it need to be a specific one?
+Q: I'm using a Pi 4 and I'm not sure what charger to get. What do I need?
+A: The Pi 4 needs a 5V/3A USB-C power supply, like the official 15W one.
 
-What happens if I plug into the wrong USB port on my Pi Zero? They all look the same.
+Q: My Pi Zero won't turn on. What power supply should it be using?
+A: The Pi Zero needs a 5V/2.5A supply using a Micro USB connector.
 
-What's the difference between the 27W and 15W power supplies? Do I need the bigger one?
+Q: I plugged my power supply into the wrong port on my Pi Zero. Does that matter?
+A: Yes, some models have output USB ports that look identical to the power port.
+
+Q: What happens if I use a 5V/3A supply on a Raspberry Pi 5 instead of 5A?
+A: Peripherals will be limited to 600mA total with a 5V/3A supply on Pi 5.
 
 # Boot media
 
-I don't have an SD card yet. What size should I buy?
+Q: Does the Raspberry Pi have built-in storage, or do I need to bring my own?
+A: Raspberry Pi models lack onboard storage, so you must supply your own.
 
-Can I use a 4TB SD card with my Raspberry Pi?
+Q: Can I boot my Pi from a USB drive instead of an SD card?
+A: Yes, USB storage is supported, but only on more recent Raspberry Pi models.
 
-I've got a Raspberry Pi Zero and it won't boot. Could the SD card be too big?
+Q: What size SD card do I need for Raspberry Pi OS?
+A: At least 32GB is recommended for Raspberry Pi OS installations.
 
-Can I boot from a USB drive instead of an SD card?
+Q: I want to use Raspberry Pi OS Lite. Do I still need a 32 gig card?
+A: No, Raspberry Pi OS Lite only requires at least 16GB of storage.
 
-How much storage do I need on my SD card for Raspberry Pi OS?
+Q: Can I use a 4 terabyte SD card in my Pi?
+A: No, cards above 2TB aren't supported due to MBR limitations.
+
+Q: Will a faster SD card actually make my Pi perform better?
+A: Yes, faster read and write speeds improve performance on any boot media.
+
+Q: I've got a Pi Zero and it won't boot from my big SD card. What's going on?
+A: Pi Zero only boots from a boot partition of 256GB or less due to hardware limits.
 
 # Display
 
-My Raspberry Pi 5 has two HDMI ports. Which one should I plug my monitor into?
+Q: What display outputs does the Raspberry Pi 5 have?
+A: The Raspberry Pi 5 has two micro HDMI ports for display output.
 
-I've got a regular HDMI monitor but my Pi 4 has a micro HDMI port. What cable do I need?
+Q: My monitor doesn't have a micro HDMI port. Can I still connect it to my Pi 5?
+A: Yes, use a micro-HDMI-to-HDMI cable to connect to any standard HDMI display.
 
-Can I use a USB-C monitor with my Raspberry Pi?
+Q: I've got two HDMI ports on my Pi. Which one should my main monitor go into?
+A: Plug your primary monitor into the port marked HDMI0.
 
-Does the Raspberry Pi Zero work with a regular HDMI TV?
+Q: Can I connect a display using USB-C on my Raspberry Pi?
+A: No, no Raspberry Pi models support video over USB-C DisplayPort alt mode.
+
+Q: Does the Pi 4 have an audio output jack?
+A: Yes, it has a 3.5mm TRRS jack for audio and composite output.
 
 # Audio
 
-Does the Raspberry Pi 5 have a headphone jack?
+Q: What ways can I get audio out of my Raspberry Pi?
+A: Via HDMI, USB, Bluetooth, or the 3.5mm jack on Pi 1, 2, 3, and 4 models.
 
-What are my options for getting audio out of a Raspberry Pi 4?
+Q: Does the headphone jack on my Pi need an amp? The volume seems really low.
+A: Yes, the 3.5mm TRRS jack may require amplification for sufficient output volume.
 
 # Networking
 
-Does the Raspberry Pi Zero have Wi-Fi built in?
+Q: Does the Pi 3 have built-in Wi-Fi, or do I need a dongle?
+A: Flagship models since Raspberry Pi 3 Model B include built-in Wi-Fi.
 
-My Raspberry Pi doesn't have an Ethernet port but I need a wired connection. What can I do?
+Q: My Pi doesn't have an Ethernet port. Can I still use a wired connection?
+A: Yes, you can use a USB-to-Ethernet adapter for wired internet connections.
 
-Which Pi models have Wi-Fi built in?
+Q: What does Model B mean on a Raspberry Pi?
+A: The "Model B" suffix indicates variants that include an Ethernet port.
 
 # Install using Imager
 
-How do I actually get an operating system onto my Raspberry Pi?
+Q: What operating systems does Imager work on?
+A: Imager is available on macOS, Windows, and Linux.
 
-Where do I download Raspberry Pi Imager?
+Q: Can I use my own OS image file with Imager, or is it only the ones in the list?
+A: You can use the "Use Custom" option to load your own image file.
 
-Can I use Raspberry Pi Imager on a Mac?
+Q: What file formats does Imager support?
+A: Imager supports .img files and container formats like .zip or .xz.
 
-I'm on Linux — how do I install Raspberry Pi Imager?
+Q: How do I install Imager on my existing Raspberry Pi?
+A: Run `sudo apt install rpi-imager` on Raspberry Pi OS to install it.
 
-Can I set up my Wi-Fi password before I even boot the Pi for the first time?
+Q: I've got multiple USB drives plugged in. Will Imager warn me before wiping the wrong one?
+A: Yes, Imager warns you if you attempt to overwrite a system drive.
 
-I want to use SSH but I don't want to have to type a password every time. Can I set up SSH keys in Imager?
+Q: Can I set up my Wi-Fi password in Imager before I even boot the Pi for the first time?
+A: Yes, Imager lets you preconfigure Wi-Fi credentials before writing the image.
 
-Can I use my own downloaded OS image with Imager, or does it only use the ones it comes with?
+Q: Can I set up SSH access through Imager so I can connect remotely right away?
+A: Yes, you can enable SSH and configure authentication in Imager's customisation steps.
 
-I accidentally chose the wrong storage device in Imager. Will it warn me before it wipes everything?
+Q: Can I use a password or a key file to log in over SSH? Which one does Imager support?
+A: Imager supports both password authentication and SSH public key authentication.
 
-How long does it take to write the image? Should I just wait?
+Q: Imager finished writing. Do I really need to wait for verification or can I skip it?
+A: Verification is recommended, but you can select "Skip verification" to cancel it.
 
-Can I skip the verification step after Imager finishes writing?
+Q: Can I make Imager play a sound when it's done writing?
+A: Yes, you can configure Imager to play an alert sound when the write finishes.
 
-What's the hostname for, and can I change it in Imager before I flash?
+Q: Does Imager send any data back to Raspberry Pi about what I'm doing?
+A: Imager can send anonymous telemetry, but this can be configured in App Options.
 
 # Install over the network
 
-I don't have another computer to use Imager on. How do I install an OS directly on the Pi itself?
+Q: Can I install an OS on my Pi without using another computer at all?
+A: Yes, Network Install lets you install an OS using only your Raspberry Pi.
 
-What do I need to do the network install thing? Do I need a monitor?
+Q: What do I need to use Network Install on my Raspberry Pi?
+A: You need a compatible Pi model, monitor, keyboard, and a wired internet connection.
 
-How do I actually start the network install — like what buttons do I press?
+Q: How do I actually start the Network Install process?
+A: Power on your Pi while holding the SHIFT key with no bootable storage connected.
 
-Does network install work on a Raspberry Pi 3?
+Q: Does Network Install work on a Raspberry Pi 3?
+A: No, Network Install only runs on Flagship models since Pi 4B and Keyboard models.
+
+Q: Can I use Network Install with a USB drive instead of an SD card?
+A: Yes, Network Install can run on any compatible storage, including USB storage.
 
 # Set up your Raspberry Pi
 
-Should I plug everything in before I connect the power supply?
+Q: Should I plug in my keyboard and monitor before or after connecting the power?
+A: Unplug power first, connect all peripherals, then finally connect the power supply.
+
+Q: How will I know my Pi actually powered on properly?
+A: The status LED lights up when your Pi powers on successfully.
 
 # Configuration on first boot
 
-My Pi's been on for five minutes and nothing's showing on the screen. What do I do?
+Q: My Pi won't boot after 5 minutes. How do I figure out what's wrong?
+A: Check the status LED; if it's flashing, look up the LED warning flash codes.
 
-The status LED is flashing. What does that mean?
+Q: I skipped customisation in Imager. Will I still be able to set things up?
+A: Yes, Raspberry Pi OS runs a configuration wizard on first boot instead.
 
-I skipped all the customisation in Imager. What happens when I boot it up for the first time?
+Q: Do I need a mouse to get through the first-boot setup wizard?
+A: A mouse is optional for the wizard; you only need a monitor and keyboard.
 
 # Bluetooth
 
-Can I use a Bluetooth keyboard during the first boot setup, or do I need a wired one?
+Q: I'm using a Bluetooth keyboard. Will it pair automatically during first boot setup?
+A: Yes, the wizard scans for pairable devices and connects to the first one found.
+
+Q: I've got a USB Bluetooth adapter. Do I need to plug it in before booting for pairing to work?
+A: Yes, plug in the USB Bluetooth adapter before booting your Raspberry Pi.
 
 # User
 
-I've heard the old default username and password for Raspberry Pi OS is a security risk. What should I do?
+Q: The old default username was "pi" right? Is that still the case?
+A: Older versions defaulted to "pi," but you should avoid the old default password "raspberry."
+
+# Browser
+
+Q: Can I choose between Firefox and Chromium during setup?
+A: Yes, the wizard lets you pick Firefox or Chromium as your default browser.
+
+Q: If I pick one browser during setup, does the other one get deleted?
+A: You can optionally uninstall the browser you don't set as default during setup.
 
 # Software updates
 
-The first-time setup is asking me to download updates and it's taking forever. Is that normal?
+Q: How long does the first update take on a Pi 500 Plus?
+A: The first update on a Raspberry Pi 500+ can take up to half an hour.
 
 # Next steps
 
-Where do I find extra apps to install on Raspberry Pi OS?
+Q: Does Raspberry Pi OS come with software already installed, or do I have to install everything myself?
+A: Raspberry Pi OS comes with many essential applications pre-installed out of the box.
 
-My Pi is set up but I don't know what to do with it. Where can I find project ideas?
-
-I'm stuck and need help. Is there a Raspberry Pi forum or community somewhere?
+Q: Where do I go if I need help with my Raspberry Pi or want to talk to other users?
+A: Visit the Raspberry Pi forums for support and to connect with other users.
 
 # Whole Document
 
-I just bought my first Raspberry Pi. What's the quickest way to get it set up and working?
+Q: I just got my first Raspberry Pi. What's the easiest way to get it set up?
+A: Use Raspberry Pi Imager to install an OS with preconfigured settings before first boot.
 
-What's the difference between setting up a Pi with a desktop versus headless?
+Q: Do I need to buy a special keyboard, or will any USB keyboard work?
+A: Any USB keyboard or Bluetooth keyboard with a USB receiver will work fine.
 
-Can I set everything up — Wi-Fi, username, SSH — without ever plugging in a keyboard and monitor?
-
-I want to access my Pi remotely without messing around with SSH and IP addresses. Is there an easier way?
+Q: What if I don't have another computer to use Imager on? I only have the Pi itself.
+A: You can use Network Install to download and run Imager directly on your Raspberry Pi.

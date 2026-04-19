@@ -1,25 +1,48 @@
-# Whole Document
+# Use a proxy server
 
-How do I set up my Raspberry Pi to use a proxy server?
-My school or work network uses a proxy. How do I get my Pi to connect through it?
-What do I actually need to know before I start setting up a proxy on my Pi?
+Q: What even is a proxy server and why would I need to set my Pi up with one?
+A: A proxy server acts as an intermediary between your device and the internet.
+
+Q: What do I need to know before I can set up my Pi to use a proxy?
+A: You need the proxy's IP address or hostname, port, and login credentials.
 
 # Configure your Raspberry Pi
 
-What are those three environment variables I need to set for a proxy and where do I put them?
-I've got a proxy server at work, how do I tell my Pi to use it?
-My proxy needs a username and password. Where do I put that in?
-What's the no_proxy variable for? Do I really need it?
-I set up the proxy variables but I'm not sure if I did the file right. What should it look like when it's done?
-How do I open that environment file to edit it?
+Q: How do I actually set my Pi up to use a proxy? Like where do I start?
+A: Open a terminal and edit the file slash etc slash environment using nano.
+
+Q: I've got a proxy at work that needs a username and password. How do I include that?
+A: Add username and password before the IP address in the http_proxy variable format.
+
+Q: What's the no_proxy variable for? Do I actually need it?
+A: It lists addresses your Pi should bypass the proxy for, like localhost.
+
+Q: So I've added all three lines to that environment file. What do they look like together?
+A: All three export lines for http_proxy, https_proxy, and no_proxy should be there.
+
+Q: How do I save the file after I've finished editing it in nano?
+A: Press Ctrl plus X to save and exit the nano editor.
 
 # Update the `sudoers` file
 
-I set up the proxy but when I try to install software with sudo it still doesn't work. What am I missing?
-Why do I need to mess with the sudoers file just to use a proxy?
-How do I make sure sudo commands also go through the proxy?
+Q: I set up the proxy but software still won't download when I use sudo. What am I missing?
+A: You need to update sudoers so sudo commands can use your proxy environment variables.
+
+Q: How do I open the sudoers file to edit it?
+A: Run sudo visudo in your terminal to open the sudoers file safely.
+
+Q: What exactly do I add to sudoers to make the proxy work with sudo?
+A: Add the line: Defaults env_keep plus equals http_proxy https_proxy no_proxy.
 
 # Reboot your Raspberry Pi
 
-Do I have to reboot after setting up the proxy or can I just reload something?
-I've done all the proxy setup steps. Now what? Does it just work?
+Q: I've done all the proxy setup steps. Do I need to restart my Pi or does it just work now?
+A: Yes, reboot your Raspberry Pi for the proxy changes to take effect.
+
+# Whole Document
+
+Q: I want my Pi to go through a proxy for internet. How many environment variables do I need to set?
+A: You need to set three: http_proxy, https_proxy, and no_proxy environment variables.
+
+Q: Does setting up a proxy on the Pi work for installing software too, or just browsing?
+A: Yes, updating sudoers lets proxy settings work for software downloads and installs too.

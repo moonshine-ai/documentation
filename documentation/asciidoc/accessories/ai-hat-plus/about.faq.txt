@@ -1,87 +1,100 @@
 # Whole Document
 
-What's an AI HAT and why would I want one for my Raspberry Pi?
+Q: What's an AI HAT and why would I want one for my Pi?
+A: It adds a Hailo NPU chip for running AI models locally on Raspberry Pi 5.
 
-Do I need the internet to run AI on my Raspberry Pi if I use one of these?
+Q: Do I need internet to run AI models with one of these HATs?
+A: No, the Hailo NPU processes AI locally, removing the need for cloud servers.
 
-What's the difference between AI HAT+ and AI HAT+ 2?
+Q: I've got a Raspberry Pi 5. Will these AI HATs work with it?
+A: Yes, AI HAT+ and AI HAT+ 2 are designed specifically for Raspberry Pi 5.
 
-I've got a Raspberry Pi 5 — can I run AI models on it without sending data to the cloud?
-
-What's a TOPS and why does it matter when picking an AI HAT?
-
-I've heard about the AI Kit — is that the same as the AI HAT+?
-
-Do these AI HATs work with Raspberry Pi 4 or just the Pi 5?
+Q: What's the difference between AI HAT+ and AI HAT+ 2?
+A: AI HAT+ 2 has more TOPS, onboard memory, and supports LLMs and VLMs.
 
 # How it works
 
-So when I plug in the AI HAT, does it just work automatically or do I have to set stuff up?
+Q: Does my Pi automatically know an AI HAT is connected, or do I have to set something up?
+A: Raspberry Pi OS automatically detects the accelerator when an AI HAT is connected.
 
-I'm using the Pi camera — will it automatically use the AI HAT for things like object detection?
+Q: I've plugged in the AI HAT. Does it just work, or do I need to install stuff?
+A: You must also install software components and AI models for hardware-accelerated inference.
 
-Wait, so it detects the chip automatically but I still have to install extra software? What do I actually need to install?
+Q: Can I use the camera with the AI HAT for things like recognizing objects?
+A: Yes, rpicam-apps and Picamera2 can use the Hailo NPU for image recognition and object detection.
 
-I want to do image recognition with my Pi camera. Does the AI HAT just handle that on its own once it's connected?
+Q: What kind of AI tasks can the camera frameworks do with the HAT?
+A: They support AI computing tasks like image recognition and object detection automatically.
 
 # Models
 
-What's the actual difference between the AI HAT+ and the AI HAT+ 2? Like, which one should I buy?
+Q: I heard there's something called an AI Kit. Is that the same as the AI HAT+?
+A: The AI Kit matches the Hailo-8L variant of AI HAT+ but is no longer in production.
 
-Can I run ChatGPT-style stuff locally on my Raspberry Pi with one of these?
+Q: Can I run a chatbot locally on the AI HAT+ 2?
+A: Yes, AI HAT+ 2 supports local LLMs and VLMs, enabling applications like local chat.
 
-The older AI Kit — is it basically the same as one of these HATs, or is it different?
+Q: Does the regular AI HAT+ support large language models?
+A: No, LLM and VLM support is not available on AI HAT+, only on AI HAT+ 2.
 
-I want to do object detection and some camera stuff. Do I need the 40 TOPS version or would the cheaper one be fine?
+Q: How much memory does the AI HAT+ 2 have?
+A: It has 8 GB of onboard memory, supporting LLMs and VLMs up to around six billion parameters.
 
-The AI HAT+ 2 has its own memory built in — what does that actually let me do that the regular AI HAT+ can't?
+Q: What's the AI HAT+ good for if it can't do LLMs?
+A: It suits object detection, camera post-processing, robotics, and moderate neural workloads.
 
 # Performance (TOPS) variants
 
-I'm trying to decide between the 13 TOPS and 26 TOPS versions of the AI HAT+. What's the real difference?
+Q: What does TOPS mean and why does it matter?
+A: TOPS means tera-operations per second, measuring the AI inference performance of the chip.
 
-What's the 40 TOPS HAT+ 2 good for that the others aren't?
+Q: What's the difference between the 13 TOPS and 26 TOPS versions of the AI HAT+?
+A: The 26 TOPS version supports larger networks, higher throughput, and parallel AI models.
 
-I just want to do basic object detection — do I need the most powerful version or would the 13 TOPS one be fine?
+Q: Which chip is inside the 40 TOPS AI HAT+ 2?
+A: It's built around the Hailo-10H neural network inference accelerator.
+
+Q: I want to run bigger AI models with more throughput. Which AI HAT should I get?
+A: The 26 TOPS AI HAT+ or the 40 TOPS AI HAT+ 2 support larger and more intensive workloads.
+
+# Physical specifications
+
+Q: Are the AI HAT+ and AI HAT+ 2 the same size?
+A: Yes, both are approximately 66 mm by 56.5 mm; the main visual difference is the SDRAM.
+
+Q: Does the AI HAT+ 2 come with a heatsink?
+A: Yes, AI HAT+ 2 includes a heatsink approximately 42.5 mm by 64 mm.
 
 # Hardware assembly
 
-What do I actually need before I start putting the AI HAT together?
+Q: What tools do I need to install an AI HAT onto my Pi 5?
+A: You need a Phillips crosshead screwdriver; an Active Cooler is also recommended.
 
-Do I need a special screwdriver or anything like that to install this?
+Q: What hardware comes in the box with an AI HAT?
+A: It includes spacers, long and short screws, a GPIO stacking header, and a ribbon cable.
 
-Does the AI HAT come with all the screws and cables I need, or do I have to buy those separately?
+Q: Should I turn off my Pi before putting the AI HAT on?
+A: Yes, ensure your Raspberry Pi 5 is disconnected from power before you begin installation.
 
-Should I get the Active Cooler too, or is that optional?
+Q: Do I need to buy a cooler separately for my Pi when using the AI HAT?
+A: A Raspberry Pi Active Cooler is recommended but sold separately; AI HAT+ 2 includes its own heatsink.
 
-# Step 1. Mount an Active Cooler (recommended)
+Q: How does the AI HAT actually connect to the Pi 5?
+A: It connects via the Raspberry Pi 5's PCIe port using a ribbon cable.
 
-How do I attach the Active Cooler to my Pi 5?
+Q: Can I take the heatsink off the AI HAT+ 2 after I've put it on?
+A: Removing the heatsink can degrade push pins and thermal pads, potentially causing product damage.
 
-I've already got an Active Cooler on my Pi — do I need to take it off to install the AI HAT?
+Q: Which way does the ribbon cable go in? I don't want to put it in backwards.
+A: Insert it with the metallic contact points facing inwards, towards the USB ports.
 
-Can I remove the Active Cooler after I've stuck it on, like if I want to reuse it on another Pi?
-
-# Step 2. Mount the AI HAT+ 2 heatsink (recommended)
-
-Do I have to put the heatsink on the AI HAT+ 2 or can I just skip it?
-
-My AI HAT+ 2 is running really hot. Would the heatsink have helped with that?
-
-How do I attach the heatsink to the AI HAT+ 2? Do I need any tools?
-
-# Step 3. Mount the AI HAT
-
-I'm a bit nervous about the ribbon cable part — how do I know I've got it in right?
-
-Which way does the ribbon cable go into the connector? Like, which side faces which way?
-
-After I've screwed everything down, how do I know it's all connected properly before I power it on?
-
-Do I put the spacers on the Pi first or do I connect the ribbon cable first?
+Q: Do I need a heatsink on the AI HAT+ 2 or is it optional?
+A: It's optional but recommended, especially when running benchmarks or intensive AI workloads.
 
 # Next steps: Run AI models
 
-Okay I've got the HAT installed — now what? How do I actually start running AI models on it?
+Q: Where do I find example AI models to try out on my new AI HAT?
+A: Hailo's Model Explorer lists available example models you can run on your Raspberry Pi 5.
 
-Can I run my own custom AI models on this, or is it only the ones Hailo provides?
+Q: Can I train my own AI model and run it on the AI HAT?
+A: Yes, AI HATs support custom models trained for your specific applications.

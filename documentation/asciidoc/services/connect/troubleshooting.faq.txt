@@ -1,56 +1,111 @@
-# Whole Document
-
-- I'm having a bunch of problems with Connect and I don't know where to start. What's the best way to diagnose what's wrong?
-- Does Connect have any known bugs I should know about before I start using it?
-- How do I check if Connect is actually running right now?
-
 # Known Issues
 
-- My Pi is connected to two monitors and Connect keeps sharing the wrong one. Is there a fix for that?
-- I can't type certain keyboard shortcuts into my Connect window. Is that a known thing or is something broken on my end?
-- I tried to upgrade rpi-connect from inside a remote shell session and it just dropped my connection. What happened?
-- I'm on version 1 of Connect and I want to upgrade to version 2. How do I do that without breaking everything?
-- I've got rpi-connect-lite installed and I want to switch to the full version. Do I just install it or is there something else I need to do first?
-- Does Connect work with on-screen keyboards, or do I need a physical keyboard plugged in?
-- What browsers work with Connect? I'm not sure if mine is new enough.
+Q: I've got two monitors plugged in and Connect keeps sharing the wrong one. What do I do?
+A: Right-click the desktop and change taskbar location in Desktop Preferences.
+
+Q: I'm trying to type certain keyboard shortcuts but they're not going through in Connect. Why's that?
+A: Browsers intercept certain keys; use the screen sharing toolbar to simulate them.
+
+Q: Wait, can I use a touchscreen keyboard with Connect if I don't have a physical one?
+A: Connect does not support on-screen keyboards; a physical keyboard is required.
+
+Q: I tried upgrading rpi-connect from inside a remote shell session and it dropped my connection. What happened?
+A: Upgrading Connect terminates all remote shell sessions and drops all connections.
+
+Q: I want to upgrade safely inside a remote shell without losing my connection. How do I do that?
+A: Use a tool like screen or tmux so the process continues after connection closes.
+
+Q: I'm trying to switch from rpi-connect to rpi-connect-lite but something's going wrong. Do I need to do anything first?
+A: First upgrade your currently installed package before switching between the two versions.
+
+Q: My browser is pretty old. Could that cause problems with Connect?
+A: Connect requires a browser implementing ECMAScript 2022, so older browsers won't work.
 
 # Screen Sharing Not Available
 
-- Connect keeps telling me screen sharing is unavailable. How do I figure out why?
-- There's a command to check if everything's working with screen sharing, right? What is it?
-- I ran the doctor command and got a bunch of X marks. What does that even mean and how do I fix it?
-- Screen sharing was working before and now it's not. How do I check what's going on with the services?
-- Do I need Wayland for screen sharing to work? I think I might be using X instead.
-- I'm using KDE on my Pi and screen sharing won't work. Is KDE the problem?
-- Nobody's logged into the desktop when my Pi boots up. Could that be why screen sharing isn't working?
+Q: Connect keeps telling me screen sharing isn't available. How do I figure out why?
+A: Run rpi-connect doctor to identify issues with your screen sharing setup.
+
+Q: I ran that doctor command and got a bunch of checkmarks but one X. What does the X mean?
+A: An X means that specific check failed and needs fixing before screen sharing works.
+
+Q: Screen sharing still isn't working even after I ran the doctor command. How do I dig deeper?
+A: Run systemctl and journalctl commands to check rpi-connect-wayvnc service status in detail.
+
+Q: Do I need a specific desktop environment for screen sharing to work? I'm using KDE.
+A: KDE uses kwin as compositor, which is unsupported; use Raspberry Pi Desktop instead.
+
+Q: I'm on X11 and screen sharing won't work. Is that why?
+A: Yes, screen sharing requires a Wayland compositor like wayfire or labwc, not X.
+
+Q: I logged in remotely and screen sharing says there's no desktop session. What's going on?
+A: Connect can only share an existing desktop session; enable Desktop Autologin via raspi-config.
+
+Q: What version of rpi-connect do I need for screen sharing to actually work?
+A: You need rpi-connect version 1.1.0 or later for screen sharing support.
+
+Q: I installed the lite version but screen sharing doesn't work. Why not?
+A: rpi-connect-lite doesn't include screen sharing support; you need rpi-connect instead.
 
 # Can't Connect After Restarting or Ending SSH Session
 
-- Every time I restart my Pi, Connect stops working and I can't get back in remotely. What's going on?
-- I closed my SSH session and now I can't connect at all. Why does that happen?
-- Is there a way to keep Connect running even when nobody's logged in?
-- I want screen sharing to just be available whenever I need it, even after a reboot. What do I need to set up?
+Q: Every time I close my SSH session Connect stops working. How do I keep it running?
+A: Enable user-lingering for your user to keep Connect running at all times.
+
+Q: I rebooted and now I can't remotely access my Pi's desktop anymore. What do I need to set up?
+A: Enable Desktop Autologin via raspi-config System Options to start a desktop session automatically.
+
+Q: Why does Connect just stop when there's no one logged in locally?
+A: Connect runs as a user-level service and needs an active user session to stay available.
 
 # Networking and Firewall Issues
 
-- Connect isn't working at my office and I think it might be the firewall. How do I check?
-- My network admin is asking me what ports Connect needs open. What do I tell them?
-- I ran the doctor command and the STUN and TURN checks are failing. What does that mean?
-- What's the difference between STUN and TURN in Connect? Do I need both?
+Q: Connect works fine at home but not at work. Could my work firewall be blocking it?
+A: Yes, restrictive networks can block Connect; run rpi-connect doctor to identify the problem.
+
+Q: My network admin is asking what ports Connect needs open. What do I tell them?
+A: Connect needs port 443 for HTTPS and WebSocket, plus UDP port 3478 for STUN and TURN.
+
+Q: Do I normally need to mess with my router settings to get Connect working?
+A: Usually no, Connect communicates without requiring network or firewall changes.
+
+Q: What are those STUN and TURN server addresses Connect uses? My admin needs them.
+A: Use stun.raspberrypi.com and turn1 through turn3.raspberrypi.com for those connections.
 
 # View Connect Status
 
-- How do I check if I'm actually signed into Connect?
-- I think Connect might not be running. How do I check, and how do I start it if it's not?
-- How do I see how many active screen sharing or remote shell sessions there are right now?
+Q: How do I check if Connect is actually running and signed in?
+A: Run rpi-connect status to see sign-in state and active remote services.
+
+Q: I ran the status command and it said Connect isn't running. How do I start it?
+A: Run rpi-connect on to start the Connect service.
+
+Q: How do I see how many remote sessions are active right now?
+A: Run rpi-connect status; it shows active screen sharing and remote shell session counts.
 
 # Enable Enhanced Logging
 
-- Something's going wrong with Connect and I want to see more detailed logs. How do I turn on debug mode?
-- How do I enable verbose logging for rpi-connect?
-- I want to get more detail out of the WayVNC part of Connect specifically. How do I do that?
+Q: Connect is acting weird and I want to see more detailed logs. How do I turn on debug mode?
+A: Add RPI_CONNECT_VERBOSE=1 to /etc/default/rpi-connect and restart Connect.
+
+Q: How do I turn on detailed logging for the WayVNC part of Connect specifically?
+A: Override the rpi-connect-wayvnc service definition and add the -Ldebug flag to it.
+
+Q: I enabled debug logging but forgot to restart Connect. Do I need to restart for it to work?
+A: Yes, run rpi-connect restart after making logging configuration changes.
 
 # View Connect Logs
 
-- How do I actually read the Connect logs? Like what command do I run?
-- Where do Connect's logs live and how do I watch them in real time?
+Q: Where do I go to actually read the Connect logs?
+A: Run journalctl with --follow and --user-unit flags for rpi-connect and rpi-connect-wayvnc services.
+
+# Whole Document
+
+Q: Connect just isn't working and I don't know where to start. What's the best first step?
+A: Run rpi-connect doctor to check what's failing with your Connect setup.
+
+Q: I'm having trouble with Connect and I don't know if it's a network issue or something else. How do I tell?
+A: Run rpi-connect doctor; it tests both local setup and network communication separately.
+
+Q: What's the difference between rpi-connect and rpi-connect-lite? Why does it matter which one I have?
+A: rpi-connect-lite lacks screen sharing support; rpi-connect includes full screen sharing functionality.

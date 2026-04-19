@@ -1,58 +1,350 @@
+# `help`
+
+Q: How do I see all the available options for one of these camera apps?
+A: Use `--help` or `-h` to print all options with brief descriptions.
+
+Q: Is there a shorthand for the help flag so I don't have to type the whole thing?
+A: Yes, `-h` is the shorthand alias for `--help`.
+
+# `version`
+
+Q: How do I check what version of the camera software I've got installed?
+A: Run `--version` to print version strings for libcamera and rpicam-apps.
+
+# `list-cameras`
+
+Q: I've got two cameras plugged in and I'm not sure which one is which. How do I check?
+A: Use `--list-cameras` to list detected cameras and their available sensor modes.
+
+Q: What does that crop info actually mean when I list my cameras?
+A: Crop specifies the location and size of the crop window in native sensor pixels.
+
+# `camera`
+
+Q: I've got multiple cameras connected. How do I tell the app which one to use?
+A: Use `--camera` and specify an index from the list-cameras output.
+
+# `config`
+
+Q: I've got loads of options I always use. Can I save them in a file so I don't have to type them every time?
+A: Yes, use `--config` with a file containing options as key-value pairs, one per line.
+
+Q: Do I put the dashes in front of the option names inside the config file?
+A: No, omit the leading `--` when writing options inside a config file.
+
+Q: I've got a flag with no value in my config file and it's not working. What am I doing wrong?
+A: For flags without values, you must include a trailing equals sign, like `verbose=`.
+
+# `timeout`
+
+Q: The preview keeps closing after five seconds. How do I make it stay open longer?
+A: Use `--timeout` to specify how long the application runs in milliseconds.
+
+Q: Can I make the camera app run forever without closing on its own?
+A: Yes, specify `--timeout 0` to run the application indefinitely.
+
+Q: What units does the timeout use, and can I change that?
+A: Timeout defaults to milliseconds, but suffixes like `s`, `min`, `us`, or `ns` work too.
+
+Q: I want to set a thirty second timeout. Is there a quick way to write that?
+A: Yes, use `-t 0.5min`, which runs for thirty seconds, as one example.
+
+# `preview`
+
+Q: Can I move the preview window to a different spot on the screen?
+A: Yes, use `--preview x,y,w,h` to set the preview window's position and size.
+
+Q: If my image doesn't fit the preview window, what happens to it?
+A: The image scales to fit and gets pillarboxed or letterboxed to preserve aspect ratio.
+
+# `fullscreen`
+
+Q: How do I make the preview window go fullscreen automatically?
+A: Use `--fullscreen` or `-f` to force the preview to use the entire screen.
+
+# `qt-preview`
+
+Q: I'm trying to forward the camera preview over X and it's not working. What should I use?
+A: Use `--qt-preview`, which supports X window forwarding unlike the default preview.
+
+Q: Can I use fullscreen mode together with the Qt preview window?
+A: No, `--qt-preview` is incompatible with the `--fullscreen` flag.
+
+# `nopreview`
+
+Q: I don't need to see a preview at all. Can I just disable it completely?
+A: Yes, use `--nopreview` or `-n` to stop any preview window from appearing.
+
+# `info-text`
+
+Q: What info shows up in the preview window title bar by default?
+A: By default it shows frame number, FPS, exposure, analogue gain, and digital gain.
+
+Q: Can I show the autofocus state in the preview window title?
+A: Yes, use `%afstate` in the `--info-text` string to show the autofocus algorithm state.
+
+Q: I want to show the current focus distance in the preview title. Is there a way to do that?
+A: Yes, use `%lp` in `--info-text` to show current lens position in dioptres.
+
+# `width` and `height`
+
+Q: How do I set the resolution for a video I'm recording?
+A: Use `--width` and `--height` to specify the output resolution in pixels.
+
+Q: Does setting width and height do anything if I'm just running rpicam-hello for a preview?
+A: No, width and height have no effect when used with rpicam-hello.
+
+# `viewfinder-width` and `viewfinder-height`
+
+Q: Can I change the resolution of what's shown in the preview without affecting what gets saved?
+A: Yes, `--viewfinder-width` and `--viewfinder-height` only affect the preview display.
+
+# `mode`
+
+Q: How do I force the camera to use a specific resolution and bit depth?
+A: Use `--mode` with a colon-separated format like `width:height:bit-depth:packing`.
+
+Q: What's the default bit depth and packing if I don't specify them in the mode option?
+A: Bit-depth defaults to 12 and packing defaults to packed `P` if not specified.
+
+Q: What's the difference between packed and unpacked formats? When would I care?
+A: Packed uses less storage; unpacked is easier to manipulate but uses more space.
+
+Q: I'm on a Pi 5. How does the packed format work differently than on older Pis?
+A: On Pi 5 and later, packed format compresses pixel values visually losslessly to 8 bits per pixel.
+
+Q: I'm on an older Pi and using unpacked mode. Where does the zero padding go?
+A: On Pi 4 and earlier, zero padding is applied at the most significant end of the value.
+
+# `viewfinder-mode`
+
+Q: Is there a way to set the camera mode just for the preview window separately?
+A: Yes, `--viewfinder-mode` works like `--mode` but only applies to the preview window.
+
+# `lores-width` and `lores-height`
+
+Q: Can I get a second lower-resolution stream from the camera at the same time?
+A: Yes, use `--lores-width` and `--lores-height` to get a scaled-down second stream.
+
+Q: Does the low-res stream work when I'm taking still photos?
+A: No, the low-resolution stream is not available for still captures.
+
+# `hflip`
+
+Q: My camera image is mirrored horizontally. How do I flip it?
+A: Use `--hflip` to flip the image horizontally.
+
+# `vflip`
+
+Q: The image is upside down. Is there a flag to flip it vertically?
+A: Yes, use `--vflip` to flip the image vertically.
+
+# `rotation`
+
+Q: Can I rotate the image, like ninety degrees or something?
+A: Only 0 or 180 degree rotation is accepted by the `--rotation` option.
+
+# `roi`
+
+Q: I only want to capture the centre of what the camera sees. How do I crop it?
+A: Use `--roi` with decimal values between 0 and 1 representing proportions of the frame.
+
+Q: What's the default roi value if I don't set one?
+A: The default is `0,0,1,1`, which uses the full sensor image with no cropping.
+
+# `hdr`
+
+Q: How do I turn on HDR mode for my camera?
+A: Use `--hdr` with `auto` or just pass `--hdr` without a value to enable it automatically.
+
+Q: What does the `single-exp` HDR option do differently from `auto`?
+A: `single-exp` forces on-board HDR mode even if the sensor has a built-in HDR mode.
+
+Q: Which Pi models actually support on-board HDR?
+A: Raspberry Pi 5 and later devices have an on-board HDR mode.
+
+# `sharpness`
+
+Q: How do I make my camera images look sharper?
+A: Use `--sharpness` with a value greater than 1.0 to apply extra sharpening.
+
+Q: Can I completely turn off sharpening?
+A: Yes, set `--sharpness 0.0` to apply no sharpening at all.
+
+# `contrast`
+
+Q: I want a flatter image with less contrast. How do I do that?
+A: Use `--contrast` with a value between 0.0 and 1.0 to reduce contrast below default.
+
+# `brightness`
+
+Q: How do I make my camera image brighter?
+A: Use `--brightness` with values up to 1.0 to increase brightness offset on all pixels.
+
+Q: Should I use brightness or EV to adjust exposure?
+A: For most use cases, the documentation recommends preferring `--ev` over `--brightness`.
+
+# `saturation`
+
+Q: How do I get a black and white image from the camera?
+A: Set `--saturation 0.0` to apply minimum saturation, giving a grayscale image.
+
+# `ev`
+
+Q: What does EV compensation actually do to the image?
+A: EV adjusts target values passed to the automatic exposure and gain control algorithm.
+
+# `shutter`
+
+Q: Can I set the shutter speed manually to a specific value?
+A: Yes, use `--shutter` to specify the exposure time in microseconds.
+
+Q: What happens if I set a shutter speed that's too slow for the framerate I'm using?
+A: The sensor will use the maximum exposure time allowed by that framerate instead.
+
+# `gain`
+
+Q: How do I manually set the camera gain?
+A: Use `--gain` to set combined analogue and digital gain with a numeric value.
+
+Q: When does the camera start using digital gain instead of analogue?
+A: Digital gain kicks in after analogue gain reaches its maximum value.
+
+# `metering`
+
+Q: My subject is in the centre of the frame. What metering mode should I use?
+A: The default `centre` weighted metering is probably what you want for that.
+
+Q: What metering modes are available for the exposure control?
+A: Available modes are centre, spot, average, and custom defined in the tuning file.
+
+# `exposure`
+
+Q: What's the difference between the sport and long exposure profiles?
+A: Sport uses short exposure with larger gains; long uses longer exposure with smaller gains.
+
+Q: Does changing the exposure profile actually change how bright the image is?
+A: No, changing exposure profile shouldn't affect image exposure, just how gain is adjusted.
+
+# `awb`
+
+Q: What white balance modes can I choose from?
+A: Options include auto, incandescent, tungsten, fluorescent, indoor, daylight, and cloudy.
+
+Q: Can I completely disable auto white balance?
+A: No mode fully disables AWB; use `--awbgains` to fix colour gains instead.
+
+Q: I'm shooting under tungsten lights. What colour temperature range does that mode cover?
+A: The tungsten AWB mode covers approximately 3000K to 3500K colour temperature.
+
+# `awbgains`
+
+Q: How do I manually set the red and blue gains for white balance?
+A: Use `--awbgains` with comma-separated red and blue gain values to fix white balance.
+
+# `denoise`
+
+Q: I want to turn off all denoising. Is that possible?
+A: Yes, use `--denoise off` to disable both spatial and colour denoising.
+
+Q: Will turning on high quality colour denoise slow down my video?
+A: Yes, high quality colour denoise significantly lowers framerates, not suitable for video.
+
+# `tuning-file`
+
+Q: Can I tweak things like auto exposure and white balance at a deep level?
+A: Yes, use `--tuning-file` to specify a camera tuning file that controls image processing.
+
+# `autofocus-mode`
+
+Q: How do I make the camera keep adjusting focus automatically as things move around?
+A: Use `--autofocus-mode continuous` to adjust lens position as the scene changes.
+
+Q: What's the difference between `auto` and `continuous` autofocus modes?
+A: Auto only sweeps once at start or before capture; continuous keeps adjusting as scene changes.
+
+# `autofocus-range`
+
+Q: I'm doing macro photography really close up. Which autofocus range should I pick?
+A: Use `--autofocus-range macro` to focus only on close objects including closest distances.
+
+# `autofocus-speed`
+
+Q: Can I make the autofocus move the lens faster?
+A: Yes, use `--autofocus-speed fast` to change the lens position quickly.
+
+# `autofocus-window`
+
+Q: Can I tell the autofocus to only focus on a specific part of the frame?
+A: Yes, use `--autofocus-window` with decimal values 0 to 1 to define the focus area.
+
+Q: What area does the autofocus use by default if I don't set a window?
+A: By default it uses the middle third of the output image in both dimensions.
+
+# `lens-position`
+
+Q: How do I manually focus the camera at a specific distance?
+A: Use `--lens-position` in dioptres; for example, 2.0 focuses at approximately 0.5 metres.
+
+Q: How do I set the lens to focus at infinity?
+A: Set `--lens-position 0.0` to move the lens to the infinity position.
+
+# `verbose`
+
+Q: How do I get more detailed output from these camera apps to help debug something?
+A: Use `--verbose 2` for verbose output, or `--verbose 0` for no output at all.
+
+# `output`
+
+Q: How do I save my video or photo to a specific filename?
+A: Use `--output` or `-o` followed by the filename you want to save to.
+
+Q: Can I stream the camera output over the network instead of saving to a file?
+A: Yes, use a `udp://` or `tcp://` prefix with `--output` to stream over the network.
+
+Q: I'm capturing lots of separate video segments. Can I automatically number the files?
+A: Yes, include `%d` in the filename with `--output` to get an auto-incrementing counter.
+
+# `wrap`
+
+Q: I'm using the %d counter for filenames. Can I stop it going up forever and wrap around?
+A: Yes, use `--wrap` to set a maximum counter value before it resets to zero.
+
+# `flush`
+
+Q: I'm worried about losing frames if the Pi crashes. Can I make it write to disk faster?
+A: Use `--flush` to write output to disk immediately after each frame instead of buffering.
+
+# `post-process-file`
+
+Q: Can I apply image effects or processing to the camera output like the old raspicam could?
+A: Yes, use `--post-process-file` with a JSON config file to apply post-processing effects.
+
+# `buffer-count`
+
+Q: I'm getting frame drops at high framerates. Is there anything I can do about it?
+A: Try increasing `--buffer-count` to allocate more buffers, which can reduce frame drops.
+
+# `metadata`
+
+Q: Can I save information about the camera settings used for each shot?
+A: Yes, use `--metadata` with a filename or `-` for stdout to save captured image metadata.
+
+# `metadata-format`
+
+Q: Can I save the camera metadata as JSON instead of plain text?
+A: Yes, use `--metadata-format json` to save metadata as a JSON object.
+
 # Whole Document
 
-- I've got a bunch of camera settings I want to use every time. Do I have to type them all out each time or is there a way to save them?
-- What's the difference between all these rpicam apps? Like rpicam-hello versus rpicam-still versus rpicam-vid?
-- I want to see all the options available for one of these camera apps. How do I do that?
-- How do I check what version of the camera software I'm running?
+Q: I keep forgetting to add two dashes in front of options. Is that always required?
+A: Yes, prefix every option name with `--` when passing it on the command line.
 
-# Common options
+Q: Some of these options seem to have short versions like minus h or minus n. What's the deal?
+A: Shorthand aliases save typing but reduce readability compared to full option names.
 
-- How do I see what cameras are connected to my Pi?
-- I've got two cameras plugged in. How do I tell the app which one to use?
-- My preview window just closes after five seconds. How do I keep it open longer, or just make it run forever?
-- Can I make the preview go fullscreen?
-- I don't want any preview window at all, I just want to capture in the background. Is there a flag for that?
-- What's the shortest way to pass options to these camera commands? Like is there a shorthand so I don't have to type out the full option names?
-- How do I set the resolution of what I'm capturing?
-- My image is upside down. How do I flip it?
-- Can I mirror the image horizontally?
-- I only want to capture a small portion of what the camera sees, like zoom into the center. How do I do that?
-- How do I rotate the image 180 degrees?
-- I want to change what text shows up in the preview window title bar. Can I do that?
-- Can I show the current frame rate in the preview window title?
-- Does the Pi camera support HDR? How do I turn that on?
-- I want to run the camera app for exactly 30 seconds. What's the easiest way to specify that?
-- What's the viewfinder width and height for? How is that different from the regular width and height?
-- What does the mode option do? Like what's the difference between packed and unpacked?
-- I'm on a Pi 5 — how does the packed format work differently compared to older Pis?
+Q: Do all these options work the same way across all the rpicam apps?
+A: Most options have similar or identical behavior across all rpicam-apps unless otherwise noted.
 
-# Camera control options
-
-- How do I make my photos look sharper?
-- My video looks really washed out. How do I boost the contrast?
-- The image is too dark. What option do I use to make it brighter?
-- How do I make a black and white image? Like can I just turn off the color?
-- What's EV compensation and when should I use it instead of just adjusting brightness?
-- I want to lock the shutter speed to a specific value. How do I do that?
-- How do I set the ISO or gain on the camera?
-- What metering modes are available? Like spot metering versus average?
-- My footage indoors looks really orange. How do I fix the white balance?
-- Can I completely turn off auto white balance and just set fixed color values?
-- How do I turn off noise reduction? I want the raw noisy image.
-- My camera's autofocus keeps hunting around. Can I just lock it to a fixed distance?
-- How do I set the camera to continuously autofocus as things move around?
-- Can I tell the autofocus to only focus on a specific part of the frame?
-- I'm trying to take macro shots but autofocus won't lock onto close objects. Is there a setting for that?
-- How do I change how fast the autofocus moves?
-
-# Output file options
-
-- How do I tell the app where to save the video or photo?
-- I want to save my recording as a bunch of smaller chunks instead of one big file. How do I do that?
-- Can I stream video over the network instead of saving it to a file?
-- I want each recorded segment to have a number in the filename automatically. How do I set that up?
-- How do I make the camera write output straight to the terminal instead of a file?
-- Is there a way to force files to be written to disk right away instead of waiting?
-- How do I save the metadata from a photo, like exposure settings and stuff?
-- Can I get the metadata saved as JSON instead of plain text?
-- My video is dropping frames at high framerates. Is there anything I can tweak to help with that?
+Q: Can I pass a value with a space in it to one of these options?
+A: Yes, surround values containing spaces in quotes when passing on the command line.

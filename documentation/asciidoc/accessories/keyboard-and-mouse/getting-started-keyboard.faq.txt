@@ -1,18 +1,41 @@
-# Whole Document
+# Getting Started with your Keyboard
 
-- I just got the official Raspberry Pi keyboard. What do I need to know to get started with it?
-- How do I connect the keyboard to my Raspberry Pi?
-- Can I plug a mouse into the keyboard itself, or do I need a separate USB port on the Pi?
-- Wait, so the keyboard has its own USB ports on it? How many?
-- Does the keyboard need its own power supply or does it get power from the Pi?
+Q: What USB ports are on the official Raspberry Pi keyboard?
+A: It has three host USB Type A ports for external devices.
+
+Q: I've got the Raspberry Pi keyboard, how does it connect to my Pi?
+A: Connect it using the keyboard's micro USB port to your Raspberry Pi.
+
+Q: Can I plug a mouse into the keyboard itself instead of directly into the Pi?
+A: Yes, the three USB ports on the keyboard support mice and other devices.
+
+Q: Who's actually powering the USB ports on the keyboard, is that separate?
+A: The Raspberry Pi controls and powers the keyboard's three USB ports via a built-in hub.
 
 # Keyboard Features
 
-- There are some red numbers on my keyboard keys but I can't figure out how to use them. What's going on?
-- How do I type capital letters without holding shift the whole time?
-- I accidentally hit something and now my cursor keys are doing weird scrolling stuff instead of moving my cursor. How do I fix that?
-- What are those three little lights in the corner of my keyboard for?
-- How do I turn Caps Lock off? I keep typing in all capitals.
-- I want to use a number pad but I don't have one. Is there a way to use the keyboard as one?
-- How do I enable Scroll Lock? I can't find a dedicated key for it.
-- I'm in Caps Lock mode but I need to type one lowercase letter. Do I have to turn off Caps Lock or is there a shortcut?
+Q: There are little lights in the corner of my keyboard, what do they mean?
+A: They indicate which of the three lock keys are currently enabled.
+
+Q: I accidentally hit something and now my letters are typing numbers. What happened?
+A: You pressed Num Lock, enabling the red number keys on the letter keys.
+
+Q: How do I turn off Caps Lock once I've turned it on?
+A: Just press the Caps Lock key again to toggle it off.
+
+Q: What's Scroll Lock even for? I never use it.
+A: It lets you browse web pages and spreadsheets using cursor keys without a mouse.
+
+Q: How do I turn on Scroll Lock? Pressing the button doesn't seem to do anything.
+A: Hold the Fn key while pressing the ScrLk key to toggle Scroll Lock.
+
+Q: I want to type a lowercase letter while Caps Lock is on. Can I do that?
+A: Yes, hold the Shift key to type lowercase letters while Caps Lock is on.
+
+# Whole Document
+
+Q: Does the Raspberry Pi keyboard have a built-in USB hub?
+A: Yes, it has a built-in USB hub powering three Type A ports.
+
+Q: I've got the official keyboard, can I plug a USB drive into it?
+A: Yes, the keyboard's three USB ports support USB drives and other devices.

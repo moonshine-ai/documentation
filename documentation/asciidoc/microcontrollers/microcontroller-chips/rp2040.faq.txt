@@ -1,48 +1,100 @@
-# Whole Document
+# RP2040
 
-- What's the RP2040 and what's it good for?
-- I keep hearing about the RP2040. Is that the same thing as a Pico?
-- What boards actually use the RP2040?
-- I'm trying to decide between an RP2040 board and a regular Raspberry Pi. What's the difference?
+Q: What's the RP2040 and what's it used for?
+A: It's a dual-core microcontroller for low-cost, low-power embedded control applications.
+
+Q: What boards actually use the RP2040 chip?
+A: Pico, Pico W, Pico H, Pico WH, and other third-party RP2040-based boards.
+
+Q: How big is the RP2040 chip physically?
+A: It's packaged in a seven by seven millimeter QFN-56 form factor.
 
 # RP2040 naming
 
-- Why is it called RP2040? Like what do those numbers actually mean?
-- What does the RP part stand for in RP2040?
-- I heard the RP2040 has two cores. Is that what the 2 in the name means?
-- Does the zero at the end of RP2040 mean it has no flash memory built in?
-- How much RAM does the RP2040 have and why does the name say 4 if it's 264 kilobytes?
+Q: Why is it called RP2040? What do those numbers even mean?
+A: RP means Raspberry Pi silicon, two cores, Cortex-M0+, 264 kB RAM, no built-in flash.
+
+Q: So the "2" in RP2040 means it has two cores?
+A: Yes, the two refers to the number of processor cores on the chip.
+
+Q: I heard RP2040 has no storage built in. Is that true, and what does the name tell me about that?
+A: Yes, the last zero means no on-board flash memory is included.
+
+Q: What does the "4" in RP2040 stand for?
+A: It represents 264 kB of on-chip SRAM, expressed as a logarithmic factor.
 
 # RP2040 features
 
-- What can the RP2040 actually do? Like what are its main features?
-- Does the RP2040 have built-in flash storage or do I need to add my own?
-- How fast does the RP2040 run?
-- What's PIO on the RP2040? I keep seeing it mentioned but I don't really get what it is.
-- Does the RP2040 support USB? Like can I connect it to my computer directly?
-- How many PWM channels does the RP2040 have?
-- Can the RP2040 do I2C and SPI or do I need extra hardware for that?
-- What's the difference between the two cores on the RP2040? Are they the same or different?
+Q: How fast does the RP2040 run?
+A: The dual-core Cortex-M0+ processor runs at up to 133 MHz.
+
+Q: How much RAM does the RP2040 have?
+A: It has 264 kB of on-chip SRAM split across six independent banks.
+
+Q: There's no flash built in — so where does my program actually live?
+A: Programs run from external flash memory over a fast QSPI interface with caching.
+
+Q: What's PIO on the RP2040? I keep seeing it mentioned.
+A: It's a programmable subsystem with two blocks and eight state machines for custom peripherals.
+
+Q: Does the RP2040 support USB?
+A: Yes, it has a built-in USB 1.1 controller with both host and device support.
+
+Q: How many PWM channels does the RP2040 have?
+A: It has sixteen PWM channels built in.
+
+Q: What serial communication options are on the RP2040?
+A: It has two UARTs, two SPI controllers, and two I2C controllers built in.
+
+Q: Can the RP2040 read temperature or voltage sensors?
+A: Yes, it has a four-channel ADC with 12-bit conversion and an on-board temperature sensor.
 
 # Internal temperature sensor
 
-- Does the RP2040 have a built-in temperature sensor?
-- I'm trying to read the temperature with my Pico but the readings seem way off. What's going on?
-- Do I need to calibrate the RP2040 temperature sensor or does it just work out of the box?
-- Why does the voltage matter so much for the RP2040 temperature sensor?
-- Wait, the sensor voltage goes DOWN when it gets hotter? That seems backwards. Is that right?
+Q: Can I use the RP2040's built-in temperature sensor for accurate readings?
+A: Not without calibration; it's low-resolution and unlikely to be accurate uncalibrated.
+
+Q: Why is the temperature sensor on the RP2040 so inaccurate?
+A: Accuracy depends on knowing the ADC reference voltage, which RP2040 doesn't provide internally.
+
+Q: Does the RP2040 temperature sensor go up or down in voltage as it gets hotter?
+A: The sensor voltage falls as temperature rises.
+
+Q: How do I get an accurate voltage reference for the RP2040 temperature sensor?
+A: Measure it externally or provide an external precision voltage reference.
 
 # Sleep mode power
 
-- How much power does the RP2040 use when it's in deep sleep?
-- I'm building a battery-powered project and the RP2040 is draining it even in sleep mode. What can I do?
-- Is there a way to get the RP2040 to use basically zero power when it's not doing anything?
-- What affects how much current the RP2040 draws in sleep mode?
+Q: How much power does the RP2040 use when it's in deep sleep?
+A: It typically draws around 180 microamps even in deep sleep.
+
+Q: I need my project to use as little power as possible. What's the best approach for the RP2040?
+A: Completely power off the system or the RP2040 part rather than relying on sleep mode.
+
+Q: Does temperature affect how much current the RP2040 draws in sleep?
+A: Yes, sleep current varies nonlinearly with temperature.
 
 # RP2040-based boards
 
-- Can I make my own board based on the RP2040? Is that allowed?
-- Are the Pico design files open source? Can I just use them for my own product?
-- Where can I find the design files for the Raspberry Pi Pico?
-- I want to build something based on the RP2040 but I don't know where to start. Is there like a reference design I can look at?
-- Where should I go if I've got questions about a third-party RP2040 board that isn't an official Pico?
+Q: Can I use the Raspberry Pi Pico design files to make my own board?
+A: Yes, Raspberry Pi grants permission to use, copy, modify, and distribute them freely.
+
+Q: Where can I talk to people about third-party RP2040 boards?
+A: The Raspberry Pi forums have a section for discussing third-party RP2040-based boards.
+
+Q: Are there any reference designs available if I want to build my own RP2040 board?
+A: Yes, there's a Minimal Viable Board and a VGA Carrier Board design available.
+
+Q: I want to make an RP2040 project with a screen. Is there a reference design for that?
+A: Yes, the VGA Carrier Board design is a reference for multimedia use with Pico.
+
+# Whole Document
+
+Q: I'm just getting started — what kind of projects is the RP2040 actually good for?
+A: Motor control, signal processing, human-machine interfaces, and embedded data acquisition.
+
+Q: What's the difference between RP2040 and a regular Raspberry Pi?
+A: RP2040 is a microcontroller chip designed for embedded control, not a full computer.
+
+Q: Where can I find the full datasheet for the RP2040?
+A: It's available at the Raspberry Pi pip documentation site as the RP2040 datasheet.

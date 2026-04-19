@@ -1,26 +1,50 @@
-# Whole Document
-
-- What's the Codec Zero and what does it do?
-- I've got a Raspberry Pi Zero and I want to add audio to it. Is the Codec Zero what I need?
-- What kind of projects is the Codec Zero good for?
-- Does the Codec Zero work with any Raspberry Pi or just the Zero?
-- What's a HAT? Is that what the Codec Zero is?
-
 # Raspberry Pi Codec Zero
 
-- What audio quality does the Codec Zero support? Like how many bits and what sample rates?
-- Does the Codec Zero have a built-in microphone or do I need to plug one in?
-- I want to plug in an external microphone. Can the Codec Zero handle that?
-- What happens to the built-in mic when I plug in an external one?
-- Can I plug in speakers directly to the Codec Zero?
-- How powerful is the speaker output on this thing? Will it drive a small speaker?
-- I want stereo audio input. Can the Codec Zero do that?
-- What are those RCA connectors on the Codec Zero for?
-- Does the Codec Zero have any kind of EQ or audio processing built in?
-- What's ALC and does the Codec Zero support it?
-- I noticed there are LEDs on the Codec Zero. What are those for and can I control them?
-- There's a button on the Codec Zero board. What's that for?
-- What GPIO pins does the Codec Zero use for the LEDs and the button?
-- What's an EEPROM and why does the Codec Zero have one?
-- I'm thinking of building a smart speaker with a Pi Zero. Would the Codec Zero work for that?
-- Could I use this for a walkie-talkie type project?
+Q: What's the Codec Zero and what does it actually do?
+A: It's an audio HAT delivering digital audio signals between Pi and a codec.
+
+Q: Does the Codec Zero have a built-in microphone or do I need to plug one in?
+A: It has a built-in MEMS microphone, plus supports external electret microphones too.
+
+Q: What kind of audio quality can I expect from this thing?
+A: It supports 24-bit audio at sample rates between 8 and 96 kHz.
+
+Q: I want to plug in RCA cables for audio input. Can this board handle that?
+A: Yes, it has stereo auxiliary input via PHONO/RCA connectors.
+
+Q: What happens to the built-in mic when I plug in an external one?
+A: The MEMS microphone automatically disables when a mic is inserted.
+
+Q: How loud can the speaker output get on this?
+A: The mono speaker driver outputs 1.2 watts at 5 volts into 8 ohms.
+
+Q: Does it have any LEDs or buttons I can use in my project?
+A: Yes, there's a green LED, a red LED, and a programmable tactile button.
+
+Q: What GPIO pins are those LEDs and button connected to?
+A: Green LED uses GPIO23, red uses GPIO24, and the button uses GPIO27.
+
+Q: What kind of projects is the Codec Zero actually good for?
+A: It suits walkie-talkies, smart doorbells, vintage radio hacks, or smart speakers.
+
+Q: I don't want to configure everything manually. Does it support auto-configuration?
+A: Yes, it includes an EEPROM that can auto-configure the Linux environment.
+
+# Pinouts
+
+Q: What are those P1 and P2 connectors on the board for?
+A: P1 is for auxiliary input and P2 is for auxiliary output via PHONO/RCA sockets.
+
+Q: How do I know which pin is pin one on the P1 connector?
+A: Pin 1 on P1 is marked with a square pad.
+
+# Whole Document
+
+Q: I've got a Pi Zero and I want to add audio to it. Is this the right board?
+A: Yes, Codec Zero is specifically Pi Zero-sized and adds full audio capability.
+
+Q: Does it support stereo output or just mono?
+A: It has stereo auxiliary output but only a mono line-out speaker driver.
+
+Q: Can I do any audio processing on the Codec Zero, like EQ or level control?
+A: Yes, it includes a five-band EQ and automatic level control via built-in DSP.

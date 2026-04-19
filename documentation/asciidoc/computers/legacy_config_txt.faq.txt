@@ -1,98 +1,162 @@
-# Whole Document
-
-- I'm running an older version of Raspberry Pi OS and I'm trying to figure out which config dot txt settings still apply to me. Where do I even start?
-- Are these legacy settings going to break anything if I use them on a newer OS?
-- I'm doing bare-metal development on a Pi. Are there any old config settings that might still be useful for that?
-- What's the difference between legacy settings and the normal ones? Do I need both?
-
 # Legacy Boot Options
 
-- What does setting start_x to 1 actually do?
-- I've heard about start_x and start_debug in config dot txt. What are they for?
-- What files does start_debug equals 1 load?
-- I'm on a Pi 4 and I used start_x equals 1, but I heard it might load different files on the 4. Is that true?
-- What's this disable_commandline_tags setting? Should I be touching it?
-- I tried using arm_control in my config and got a warning that it's deprecated. What should I use instead?
-- What's kernel_address for? I don't understand why you'd need to tell it where to load the kernel.
-- What memory address does the kernel load to by default on a 32-bit system?
-- I set kernel_old to 1 and now I'm not sure what that actually changed. What does it do?
-- What's the default baud rate for the UART on a Pi?
-- I need to change the UART clock speed. What's the default and how do I change it?
-- Wait, does the UART clock setting apply to both UARTs on a Pi 3?
-- My Pi's display detection is wrong on first boot but fine after a soft reboot. Is there a setting to add a delay before it reads the monitor info?
-- What's bootcode_delay and when would I actually need it?
-- My SD card seems to need a few seconds before Linux can read it properly. Is there a way to add a boot delay?
-- What's the difference between boot_delay and boot_delay_ms? Why are there two?
-- What does enable_gic do on a Pi 4?
+Q: What does setting `start_x=1` actually do in config.txt?
+A: It's a shortcut that sets start_file to start_x.elf and fixup_file to fixup_x.dat.
+
+Q: I've got a Pi 4 and set `start_x=1` — will it use different files than other models?
+A: Yes, on Pi 4 it uses start4x.elf and fixup4x.dat if those files are present.
+
+Q: What's the default baud rate for the UART on a Raspberry Pi?
+A: The default initial UART baud rate is 115200.
+
+Q: My display detection is wrong on first boot but works fine after a reboot without cutting power. What's that about?
+A: Try adding a `bootcode_delay` to let the monitor finish starting up before EDID is read.
+
+Q: What's the default UART clock frequency on the Pi?
+A: The default initial UART clock frequency is 48 MHz, or 48000000.
+
+Q: I'm doing bare-metal stuff and want to load the kernel at address zero. How do I do that?
+A: Set `kernel_old=1` and the kernel will load to memory address 0x0.
+
+Q: Where does a 64-bit kernel get loaded by default?
+A: By default, 64-bit kernels are loaded to memory address 0x200000.
+
+Q: I'm using `arm_control` to enable 64-bit — is that still the right way to do it?
+A: No, `arm_control` is deprecated; use `arm_64bit` instead to enable 64-bit kernels.
+
+Q: My SD card takes a while to be ready before Linux boots. Is there a way to add a delay?
+A: Yes, use `boot_delay` to force a wait in seconds before the kernel loads.
+
+Q: How do I calculate the total boot delay in milliseconds?
+A: Total delay in milliseconds equals 1000 times boot_delay plus boot_delay_ms.
 
 # Legacy Overclocking Options
 
-- What does never_over_voltage actually do, and is it reversible?
-- I don't want my Pi 2 going into turbo mode automatically. How do I stop that?
-- What's the difference between the turbo mode setting and regular overclocking?
+Q: Can I stop my Pi 2 or 3 from ever going into turbo mode?
+A: Yes, set `disable_auto_turbo` flag to prevent the GPU from entering turbo mode.
+
+Q: What does `never_over_voltage` actually do — is it reversible?
+A: It permanently sets a one-time programmable memory bit preventing overvoltage; it's not reversible.
 
 # Legacy Conditional Filters
 
-- I've got a Pi 4 with two HDMI ports and I want different settings for each one. How do I do that in config dot txt?
-- What's the HDMI filter thing for in config dot txt?
-- I'm trying to set hdmi_mode differently for each HDMI port on my Pi 4. Is there a shorthand way to do that without using the filter blocks?
+Q: I've got a Pi 4 with two HDMI ports and want different resolutions on each. How do I set that up in config.txt?
+A: Use the `[HDMI:0]` and `[HDMI:1]` filters to apply different settings to each port.
+
+Q: Is there another way to set HDMI settings per-port without using those filter sections?
+A: Yes, use the `variable:index` syntax like `hdmi_group:0=2` and `hdmi_group:1=2`.
 
 # Legacy Memory Options
 
-- How much GPU memory does the Pi give by default? And should I be changing it?
-- I keep reading that I should set gpu_mem as low as possible. What's the actual minimum value?
-- I've got a Pi with 512 meg of RAM. What's the maximum I should set gpu_mem to?
-- Does increasing gpu_mem actually improve graphics performance like it does on a regular PC?
-- I use the same SD card in different Pis with different amounts of RAM. Do I have to keep editing gpu_mem every time I swap?
-- What's gpu_mem_512 for? How's it different from just setting gpu_mem?
-- Does the Pi 5 even use gpu_mem? I feel like I read somewhere it doesn't.
-- What happens if I set gpu_mem too high? Will it break things?
-- What does disable_l2cache do and do I need to worry about it?
+Q: How much GPU memory does a Pi get by default?
+A: Default is 64 MB for Pis with less than 1 GB RAM, and 76 MB for 1 GB or more.
+
+Q: Will giving my Pi more GPU memory make 3D stuff run faster?
+A: No, more GPU memory doesn't improve performance and can actually harm it.
+
+Q: I've got Pi 4 — can I use less GPU memory than on older models?
+A: Yes, Pi 4's 3D component has its own MMU, so a smaller gpu_mem value is fine.
+
+Q: I've got a bunch of different Pis sharing the same SD card. Do I have to edit config.txt each time I swap?
+A: No, use `gpu_mem_256`, `gpu_mem_512`, or `gpu_mem_1024` to set RAM-specific values automatically.
+
+Q: Does the camera use GPU memory? Should I increase gpu_mem for camera stuff?
+A: No, the camera stack uses Linux CMA memory, so increasing GPU memory won't help.
+
+Q: What's the minimum value I can set gpu_mem to?
+A: The minimum is 16 MB, but that disables certain GPU features.
+
+Q: Does gpu_mem do anything on a Raspberry Pi 5?
+A: No, Raspberry Pi 5 doesn't allocate GPU memory on behalf of the OS, so it has no effect.
 
 # Legacy Video Options
 
-- My HDMI display isn't being detected properly. Is there a safe mode I can try?
-- What does hdmi_safe equals 1 actually set? Like what settings does it turn on?
-- My monitor has a bad EDID. How do I tell the Pi to just ignore it?
-- Can I load EDID data from a file instead of reading it from the monitor?
-- I want to force the Pi to use a specific EDID file for each HDMI port on my Pi 4. How do I set that up?
-- My HDMI display says it doesn't support surround sound but I know it does. How do I force audio passthrough?
-- I want audio to come out of the headphone jack instead of HDMI. Is there a config setting for that?
-- How do I stop my Pi from waking up my TV every time it reboots?
-- I want to completely disable CEC on my Pi. How do I do that?
-- How do I change the name the Pi shows up as on my TV's CEC device list?
-- My HDMI output looks weird with strange colours. Could the pixel encoding mode be wrong?
-- I want to block all 4K modes from being used. Is there a way to set a maximum resolution or frequency?
-- My monitor goes to sleep when the Pi's screensaver kicks in, but I want it to actually turn off completely. How do I do that?
-- I've got my Pi connected with HDMI but I'm not getting any sound. Is there a setting to make sure it sends audio?
-- I've got a really long HDMI cable and I'm getting interference. Is there a signal strength setting I can tweak?
-- How do I set a specific resolution and refresh rate for my HDMI output?
-- What's the difference between hdmi_group 1 and 2? Which one should I use for a regular computer monitor?
-- I want 1080p at 60Hz. What values do I set for hdmi_group and hdmi_mode?
-- My monitor needs a resolution that's not in the standard list. Can I make a custom mode somehow?
-- What's hdmi_force_mode for? My display keeps ignoring my hdmi_mode setting.
-- I'm using composite video output. How do I switch between PAL and NTSC?
-- Can I set the aspect ratio for composite video output?
-- I want a black and white composite output. Is there a setting for that?
-- My Pi touchscreen is showing up instead of my HDMI monitor as the main display. How do I change which one is default?
-- I've got the official Pi touchscreen mounted upside down. Can I flip it in config dot txt?
-- How do I enable an LCD connected through the DPI pins?
-- My Pi doesn't have a monitor connected but I want it to boot into HDMI mode anyway. How do I force that?
-- There are black borders on all sides of my screen. How do I adjust the overscan settings?
-- Part of my desktop is getting cut off on the right side. Do I need to increase or decrease the overscan value?
-- I switched to a 32-bit framebuffer and now my display looks messed up. What do I need to do alongside that?
-- I've got two displays and I want to make sure the HDMI is the primary one, not the composite. How do I set that?
-- How do I rotate my HDMI display 90 degrees in config dot txt?
-- Can I flip the display horizontally instead of rotating it?
-- I want to rotate my screen 180 degrees and also flip it. Can I combine those settings?
-- What's dispmanx_offline and would it help if I'm trying to run lots of display layers at once?
+Q: My HDMI display isn't being detected even though it's plugged in. How do I force HDMI output?
+A: Set `hdmi_force_hotplug=1` to make the Pi always use HDMI output mode.
+
+Q: I want the Pi to ignore the HDMI even though a monitor is plugged in. Can I do that?
+A: Yes, set `hdmi_ignore_hotplug=1` to disable HDMI output even with a monitor connected.
+
+Q: My TV is cutting off the edges of the screen. How do I fix the overscan settings?
+A: Adjust `overscan_left`, `overscan_right`, `overscan_top`, or `overscan_bottom` pixel values in config.txt.
+
+Q: There's a black border on the left side of my screen. Do I increase or decrease overscan_left?
+A: Decrease overscan_left to reduce the black border between the left edge and text.
+
+Q: How do I completely turn off overscan?
+A: Set `disable_overscan=1` to disable the firmware's default overscan values.
+
+Q: I want audio over HDMI — is there a setting I need to change?
+A: Yes, set `hdmi_drive=2` for normal HDMI mode which sends audio if supported and enabled.
+
+Q: My display seems to ignore the hdmi_mode and hdmi_group settings I set. What can I do?
+A: Try setting `hdmi_force_mode=1` to remove all other modes except your specified ones.
+
+Q: How do I find out what HDMI modes my monitor actually supports?
+A: Boot in VGA mode then run tvservice commands to list CEA and DMT supported modes.
+
+Q: I want to rotate my HDMI display 90 degrees. What setting does that?
+A: Set `display_hdmi_rotate=1` to rotate the HDMI display 90 degrees clockwise.
+
+Q: Can I flip my display horizontally instead of rotating it?
+A: Yes, set `display_hdmi_rotate=0x10000` for a horizontal flip.
+
+Q: My TV keeps turning on and switching channels when I reboot my Pi. How do I stop that?
+A: Set `hdmi_ignore_cec_init=1` to stop the active source message being sent during bootup.
+
+Q: What's the default CEC name my Pi shows up as on my TV?
+A: The default CEC name is "Raspberry Pi."
+
+Q: I want to use DTS or AC3 audio passthrough but my display says it's not supported. Is there a workaround?
+A: Set `hdmi_force_edid_audio=1` to pretend all audio formats are supported by the display.
+
+Q: I want audio to always come out of the headphone jack instead of HDMI. Is there a setting for that?
+A: Set `hdmi_ignore_edid_audio=1` and ALSA will default to the analogue headphone jack.
+
+Q: My Pi is running headless and I want to save memory by not using a framebuffer. How?
+A: Set `max_framebuffers=0` to prevent any framebuffers from being allocated.
+
+Q: I've got a Pi 4 with two HDMI displays but only one seems to work. What do I need to change?
+A: Set `max_framebuffers=2`; on pre-Pi 4 devices the default is 1 and needs increasing.
+
+Q: What framebuffer color depth does the Pi use by default?
+A: The default framebuffer depth is 16 bits per pixel.
+
+Q: I set framebuffer depth to 32-bit and now the display looks wrong. What do I do?
+A: Try setting `framebuffer_ignore_alpha=1` alongside your 32-bit framebuffer depth setting.
+
+Q: My composite video output is in black and white but I want it sharper — is there a trade-off setting?
+A: Yes, set `sdtv_disable_colourburst=1` for monochrome output that may appear sharper.
+
+Q: I want to set a totally custom resolution that isn't in any of the mode tables. How do I do that?
+A: Use `hdmi_cvt` to define a custom CVT mode, then set hdmi_group=2 and hdmi_mode=87.
+
+Q: My Pi Touch Display keeps showing on-screen even though I'd rather use HDMI as the main output. How do I change that?
+A: Set `display_default_lcd=0` so the LCD isn't the default display and HDMI takes over.
+
+Q: What framerate does the Pi Touch Display default to?
+A: The Raspberry Pi Touch Display defaults to 60Hz framerate.
 
 # Raspberry Pi 4 HDMI Pipeline
 
-- My Pi 4 won't output at 1366 by 768 on my monitor. I've seen that resolution mentioned but it doesn't seem to work. What's going on?
-- How do I manually set 1360 by 768 at 60Hz on a Pi 4?
+Q: I'm trying to run 1366x768 on my Pi 4 and it's not working. Is that a known issue?
+A: Yes, Pi 4 can't output 1366x768 at 60Hz; try manually setting 1360x768 at 60Hz instead.
+
+Q: How do I manually set 1360x768 on my Pi 4 since it's not in the mode list?
+A: Add hdmi_group=2, hdmi_mode=87, and hdmi_cvt=1360 768 60 to config.txt.
 
 # Legacy Miscellaneous Options
 
-- What does avoid_warnings equals 2 do? I've seen it mentioned when dealing with low voltage warnings.
-- My Pi is in an underpowered setup and I still want turbo mode. Is there a way to allow that?
+Q: My Pi is showing low-voltage warnings and I want to let it use turbo mode anyway. How?
+A: Set `avoid_warnings=2` to allow turbo mode even when low voltage is present.
+
+# Whole Document
+
+Q: Are these config.txt options still supported in the latest Raspberry Pi OS?
+A: No, these are legacy settings not used by Raspberry Pi OS Bookworm and are unsupported.
+
+Q: I'm running an older Raspberry Pi OS — can I still use these config.txt settings?
+A: Yes, they remain documented and may still benefit users of older operating systems.
+
+Q: I'm doing bare-metal development on a Pi. Are any of these legacy options relevant to me?
+A: Yes, these legacy options may still be useful for bare-metal development work.

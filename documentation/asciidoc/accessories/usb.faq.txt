@@ -1,36 +1,59 @@
-# Whole Document
-
-- Does Raspberry Pi make any USB accessories?
-- I want to add more USB ports and also get some extra storage. Does Raspberry Pi sell stuff for that?
-- Are these USB accessories only for Raspberry Pi or do they work with regular computers too?
-
 # USB 3 Hub
 
-- I've only got one USB port free on my Pi. Can I plug a hub in and get more ports out of it?
-- How many extra USB ports does the Raspberry Pi hub give me?
-- Will devices plugged into the hub show up the same as if I plugged them straight into my Pi?
-- My keyboard and mouse are both USB. Can I run them both off one of these hubs without needing extra power?
-- How much power can the hub pull from my Pi?
-- I want to plug in something that needs a lot of power through the hub. Is that possible?
-- What's that USB-C port on the hub for? Do I have to use it?
-- How fast is the data transfer on this hub?
-- I've only got USB 2.0 ports on my computer. Will the Raspberry Pi hub still work with it?
-- How long is the cable on the hub?
-- How big is the USB hub? I'm trying to figure out if it'll fit in my setup.
-- If I've got four things plugged into the hub, do they all share the 900 milliamps or does each port get its own?
-- How much power does the hub give out when it's got its own power supply plugged in?
+Q: I've only got one USB port free on my Pi. Can I plug a hub in and get more ports?
+A: Yes, the USB 3 Hub turns one USB-A port into four USB-A ports.
+
+Q: Will my old USB 2 devices work if I plug them into this hub?
+A: Yes, the hub is backward compatible with USB 2.0 devices.
+
+Q: I want to plug in a bunch of stuff but I'm worried about power. How much can the hub actually handle?
+A: Bus-powered, it draws up to 900 mA shared across all four downstream ports.
+
+Q: My keyboard and mouse aren't getting enough power through the hub. Is there something I can do?
+A: Connect external power through the optional USB-C input, supplying up to 15 W.
+
+Q: How fast is data transfer through the USB 3 Hub?
+A: It supports data transfer speeds of up to 5 gigabits per second.
+
+Q: How big is the hub? Like will it be huge and take up loads of desk space?
+A: The hub itself is approximately 57.4 mm by 52.4 mm by 18 mm.
+
+Q: Does the hub come with a cable attached or do I need to bring my own?
+A: It has an 8 cm captive upstream USB 3.0 Type-A cable already attached.
+
+Q: I want to power some more demanding devices through the hub. How much power can I get with external power connected?
+A: With self-powered USB-C input, it supplies up to 5 V at 3 A, totalling 15 W.
 
 # Flash Drive
 
-- Does Raspberry Pi make a USB memory stick?
-- Can I boot my Pi from the Raspberry Pi flash drive?
-- What storage sizes does the flash drive come in?
-- I'm trying to decide between the 128 gig and 256 gig flash drive. Is there actually a performance difference?
-- Will this flash drive work if I plug it into a USB 2.0 port?
-- How small is the Raspberry Pi flash drive? Like will it fit on a keychain?
-- How heavy is the flash drive? I want to carry it around with me.
-- What's the write speed on the flash drive? I'm copying big files a lot.
-- Does the flash drive keep my files when it's unplugged, or does it need power to hold data?
-- What does IOPS mean and why does it matter for a flash drive?
-- I do a lot of work with small files. Is this flash drive going to be fast enough for that?
-- How thick is the flash drive? I want to make sure it won't block the port next to it.
+Q: What sizes does the Raspberry Pi Flash Drive come in?
+A: It's available in either 128 GB or 256 GB storage capacities.
+
+Q: Can I actually boot my Pi from this flash drive?
+A: Yes, it's designed for responsive performance for booting operating systems.
+
+Q: I want to carry this thing on my keys. Is it small enough for that?
+A: Yes, it has a compact metal design that can attach to a keyring or lanyard.
+
+Q: Will this flash drive work on my older computer that only has USB 2?
+A: Yes, it's backward compatible with USB 2.0 ports.
+
+Q: Does the flash drive keep my files when I unplug it?
+A: Yes, it uses non-volatile flash memory to retain data when disconnected.
+
+Q: Is there much difference in speed between the 128 gig and 256 gig versions?
+A: Yes, the 256 GB version is notably faster, especially for sequential write speeds.
+
+Q: How heavy is this flash drive? I don't want something bulky.
+A: It weighs less than 6 grams, making it very lightweight and travel-friendly.
+
+Q: What's the sequential write speed on the bigger flash drive?
+A: The 256 GB version has a sustained sequential write speed of 150 MB/s.
+
+# Whole Document
+
+Q: I want to add more USB ports and some extra storage to my Pi. What accessories does Raspberry Pi actually sell for that?
+A: Raspberry Pi sells the USB 3 Hub for extra ports and a Flash Drive for storage.
+
+Q: Does Raspberry Pi make their own USB accessories or is it all third-party stuff?
+A: Raspberry Pi offers their own high-quality USB hub and flash drive accessories.

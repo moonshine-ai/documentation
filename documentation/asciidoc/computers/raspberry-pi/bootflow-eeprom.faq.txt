@@ -1,55 +1,82 @@
-# Whole Document
+# EEPROM Boot Flow
 
-- What's different about how the Raspberry Pi 4 boots compared to older models?
-- I've got a Pi 4 and I'm trying to understand how it boots. Where does it load the bootloader from?
-- What even is an EEPROM and why does the Pi use it for booting?
-- My Pi isn't booting and I don't know where to start. What's the order it tries things in?
+Q: What's different about how the Pi 4 boots compared to older Pis?
+A: Pi 4 loads the second-stage bootloader from SPI flash EEPROM instead of bootcode.bin.
+
+Q: What even is the EEPROM bootloader and which Pis use it?
+A: Raspberry Pi 4 and newer flagship devices use an EEPROM-based bootloader system.
 
 # First Stage Bootloader
 
-- What's the very first thing that happens when a Raspberry Pi 4 powers on?
-- What's `recovery.bin` and when does my Pi use it?
-- If the SPI EEPROM is corrupted or missing, what does the Pi do?
-- My Pi is stuck and won't boot. Does it keep retrying USB boot or does it just give up?
-- What's `nRPIBOOT` and do I need to worry about it?
-- So if the EEPROM fails to load, does the Pi just hang forever or does it try something else?
+Q: What's the very first thing that happens when my Pi powers on?
+A: The SoC powers up and reads OTP to check if the nRPIBOOT GPIO is configured.
+
+Q: What does recovery.bin actually do? I keep seeing it mentioned.
+A: It's a minimal second-stage program used to reflash the bootloader SPI EEPROM image.
+
+Q: If the Pi can't find the second stage bootloader on the EEPROM, what happens?
+A: It repeatedly attempts to load recovery.bin from USB device boot, retrying on failure.
+
+Q: When does the Pi try to load recovery.bin from the SD card?
+A: When SD recovery is enabled in OTP and nRPIBOOT GPIO is high or unconfigured.
 
 # Second Stage Bootloader
 
-- What order does the Pi try different boot sources, like SD card versus USB versus network?
-- I want my Pi to boot from USB. How does the bootloader know to try that?
-- My Pi shows an error pattern on the LED and won't boot. What does that mean?
-- What's BOOT_ORDER and how do I change it?
-- Can my Pi boot from an NVMe drive? How does that work?
-- What happens if none of the boot modes work? Does it just restart and try again?
-- How does network booting work on the Pi? Like what protocols does it use?
-- What's RPIBOOT mode and when would I use it?
-- I want my Pi to shut off completely when it halts instead of just sleeping. Is there a setting for that?
-- What's `WAKE_ON_GPIO` and how do I use it to wake my Pi up?
+Q: Where does the Pi look for boot order instructions?
+A: It reads the BOOT_ORDER parameter from the EEPROM configuration file each boot cycle.
+
+Q: My Pi won't boot and it's just flashing an error pattern on the LED. What does that mean?
+A: The STOP boot mode triggers a "start.elf not found" LED error pattern and halts forever.
+
+Q: How does network booting work on the Pi? Like what protocol does it use?
+A: It uses DHCP to get an IP address, then loads firmware from a TFTP server.
+
+Q: Can my Pi boot from an NVMe drive?
+A: Yes, it scans PCIe for an NVMe device and attempts to load firmware from it.
+
+Q: What happens if RPIBOOT mode is selected but nothing connects over USB?
+A: RPIBOOT has no timeout, so it waits indefinitely for a USB OTG connection.
+
+Q: I want my Pi to just keep cycling through boot options. How do I set that up?
+A: Set RESTART in BOOT_ORDER to jump back to the first boot mode and retry everything.
 
 # Differences on Raspberry Pi 5
 
-- On a Pi 5, how do I wake it up from sleep? Is it still GPIO 3 like older models?
-- My Pi 5 isn't booting from USB. Is USB boot disabled by default or something?
-- I've got a Pi 5 on a 3A power supply and USB boot isn't working. What do I do?
-- Does the Pi 5 still use `start.elf` for booting or did they change that?
-- If I press the power button to enable USB boot on my Pi 5, will that setting stick after a reboot?
+Q: On the Pi 5, how do I wake it up from sleep instead of using GPIO 3?
+A: Press the power button to wake the Pi 5 from PMIC STANDBY or HALT states.
+
+Q: Does the Pi 5 still need start.elf like older models do?
+A: No, the Pi 5 firmware loads the Linux kernel directly; start.elf is embedded in the bootloader.
+
+Q: My Pi 5 isn't booting from USB and it's connected to a 3A power supply. What's going on?
+A: USB boot is disabled by default on 3A supplies; enable usb_max_current_enable=1 in config.txt.
+
+Q: Can I just press the power button to get USB boot working on the Pi 5 temporarily?
+A: Yes, pressing the power button once on a failed USB boot temporarily enables USB booting.
 
 # Bootloader Updates
 
-- How does the Pi update its own bootloader? Does it happen automatically?
-- What's `pieeprom.upd` and when does it get used?
+Q: Can the bootloader update itself during the boot process?
+A: Yes, if a pieeprom.upd file is found, the bootloader updates before firmware starts.
 
-# Fail-safe OS Updates (tryboot)
+# Fail-Safe OS Updates (tryboot)
 
-- What's `tryboot` and why would I use it?
-- I want to test an OS update but make sure my Pi falls back to the old one if it crashes. How do I do that?
-- How do I actually trigger `tryboot`? What's the command?
-- If my Pi crashes during a `tryboot` update, will it go back to normal on the next reboot automatically?
-- Does `tryboot` work on all Pi models or just newer ones?
-- I've got an older Pi 4 revision 1.0. Are there any limitations with `tryboot` I should know about?
+Q: I want to test an OS update but be able to roll back if it breaks things. Is there a way to do that?
+A: Yes, use tryboot to load tryboot.txt with update settings; a crash reverts to config.txt automatically.
+
+Q: How do I actually trigger tryboot? What's the command?
+A: Run sudo reboot '0 tryboot' — you must quote the argument as reboot only accepts one.
+
+Q: Does tryboot work on all Pi models?
+A: Yes, all Raspberry Pi models support tryboot, with a minor EEPROM caveat on Pi 4B 1.0 and 1.1.
+
+Q: What's different about tryboot when secure boot is turned on?
+A: With secure-boot enabled, tryboot loads tryboot.img instead of the usual boot.img.
 
 # tryboot_a_b Mode
 
-- What's `tryboot_a_b` mode and how is it different from regular `tryboot`?
-- Why would I set `tryboot_a_b` to 1 in `autoboot.txt`? What does that actually do?
+Q: What does the tryboot_a_b setting actually do?
+A: When set to 1, it loads config.txt instead of tryboot.txt, since partition switching already happened.
+
+Q: Is tryboot_a_b ever turned on automatically without me setting it?
+A: Yes, it's implicitly set to 1 when loading files from inside a boot.img ramdisk.

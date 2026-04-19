@@ -1,41 +1,41 @@
 # Starting a Debug Session
 
-How do I load a new program onto my Pico without having to unplug it and hold that BOOTSEL button every time?
+Q: Do I have to unplug my Pico every time I want to upload new code with the Debug Probe?
+A: No, the Debug Probe lets you upload binaries hands-off via SWD.
 
-What's the Debug Probe actually for? Like what does it do for me?
+Q: What's the recommended way to upload and debug programs on my Pico?
+A: Use the Raspberry Pi Pico VSCode extension, which integrates OpenOCD and GDB.
 
-I've got my binary built. How do I upload it to my Pico using the Debug Probe?
-
-Wait, do I use the UF2 file or the ELF file when uploading through the Debug Probe?
-
-I'm confused about the difference between the ELF file and the UF2 file. Which one do I need?
-
-Is there like an easier way to set all this up without doing everything manually in the terminal?
+Q: I don't want to use VSCode, can I just upload code from the command line?
+A: Yes, use OpenOCD directly with the cmsis-dap and rp2040 config files.
 
 # Standalone program upload
 
-What's the command to flash a binary to my Pico using OpenOCD?
+Q: What file do I use when uploading with the Debug Probe, the UF2 or something else?
+A: Use the ELF file, not the UF2 file used for drag-and-drop.
 
-I built my blink program and I just want to get it onto the Pico. What do I run?
+Q: I keep trying to upload my UF2 file with OpenOCD and it's not working. What am I doing wrong?
+A: OpenOCD needs the ELF version of the file, not the UF2 file.
+
+Q: What's the actual command to push a binary to my Pico using the Debug Probe?
+A: Run sudo openocd with cmsis-dap.cfg, rp2040.cfg, adapter speed, and program options.
 
 # Standalone debug session
 
-How do I actually use breakpoints with my Pico? Like where do I even start?
+Q: I want breakpoints and stepping through code on my Pico. How do I set that up?
+A: Run OpenOCD in server mode, then connect GDB for breakpoints and single-step debugging.
 
-I want to step through my code line by line on the Pico. How do I do that?
+Q: My debugger isn't giving me much useful information. What am I missing?
+A: You must build as Debug type, not Release, to get full debugger information.
 
-My program's crashing and I can't figure out why. How do I set up a proper debug session?
+Q: I'm on a Mac and trying to debug my Pico. What version of GDB do I need?
+A: Use arm-none-eabi-gdb from the Arm GNU Toolchain on Arm's website.
 
-I built my project but the debugger's not giving me much info. What am I doing wrong?
+Q: What GDB command do I use if I'm on Linux but not on a Raspberry Pi?
+A: Use gdb-multiarch on Linux devices that aren't Raspberry Pis.
 
-What's the difference between a Debug build and a Release build, and why does it matter for debugging?
+Q: How do I actually connect GDB to my Pico once OpenOCD is running?
+A: Open a second terminal, run GDB on your ELF file, then target remote localhost:3333.
 
-I'm on a Mac and I'm trying to debug my Pico. What version of GDB do I need?
-
-I'm on Linux and I want to debug an Arm chip. Is regular GDB going to work or do I need something different?
-
-How do I start OpenOCD in server mode so I can attach GDB to it?
-
-Okay I've got OpenOCD running. Now how do I actually connect GDB to it?
-
-Do I need two terminal windows open to do a debug session, or can I do it all in one?
+Q: Do I need two terminal windows open to do debugging?
+A: Yes, one runs the OpenOCD server and one runs the GDB debugger.

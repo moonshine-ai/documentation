@@ -1,37 +1,68 @@
-# Whole Document
-
-- I'm trying to use a Build HAT with .NET and I don't really know where to start. What's the basic setup?
-- Do I need to do anything special to clean up after my program finishes using the Build HAT?
-- What even is the Build HAT Serial Protocol? Do I need to understand it to use this in .NET?
-
 # Use the Build HAT from .NET
 
-- How do I create a brick object in C sharp to talk to the Build HAT?
-- My program just hangs and never closes after running. What did I forget to do?
-- I don't want to have to remember to call dispose myself. Is there a cleaner way to handle that?
-- What's the difference between using `brick.Dispose()` and the `using` statement? Which one should I use?
+Q: How do I create a brick object in C sharp to talk to the Build HAT?
+A: Create it with `Brick brick = new("/dev/serial0");` in your code.
+
+Q: My program just hangs and won't close after it finishes. What's going on?
+A: You forgot to call `brick.Dispose()`, which prevents the program from terminating.
+
+Q: I keep forgetting to dispose the brick at the end. Is there an easier way to handle that?
+A: Use the `using` statement so the brick disposes automatically at program end.
+
+Q: What's the serial port path I need to use when setting up the Build HAT?
+A: Use `/dev/serial0` as the path when creating your brick object.
 
 # Display Build HAT information
 
-- How do I check what firmware version my Build HAT is running?
-- Can I read the input voltage on the Build HAT from my code?
-- Wait, does it read the voltage continuously or just once? Like if the voltage drops later, will I know?
+Q: How do I check what firmware version my Build HAT is running?
+A: Read `brick.BuildHatInformation` to get version, firmware date, and signature.
+
+Q: I want to check how much voltage is coming into the Build HAT. Can I do that?
+A: Yes, read `brick.InputVoltage.Volts` to get the input voltage in volts.
+
+Q: Does the voltage reading update live while my program is running?
+A: No, input voltage is only read once at boot time and not updated afterwards.
 
 # Getting sensors and motors details
 
-- How do I figure out what's plugged into each port on my Build HAT?
-- I've got something connected but I'm not sure if my code sees it as a motor or a sensor. How do I check?
-- What's an ActiveSensor and how is it different from a regular sensor?
+Q: How do I figure out what's plugged into each port on the Build HAT?
+A: Use `GetSensorType` and `GetSensor` to retrieve info about connected sensors.
+
+Q: How do I tell if something connected to a port is a motor or a sensor?
+A: Use the `Brick.IsMotor` static function to check if it's a motor or sensor.
+
+Q: What's the difference between an active sensor and a passive one in this library?
+A: Active sensors have advanced properties and functions; passive ones are simpler sensors.
+
+Q: I want to do something fancy with a sensor's modes. Is that possible or am I stuck with basic stuff?
+A: You can call primitive brick functions from `ActiveSensor` to select modes and do advanced scenarios.
 
 # Events
 
-- I want my code to do something every time a motor position changes. How do I set that up?
-- What's the difference between PropertyChanged and PropertyUpdated? I'm confused about when each one fires.
-- How do I stop listening to events once I'm done with them?
-- Can I use a motor kind of like a tachometer and get notified when the position changes?
+Q: I want my code to react when a motor position changes instead of constantly checking it. How do I do that?
+A: Subscribe to the `PropertyChanged` event on the motor to get notified on changes.
+
+Q: What's the difference between PropertyChanged and PropertyUpdated on a sensor?
+A: `PropertyChanged` fires when the value changes; `PropertyUpdated` fires on any successful property update.
+
+Q: I only care when something actually changes, not every single update. Which event should I use?
+A: Use `PropertyChanged`, which only fires when the value is actually changing.
+
+Q: Can I use motor position events like a tachometer kind of thing?
+A: Yes, subscribe to `PropertyChanged` and check the `Position` property as it changes.
 
 # Wait for initialisation
 
-- My sensors aren't being detected when my program starts. Is there a way to wait for them to connect?
-- How do I wait for a specific port to be ready before my code continues?
-- Can I add like a timeout or a warning if the sensor takes too long to connect?
+Q: My code runs before the Build HAT is ready and crashes. How do I wait for it to be set up?
+A: Call `brick.WaitForSensorToConnect` to pause until the sensor on that port is ready.
+
+Q: Can I add a timeout or warning if the sensor takes too long to connect?
+A: Yes, `WaitForSensorToConnect` accepts a `CancellationToken` for implementing advanced waiting features.
+
+# Whole Document
+
+Q: What's the Build HAT called in LEGO language, and does that matter for the code?
+A: In LEGO parlance it's called a "Brick," which is reflected in the code's class name.
+
+Q: Can I talk to the Build HAT directly without using any special library, like with a protocol?
+A: Yes, you can use the Build HAT Serial Protocol to talk directly to it from .NET.

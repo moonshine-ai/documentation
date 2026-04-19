@@ -1,55 +1,125 @@
-# Whole Document
+# Network boot using IPv6
 
-- I want to boot my Raspberry Pi over the network using IPv6. Where do I even start?
-- Is IPv6 network booting actually stable or is it still experimental?
-- Which Raspberry Pi models can do IPv6 network boot? Does it work on the Pi 3?
-- What's the difference between stateful and stateless network configuration when booting over IPv6?
-- I've got IPv4 network boot working already. How hard is it to switch to IPv6?
-- Do I need a second Raspberry Pi to set up IPv6 network booting, or can I use any computer?
+Q: What are the steps involved in booting a Raspberry Pi over the network?
+A: There are four stages: DHCP, firmware load via TFTP, kernel load, then rootfs mount.
+
+Q: Does IPv6 network booting work on all Raspberry Pi models?
+A: No, IPv6 netboot only works on Raspberry Pi 4 and Compute Module 4.
+
+Q: I heard IPv6 booting is experimental — should I use it for something important?
+A: It's experimental alpha, so it may change based on feedback; don't rely on it.
 
 # How it works
 
-- I'm using dnsmasq for my DHCP server. Will that work with IPv6 network boot?
-- What version of the firmware do I need for IPv6 network boot to work?
-- I've heard nfsroot doesn't work with IPv6. So how do I mount the root filesystem over the network then?
-- Does my internet provider need to support IPv6 for this to work, or just my local network?
+Q: What do I need to actually boot my Pi over IPv6?
+A: You need an updated firmware like start4.elf and the latest stable bootloader.
+
+Q: Can I use dnsmasq for the DHCP server when doing IPv6 network boot?
+A: No, dnsmasq doesn't support IPv6 netboot parameters; use ISC DHCP instead.
+
+Q: I normally use nfsroot to mount the filesystem over the network. Does that work with IPv6?
+A: No, nfsroot doesn't support IPv6, so you'll need a different method.
 
 # Network addresses
 
-- How does the Pi figure out its own IP address when booting over IPv6?
-- What's the difference between stateful and stateless addressing? Like which one uses DHCP and which one doesn't?
-- When the Pi boots over IPv6 how does it find the router first?
+Q: How does the Pi figure out its own IP address when booting over IPv6?
+A: It generates an address from its ethernet MAC address and a network prefix from the router.
+
+Q: What's the difference between stateful and stateless configuration for IPv6 boot?
+A: Stateless means the device self-assigns its IP; stateful means DHCP assigns it.
+
+Q: What's a DUID and why does my Pi have one?
+A: DUID is a Device Unique ID; on Raspberry Pi it's derived from the MAC address.
+
+# TFTP address
+
+Q: How does the Pi know where the TFTP server is during IPv6 boot?
+A: The DHCP server provides the TFTP server address via the BOOTFILE-URL parameter.
+
+Q: What value does the Pi send to identify itself when asking for TFTP details?
+A: It sends client architecture type value 0x29 to identify itself as a Raspberry Pi.
+
+# Boot process
+
+Q: Once it has an IP address, what does the Pi actually download first?
+A: It downloads the firmware binary start4.elf from the TFTP server first.
+
+# Kernel Boot
+
+Q: Can I use NFS over IPv6 to mount the root filesystem on my Pi?
+A: Not yet; a mechanism to boot Linux with NFS via IPv6 hasn't been demonstrated.
+
+Q: So if nfsroot doesn't work with IPv6, what can I use instead for the root filesystem?
+A: A small RAM filesystem that mounts the network location before switching to rootfs.
 
 # Test setup
 
-- What do I actually need to set up to test IPv6 network booting at home?
+Q: What do I need to set up to test IPv6 network booting at home?
+A: You need another Raspberry Pi to act as both the TFTP and DHCP server.
+
+Q: Does my DHCP server need to be on the same network as the Pi I'm booting?
+A: Yes, the DHCP server must be on the same network as the devices it serves.
 
 # TFTP server
 
-- Can I reuse my existing TFTP server if I already have IPv4 network boot set up, or do I need a separate one for IPv6?
-- How do I install and start a TFTP server on another Pi to use for network booting?
+Q: Can I reuse my existing TFTP server from IPv4 netboot for IPv6 too?
+A: Yes, dnsmasq's TFTP server can handle both IPv4 and IPv6 file serving.
+
+Q: How do I install and start a standalone TFTP server on my Pi?
+A: Run sudo apt install tftpd-hpa then sudo systemctl start tftpd-hpa.
 
 # DHCP server
 
-- Why can't I use dnsmasq for IPv6 network boot? What do I need to use instead?
-- How do I install and set up the ISC DHCP server for IPv6 booting?
-- I don't understand this dhcpd6.conf file. What does the host section do, and do I need to change it?
-- How do I give my DHCP server a static IPv6 address so it can actually serve addresses?
+Q: How do I install the ISC DHCP server for IPv6 netbooting?
+A: Run sudo apt install isc-dhcp-server to install it.
+
+Q: Where do I tell the DHCP server which interface to listen on for IPv6?
+A: Set INTERFACESv6="eth0" in the /etc/default/isc-dhcp-server config file.
+
+Q: Can I give a specific Pi a fixed IP address in the DHCP config?
+A: Yes, use a host block with host-identifier and fixed-address6 in dhcpd6.conf.
 
 # Bootloader
 
-- What do I need to change in the bootloader config to enable IPv6 network boot?
-- If I try IPv6 boot and it doesn't work, how do I switch back to IPv4 booting?
+Q: How do I tell the bootloader to use IPv6 instead of IPv4 for network boot?
+A: Add USE_IPV6=1 to boot.conf along with the network boot order setting.
+
+Q: I changed my mind and want to go back to IPv4 booting. How do I undo that?
+A: Just remove the USE_IPV6 line from boot.conf to revert to IPv4.
 
 # Router
 
-- How do I check if my router actually supports IPv6?
-- I ran the rdisc6 command and got no response. What does that mean?
-- How do I tell if my network is using stateful or stateless IPv6 configuration?
+Q: How do I check if my router actually supports IPv6?
+A: Install ndisc6 and run rdisc6 -1 eth0 to send a router solicitation.
 
-# Debugging
+Q: What happens if my router doesn't respond to the IPv6 solicitation command?
+A: No response likely means your network and ISP only support IPv4.
 
-- How do I know if IPv6 is actually being used during boot? What should I look for in the logs?
-- I enabled the boot UART. What do the RX6 lines in the output mean?
-- How do I watch the network traffic during an IPv6 network boot to see what's going on?
-- My Pi isn't getting a TFTP server address during IPv6 boot. How do I figure out where it's failing?
+# Logs and traces
+
+Q: How do I know if my Pi is actually using IPv6 during the boot process?
+A: Enable the boot UART and look for lines starting with RX6 in the serial output.
+
+# Stateful configuration
+
+Q: How can I watch the network traffic during an IPv6 boot to see what's happening?
+A: Run sudo tcpdump -i eth0 -e ip6 -XX -l -v -vv to examine network activity.
+
+Q: How does the DHCP server pass the TFTP server address to the Pi?
+A: It uses opt_59 in the DHCP reply to pass the TFTP server address.
+
+# Stateless configuration
+
+Q: In stateless mode, how does the Pi find out where the TFTP server is?
+A: It sends an information request to the DHCP multicast address asking for TFTP details.
+
+# Whole Document
+
+Q: I've got a Pi 4 and want to boot it over the network with IPv6. Where do I even start?
+A: You need updated firmware, ISC DHCP server, a TFTP server, and IPv6-capable router.
+
+Q: Do I need my internet provider to support IPv6 to do any of this?
+A: Yes, without ISP and router IPv6 support you'll be limited in what you can do.
+
+Q: What's the very first thing the bootloader does when trying to boot over IPv6?
+A: It sends a router solicitation to get network details from the router.

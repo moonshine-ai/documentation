@@ -1,29 +1,47 @@
 # C/CS Lenses
 
-- What lenses do you recommend for the HQ camera?
-- I've got the HQ camera and I'm not sure what lens to get. Is there a wide angle option?
-- What's the difference between the 6mm and 16mm lens for the HQ camera?
-- I want to zoom in on stuff from far away. Should I get the 6mm or the 16mm lens?
-- What aperture does the 6mm wide angle lens have?
-- Does the GS camera have a different field of view than the HQ camera with the same lens?
-- I'm confused about C-mount versus CS-mount. Which mount is the 16mm telephoto lens?
-- What's the closest distance I can focus with these recommended lenses?
-- The 6mm wide angle lens, what resolution is it rated for?
-- Does the GS camera support M12 lenses or just C and CS mount?
+Q: What two C/CS lenses do you recommend for the HQ camera?
+A: A 6mm wide angle and a 16mm telephoto lens from CGL Electronics.
+
+Q: What's the aperture on the 6mm wide angle lens?
+A: The 6mm wide angle lens has a fixed aperture of F1.2.
+
+Q: I want a telephoto lens for my HQ camera. What's the field of view on the 16mm one?
+A: The 16mm telephoto gives 22.2 by 16.7 degrees field of view on HQ.
+
+Q: What mount does the 16mm telephoto lens use, C or CS?
+A: The 16mm telephoto lens uses a C mount.
+
+Q: How close can I get with these lenses? Like what's the minimum focusing distance?
+A: Both the 6mm and 16mm lenses have a minimum object distance of 0.2 metres.
+
+Q: Does the 6mm wide angle work with the GS camera too?
+A: Yes, the GS camera has a 45 by 34 degree field of view with that lens.
 
 # M12 Lenses
 
-- What M12 lenses do you recommend for the HQ camera?
-- I want a really wide field of view, like a fisheye effect. Is there an M12 lens for that?
-- What's the resolution on the fisheye M12 lens?
-- I need a fairly zoomed in shot. Which of the M12 lenses should I go for?
-- What aperture is the 25mm M12 lens?
-- Do all three recommended M12 lenses use the same mount type?
+Q: What M12 lenses do you recommend for the HQ camera?
+A: Gaojia Optotech makes the recommended 8mm, 25mm, and fish eye M12 lenses.
+
+Q: I want a really wide angle lens. Is there a fish eye option for the M12 camera?
+A: Yes, there's a fish eye M12 lens with a 140 by 102.6 degree field of view.
+
+Q: What resolution is the M12 fish eye lens?
+A: The M12 fish eye lens supports up to 15 megapixels resolution.
+
+Q: What's the aperture on the 25mm M12 lens?
+A: The 25mm M12 lens has an aperture of F2.4.
 
 # Whole Document
 
-- Where do I actually buy these recommended lenses?
-- I've got the GS camera. Can I use M12 lenses on it?
-- What cameras are these lens recommendations for?
-- I'm just getting started with the HQ camera and have no idea what lens to buy. What do you suggest?
-- What's the image format size on the 16mm telephoto lens?
+Q: Where do I actually buy these recommended lenses?
+A: They should be available from your nearest Raspberry Pi Authorised Reseller.
+
+Q: I've got a GS camera. Can I use M12 lenses on it?
+A: No, the GS camera is only available with a C/CS mount, not M12.
+
+Q: What's the difference between the HQ and GS camera versions available?
+A: The HQ camera comes in C/CS and M12 mount versions; GS is C/CS only.
+
+Q: I want to buy a lens but I'm not sure if it'll fit my camera. Do these lenses fit both HQ and GS cameras?
+A: C/CS lenses fit both HQ and GS cameras; M12 lenses only fit the HQ camera.

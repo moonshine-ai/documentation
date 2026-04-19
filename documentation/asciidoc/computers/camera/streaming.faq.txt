@@ -1,85 +1,195 @@
-# Whole Document
+# Stream video over a network with `rpicam-apps`
 
-- I want to stream my Pi camera over the network. Where do I even start?
-- What's the difference between UDP, TCP, and RTSP streaming? Which one should I use?
-- Can I watch a stream from my Pi on my laptop or phone?
-- I've heard of MediaMTX and MistServer. Which one's better for streaming my Pi camera?
-- Do I need libav installed to stream video over the network?
-- Can I stream both video and audio from my Pi camera at the same time?
+Q: How do I stream video from my Raspberry Pi over the network?
+A: Use `rpicam-vid` with `libav` backend for most network streaming applications.
+
+Q: What's the easiest way to get video streaming working on my Pi?
+A: For most applications, use the `libav` backend with `rpicam-vid` for streaming.
 
 # UDP
 
-- How do I stream video from my Pi over UDP?
-- I want to watch a UDP stream on my Pi. What command do I run?
-- I'm trying to use VLC to watch my UDP stream and it's not working. What's going on?
-- Why won't VLC play my H.264 stream? Do I need to change something?
-- What's an MPEG-2 Transport Stream and why would I use it instead of plain H.264?
-- I got the UDP stream working with ffplay but can I use VLC instead somehow?
+Q: How do I stream video over UDP from my Pi to another device?
+A: Run `rpicam-vid -t 0 -n --inline -o udp://<ip-addr>:<port>` on the server Pi.
+
+Q: I'm trying to watch a UDP stream on my Pi but don't know what command to use.
+A: Use `ffplay udp://@:<port> -fflags nobuffer -flags low_delay -framedrop` on the client.
+
+Q: I tried using VLC to watch my UDP stream but it won't play. What's going on?
+A: VLC no longer handles unencapsulated H.264 streams, so use MPEG-TS instead.
+
+Q: How do I send an MPEG-2 Transport Stream over UDP instead of raw H.264?
+A: Use `rpicam-vid -t 0 -n --codec libav --libav-format mpegts -o udp://<ip-addr>:<port>`.
+
+Q: Can I use VLC to watch a UDP stream from my Pi?
+A: Yes, if you send MPEG-TS format, VLC can play it with `vlc udp://@:<port>`.
 
 # TCP
 
-- How do I set my Pi up as a TCP video streaming server?
-- I'm trying to watch a TCP stream from my Pi. What do I need to type on the client side?
-- My TCP video stream looks choppy. Is there something I can do to fix the playback command?
-- Can I use VLC to watch a TCP stream from my Pi?
+Q: How do I stream video over TCP from my Raspberry Pi?
+A: Run `rpicam-vid -t 0 -n --inline --listen -o tcp://0.0.0.0:<port>` on the server.
+
+Q: My TCP video stream looks choppy. What command should I use on the client side?
+A: Use `ffplay tcp://<ip-addr>:<port> -vf "setpts=N/30" -fflags nobuffer -flags low_delay -framedrop`.
+
+Q: Can I use VLC to watch a TCP stream coming from my Pi?
+A: Yes, send MPEG-TS over TCP and play with `vlc tcp://<ip-addr-of-server>:<port>`.
+
+Q: What's better for streaming, raw H.264 or MPEG-TS over TCP?
+A: MPEG-2 Transport Stream is generally better supported and the preferred option.
 
 # RTSP
 
-- How do I stream from my Pi camera using RTSP?
-- I want to set up an RTSP server on my Pi. Do I need extra software?
-- How do I watch an RTSP stream coming from my Pi?
-- Can I use both ffplay and VLC to watch an RTSP stream?
-- I want a preview window on my Pi while it's streaming. How do I get that?
+Q: How do I set up RTSP streaming from my Raspberry Pi?
+A: Pipe `rpicam-vid` output to `cvlc` with an RTSP SDP output configuration using VLC as server.
+
+Q: I want to watch an RTSP stream on my Pi. What command do I use?
+A: Run `ffplay rtsp://<ip-addr-of-server>:8554/stream1 -fflags nobuffer -flags low_delay -framedrop`.
+
+Q: Can I use VLC as a client to watch an RTSP stream from my Pi?
+A: Yes, run `vlc rtsp://<ip-addr-of-server>:8554/stream1` on the client device.
+
+Q: I want to see a preview on the Pi while it's streaming RTSP. How do I do that?
+A: Just drop the `-n` option from your `rpicam-vid` command to enable the preview window.
+
+Q: Why does the RTSP setup use MPEG-TS instead of plain H.264?
+A: VLC no longer understands unencapsulated H.264, so MPEG-TS is required.
 
 # `libav` and Audio
 
-- How do I add audio to my network stream from the Pi?
-- I've got video streaming working but there's no audio. What flag do I add?
-- Does audio streaming work over UDP or just TCP?
+Q: Can I stream audio along with my video from the Pi?
+A: Yes, add `--libav-audio` to your `rpicam-vid` command when using a compatible format like MPEG-TS.
+
+Q: How do I add audio to my MPEG-TS stream over TCP?
+A: Add `--libav-audio` to your command: `rpicam-vid -t 0 --codec libav --libav-format mpegts --libav-audio`.
+
+Q: Does the format matter when I'm trying to stream audio too?
+A: Yes, you need a format like MPEG-2 Transport Stream that actually permits audio data.
+
+Q: Can I stream audio and video together over UDP from my Pi?
+A: Yes, use `rpicam-vid` with `--codec libav --libav-format mpegts --libav-audio` and a UDP output address.
 
 # GStreamer
 
-- What is GStreamer and do I need it for streaming?
-- How do I stream from my Pi using GStreamer?
-- I've got a Pi 5. Is the GStreamer playback command different from a Pi 4?
-- I want to test my GStreamer setup without using two devices. Can I do that on just one Pi?
+Q: How do I use GStreamer to stream video from my Pi over the network?
+A: Pipe `rpicam-vid` MPEG-TS output to `gst-launch-1.0` with `fdsrc` and a `udpsink` element.
 
-# `libcamerasrc` GStreamer element
+Q: What GStreamer command do I use to play back a stream on a Pi 4?
+A: Use `gst-launch-1.0 udpsrc ... ! tsparse ! tsdemux ! h264parse ! queue ! v4l2h264dec ! autovideosink`.
 
-- What's libcamerasrc and how's it different from just using rpicam-vid?
-- Can I stream directly from the camera using GStreamer without running rpicam-vid separately?
-- The GStreamer command I found uses v4l2h264enc but I've got a Pi 5. Do I need to change that?
+Q: I've got a Pi 5 and the GStreamer playback command isn't working. What's different?
+A: On Pi 5, replace `v4l2h264dec` with `avdec_h264` in the GStreamer pipeline.
+
+Q: How can I test my GStreamer streaming setup without a second device?
+A: Run server and client commands in separate terminals on the same device using `localhost` as the address.
+
+Q: What's the `libcamerasrc` element and how do I use it with GStreamer?
+A: It's a GStreamer element from `libcamera` you can use directly instead of `rpicam-vid` for streaming.
+
+Q: I'm using a Pi 5 with the `libcamerasrc` GStreamer element. What's different from Pi 4?
+A: Replace `v4l2h264enc extra-controls="controls,repeat_sequence_header=1"` with `x264enc speed-preset=1 threads=1`.
 
 # Third-party streaming servers
 
-- What third-party streaming servers work with the Pi camera?
-- Can I stream to a web browser from my Pi camera?
-- Do any of these streaming servers work with WebRTC?
+Q: Are there any third-party streaming servers that work well with the Pi camera?
+A: MediaMTX, MistServer, and go2rtc are confirmed to work with the Raspberry Pi camera system.
+
+Q: Can any of these streaming servers send video to a web browser?
+A: Yes, these servers can re-stream to web browsers using WebRTC or other formats.
+
+Q: Which of these streaming servers has built-in Pi camera support without needing `rpicam-vid`?
+A: MediaMTX supports Raspberry Pi cameras natively through libcamera, bypassing external executables.
 
 # Streaming with MediaMTX
 
-- How do I install MediaMTX on my Pi?
-- Which MediaMTX download do I pick for a 64-bit Pi OS?
-- How do I set up MediaMTX to stream from my Pi camera?
-- I don't want MediaMTX to grab the camera until someone's actually watching. Can I do that?
-- My MediaMTX video stream keeps pausing every few seconds. What's causing that?
-- How do I watch a MediaMTX stream in my web browser?
-- How do I connect to a MediaMTX stream with VLC?
-- I'm getting buffer issues with my MediaMTX stream. How do I fix it permanently?
+Q: How do I install MediaMTX on my Pi?
+A: Download the latest release tar file, choosing `linux_arm64` for 64-bit or `armv7` for 32-bit.
+
+Q: I downloaded MediaMTX but what files are actually in it?
+A: The archive contains a `mediamtx` executable and a configuration file called `mediamtx.yml`.
+
+Q: How do I configure MediaMTX to stream from my Pi camera?
+A: Set `source: rpiCamera` under your stream path in `mediamtx.yml` and run the executable.
+
+Q: Can MediaMTX only grab the camera when someone's actually watching?
+A: Yes, add `sourceOnDemand: yes` to your `mediamtx.yml` to acquire the camera on demand only.
+
+Q: How do I watch a MediaMTX stream in a web browser?
+A: Go to `http://<ip-addr-of-MediaMTX-server>:8889/cam` in your browser.
+
+Q: My MediaMTX video keeps pausing. What could cause that?
+A: Insufficient UDP receive buffer space can cause dropped data and visible pauses in the stream.
+
+Q: How do I fix the UDP buffer problem causing pauses in my MediaMTX stream?
+A: Create `/etc/sysctl.d/99-network-tuning.conf` setting `rmem_default` and `rmem_max` to 1000000.
+
+Q: I'm running Bookworm and the sysctl fix isn't working. Where should I put those settings?
+A: On Bookworm or earlier, add the lines to `/etc/sysctl.conf` instead, then reboot or run `sudo sysctl -p`.
+
+Q: What's the RTSP address format for watching a MediaMTX stream in a media player?
+A: Use `rtsp://<ip-address-of-MediaMTX-server>:8554/cam` for RTSP media player access.
+
+Q: Should I back up the original MediaMTX config file before editing it?
+A: Yes, the original file documents many Pi camera options useful for future reference.
 
 # Streaming with MistServer
 
-- How do I install MistServer on my Pi?
-- Where do I go to configure MistServer after I've installed it?
-- How do I add my Pi camera as a stream in MistServer?
-- Can I watch a MistServer stream in a regular web browser?
-- What's the difference between MistServer and MediaMTX for Pi camera streaming?
+Q: Does MistServer have built-in Pi camera support like MediaMTX?
+A: No, MistServer has no built-in camera support; you configure it to ingest a stream from `rpicam-vid`.
+
+Q: How do I add a camera stream to MistServer?
+A: Go to the Management Interface, select Streams, then Create Stream and fill in the name and source.
+
+Q: What command do I put as the source in MistServer to start `rpicam-vid` automatically?
+A: Use `ts-exec: rpicam-vid -n -t 0 --width 1920 --height 1080 --codec libav --libav-format mpegts -o -`.
+
+Q: Where's the MistServer management page on my Pi?
+A: Visit `http://localhost:4242/` on your Pi or use your Pi's IP address from another computer.
+
+Q: How do I watch a MistServer stream in a web browser?
+A: Enter `http://<ip-address-of-MistServer-server>:8080/cam.html` in your browser.
+
+Q: What does `ts-exec` actually do in the MistServer source command?
+A: It configures the command to output an MPEG-TS stream to `stdout` for MistServer to ingest.
 
 # Streaming with go2rtc
 
-- How do I install go2rtc on my Pi?
-- I've got a Pi Zero. Which go2rtc binary do I download?
-- How do I add my camera as a stream in go2rtc?
-- Where do I find the go2rtc management page once it's running?
-- How do I watch a go2rtc stream with VLC?
-- Can I run go2rtc on a different computer and still stream from my Pi camera?
+Q: How do I install go2rtc on my Pi?
+A: Download the binary from the releases page, make it executable, and run it.
+
+Q: Which go2rtc binary should I download for a Pi Zero?
+A: Choose the `go2rtc_linux_armv6` binary for Raspberry Pi 1 or Zero devices.
+
+Q: Where do I find the go2rtc management page once it's running?
+A: The management page is at `http://localhost:1984/` when go2rtc is running.
+
+Q: How do I add a camera stream to go2rtc?
+A: Create a `go2rtc.yaml` file in the same folder as the executable with your stream configuration.
+
+Q: Does go2rtc start the camera automatically when someone connects, or do I have to run it separately?
+A: go2rtc starts `rpicam-vid` automatically when any client requests the configured stream.
+
+Q: What's the RTSP address for watching a go2rtc stream called 'cam'?
+A: Use `rtsp://<ip-address-of-go2rtc-server>:8554/cam` for RTSP playback.
+
+Q: How do I watch my go2rtc stream in a web browser?
+A: Enter `http://<ip-address-of-go2rtc-server>:1984/stream.html?src=cam` in your browser.
+
+Q: What does `--low-latency` do when I'm streaming with go2rtc?
+A: It suppresses B-frames on Raspberry Pi 5 or later models during streaming.
+
+# Whole Document
+
+Q: What's the recommended way to stream video from my Pi camera to another device?
+A: Use `rpicam-vid` with the `libav` backend; it supports audio, MPEG-TS, and multiple protocols.
+
+Q: Why does everything seem to use MPEG-TS instead of raw H.264 for streaming?
+A: Unencapsulated H.264 support is generally poor; MPEG-TS is more widely and reliably supported.
+
+Q: Can I run the streaming server on a different computer to the Pi with the camera?
+A: Yes, MediaMTX and go2rtc can both run on a different system from the Raspberry Pi camera.
+
+Q: I've got a Pi and I want to stream to a web browser. What's the simplest option?
+A: MediaMTX or MistServer can re-stream Pi camera video to web browsers using WebRTC or other formats.
+
+Q: Do any of these streaming setups support audio as well as video?
+A: Yes, using `libav` with MPEG-TS format and the `--libav-audio` flag adds an audio stream.

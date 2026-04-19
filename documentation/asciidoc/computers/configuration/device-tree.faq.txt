@@ -1,160 +1,279 @@
-# Whole Document
-
-- What even is a Device Tree? Do I need to care about it as a regular Raspberry Pi user?
-- I'm totally new to this — what's the difference between a Device Tree and a Device Tree overlay?
-- Wait, what's a DTB file? I keep seeing that term and I'm not sure what it is.
-- I've got a HAT plugged in and I'm not sure if my Pi is actually seeing it. How does that work with Device Tree stuff?
-- Where do I go if I'm stuck on a Device Tree problem and can't figure it out?
-
 # Device Trees
 
-- So a Device Tree describes hardware — does it also tell Linux which drivers to load, or is that separate?
-- I keep seeing `.dts` and `.dtb` files. What's the difference between those two?
-- What does it mean for a device to be "enabled" or "disabled" in a Device Tree? How does that actually work?
+Q: What even is a Device Tree? Do I need to know about it for my Raspberry Pi?
+A: It's a hardware description used by the kernel to configure your Raspberry Pi.
 
-# Basic DTS Syntax
+Q: I heard the term DTB thrown around. What does that actually mean?
+A: DTB stands for Device Tree Blob, a compiled machine-readable Device Tree file.
 
-- What does a basic Device Tree file actually look like? I've never seen one before.
-- What file extension do Device Tree source files use?
-- I see angle brackets and square brackets in Device Tree files. What's the difference between them?
+Q: Does the Device Tree include software stuff or just hardware?
+A: It describes hardware only; it shouldn't include anything software or Linux-specific.
 
-# An Aside About `/include/`
+Q: So nodes in a Device Tree are like folders and properties are like files, is that right?
+A: Yes, nodes are like directories and properties are like files in a filesystem.
 
-- If I include one DTS file into another and the same node appears twice, what happens? Does it break?
+# Basic DTS syntax
 
-# Labels and References
+Q: What's the file extension for Device Tree source files?
+A: Device Tree source files use the `.dts` suffix.
 
-- What's the difference between a label and an alias in a Device Tree? They sound like the same thing to me.
-- How do I reference one part of a Device Tree from another part?
+Q: I'm looking at a DTS file and the syntax looks like C. Is that intentional?
+A: Yes, DTS syntax is C-like, with braces for grouping and semicolons at line ends.
 
-# Device Tree Semantics
+Q: What's the difference between a `.dts` file and a `.dtb` file?
+A: `.dts` is human-readable source; `.dtb` is the compiled binary format.
 
-- How does Linux actually know which driver to use for a piece of hardware described in the Device Tree?
-- What should I put in the `status` property to turn a device on or off?
+Q: How do I write a string versus a number in a Device Tree source file?
+A: Strings use double quotes; numbers are 32-bit cells delimited by angle brackets.
 
-# Device Tree Overlays
+# An aside about `/include/`
 
-- Why do we even need overlays? Can't everything just go in the main Device Tree file?
-- I just want to skip all the technical stuff — where do I go to actually use overlays on my Pi?
+Q: If I include the same node twice in a DTS file, does it break things?
+A: No, duplicate nodes are merged, with later property values overwriting earlier ones.
+
+Q: Can I use a `.dtsi` file to set defaults that other files can override?
+A: Yes, a `.dtsi` can provide defaults that derived configurations can then overwrite.
+
+# Labels and references
+
+Q: What's a phandle and why would I care about it?
+A: It's a unique 32-bit integer assigned to a node, used to reference it from elsewhere.
+
+Q: What's the difference between a label and an alias in a Device Tree?
+A: Labels don't appear in compiled output; aliases do, stored as properties under `/aliases`.
+
+Q: I've seen paths like `/soc/i2s@7e203000` in Device Tree files. What is that?
+A: That's a path string, similar to a filesystem path, pointing to a specific hardware node.
+
+# Device Tree semantics
+
+Q: How does the kernel know which driver to load for a piece of hardware?
+A: It matches the node's `compatible` property against its database of device drivers.
+
+Q: What does setting `status = "disabled"` actually do in a Device Tree?
+A: It disables the device; only `ok`, `okay`, or absent status means the device is enabled.
+
+# Device Tree overlays
+
+Q: What's a Device Tree overlay and why do I need one for a HAT?
+A: Overlays are partial Device Trees that add optional hardware descriptions to the base DT.
+
+Q: Why can't everything just be in one big Device Tree file?
+A: The combinations of boards and accessories would multiply the number of required files enormously.
 
 # Fragments
 
-- I tried compiling an overlay and got an error saying a label wasn't found. What am I doing wrong?
-- How do I install the Device Tree compiler if it's missing or too old?
-- My overlay fragments — do they have to be numbered in order, or can I skip numbers?
+Q: What are fragments in a Device Tree overlay?
+A: Fragments are sections of an overlay, each targeting one node to modify or add to.
 
-# Device Tree Parameters
+Q: I'm getting a "Label or path not found" error when compiling my overlay. What's wrong?
+A: The compiler needs the `-@` flag to allow unresolved references in overlay files.
 
-- Instead of editing DTS files directly, is there an easier way to tweak Device Tree settings?
-- What kinds of values can I pass as Device Tree parameters — like, just numbers, or strings too?
+Q: How do I install the Device Tree compiler if it's missing?
+A: Run `sudo apt install device-tree-compiler` to install it.
 
-# String Parameters
+Q: My overlay fragments aren't all being applied. What could cause that?
+A: Fragments must be numbered sequentially from zero; gaps can cause some to be missed.
 
-- I'm trying to set a `status` property using a parameter. Do I have to write "okay" and "disabled" manually, or is there a shortcut?
+# Device Tree parameters
 
-# Integer Parameters
+Q: What are DT parameters and why would I use them instead of writing a full overlay?
+A: They let you make small DT changes by name, without modifying or creating DTS files.
 
-- How do I set a 32-bit integer value in a Device Tree parameter? What's the syntax for that?
+Q: What types of parameters can I define in a Device Tree overlay?
+A: You can define string, integer, boolean, and byte string parameters.
 
-# Boolean Parameters
+# String parameters
 
-- How do boolean parameters work in Device Tree overlays? They don't have values, so how do I set them?
-- What's an inverted boolean parameter and when would I actually need one?
+Q: If I set a `status` parameter to "true" or "on", what actually gets written?
+A: Non-zero/true/yes/on values get converted to the string `"okay"` automatically.
 
-# Parameters with Multiple Targets
+# Integer parameters
 
-- Can I use a single parameter to update the same value in more than one place in the Device Tree?
+Q: How do I specify whether an integer parameter is 8-bit or 32-bit?
+A: The separator character before the offset determines size: `.` for 8-bit, `:` for 32-bit.
 
-# Overlay/Fragment Parameters
+# Boolean parameters
 
-- Is there a way to enable or disable whole sections of an overlay based on a parameter value?
+Q: How does a boolean work in a Device Tree — is it just true or false?
+A: Yes, a boolean property is true if present (zero-length), and false if absent.
 
-# Special Properties
+Q: What's an inverted boolean parameter and when would I use one?
+A: It flips the input before applying it; declared with `!` instead of `?`.
 
-- I want to add something to the kernel command line from an overlay. Is there a way to do that without overwriting what's already there?
+# Parameters with multiple targets
 
-# The Overlay Map File
+Q: Can one parameter update multiple places in the Device Tree at once?
+A: Yes, you can concatenate multiple targets in a single parameter declaration.
 
-- I'm using a Raspberry Pi 5 but an overlay I found seems to be for older Pis. How does it know which one to use?
-- What happens if I try to load an overlay that's been renamed or deprecated?
+# Literal assignments
 
-# DTBs, Overlays and `config.txt`
+Q: Can I hard-code a value into a parameter so the user can't change it?
+A: Yes, literal assignments let you write fixed values regardless of what the user provides.
 
-- How do I actually load an overlay on my Raspberry Pi? Do I edit a file somewhere?
-- Where does my Pi look for overlay files when it boots?
-- How do I know if my Pi booted using Device Tree or not?
+# Lookup tables
 
-# DT Parameters
+Q: Is there a way to map friendly names to Device Tree values, like a lookup?
+A: Yes, lookup tables let you map input strings to different values, like a switch/case.
 
-- How do I turn on I2C or SPI using Device Tree parameters in `config.txt`?
-- Can I put multiple parameters on the same line in `config.txt`, or do they each need their own line?
-- My overlay parameter doesn't seem to be doing anything after I loaded another overlay. Why?
+# Overlay/fragment parameters
 
-# Board-Specific Labels and Parameters
+Q: Can I enable or disable whole fragments of an overlay using a parameter?
+A: Yes, you can use `+`, `-`, `=`, or `!` operators to conditionally enable or disable fragments.
 
-- My Pi has two I2C buses. Which one should I use for my HAT, and how do I tell them apart?
-- I've seen both `i2c0` and `i2c_vc` mentioned. Are those the same thing, and which should I actually use?
+# Special properties
+
+Q: If I set a `bootargs` parameter, does it replace the kernel command line or add to it?
+A: Assigning to `bootargs` appends to it rather than overwriting the existing value.
+
+Q: I'm using the same overlay twice and getting node name clashes. How do I fix that?
+A: Assign to the `reg` or `name` property to give nodes unique names per instance.
+
+# The overlay map file
+
+Q: I loaded an overlay that works on my Pi 3 but not my Pi 5. Why does that happen?
+A: Some overlays are platform-specific; the overlay map redirects or blocks incompatible ones.
+
+Q: What Raspberry Pi models does `bcm2711` cover in the overlay map?
+A: It covers Raspberry Pi 4B, CM4, CM4S, and Pi 400.
+
+Q: I'm getting a warning that an overlay is deprecated. What does that mean?
+A: The overlay map flags it with an explanatory message logged at boot time.
+
+# DTBs, overlays and `config.txt`
+
+Q: Where does the Pi look for overlay files when I add `dtoverlay=something` to config.txt?
+A: It looks for `overlays/something.dtbo` in the firmware partition, under `/boot/firmware/`.
+
+Q: Does my Pi automatically load the overlay for a HAT, or do I have to add it to config.txt?
+A: The firmware automatically loads the HAT overlay from the EEPROM without user intervention.
+
+Q: How can I tell if my Raspberry Pi is actually using a Device Tree?
+A: Check for `/proc/device-tree` existing, or look for a board-specific "Machine model" at boot.
+
+Q: Do I still need to edit `/etc/modules` when I use Device Tree overlays?
+A: No, the kernel automatically loads modules for enabled devices described in the DT.
+
+# DT parameters
+
+Q: How do I turn on I2C and SPI using Device Tree parameters in config.txt?
+A: Add `dtparam=i2c_arm=on,spi=on` to your `config.txt` file.
+
+Q: Can I put multiple dtparam assignments on one line in config.txt?
+A: Yes, but keep the line under 80 characters total.
+
+Q: My overlay parameter seems to be getting ignored after I load another overlay. Why?
+A: Overlay parameters only stay in scope until the next overlay is loaded.
+
+# Board-specific labels and parameters
+
+Q: What's the difference between `i2c_arm` and `i2c_vc` on a Raspberry Pi?
+A: `i2c_arm` is for the CPU; `i2c_vc` is for the GPU, used for cameras and HAT EEPROMs.
+
+Q: Should I ever use `i2c_vc` in my config?
+A: Only if necessary — enabling it can stop the camera or touch display working correctly.
 
 # HATs and Device Tree
 
-- If I plug in a HAT, do I need to manually add anything to `config.txt` or does it just work?
-- How do I stop my Pi from automatically loading a HAT overlay when it boots?
+Q: If I want to stop my HAT overlay from loading automatically, how do I do that?
+A: Add `dtoverlay=` before any other `dtoverlay` or `dtparam` line in `config.txt`.
 
 # Dynamic Device Tree
 
-- Can I load or unload overlays while my Pi is running without rebooting?
-- If I load an overlay at runtime, does it actually show up in `/proc/device-tree` right away?
+Q: Can I load a Device Tree overlay without rebooting my Raspberry Pi?
+A: Yes, Linux 4.4+ supports dynamic loading of overlays using the `dtoverlay` command.
 
-# The `dtoverlay` Command
+Q: Can I remove an overlay I loaded earlier, or is it permanent until reboot?
+A: You can remove runtime-loaded overlays, but firmware-applied ones are permanently baked in.
 
-- How do I see what overlays are currently loaded on my running Pi?
-- How do I remove an overlay I loaded without rebooting?
-- Is there a way to get help on what parameters a specific overlay supports?
+Q: I loaded overlays in the wrong order. Can I just remove the bottom one?
+A: No, you must remove overlays in reverse order; removing an earlier one removes everything above it too.
 
-# The `dtparam` Command
+# The `dtoverlay` command
 
-- What's the difference between `dtoverlay` and `dtparam`? I keep confusing them.
-- I want to change a base Device Tree parameter while the Pi is running. What command do I use?
+Q: How do I see what overlays are currently active on my Pi?
+A: Run `dtoverlay -l` to list all currently active overlays and parameters.
 
-# Guidelines for Writing Runtime-Capable Overlays
+Q: How do I get help on what parameters a specific overlay supports?
+A: Run `dtoverlay -h <overlay-name>` to display help for that overlay.
 
-- If I remove an overlay that has an audio codec, could it crash my system? How do I avoid that?
+Q: Do I need sudo to load an overlay at runtime?
+A: Yes, commands that change kernel state like adding or removing overlays require root privilege.
+
+# The `dtparam` command
+
+Q: What's the difference between `dtoverlay` and `dtparam` on the command line?
+A: `dtparam` targets base DTB parameters only; `dtoverlay` loads full overlay files.
+
+Q: Not all my devices show up after I load them at runtime. Is that a bug?
+A: Some subsystems don't support runtime device addition; I2C, SPI, and sound generally work.
 
 # Caveats
 
-- I tried to unload an overlay but my system seems stuck. What's going on?
-- Do I need `sudo` to load and unload overlays at runtime?
-- If I remove an overlay, will the kernel module that went with it also get unloaded automatically?
+Q: My sound card overlay won't unload and it seems stuck. What's happening?
+A: ALSA can stall unloading if the sound card is actively in use at the time.
 
-# Supported Overlays and Parameters
-
-- Where can I find a list of all the overlays that are available for my Raspberry Pi?
+Q: I removed an overlay but the kernel module is still loaded. Is that normal?
+A: Yes, removing an overlay doesn't unload modules; run `rmmod -a` twice to clean up.
 
 # Debugging
 
-- My overlay doesn't seem to be working. How do I check what went wrong?
-- How do I get more verbose logging from the bootloader about Device Tree stuff?
-- My kernel module isn't loading even though I've got the overlay set up. What should I check?
-- How do I see what the current Device Tree actually looks like on my running Pi?
+Q: My overlay isn't working and I don't know why. How do I see error messages from the loader?
+A: Run `sudo vclog --msg` to check for warnings or errors from the firmware loader.
 
-# Test Overlays Using `dtmerge`, `dtdiff` and `ovmerge`
+Q: How do I enable extra debug logging for Device Tree stuff at boot?
+A: Add `dtdebug=1` to your `config.txt` to enable extra firmware DT logging.
 
-- Is there a way to preview what an overlay will do before I actually apply it?
-- How do I compare two different overlays to see what's different between them?
+Q: My kernel module isn't loading automatically even though I have an overlay. What should I check?
+A: Check it's not blacklisted in `/etc/modprobe.d/raspi-blacklist.conf` and exports correct aliases.
 
-# Force a Specific Device Tree
+Q: How do I see what the current Device Tree actually looks like right now on my running Pi?
+A: Run `dtc -I fs /proc/device-tree` to get a human-readable view of the live DT.
 
-- Can I tell my Pi to use a completely custom Device Tree file instead of the default one?
+# Test overlays using `dtmerge`, `dtdiff` and `ovmerge`
 
-# Disable Device Tree Usage
+Q: Is there a way to test what an overlay will do before I actually apply it?
+A: Yes, use `dtmerge` to apply it to a base DTB, then `dtdiff` to compare the result.
 
-- Is there any way to boot without using Device Tree at all? I'm working on a bare metal project.
+Q: How do I compare two different overlays to see what's different between them?
+A: Merge each into a base DTB separately, then run `dtdiff` on the two resulting files.
 
-# Shortcuts and Syntax Variants
+# Force a specific Device Tree
 
-- Is there a shorter way to write `dtparam=i2c_arm=on` in `config.txt`? That's a lot to type.
+Q: I wrote my own DTB file. Can I tell the Pi to use that instead of the default one?
+A: Yes, add `device_tree=my-pi.dtb` to `config.txt` to load your custom DTB.
 
-# Other DT Commands Available in `config.txt`
+# Disable Device Tree usage
 
-- How do I enable the UART in `config.txt` and will it affect my Pi's performance?
-- What does `dtdebug` do and when should I turn it on?
+Q: I'm doing bare-metal programming and I don't want a Device Tree at all. Can I turn it off?
+A: Add `device_tree=` (empty) to `config.txt` to disable Device Tree usage.
+
+# Shortcuts and syntax variants
+
+Q: Is there a shorter way to write `dtparam=i2c_arm=on` in config.txt?
+A: Yes, `dtparam=i2c` works as a shortcut, with `=on` assumed automatically.
+
+# Other DT commands available in `config.txt`
+
+Q: What does `enable_uart` actually do in config.txt and why is it off by default?
+A: It enables the primary UART but locks the core frequency, which is a performance hit.
+
+Q: What does the `overlay_prefix` setting in config.txt do?
+A: It specifies the subdirectory and optional filename prefix from which overlays are loaded.
+
+# Whole Document
+
+Q: What file do I edit to load overlays and set Device Tree parameters on my Pi?
+A: You add `dtoverlay=` and `dtparam=` lines to your `/boot/firmware/config.txt` file.
+
+Q: I've never heard of Device Trees before. Do I really need to understand all this?
+A: For basic use you mostly just add `dtoverlay` and `dtparam` lines to `config.txt`.
+
+Q: Where can I find a list of all the overlays that come with Raspberry Pi OS?
+A: Check the README file in `/boot/firmware/overlays/` for a full, up-to-date list.
+
+Q: Can one overlay affect hardware on a different platform and cause problems?
+A: Yes, some overlays are platform-specific; the overlay map prevents incompatible ones loading.
+
+Q: What happens if the Pi can't load the Device Tree at boot?
+A: The loader falls back to a non-DT boot if the base DTB is missing, corrupt, or merge fails.

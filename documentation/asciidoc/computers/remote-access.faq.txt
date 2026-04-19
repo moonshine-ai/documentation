@@ -1,105 +1,223 @@
 # Introduction to remote access
 
-What even is remote access? Do I need it for my Raspberry Pi?
-I've got my Pi tucked away somewhere and can't easily plug a monitor into it. What are my options for getting into it?
-What's the difference between SSH and VNC? Which one should I use?
-I don't have a spare monitor or keyboard. Can I still use my Pi?
-Can I control my Pi from my phone?
-I want to access my Pi from outside my house, like when I'm at work. How do I do that?
-What's Raspberry Pi Connect and how's it different from SSH or VNC?
+Q: My Pi is stuck inside a robot and I can't plug a monitor in. How do I control it?
+A: Use SSH, VNC, or Raspberry Pi Connect to remotely control it over your network.
+
+Q: What's the difference between SSH and VNC for remote access?
+A: SSH gives terminal access; VNC gives full desktop screen sharing on your Pi.
+
+Q: I don't want to mess with IP addresses. Is there an easier way to connect remotely?
+A: Raspberry Pi Connect handles configuration automatically with no IP address needed.
+
+Q: Can I control my Pi from outside my home network, like over the internet?
+A: Yes, use SSH or VNC over a VPN, RealVNC's cloud viewer, or Raspberry Pi Connect.
+
+Q: I just need to move files between my Pi and my laptop, not actually control it. What should I use?
+A: Use NFS, SCP, Samba, or rsync to share files without fully controlling the remote device.
 
 # Find the IP address of your Raspberry Pi
 
-How do I find my Pi's IP address?
-I need my Pi's IP address but I don't have a monitor plugged in. How do I find it?
-My Pi just booted up and I want to SSH into it but I don't know its IP address. How do I figure that out?
-What's the easiest way to find my Pi's IP address from the desktop?
-Is there a command I can type to get my IP address?
-What does `hostname -I` do?
-What's mDNS? Can I just use `raspberrypi.local` instead of looking up the IP address?
-I changed my Pi's hostname and now `raspberrypi.local` doesn't work anymore. What happened?
-I don't know what my Pi's hostname is now. How do I find it?
-Can I find my Pi's IP address from my router?
-What's nmap and can I use it to find my Pi on the network?
-I'm on Windows and want to scan my network to find my Pi. How do I do that?
-Is there an app for my phone that can find my Pi's IP address?
+Q: How do I find my Pi's IP address if I've got a monitor plugged in?
+A: Hover over the network icon in the system tray to see your IP address.
+
+Q: I'm using the terminal. What's the quickest command to find my IP address?
+A: Run `hostname -I` and it outputs your local IP address.
+
+Q: Does the Pi show its IP address anywhere during startup?
+A: Yes, the IP address appears in the boot output before the login prompt.
+
+Q: What's the nmcli command to see my network details including IP address?
+A: Run `nmcli device show` to see details about all network interfaces.
+
+Q: I used nmcli but I'm not sure which section has my actual IP. How do I figure it out?
+A: Find the wifi or ethernet block depending on your connection, then check IP4.ADDRESS[1].
+
+Q: Can I reach my Pi just by typing its name instead of an IP address?
+A: Yes, ping `raspberrypi.local` works if your device supports mDNS via Avahi.
+
+Q: I changed my Pi's hostname. Will the dot-local address update automatically?
+A: Yes, Avahi automatically updates the `.local` mDNS address when the hostname changes.
+
+Q: I don't remember what I named my Pi. How do I find it on the network?
+A: Install Avahi on another device and use `avahi-browse` to browse all local hosts.
+
+Q: Can I find my Pi's IP address by logging into my router?
+A: Yes, log into your router and browse the connected devices list to find it.
+
+Q: What is nmap and can I use it to find my Pi?
+A: nmap is a free network scanner; run `sudo nmap -sn` on your subnet to find devices.
+
+Q: I'm not great with command line stuff. Is there an app that can find my Pi's IP?
+A: The free Fing app for Android and iOS scans your network and shows connected devices.
 
 # Access a remote terminal with SSH
 
-How do I turn on SSH on my Pi?
-SSH is disabled by default on my Pi. How do I enable it?
-I'm setting up a new Pi and I want SSH enabled right from the start. Can I do that with Imager?
-How do I actually connect to my Pi using SSH once it's enabled?
-I'm trying to SSH in and getting a "connection timed out" error. What's wrong?
-I got a scary security warning the first time I tried to SSH in. Is that normal?
-Do I have to type my password every single time I SSH in? Is there a way around that?
-How do I set up SSH keys so I don't need a password?
-I want to run a graphical app over SSH. Is that possible?
-What's X11 forwarding and how do I use it?
+Q: SSH is disabled by default right? How do I turn it on?
+A: Enable it via Control Centre Interfaces tab, raspi-config, Imager, or a boot partition file.
+
+Q: I'm setting up a brand new Pi with Imager. Can I turn SSH on before I even boot it?
+A: Yes, toggle Enable SSH in the Customisation Remote Access tab during Imager setup.
+
+Q: What's the actual command I type to SSH into my Pi?
+A: Run `ssh <username>@<ip address>` replacing the placeholders with your actual details.
+
+Q: I got a scary security warning the first time I SSH'd in. Should I be worried?
+A: No, just type yes to continue; you only see that warning on the very first connection.
+
+Q: I got "connection timed out" when trying to SSH. What went wrong?
+A: You probably entered the wrong IP address; double-check your Pi's IP address.
+
+Q: Can I open graphical apps over SSH, not just command line stuff?
+A: Yes, use `ssh -Y` to forward X11 and run graphical apps remotely, but macOS and Windows need a third-party X server.
+
+Q: I'm tired of typing my password every time I SSH in. Can I set it up so I don't have to?
+A: Yes, generate an SSH keypair and copy your public key to the Pi for passwordless login.
+
+Q: How do I check if I already have an SSH key before I go making a new one?
+A: Run `ls ~/.ssh` and look for files like `id_rsa.pub` or `id_ed25519.pub`.
+
+Q: I generated an SSH key. Now what do I actually do with it to connect without a password?
+A: Run `ssh-copy-id <username>@<ip address>` to securely copy your public key to the Pi.
+
+Q: ssh-copy-id isn't available on my computer. How do I copy my key over manually?
+A: Use scp to copy your public key to `.ssh/authorized_keys` on the Pi manually.
 
 # Screen share with VNC
 
-What's VNC and why would I use it instead of SSH?
-How do I enable VNC on my Pi?
-What VNC client should I use to connect to my Pi?
-I enabled VNC but I can't see my cursor in the viewer. How do I fix that?
-I downloaded TigerVNC and it's giving me certificate warnings. Is it safe to just click yes?
+Q: What even is VNC? Is it like SSH but with a desktop?
+A: VNC lets you see and control your Pi's full desktop from another device remotely.
+
+Q: How do I turn on VNC on my Pi?
+A: Enable it through Control Centre Interfaces tab or via raspi-config on the command line.
+
+Q: VNC is enabled. What app do I use on my laptop to actually connect to it?
+A: Download TigerVNC for Windows, macOS, or Linux to connect to your Pi's desktop.
+
+Q: I connected with TigerVNC but I can't see the cursor. How do I fix that?
+A: In TigerVNC Options under the Input tab, check "Show dot when no cursor."
+
+Q: TigerVNC is giving me a certificate warning. Should I just click yes?
+A: Yes, click Yes to continue past the certificate warnings for your Raspberry Pi.
 
 # Remote access with Raspberry Pi Connect
 
-What's Raspberry Pi Connect and how does it work?
-Do I need to know my Pi's IP address to use Raspberry Pi Connect?
-Does Raspberry Pi Connect work over the internet or just on my local network?
+Q: What's Raspberry Pi Connect and is it free?
+A: It's a free screen sharing and remote shell service provided by Raspberry Pi.
+
+Q: Does Raspberry Pi Connect work on all Pi models or just some?
+A: Screen sharing needs Wayland; remote shell terminal access works on all Pi models.
+
+Q: What makes Raspberry Pi Connect different from just using VNC?
+A: Connect requires no IP address lookup or firewall changes; it handles configuration automatically.
 
 # Share files with SCP
 
-How do I copy a file from my computer to my Pi?
-I want to grab a file off my Pi and bring it to my laptop. How do I do that with SCP?
-Can I copy a whole folder to my Pi, not just one file?
-How do I copy multiple files at once with SCP?
-My filename has a space in it and SCP keeps failing. What do I do?
+Q: How do I copy a file from my laptop to my Pi over the network?
+A: Run `scp myfile.txt <username>@<ip address>:` from your laptop's terminal.
 
-# Synchronise folders between computers with `rsync`
+Q: Can I copy a whole folder to my Pi with scp, not just individual files?
+A: Yes, use `scp -r` with the folder name to copy it and all its contents recursively.
 
-What's rsync and why would I use it instead of SCP?
-If I run rsync twice will it copy everything again or just the new stuff?
+Q: I want to grab a file from my Pi onto my laptop. What's the scp command for that?
+A: Run `scp <username>@<ip address>:myfile.txt .` to copy the file to your current directory.
+
+Q: Can I copy multiple files in one scp command without typing each name?
+A: Yes, list filenames with spaces between them, or use wildcards like `*.txt` to match files.
+
+Q: My filename has a space in it and scp is failing. How do I fix that?
+A: Wrap the filename in quotes, like `scp "my file.txt" <username>@<ip address>:`.
+
+# Synchronise folders between computers with rsync
+
+Q: What does rsync actually do differently from just copying files with scp?
+A: rsync tracks already-downloaded files and skips them, only transferring new or changed ones.
+
+Q: I want my Pi's photo folder to sync to my computer automatically. How do I set that up?
+A: Use `rsync -avz -e ssh` with your Pi's username, IP, and folder names to sync them.
 
 # Network File System (NFS)
 
-What's NFS? I just want to share files between my Pi and my other computers.
-When should I use NFS versus Samba for sharing files?
-How do I set up my Pi as an NFS server?
-How do I mount an NFS share on the Pi from a client computer?
-Can I make an NFS share mount automatically on boot?
+Q: What's NFS and when would I use it instead of Samba?
+A: NFS is best for permanent Linux network mounts like home directories; Samba suits guest sharing better.
+
+Q: How do I install the NFS server packages on my Pi?
+A: Run `sudo apt install nfs-kernel-server` to install the required packages.
+
+Q: I set up NFS but I'm worried anyone on my network can access my files. Can I restrict it?
+A: Yes, add deny rules to `/etc/hosts.deny` and allow only specific IPs in `/etc/hosts.allow`.
+
+Q: How do I mount an NFS share on a client machine?
+A: Run `sudo apt install nfs-common` then mount with `mount -t nfs -o proto=tcp,port=2049`.
+
+Q: My NFS share won't mount inside my encrypted home directory at boot. What's the fix?
+A: Mount NFS shares in a separate directory like `/nfs` and use a symbolic link from your home folder.
 
 # Samba (SMB/CIFS)
 
-How do I share a folder from my Pi so my Windows computer can see it?
-Can my Windows PC access files on my Pi without any extra software?
-I'm getting a "Host is down" error when I try to mount a Windows share. What does that mean?
-I'm trying to mount an old NAS drive and it keeps saying "host is down." Is there a fix?
+Q: Is Samba installed by default on Raspberry Pi OS?
+A: No, you need to install it manually with `sudo apt install samba samba-common-bin smbclient cifs-utils`.
+
+Q: How do I share a folder from my Pi so my Windows computer can see it?
+A: Create the folder, set a Samba password with `smbpasswd`, and add a share entry to `smb.conf`.
+
+Q: I'm trying to mount a Windows share on my Pi but I get a "Host is down" error. What's going on?
+A: It's usually an SMB version mismatch; try adding `,vers=1.0` or another version to your mount command.
+
+Q: How do I mount a shared Windows folder on my Pi?
+A: Use `sudo mount.cifs //<hostname>/<share> /home/<username>/windowshare -o user=<name>`.
 
 # Set up an Apache web server
 
-How do I turn my Pi into a web server?
-I installed Apache but I don't know if it's working. How do I test it?
-How do I change the default web page that Apache shows?
-Can I run PHP on my Pi's web server?
+Q: How do I install Apache on my Pi?
+A: Run `sudo apt update` then `sudo apt install apache2 -y` to install Apache.
+
+Q: How do I check if Apache is working after I install it?
+A: Browse to `http://localhost/` on the Pi or its IP address from another computer on the network.
+
+Q: Where is the default web page file that Apache serves?
+A: It's at `/var/www/html/index.html` on your Pi's filesystem.
+
+Q: I want Apache to run PHP files. Do I need to install anything extra?
+A: Yes, run `sudo apt install php libapache2-mod-php -y` to add PHP support to Apache.
 
 # Network boot your Raspberry Pi
 
-Can I boot my Pi over the network without an SD card?
-How do I set up network boot on a Raspberry Pi 3?
-What do I need to do to enable network boot on a Raspberry Pi 4?
+Q: I want to boot my Pi 3 Model B over the network. Do I need to do anything special first?
+A: Yes, you need to boot from an SD card first and set a config option to enable USB boot mode.
+
+Q: Is network boot already enabled on the Pi 3 B+ out of the box?
+A: Yes, network boot is enabled at the factory on the Raspberry Pi 3 Model B+.
+
+Q: How do I enable network boot on a Pi 4?
+A: Use `raspi-config`, go to Advanced Options, then Boot Order, and select Network Boot.
+
+Q: How do I find my Pi's Ethernet MAC address for setting up network boot?
+A: Run `ethtool -P eth0` to display the Ethernet MAC address.
 
 # Network boot using IPv6
 
-My network uses IPv6. Can I still do network boot on my Pi?
-Is IPv6 network boot stable or is it still experimental?
+Q: Does IPv6 network booting work on all Pi models?
+A: No, it's experimental and only works on Raspberry Pi 4 and Compute Module 4.
+
+Q: Can I use dnsmasq as my DHCP server for IPv6 network boot?
+A: No, dnsmasq doesn't support the required parameters; use ISC DHCP instead.
+
+Q: How do I debug IPv6 network boot problems?
+A: Enable the boot UART and watch serial output; lines starting with RX6 indicate IPv6 is active.
 
 # Whole Document
 
-I've got a Pi running headless with no monitor or keyboard. What are all the ways I can access and manage it remotely?
-What's the simplest way for a beginner to remotely control their Pi?
-I want to share files between my Pi and other devices on my network. What are my options?
-Can I access my Pi from anywhere in the world, not just my home network?
+Q: My Pi is in a hard to reach spot and I want to control it remotely. What are my options?
+A: Use SSH for terminal access, VNC for desktop sharing, or Raspberry Pi Connect for browser-based access.
+
+Q: I want to remotely access my Pi but I have no idea what its IP address is. What do I do?
+A: Use `hostname -I`, check the desktop tooltip, use nmap, check your router, or use `raspberrypi.local`.
+
+Q: What's the easiest remote access option for a complete beginner who doesn't want to deal with IP addresses?
+A: Raspberry Pi Connect is easiest since it handles configuration automatically with no IP address needed.
+
+Q: Can I share files and remotely control my Pi at the same time using different services?
+A: Not specified in this section.
+
+Q: I want to set up my Pi as a little home server. What web server software is recommended?
+A: Apache is a popular web server you can install on Raspberry Pi to serve web pages.

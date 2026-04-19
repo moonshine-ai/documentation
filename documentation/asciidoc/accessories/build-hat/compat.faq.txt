@@ -1,41 +1,46 @@
 # Device Compatibility
 
-What LEGO devices actually work with the Build HAT library?
+Q: What LEGO kits are supported by the Build HAT library?
+A: It supports SPIKE Portfolio, Mindstorms Robot Inventor, and PoweredUp connector devices.
 
-Does it support Mindstorms Robot Inventor kit stuff, or just SPIKE Prime?
+Q: Does the Build HAT work with Mindstorms Robot Inventor stuff?
+A: Yes, Mindstorms Robot Inventor devices are supported by the Build HAT library.
 
-I've got a SPIKE Essentials set. Are those motors and sensors going to work with the Build HAT?
+Q: I've got a SPIKE Prime set. Will the motors and sensors work with the Build HAT?
+A: Yes, SPIKE Prime motors and sensors are fully supported in firmware and Python.
 
-What's the difference between the two SPIKE Prime Expansion Sets? I'm confused about which one to get.
+Q: What's the difference between product codes 45680 and 45681 for the SPIKE Prime Expansion Set?
+A: Product 45681 includes the Maker Plate; the original 45680 does not include it.
 
-I have the LEGO Technic XL motor, the grey one. Is that supported?
+Q: I'm looking at the SPIKE Prime Expansion Set and I want the Maker Plate. Which one do I buy?
+A: You need product code 45681, which is the version that includes the Maker Plate.
 
-Does the colour and distance sensor work properly, or is it only partially supported?
+Q: Does the colour and distance sensor work fully with the Build HAT or are there limitations?
+A: The colour and distance sensor only has partial firmware support and uncertain Python support.
 
-I've got a WeDo 2.0 tilt sensor. Will that work with the Build HAT?
+Q: Are the WeDo 2.0 motion and tilt sensors supported in the Build HAT firmware?
+A: No, the WeDo 2.0 motion and tilt sensors don't show firmware support listed.
 
-What's the LEGO item number for the Large Angular Motor?
+Q: I've got a PoweredUp LED lights module. Can I use it with the Build HAT in Python?
+A: Python support for PoweredUp LED lights is not listed as supported.
 
-I have the 3x3 LED panel from SPIKE Essentials. Can I control that with Python?
+Q: What's the difference between active and passive devices in this list?
+A: Not specified in this section.
 
-My force sensor is from the SPIKE Prime set. Does that work in Python?
+Q: I want to use a Force Sensor with my Build HAT. Is that going to work?
+A: Yes, the Force Sensor is fully supported in both firmware and Python.
 
-Does the system train motor work with the Build HAT library?
+Q: Which motors from the SPIKE Prime set are compatible with the Build HAT?
+A: The Large Angular Motor and Medium Angular Motor from SPIKE Prime are fully supported.
 
-I've got PoweredUp LED lights, the black ones. Are those supported in Python?
+Q: I've got a train motor, the black one model 88011. Will that work with the Build HAT?
+A: Yes, the system train motor 88011 is supported in both firmware and Python.
 
-What's the deal with the colour plus distance sensor — it says partial support. What does that actually mean, like what works and what doesn't?
+Q: Is the 3x3 LED matrix thing from SPIKE Essentials supported?
+A: Yes, the 3x3 LED matrix is fully supported in firmware and Python.
 
-Is the medium angular motor from Mindstorms Robot Inventor the same as the one from SPIKE Prime, or are they different?
+Q: Does the Build HAT support the Technic XL motor?
+A: Yes, the Technic XL motor is fully supported in both firmware and Python.
 
-I have a WeDo 2.0 Motion sensor. Will the Build HAT library support it?
-
-# Whole Document
-
-What LEGO kits are compatible with the Build HAT overall?
-
-I'm trying to figure out if my LEGO motors will work with the Raspberry Pi Build HAT. Where do I even start?
-
-What's the difference between active and passive devices in the Build HAT compatibility list?
-
-I want to control LEGO motors with Python on my Raspberry Pi. Which motors are actually supported?
+Q: I've got a medium linear motor from the Boost set. Can I use that with Build HAT?
+A: Yes, the medium linear motor from Boost is supported in firmware and Python.

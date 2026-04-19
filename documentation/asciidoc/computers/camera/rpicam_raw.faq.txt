@@ -1,18 +1,31 @@
 # `rpicam-raw`
 
-- I want to record raw video straight from the sensor. How do I do that?
-- Does `rpicam-raw` show a preview while it's recording?
-- I recorded a raw file but I have no idea how to read it. How do I know what format the pixel data is in?
-- My raw recording is coming out as one massive file. Can I split it so each frame gets its own file?
-- I'm using the HQ camera and frames are getting dropped. What framerate should I stay under to avoid that?
-- Wait, can `rpicam-raw` save files as DNG? I want to edit them in a photo app.
-- How do I record a raw clip for just a couple of seconds?
-- I want each frame saved separately. What's that percent thing in the filename for?
-- How fast can the Pi actually write those big 12-megapixel raw frames to disk?
-- I'm recording at full resolution with the HQ camera and it keeps dropping frames. What do I do?
+Q: How do I record a raw video clip for two seconds using rpicam-raw?
+A: Run `rpicam-raw -t 2000 -o test.raw` to record two seconds raw.
 
-# Whole Document
+Q: I ran rpicam-raw but I can't tell what format the output is in. Where does it say?
+A: The app prints pixel format and image dimensions to the terminal window.
 
-- What's the difference between `rpicam-raw` and `rpicam-still` for capturing raw images?
-- I just want unprocessed sensor data, no encoding or anything. Which tool should I use?
-- Can I record raw frames without any preview window showing up?
+Q: Does rpicam-raw show a preview while it's recording?
+A: No, rpicam-raw does not show a preview window at all.
+
+Q: I want each raw frame saved as its own file instead of one huge file. How do I do that?
+A: Use the segment option with one and percent zero five d in the filename.
+
+Q: My raw recording is dropping frames. What should I do to stop that?
+A: Lower the framerate option below ten to avoid dropping frames during recording.
+
+Q: Can rpicam-raw save files as DNG? I want to edit them properly.
+A: No, use rpicam-still instead for DNG file format output.
+
+Q: What's the fastest rpicam-raw can write frames from the HQ camera without losing any?
+A: It can write 18 MB 12-megapixel HQ camera frames at 10fps.
+
+Q: I'm recording at full 12-megapixel resolution and frames are getting dropped. What framerate should I use?
+A: Set framerate to eight or below when recording at full HQ resolution.
+
+Q: What's the default behavior when rpicam-raw saves output, like does it split it up at all?
+A: By default, rpicam-raw outputs all raw frames into one single file.
+
+Q: Where can I find out more about what the raw formats actually look like?
+A: Check the mode documentation for more information on raw formats.

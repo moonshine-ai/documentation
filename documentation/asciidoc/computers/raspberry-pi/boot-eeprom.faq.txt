@@ -1,80 +1,162 @@
-# Whole Document
+# Raspberry Pi boot EEPROM
 
-What even is a boot EEPROM? Do I need to worry about it on my Raspberry Pi?
-My Pi won't boot and the green LED is blinking in a weird pattern. What does that mean?
-I've got a Raspberry Pi 4. Does it use that EEPROM thing or the bootcode.bin file?
-How do I know if my Pi's bootloader needs an update?
-My Pi 3 doesn't seem to have this EEPROM stuff. Is that normal?
+Q: Which Raspberry Pi models actually use an EEPROM to boot?
+A: Flagship models since Pi 4B, CM4 and later, and keyboard models since Pi 400.
+
+Q: My older Pi doesn't have an EEPROM right? How does it boot then?
+A: Older models use a bootcode.bin file located in the boot filesystem instead.
+
+Q: Where can I find the scripts used to create rpi-eeprom?
+A: They're available in the rpi-eeprom GitHub repository at github.com/raspberrypi/rpi-eeprom.
 
 # Diagnostics
 
-My Pi's not booting and there's something weird on the HDMI screen. Is that a clue about what went wrong?
-The green LED keeps flashing in a pattern when I try to boot. How do I figure out what it's trying to tell me?
+Q: My Pi won't boot and the green LED is blinking weirdly. What does that mean?
+A: The green LED blinks an error code when something goes wrong during boot.
+
+Q: Is there any way to see what went wrong during boot on my screen?
+A: Newer bootloaders display a diagnostic message on all connected HDMI displays.
 
 # Update the bootloader
 
-How do I actually update the bootloader on my Pi 4?
-Does Raspberry Pi OS just update the bootloader automatically, or do I have to do it myself?
-I've got a Compute Module 4 and I heard it doesn't do automatic bootloader updates. How do I update it then?
+Q: Do I have to manually update my Pi's bootloader or does it happen automatically?
+A: Raspberry Pi OS automatically updates the bootloader for important bug fixes.
+
+Q: I've got a CM4 and heard it doesn't do automatic bootloader updates. Is that true?
+A: Yes, CM4 and CM4S don't support automatic updates because bootrom can't load recovery.bin from eMMC.
+
+Q: How do I manually change the boot order on my Pi 4?
+A: Use raspi-config to manually update the bootloader or change the boot order.
 
 # Use Raspberry Pi Imager to update the bootloader
 
-I want to update my bootloader but I'd rather not use the command line. Is there a graphical way to do it?
-Walk me through how to use the Imager tool to update the bootloader. I've never done it before.
-When I'm using Imager to update the bootloader, it's going to wipe my SD card, right? Is that okay?
-How do I know if the bootloader update actually worked when I'm using the Imager method?
-After the green screen shows up during the bootloader update, what do I do next?
+Q: I don't really like using the terminal. Can I update my bootloader some other way?
+A: Yes, Raspberry Pi Imager provides a graphical interface for updating the bootloader.
+
+Q: When I'm using Imager to update the bootloader, will it wipe my SD card?
+A: Yes, all data on the SD card is overwritten by Imager during the process.
+
+Q: How do I know if the bootloader update actually worked when using Imager?
+A: The green LED blinks steadily and the HDMI display shows a green screen on success.
+
+Q: How long do I need to leave the Pi running after booting with the new bootloader image?
+A: Boot the Raspberry Pi with the new image and wait for at least ten seconds.
 
 # Use raspi-config to update the bootloader
 
-How do I update the bootloader from inside Raspberry Pi OS without downloading anything extra?
-I want to switch to the latest bootloader using raspi-config. Where do I find that option?
-What's the difference between choosing "Default" and "Latest" in the bootloader settings in raspi-config?
+Q: What's the easiest way to update the bootloader from inside Raspberry Pi OS?
+A: Run sudo raspi-config, go to Advanced Options, then select Bootloader Version.
+
+Q: What's the difference between Default and Latest when I'm picking a bootloader version in raspi-config?
+A: Default gives factory settings; Latest gives the most recent bootloader release.
 
 # Update the bootloader configuration
 
-What's the difference between the "default" and "latest" bootloader releases? Which one should I use?
-I want to switch to the latest bootloader release. What commands do I run?
-How do I check if there's a newer bootloader version available?
-After I run the update command, how do I confirm it actually installed the new bootloader?
+Q: What's the difference between the default and latest bootloader releases?
+A: Default gets critical fixes periodically; Latest updates more often with newest fixes and improvements.
+
+Q: How do I check if there's a newer bootloader version available?
+A: Run sudo rpi-eeprom-update to check if a more recent bootloader version is available.
+
+Q: What commands do I actually run to update to the latest bootloader?
+A: Run sudo rpi-eeprom-update -a then sudo reboot to install the update.
 
 # Read the current bootloader configuration
 
-How do I see what settings my bootloader is currently using?
-What command do I run to check my bootloader config?
+Q: How do I see what settings my current bootloader is using?
+A: Run rpi-eeprom-config to view the configuration the current running bootloader uses.
+
+Q: Can I check the config inside a bootloader file without actually installing it?
+A: Yes, run rpi-eeprom-config followed by the filename, like rpi-eeprom-config pieeprom.bin.
 
 # Editing the current bootloader configuration
 
-I want to change something in my bootloader settings. How do I do that without breaking anything?
-If I open the bootloader config to edit it but don't change anything, will it still do an update?
+Q: I want to edit my bootloader settings. How do I do that safely?
+A: Run sudo -E rpi-eeprom-config --edit, then reboot; changes are applied on restart.
+
+Q: Which text editor does it use when I edit the bootloader config?
+A: The editor is selected by the EDITOR environment variable.
+
+Q: What happens if I open the bootloader config editor but don't change anything?
+A: If the updated configuration is identical or empty, no changes are made.
 
 # Applying a saved configuration
 
-I've got a bootloader config file I want to use. How do I apply it?
+Q: I've got a config file I want to apply to my bootloader. How do I do that?
+A: Run sudo rpi-eeprom-config --apply boot.conf then sudo reboot to apply it.
 
 # Automatic updates
 
-I don't want my Pi automatically updating the bootloader. How do I turn that off?
-I turned off automatic bootloader updates a while back and now I want them back on. How do I re-enable that?
-Wait, if I've got multiple operating systems on my Pi, could automatic bootloader updates cause problems?
+Q: How do I turn off automatic bootloader updates if I don't want them?
+A: Run sudo systemctl mask rpi-eeprom-update to disable automatic updates.
+
+Q: I disabled automatic updates before but now I want them back. How do I re-enable them?
+A: Run sudo systemctl unmask rpi-eeprom-update to re-enable automatic updates.
+
+Q: Is there a way to freeze my bootloader version so it never gets auto-updated?
+A: Set the FREEZE_VERSION bootloader config option and the update service will skip automatic updates.
 
 # rpi-eeprom-update
 
-How do I check what version of the bootloader I've got right now?
-I ran the update command but now I want to cancel it before I reboot. Can I do that?
-How do I install a specific bootloader image file instead of just the latest one?
-What does that minus d flag do when I'm installing a bootloader image?
+Q: How do I check what version of the bootloader I'm currently running?
+A: Run vcgencmd bootloader_version to read the current bootloader version.
+
+Q: I started an update but I changed my mind. Can I cancel it before rebooting?
+A: Yes, run sudo rpi-eeprom-update -r to cancel a pending update.
+
+Q: Can I install a specific bootloader image file instead of the latest one?
+A: Yes, use sudo rpi-eeprom-update -d -f pieeprom.bin to install a specific image.
+
+Q: What does that -d flag actually do when installing a bootloader image?
+A: It tells rpi-eeprom-update to use the config in the specified file instead of migrating current config.
 
 # Bootloader release status
 
-How do I switch between the default and latest bootloader release streams?
-Where do I change which bootloader release channel my Pi is using?
+Q: What's the actual difference between the default and latest bootloader release streams?
+A: Default gets hardware support and critical fixes; Latest gets new features as soon as they're available.
+
+Q: Can I create my own custom bootloader release stream?
+A: Yes, since release status is just a subdirectory name, you can create your own release streams.
+
+# Changing the bootloader release
+
+Q: How do I switch which release stream my Pi uses for bootloader updates?
+A: Edit /etc/default/rpi-eeprom-update and change the FIRMWARE_RELEASE_STATUS entry.
 
 # recovery.bin
 
-What does recovery.bin actually do? Why does the Pi look for it on boot?
-If the bootloader gets corrupted somehow, will recovery.bin fix it?
+Q: What is recovery.bin and what does it actually do on boot?
+A: The ROM looks for recovery.bin on the SD card and executes it instead of the EEPROM contents.
+
+Q: What happens to recovery.bin after the bootloader update finishes?
+A: If using pieeprom.upd, recovery.bin gets renamed to recovery.000 and the system reboots.
+
+Q: Can I update the bootloader using recovery.bin over USB or network?
+A: No, the ROM on BCM2711 and BCM2712 doesn't support loading recovery.bin from USB or TFTP.
+
+# Bootloader update files
+
+Q: What's the difference between pieeprom.upd and pieeprom.bin?
+A: They're the same image but pieeprom.bin stops recovery.bin from renaming itself after updating.
+
+Q: How do I know if the update using pieeprom.bin succeeded or failed?
+A: Green HDMI output and rapidly flashing LED means success; red HDMI output means failure.
+
+Q: What's inside those .sig files that come with the bootloader images?
+A: They contain the hexadecimal sha256 checksum of the corresponding image file on the first line.
 
 # EEPROM write protect
 
-Can I lock the bootloader so it can't be accidentally changed or overwritten?
+Q: Can I write-protect my EEPROM so nothing can accidentally overwrite it?
+A: Both bootloader and VLI EEPROMs support hardware write protection via the eeprom_write_protect option.
+
+# Whole Document
+
+Q: I've got a Pi 3. Do any of this EEPROM stuff apply to me?
+A: No, only Pi 4B and newer flagship models, CM4 and later, and Pi 400 use EEPROM.
+
+Q: I just want to make sure my bootloader is up to date. What's the quickest way?
+A: Run sudo rpi-eeprom-update to check, then sudo rpi-eeprom-update -a to install updates.
+
+Q: I've got multiple operating systems on my Pi. Will automatic bootloader updates cause problems?
+A: Set FREEZE_VERSION in bootloader config to skip automatic updates across multiple operating systems.

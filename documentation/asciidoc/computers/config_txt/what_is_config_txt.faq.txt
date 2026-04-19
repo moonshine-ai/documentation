@@ -1,47 +1,61 @@
-# What is config.txt?
+# What is `config.txt`?
 
-What even is config.txt? Like, do I need it or is it just some system file I shouldn't touch?
+Q: What's config dot txt and why does my Raspberry Pi need it?
+A: It's the Raspberry Pi's configuration file, replacing a conventional PC's BIOS.
 
-So on a normal PC there's a BIOS, but what does Raspberry Pi use instead?
+Q: Where's the config dot txt file actually stored on my Pi?
+A: It's in the boot partition, located at slash boot slash firmware slash.
 
-Where do I find the config.txt file on my Pi?
+Q: I'm on an older version of Raspberry Pi OS. Is the config file in a different place?
+A: Before Bookworm, the boot partition was stored at slash boot slash.
 
-I'm running an older version of Raspberry Pi OS — where's the boot partition?
+Q: Do I have to shut down to edit config dot txt, or can I do it while it's running?
+A: You can edit it directly from your running Raspberry Pi OS installation.
 
-Can I edit config.txt from another computer, or do I have to do it on the Pi itself?
+Q: I changed something in config dot txt but nothing happened. Do I need to restart?
+A: Yes, changes to config dot txt only take effect after a reboot.
 
-I changed something in config.txt but nothing seems different. Do I need to restart for it to take effect?
+Q: How do I check what a specific config setting is currently set to?
+A: Use vcgencmd get_config followed by the setting name to display it.
 
-How do I check what settings are currently active without opening config.txt?
+Q: I want to see all my integer config options at once. How do I do that?
+A: Run vcgencmd get_config int to list all non-zero integer config options.
 
-I want to see what my arm frequency is set to. How do I check that?
-
-How do I get a list of all the config options that are actually set to something?
-
-I ran a vcgencmd command to check a setting but got nothing back. Does that mean it's not set, or does vcgencmd just not support everything?
+Q: Can I check all my string config settings in one go?
+A: Yes, run vcgencmd get_config str to list all non-null string config options.
 
 # File format
 
-What's the format for config.txt? Like, how do I actually write stuff in it?
+Q: What format does config dot txt use? Is it like a normal text file?
+A: It uses simple property equals value statements, one per line, integers or strings.
 
-I want to add a comment in config.txt so I remember what a line does. Can I do that?
+Q: How do I comment something out in config dot txt so it's ignored?
+A: Start the line with a hash character to comment it out or disable it.
 
-I've got a really long line in my config.txt — is there a limit to how long it can be?
+Q: Is there a limit to how long each line in config dot txt can be?
+A: Yes, there's a ninety-eight character line length limit per entry.
 
-I want to temporarily disable a setting in config.txt without deleting it. How do I do that?
+Q: What happens if I write a really long line in config dot txt?
+A: Raspberry Pi OS ignores any characters past the ninety-eight character limit.
 
 # Advanced features
 
-Can I split my config.txt into multiple files? It's getting really long.
+Q: Can I split my config dot txt into multiple files to keep things tidy?
+A: Yes, use the include directive to insert another file's contents into config dot txt.
 
-I put a setting in my extra include file but it doesn't seem to be working. Could that be a problem with where I put it?
+Q: I want to use include in config dot txt. Are there any settings it won't work for?
+A: Bootloader-handled settings only work if specified directly in config dot txt itself.
 
-I'm trying to set gpu_mem in an included file but it's being ignored. What am I doing wrong?
+Q: Does the bootloader support the include directive in config dot txt?
+A: No, bootcode dot bin and EEPROM bootloaders do not support the include directive.
 
 # Whole Document
 
-I just got my first Raspberry Pi — what's the main file I need to know about for changing how it's configured?
+Q: I edited my Pi's config file from another computer. Is that actually allowed?
+A: Yes, you can remove the storage and edit the boot partition from a separate computer.
 
-Wait, the GPU reads config.txt before Linux even starts? Why does it work that way?
+Q: Not all my config settings show up when I run vcgencmd. Is that normal?
+A: Yes, not all config settings can be retrieved using vcgencmd.
 
-I messed something up in config.txt and now my Pi won't boot. Can I fix it from another computer?
+Q: I heard some config dot txt options are outdated. Where do I find out about those?
+A: Legacy options are listed separately and aren't included in the main article.

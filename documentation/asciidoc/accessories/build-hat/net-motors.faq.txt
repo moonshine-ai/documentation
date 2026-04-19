@@ -1,27 +1,55 @@
-# Whole Document
+# Use Motors from .NET
 
-- What's the difference between active and passive motors when I'm coding for them in .NET?
-- I've never used motors with my Raspberry Pi before. Where do I even start?
-- Do I need to set up power limits and bias for every motor I use, or are there default values?
-- What's the range of values I can use for power limit and bias?
+Q: What's the difference between active and passive motors in .NET?
+A: Active motors give position and speed data; passive motors only control speed.
+
+Q: What values can I pass into SetPowerLimit and SetBias?
+A: Both only accept values between zero point zero and one point zero.
+
+Q: What does the bias setting actually do on a motor?
+A: It compensates for DC motors needing minimum drive before they'll turn at all.
+
+Q: What are the default values when a motor gets created?
+A: Power limit defaults to zero point seven and bias defaults to zero point three.
 
 # Passive Motors
 
-- I've got a train motor and I want to make it speed up gradually over time. How do I do that?
-- What's the speed range for a passive motor? Like, can I go negative?
-- How do I just start and stop a passive motor? Is there a simple way to do that?
-- Can I change the speed while the motor's already running, or do I have to stop it first?
-- I want to run my train motor backwards for a couple seconds then stop it. How would I write that?
-- What does SetPowerLimit actually do? Like why would I want to lower it?
+Q: What's the speed range I can set on a passive motor?
+A: Passive motor speed goes from negative one hundred to positive one hundred.
+
+Q: I started my train motor but want to slow it down without stopping it. Can I do that?
+A: Yes, once started you can adjust speed and the motor adjusts accordingly.
+
+Q: Can a passive motor tell me how fast it's actually going?
+A: No, the Speed property is target only; passive motors can't measure real speed.
+
+Q: What functions are there to control a passive motor besides setting the speed?
+A: You can use Start, Stop, and SetSpeed to control passive motors.
 
 # Active Motors
 
-- What extra stuff can I read from an active motor that I can't get from a passive one?
-- I've got active motors on port A and D and I want to read their speed and position while they're running. How do I do that?
-- Does an active motor keep reading its position even when it's stopped, or only when it's moving?
-- I want to move my motor back to where it started. Is there a way to tell it to go back to position zero?
-- Can I make my code wait until the motor finishes moving before doing the next thing?
-- What's the float mode for a motor? When would I actually use that?
-- I want to use my active motor like a tachometer and just move it by hand and read the position. What mode do I need it in for that?
-- Is there any tolerance when I tell a motor to move to a specific position, or is it exact?
-- What's the difference between position and absolute position on an active motor?
+Q: What extra info can I read from an active motor that I can't get from a passive one?
+A: Active motors provide Speed, AbsolutePosition, Position, and TargetSpeed properties.
+
+Q: Do active motors keep updating their sensor readings even when stopped?
+A: Yes, active motor properties are read continuously even when the motor is stopped.
+
+Q: I want my active motor to go back to its starting position. How do I do that?
+A: Use MoveToPosition passing zero and set TargetSpeed before calling it.
+
+Q: Can I make my code wait until the motor finishes moving before doing the next thing?
+A: Yes, each move function lets you block the thread until the operation completes.
+
+Q: What's float mode on an active motor and when would I use it?
+A: Float removes all constraints, useful when using the motor as a tachometer.
+
+Q: Is there like a tolerance when moving to a specific position? It doesn't have to be exact?
+A: Yes, absolute and relative position moves have a tolerance of a few degrees.
+
+# Whole Document
+
+Q: I'm using .NET and I've got a LEGO train motor. Is that a passive or active motor?
+A: Train motors are typical passive motors in the Powered Up system.
+
+Q: Do I need to remember to stop my motors in code or do they stop on their own?
+A: You must explicitly stop motors; the docs remind you to start and stop as needed.

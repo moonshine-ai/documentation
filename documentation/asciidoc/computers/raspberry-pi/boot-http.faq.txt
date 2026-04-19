@@ -1,48 +1,75 @@
-# Whole Document
-
-- What is HTTP boot on Raspberry Pi and how does it work?
-- Can I boot my Pi over the network using HTTP?
-- I want to boot my Pi from files on my own web server. Is that possible?
-- What do I need to get HTTP boot working on my Raspberry Pi?
-- I'm trying to set up network boot. Do I need a WiFi connection or does it have to be wired?
-
 # HTTP boot
 
-- What's the difference between network install and HTTP boot mode?
-- I want HTTP boot to kick in only as a backup if everything else fails. How do I set that up?
-- Can I trigger HTTP boot using a GPIO pin?
-- I disabled network install but I still want to use HTTP boot sometimes. Is that allowed?
-- What are those `boot.img` and `boot.sig` files that get downloaded during HTTP boot?
-- I put boot mode 7 in my boot order but it's being ignored. What's going on?
+Q: What is HTTP boot on the Raspberry Pi and what's it actually used for?
+A: HTTP boot downloads files over Ethernet to boot Raspberry Pi Imager.
+
+Q: Can I still use HTTP boot even if I've turned off network install at startup?
+A: Yes, HTTP boot works even when network install on boot is disabled.
+
+Q: I want my Pi to fall back to booting over the network if other options fail. Can I do that?
+A: Yes, add HTTP boot as a fallback method in your BOOT_ORDER settings.
+
+Q: What files actually get downloaded when HTTP boot runs?
+A: It downloads boot.img and boot.sig from the configured HTTP host.
+
+Q: What even is boot.img? Like, what's inside it?
+A: It's a RAM disk containing a boot file system.
+
+Q: I've got secure boot enabled but HTTP boot isn't working. What's going on?
+A: HTTP boot is ignored if secure boot is on and HTTP_HOST isn't set.
 
 # Requirements
 
-- What version of bootloader do I need for HTTP boot to work?
-- My Pi is pretty old. Do I need to update anything before I can use HTTP boot?
-- I want to use my own certificates for HTTP boot. Does every Pi support that or just certain ones?
-- Do I need to update my bootloader to use custom certificates, and if so how old is too old?
+Q: What do I need to update to before HTTP boot will work?
+A: Update to a bootloader released 10th March 2022 or later.
+
+Q: Can I use HTTP boot over Wi-Fi?
+A: No, HTTP boot requires a wired Ethernet connection.
+
+Q: I want to use my own SSL certificates with HTTP boot. Does my Pi support that?
+A: Only devices running the BCM2712 CPU support custom CA certificates.
+
+Q: How old does my bootloader need to be before custom certificates stop working?
+A: You need a bootloader released 5th April 2024 or later for custom CA certificates.
 
 # Keys
 
-- How do I host the Raspberry Pi network install image on my own server?
-- I want to use my own server for network install but I'm not sure how signing works. Can you walk me through it?
-- I updated my EEPROM and now my public key is gone. What happened and how do I fix it?
-- What tool do I use to add a public key to the EEPROM?
-- How do I sign my own boot image with my private key?
-- Where do I put the `boot.img` and `boot.sig` files once I've signed them?
+Q: Do I need to sign the files I'm serving for HTTP boot, or can I just put them on a web server?
+A: All HTTP downloads must be signed; unsigned files won't work.
+
+Q: I'm hosting my own network install image. How do I add my public key to the EEPROM?
+A: Run rpi-eeprom-config with your boot.conf and public key PEM file.
+
+Q: If I update the EEPROM firmware later, do I lose my custom key?
+A: Yes, a public EEPROM update removes your key and you'll need to re-add it.
+
+Q: How do I sign my own network install image with my private key?
+A: Use rpi-eeprom-digest with your boot.img and private key PEM file.
+
+Q: Where do I put boot.img and boot.sig once I've signed them?
+A: Put both files on your web server to serve your signed network install image.
 
 # Certificates
 
-- How do I set up HTTPS instead of HTTP for network boot downloads?
-- I want to download OS images from my own website securely. How do I add my own certificate to the Pi?
-- What format does the certificate need to be in to add it to the EEPROM?
-- How do I generate a hash of my certificate and where does it go?
-- What's the difference between using HTTP and HTTPS during network boot and how does the Pi decide which one to use?
-- I set up my own server for network boot. How do I check in the boot output that it's actually using HTTPS?
+Q: Does network install use plain HTTP or something more secure when downloading?
+A: Network Install uses HTTPS to download OS images from the Raspberry Pi website.
+
+Q: I want to serve my own OS images securely. Can I add my own certificate to the Pi?
+A: Yes, add a custom CA certificate to your device EEPROM using rpi-eeprom-config.
+
+Q: How do I turn my PEM certificate into the format the Pi needs for EEPROM?
+A: Use openssl x509 to convert your PEM file to DER-encoded format.
+
+Q: What's the HTTP_CACERT_HASH setting for? Do I really need it?
+A: It tells Network Install to use HTTPS port 443 instead of HTTP port 80.
+
+Q: How do I check that my Pi is actually using HTTPS during network boot and not plain HTTP?
+A: Check the boot output for GET request URLs showing https and port 443.
 
 # Secure boot
 
-- If I've got secure boot turned on, can I still use network install?
-- I enabled secure boot and now network boot isn't working. What do I need to do?
-- Does my `boot.img` need to be signed if secure boot is on?
-- I turned on secure boot but didn't set HTTP_HOST. Why did network install stop working?
+Q: I've got secure boot turned on. Can I still use network install?
+A: Yes, but you must sign boot.img and host it yourself with your own key.
+
+Q: What happens to HTTP boot if secure boot is on but I haven't set HTTP_HOST?
+A: Both network install and HTTP boot get disabled if HTTP_HOST isn't set.

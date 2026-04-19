@@ -1,55 +1,88 @@
-# Network Boot Your Raspberry Pi
+# Network boot your Raspberry Pi
 
-Do I need two Raspberry Pis to do network booting, or can I get away with just one?
-How many SD cards do I actually need for this whole network boot setup?
-My network boot isn't working and I'm not sure where to start. Is there anything on the router side that might be blocking it?
-What's the difference between the server Pi and the client Pi in this setup?
+Q: Do I need an SD card for both the server and the client Pi when network booting?
+A: No, only one SD card is needed after initial client configuration.
 
-# Configure a Network Boot Client
+Q: My network boot isn't working and I've tried everything. Is there anything else I can try?
+A: Try disabling STP frames on your network; that's been reported to help.
+
+Q: What Pi models can I actually network boot?
+A: Network booting works with Raspberry Pi 3 and 4 models.
+
+# Configure a network boot client
 
 ## Raspberry Pi 3 Model B
 
-I've got a Pi 3 Model B and I want to network boot it. Do I need to do anything special to set it up first?
-What's OTP memory and why does it matter for network booting?
-After I run that command to enable USB boot mode, how do I know if it actually worked?
-I enabled USB boot mode on my Pi 3B but now I want to undo it. Can I?
-Wait, do I need to remove that line from config.txt after enabling USB boot, or can I just leave it?
+Q: Do I need to do anything special to get my Pi 3B to boot from the network?
+A: Yes, you need to enable USB boot mode by setting a bit in OTP memory.
+
+Q: How do I enable network booting on my Raspberry Pi 3 Model B?
+A: Add program_usb_boot_mode=1 to config.txt, then reboot the Pi.
+
+Q: After I run that OTP command, how do I know if it actually worked?
+A: Run vcgencmd otp_dump, grep for 17, and check the output shows 0x3020000a.
+
+Q: Wait, do I remove that line from config.txt after programming the OTP or just leave it?
+A: Remove program_usb_boot_mode=1 from config.txt after the OTP is programmed.
 
 ## Raspberry Pi 4 Model B
 
-How do I turn on network boot on a Pi 4?
-I went into raspi-config to set network boot but I'm not sure it saved. How do I check if it worked?
-What's the boot order code I should see after setting up network boot on a Pi 4?
+Q: How do I set up network booting on my Pi 4? Is it different from the Pi 3?
+A: Use raspi-config, go to Advanced Options, Boot Order, then select Network Boot.
 
-# Ethernet MAC Address
+Q: After I change the boot order on my Pi 4, how do I confirm it actually took effect?
+A: Reboot, then run vcgencmd bootloader_config and check the boot order shows 0xf21.
 
-How do I find the MAC address of my Pi's ethernet port?
-I need the serial number of my Pi for the TFTP server setup. How do I get it?
-Does the MAC address on a Pi 4 match up with its serial number somehow?
+Q: Does the Pi 4 need an SD card first like the Pi 3B does, or is network boot built in?
+A: You enable it via raspi-config; the change gets programmed into the bootloader EEPROM.
 
-# Configure a Network Boot Server
+# Ethernet MAC address
 
-How do I copy the server's file system over so the client Pi has something to boot from?
-Why do I need to regenerate SSH keys on the client filesystem?
-How do I find my router's IP address from the terminal?
-I'm setting up the network config files and I'm not sure what IP address to put in. Where do I find that?
-What's dnsmasq and why do I need it for network booting?
-How do I check if the client Pi is actually sending out DHCP requests when it powers on?
-I set up dnsmasq but my client Pi still can't boot. What should I be watching in the logs?
-Where does the broadcast address go in the dnsmasq config?
+Q: How do I find the MAC address of my Pi's ethernet port?
+A: Run ethtool -P eth0 to find the Ethernet MAC address.
 
-## Set Up NFS Root
+Q: How do I find my Pi's serial number?
+A: Run grep Serial /proc/cpuinfo with some cut commands to extract it.
 
-What's NFS and why do I need it for network booting?
-My client Pi gets as far as trying to load the root filesystem and then fails. What do I need to set up?
-How do I edit the boot command line so the client Pi knows to boot from the network?
-I keep seeing an error about bootcode.bin not being found. What do I do about that?
-The Pi doesn't boot on the first try. Should I just keep trying or is something actually broken?
-What do I need to change in the fstab file on the client's filesystem?
+Q: On a Pi 4, is the serial number linked to the MAC address somehow?
+A: No, on Pi 4 and later the MAC address and serial number are not linked.
 
-# Whole Document
+Q: I need both the MAC address and serial number but I don't have a monitor. Where else can I find them?
+A: Both are displayed on the bootloader HDMI diagnostics screen during boot.
 
-I've got a Pi 3B and a Pi 4 sitting around. Can I use either of them as the server, or does it have to be a specific model?
-Is this whole network boot thing just for when you don't want to use an SD card at all?
-What services do I need running on the server Pi to make all this work?
-This whole setup looks really complicated. Is there a way to test whether it's working at each step?
+# Configure a network boot server
+
+Q: How does the client Pi get a root filesystem if it doesn't have an SD card?
+A: You copy the server's root filesystem to /nfs/client1 using rsync.
+
+Q: Why do I need to regenerate SSH keys on the client filesystem?
+A: Not specified in this section.
+
+Q: How do I find my router's IP address from the terminal?
+A: Run ip route and look for the default line; it shows the gateway address.
+
+Q: I need to set up a static IP on my server Pi. How do I do that?
+A: Create systemd network files 10-eth0.netdev and 11-eth0.network with your address details.
+
+Q: How do I check if my client Pi is actually sending DHCP requests over the network?
+A: Run tcpdump on eth0 watching port bootpc and look for BOOTP requests from the client.
+
+Q: What do I put in the dnsmasq config to make this whole thing work?
+A: Set port=0, dhcp-range with your broadcast address, enable-tftp, and tftp-root=/tftpboot.
+
+Q: My client Pi tried to boot but said bootcode.bin wasn't found. What do I do?
+A: Copy everything from /boot/firmware into the /tftpboot directory on the server.
+
+## Set up NFS root
+
+Q: How do I actually share the client filesystem over the network so it can boot?
+A: Install nfs-kernel-server and add the /nfs/client1 and /tftpboot entries to /etc/exports.
+
+Q: What do I need to change in cmdline.txt so the client boots from NFS?
+A: Set root=/dev/nfs with nfsroot pointing to your server IP and /nfs/client1 path.
+
+Q: My Pi isn't booting on the first try from the network. Should I be worried?
+A: No, it can take a minute or so; keep trying and be patient.
+
+Q: What should be left in the client's fstab after I've set up NFS booting?
+A: Remove the mmcblk0 partitions, leave proc, and add the tftpboot NFS mount entry.

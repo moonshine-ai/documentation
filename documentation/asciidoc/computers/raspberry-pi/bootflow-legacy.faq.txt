@@ -1,39 +1,46 @@
 # Boot Sequence
 
-What's the boot order on a Raspberry Pi 3? Like, what does it try first, second, and so on?
+Q: My Pi 3 isn't booting from USB by default. Do I need to turn that on somehow?
+A: Yes, USB boot on Pi 3 may need enabling; check the USB mass storage boot page.
 
-My Pi 3 isn't booting from USB. Do I need to turn that on somewhere, or should it just work?
+Q: What's the very first thing the BCM2837 checks when it boots up?
+A: It reads the OTP memory block to see which boot modes are enabled.
 
-How long does the Pi wait when there's no SD card before it gives up and tries USB?
+Q: What file is the boot ROM actually looking for on each boot source?
+A: The boot ROM searches each boot source for a file called bootcode.bin.
 
-I want my Pi to boot faster from USB. Right now it's sitting there waiting because there's no SD card. Is there a way to skip that wait?
+Q: My Pi takes forever to start when there's no SD card in it. Is there a way to speed that up?
+A: Insert a blank SD card or use GPIO bootmode OTP to enable only USB boot.
 
-I'm confused — what even is OTP memory? And why does it matter for booting?
+Q: Can I make the USB boot timeout longer if my hard drive takes a while to spin up?
+A: Yes, set program_usb_boot_timeout=1 in config.txt to extend timeout to five seconds.
 
-Does the boot sequence work the same way on a Pi 4 as it does on a Pi 3?
+Q: Does MSD boot or network boot happen first if both are available?
+A: MSD boot takes precedence over Ethernet boot.
 
-Can a Raspberry Pi boot from a USB hard drive, or just USB flash drives?
+Q: Does the boot ROM support GUID partitions or just the old-style ones?
+A: The boot ROM supports GUID partitioning, tested with Mac, Windows, and Linux drives.
 
-What's GPIO boot mode and why would I ever use it?
+Q: Does the first partition on my USB drive have to be FAT for MSD boot to work?
+A: No, MSD boot will keep searching for a FAT partition beyond the first one.
 
-My Pi is taking forever to boot from USB and I think it's because of a hard drive spinning up. Can I make it wait longer?
+Q: How do I boot a Raspberry Pi Zero from a PC over USB?
+A: Leave the OTGID pin floating and push bootcode.bin using the usbboot code from GitHub.
 
-Can the Pi boot from an Ethernet connection? Like without any SD card at all?
+Q: I've heard about GPIO boot mode but I don't really know what it does. What's it for?
+A: GPIO boot mode lets specific GPIO lines refine which OTP-enabled boot modes are attempted.
 
-What file does the Pi look for when it's trying to boot? I keep hearing about bootcode.bin but I'm not sure what it does.
+Q: What's the product ID the Pi uses when it boots in USB device mode?
+A: Pi 3 uses VID 0x0a5c and PID 0x2764 when booting in USB device mode.
 
-My Raspberry Pi Zero — can I boot it from a PC over USB?
+Q: Does NAND boot actually work on the Pi, or is it just there in theory?
+A: NAND boot works but doesn't yet have full GPU support.
 
-What's the difference between USB host boot and USB device boot? I don't really get the distinction.
+Q: I've got a standalone LAN9500 chip. Will it work for network booting on my Pi?
+A: No, you'd need an I2C EEPROM to change its IDs to match the LAN951x.
 
-Does it matter which partition my boot files are on? Like does it have to be the very first partition on the drive?
+Q: Does this boot sequence stuff apply to the Pi 4 as well?
+A: No, Pi 4 and Pi 5 use a different EEPROM bootflow described separately.
 
-Can the Pi boot from a drive that's been partitioned on a Mac or Windows machine, or does it have to be formatted a specific way?
-
-# Whole Document
-
-I've got a Pi 3 and I want to boot from USB without an SD card. What do I actually need to do to set that up?
-
-What models does this boot sequence actually apply to? I want to make sure I'm reading the right info for my Pi.
-
-My Pi is just sitting there not booting and I don't know if it's trying SD, USB, or what. How does it decide what to try?
+Q: Can I boot from a secondary SD card using a different set of GPIO pins?
+A: It's theoretically possible but not yet enabled on the Raspberry Pi.

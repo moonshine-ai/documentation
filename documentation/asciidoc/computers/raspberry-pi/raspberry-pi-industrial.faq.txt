@@ -1,66 +1,118 @@
-# Whole Document
+# Industrial use of the Raspberry Pi
 
-- I'm building a product with a Raspberry Pi inside it. What special things can I do with the hardware that I wouldn't normally need for home use?
-- I've heard there's some one-time programmable memory on the Pi. What's that actually useful for in a real product?
-- What's vcmailbox? I keep seeing it mentioned but I don't really know what it does.
+Q: What's OTP memory and why would I need it for my Raspberry Pi project?
+A: OTP memory stores one-time programmable settings permanently in the Pi's chip.
+
+Q: I'm building a product using a Raspberry Pi. What extra features are available for that kind of use?
+A: There are OTP settings, private key storage, and customer MAC address options.
 
 # One-time programmable settings
 
-- How do I see all the OTP values on my Pi?
-- I just want to dump all the OTP data. What command do I run?
-- Where's the serial number stored in the OTP memory?
-- Wait, is the OTP memory different on the newer Pi with the BCM2712 chip? Like are the row numbers the same?
-- How many rows of OTP memory do I actually get to use for my own stuff as a customer?
+Q: How do I see all the OTP values on my Raspberry Pi?
+A: Run the command `vcgencmd otp_dump` to list all OTP values.
+
+Q: What info is stored in those OTP rows like 28 and 29?
+A: Rows 28, 29, and 30 store serial number, its complement, and board revision.
+
+Q: How many OTP rows are available for customers to use?
+A: Eight rows of 32 bits each, rows 36 to 43, are available for customers.
+
+Q: Wait, do the OTP row numbers change depending on which Pi I have?
+A: Yes, BCM2712 devices use different row numbers for serial and customer data.
+
+Q: What's vcmailbox and do I need it to program OTP rows?
+A: vcmailbox is a Linux driver interface used to program OTP rows via firmware.
 
 # Write and read customer OTP values
 
-- How do I write my own values into the OTP memory?
-- I wrote some values into the OTP rows. How do I read them back to check they're right?
-- I'm trying to program three OTP rows at once. Do I have to do them one at a time or can I do them all in one command?
-- This OTP stuff is permanent right? Like if I mess it up I can't fix it?
+Q: I want to write a value to a customer OTP row. How do I actually do that?
+A: Use the `SET_CUSTOMER_OTP` tag with vcmailbox, specifying start row, count, and values.
+
+Q: Can I write to multiple OTP rows at once or do I have to do them one at a time?
+A: You can write multiple rows at once by specifying the number and values together.
+
+Q: How do I check what's currently stored in my customer OTP rows?
+A: Use vcmailbox with tag `0x00030021`, specifying start row, count, and placeholder zeros.
+
+Q: Wait, if I write the wrong thing to OTP, can I fix it?
+A: No, OTP bits changed from 0 to 1 can never be changed back.
 
 # Locking OTP on non-BCM2712 devices
 
-- Can I lock the OTP so nobody can change it after I've programmed it?
-- If I lock the OTP values, is that permanent or can I unlock them later?
+Q: Can I lock the OTP so nobody can change it later?
+A: Yes, use a special vcmailbox argument to lock OTP, but it's irreversible.
+
+Q: If I lock OTP, is that permanent or can I unlock it later?
+A: The locking operation is irreversible and the values can never be altered again.
 
 # Locking OTP on BCM2712 devices
 
-- How do I lock the OTP on a BCM2712 Pi?
-- Wait, on the newer chip the lock isn't permanent? It resets on reboot?
-- So if I want the OTP locked on a BCM2712 every time it starts up, I have to do it on every boot?
+Q: Does locking OTP work differently on a BCM2712 Pi?
+A: Yes, BCM2712 OTP locks only last until the device resets, needing reapplication each boot.
+
+Q: I locked OTP on my BCM2712 and rebooted and now it seems unlocked again. Is that normal?
+A: Yes, BCM2712 OTP locks are temporary and must be reapplied on every boot.
 
 # Making customer OTP bits unreadable on non-BCM2712 devices
 
-- Can I make it so nobody can even read my OTP values, not just write to them?
-- If I make the OTP bits unreadable, can I ever get them back?
+Q: Can I stop anyone from even reading my customer OTP bits?
+A: Yes, a special vcmailbox argument makes customer OTP bits completely unreadable.
+
+Q: If I make the OTP unreadable, can I reverse that later?
+A: No, making OTP bits unreadable is irreversible and permanent.
 
 # Customer MAC addresses on BCM2712 devices
 
-- Can I set a custom MAC address on a BCM2712 Pi?
-- How do I read what MAC address is currently stored in OTP on my Pi?
-- I want to set a custom Wi-Fi MAC address. Is that different from setting the Ethernet one?
-- How do I check that the MAC address I'm about to set is formatted correctly before I actually burn it in?
-- I've heard something about multicast bits in MAC addresses. Is there something I need to watch out for there?
-- What happens if I set the customer MAC address to all F's?
+Q: Can I set a custom MAC address on my BCM2712 Pi?
+A: Yes, you can set custom Ethernet, Wi-Fi, and Bluetooth MAC addresses in OTP.
+
+Q: How do I read the current Wi-Fi MAC address stored in OTP on a BCM2712?
+A: Use vcmailbox tag `0x00030083` with six-byte request and response sizes.
+
+Q: I'm trying to set a MAC address but I'm not sure if it's formatted right. How do I check?
+A: Run the check command then look at vclog to verify the MAC address format.
+
+Q: Are there any MAC addresses that aren't allowed when setting a custom one?
+A: Multicast addresses are invalid; avoid setting the least significant bit of the first octet.
+
+Q: What happens if I set a customer MAC address to all F's?
+A: A MAC address of `ff:ff:ff:ff:ff:ff` is ignored entirely.
 
 # Device-specific private key
 
-- Can I use the Pi to store a private encryption key on the device itself?
-- I want to use the OTP rows for filesystem encryption. How many rows do I get for that?
-- Is the private key storage on the Pi actually hardware protected, like a proper secure chip?
-- Can any user on the Pi read the private key out of OTP, or is it restricted somehow?
-- Does Raspberry Pi OS support an encrypted root filesystem?
+Q: Can I use my Raspberry Pi to store an encryption key?
+A: Yes, OTP rows are available for storing a device-specific private key.
+
+Q: How many bits of private key storage do I get on a BCM2712 versus an older Pi?
+A: BCM2712 devices get 512 bits; non-BCM2712 devices get 256 bits of key storage.
+
+Q: Who's allowed to read the private key rows on Raspberry Pi OS?
+A: Only users in the `video` group can access `/dev/vcio` to read private key rows.
+
+Q: Does the Raspberry Pi have a secure hardware place to store encryption keys?
+A: No, Raspberry Pi computers do not have a hardware protected key store.
+
+Q: Can I use the private key rows for something other than encryption if I don't need secure boot?
+A: Yes, if encryption isn't needed, private key rows can store general-purpose information.
 
 # Program a key into OTP with rpi-otp-private-key
 
-- What's the easiest way to write a private key into the OTP memory without dealing with raw vcmailbox commands?
-- How do I read back the private key that's stored in OTP?
-- Does the rpi-otp-private-key tool work on all Pi models or just certain ones?
-- How do I write a randomly generated key into the OTP private key storage?
-- Can I specify which part of the key storage to use, like if I don't want to start from the beginning?
+Q: Which Raspberry Pi models work with the rpi-otp-private-key script?
+A: The script only works on devices using BCM2711 or BCM2712 processors.
+
+Q: How do I read the private key that's stored in OTP?
+A: Run `rpi-otp-private-key` from the usbboot tools directory to get a hex output.
+
+Q: I want to write a random key to OTP. How do I generate and store one?
+A: Run `rpi-otp-private-key -w $(openssl rand -hex 32)` to write a random key.
+
+Q: Can I write just part of the key storage instead of the whole thing?
+A: Yes, use `-l` for word count and `-o` for a start offset within the key store.
 
 # Mailbox API for reading/writing the key
 
-- How do I read all the private key rows using vcmailbox directly?
-- I want to write a key directly with vcmailbox instead of using the script. How do I do that?
+Q: How do I read all the private key rows using vcmailbox directly?
+A: Use vcmailbox tag `0x00030081` with 40-byte request and response sizes.
+
+Q: How do I write a key directly using vcmailbox instead of the script?
+A: Use vcmailbox tag `0x00038081` with 40 bytes and your key data replacing the zeros.

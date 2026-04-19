@@ -1,154 +1,186 @@
-# Whole Document
-
-- My Pi's HDMI isn't working at all. What's a quick setting I can add to config.txt to try to fix it?
-- Wait, what even is EDID? Why does my Pi need to read it from my monitor?
-- I've got a Pi 4 with two HDMI ports. Can I run 4K on both at the same time?
-- My monitor isn't in any of the standard resolution lists. Can I just make up a custom resolution for it?
-- I'm setting up a Pi without a monitor. How do I stop it from trying to use HDMI output?
-
 # HDMI mode
 
-## hdmi_safe
+Q: My Pi won't display anything on my TV. What's the safest setting to try first?
+A: Set hdmi_safe to 1 to enable maximum HDMI compatibility safe mode settings.
 
-- My Pi isn't showing anything on my TV. Is there some kind of safe mode I can try?
-- What does hdmi_safe actually do? Is it just one setting or does it change a bunch of things?
+Q: What does hdmi_safe actually do when I turn it on?
+A: It sets several settings including forced hotplug, config boost four, and overscan values.
 
-## hdmi_ignore_edid
+Q: My monitor doesn't have accurate display info stored on it. How do I stop the Pi caring about that?
+A: Set hdmi_ignore_edid to 0xa5000080 to ignore EDID display data from your monitor.
 
-- My display has wrong info being sent to my Pi. How do I just tell the Pi to ignore whatever the monitor says about itself?
+Q: I've got an EDID file I want to use instead of what my monitor reports. How do I do that?
+A: Set hdmi_edid_file to 1 so the GPU reads EDID from the edid.dat file instead.
 
-## hdmi_edid_file
+Q: I've got a Pi 4 with two HDMI ports and I want different EDID files for each. How does that work?
+A: Use hdmi_edid_filename with port numbers, plus hdmi_edid_file equals 1 to enable it.
 
-- Can I make my Pi read the display information from a file instead of from the monitor itself?
+Q: I want to pass DTS audio through HDMI but my display says it doesn't support it. Is there a workaround?
+A: Set hdmi_force_edid_audio to 1 to pretend all audio formats are supported by the display.
 
-## hdmi_edid_filename
+Q: My audio keeps coming out of HDMI but I want it through the headphone jack. Any config trick for that?
+A: Set hdmi_ignore_edid_audio to 1, which forces ALSA to default to the analogue headphone jack.
 
-- I've got a Pi 4 with two HDMI ports and different screens on each. Can I use separate EDID files for each port?
+Q: Can I make the Pi pretend my display supports 3D even when it doesn't report that it does?
+A: Yes, set hdmi_force_edid_3d to 1 to pretend all CEA modes support 3D.
 
-## hdmi_force_edid_audio
+Q: Every time I reboot my Pi, my TV wakes up and switches channels. How do I stop that?
+A: Set hdmi_ignore_cec_init to 1 to stop the active source message being sent at boot.
 
-- My TV says it doesn't support DTS audio but I think it actually does. Is there a way to just force the Pi to send it anyway?
+Q: What's the difference between hdmi_ignore_cec_init and hdmi_ignore_cec?
+A: ignore_cec_init only stops the boot message; ignore_cec disables all CEC functions entirely.
 
-## hdmi_ignore_edid_audio
+Q: Can I change what name shows up on my TV when the Pi connects over CEC?
+A: Yes, use cec_osd_name to set the CEC device name; the default is Raspberry Pi.
 
-- My HDMI audio isn't working and I want it to just fall back to the headphone jack automatically. How do I do that?
-- If I tell the Pi to ignore HDMI audio, where does the sound go instead?
+Q: What's the default pixel encoding mode and do I need to change it?
+A: It uses whatever the EDID requests by default, so you generally shouldn't need to change it.
 
-## hdmi_ignore_cec_init
+Q: I want to block all 4K modes from being used. How would I do that with hdmi_max_pixel_freq?
+A: Set hdmi_max_pixel_freq to 200000000, since all 4K modes have frequencies greater than that.
 
-- Every time I reboot my Pi it switches my TV on and changes the channel. That's really annoying. How do I stop that?
+Q: My monitor goes to sleep and the HDMI output cuts off completely. How do I control that behavior?
+A: Use hdmi_blanking; set it to 0 to just blank, or 1 to fully switch off the HDMI output.
 
-## hdmi_ignore_cec
+Q: I heard hdmi_blanking doesn't fully work on the Pi 4. Is that true?
+A: Yes, setting hdmi_blanking to 1 won't actually switch off HDMI on the Pi 4 yet.
 
-- I don't want my Pi talking to my TV over CEC at all. How do I just turn that off completely?
+Q: My HDMI display has no sound. I think it's running in DVI mode. How do I fix that?
+A: Set hdmi_drive to 2 for HDMI mode, which sends sound if supported and enabled.
 
-## cec_osd_name
+Q: I'm getting interference and sparkles on my HDMI output. What should I try?
+A: Try setting config_hdmi_boost to 7; very long cables may need up to 11.
 
-- My TV shows "Raspberry Pi" in the device list. Can I change what name shows up?
+Q: What's the max and default value for config_hdmi_boost?
+A: Maximum is 11; default is 2 for original Model B and A, 5 for Model B+ and later.
 
-## hdmi_pixel_encoding
+Q: Does config_hdmi_boost do anything on the Pi 4?
+A: No, the config_hdmi_boost option is ignored on Raspberry Pi 4.
 
-- My colors look kind of washed out. Could the pixel encoding be wrong, and how do I change it?
+Q: What's the difference between CEA and DMT when setting hdmi_group?
+A: CEA is typically used by TVs; DMT is typically used by monitors.
 
-## hdmi_blanking
+Q: I want 1080p at 60Hz on my TV. What should I set hdmi_group and hdmi_mode to?
+A: Set hdmi_group to 1 for CEA and hdmi_mode to 16 for 1080p at 60Hz.
 
-- When my Pi goes to sleep, the screen just goes blank but doesn't actually turn off. How do I make it fully power down the display?
-- Does the screen blanking setting work the same on a Pi 4 as on older models?
+Q: Can I get 4K output from my Pi 4 over HDMI?
+A: Yes, the Pi 4 supports up to 4096x2160 at 60Hz, but dual 4K is limited to 30Hz.
 
-## hdmi_drive
+Q: I've got two HDMI displays both running 4K on a Pi 4. Will they run at 60Hz?
+A: No, using both HDMI ports for 4K on Pi 4 limits both outputs to 30Hz.
 
-- I'm not getting any sound over HDMI. Do I need to set a specific mode to enable HDMI audio?
-- What's the difference between HDMI mode and DVI mode on the Pi?
+Q: I want a really unusual display resolution that's not in any of the mode tables. What can I do?
+A: Use hdmi_timings with hdmi_group 2 and hdmi_mode 87 to set custom raw HDMI timing values.
 
-## config_hdmi_boost
-
-- I'm getting flickering or snow on my HDMI. Is there a setting to boost the signal strength?
-- I've got a really long HDMI cable and it looks terrible. Would turning up the HDMI boost help?
-
-## hdmi_group and hdmi_mode
-
-- I want to set my Pi to 1080p 60Hz. What settings do I put in config.txt?
-- What's the difference between CEA and DMT? Like, which one should I use for a TV versus a computer monitor?
-- I want 720p at 50Hz. What mode number is that?
-- Does the Pi 4 support 4K output? What mode number do I use for that?
-- I want to block all 4K modes from being used. How would I do that?
-
-## hdmi_timings
-
-- My monitor needs a completely custom resolution that isn't in any list. Can I define my own timing values?
-
-## hdmi_force_mode
-
-- I set my HDMI mode but the Pi keeps picking a different one. Is there a way to lock it to only use what I specified?
+Q: My display keeps ignoring my hdmi_mode and hdmi_group settings. Is there a way to force it?
+A: Set hdmi_force_mode to 1 to remove all other modes except your specified ones from the list.
 
 # Which values are valid for my monitor?
 
-- How do I find out which resolutions my monitor actually supports?
+Q: How do I find out what display modes my monitor actually supports?
+A: Use tvservice commands like /opt/vc/bin/tvservice -m CEA and -m DMT to list supported modes.
+
+Q: What's the first step to check what resolutions my monitor supports?
+A: Boot with hdmi_group 1 and hdmi_mode 1 for VGA 60Hz, then run the tvservice commands.
 
 # Custom mode
 
-- My monitor needs an 800 by 480 resolution and it's not in any list. How do I set a custom resolution like that?
-- I created a custom resolution but the Pi isn't using it. Do I need extra settings to actually activate it?
+Q: My monitor needs a resolution that's not in any of the tables. Can I make a custom one?
+A: Yes, use hdmi_cvt with width, height, and framerate to define a custom CVT mode.
+
+Q: After I define a custom resolution with hdmi_cvt, is that enough to make Pi use it?
+A: No, you also need to set hdmi_group to 2 and hdmi_mode to 87 to activate it.
 
 # Composite video mode
 
-## sdtv_mode
+Q: What TV standard does composite video use by default on the Pi?
+A: The default sdtv_mode is 0, which outputs normal NTSC.
 
-- I'm using the composite video output. How do I switch it between PAL and NTSC?
-- I'm in Brazil and the PAL here is slightly different. Is there a special setting for that?
+Q: I'm in a PAL country and using composite video. What do I set?
+A: Set sdtv_mode to 2 for normal PAL composite video output.
 
-## sdtv_aspect
-
-- The picture on my composite TV looks stretched. How do I set the aspect ratio for composite output?
-
-## sdtv_disable_colourburst
-
-- Can I make my composite output black and white? I heard it might actually look sharper.
+Q: Can I make the composite video output black and white?
+A: Yes, set sdtv_disable_colourburst to 1; image may appear sharper but will be monochrome.
 
 # LCD displays and touchscreens
 
-## display_default_lcd
+Q: I've got the official Pi touchscreen but I want HDMI to be the main display instead. How do I do that?
+A: Set display_default_lcd to 0 so the LCD isn't the default and HDMI becomes the primary display.
 
-- I've got the official Pi touchscreen but I want HDMI to be my main display. How do I change the default?
+Q: What's the default refresh rate for the Pi touch display and can I change it?
+A: Default is 60Hz; use lcd_framerate to specify a different framerate in Hz.
 
-## lcd_rotate
+Q: My official Pi screen is mounted upside down. Is there a quick way to flip it?
+A: Yes, set lcd_rotate to 2 to compensate for an upside-down display using the LCD's built-in flip.
 
-- My Pi touchscreen is upside down. How do I flip it without it being slow?
-
-## enable_dpi_lcd
-
-- I've got a third party LCD connected to the GPIO pins. How do I enable that?
+Q: I've got a third-party LCD connected via DPI pins. How do I enable that?
+A: Set enable_dpi_lcd to enable LCD displays attached to the DPI GPIOs for parallel display use.
 
 # Generic display options
 
-## hdmi_force_hotplug
+Q: I want to use HDMI output even though no monitor is physically connected. Is that a thing?
+A: Yes, set hdmi_force_hotplug to 1 to pretend an HDMI display is always attached.
 
-- My Pi switches to composite output because it doesn't detect my HDMI monitor on boot. How do I force it to always use HDMI?
+Q: My HDMI monitor is connected but I want to force the Pi to use composite output. Can I do that?
+A: Set hdmi_ignore_hotplug to 1 to disable HDMI output even when a monitor is connected.
 
-## disable_overscan
+Q: There's a big black border around my screen. Is that overscan? How do I get rid of it?
+A: Set disable_overscan to 1 to disable the firmware's default overscan values.
 
-- There are big black borders around my screen. How do I get rid of the overscan?
-- The edges of my desktop are getting cut off by my TV. Is that an overscan problem and how do I fix it?
+Q: Text is running off the left edge of my screen. What setting helps with that?
+A: Increase overscan_left to add more padding pixels on the left edge of the screen.
 
-## overscan settings
+Q: I've got black bars on the right of my screen. What do I adjust?
+A: Decrease overscan_right since a negative adjustment reduces the border on the right edge.
 
-- The text on my screen is running off the right edge. Which overscan setting do I tweak for that?
-- There's a black bar at the top of my screen. How do I adjust the overscan to fix it?
+Q: Is overscan_scale a good idea to turn on?
+A: Generally not recommended; it reduces image quality because the GPU scales all display layers.
 
-## framebuffer_depth
+Q: What's the default color depth for the framebuffer and how do I change it?
+A: Default is 16 bits per pixel; use framebuffer_depth to change it.
 
-- I changed my framebuffer depth to 32-bit but now the display looks messed up. What am I missing?
+Q: I set framebuffer_depth to 32 but the display looks messed up. What should I also set?
+A: Try also setting framebuffer_ignore_alpha to 1 to disable the alpha channel.
 
-## max_framebuffers
+Q: I've got two displays connected and I need to pick which one is the main Linux framebuffer. How?
+A: Use framebuffer_priority to force a specific display to be the first Linux framebuffer device.
 
-- I've got a Pi 3 with two displays connected but only one is working. Do I need to change something to enable both?
+Q: I've got HDMI and a DSI display on a pre-Pi-4 board. Do I need to change max_framebuffers?
+A: Yes, set max_framebuffers to 2; the default is 1 on pre-Pi-4 devices.
 
-## display_hdmi_rotate
+Q: I'm running my Pi headless with no display. Can I save memory by disabling framebuffers?
+A: Yes, set max_framebuffers to 0 in headless mode to prevent any framebuffers being allocated.
 
-- How do I rotate my HDMI screen 90 degrees? Like for a portrait monitor.
-- Can I flip my HDMI display horizontally? It's mounted as a mirror.
-- I want to rotate my screen 180 degrees because it's mounted upside down. What value do I set?
+Q: How do I rotate my HDMI display 90 degrees in config.txt?
+A: Set display_hdmi_rotate to 1 to rotate the HDMI output 90 degrees clockwise.
 
-## display_rotate
+Q: Can I flip my HDMI output horizontally rather than rotating it?
+A: Yes, set display_hdmi_rotate to 0x10000 for a horizontal flip of the HDMI display.
 
-- I saw display_rotate in an old tutorial. Should I still be using that or is there something better now?
+Q: I want to rotate and flip at the same time. Is that possible?
+A: Yes, add the rotation and flip values together; for example 180 degrees plus both flips equals 0x30002.
+
+Q: Will 90 or 270 degree rotation work with a really small GPU memory allocation?
+A: No, 90 and 270 degree rotations need extra GPU memory and won't work with 16MB GPU split.
+
+Q: I see display_rotate in some old guides. Should I still use that?
+A: No, display_rotate is deprecated; use display_lcd_rotate and display_hdmi_rotate instead.
+
+# Other options
+
+Q: What does dispmanx_offline actually do and when would I need it?
+A: It composites offscreen using two framebuffers, allowing more elements but limiting framerate to roughly 30fps.
+
+# Whole Document
+
+Q: I've got a Pi 4 with two HDMI outputs. Can I apply settings to just one port?
+A: Yes, use the command colon port syntax, like hdmi_force_hotplug:1, specifying port 0 or 1.
+
+Q: I'm setting up a Pi for the first time and the screen looks all wrong. Where should I even start?
+A: Try setting hdmi_safe to 1 first; it enables maximum compatibility settings to help with booting.
+
+Q: What's the highest resolution a Pi 4 can output over HDMI?
+A: The Pi 4 supports up to 4096x2160 at 60Hz on a single HDMI port.
+
+Q: What's the highest resolution supported on Pi models before the Pi 4?
+A: Models before Pi 4 support up to 1920x1200 at 60Hz with reduced blanking.

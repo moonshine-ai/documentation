@@ -1,38 +1,58 @@
-# Whole Document
-
-What's the PCIe connector on the Raspberry Pi 5 actually for?
-Where is the PCIe connector located on the Pi 5?
-I've never heard of PCIe before. Do I need to know about it for normal Pi use?
-Does my Pi 5 support PCIe, or is that only on newer models?
-
 # Raspberry Pi connector for PCIe
 
-I've got a HAT+ device — do I need to do anything special to get it working with PCIe, or does it just work?
-I'm trying to connect a non-HAT+ PCIe device to my Pi 5. It's not being detected. What do I need to do?
-What's an FPC connector? Is that the little ribbon cable slot thing on the Pi 5?
-I want to build my own PCIe accessory for the Pi. Where do I find the pinout information?
-Does every PCIe device work with the Pi 5, or are there some that won't work?
+Q: What's that little connector on the left side of my Raspberry Pi 5?
+A: It's an FPC connector that breaks out a PCIe Gen 2.0 ×1 interface.
+
+Q: I've got a HAT+ device, do I need to do anything special to get it working?
+A: No, just connect it and your Raspberry Pi should automatically detect it.
+
+Q: I've got a non-HAT+ PCIe device and my Pi isn't recognizing it. What do I do?
+A: Connect it, then manually enable PCIe in the configuration settings.
+
+Q: Where can I find the pinout details for the PCIe connector if I want to build something?
+A: Check the Raspberry Pi Connector for PCIe standards document alongside the HAT+ Specification.
+
+Q: Do all PCIe devices work if I put a switch in between?
+A: No, only certain devices support enumeration of PCIe devices behind a switch.
 
 # Enable PCIe
 
-My PCIe device isn't showing up and it's not a HAT+. How do I turn on the PCIe connector?
-So the PCIe port is just off by default? How do I switch it on?
-I added the PCIe line to config.txt but nothing happened. Do I need to restart?
-Is there a shortcut name I can use instead of typing out the full pciex1 parameter?
+Q: The PCIe connector isn't doing anything. How do I turn it on?
+A: Add `dtparam=pciex1` to `/boot/firmware/config.txt` and reboot.
+
+Q: I added that PCIe line to config dot txt, do I need to restart?
+A: Yes, run `sudo reboot` for the configuration changes to take effect.
+
+Q: Is there a shortcut name I can use instead of pciex1 in the config?
+A: Yes, you can use `nvme` as an alias instead.
 
 # Boot from PCIe
 
-Can I boot my Pi 5 from an NVMe drive over PCIe?
-I've got an NVMe SSD connected via PCIe and I want it to be the boot drive. How do I set that up?
-I'm trying to boot from a PCIe device that isn't a HAT+. Is there something extra I need to do?
-How do I edit the bootloader settings to change the boot order on a Pi 5?
-What does that BOOT_ORDER number actually mean? Like why is it 0xf416?
+Q: I want my Pi to boot from an NVMe drive. How do I set that up?
+A: Edit the EEPROM config with `sudo rpi-eeprom-config --edit` and update BOOT_ORDER.
+
+Q: What do I set the boot order to if I want to boot from PCIe storage?
+A: Set `BOOT_ORDER=0xf416` in the bootloader configuration.
+
+Q: My PCIe storage isn't a HAT+ device. Is there anything extra I need to do to boot from it?
+A: Yes, also add `PCIE_PROBE=1` to the EEPROM configuration.
+
+Q: I changed the EEPROM boot settings. Do I need to restart for them to kick in?
+A: Yes, reboot with `sudo reboot` to update the EEPROM.
 
 # PCIe Gen 3.0
 
-Can I run PCIe at Gen 3 speeds on my Pi 5?
-I heard Gen 3 PCIe is faster — should I just enable it for better performance?
-What's the difference between Gen 2 and Gen 3 PCIe speeds on the Pi 5?
-How do I enable PCIe Gen 3 on my Pi 5? Is there a setting somewhere?
-I enabled Gen 3 PCIe and things seem a bit unstable. Is that normal?
-Can I turn on Gen 3 PCIe through raspi-config instead of editing a file?
+Q: Can I run PCIe Gen 3 on my Raspberry Pi 5?
+A: You can enable it, but Pi 5 isn't certified for Gen 3 and connections may be unstable.
+
+Q: What speed does the Pi 5 PCIe run at by default?
+A: It defaults to Gen 2.0 speeds, which is five gigatransfers per second.
+
+Q: How do I enable PCIe Gen 3 speeds on my Pi 5?
+A: Add `dtparam=pciex1_gen=3` to `/boot/firmware/config.txt` and reboot.
+
+Q: I want to enable PCIe Gen 3 without editing config files. Is there another way?
+A: Yes, use `sudo raspi-config`, go to Advanced Options, then PCIe Speed.
+
+Q: I enabled Gen 3 PCIe and my setup seems a bit flaky. Is that normal?
+A: Yes, Pi 5 isn't certified for Gen 3 speeds and connections may be unstable.

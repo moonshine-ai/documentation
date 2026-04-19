@@ -1,49 +1,97 @@
 # `rpicam-still`
 
-- What's the difference between `rpicam-jpeg` and `rpicam-still`?
-- How do I take a photo and save it as a JPEG with `rpicam-still`?
+Q: What's the difference between rpicam-jpeg and rpicam-still?
+A: rpicam-still supports many more options from the legacy raspistill application.
+
+Q: How do I just take a basic photo and save it with rpicam-still?
+A: Run rpicam-still with --output test.jpg to capture a full resolution JPEG.
 
 # Encoders
 
-- Can `rpicam-still` save images in formats other than JPEG?
-- I want to save my photo as a PNG instead of a JPEG. How do I do that?
-- Does the filename I give it affect what format the image gets saved in?
-- What even is a YUV binary pixel dump? Should I be using that for anything?
+Q: Can rpicam-still save images as something other than JPEG?
+A: Yes, it supports PNG, BMP, and RGB and YUV binary pixel dump formats.
+
+Q: I want to save a PNG instead of a JPEG. How do I do that?
+A: Use --encoding png --output test.png to capture a full resolution PNG image.
+
+Q: Does the filename I give the output file determine what format it's saved in?
+A: No, the output filename has no impact on the output file type.
+
+Q: How do I actually tell rpicam-still what image format I want?
+A: Use the --encoding option to specify your desired output format.
 
 # Capture raw images
 
-- What's a raw image and why would I want one instead of a regular JPEG?
-- How do I capture a raw photo alongside my normal JPEG?
-- I captured a raw image and it saved as a DNG file. What app can I use to open that on my Pi?
-- Where does the DNG file get saved when I use the raw option? Does it go to the same place as the JPEG?
-- What kind of info is stored in those DNG files?
-- I've got a DNG file and I want to see its metadata. How do I do that?
-- I see there's an ISO value in the DNG metadata. How do I figure out what the actual analogue gain was?
+Q: What even is a raw image? Like why would I want one?
+A: Raw images come directly from the sensor before any ISP or CPU processing.
+
+Q: How do I capture a raw version of my photo alongside the normal one?
+A: Add the --raw flag; rpicam-still saves a DNG file with the same name.
+
+Q: I've got a DNG file from my Pi camera. What app can I use to open it?
+A: Apps like Dcraw or RawTherapee can work with DNG images from rpicam-still.
+
+Q: What info gets stored inside those DNG raw files?
+A: DNG files contain black levels, white balance info, and the ISP colour matrix.
+
+Q: I want to see the metadata in my raw DNG file. How do I do that?
+A: Use ExifTool to view metadata stored in DNG files from your Pi camera.
+
+Q: How do I figure out the analogue gain from the metadata in a DNG file?
+A: Divide the ISO number by 100 to find the analogue gain value.
 
 # Capture long exposures
 
-- How do I do a really long exposure shot, like 100 seconds?
-- I tried doing a long exposure but it takes forever before it even starts. How do I skip that waiting around at the start?
-- Why do I need to turn off auto white balance for long exposures?
+Q: I'm trying to do a really long exposure shot. What do I need to do differently?
+A: Disable AEC/AGC and AWB by supplying explicit gain and AWB values manually.
+
+Q: Why do I need to turn off auto exposure for a long exposure shot?
+A: Those algorithms force you to wait for frames while they converge, wasting time.
+
+Q: How do I do a 100 second exposure with rpicam-still?
+A: Run rpicam-still with --shutter 100000000 --gain 1 --awbgains 1,1 --immediate.
+
+Q: What does that immediate flag do when I'm taking a long exposure?
+A: It skips the preview phase entirely, which makes sense for long exposures.
 
 # Create a time lapse video
 
-- How do I make a time lapse with my Pi camera?
-- I want `rpicam-still` to automatically take a photo every few seconds. Is there a built-in way to do that?
-- Can I use cron to take time lapse photos instead of doing it all in one command?
-- I set up the timelapse script with cron but now I want to stop it. How do I do that?
+Q: Can rpicam-still do time lapse on its own or do I need extra software?
+A: rpicam-still has a built-in timelapse mode using the --timelapse option.
+
+Q: How do I set up rpicam-still to take a photo every two seconds for 30 seconds?
+A: Run rpicam-still --timeout 30000 --timelapse 2000 with an output filename pattern.
+
+Q: What unit does the timelapse option use, like seconds or milliseconds?
+A: The timelapse option accepts a value in milliseconds between captures.
+
+Q: I want my Pi to automatically take time lapse photos every minute. Can I use cron for that?
+A: Yes, you can automate time lapses using cron to run a capture script every minute.
+
+Q: How do I stop the cron time lapse once it's running?
+A: Run crontab -e again and remove the time lapse line from your crontab.
 
 # Stitch images together
 
-- I've got a bunch of photos from my time lapse. How do I turn them into a video?
-- What app do I use to combine my time lapse images into an MP4?
-- How do I install ffmpeg on my Raspberry Pi?
-- I'm making a time lapse video with ffmpeg and I want it to play at 10 frames per second. How do I set that?
-- What does that `-pattern_type glob` thing mean in the ffmpeg command?
+Q: I've got all my time lapse photos. How do I turn them into a video?
+A: Use ffmpeg to stitch JPEG files into an mp4 video on your Raspberry Pi.
+
+Q: How do I install ffmpeg on my Pi?
+A: Run sudo apt install ffmpeg to install ffmpeg on your Raspberry Pi.
+
+Q: What frame rate does that ffmpeg time lapse command use by default?
+A: The example command sets the frame rate to ten frames per second.
+
+Q: What resolution does the ffmpeg command scale the time lapse video to?
+A: The example command scales the output video to 720p, which is 1280x720.
+
+Q: What video encoder does the example ffmpeg command use?
+A: It uses the software x264 encoder via the -vcodec libx264 option.
 
 # Whole Document
 
-- I used to use `raspistill` and now I'm switching to `rpicam-still`. Are they similar?
-- I just want to take a still photo with my Pi camera. What's the simplest command for that?
-- What image formats can I save photos in using the Pi camera tools?
-- I want to do some astrophotography with my Pi. Can it handle really long exposures?
+Q: I want to know what the longest exposure time my Pi camera supports is. Where do I find that?
+A: Check the official camera hardware specification for maximum exposure times.
+
+Q: I'm coming from raspistill. Is rpicam-still going to feel similar to use?
+A: rpicam-still supports many options from the legacy raspistill application.

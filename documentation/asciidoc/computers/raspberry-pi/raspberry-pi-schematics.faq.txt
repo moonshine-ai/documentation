@@ -1,49 +1,88 @@
 # Whole Document
 
-- Where can I find the schematics and mechanical drawings for my Raspberry Pi?
-- I'm designing a case for my Pi. Where do I get the official dimensions?
-- Do you have STEP files for any of the Raspberry Pi boards? I need one for CAD.
-- Which Pi models have official case drawings available?
+Q: Where can I find the official schematics and mechanical drawings for my Pi?
+A: All schematics and drawings are available at pip.raspberrypi.com for each model.
+
+Q: I'm designing a case for my Pi. Do they have mechanical drawings available?
+A: Yes, mechanical drawings in PDF or DXF format are available for most models.
+
+Q: Does Raspberry Pi publish the schematics for all their boards?
+A: Yes, schematics are published for all major Raspberry Pi board versions.
 
 # Raspberry Pi 5
 
-- Where do I find the mechanical drawings for the Pi 5?
-- I need a STEP file for the Raspberry Pi 5 for a 3D design project. Where do I get that?
+Q: I need a 3D model of the Pi 5 for my CAD software. Is there a STEP file anywhere?
+A: Yes, a STEP file for the Raspberry Pi 5 is available at pip.raspberrypi.com.
+
+Q: Where do I get the mechanical drawings for the Pi 5?
+A: Mechanical drawings for the Pi 5 are available as a PDF at pip.raspberrypi.com.
 
 # Raspberry Pi 4 Model B
 
-- Where can I get the schematics for the Pi 4 Model B?
-- I need the dimensions for the Pi 4 to design a mounting bracket. Is there a DXF file or something?
-- What revision are the Pi 4 Model B schematics on?
+Q: I want the schematics for the Pi 4 Model B. What version are they on?
+A: The available Pi 4 Model B schematics are revision 4.0.
+
+Q: Do they have the Pi 4 drawings in DXF format, not just PDF?
+A: Yes, Pi 4 Model B mechanical drawings are available in both PDF and DXF formats.
 
 # Raspberry Pi 3 Model B+
 
-- Are there case drawings available for the Pi 3 Model B+?
-- I need the schematics for the Pi 3 B+. Where do I find those?
-- Does the Pi 3 B+ have DXF mechanical drawings, or just PDF?
+Q: Are there case drawings available for the Pi 3 Model B plus?
+A: Yes, case drawings in PDF format are available for the Raspberry Pi 3 Model B+.
+
+Q: What revision are the Pi 3 Model B plus schematics?
+A: The Raspberry Pi 3 Model B+ schematics are at revision 1.0.
 
 # Raspberry Pi 3 Model A+
 
-- Where do I get the schematics for the Pi 3 Model A+?
-- Are there case drawings for the Pi 3 A+?
+Q: I've got a Pi 3 Model A plus. Can I get case drawings for it?
+A: Yes, case drawings in PDF format are available for the Raspberry Pi 3 Model A+.
 
 # Raspberry Pi 1 Model A+
 
-- I've got a Pi 1 Model A+ and I need the mechanical drawings. Where do I find those?
-- Wait, do the Pi 1 Model A+ and the Pi 3 Model A+ share the same mechanical drawings?
+Q: I've got an original Pi 1 Model A plus. Are there mechanical drawings for it?
+A: The Pi 3 Model A+ mechanical drawings are also applicable to the Pi 1 Model A+.
+
+Q: What revision are the schematics for the Pi 1 Model A plus?
+A: The Raspberry Pi 1 Model A+ schematics are at revision 1.1.
+
+# Raspberry Pi 2 Model B
+
+Q: Do you have schematics for the Pi 2 Model B?
+A: Yes, Pi 2 Model B schematics at revision 1.2 are available at pip.raspberrypi.com.
+
+Q: Are there mechanical drawings available for the Pi 2 Model B?
+A: No, only schematics are listed for the Raspberry Pi 2 Model B.
 
 # Raspberry Pi Zero 2 W
 
-- Where can I find the schematics for the Pi Zero 2 W?
-- What are those test pads on the bottom of the Pi Zero 2 W? What are they actually for?
-- I'm trying to reset my Pi Zero 2 W. Which test pad do I connect to ground to do that?
-- Where exactly is the 5V test pad on the Pi Zero 2 W? Like, what are the coordinates?
-- What's the STATUS_LED test pad do on the Zero 2 W? Is low on or off?
-- I want to check the Bluetooth power status on my Zero 2 W. Is there a test pad for that?
-- Is there a test pad position document for the Pi Zero 2 W?
+Q: Where can I find the test pad positions for the Pi Zero 2 W?
+A: Test pad position documents for the Pi Zero 2 W are available at pip.raspberrypi.com.
+
+Q: What's the RUN test pad for on the Pi Zero 2 W and where is it?
+A: The RUN pad resets the board when connected to GND, located at 8.37, 22.69 mm.
+
+Q: I want to check the Bluetooth is powered on my Zero 2 W. Is there a test pad for that?
+A: Yes, the BT_ON test pad at 25.13, 19.55 mm shows Bluetooth power status.
+
+Q: What does the STATUS_LED test pad do on the Pi Zero 2 W?
+A: It shows the LED power state; LOW means the LED is on.
+
+Q: How do I know which test pad is the 5V input on the Zero 2 W?
+A: There are two 5V input test pads, located at coordinates 8.75, 11.05 and 11.21, 6.3 mm.
+
+Q: What's the WL_ON test pad for on the Zero 2 W?
+A: The WL_ON test pad at 27.7, 19.2 mm indicates wireless LAN power status.
 
 # Raspberry Pi Zero
 
-- Does the Pi Zero have case drawings available? I want to 3D print a case for it.
-- Are there different case drawing versions for the Pi Zero depending on what lid I want?
-- Where do I find the schematics for the original Pi Zero?
+Q: Does the Pi Zero have case drawings available, like for the official case?
+A: Yes, case drawings for blank, GPIO, and camera lid variants are available as PDFs.
+
+Q: What revision are the schematics for the original Pi Zero?
+A: The Raspberry Pi Zero schematics are at revision 1.3.
+
+# Raspberry Pi Zero W
+
+Q: Are there mechanical drawings for the Pi Zero W?
+A: Yes, mechanical drawings in PDF format are available for the Raspberry Pi Zero W.

@@ -1,47 +1,46 @@
-# Hardware Specifications
+# Hardware specifications
 
-# Whole Document
+Q: What's the resolution difference between Camera Module 2 and Camera Module 3?
+A: Module 2 has 8 megapixels while Module 3 has 11.9 megapixels.
 
-What are the differences between all the Raspberry Pi camera modules?
+Q: I want to do astrophotography with really long exposures. Which camera lets me keep the shutter open the longest?
+A: The HQ Camera supports the longest maximum exposure time at 670.74 seconds.
 
-I'm trying to pick a camera for my Pi project — can you give me a quick rundown of what's available?
+Q: Does the original Camera Module 1 have autofocus?
+A: No, Camera Module 1 has fixed focus only, not adjustable.
 
-Which Raspberry Pi camera has the highest resolution?
+Q: I keep hearing about NoIR cameras. Which ones come in a NoIR version?
+A: Camera Modules 1, 2, 3, and 3 Wide all have NoIR versions available.
 
-What's the difference between the HQ Camera and the regular Camera Module 3?
+Q: What's the difference between the regular Camera Module 3 and the Wide version?
+A: The Wide version has a wider 102-degree horizontal field of view versus 66 degrees.
 
-I want to do night vision stuff — which cameras come in a NoIR version?
+Q: How heavy is the HQ Camera compared to the standard modules?
+A: The HQ Camera weighs 30.4 grams versus just 3 to 4 grams for standard modules.
 
-What does NoIR even mean for these cameras?
+Q: I need to film really fast motion. Which camera can shoot the highest frame rate?
+A: Camera Module 2 can shoot 640×480 at 206 frames per second.
 
-Which camera modules have autofocus?
+Q: Can I put my own lens on the HQ Camera?
+A: Yes, the HQ Camera supports C/CS-mount or M12-mount lenses.
 
-I need a really wide angle camera for my Pi — which one should I get?
+Q: What sensor does the AI Camera use?
+A: The AI Camera uses a Sony IMX500 sensor.
 
-What's the GS Camera and what's it good for?
+Q: The GS Camera only has 1.58 megapixels — is that right? That seems really low.
+A: Yes, the GS Camera's still resolution is just 1.58 megapixels.
 
-Which camera is the smallest and lightest?
+Q: Which camera has the biggest pixels, and why does that even matter?
+A: The GS Camera has the largest pixels at 3.45 µm × 3.45 µm each.
 
-I'm doing long exposure photography — which camera lets me keep the shutter open the longest?
+Q: I want to do close-up macro shots. Which module can focus the closest?
+A: The Camera Module 3 Wide can focus from approximately 5 centimetres away.
 
-What's the AI Camera and how's it different from the others?
+Q: What's the aperture on Camera Module 3?
+A: Camera Module 3 has a focal ratio of F1.8.
 
-Which cameras can I put my own lens on?
+Q: Does the GS Camera support interchangeable lenses?
+A: Yes, the GS Camera uses a C/CS lens mount for interchangeable lenses.
 
-I want to shoot slow motion video — which Pi camera can do the highest frame rate?
-
-What's the difference between Camera Module 2 and Camera Module 3?
-
-The Camera Module 3 Wide — how wide is wide exactly? Like what's the field of view?
-
-Which Pi camera has the biggest sensor?
-
-I've got an old Camera Module 1 — how does it compare to the newer ones?
-
-What's the HQ Camera weigh? I'm worried it might be too heavy for my drone build.
-
-Does the HQ Camera have autofocus built in or do I need to do that manually?
-
-Which cameras support HDR video?
-
-What's the focal ratio on the Camera Module 3? I'm trying to figure out how well it'll do in low light.
+Q: How big is Camera Module 3 compared to the older modules?
+A: Camera Module 3 is slightly thicker at 11.5mm versus 9mm for older modules.

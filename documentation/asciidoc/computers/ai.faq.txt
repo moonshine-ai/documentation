@@ -1,135 +1,123 @@
-# Whole Document
-
-So I've got a Raspberry Pi 5 — what do I need to actually run AI models on it?
-
-What's the difference between the AI Kit, the AI HAT+, and the AI HAT+ 2?
-
-I've heard about Hailo NPUs. What even is an NPU and why would I want one instead of just using the CPU?
-
-Which AI hardware should I buy if I'm starting fresh today?
-
-Can I run AI models on a Raspberry Pi 4, or does it have to be a Pi 5?
-
-Do I need the 64-bit version of Raspberry Pi OS for this AI stuff, or will the 32-bit one work?
-
 # Hardware prerequisites
 
-I want to do object detection from a camera. What do I need to buy?
+Q: What Pi do I need to run AI models with a Hailo NPU?
+A: You need a Raspberry Pi 5 with 64-bit Raspberry Pi OS Trixie installed.
 
-Should I attach the camera before or after I plug in the AI HAT?
+Q: I've got an AI Kit sitting around — can I still use it or is it too old?
+A: AI Kit still works but it's no longer in production; use AI HAT+ for new designs.
 
-I've got an AI Kit from a while back — can I still use it, or is it too old?
+Q: Do I need a camera to use the AI hardware, or is that optional?
+A: Camera is only needed if you want to run vision AI models specifically.
 
-What camera do you recommend if I want to run vision AI on my Pi 5?
+Q: I want to do object detection with my Pi 5. What hardware do I need besides the board itself?
+A: You need a Hailo NPU accessory and a supported camera like Camera Module 3.
+
+Q: Should I attach the camera before or after the AI HAT?
+A: Attach your camera first before attaching the AI hardware to your Pi.
 
 # Software prerequisites
 
-What's the first thing I need to set up in software after I've attached the AI hardware?
+Q: What's the order of things I need to set up before running AI models?
+A: Enable PCIe Gen 3, update the OS, install dependencies, then verify the hardware.
 
-I've got the AI Kit and I want to make sure it's running as fast as possible. Is there something I need to enable?
+Q: Do I need to do the PCIe Gen 3 thing with the AI HAT Plus or just the AI Kit?
+A: Only the AI Kit needs PCIe Gen 3 manually enabled; AI HAT+ applies it automatically.
 
-Why do I need to enable PCIe Gen 3 manually for the AI Kit but not for the AI HAT+?
+Q: My Pi defaults to PCIe Gen 2. How do I bump it up to Gen 3 for the AI Kit?
+A: Use raspi-config or add `dtparam=pciex1_gen=3` to your config.txt file.
 
-I'm not sure if my Raspberry Pi OS is up to date enough for this. What do I need to run to update everything?
+Q: How do I enable PCIe Gen 3 using raspi-config?
+A: Go to Advanced Options, then PCIe Speed, select Yes, finish, and reboot.
 
-# Enable PCIe Gen 3.0 (AI Kit only)
+Q: What's the difference between the packages I install for the AI Kit versus the AI HAT Plus 2?
+A: AI Kit and AI HAT+ use `hailo-all`; AI HAT+ 2 uses `hailo-h10-all` instead.
 
-How do I enable PCIe Gen 3 on my Pi 5? Is there more than one way to do it?
+Q: Can I have both hailo-all and hailo-h10-all installed at the same time?
+A: No, those two packages can't co-exist on the same system.
 
-I don't really want to use the terminal for the PCIe setting. Can I do it through a menu instead?
+Q: How do I install the dependencies for the AI HAT Plus?
+A: Run `sudo apt install dkms` then `sudo apt install hailo-all` in the terminal.
 
-If I edit config.txt to enable PCIe Gen 3, what exactly do I add to the file?
+Q: After I install the Hailo stuff, how do I actually check it's working?
+A: Run `hailortcli fw-control identify` and look for device info in the output.
 
-Do I need to reboot after changing the PCIe speed setting?
+Q: I ran the verify command and it shows N/A for serial number. Is something wrong?
+A: That's expected for AI HAT+ and AI HAT+ 2 and doesn't affect functionality.
 
-# Install required dependencies
-
-What packages do I actually need to install to get the AI hardware working?
-
-I've got an AI HAT+ 2 — do I install the same package as for the AI HAT+ or a different one?
-
-Can I have both `hailo-all` and `hailo-h10-all` installed at the same time?
-
-What's `dkms` and why do I need to install it?
-
-# Reboot and verify
-
-How do I check that my Hailo NPU was detected properly after installing everything?
-
-I ran the verify command and it shows `<N/A>` for serial number and part number. Is that a problem?
-
-What does it mean if `hailortcli fw-control identify` doesn't give me any output?
-
-Is there a way to check the kernel logs to see if the Hailo driver loaded okay?
+Q: How do I check the kernel logs to see if the Hailo driver loaded okay?
+A: Run `dmesg | grep -i hailo` to see Hailo-related kernel log entries.
 
 # Run vision AI models on Raspberry Pi 5
 
-I just want to try the AI demos. Where do I even start?
+Q: What do I need to install to get the camera working with AI demos?
+A: Install `rpicam-apps` using `sudo apt update && sudo apt install rpicam-apps`.
 
-How do I check that my camera is working before I try running any AI stuff?
+Q: How do I quickly test that my camera is set up right before running AI stuff?
+A: Run `rpicam-hello` — it shows a preview window for five seconds if working.
 
-What's the `rpicam-hello` command and what does it actually do?
+Q: What's the command to run object detection with YOLOv8 on the camera?
+A: Run `rpicam-hello -t 0 --post-process-file /usr/share/rpi-camera-assets/hailo_yolov8_inference.json`.
 
-# Run real-time visual AI demos
+Q: Is there a YOLO model that's specifically designed for detecting people and faces?
+A: Yes, YOLOv5 is described as handling people and face detection specifically.
 
-What are some different AI demos I can try out with my camera?
+Q: What if I want a really fast lightweight object detection option?
+A: YOLOX is described as lightweight and fast for object detection.
 
-I want to try object detection. What command do I run?
+Q: How do I do pose estimation? Like drawing the skeleton lines on a person?
+A: Run `rpicam-hello -t 0 --post-process-file /usr/share/rpi-camera-assets/hailo_yolov8_pose.json`.
 
-What's the difference between the different YOLO models? Like YOLOv8 versus YOLOX — which one should I try?
+Q: Can I save a video with AI processing instead of just previewing it?
+A: Yes, you can use `rpicam-vid` instead of `rpicam-hello` with compatible options.
 
-Can I do pose detection with this? Like tracking where someone's arms and legs are?
+Q: I don't want the preview window to pop up, I just want text output. How do I do that?
+A: Add the `-n` flag to turn off the viewfinder display.
 
-I want it to just print text output instead of showing a preview window. Is there a flag for that?
+Q: How do I do image segmentation where it draws a colored mask over objects?
+A: Run `rpicam-hello -t 0 --post-process-file /usr/share/rpi-camera-assets/hailo_yolov5_segmentation.json --framerate 20`.
 
-Can I use these AI demos to record video, or is it just a live preview?
-
-I want to try the image segmentation demo — what command do I need?
-
-# Package versions for AI Kit and AI HAT+
-
-I built an AI model with a specific version of the Hailo toolchain and now it won't run. What do I need to check?
-
-How do I install a specific older version of the Hailo software packages?
-
-After I pin specific package versions, how do I stop them from getting updated automatically?
+Q: I need to use a specific version of the Hailo toolchain. How do I lock the packages to a matching version?
+A: Install the specific version then run `sudo apt-mark hold` on the relevant packages.
 
 # Run LLMs on Raspberry Pi 5 (AI HAT+ 2 only)
 
-Can I run a large language model locally on my Pi 5, like ChatGPT-style stuff?
+Q: Can I run a large language model locally on my Pi 5?
+A: Yes, but only with the AI HAT+ 2, which has the Hailo-10H NPU on board.
 
-Wait, do I need the AI HAT+ 2 specifically to run LLMs, or will the regular AI HAT+ do it?
+Q: What are the two ways I can interact with an LLM once it's set up?
+A: You can use POST requests to the API or the browser-based Open WebUI chat interface.
 
-What are the different ways I can actually talk to the LLM once it's set up?
+Q: Why do I need Docker to use Open WebUI? Can't I just install it normally?
+A: Open WebUI is incompatible with Python 3.13 used on Trixie, so Docker is required.
 
-I want a chat interface in my browser instead of typing terminal commands. Is that possible?
+Q: How do I start the Hailo Ollama server?
+A: Just run `hailo-ollama` in a Raspberry Pi Terminal window.
 
-# Install the Hailo Ollama server
+Q: How do I get a list of the LLMs I can download and run?
+A: Run `curl --silent http://localhost:8000/hailo/v1/list` after starting the server.
 
-How do I get the LLM models onto my Pi 5?
+Q: I want to download a specific model to try out. What's the command for that?
+A: Send a POST to `http://localhost:8000/api/pull` with the model name in the JSON body.
 
-# Start the Hailo Ollama server and run LLMs
+Q: The Open WebUI container is taking forever to start. Is something wrong?
+A: It can take up to a minute to initialise; run `docker logs open-webui -f` to monitor progress.
 
-How do I see what LLM models are available to download?
+Q: Once Open WebUI is running, how do I actually open it in my browser?
+A: Go to `http://127.0.0.1:8080` in a browser to access the chat interface.
 
-I want to download a specific model. What command do I use?
+Q: Do I need to set up Open WebUI or can I just use the terminal to talk to the LLM?
+A: Open WebUI is optional; you can just use terminal-based POST requests instead.
 
-Once I've got a model downloaded, how do I actually send it a question?
+# Whole Document
 
-# Install Docker (for Open WebUI)
+Q: What's the difference between the AI HAT Plus and the AI HAT Plus 2?
+A: AI HAT+ 2 also supports GenAI models like LLMs, which the original AI HAT+ doesn't.
 
-Do I have to use Docker for the web chat interface, or is there another way?
+Q: I just got a Pi 5 and want to add AI capabilities. What should I buy?
+A: Get an AI HAT+ or AI HAT+ 2 since the AI Kit is no longer in production.
 
-Why does Open WebUI need Docker? Can't I just install it normally?
+Q: Can the AI HAT Plus 2 do both vision AI and large language models?
+A: Yes, you follow both sets of instructions to run vision AI models and LLMs together.
 
-How do I test that Docker installed correctly?
-
-After I add myself to the docker group, do I need to log out and back in for it to work?
-
-# Install and use Open WebUI (optional)
-
-How do I actually open the chat interface once Open WebUI is running?
-
-The Open WebUI container is taking ages to start. Is that normal?
-
-How do I check if the Open WebUI container is still starting up or if something went wrong?
+Q: What OS version do I actually need for all this AI stuff to work?
+A: You need 64-bit Raspberry Pi OS Trixie on your Raspberry Pi 5.

@@ -1,56 +1,112 @@
-# Whole Document
-
-- Wait, so the AI processing is actually happening inside the camera itself? Not on the Pi?
-- I'm confused about what a tensor even is. Can you give me a simple explanation?
-- What's the difference between the input tensor and the output tensor?
-- So do I need to write code to use the AI camera or can I just point and shoot?
-- What programming languages can I use to work with the AI camera?
-
 # Overview
 
-- Why doesn't the Raspberry Pi have to do any AI processing when using this camera?
-- What's a Region of Interest and why would I want to change it?
-- By default, does the camera use the whole image for AI processing or just part of it?
-- Can I actually see the input tensor, like for debugging or whatever?
-- So what even is an ISP? I keep seeing that term.
-- I want to focus the AI on just one part of the image, like not the whole frame. Is that possible?
+Q: So how is the AI camera different from just plugging in a regular camera and doing AI on the Pi itself?
+A: The IMX500 does AI inference inside the camera, sending only results to the Pi.
 
-# System Architecture
+Q: What's an input tensor? I keep seeing that term and I don't really get it.
+A: It's the portion of the sensor image fed into the AI engine for inferencing.
 
-- When the camera is streaming, does it send me images AND AI results at the same time?
-- What exactly gets loaded onto the camera when it first starts up?
+Q: Can I actually see the input tensor in my app, or is it hidden?
+A: It's normally unavailable to apps, but accessible for debugging purposes.
 
-# Device Drivers
+Q: What's a Region of Interest and why would I care about it?
+A: It specifies which part of the sensor image gets cropped before neural network processing.
 
-- Why does it take so long to load the neural network onto the camera the first time?
-- I've loaded a model before and now it seems faster. Is the camera remembering it somehow?
-- What's the RP2040 doing in all this? I thought that was a microcontroller for other stuff.
-- Does the AI camera work differently on a Pi 5 versus older Pis?
+Q: If I don't set a Region of Interest, does it just use the whole image?
+A: Yes, the default ROI uses the full image from the sensor, cropping nothing.
+
+Q: What units does the Region of Interest use when I'm setting it?
+A: It always uses pixels in the full resolution sensor output.
+
+Q: So the output tensors are just whatever the neural network spits out?
+A: Yes, output tensors are inferencing results whose number and shape depend on the network.
+
+# System architecture
+
+Q: Does the AI camera only do inference, or does it also give me a regular image stream?
+A: The IMX500 generates both an image stream and an inference stream simultaneously.
+
+Q: When does the camera load the neural network — like, is it at startup or later?
+A: The IMX500 loads firmware for a neural network model at startup.
+
+# Device drivers
+
+Q: How does the camera module actually communicate with the Raspberry Pi at a low level?
+A: The IMX500 kernel driver configures the camera module over the I2C bus.
+
+Q: Is the firmware loading the same on Pi 5 as on other Pis?
+A: Pi 5 uses a custom high speed protocol; other Pis use standard I2C protocol.
+
+Q: Does it have to re-upload the whole firmware every single time I use it?
+A: No, the RP2040 caches firmware files, significantly speeding up repeated firmware loading.
+
+Q: What's the RP2040 doing in all of this? I thought that was a microcontroller.
+A: It bridges I2C transfers from the kernel to the IMX500 via a SPI bus.
 
 # `libcamera`
 
-- How do I actually get the AI results out in my code?
-- What's in the output tensor data that comes back from the camera?
-- Is there a way to get the input tensor too, or just the output?
-- What does `CnnOutputTensorInfo` actually tell me about my model?
+Q: How do I get the output tensors from libcamera in my app?
+A: They're packaged as Raspberry Pi vendor-specific libcamera controls you can retrieve.
+
+Q: What libcamera controls does the AI camera give me?
+A: It provides CnnOutputTensor, CnnInputTensor, CnnOutputTensorInfo, and CnnInputTensorInfo controls.
+
+Q: What's in the CnnInputTensorInfo structure exactly?
+A: It contains the network name, width, height, and number of channels.
 
 # `rpicam-apps`
 
-- I want to write my own AI processing stage for a custom model. Where do I even start?
-- How do I get the output tensor data inside my C++ code for each frame?
-- What happens after I've processed the output tensor — how do I pass results to the next stage?
-- What does `ConvertInferenceCoordinates` do and why would I need it?
-- There's a function that shows a progress bar while the firmware loads — how do I use that?
-- How do I set the region of interest from my C++ code?
+Q: I want to write my own post-processing stage for a neural network. Where do I start?
+A: Derive your stage from the IMX500PostProcessingStage base class in rpicam-apps.
+
+Q: When does the Process function actually get called for each frame?
+A: Process is called for every frame received by the application.
+
+Q: How do I grab the output tensor inside my Process function?
+A: Fetch it from completed_request metadata using the CnnOutputTensor control.
+
+Q: Is there a helper that automatically figures out the right crop for my network's aspect ratio?
+A: Yes, SetInferenceRoiAuto automatically calculates the ROI to preserve the input tensor aspect ratio.
+
+Q: How do I show a loading bar while the neural network firmware uploads?
+A: Call ShowFwProgressBar to display a progress bar on the console during upload.
+
+Q: I'm getting coordinates from the output tensor but they don't match my image. What's going on?
+A: Use ConvertInferenceCoordinates to convert tensor coordinates to ISP output image space.
 
 # Picamera2
 
-- How do I use the AI camera in Python?
-- I'm using Python and I want to get the output tensors. How do I do that?
-- I'm looking at the object detection demo in Python. How does it draw the bounding boxes on screen?
-- Does the Python version have the same features as the C++ version?
-- I want to know how confident the AI is about each detection. Can I get that score in Python?
-- How do I convert the coordinates from the AI result to match where they actually are on the final image?
-- Is there any way to check how well the camera's AI is performing, like frame-level stats or something?
-- I want to set the region of interest in my Python script. What function do I call and what format does it need?
-- How do I get the size of the input tensor for my neural network in Python?
+Q: Can I use the AI camera with Python, or is it only the C++ stuff?
+A: Picamera2 has an IMX500 helper class providing the same functionality as rpicam-apps.
+
+Q: How do I import the IMX500 class in my Python script?
+A: Use from picamera2.devices.imx500 import IMX500, then instantiate before Picamera2.
+
+Q: Does the Picamera2 example do any filtering on detections between frames?
+A: No, the Picamera2 example applies no additional hysteresis or temporal filtering.
+
+Q: How do I get the output tensors in Picamera2?
+A: Call imx500.get_outputs with the request metadata to retrieve output tensors.
+
+Q: I need to convert bounding box coordinates from the tensor to the actual image. How?
+A: Use imx500.convert_inference_coords with the coordinates, metadata, and Picamera2 object.
+
+Q: Can I check how the camera is performing frame by frame in Picamera2?
+A: Yes, IMX500.get_kpi_info returns frame-level performance indicators for given image metadata.
+
+Q: How do I set the region of interest in Picamera2?
+A: Call set_inference_roi_abs with an x_offset, y_offset, width, height tuple in full sensor pixels.
+
+Q: What if I want the ROI to exactly match my neural network's input size?
+A: Call imx500.set_inference_aspect_ratio passing imx500.get_input_size() as the argument.
+
+# Whole Document
+
+Q: So basically the AI is running on the camera itself and not on the Pi at all?
+A: Correct, the IMX500 runs inference internally so the Pi CPU handles no neural network processing.
+
+Q: Do I need to know C++ to use the AI camera, or can I just use Python?
+A: Both are supported; rpicam-apps uses C++ while Picamera2 provides a Python interface.
+
+Q: I just got the AI camera. What are the main concepts I need to understand first?
+A: You need to understand input tensors, output tensors, and Region of Interest concepts.

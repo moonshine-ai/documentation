@@ -1,38 +1,70 @@
-# Whole Document
-
-- I want to do some computer vision stuff with my Raspberry Pi camera. What OpenCV post-processing stages are available?
-- Do I need to do anything special to get OpenCV working with my camera setup?
-- I rebuilt rpicam-apps but I'm not sure if I did it with OpenCV support. How would I know if these stages are available?
-
 # `sobel_cv` stage
 
-- How do I make my camera highlight edges in the image?
-- What's a Sobel filter and how do I use it with my Pi camera?
-- I want that effect where edges in the image get emphasized. Is there a stage for that?
-- There's just one setting for the Sobel filter stage — what does `ksize` actually do?
-- How do I set up the Sobel filter? Like what does the JSON config look like?
+Q: What does the Sobel filter stage actually do to my image?
+A: It applies a Sobel filter to emphasise edges in the image.
+
+Q: I want to tweak the Sobel effect — is there anything I can adjust?
+A: You can configure the kernel size using the `ksize` parameter.
+
+Q: What's the default kernel size for the Sobel filter?
+A: The default kernel size is 5.
 
 # `face_detect_cv` stage
 
-- Can my Raspberry Pi camera detect faces automatically?
-- I'm trying to do face detection with my Pi camera. Where do I even start?
-- Does the face detection work when I'm taking still photos or just video?
-- What resolution does the face detector run at? I want to make sure my setup is compatible.
-- How do I get boxes drawn around faces in my camera feed?
-- The face detector keeps finding things that aren't faces. Which setting do I tweak to make it less sensitive?
-- What's the `refresh_rate` setting in face detect do? Does it run every single frame?
-- What's a Haar cascade and why does the face detection need one?
-- Can I set a minimum size for faces so it doesn't pick up tiny faces in the background?
-- Where's the Haar cascade file supposed to be on my Pi?
+Q: Can I use this face detection thing when I'm taking a still photo?
+A: No, the face detect stage ignores still image capture entirely.
+
+Q: What resolution does the face detector run at?
+A: It runs on a low resolution stream between 320×240 and 640×480 pixels.
+
+Q: Does the face detector draw boxes on my image or just find the faces?
+A: It optionally draws face locations on the image using the `draw_features` parameter.
+
+Q: What method does the face detection stage use to actually find faces?
+A: It uses the OpenCV Haar classifier to detect faces in images.
+
+Q: I'm getting too many false positives with face detection. What setting should I look at?
+A: Increase `min_neighbors`, which sets the minimum overlapping neighbours required for a face.
+
+Q: Can I set a minimum and maximum size for the faces it detects?
+A: Yes, you can configure both `min_size` and `max_size` parameters.
+
+Q: How often does the face detector actually re-run between frames?
+A: The `refresh_rate` parameter controls how many frames to wait before re-running.
+
+Q: Where does the face detection results data get stored?
+A: Face location metadata is returned under the key `face_detect.results`.
 
 # `annotate_cv` stage
 
-- How do I put a timestamp on my video using the camera?
-- I want to overlay some text onto my camera feed. Is there a way to do that?
-- How do I get the date and time to show up on my recordings?
-- What format does the date show up in when I use the annotate stage?
-- Can I change the text color in the annotation stage?
-- How do I make the annotation text bigger?
-- Can other post-processing stages write their own text onto the image, or is it just whatever I put in the config file?
-- What does the `alpha` setting do in the annotate stage? Is that like transparency?
-- What substitutions can I use in the text for the annotate stage, like to show camera info?
+Q: I want to put a timestamp on my video. How do I do that?
+A: Pass `%F %T %z` to get ISO date, 24h local time, and timezone offset.
+
+Q: What does `%F` show when I use it in the annotation text?
+A: It displays the ISO-8601 date, for example 2023-03-07.
+
+Q: Can I change the text colour and background of the annotation?
+A: Yes, you can configure `fg` foreground colour and `bg` background colour.
+
+Q: Where does the annotate stage put the text on the image?
+A: It writes text into the top corner of images.
+
+Q: Can another post-processing stage control what text gets written onto my image?
+A: Yes, other stages can write text by putting it in `annotate.text` metadata.
+
+Q: I want bigger text in my annotation. What setting do I change?
+A: Adjust the `scale` parameter, which is proportional to text size.
+
+Q: What's the default transparency setting for the annotation background?
+A: The default alpha value is 0.3 when overwriting background pixels.
+
+# Whole Document
+
+Q: Do I need OpenCV installed for these post-processing stages to work?
+A: Yes, all these stages require an OpenCV installation to function.
+
+Q: I built rpicam-apps but these OpenCV stages aren't working. What did I miss?
+A: You may need to rebuild `rpicam-apps` specifically with OpenCV support enabled.
+
+Q: Can these stages be chained together, like face detection and then annotation?
+A: Not specified in this section.

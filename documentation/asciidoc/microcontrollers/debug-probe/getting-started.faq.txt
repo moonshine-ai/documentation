@@ -1,27 +1,25 @@
 # Getting started
 
-How do I connect a Debug Probe to a Pico H?
+Q: How do I connect the Debug Probe to my Pico H? What ports do I use?
+A: Connect the "D" port to SWD and "U" port to UART pins.
 
-What's the difference between the "D" port and the "U" port on the Debug Probe?
+Q: I've got a regular Pico, not the H version. Can I still use the Debug Probe with it?
+A: Yes, solder a male connector to SWCLK, GND, and SWDIO header pins.
 
-I've got a regular Pico, not the H version — can I still use the Debug Probe with it?
+Q: What's the difference between the D port and the U port on the Debug Probe?
+A: The D port is for SWD debugging and U port handles serial UART communication.
 
-My Pico doesn't have a JST-SH connector. How do I hook it up to the Debug Probe?
+Q: I'm connecting the serial pins and I want to make sure I've got them the right way round. Does RX go to RX?
+A: No, Debug Probe RX connects to Pico TX, and TX connects to RX.
 
-Which wire goes to SWCLK? I've got the JST-SH to header cable and I'm not sure which color is which.
+Q: My Pico doesn't have that JST connector. What cable do I need to hook it up?
+A: Use the included three-pin JST-SH to 0.1-inch female header cable instead.
 
-So RX goes to TX and TX goes to RX? That seems backwards — is that right?
+Q: Okay I've got a non-H Pico and I'm trying to wire the SWD pins. Which wire colour goes where?
+A: Orange is SC, black is GND, and yellow is SD on the Debug Probe.
 
-I have a Pico W, not a Pico H. Do I need to do anything differently to connect the Debug Probe?
+Q: Do I need to solder anything if I have the Pico H version?
+A: No soldering needed; Pico H has a built-in JST-SH connector for SWD.
 
-What pins do I need to solder on a regular Pico to get it working with the Debug Probe?
-
-# Whole Document
-
-What even is a Debug Probe and why would I need one for my Pico?
-
-I just got a Debug Probe in the box with my Pico H — what do I do with it?
-
-Do I need to solder anything if I have a Pico H, or does it just plug in?
-
-What cables come with the Debug Probe? I want to make sure I have everything before I start.
+Q: There's a video for this setup right? Where can I find it?
+A: A YouTube video walkthrough is linked in this getting started section.

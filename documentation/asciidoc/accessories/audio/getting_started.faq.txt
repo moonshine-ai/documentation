@@ -1,57 +1,82 @@
+# Getting started
+
+Q: What's this chatter box thing supposed to do exactly?
+A: It plays random recorded clips when pressed, records new ones when held.
+
+Q: How long do I hold the button to start recording a new clip?
+A: Hold for ten seconds until a burp sound plays, then it records five seconds.
+
+Q: What happens if I hold the button for more than 20 seconds?
+A: It plays a burp sound and erases all your previous recordings.
+
+# Hardware and wiring
+
+Q: What kind of speaker do I need for this project?
+A: Any small passive speaker works; they suggest five watts at four ohms.
+
+Q: Do I need to buy a special button for this, or is there one already on the board?
+A: The Codec Zero has an on-board button pre-wired to GPIO 27.
+
+Q: Which GPIO pin does the button connect to on the Codec Zero?
+A: The button uses GPIO pin 27, and Ground for the switch.
+
+Q: I want to add an LED to my button. What pins do I use for that?
+A: Use plus three point three volts and Ground for the LED if needed.
+
+# Set up your Raspberry Pi
+
+Q: Which version of Raspberry Pi OS should I use for this project?
+A: This example uses Raspberry Pi OS Lite.
+
+Q: Do I need to update my Pi before starting this project?
+A: Yes, update your operating system before proceeding with the project.
+
+# Program your Raspberry Pi
+
+Q: How do I get the script to run automatically every time the Pi boots up?
+A: Add an at-reboot crontab entry pointing to your chatter box Python script.
+
+Q: What editor does the guide recommend for editing the crontab?
+A: They recommend using nano for editing your crontab file.
+
+Q: I don't have a desktop on my Pi Lite. How do I open a shell to write the script?
+A: You can connect via SSH to open a shell on your Raspberry Pi.
+
+Q: How do I make the Python script actually executable after I've saved it?
+A: Run sudo chmod plus x chatter underscore box dot py.
+
+Q: Where does the burp sound come from? Do I record it myself?
+A: The script automatically downloads a burp sound file from rpf dot io.
+
+# Use the toy chatter box
+
+Q: Okay I've set it up. What's the correct way to record my first clip?
+A: Press the button, release after the burp, then it records for five seconds.
+
+Q: How do I delete all my recordings if I want to start fresh?
+A: Hold the button past the first burp and release after at least 20 seconds.
+
+Q: How do I know it actually deleted everything? Is there a confirmation?
+A: A second burp sound plays confirming the recordings have been deleted.
+
+Q: If I've recorded a bunch of clips, does it play them in order or randomly?
+A: It plays a randomly chosen clip from your sounds folder each time.
+
+# Next steps
+
+Q: What could I add to this project to make it a bit fancier?
+A: Adding an LED that lights up during recording is one suggested upgrade.
+
+Q: Could I turn this into something like a walkie-talkie? That sounds kind of cool.
+A: Yes, a pair of devices could transfer audio files over a network via SSH.
+
 # Whole Document
 
-What's a chatter box and how do I build one with my Raspberry Pi?
+Q: I've never done a project like this before. Is this beginner friendly or pretty advanced?
+A: Not specified in this section.
 
-I've got a Codec Zero board — what kind of projects can I make with it?
+Q: What's the main hardware board being used throughout this whole project?
+A: The Codec Zero board is used, chosen for its microphone, button, and speaker driver.
 
-Do I need any special hardware to follow along with this project, or can I just use what's on the board?
-
-# Hardware and Wiring
-
-What kind of speaker do I need for this project? Does it have to be anything special?
-
-I don't have a fancy button — can I just use the one that's already on the Codec Zero?
-
-Which GPIO pin does the built-in button on the Codec Zero use?
-
-How do I connect a speaker to the Codec Zero? Like do I solder it or what?
-
-I want to add an LED to my button. Where do I wire that on the Codec Zero?
-
-# Set Up Your Raspberry Pi
-
-Which version of Raspberry Pi OS should I use for this project?
-
-Do I need to do anything to the Codec Zero before running this project, like enable the microphone or something?
-
-# Program Your Raspberry Pi
-
-How do I get the Python script onto my Pi? Do I have to type the whole thing out?
-
-I'm not sure what to put where it says username in the script. Is that literally my login name?
-
-What does the script do when I press the button for a really long time, like over 20 seconds?
-
-So if I hold the button for ten seconds, what happens exactly?
-
-Where does the burp sound come from? Does the script download it automatically?
-
-How do I make the script run automatically every time the Pi boots up?
-
-What's a crontab and why do I need it for this project?
-
-I saved the file but I'm not sure how to make it actually run. What do I do after saving the script?
-
-# Use the Toy Chatter Box
-
-Okay so how do I actually record a sound with this thing? What's the sequence of button presses?
-
-I recorded a bunch of sounds and want to delete them all. How do I do that without going into the code?
-
-Will it always play the same recording when I press the button, or is it random?
-
-# Next Steps
-
-What could I add to this project to make it cooler? Like any ideas for upgrades?
-
-Could I turn this into something like a walkie-talkie that works over my home network?
+Q: Do I need to solder anything or can I just plug stuff in?
+A: You solder button wires directly to the Codec Zero pads for an external button.

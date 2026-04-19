@@ -1,55 +1,66 @@
 # Synchronous Captures
 
-What even is synchronous capture? Like why would I want two cameras taking pictures at the exact same time?
+Q: What's the difference between wired sync and software sync for cameras?
+A: Software sync works over long distances without wires, with sub-millisecond accuracy.
 
-I've got two HQ cameras and I want them to trigger at the same time. How do I set that up?
+Q: Can I sync a GS Camera and an HQ Camera together?
+A: No, you can't synchronise a GS Camera and an HQ Camera together.
 
-Do I need to solder anything to get the cameras to sync up?
+Q: I've got two HQ cameras close together. Do I need any extra hardware to sync them?
+A: Yes, solder wires connecting the XVS and GND test points on each camera.
 
-What's the XVS pin and why do I need to connect it between cameras?
+Q: Do I need to connect anything extra when syncing GS cameras?
+A: Yes, you must also connect the XHS test point and bridge the MAS pad on sink cameras.
 
-I've got two Global Shutter cameras I want to sync. Is that different from syncing two HQ cameras?
+Q: I heard I need an external pull-up resistor for XVS. Is that still true?
+A: No, external pull-up for XVS is no longer recommended; use the always-on property instead.
 
-Can I sync a Global Shutter camera with an HQ camera at the same time?
+# Driver Configuration
 
-Wait, I thought there was a way to sync cameras without any wires? What's that about?
+Q: How do I set up the HQ camera as a source in the config file?
+A: Add `dtoverlay=imx477,always-on,sync-source` to `/boot/firmware/config.txt`.
 
-I soldered the XVS pins together on my two cameras but do I also need to connect the ground pins?
+Q: What do I change in config.txt before adding the camera overlay lines?
+A: Change `camera_auto_detect=1` to `camera_auto_detect=0` in the file.
 
-I've got two GS cameras and I'm trying to sync them. Do I need to do anything extra with the MAS pad?
+Q: I've got both cameras on the same Pi. Do I need two overlay lines?
+A: Yes, you need two separate dtoverlay lines, only one ending with `,cam0`.
 
-How do I edit the config file to set one camera as the source and one as the sink?
+Q: Can I switch which camera is the source and which is the sink without editing config files?
+A: Yes, if they're on separate Pis, set the trigger_mode module parameter at runtime instead.
 
-I'm using a Raspberry Pi 5 with a camera on the CAM0 port. Is there anything different I need to put in the config file?
+Q: How do I set the sink role at runtime instead of in config.txt?
+A: Run `echo 2 | sudo tee /sys/module/imx477/parameters/trigger_mode` before starting the camera.
 
-I don't want to hardcode which camera is the source and which is the sink. Can I change that at runtime instead?
+Q: Does the GS camera sink role get set in software like the HQ camera?
+A: No, the GS Camera sink role is enabled by the MAS pin, not software configuration.
 
-How do I set one camera as the source using the terminal instead of the config file?
+# Libcamera Configuration
 
-Do I need to run those trigger mode commands every time I reboot, or just once?
+Q: My cameras keep timing out before they all start. How do I fix that?
+A: Edit a copy of the libcamera config file and set `camera_timeout_value_ms` to 60000.
 
-My cameras keep timing out before they all start. How do I fix that?
+Q: What's the timeout value I should set so cameras have enough time to start?
+A: Set the timeout to 60000, which equals 60 seconds.
 
-Where do I find the config file to increase the timeout for the cameras?
+# Starting the Cameras
 
-How do I change the camera timeout to something like 60 seconds?
+Q: Should I start the source or the sink camera first?
+A: Start the sink first to ensure no frames are missed.
 
-Which camera do I start first, the source or the sink?
+Q: How do I make sure both recordings are exactly the same length?
+A: Use the `--frames` option to capture the same number of frames on both cameras.
 
-How do I make sure both cameras capture exactly the same number of frames?
-
-I'm using GS cameras in sync mode and the recordings are different lengths. Why does that happen?
-
-My GS camera sink is recording one fewer frame than the source. Is that normal or am I doing something wrong?
-
-I used to have a pull-up resistor on the XVS pin. Do I still need that?
-
-I've got two cameras connected to the same Raspberry Pi. How do I set that up in config dot txt?
+Q: I'm using GS cameras and the recordings are different lengths. What's going on?
+A: The GS source records one extra frame, so specify one fewer frame for the sink.
 
 # Whole Document
 
-I've got two cameras and I want them to both capture at exactly the same moment. What are my options?
+Q: What even is XVS and why does it matter for syncing cameras?
+A: XVS is the Vertical Sync pin that generates a pulse when a frame capture starts.
 
-What's the difference between wired sync and software sync for cameras?
+Q: I want to sync my cameras. Which method should I use, wired or software?
+A: Software sync is recommended unless cameras are physically close, then wired sync works.
 
-I'm a total beginner with multiple cameras on a Pi. What's the easiest way to get them to shoot at the same time?
+Q: Does synchronous capture work with Global Shutter cameras or just HQ cameras?
+A: Both work, but for GS cameras an external trigger source is recommended instead.

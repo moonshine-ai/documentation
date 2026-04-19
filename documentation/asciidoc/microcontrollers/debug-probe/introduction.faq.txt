@@ -1,47 +1,42 @@
 # About the Debug Probe
 
-What even is the Raspberry Pi Debug Probe? Like what does it actually do?
+Q: What exactly is the Raspberry Pi Debug Probe, like what does it do?
+A: It's a USB device providing both a UART serial port and SWD interface.
 
-Does the Debug Probe need soldering or does it just plug right in?
+Q: Does the Debug Probe work on Windows and Mac, or just Linux?
+A: It works on Windows, macOS, and Linux platforms without issue.
 
-I've got a Pico but my computer doesn't have GPIO pins. How am I supposed to connect to it for debugging?
+Q: I've heard of CMSIS-DAP but I don't really know what it means. Does the Debug Probe support it?
+A: Yes, the Debug Probe is fully compatible with the CMSIS-DAP standard.
 
-Does the Debug Probe work on Windows, or is it just for Linux?
+Q: Does it work with OpenOCD?
+A: Yes, it works with OpenOCD and other tools supporting CMSIS-DAP.
 
-I've heard of SWD but I don't really know what it is. Do I need to understand it to use the Debug Probe?
-
-What's CMSIS-DAP? Is that something I need to install or is it built into the probe?
-
-Does the Debug Probe work with OpenOCD?
-
-Can I update the firmware on the Debug Probe if I need to?
+Q: Can I update the firmware on the Debug Probe if I need to?
+A: Yes, it has open source, easily upgradeable firmware.
 
 # The Debug Probe
 
-What voltage does the Debug Probe run at? I don't want to fry anything.
+Q: What voltage does the Debug Probe run at?
+A: The probe operates at 3.3V nominal I/O voltage.
 
-What cables come in the box with the Debug Probe?
+Q: What cables come in the box with the Debug Probe?
+A: You get a USB power cable and three different debug cables.
 
-I've got the Debug Probe and there are three cables. Which one do I use for what?
+Q: I've got the Debug Probe and I'm trying to figure out which wire is which. What do the colours mean?
+A: Orange is TX/SC output, black is GND, and yellow is RX/SD input.
 
-What do the wire colors mean on the header cables? Like which one is ground and which is TX?
+Q: I want to connect the Debug Probe to a breadboard. Which cable should I use?
+A: Use the JST-SH to 0.1-inch male header cable, intended for breadboards.
 
-I'm connecting the Debug Probe to a breadboard. Which cable should I use for that?
+Q: My target board is powered separately. Is there anything I should watch out for before connecting the Debug Probe?
+A: Connect GND first before any signal lines to avoid damaging the probe.
 
-My target board is powered from a separate USB cable. Is it safe to just plug in the Debug Probe signal wires?
+Q: The LEDs on my Debug Probe are off. Does that mean it's not working?
+A: If DAP LEDs are off, OpenOCD has disconnected; red LED should still indicate power.
 
-Wait, do I need to connect ground first before anything else? Could I damage the probe if I don't?
+Q: How many LEDs does the Debug Probe have and what do they do?
+A: It has five LEDs — one red power LED and four activity indicator LEDs.
 
-There are five LEDs on the Debug Probe. What do they all mean?
-
-The two DAP LEDs on my Debug Probe turned off. Does that mean something disconnected?
-
-I'm using OpenOCD and the DAP lights came on. Is that normal or is something wrong?
-
-# Whole Document
-
-I'm trying to debug a Pico from my Mac. What do I need to get started?
-
-So the Debug Probe does both UART and SWD? Can I use both at the same time?
-
-I've got an older Raspberry Pi board without that three-pin debug connector. Can I still use the Debug Probe with it?
+Q: The two DAP LEDs just turned on. What does that mean?
+A: OpenOCD switches both DAP LEDs on when the target is connected.

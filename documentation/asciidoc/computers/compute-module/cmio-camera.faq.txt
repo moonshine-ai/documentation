@@ -1,67 +1,139 @@
-# Whole Document
+# Attach a Camera Module
 
-- I want to hook up a camera to my Compute Module. Where do I even start?
-- I've got a Compute Module I/O board and a camera module. How do I get them talking to each other?
-- Can I connect two cameras to a Compute Module at the same time?
-- My Compute Module has CAM1 and CAM0 ports. What's the difference and which one should I use?
+Q: What are the two camera interfaces on the Compute Module called?
+A: The Compute Module has two CSI-2 camera interfaces called CAM1 and CAM0.
+
+Q: I want to hook up a camera to my Compute Module. What board do I need for that?
+A: You can connect cameras using a Compute Module I/O Board with CAM1 and CAM0 interfaces.
 
 # Update your system
 
-- Should I update my Pi before setting up the camera, or does it not matter?
-- How do I make sure my firmware is up to date before I start messing with the camera setup?
+Q: Do I need to update anything before I set up a camera on my Compute Module?
+A: Yes, update your firmware first by running sudo apt update and sudo apt full-upgrade.
+
+Q: What's the command to make sure my Pi firmware is up to date before setting up the camera?
+A: Run sudo apt update followed by sudo apt full-upgrade to update your system.
 
 # Connect one camera
 
-- I've got a single camera module and a Compute Module. Walk me through connecting them.
-- I have a CM4 and I'm connecting a camera. Do I need to mess with any jumpers?
-- I have an older Compute Module — like a CM3 — and I need to know which GPIO pins to connect with jumper cables for the camera.
-- I disabled the camera auto-detect thing in config.txt. Was that right, or did I break something?
-- Which config.txt line do I add for a v3 camera on a Compute Module?
-- I've got an HQ camera and I don't know what overlay to put in config.txt. What is it?
-- I just wired everything up and rebooted. How do I check if the Compute Module actually sees my camera?
-- Do I need to comment out `camera_auto_detect=1` in config.txt when setting this up, or can I leave it in?
-- I'm on a CM1 and I connected the camera, but do I need that `cm-swap-i2c0` overlay thing? What does it even do?
+Q: I've got a single camera and want to connect it to my Compute Module. Where do I plug it in?
+A: Connect the Camera Module to the CAM1 port using an RPI-CAMERA board or Zero camera cable.
+
+Q: Do I need to set jumpers on the CM5 when connecting a camera?
+A: Yes, on CM5 only, fit two jumpers on J6 per the board's written instructions.
+
+Q: Which GPIO pins do I need to connect with jumper cables for a camera on a CM4S?
+A: Connect GPIO 0 to CD1_SDA, 1 to CD1_SCL, 2 to CAM1_I01, and 3 to CAM1_I00.
+
+Q: I'm setting up a camera and there's a camera_auto_detect line in my config. Should I leave it?
+A: No, remove or comment out camera_auto_detect=1 and dtparam=i2c_arm=on from config.txt.
+
+Q: I've got a CM3 and I'm connecting a camera — do I need any special overlay in config.txt?
+A: Yes, add dtoverlay=cm-swap-i2c0 to accommodate the swapped GPIO pin assignment on the I/O board.
+
+Q: What do I put in config.txt for a v3 Raspberry Pi camera?
+A: Add dtoverlay=imx708 to /boot/firmware/config.txt for the v3 camera.
+
+Q: I've got the HQ camera. What's the directive I need in config.txt?
+A: Add dtoverlay=imx477 to /boot/firmware/config.txt for the HQ camera.
+
+Q: How do I check if my camera was detected properly after setting everything up?
+A: Run rpicam-hello --list to see a list of detected cameras.
+
+Q: What's the overlay for the GS camera in config.txt?
+A: Add dtoverlay=imx296 to /boot/firmware/config.txt for the GS camera.
+
+Q: I've got an older v1 camera module. What line do I add to config.txt?
+A: Add dtoverlay=ov5647 to /boot/firmware/config.txt for the v1 camera.
 
 # Connect two cameras
 
-- I've already got one camera working on CAM1. Now I want to add a second one on CAM0. What extra steps do I need to do?
-- I'm connecting a second camera to CAM0 on a CM4. Do I need to do the jumper thing on J6?
-- What's the overlay I need to add for a v2 camera on the CAM0 port specifically?
-- After connecting both cameras, how do I confirm they're both being detected?
+Q: Can I connect two cameras to my Compute Module at the same time?
+A: Yes, connect one camera to CAM1 and a second to CAM0 using an RPI-CAMERA board or Zero cable.
 
-# Software
+Q: I'm adding a second camera to my CM4. Do I need to do something with J6?
+A: Yes, on CM4 connect the J6 GPIO pins with two vertical-orientation jumpers.
 
-- What software do I use to actually take a photo with the camera on a Compute Module?
+Q: What GPIO pins do I wire up for the second camera on a CM3 plus?
+A: Connect GPIO 28 to CD0_SDA, 29 to CD0_SCL, 30 to CAM0_I01, and 31 to CAM0_I00.
 
-## Take a picture
+Q: What's the config.txt directive for a v2 camera connected to the CAM0 port?
+A: Add dtoverlay=imx219,cam0 to /boot/firmware/config.txt for a v2 camera on CAM0.
 
-- How do I take a photo from the command line on my Compute Module?
-- I want to take a picture and save it as a PNG. What's the command for that?
-- Can I set the resolution when I take a photo, or does it just use the default?
-- Is there a way to add a delay before it takes the picture?
+Q: How do I verify both cameras show up after connecting them?
+A: Run rpicam-hello --list and you should see both camera models in the output.
 
-## Take a video
+# Take a picture
 
-- How do I record a video from my camera using the terminal?
-- I want to record about ten seconds of video. What command do I use?
-- What format does the video get saved in by default?
+Q: What's the command to just snap a photo with my camera module?
+A: Run rpicam-still --datetime -e png to take a picture saved as a PNG file.
 
-## Specify which camera to use
+Q: Can I set the resolution when taking a photo from the command line?
+A: Yes, use the --width and --height options to specify image dimensions.
 
-- I've got two cameras connected. How do I tell my app which one to use?
-- How do I figure out which index number my cameras have?
-- I have an HQ camera and a v3 camera both connected. How do I switch between them?
+Q: I want to add a delay before the photo is taken. How do I do that?
+A: Use the -t option followed by a delay value in milliseconds.
+
+# Take a video
+
+Q: How do I record a video with my camera module from the terminal?
+A: Run rpicam-vid -t 10000 -o video.h264 to record a ten-second h264 video.
+
+Q: What format does rpicam-vid save videos in by default?
+A: Videos are saved using the h264 codec, as shown in the example output file video.h264.
+
+# Specify which camera to use
+
+Q: I've got two cameras connected. How do I tell my app which one to use?
+A: Use the --camera option with an index number, like rpicam-hello --camera 0 or --camera 1.
+
+Q: How do I find out what index number each of my cameras has?
+A: Run rpicam-hello --list-cameras to see each camera listed with its index number.
+
+Q: My Compute Module has two cameras. Which one gets used if I don't specify?
+A: By default libcamera uses the camera with index 0 in the --list-cameras list.
 
 # I2C mapping of GPIO pins
 
-- I'm using a CM3 I/O board and the camera isn't working. Something about I2C pins being swapped?
-- What does that `cm-swap-i2c0` overlay actually do? Why do I need it for older Compute Modules?
-- I'm using a third-party I/O board that's not the official one. How do I figure out the right I2C pin settings?
+Q: What GPIO pins does the CM4 I/O Board use for i2c-10?
+A: The CM4 I/O Board maps i2c-10 to GPIOs 44 and 45.
+
+Q: I'm using a CM3 I/O Board — which pins are mapped to i2c-0?
+A: On CM1, CM3, CM3+, and CM4S I/O Boards, i2c-0 is mapped to GPIOs 28 and 29.
+
+Q: Why do I need the cm-swap-i2c0 overlay for older Compute Modules?
+A: It accommodates the swapped GPIO pin assignment on CM1, CM3, CM3+, and CM4S I/O Boards.
+
+Q: I've got a custom board with a different pin layout for I2C. Is there a way to handle that?
+A: Yes, use alternate overrides like i2c0-gpio0 or i2c10-gpio44 depending on your board layout.
 
 # GPIO pins for shutdown
 
-- How does camera shutdown work on the Compute Module? Is there a specific pin for that?
-- I'm on a CM3 and I want to enable the camera regulator pins. How do I do that in config.txt?
-- Can I assign the camera regulator to a specific GPIO pin on my custom board?
-- I want CAM1's regulator on pin 42. What do I put in config.txt?
-- Does the regulator GPIO thing work with expander pins, or only pins directly on the chip?
+Q: How does camera shutdown work on the CM4 when I've got two cameras?
+A: The CM4 IO board provides one GPIO pin shared by both cameras as a single regulator.
+
+Q: I'm on a CM3 and the camera regulators seem disabled. Is that normal?
+A: Yes, CM1, CM3, CM3+, and CM4S I/O boards provide no GPIO pin for cam1_reg or cam0_reg by default.
+
+Q: How do I enable the camera regulators on a CM3 board?
+A: Add dtparam=cam1_reg and dtparam=cam0_reg to /boot/firmware/config.txt to enable them.
+
+Q: I want to assign the CAM1 regulator to a specific pin on my custom board. How do I do that?
+A: Add dtparam=cam1_reg_gpio=<pin number> to /boot/firmware/config.txt with your chosen pin.
+
+Q: Do these camera regulator GPIO directives work with expander pins?
+A: No, these directives only work for GPIO pins connected directly to the SoC.
+
+# Whole Document
+
+Q: I just got a Compute Module and want to use a camera. What software does Raspberry Pi OS include for that?
+A: Raspberry Pi OS includes the libcamera library to help you take images with your camera.
+
+Q: I've got a CM5 and a CM4 — do they need different steps when connecting cameras?
+A: Yes, CM5 needs jumpers on J6, while CM4 and older boards require specific GPIO jumper cable connections.
+
+Q: What cable do I need to connect a camera module to the Compute Module I/O Board?
+A: Use an RPI-CAMERA board or a Raspberry Pi Zero camera cable to connect the camera.
+
+Q: Do I need to reboot after changing config.txt for the camera settings?
+A: Yes, reboot your Compute Module with sudo reboot after editing config.txt.

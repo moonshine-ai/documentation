@@ -1,19 +1,25 @@
 # Remote access with Raspberry Pi Connect
 
-# Whole Document
+Q: I want to control my Pi from another computer. What's the easiest way to do that remotely?
+A: Use Raspberry Pi Connect to access your Pi from any browser.
 
-- I want to access my Raspberry Pi from another room using my laptop's browser. Is that actually possible?
-- What is Raspberry Pi Connect and what does it do?
-- Do I need to mess with my router settings or port forwarding to use Connect?
-- I don't know my Pi's IP address. Does that matter if I'm using Connect?
-- Does Connect work on all Raspberry Pi models or just certain ones?
-- I've heard you need Wayland for some features. What does that mean exactly?
-- Can I get a full desktop view of my Pi remotely, or just a terminal?
-- What's the difference between screen sharing and remote shell in Connect?
-- I just want to open a terminal on my Pi from my phone's browser. Can Connect do that?
-- So I don't need to set up VNC or SSH separately if I use Connect?
-- My Pi is running an older window server. Will I still be able to do anything remotely with Connect?
-- Does it cost anything to use Raspberry Pi Connect?
-- How do I get started with Connect? Do I need to install something first?
-- I want to show my Pi's desktop to someone else over the internet. Can Connect do that without a complicated setup?
-- Wait, if Connect handles everything automatically, what exactly do I not have to do compared to other remote access methods?
+Q: Do I need to mess with my router settings or firewall to access my Pi remotely?
+A: No, Connect handles configuration automatically without firewall or IP changes.
+
+Q: I don't know my Pi's IP address. Can I still access it remotely?
+A: Yes, Connect works without needing your Pi's local or public IP address.
+
+Q: Does Raspberry Pi Connect let me see the actual desktop, or just the terminal?
+A: It supports screen sharing on Wayland models and terminal access on all models.
+
+Q: I've got an older Pi model. Can I still use Raspberry Pi Connect for anything?
+A: Remote shell terminal access works on all Raspberry Pi models with Connect.
+
+Q: What's Raspberry Pi Connect actually do? Like, what's it for?
+A: It lets you access your Raspberry Pi remotely from a browser on another device.
+
+Q: My Pi uses Wayland. Does Connect give me full screen sharing or just command line?
+A: Wayland models get full screen sharing, plus remote shell terminal access too.
+
+Q: Where do I find out more about setting up Raspberry Pi Connect?
+A: Check the Connect documentation for full details and setup instructions.

@@ -1,17 +1,24 @@
 # SDK Setup
 
+Q: How do I get started with the C++ SDK for Pico? Is there a guide somewhere?
+A: There's a full getting started document available from Raspberry Pi's official docs.
+
+Q: I'm developing on a Raspberry Pi itself. Is there a quick way to set up the toolchain?
+A: Run the setup script from the command line to quickly set up the toolchain.
+
+Q: Where do I find that setup script for Pico development on a Raspberry Pi?
+A: It's available on GitHub under the raspberrypi pico-setup repository as pico_setup.sh.
+
+Q: Do I need to update my Raspberry Pi before running the setup script?
+A: Yes, make sure your Raspberry Pi OS is up to date before running it.
+
+Q: I haven't updated my Pi in a while. Does that matter before I run the Pico setup script?
+A: Yes, you should update your OS before running the Pico setup script.
+
 # Whole Document
 
-- I want to start coding for the Pico in C. Where do I even begin?
-- What's the quickest way to get the Pico SDK set up if I'm working on a Raspberry Pi?
-- I've got a Raspberry Pi and I want to program my Pico with it. How do I get everything installed?
-- Is there a setup script or do I have to install everything manually?
-- I'm totally new to this. Is there like a beginner guide for getting started with Pico development in C?
-- Do I need to update my Pi before running the setup script, or can I just run it straight away?
-- I haven't updated my Raspberry Pi in a while. Does that matter if I'm trying to set up the Pico SDK?
-- What happens if I run the setup script on an outdated version of Raspberry Pi OS? Will it break anything?
-- I don't want to read through a whole PDF. Can I just run a script and have everything set up for me?
-- I'm on a regular computer, not a Raspberry Pi. Can I still use this setup script or is it only for Pi?
-- Wait, there's a script that sets everything up automatically? How do I run it?
-- Where do I find the setup script for the Pico C SDK?
-- I've got my Raspberry Pi ready to go. What's the very first thing I should do to start developing for Pico?
+Q: I'm totally new to Pico. Where should I even start with the C++ SDK?
+A: Read the official getting started documentation for a full walk-through.
+
+Q: Can I set up Pico development directly on my Raspberry Pi, or do I need another computer?
+A: Yes, you can develop on a Raspberry Pi using the provided command-line setup script.

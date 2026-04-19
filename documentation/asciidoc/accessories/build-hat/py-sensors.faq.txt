@@ -1,37 +1,33 @@
 # Work with Sensors
 
-How do I connect a colour sensor to the Build HAT?
+Q: I've got a colour sensor and a force sensor — which ports do I plug them into on the Build HAT?
+A: Connect the colour sensor to port B and the force sensor to port C.
 
-I've got a colour sensor and a force sensor. Which ports do they go into?
+Q: Do I need an external power supply just to use sensors, or can I get away with a normal USB charger?
+A: No external supply needed for sensors — a standard USB power supply works fine.
 
-Do I need an external power supply if I'm just using sensors and no motors?
+Q: I pressed the force sensor but nothing showed up in Thonny. What's supposed to happen?
+A: The colour sensor LED turns on and the closest colour name prints in the REPL.
 
-I plugged in my colour sensor but nothing's happening in my Python code. What am I missing?
+Q: What's the best thing to hold in front of the colour sensor to test it?
+A: LEGO elements are described as ideal objects to use for testing.
 
-How do I make the colour sensor light turn on when I press the force sensor?
+Q: So the colour sensor just stays off until I press the force sensor? Is that right?
+A: Yes, pressing the force sensor turns the colour sensor on, releasing turns it off.
 
-What kind of objects work best for testing the colour sensor? Like what should I hold in front of it?
+Q: I'm confused — what does the `pause()` at the end of the script actually do?
+A: Not specified in this section.
 
-The colour sensor LED isn't switching on when I press the force sensor. What could be going wrong?
+Q: What library do I need to import to use the force and colour sensors in Python?
+A: You need to import ForceSensor and ColorSensor from the buildhat library.
 
-I'm trying to get the sensor to print a colour name but I keep getting errors. What does the basic setup code look like?
-
-What's `pause()` doing at the end of the program? Do I actually need that?
-
-My code runs but then immediately stops. How do I keep it running and waiting for button presses?
-
-How do I import the force sensor and colour sensor in Python?
-
-What does `when_pressed` actually do? Is it like an event listener or something?
-
-I want the colour sensor to turn off when I let go of the force sensor. How do I do that?
+Q: How does the code know when I press or let go of the force sensor?
+A: You assign functions to `when_pressed` and `when_released` on the ForceSensor object.
 
 # Whole Document
 
-What sensors are compatible with the Build HAT?
+Q: I'm just using sensors, no motors — do I really need that big external power brick?
+A: No, without motors you can just use a standard USB power supply for your Pi.
 
-I'm new to the Build HAT. Do I always need a power supply, or does it depend on what I'm doing?
-
-Can I use the Build HAT sensors without running motors at the same time?
-
-I've got a Build HAT but I'm not sure what sensors I can use with it. Where do I find that out?
+Q: I want to read sensor data from Python on my Build HAT. Where do I even start?
+A: Connect your sensors to the HAT ports and use the buildhat Python library to read them.

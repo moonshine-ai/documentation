@@ -1,16 +1,27 @@
-# Whole Document
-
-- How do I start using the Build HAT with Python?
-- I just got a Build HAT and I want to control it from Python. Where do I begin?
-
 # Install the Build HAT Python Library
 
-- How do I install the Build HAT Python library?
-- What's the command to get the Build HAT library set up?
-- I'm trying to use the Build HAT with Python but I don't have the library yet. How do I get it?
-- I'm running an older version of Raspberry Pi OS and the apt install isn't working. What do I do instead?
-- Does it matter which version of Raspberry Pi OS I have when installing this library?
-- I've got Bookworm on my Pi. Do I use apt or pip to install the Build HAT library?
-- Wait, why can't I just use apt on older versions? Do I have to use pip instead?
-- I keep seeing both apt and pip mentioned. Which one should I actually use for the Build HAT library?
-- Where can I find more info about what I can actually do with the Build HAT Python library once it's installed?
+Q: How do I install the Build HAT Python library on my Raspberry Pi?
+A: Open a terminal and run sudo apt install python3-build-hat to install it.
+
+Q: I'm running an older version of Raspberry Pi OS and the apt command isn't working for the Build HAT library. What do I do?
+A: On older systems, use sudo pip3 install buildhat to install the library instead.
+
+Q: Do I need to use pip or apt to install the Build HAT library? I'm confused about which one to use.
+A: Use apt on Bookworm or newer; use pip3 on older Raspberry Pi OS versions.
+
+Q: I want to learn more about the Build HAT Python library. Where can I find more info?
+A: Full documentation for the Build HAT Python library is available at buildhat.readthedocs.io.
+
+Q: Wait, what version of Raspberry Pi OS do I need to use apt for the Build HAT library?
+A: Bookworm and later versions support installing the library using apt.
+
+Q: I tried running the apt install command but it's saying the package isn't found. What's going on?
+A: Raspberry Pi OS versions before Bookworm don't support apt for this library; use pip3 instead.
+
+# Whole Document
+
+Q: I've never used the Build HAT before. What language does this guide use to control it?
+A: This guide covers controlling the Build HAT using the Python programming language.
+
+Q: Is there any documentation I can read about the Build HAT Python library beyond what's here?
+A: Yes, more information is available on ReadTheDocs at buildhat.readthedocs.io for the library.

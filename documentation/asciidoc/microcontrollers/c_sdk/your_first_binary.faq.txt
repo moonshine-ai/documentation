@@ -1,29 +1,44 @@
-# Whole Document
-
-- I just got my Pico, what's the first thing I should try doing with it?
-- What's the difference between the Pico and the Pico W when it comes to running these basic programs?
-- I've never used a microcontroller before. Where do I even start?
-
 # Blink an LED
 
-- How do I make the LED on my Pico blink?
-- Where's the LED on the Pico? Like, which pin is it connected to?
-- I've got a Pico W, not a regular Pico. Do I download a different file to make the LED blink?
-- What's a UF2 file? I keep seeing that term and I'm not sure what it means.
-- I dragged the file onto my Pico but nothing happened. Did I do something wrong?
-- My Pico isn't showing up as a drive when I plug it in. What am I missing?
-- Do I have to hold the BOOTSEL button the whole time I'm plugging it in or just at first?
-- Where's the BOOTSEL button on the Pico?
-- The LED isn't blinking after I copied the file over. What should I check?
-- Can I see the actual code for the blink program somewhere?
+Q: How do I make the LED on my Pico blink?
+A: Download the Blink UF2, hold BOOTSEL, plug in, then drag and drop.
+
+Q: Where's the LED actually connected on the Pico?
+A: The onboard LED is connected to GP25 on the RP2040 chip.
+
+Q: I've got a Pico W, is the LED in a different place than the regular Pico?
+A: Yes, Pico W's LED connects to WL_GPIO0 on the Infineon 43439 wireless chip.
+
+Q: My Pico isn't showing up when I plug it in. What button do I need to hold?
+A: Hold the BOOTSEL button while plugging into the USB port.
+
+Q: What's the drive called when my Pico mounts as storage?
+A: It mounts as a Mass Storage Device called RPI-RP2.
+
+Q: Where can I find the actual code behind the blink example?
+A: The blink code for both Pico and Pico W is available on GitHub.
 
 # Say "Hello World"
 
-- How do I get my Pico to print Hello World?
-- What's minicom and do I really need to install it just to see some text from my Pico?
-- I ran minicom but I'm not seeing anything printed. What's going wrong?
-- What does the dash b 115200 part mean in that minicom command?
-- My computer doesn't have a dev ttyACM0. How do I figure out what port my Pico is on?
-- Do I need to do the BOOTSEL button thing again for the Hello World program too?
-- I'm on Windows, not a Raspberry Pi. Can I still do the Hello World thing, and how would I open a serial connection?
-- Where can I find the source code for the Hello World example?
+Q: I want to see Hello World on my Pico. What do I need to do?
+A: Download the UF2, drag it onto RPI-RP2, then use minicom to read output.
+
+Q: What baud rate do I use when I'm connecting with minicom to my Pico?
+A: Use 115200 as the baud rate when connecting with minicom.
+
+Q: I don't have minicom installed. How do I get it?
+A: Run sudo apt install minicom to install it on your computer.
+
+Q: What device name do I use to connect to the Pico with minicom?
+A: Use /dev/ttyACM0 as the device when running minicom.
+
+# Whole Document
+
+Q: I just got a Pico. What are the first two things I should try?
+A: Blink the onboard LED, then print Hello World over USB serial.
+
+Q: Do I need to install any special software to copy programs onto my Pico?
+A: No, just drag and drop UF2 files onto the RPI-RP2 mass storage volume.
+
+Q: Is the setup process different for Pico versus Pico W?
+A: The process is the same, but you download a different Blink UF2 file.

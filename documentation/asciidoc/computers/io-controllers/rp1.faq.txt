@@ -1,51 +1,68 @@
 # Whole Document
 
-What's RP1? I keep seeing that term mentioned when reading about the Raspberry Pi 5.
+Q: What even is RP1? I keep seeing it mentioned but I don't really know what it does.
+A: RP1 is an in-house chip managing USB, Ethernet, GPIO, and storage interfaces.
 
-Is RP1 the same thing as the original Raspberry Pi? I've seen people get confused about that.
+Q: Is RP1 something I can buy separately for my own projects?
+A: No, RP1 isn't sold separately; it's built into Raspberry Pi 5 and Compute Module 5.
 
-So the Raspberry Pi 5 has two chips in it? What do they each do?
+Q: Wait, does RP1 stand for the original Raspberry Pi Model B or something?
+A: No, RP1 is not short for the first Raspberry Pi single-board computer.
 
-Why did Raspberry Pi build their own chip instead of just using something off the shelf?
+Q: Why did Raspberry Pi build their own chip instead of just using the main processor for everything?
+A: RP1 moves high-speed serial interfaces off the more expensive main processor node.
 
-Can I buy an RP1 chip on its own to use in my projects?
+# RP1 overview
 
-# RP1 Overview
+Q: How big is the RP1 chip physically?
+A: RP1 measures approximately 12 by 12 millimetres in a BGA package.
 
-How big is the RP1 chip and how does it connect to the main processor?
+Q: How does RP1 actually connect to the main processor on a Pi 5?
+A: RP1 connects to the BCM2712 main CPU over a PCIe 2.0 x4 link.
 
-So the Pi 5 uses two chips working together — what's the split between what each one handles?
+Q: So the Pi 5 uses two chips to handle everything? How does that work?
+A: The CPU handles core processing while RP1 manages peripherals, continuing a two-chip architecture.
 
-# Peripheral Interfaces
+# Peripheral interfaces
 
-What USB ports does the RP1 handle, and is it actually faster than the Pi 4?
+Q: Does RP1 give you more USB bandwidth than the Pi 4?
+A: Yes, RP1 provides more than twice the usable USB bandwidth compared to Raspberry Pi 4.
 
-I've got a camera and a display I want to connect to my Pi 5. Does RP1 handle both of those?
+Q: What USB ports does RP1 actually support?
+A: RP1 has two host controllers, each with one USB 3.0 and one USB 2.0 port.
 
-Does RP1 support GPIO? Like can I still do the normal pins stuff on a Pi 5?
+Q: Can RP1 handle camera and display connections at the same time?
+A: Yes, RP1 has two 4-lane MIPI transceivers supporting both DSI displays and CSI-2 cameras.
 
-What's the difference between MIPI DSI and CSI-2, and does RP1 support both?
+Q: Does RP1 support GPIO and stuff like I2C and SPI?
+A: Yes, RP1 includes GPIO, SPI, I2C, UART, PWM, and I2S as low-speed peripherals.
 
-Does the Pi 5 support eMMC storage? I see there are two SDIO interfaces but it says they're not used?
+# Internal features
 
-# Internal Features
+Q: Does RP1 have its own processors inside it or something?
+A: Yes, RP1 integrates two Cortex M3 processors with tightly-coupled memories.
 
-What processors are inside RP1 itself? Like does it have its own little brain?
+Q: What kind of memory does RP1 have built in?
+A: RP1 includes 64 kilobytes of shared SRAM.
 
-What's a DMA controller and why does RP1 have one built in?
+Q: Does RP1 have a temperature sensor or anything like that built in?
+A: Yes, RP1 includes a 12-bit ADC with a built-in temperature sensor.
 
-Does RP1 have any memory of its own?
+# Multimedia and audio components
 
-# Multimedia and Audio Components
+Q: Can the Pi 5 output composite video through RP1?
+A: Yes, but only one composite channel of the 3-channel video DAC is used on Pi 5.
 
-Can the Pi 5 output composite video? Like the old yellow RCA connector kind?
+Q: Does RP1 support microphone input or just audio output?
+A: RP1 includes a PDM microphone clock generator and stereo bitstream input.
 
-Does RP1 do audio on its own or do I need an external sound card?
+Q: I want to connect a display directly to GPIO pins. Does RP1 support that?
+A: Yes, RP1 includes a DPI video frame generator for displays connected to GPIO pins.
 
-What's a PDM microphone and does the Pi 5 support plugging one in directly?
+Q: Can RP1 do audio without needing an extra chip or codec?
+A: Yes, RP1 supports simple audio generation without external codecs using delta-sigma PWM audio out.
 
-Can I connect a display through the GPIO pins instead of HDMI? How does that work?
+# RP1 naming
 
-# RP1 Naming
-
-Why is it called RP1? Does the number mean anything?
+Q: Why is it called RP1? What does the name actually mean?
+A: RP stands for Raspberry Pi, and the number refers to its first-generation I/O controller chip.

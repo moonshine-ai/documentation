@@ -1,29 +1,52 @@
+# Global Shutter Camera
+
+Q: What's the resolution on the Global Shutter Camera?
+A: It captures at 1456 by 1088 pixels, totalling 1.6 megapixels.
+
+Q: What sensor does the Global Shutter Camera use?
+A: It's built around the Sony IMX296 image sensor.
+
+Q: Can I use different lenses with the Global Shutter Camera?
+A: Yes, it has a C/CS-mount for compatibility with a broad variety of lenses.
+
+Q: I've got multiple cameras and want them all to shoot at exactly the same time. Can I do that?
+A: Yes, pulse the external trigger connection to synchronise multiple Global Shutter Cameras.
+
 # Rolling or Global shutter?
 
-- I keep getting this weird wobbly distortion when I photograph spinning things. What's causing that?
-- What's the difference between a rolling shutter and a global shutter? Like, in plain English?
-- I'm trying to photograph drone propellers and they look all warped. Is there a camera that fixes that?
-- Why does my camera make fast-moving things look distorted? Is that normal?
-- I want to sync two cameras to take a photo at exactly the same moment. Can the global shutter camera do that?
-- How fast can the global shutter camera's exposure time go? Like what's the shortest it can handle?
-- I'm doing stereo imaging with two cameras and the images don't quite line up right. Could the shutter type be causing that?
-- What makes the global shutter camera good for machine vision stuff?
+Q: What's a rolling shutter and why is it a problem?
+A: Rolling shutters scan line-by-line, causing distortion with fast-moving subjects like propellers.
+
+Q: I'm trying to photograph a spinning propeller and it looks all wavy. What's going on?
+A: Rolling shutters cause distortion because blades move during the line-by-line scanning process.
+
+Q: So why would I actually want a global shutter over a regular camera?
+A: Global shutter captures all pixels at once, eliminating distortion for fast-moving subjects.
+
+Q: How fast can the exposure time get on the Global Shutter Camera?
+A: It can go down to 30 microseconds exposure time, given sufficient available light.
+
+Q: I'm doing stereo imaging with two cameras. Why does the global shutter matter there?
+A: Synchronised capture prevents brain-confusing mismatches between left and right eye images.
+
+Q: Is the Global Shutter Camera good for machine vision stuff?
+A: Yes, its lower resolution and large pixels make real-time image processing much easier.
+
+Q: Why does the Global Shutter Camera have fewer pixels than other cameras? Isn't more always better?
+A: More pixels are harder to process in real time, making lower resolution valuable for machine vision.
 
 # Transmission characteristics
 
-- Does the global shutter camera pick up infrared light?
-- What IR filter does the global shutter camera use?
-- Can I remove the IR filter to get better infrared sensitivity?
-- If I take off the IR filter, can I put it back later or is that permanent?
-- Will removing the IR filter void my warranty?
+Q: Does the Global Shutter Camera have an infrared filter?
+A: Yes, it uses a Hoya CM500 infrared filter.
+
+Q: Can I remove the infrared filter to make it more sensitive to IR light?
+A: Yes, but removal is permanent and voids your warranty.
 
 # Whole Document
 
-- What resolution does the global shutter camera shoot at?
-- What kind of lens mount does the global shutter camera use? Can I use my own lenses with it?
-- I want to trigger multiple cameras at the same time. Can I do that with the global shutter camera?
-- What sensor does the global shutter camera use?
-- How does the global shutter camera's sensor size compare to the HQ camera?
-- I'm new to this — what even is a global shutter and do I need one?
-- Is the global shutter camera good for action shots or sports photography?
-- Why does the global shutter camera have lower resolution than some other cameras? Is that a problem?
+Q: What's the difference between the Global Shutter Camera and the other Raspberry Pi camera modules?
+A: It captures all pixels simultaneously instead of scanning line-by-line like rolling shutter cameras.
+
+Q: Is the Global Shutter Camera sensor similar in size to the HQ Camera?
+A: Yes, both have roughly a 6.3 millimetre diagonal active sensing area.

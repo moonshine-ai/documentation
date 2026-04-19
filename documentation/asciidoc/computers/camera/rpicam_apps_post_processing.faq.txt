@@ -1,75 +1,81 @@
 # Post-processing with `rpicam-apps`
 
-What even is post-processing in rpicam-apps? Like what does it actually do to my photos?
+Q: What's post-processing in rpicam-apps and do I actually need it?
+A: It passes camera images through custom processing and analysis stages you configure.
 
-How do I apply a post-processing effect to my camera? Do I just add a flag or something?
+Q: How do I tell rpicam-hello to use a post-processing stage?
+A: Pass a JSON file to the `--post-process-file` option when running the command.
 
-I've got a JSON file for post-processing but I'm not sure how to actually use it with rpicam-hello. What's the command?
+Q: Where can I find example JSON files for the built-in post-processing stages?
+A: They're in the assets folder of the rpicam-apps repository on GitHub.
 
-Can I run more than one post-processing effect at the same time, or is it just one at a time?
+Q: I want to run two post-processing stages one after the other. Can I do that?
+A: Yes, put multiple stages as top-level keys in a single JSON file.
 
-I want to chain a couple of image filters together. Do I put them all in the same JSON file or separate ones?
+Q: Do post-processing stages only change the image, or can they do other stuff too?
+A: Some alter the image, others analyse it and generate metadata passed to other stages.
 
-Where can I find example JSON files for these post-processing stages?
+Q: I heard OpenCV stages don't work on the default Raspberry Pi OS install. Is that true?
+A: Yes, OpenCV and TensorFlow Lite stages are disabled unless you recompile rpicam-apps yourself.
 
-So some stages change the image and some just analyse it — what does "analyse it" actually mean? What does it do with that information?
+Q: I'm on a Pi 3 running 32-bit and want to recompile rpicam-apps. Is there anything special I should do?
+A: Compile with `-DENABLE_COMPILE_FLAGS_FOR_TARGET=armv8-neon` to speed up certain stages.
 
-Why does image analysis use a lower resolution? Is that just to make it faster?
+# `negate` stage
 
-I don't have OpenCV on my Pi. Do I need to install it to use any of these post-processing stages?
+Q: What does the negate stage actually do to my photo?
+A: It flips light pixels to dark and dark pixels to light, inverting the image.
 
-I'm on a Pi 3 running 32-bit. Is there anything special I need to do when compiling rpicam-apps to make post-processing faster?
+Q: Can I tweak any settings on the negate stage?
+A: No, the negate stage has no user-configurable parameters at all.
 
-# Built-in stages
+Q: What's the simplest way to test the negate stage?
+A: Run `rpicam-hello --post-process-file negate.json` with the default negate JSON file.
 
-## `negate` stage
+# `hdr` stage
 
-What does the negate stage actually do to my image?
+Q: What's the difference between HDR and DRC in that hdr stage?
+A: DRC uses a single frame while HDR combines multiple frames for a similar result.
 
-Are there any settings I can tweak for the negate stage?
+Q: How long does HDR processing take on a Pi 4?
+A: Between two and three seconds for a 12 megapixel image on a Raspberry Pi 4.
 
-How do I use the negate filter with rpicam-hello?
+Q: I want stronger or weaker HDR processing. What settings should I change?
+A: Adjust `global_tonemap_strength` and `local_tonemap_strength` to control processing strength.
 
-## `hdr` stage
+Q: If I'm doing HDR with multiple frames, does the app see every frame or just the final result?
+A: The stage sends only the final processed image to the application, not individual frames.
 
-What's the difference between HDR and DRC? I keep seeing both mentioned.
+Q: How many frames does the default HDR setup use?
+A: The default HDR configuration accumulates eight frames.
 
-I want to make my photos look better in high contrast situations — should I use HDR or DRC?
+# `motion_detect` stage
 
-How many frames does HDR combine by default, and can I change that?
+Q: Does motion detection need OpenCV or any other library installed?
+A: No, the motion detect stage has no dependencies on third-party libraries.
 
-My HDR processing is too strong and the image looks weird. What settings should I dial back?
+Q: My motion detection is triggering way too easily. What should I tweak?
+A: Adjust the `difference_m`, `difference_c`, and `region_threshold` parameters to reduce sensitivity.
 
-How long does HDR processing actually take on a Pi 4? It feels really slow.
+Q: How do I set up the region of interest for motion detection?
+A: Set `roi_x`, `roi_y`, `roi_width`, and `roi_height` as proportions between zero and one.
 
-When I'm using HDR mode and it's collecting multiple frames, does it show me each frame or just the final result?
+Q: Can I get some console output to see when motion is actually detected?
+A: Yes, set the `verbose` parameter to print messages including when motion status changes.
 
-How do I use DRC when taking a still photo?
+Q: I want motion detection to run faster. Any tips?
+A: Use the `hskip` and `vskip` parameters to subsample pixels and improve performance.
 
-## `motion_detect` stage
-
-I want to detect motion with my Pi camera. How do I set that up?
-
-Does the motion detect stage need any extra libraries installed, like OpenCV?
-
-How does the motion detector actually decide if something moved? Like what's it comparing?
-
-I want to only detect motion in part of the frame, not the whole image. Can I do that?
-
-My motion detection is going off too easily — every tiny thing triggers it. How do I make it less sensitive?
-
-How do I use the motion detect stage and what size should I set the low-res stream to?
-
-What's the `verbose` option in motion detect do? Will it tell me when something moves?
-
-How do I speed up motion detection if it's running too slow on my Pi?
+Q: What command do I run to try out motion detection?
+A: Run `rpicam-hello --lores-width 128 --lores-height 96 --post-process-file motion_detect.json`.
 
 # Whole Document
 
-What's a post-processing stage? I keep seeing that term and I'm not totally sure what it means.
+Q: Do I write my own code for post-processing or is there a simpler way?
+A: You supply a JSON file naming which built-in stages and options to apply; no coding needed.
 
-I just want to experiment with some camera effects on my Pi. Where do I even start with post-processing?
+Q: Why does image analysis use a lower resolution feed instead of the full image?
+A: Reduced resolution improves performance; rpicam-apps provides a dedicated low-res ISP feed.
 
-Do these post-processing things work with video, or just photos?
-
-Can post-processing stages talk to each other, like pass information between them?
+Q: I combined Sobel and negate stages. What does that actually look like?
+A: Sobel produces bright edges on black, then negate flips it to dark edges on white.

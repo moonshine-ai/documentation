@@ -1,58 +1,88 @@
-# Whole Document
+# USB mass storage boot
 
-- My Pi's not booting from USB. Where do I even start troubleshooting that?
-- Which Raspberry Pi models can actually boot from a USB drive?
-- I want to run my Pi off a USB flash drive instead of an SD card. Is that something I can do?
-- Does the Zero support USB boot?
+Q: Can I boot my Raspberry Pi from a USB flash drive?
+A: Yes, USB mass storage boot supports flash drives and USB disks.
 
-# Devices with an EEPROM Bootloader
+Q: I've got a USB hard disk plugged in and my Pi won't boot reliably. What's going on?
+A: Hard disks typically need a powered USB hub due to power requirements.
 
-- I've got a Pi 4 and I want to boot from USB. Do I need to change any settings or does it just work?
-- I just got a Compute Module 4 and USB boot isn't working. Do I need to update something first?
-- Where do I set the boot order on a Pi 4?
+Q: Which Raspberry Pi models can actually boot from USB?
+A: Flagship series since Pi 2B v1.2, Zero 2 W, and Compute Module 3 and newer.
+
+# Devices with an EEPROM bootloader
+
+Q: I've got a Pi 4. Do I need to do anything special to boot from USB?
+A: Specify USB boot in the BOOT_ORDER config; early editions may need a bootloader update.
+
+Q: Does the Compute Module 4 support USB boot out of the box?
+A: Yes, but early editions of Compute Module 4 may need a bootloader update first.
 
 # Raspberry Pi 3B+, Zero 2 W
 
-- Does the 3B+ need any special setup to boot from USB or does it just work out of the box?
-- My Zero 2 W boots from USB fine, but can it also do network boot?
+Q: Does the Zero 2 W support USB boot without any extra setup?
+A: Yes, the Zero 2 W supports USB mass storage boot straight out of the box.
+
+Q: Can my Zero 2 W boot over the network instead of USB?
+A: No, Raspberry Pi Zero 2 W doesn't support network boot.
 
 # Raspberry Pi 2B, 3A+, 3B, CM3, CM3+
 
-- I've got an older Pi 3B and I want to boot from USB. What do I need to do first?
-- What's OTP memory? Do I need to mess with it to get USB boot working on my Pi 3?
-- I heard you have to enable something in config.txt to get USB boot on the Pi 3B. What exactly do I need to add?
+Q: I've got a Pi 3B and I want to boot from USB. What do I need to do first?
+A: You must enable USB host boot mode by setting the USB host bit in OTP memory.
 
-# Enable USB Host Boot Mode with OTP
+Q: Does enabling USB host boot on a 3A+ also let me do network boot?
+A: No, Raspberry Pi 3A+ doesn't support network boot.
 
-- Wait, so if I enable USB boot mode on my 3A+ it'll break something permanently? What exactly breaks?
-- I set the OTP bit but I'm not sure it worked. How do I check if it actually got programmed correctly?
-- I tried programming the OTP and the output doesn't match what it's supposed to be. What should I try?
-- Is there any way to undo the OTP change if I make a mistake?
+# Enable USB host boot mode with OTP
 
-# Boot from USB Mass Storage
+Q: How do I actually turn on USB host boot mode on my Pi 3B?
+A: Add program_usb_boot_mode=1 to config.txt, then reboot with sudo reboot.
 
-- Okay so I've got my Pi set up for USB boot. How do I actually get the OS onto the USB drive?
-- My Pi keeps booting from the SD card even though I want it to boot from USB. What am I doing wrong?
-- How long should it take before I see something on screen when booting from USB?
+Q: Wait, is this OTP thing permanent? Can I undo it if something goes wrong?
+A: Yes, OTP changes are permanent and cannot be undone.
 
-# Known Issues
+Q: I enabled USB boot on my 3A+ but now something seems broken. What happened?
+A: Setting the OTP bit on a 3A+ permanently prevents it from booting in USB device mode.
 
-- My USB drive takes a while to spin up and the Pi gives up before it's ready. Is there a way to make it wait longer?
-- My USB drive just won't boot the Pi even though it seems fine otherwise. Could the drive itself be the problem?
+Q: How do I check if the OTP was programmed correctly after I rebooted?
+A: Run vcgencmd otp_dump and grep for 17:; look for the output 17:3020000a.
 
-# Special bootcode.bin-only Boot Mode
+# Boot from USB mass storage
 
-- What if my USB device just won't boot my Pi no matter what I try? Is there another way to make this work?
-- What does bootcode.bin-only mode actually mean? Like where does the OS live in that setup?
+Q: Do I flash the USB drive the same way I'd flash an SD card?
+A: Yes, the procedure is identical — flash the USB drive with your OS image.
 
-# Hardware Compatibility
+Q: My Pi keeps booting from the SD card instead of USB. What's wrong?
+A: Remove the SD card; if one's inserted, the Pi will boot from that first.
 
-- I've got a USB hard drive and I'm not sure if it'll work for booting. How do I check before I commit to it?
-- My Pi seems to boot from USB sometimes but then randomly fails. What's probably causing that?
-- What's a UAS mode and why would it cause problems with USB booting?
-- Do I need a powered USB hub for a hard drive? Can't I just plug it straight in?
+Q: How long does it take for the Pi to start booting from USB after I power it on?
+A: After five to ten seconds it should boot and show the rainbow splash screen.
 
-# Multiple Bootable Drives
+# Known issues
 
-- I've got two USB drives plugged in and I want to make sure it boots from a specific one. Can I set that up?
-- How does the Pi decide which USB drive to boot from if I've got more than one plugged in?
+Q: My USB drive takes a while to spin up and the Pi won't boot from it. Is there a fix?
+A: You can extend the timeout to five seconds by adding a file called timeout to the SD card.
+
+Q: Why won't my Pi boot from certain flash drives even though they work fine otherwise?
+A: Some flash drives have specific protocol requirements the bootcode doesn't handle, causing incompatibility.
+
+# Special `bootcode.bin`-only boot mode
+
+Q: There's a USB device that just won't work for booting my Pi 3B. Is there any workaround?
+A: Try bootcode.bin-only mode; Pi boots from SD card but runs the rest of the OS from USB.
+
+# Hardware compatibility
+
+Q: How do I know if my USB drive will actually work before I try booting from it?
+A: Boot from an SD card first and check that the USB drive appears as a removable drive.
+
+Q: I've got a USB SATA adapter. Will that work for booting?
+A: It may work in mass storage mode but could fail if Linux selects USB Attached SCSI-UAS mode.
+
+# Multiple bootable drives
+
+Q: I've got two USB drives plugged in. How does the Pi decide which one to boot from?
+A: The bootloader scans all USB devices in parallel and selects the first one to respond.
+
+Q: Can I tell the Pi which USB drive to boot from based on which port it's plugged into?
+A: No, there's no method for specifying the boot device according to USB topology.

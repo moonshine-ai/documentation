@@ -1,63 +1,101 @@
-# Whole Document
-
-- I just got my Raspberry Pi and I have no idea where to start. What do I need to get it up and running?
-- Do I need another computer to set up my Raspberry Pi?
-- What's the best way to install an OS on a Raspberry Pi for a beginner?
-
 # Install an operating system
 
-- What does my Raspberry Pi actually boot from?
-- Can I boot my Pi from something other than an SD card?
-- I don't have an SD card — can I use a USB drive instead?
+Q: I just got my Raspberry Pi. What do I actually need to get it running?
+A: You need an operating system installed on a storage device like a microSD card.
+
+Q: Can I boot my Pi from something other than an SD card?
+A: Yes, you can boot from USB drives, HAT-connected storage, or network storage.
+
+Q: I don't have another computer to set up my Pi. Am I stuck?
+A: No, you can install an OS directly on your Raspberry Pi from the internet.
 
 # Install using Imager
 
-- What even is Raspberry Pi Imager? Do I need it?
-- Does Raspberry Pi Imager work on Mac and Windows or just Linux?
-- I downloaded an Ubuntu image myself — can I use that with Imager or does it only work with official Raspberry Pi images?
-- What file types does Imager support? Like can I use a zip file?
+Q: What even is Raspberry Pi Imager and do I need it?
+A: It's a tool that downloads and writes OS images to your storage device.
 
-# Step 1. Install and launch Imager
+Q: Does Imager work on my Mac or is it just for Windows?
+A: Imager is available on macOS, Windows, and Linux.
 
-- How do I get Raspberry Pi Imager on my Windows computer?
-- I'm already running Raspberry Pi OS — can I install Imager without going to the website?
-- I'm on Linux but not Raspberry Pi OS. How do I install Imager?
+Q: I already downloaded an Ubuntu image. Can Imager use that?
+A: Yes, Imager supports images from third-party vendors like Ubuntu.
 
-# Step 2. Configure the fundamentals
+Q: What file types does Imager actually support?
+A: Imager supports `.img` format and container formats like `.zip` or `.xz`.
 
-- Walk me through the basic steps of setting up Imager for the first time.
-- I connected my SD card and I'm not sure which storage device to pick in Imager. How do I make sure I don't accidentally wipe the wrong drive?
-- I've got my own OS image I downloaded. How do I use that in Imager instead of one of the built-in ones?
+Q: How do I get Imager onto my Linux machine that isn't a Raspberry Pi?
+A: Download the AppImage from the Raspberry Pi website and make it executable.
 
-# Step 3. Customise your operating system
+Q: I'm on Raspberry Pi OS already. How do I install Imager?
+A: Run `sudo apt install rpi-imager` in the terminal.
 
-- Can I set up my Wi-Fi and password before I even boot the Pi for the first time?
-- What happens if I skip all the customisation stuff in Imager?
-- I want to be able to SSH into my Pi right away without plugging in a monitor. What do I need to set up in Imager?
-- Can I set a hostname for my Pi in Imager, and what's that even used for?
-- My network doesn't broadcast its name publicly. Can I still connect my Pi to it through Imager?
-- I want to use SSH keys instead of a password to log in to my Pi. Can I set that up in Imager?
-- What's Raspberry Pi Connect and do I need it?
-- How do I link my Pi to my Raspberry Pi Connect account when I'm setting it up?
-- I'm trying to set up Raspberry Pi Connect in Imager but the token expired before I booted my Pi. What do I do?
+Q: When I open Imager, what's the first thing I need to do?
+A: Select your Raspberry Pi model from the Device tab, then hit Next.
 
-# Step 4. Set the Imager options
+Q: I've got my own OS image I downloaded. Can I use that instead of the built-in ones?
+A: Yes, select the "Use Custom" option in the OS tab.
 
-- Can I make Imager play a sound when it's done writing?
-- Is Imager sending any data about me back to Raspberry Pi?
+Q: I've got multiple USB drives plugged in. How do I know I'm writing to the right one?
+A: Identify devices by size and disconnect others if unsure; Imager warns about system drives.
 
-# Step 5. Write the image to the storage device
+Q: Do I have to do all that customization stuff in Imager or can I skip it?
+A: It's optional; you can skip it, but setup is strongly recommended before first boot.
 
-- How long does it take for Imager to write the image to an SD card?
-- Do I have to wait for Imager to verify the image or can I skip that?
-- Imager finished but I'm not sure if it worked. Does it tell you if something went wrong?
+Q: What can I actually set up in Imager before my Pi even boots?
+A: You can set hostname, time zone, keyboard, username, password, Wi-Fi, SSH, and Raspberry Pi Connect.
+
+Q: If I skip the customization in Imager, what happens when I first boot up?
+A: Your OS will ask for the same configuration information during the first-boot wizard.
+
+Q: My Pi's going to be headless with no screen. What should I make sure to set up in Imager?
+A: Enable SSH or configure Raspberry Pi Connect so you can access it remotely.
+
+Q: I want to use SSH keys instead of a password to log in. Can I set that up in Imager?
+A: Yes, choose public key authentication and provide your public key in Imager.
+
+Q: Imager pre-filled my Wi-Fi details. Where did it get that from?
+A: On first use, Imager pre-fills the SSID and password of your currently connected network.
+
+Q: My Wi-Fi network doesn't show up publicly. Is there a hidden network option?
+A: Yes, enable the Hidden SSID setting in the Wi-Fi customization tab.
+
+Q: What's the Raspberry Pi Connect tab in Imager for?
+A: It links your device to your Raspberry Pi Connect account for remote access.
+
+Q: The auth key thing in Raspberry Pi Connect — does it last forever?
+A: No, it's a single-use temporary token that expires after a set time.
+
+Q: Can I make Imager play a sound when it's done writing?
+A: Yes, you can enable an alert sound in the App Options dialog.
+
+Q: Does Imager send any data back to Raspberry Pi about my setup?
+A: It can send anonymous telemetry, but you can turn that off in App Options.
+
+Q: How long does it take to write the image?
+A: It can take a few minutes; Imager also verifies the image after writing.
+
+Q: Do I have to let Imager verify the image or can I skip that?
+A: Verification is recommended but you can select Skip verification to cancel it.
+
+Q: What do I do after Imager says it's done?
+A: Select Finish to exit Imager, then proceed to set up your Raspberry Pi.
 
 # Install over the network
 
-- I don't have another computer at all — can I still install an OS on my Pi somehow?
-- What is Network Install and how does it work?
-- Does Network Install work on all Raspberry Pi models?
-- My Pi is older — will Network Install work on it?
-- How do I actually start the Network Install process on my Pi?
-- Do I need Wi-Fi for Network Install or does it have to be a wired connection?
-- What happens if the download fails during Network Install?
+Q: Wait, I can install an OS without any other computer at all?
+A: Yes, Network Install lets your Raspberry Pi download and run Imager over the network.
+
+Q: Does network install work on any Pi or just certain models?
+A: It only works on Flagship models since Raspberry Pi 4B and Keyboard models.
+
+Q: My Pi isn't picking up Network Install. Could my bootloader be too old?
+A: Yes, older bootloaders may need updating before Network Install will work.
+
+Q: What do I actually need to use network install?
+A: You need a compatible Pi, a monitor, a keyboard, and a wired internet connection.
+
+Q: How do I actually start the network install process?
+A: Power on your Pi while holding the SHIFT key with no bootable storage attached.
+
+Q: Can I use network install to put the OS on a USB drive instead of an SD card?
+A: Yes, Network Install works on any compatible storage including SD cards and USB storage.

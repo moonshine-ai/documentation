@@ -1,50 +1,147 @@
-# Whole Document
+# Unicam
 
-- What's Unicam? I keep seeing that word in the Pi camera docs.
-- I've got a Raspberry Pi 5 and I'm trying to hook up two cameras. Is that actually possible?
-- What's the difference between a regular Pi and a Compute Module when it comes to camera connections?
-- I want to connect a non-standard camera to my Pi. Where do I even start?
-- Do I need special software to use the camera interface on a Pi?
+Q: What are the two camera interfaces on Raspberry Pi SoCs called?
+A: They're called Unicam and support CSI-2 D-PHY or Compact Camera Port two sources.
+
+Q: How fast can each Unicam data lane run?
+A: Each lane runs up to one gigabit per second, with max link frequency of 500 MHz.
+
+Q: My Pi's camera connector only has two lanes. Is that normal?
+A: Yes, non-Compute-Module Pis before Pi 5 only expose two lanes on the camera connector.
+
+Q: Does the Raspberry Pi 5 give you access to all the camera lanes?
+A: Yes, Raspberry Pi 5 and Compute Modules route out all lanes from both peripherals.
 
 # Software interfaces
 
-- I heard there used to be other ways to talk to the camera hardware. Are those still supported?
-- Do I need libcamera installed to use V4L2 with the camera? Or can I skip that?
-- What kernel module handles the camera on a Raspberry Pi?
-- So the Pi just dumps raw camera frames into memory with no processing? Is that right?
-- I've got a Sony IMX477 — is that the HQ camera? Will it work with a regular Pi?
-- What cameras work out of the box with a Raspberry Pi?
-- I want to connect an HDMI source to my Pi's camera port. Is there a chip or adapter that does that?
-- Can I connect an analog video source, like an old composite camera, to my Raspberry Pi?
+Q: What software interface do I use to talk to the Unicam camera interface?
+A: V4L2 is the only supported software interface for communicating with Unicam now.
+
+Q: I heard there used to be firmware interfaces for Unicam. Can I still use those?
+A: No, the firmware and MMAL rawcam interfaces are no longer supported.
+
+# V4L2
+
+Q: Do I need libcamera to use Unicam with V4L2?
+A: Yes, the V4L2 interface for Unicam is only available when using libcamera.
+
+Q: What's the kernel module called that handles Unicam?
+A: The kernel module is called bcm2835-unicam and it interfaces with V4L2 subdevice drivers.
+
+Q: Does the Pi do any image processing on camera frames before they hit memory?
+A: No processing happens except Bayer unpacking to 16 bits per pixel before SDRAM.
+
+Q: What cameras are officially supported by the Raspberry Pi kernel?
+A: Supported cameras include OV5647, IMX219, IMX477, IMX708, and IMX296 modules.
+
+Q: Is there a way to connect an HDMI source to the Pi's camera interface?
+A: Yes, the Toshiba TC358743 is a supported HDMI to CSI-2 bridge chip for that.
+
+Q: Can I use analog video as a camera input on my Raspberry Pi?
+A: Yes, the Analog Devices ADV728x-M converts analog video to CSI-2 for Raspberry Pi.
 
 # Write a third-party driver
 
-- I've got a camera that's not on the supported list. Can I write my own driver for it?
-- Do I have to share the source code if I write a kernel driver for my Pi camera? Or can I keep it private?
-- I want to write a driver for a new camera sensor. What's a good existing driver to base it on?
-- What controls does a typical camera sensor driver need to support? Like exposure and gain and stuff?
-- How does the driver actually flip the image horizontally or vertically? Is there a control for that?
-- I want to output a test pattern from my camera sensor for debugging. Is there a way to do that?
-- Where do I find the Device Tree overlay for the IMX219 camera?
-- What parameters do I need to set in Device Tree for a camera sensor?
+Q: I want to write my own driver for a camera. Where should I start?
+A: Write a driver and device tree overlay, ideally submitting it to the linux-media mailing list.
+
+Q: Can I just ship a compiled binary kernel module without sharing my source code?
+A: No, all kernel drivers must be GPLv2 licensed, so source code must be available.
+
+Q: What kinds of CSI-2 source drivers does bcm2835-unicam support?
+A: It accommodates camera sensors and bridge chips found in mainline Linux kernel.
+
+# Camera sensors
+
+Q: I need to write a camera sensor driver. What's a good example to start from?
+A: The IMX219 driver is a good starting point, supporting both 8-bit and 10-bit Bayer readout.
+
+Q: What controls does the IMX219 driver actually implement for things like exposure and gain?
+A: It implements pixel rate, vblank, hblank, exposure, analog gain, digital gain, and flip controls.
+
+Q: How do I set the frame rate in a camera sensor driver?
+A: Use V4L2_CID_PIXEL_RATE, V4L2_CID_VBLANK, and V4L2_CID_HBLANK controls to set frame rate.
+
+Q: Can I flip the camera image horizontally or vertically through the driver?
+A: Yes, V4L2_CID_HFLIP and V4L2_CID_VFLIP controls flip the image; this may change Bayer order.
+
+Q: I'm trying to debug my camera. Is there a way to get the sensor to output a test pattern?
+A: Yes, use V4L2_CID_TEST_PATTERN controls to enable various test patterns from the sensor.
+
+# Device Tree
+
+Q: What does Device Tree actually configure for a camera sensor?
+A: Device Tree selects the sensor driver and configures CSI-2 lanes, clock operation, and link frequency.
 
 # Bridge chips
 
-- I want to capture HDMI video on my Pi. What hardware do I need for that?
-- What's the difference between how you handle an analog video source versus a digital one like HDMI?
-- I'm getting corrupted images from my analog video bridge. What might cause that?
-- How do I make sure the video format is set correctly before I start streaming from an HDMI bridge?
-- Can my Pi automatically detect when the HDMI input source changes?
-- I've got an ADV7282-M chip. How do I load the driver for that?
-- I want to capture analog composite video on my Pi. What chip should I be looking at?
-- Does the ADV728x support interlaced video? I'm getting weird output.
-- I'm trying to use the TC358743 for HDMI capture. What's the max resolution it can handle?
-- I'm using the TC358743 with only two CSI-2 lanes. Can I still do 1080p60?
-- How do I tell the TC358743 what resolutions my Pi can accept over HDMI?
-- How do I set the EDID for the TC358743 so it negotiates the right resolution?
-- How do I match the driver settings to whatever's coming in over HDMI?
-- I want to capture HDMI audio as well as video on my Pi. Is that possible with the TC358743?
-- What wiring do I need to get audio from the Auvidea B101 board into my Pi's 40-pin header?
-- What overlays do I need in config.txt to get HDMI audio capture working with the TC358743?
-- I'm recording audio from the TC358743 but getting warnings. What's going on?
-- How do I check what sample rate the incoming HDMI audio is using?
+Q: What's different about writing a driver for a bridge chip versus a regular camera sensor?
+A: Bridge chips must respond to the incoming signal and report it, making them more complicated.
+
+Q: What does the underscore S versus underscore G mean in those ioctl names?
+A: S means set, G means get, and ENUM enumerates a set of permitted values.
+
+# Analogue video sources
+
+Q: I'm using an analog video bridge. What ioctls do I need to detect and set the video standard?
+A: Use VIDIOC_G_STD, VIDIOC_S_STD, VIDIOC_ENUMSTD, and VIDIOC_QUERYSTD for analog video.
+
+Q: My analog video looks corrupted. Could the video standard setting be wrong?
+A: Yes, selecting the wrong standard generally results in corrupt images from analog sources.
+
+Q: What's the recommended order of operations before streaming from an analog bridge?
+A: Query the detected standard with VIDIOC_QUERYSTD then set it with VIDIOC_S_STD before streaming.
+
+# Digital video sources
+
+Q: I'm connecting HDMI through a bridge chip. What ioctls handle the timing?
+A: Use VIDIOC_G_DV_TIMINGS, VIDIOC_S_DV_TIMINGS, VIDIOC_ENUM_DV_TIMINGS, and VIDIOC_QUERY_DV_TIMINGS.
+
+Q: Can my app get notified if the HDMI input source changes?
+A: Yes, some bridge chips support source change notifications via VIDIOC_SUBSCRIBE_EVENT.
+
+# Currently supported devices
+
+Q: I want to connect a composite video source to my Pi. What chip handles that?
+A: The Analog Devices ADV728x-M converts composite, S-video, or component video to CSI-2.
+
+Q: Does the ADV728x-M support interlaced video?
+A: No, receiving interlaced video is not supported by this driver.
+
+Q: I'm picking an ADV728x-M chip variant. Does it matter which one I get?
+A: Always choose the dash-M option, otherwise you'll get a parallel output bus incompatible with Pi.
+
+Q: How do I load the ADV7282-M driver?
+A: Use the config.txt dtoverlay adv7282m for that chip variant.
+
+Q: What's the max resolution the TC358743 HDMI bridge chip can handle?
+A: The TC358743 can convert HDMI video up to 1080p60 to CSI-2.
+
+Q: I've got the TC358743 but I'm only using two CSI-2 lanes. What's the max I can get?
+A: With two lanes you can get 1080p30 as RGB888 or 1080p50 as YUV422.
+
+Q: How do I tell the TC358743 driver what HDMI resolutions to accept?
+A: Provide an EDID file using v4l2-ctl with the --set-edid option to advertise supported modes.
+
+Q: How do I load the TC358743 driver?
+A: Load it using the tc358743 dtoverlay in config.txt.
+
+Q: Can the TC358743 also capture audio from HDMI?
+A: Yes, it supports stereo HDMI audio capture via I2S with the tc358743-audio overlay added.
+
+Q: Do I need an extra overlay for TC358743 audio, or does the main one cover it?
+A: You need tc358743-audio overlay in addition to the tc358743 overlay for HDMI audio.
+
+Q: What happens if I try to record audio when nothing's playing through the HDMI bridge?
+A: Recording when no audio is present emits a warning from the driver.
+
+# Whole Document
+
+Q: What Pi models give me full camera interface capabilities with all four CSI-2 lanes?
+A: Only Compute Modules and Raspberry Pi 5 route out all lanes from both camera peripherals.
+
+Q: I want to connect a third-party camera to my Pi. Is that actually doable?
+A: Yes, third parties can write their own subdevice drivers using the standardised kernel API.
+
+Q: What's the difference between Unicam and a regular USB camera interface?
+A: Unicam is the Pi's built-in CSI-2 camera interface; it's not USB-based at all.

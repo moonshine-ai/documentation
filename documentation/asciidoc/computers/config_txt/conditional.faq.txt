@@ -1,79 +1,149 @@
-# Whole Document
+# Conditional filters
 
-- I've got one SD card that I use in a few different Raspberry Pis. Can I set it up so each board gets different settings automatically?
-- What even are conditional filters in config.txt? Like what's the point of them?
-- I keep swapping my Pi between two different monitors and the resolution's always wrong. Is there a way to fix that without changing config.txt every time?
+Q: I've got one SD card I use in different Pis and monitors. Can config.txt handle that somehow?
+A: Yes, conditional filters let one config.txt apply different settings per hardware.
 
-# The `[all]` Filter
+Q: What even are conditional filters and why would I need them?
+A: They let a single config.txt create different configurations for different hardware combinations.
 
-- What does the `[all]` filter actually do in config.txt?
-- Why do people always put `[all]` at the bottom of their config sections? Is that actually necessary?
-- I messed up my config and now some settings are bleeding into sections they shouldn't. Could that be because I forgot to put `[all]` at the end?
+# The `[all]` filter
 
-# Model Filters
+Q: What does putting `[all]` at the end of my config file actually do?
+A: It resets all previously set filters so settings apply to all hardware again.
 
-- I want certain overclocking settings to only apply on my Pi 4 and not my Pi 5. How do I do that?
-- Does the Pi 400 use the same filter as the Pi 4? I don't want settings meant for the Pi 4 to accidentally apply to my Pi 400.
-- How do I set a different kernel for my Pi 1 versus my Pi 2 in the same config file?
-- I've got a Compute Module 4 — does it use `[pi4]` settings or does it have its own filter?
-- I want a setting that applies only to my Pi 3B+ and nothing else. Is there a filter just for that, or does it share one with other models?
-- My Pi Zero W keeps picking up settings I only wanted for the regular Zero. Why is that happening?
+Q: I keep accidentally mixing up my filter settings. Is there a way to stop that?
+A: Add an `[all]` filter at the end of filtered sections to avoid unintentionally combining filters.
 
-# The `[none]` Filter
+# Model filters
 
-- I've got a bunch of settings in my config.txt that I want to temporarily disable without deleting them. Is there an easy way to do that?
-- What does the `[none]` filter do? When would I actually use it?
+Q: I want different settings just for my Pi 4. What do I put in config.txt?
+A: Use the `[pi4]` filter; it applies to 4B, 400, Compute Module 4, and Compute Module 4S.
 
-# The Expression Filter
+Q: Does the Pi 400 use the pi4 filter settings or does it have its own?
+A: Pi400 has its own `[pi400]` filter but also reads `[pi4]` contents too.
 
-- What's the expression filter for? Like when would I actually need to compare values in config.txt?
-- Can I use math or comparisons inside config.txt to control which settings get applied?
-- What's `boot_arg1` and how is it different from other boot variables?
+Q: I've got a Compute Module 5. Which filters does it pick up?
+A: It reads both `[cm5]` and `[pi5]` filter contents.
+
+Q: Can I target just one specific Pi model and not have it bleed into related ones?
+A: Use `board-type` filter with a revision code to target exactly one specific model.
+
+Q: Why would I even need different model filters? What are they useful for?
+A: They're useful for different kernels, initramfs images, or overclocking settings per model.
+
+Q: Zero 2 W — does it read multiple filters or just its own?
+A: It reads `[pi02]`, `[pi0w]`, and `[pi0]` filter contents.
+
+# The `[none]` filter
+
+Q: I've got some settings I don't want active but don't want to delete. What can I do?
+A: Use the `[none]` filter to keep unused settings in config.txt without commenting every line.
+
+Q: What does the none filter actually do to the settings under it?
+A: It prevents any settings that follow from being applied to any hardware.
+
+# The expression filter
+
+Q: What's the expression filter for? I've never heard of it before.
+A: It's for comparing boot variables to constants, intended to support OTA updates, debug, and test.
+
+Q: What boot variables can I use in an expression filter?
+A: You can use boot_arg1, cust_otpN, bootvar0, boot_count, boot_partition, and partition.
+
+Q: Can I do assignments inside an expression filter condition?
+A: No, expression filters have no side-effects, so assignment operators aren't supported.
 
 # `boot_arg1`
 
-- How do I pass a value to my Pi across a reboot? Like set something before rebooting and then read it on the next boot?
-- How do I check what `boot_arg1` is currently set to?
+Q: I want to pass a value across a reboot. Is there a way to do that?
+A: Yes, boot_arg1 is a 32-bit reset-safe register for passing parameters across reboots.
+
+Q: If I set boot_arg1 in config.txt, does it take effect right away?
+A: No, set_reboot_arg1 sets the value for next boot, not the current boot's value.
+
+Q: Where can I read what boot_arg1 was when the OS started?
+A: Read it from device-tree at `/proc/device-tree/chosen/bootloader/arg1`.
+
+# `cust_otpN`
+
+Q: Can I have different configs based on something permanently stored on the board?
+A: Yes, cust_otpN lets you pick configurations based on values stored in customer OTP rows.
+
+Q: How many customer OTP rows can I use with the cust_otp filter?
+A: There are eight rows, with N ranging from 0 to 7.
 
 # `bootvar0`
 
-- I want the same SD card image to behave differently on different boards without editing config.txt each time. Is there a way to do that using the EEPROM?
-- How do I use `bootvar0` to switch between different configurations?
+Q: I want the same SD card image to behave differently on different boards. Can I do that?
+A: Yes, set bootvar0 via rpi-eeprom-config and use it as a conditional in config.txt.
+
+Q: Which Pis support the bootvar0 variable?
+A: It's available on Raspberry Pi 4 and newer devices only.
 
 # `boot_count`
 
-- Is there a way to track how many times my Pi has booted since it was last powered on?
-- How do I reset the boot count back to zero?
+Q: Does the boot count reset if I pull the power?
+A: Yes, boot_count is cleared if power is disconnected.
+
+Q: What happens when boot_count hits 256?
+A: It wraps back to zero at 256.
+
+Q: Which Pis support boot_count?
+A: Only Raspberry Pi 5 and newer devices support boot_count.
 
 # `boot_partition`
 
-- I've got an A/B boot setup. How do I make config.txt load different settings depending on which partition the Pi booted from?
+Q: I'm doing A/B booting. Can I load different cmdline files based on which partition booted?
+A: Yes, use boot_partition filter to load different cmdline files per partition.
 
-# The `[tryboot]` Filter
+Q: Can the boot_partition value end up different from the partition I actually requested?
+A: Yes, if autoboot.txt overrides it or PARTITION_WALK kicks in for non-bootable partitions.
 
-- What's tryboot mode and when would I use that filter?
+# The `[tryboot]` filter
 
-# The `[EDID=*]` Filter
+Q: What's the tryboot filter actually for?
+A: It's for selecting a different boot partition in tryboot mode for fail-safe OS updates.
 
-- I use the same Pi with two different monitors and I want different display settings for each one. Can config.txt figure out which monitor is plugged in?
-- How do I find out the EDID name of my monitor so I can use it in config.txt?
-- I plugged in a different monitor after the Pi booted and the settings didn't change. Shouldn't it detect the new monitor?
-- Does the EDID filter work on Pi 5?
-- I've got a Pi 4 with both HDMI ports in use. Will the EDID filter check both monitors or just one?
+# The `[EDID=*]` filter
 
-# The Serial Number Filter
+Q: I've got two monitors and one Pi. Can config.txt automatically use different settings for each?
+A: Yes, the EDID filter lets you apply settings based on which specific monitor is connected.
 
-- How do I set up config.txt settings that only apply to one specific Pi and not any others?
-- How do I find my Pi's serial number?
-- I've got a license key I only want to work on one board. Can I lock it to that Pi's serial number in config.txt?
+Q: How do I figure out the EDID name of my monitor so I can use it in the filter?
+A: Run edid-decode against the edid file in /sys/class/drm, then combine Manufacturer and Display Product Name.
 
-# The GPIO Filter
+Q: I just connected a different monitor after booting. Will the EDID filter pick it up?
+A: No, hotplugging after boot won't apply different settings; the monitor must be connected at boot.
 
-- Can I make config.txt apply different settings based on whether a GPIO pin is high or low?
-- I've got a physical switch connected to a GPIO. Can I use that to change boot settings?
+Q: Does the EDID filter work on the Pi 5?
+A: No, the EDID filter is not available on Raspberry Pi 5.
 
-# Combine Conditional Filters
+Q: I've got both HDMI ports in use on my Pi 4. Does the EDID filter check both?
+A: Yes, on Pi 4 the EDID filter checks both HDMI ports and applies all matching configurations.
 
-- Can I combine filters, like only apply settings if I'm on a Pi 2 AND a specific monitor is connected?
-- If I put `[pi1]` and then `[pi2]` in my config, do both apply or does one cancel out the other?
-- I accidentally stacked a bunch of filters and now weird settings are showing up everywhere. How do I reset them all?
+# The serial number filter
+
+Q: I want certain settings to only apply to one specific Pi, not any other board. How do I do that?
+A: Use the serial number filter with your Pi's last eight hex digits from /proc/cpuinfo.
+
+Q: How do I find my Pi's serial number?
+A: Run `cat /proc/cpuinfo` and use the last eight hex digits shown near the bottom.
+
+Q: My Pi shows more than eight hex digits in the serial field. Which part do I use?
+A: Only use the last eight hex digits, even if earlier digits contain non-zero values.
+
+# The GPIO filter
+
+Q: Can I make config settings depend on whether a GPIO pin is high or low?
+A: Yes, use `[gpio4=1]` or `[gpio2=0]` style filters to apply settings based on GPIO state.
+
+# Combine conditional filters
+
+Q: Can I stack multiple filters together, like model and monitor at the same time?
+A: Yes, list different filter types one after another and they combine together.
+
+Q: What happens if I put two model filters in a row, like pi1 then pi2?
+A: Filters of the same type replace each other, so pi2 overrides pi1.
+
+Q: I accidentally combined filters I didn't mean to. How do I reset back to normal?
+A: Use the `[all]` filter to reset all previous filters and start fresh.

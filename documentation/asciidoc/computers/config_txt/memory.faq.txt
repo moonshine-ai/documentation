@@ -1,17 +1,24 @@
-# Whole Document
-
-- "Is there a way to limit how much RAM my Raspberry Pi uses?"
-- "Can I make my Pi 4 act like it has less memory than it actually does?"
-- "Where do I go to change memory settings on a Raspberry Pi?"
-
 # `total_mem`
 
-- "I've got a 4 gig Pi but I want it to only use 1 gig of RAM. How do I do that?"
-- "What's the lowest amount of memory I can limit my Pi to?"
-- "So if I set total mem to like 64 megabytes, will it actually work or is there a minimum?"
-- "I want to test my app on a Pi with less RAM but I only have the 4 gig version. Is there a way to fake having less memory?"
-- "How do I set total mem in the config? Like what's the exact line I need to add?"
-- "If my Pi only has 2 gigs of RAM and I set total mem to 4096, what happens?"
-- "Can I make a Pi 4 behave like an older Pi with less memory for testing purposes?"
-- "What units does total mem use, like megabytes or gigabytes?"
-- "I set total mem really high, higher than what my board actually has. Will it just cap it at the real amount?"
+Q: How do I make my Pi 4 act like it's got less RAM than it actually has?
+A: Set `total_mem` in config to your desired RAM amount in megabytes.
+
+Q: I've got a 4 gig Pi but I want it to only use 1 gig. How do I do that?
+A: Add `total_mem=1024` to your config file to limit it to one gigabyte.
+
+Q: Is there a minimum amount of memory I can set with that total mem thing?
+A: Yes, the minimum value you can set is 128 megabytes.
+
+Q: What happens if I set total mem to something higher than what's actually in my Pi?
+A: It gets clamped to the maximum total memory actually installed on the board.
+
+Q: Can I limit how much RAM my Raspberry Pi uses?
+A: Yes, use the `total_mem` parameter to specify RAM in megabytes.
+
+# Whole Document
+
+Q: So this whole memory options section, is it just about the one setting?
+A: Yes, this section only covers the single `total_mem` parameter for limiting RAM.
+
+Q: Why would anyone want to make their Pi pretend it has less memory than it does?
+A: Not specified in this section.

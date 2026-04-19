@@ -1,40 +1,65 @@
-# Whole Document
-
-- I just got a Build HAT, where do I even start?
-- Do I need to do anything special to my Raspberry Pi before plugging the Build HAT in?
-- What's the difference between using Python or .NET with the Build HAT?
-
 # Prepare your Build HAT
 
-- Which way up does the Build HAT go? I don't want to put it on wrong.
-- Wait, the components are on the bottom of the Build HAT? That seems backwards, why is it like that?
-- What are those spacers for? Do I actually need them?
+Q: I just got my Build HAT, what do I need to do before I start using it?
+A: Set up your Pi and install the latest OS using Raspberry Pi Imager first.
+
+Q: Which way up does the Build HAT go? I don't want to put it on wrong.
+A: All components are on the bottom, leaving the top clear for breadboards or LEGO.
+
+Q: I've got 9mm spacers in the box, what are those for?
+A: Attach them to the bottom of the board before seating the Build HAT.
 
 # Access the GPIO Pins
 
-- Can I still use the GPIO pins if I've got the Build HAT on top?
-- Are there any pins I shouldn't touch when using the Build HAT?
-- I want to hook up some extra stuff to the GPIO — do I need a special header or something?
-- Which GPIO pins does the Build HAT use? I don't want to accidentally connect something to the wrong one.
+Q: Can I still use the GPIO pins if I've got the Build HAT sitting on top?
+A: Yes, add an optional tall header and use 15 mm spacers to access them.
+
+Q: Are there any GPIO pins I shouldn't touch or connect stuff to?
+A: Yes, GPIO 0, 1, 4, 14, 15, 16, and 17 are used by the Build HAT itself.
+
+Q: What's GPIO 4 used for on the Build HAT? I don't want to accidentally mess with it.
+A: GPIO 4 is used for Reset by the Build HAT itself.
 
 # Set up your Raspberry Pi
 
-- Where do I go to turn on the serial port on my Raspberry Pi?
-- I've got the Build HAT attached but I'm not sure what settings I need to change. What do I do in the Raspberry Pi settings?
+Q: Where do I go to turn on the serial port for the Build HAT?
+A: Open Control Centre from the Raspberry Menu, then go to Preferences and Interfaces tab.
+
+Q: I need SSH and the serial port enabled. Is there a picture of what the settings should look like?
+A: Yes, SSH, VNC, and Serial Port should be enabled; the rest left disabled.
 
 # Use your Raspberry Pi headless
 
-- I'm running my Pi headless so I don't have a desktop. How do I set up the serial port without it?
-- I'm using raspi-config, how do I enable the serial port for the Build HAT?
-- Do I need to disable the serial console? What even is that and why does it matter?
-- I made changes in raspi-config, do I need to restart my Pi after?
+Q: I'm running my Pi headless without a desktop. How do I set up the serial port for the Build HAT?
+A: Use raspi-config, select Interface Options, then P6 Serial Port to configure it.
+
+Q: Do I need to disable the serial console and enable the serial port hardware separately?
+A: Yes, disable the serial console first, then separately enable the serial port hardware.
+
+Q: After changing the serial settings in raspi-config, do I need to restart my Pi?
+A: Yes, you'll need to reboot if you've made any changes.
 
 # Power the Build HAT
 
-- How do I power the Build HAT? Can I just use the normal Raspberry Pi USB power?
-- Can I use any power supply or does it have to be the official one?
-- What kind of power connector does the Build HAT use? I want to know if my supply will fit.
-- I've got a Raspberry Pi 400 — can the Build HAT power it?
-- I just want to read from a sensor, do I still need the big external power supply?
-- The motors aren't doing anything, could that be a power problem?
-- My SPIKE colour sensor isn't working, do I need a special power supply for that?
+Q: What kind of power supply does the Build HAT need? Can I just use any USB charger?
+A: It needs an external 8V plus or minus 10% supply via a DC 5521 barrel connector.
+
+Q: Do I need to plug in a separate USB power supply to my Pi if I'm using the Build HAT?
+A: No, unless you're using a Keyboard-series device.
+
+Q: I've got a Raspberry Pi 400. Will the Build HAT power it?
+A: No, the Build HAT cannot power Keyboard-series devices like the Pi 400.
+
+Q: I just want to read from the motor encoders, do I still need that big external power supply?
+A: No, just reading encoders and the SPIKE force sensor works with regular USB Pi power.
+
+Q: My LEGO colour sensor isn't working. Does it need the external power supply or can it run off USB?
+A: SPIKE colour and distance sensors require an external power supply, like the motors.
+
+# Whole Document
+
+Q: What are my options for programming the Build HAT, like what languages can I use?
+A: You can choose to use the Build HAT with either Python or dot NET.
+
+Q: How much power does the Build HAT power supply need to provide?
+A: It needs to be capable of supplying 48 watts.

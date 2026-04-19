@@ -1,45 +1,84 @@
 # Install
 
-- I just got a Sense HAT, what do I need to do to set it up?
-- Do I need to do anything special to my Pi before plugging in the Sense HAT?
-- What's I2C and do I need to turn it on for the Sense HAT to work?
-- I ran the install command but do I need to reboot after? Like is that actually necessary?
-- What's the full process to get the Sense HAT working from scratch?
-- I haven't updated my Pi in a while. Does that matter for the Sense HAT?
+Q: How do I get my Pi ready to use the Sense HAT?
+A: Update, install sense-hat package, then reboot your Raspberry Pi.
+
+Q: Do I need to enable I2C myself before installing the Sense HAT stuff?
+A: No, installing the sense-hat package will automatically enable I2C for you.
+
+Q: I just installed the Sense HAT package. Do I need to restart my Pi?
+A: Yes, reboot to enable I2C and load any updated kernel.
+
+Q: What's the install command for the Sense HAT software?
+A: Run sudo apt install sense-hat to install the package.
 
 # Calibrate
 
-- How do I calibrate the Sense HAT's sensors?
-- Do I actually need to calibrate the Sense HAT or can I just skip that?
-- So during calibration I have to physically move the Pi around? What's the point of that?
-- I finished calibrating and now there's a new file. Where does it need to go?
-- What does the ellipsoid calibration do and is it different from the regular one?
-- I'm doing the magnetometer calibration and the numbers just keep changing. When do I stop?
-- I finished calibrating but I'm not sure I moved it around enough. How do I know if it worked?
+Q: How do I calibrate the Sense HAT?
+A: Install octave, copy RTEllipsoidFit, then run RTIMULibCal to calibrate.
+
+Q: I started the magnetometer calibration. What am I actually supposed to do with the Pi?
+A: Waggle the IMU so all six axes go through their extremes.
+
+Q: How do I know when I'm done with the magnetometer calibration?
+A: Stop when the min and max numbers on screen stop changing.
+
+Q: After I finish calibrating, where do I save that INI file?
+A: Copy RTIMULib.ini to /etc/ and remove the local copy from ~/.config/sense_hat/.
+
+Q: What's the difference between the min/max and ellipsoid calibration options?
+A: Do min/max first, then ellipsoid fit adds extra accuracy on top.
+
+Q: After calibrating, I ran ls and saw a new file. What's it called?
+A: The calibration creates a new file called RTIMULib.ini.
 
 # Getting started
 
-- Where do I find the example code after I install everything?
-- I want to use the Sense HAT with Python. What library do I use?
-- Is there a way to use the Sense HAT without Python, like with C++?
-- Where's the documentation for the Python library?
-- I'm using C++ and I'm getting inaccurate sensor readings. What should I check?
-- How do I run the RTIMULibDrive11 example and how do I close it when I'm done?
-- Do I need to compile the C++ examples myself or are they ready to go?
+Q: Where do I find example code after installing the Sense HAT?
+A: Example code is found under /usr/src/sense-hat/examples after installation.
+
+Q: What's the official Python library for the Sense HAT?
+A: The officially supported library is called sense-hat.
+
+Q: Where can I find the full docs for the Sense HAT Python library?
+A: Full documentation is at sense-hat.readthedocs.io.
+
+Q: I want to use C++ with the Sense HAT. What library should I use?
+A: Use RTIMULib, a C++ and Python library for IMUs on embedded Linux.
+
+Q: How do I close that RTIMULibDrive11 example when I'm done?
+A: Press Ctrl C to close the RTIMULibDrive11 example.
+
+Q: The C++ examples seem to need a settings file. Where should I put it?
+A: Copy RTIMULib.ini to your current working directory for more accurate data.
 
 # Troubleshooting
 
-- The Sense HAT doesn't seem to be working. What can I try?
-- How do I read the EEPROM data from the Sense HAT?
-- I want to write to the Sense HAT's EEPROM. Is that going to break anything?
-- What do I need to change in config dot txt to get the EEPROM stuff working?
-- I've got a Raspberry Pi 3 Model B and the EEPROM steps aren't working. What's going on?
-- What's the write protection thing about when writing to the EEPROM? Do I need to turn it back on after?
+Q: I want to read and write EEPROM data on my Sense HAT. Where do I start?
+A: Enable I2C0 and I2C1 in config.txt, then reboot before proceeding.
+
+Q: Will writing to the EEPROM break my Pi or Sense HAT?
+A: It won't damage hardware, but errors may prevent automatic HAT detection.
+
+Q: How do I actually read the EEPROM data from the Sense HAT?
+A: Run sudo ./eepflash.sh -f=sense_read.eep -t=24c32 -r to read it.
+
+Q: I'm on a Pi 2 or Pi 3 Model B. Will the EEPROM steps work for me?
+A: These steps may not work on those boards due to firmware controlling I2C0.
+
+Q: Do I need to do anything before writing to the EEPROM, like turning off write protection?
+A: Yes, run i2cset to disable write protection before writing EEPROM data.
+
+Q: I wrote to the EEPROM. Should I do anything after I'm done?
+A: Re-enable write protection using i2cset after writing is complete.
 
 # Whole Document
 
-- I just bought a Sense HAT. Walk me through everything I need to do to get it up and running.
-- Does the Sense HAT need any special setup or can I just plug it in and go?
-- I'm a beginner. Is the Sense HAT hard to get working?
-- What languages can I use to program the Sense HAT?
-- My Sense HAT sensors seem to be giving wrong readings. What should I do?
+Q: I just got a Sense HAT. What's the whole setup process from unboxing to coding?
+A: Update Pi, install sense-hat, reboot, calibrate sensors, then explore examples.
+
+Q: Does the Sense HAT need I2C to work?
+A: Yes, I2C must be enabled for the Sense HAT to work correctly.
+
+Q: Can I use the Sense HAT with both Python and C++?
+A: Yes, sense-hat supports Python and RTIMULib supports C++ and Python.

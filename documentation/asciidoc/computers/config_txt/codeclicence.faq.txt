@@ -1,35 +1,32 @@
-# Licence key and codec options
+# Whole Document
 
-Do I need to buy a licence key to play MPEG-2 videos on my Raspberry Pi 4?
+Q: Do I need to buy a licence key for my Raspberry Pi 4 to play MPEG2 files?
+A: No, Pi 4 has disabled hardware decoders, software decoding works fine instead.
 
-I've got a Raspberry Pi 3 and MPEG-2 videos aren't playing smoothly. Is there something I need to buy to fix that?
+Q: I've got a Pi 5 — do I need any special licence for H.265 video?
+A: No, Pi 5 has H.265 hardware decoding enabled by default, no licence needed.
 
-What's a codec licence key and why would I need one?
+Q: What's the deal with codec licence keys? Do I actually need one?
+A: Only Pi 3 and earlier need purchased licence keys for additional hardware codecs.
 
-My Pi 5 can't play HEVC videos — wait, actually does it support that out of the box?
-
-I bought a licence key for MPEG-2 decoding. Where do I put it?
+Q: I have three Raspberry Pis and I keep swapping the same SD card between them. Do I need to update the config each time for codec licences?
+A: No, you can list up to eight licence keys in one config.txt file.
 
 # `decode_MPG2`
 
-How do I actually enable MPEG-2 hardware decoding once I've got the licence key?
+Q: What do I put in my config file to enable MPEG-2 hardware decoding?
+A: Add decode_MPG2 followed by your licence key, like decode_MPG2=0x12345678.
 
-I just got my MPEG-2 licence key in my email. What do I do with it now?
+Q: I bought an MPEG-2 licence key. Where does it go exactly?
+A: Put it in config.txt using decode_MPG2 equals your licence key number.
 
 # `decode_WVC1`
 
-I've got some VC-1 video files that won't play properly. Is there a licence I can buy for that?
+Q: How do I turn on hardware VC-1 decoding on my older Pi?
+A: Add decode_WVC1 with your licence key in config.txt, like decode_WVC1=0x12345678.
 
-How do I enable VC-1 hardware decoding on my older Pi?
+Q: I've got licences for both MPEG-2 and VC-1. Do I need separate lines for each in the config?
+A: Yes, use decode_MPG2 for MPEG-2 and decode_WVC1 for VC-1 separately.
 
-# Whole Document
-
-I've got three Raspberry Pis and I bought codec licences for all of them. Do I need three different SD cards or can I use the same one?
-
-I swap the same SD card between a few different Pis. Is there a way to put all my codec licence keys in one place so I don't have to keep changing things?
-
-Wait, so the Pi 4 just can't do hardware MPEG-2 decoding at all? Even if I pay for it?
-
-What codecs need a licence key and which ones just work automatically?
-
-My Raspberry Pi 3 is struggling with certain video files. Could it be a codec issue, and is there something I can do about it?
+Q: I bought codec licences for like five different Pis. Do I really have to have a different SD card for each one?
+A: No, list up to eight licence keys comma-separated in one config.txt line.

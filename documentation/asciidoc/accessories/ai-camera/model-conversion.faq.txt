@@ -1,37 +1,66 @@
-# Whole Document
+# Model deployment
 
-- I've got a neural network model and I want to run it on the Raspberry Pi AI Camera. What are the steps I need to follow?
-- Do I have to do all the setup stuff on my Raspberry Pi or can I use my desktop?
-- What's the general process for getting a custom AI model onto that Sony camera module?
+Q: What's the overall process for getting a neural network running on the Raspberry Pi AI Camera?
+A: Provide a model, compress and convert it, then package it as firmware.
 
-# Model Creation
+Q: Do I have to do all the steps on my Raspberry Pi or can I use my desktop?
+A: First two steps run on a powerful computer; final packaging requires a Raspberry Pi.
 
-- I don't really know how to make a neural network model from scratch. Where do I even start?
-- Can I use an existing model I found online, or do I have to build one myself?
-- What AI frameworks work with this whole process?
+Q: What kind of model do I start with when deploying to the AI Camera?
+A: You start with a floating-point neural network model in PyTorch or TensorFlow.
 
-# Model Compression and Conversion
+# Model creation
 
-- How do I install the Edge-MDT tools?
-- I use PyTorch, not TensorFlow. Does that change how I install things?
-- Can I install both the PyTorch and TensorFlow versions at the same time?
-- Wait, if I install both TensorFlow and PyTorch versions together will they conflict with each other?
-- What does quantising a model actually mean, and why do I need to do it?
-- What's the Model Compression Toolkit and do I need to install it separately?
-- What format does my model need to be in after compression?
+Q: I want to build my own neural network for this. Is there guidance here for that?
+A: Model creation is beyond scope; see the official AITRIOS developer website for more.
+
+Q: What AI frameworks can I use to create models for the AI Camera?
+A: Popular frameworks like TensorFlow or PyTorch can be used to create models.
+
+# Model compression and conversion
+
+Q: How do I install the tools I need to compress and convert my model?
+A: Run pip install edge-mdt with either the pt or tf parameter.
+
+Q: I use both PyTorch and TensorFlow. Can I just install both versions together?
+A: No, use two separate Python virtual environments to avoid conflicts between them.
+
+Q: What does Edge-MDT actually do to my model?
+A: It quantises, compresses, and converts models to run on your IMX500 device.
+
+Q: What formats does the Model Compression Toolkit spit out after quantising my model?
+A: It outputs either Keras format for TensorFlow or ONNX format for PyTorch.
+
+Q: Do I need to install the Model Compression Toolkit separately?
+A: No, it's automatically installed as part of the Edge-MDT installation step.
+
+Q: I'm using TensorFlow. Is there anything I should watch out for when installing?
+A: Always use the same version of TensorFlow you used to compress your model.
 
 # Conversion
 
-- How do I actually convert my compressed model so it'll work on the camera?
-- I've got an ONNX file from PyTorch. What command do I run to convert it?
-- What does the converter spit out when it's done?
-- I want to save memory on the camera sensor. Is there a flag I should add when converting?
-- If I use that memory-saving option, is there anything I lose out on?
+Q: What command do I run to convert my PyTorch model for the AI Camera?
+A: Run imxconv-pt with your compressed ONNX model and an output folder specified.
+
+Q: What files does the converter create when it's done?
+A: It creates an output folder containing a memory usage report and a packerOut.zip file.
+
+Q: I heard there's a flag to optimize memory usage. What does it do exactly?
+A: Adding --no-input-persistency optimizes accelerator memory but disables input tensor generation.
+
+Q: Why would I not want to use that no-input-persistency flag?
+A: It disables input tensor generation that may be used for debugging purposes.
 
 # Packaging
 
-- I've converted my model and now I need to get it onto the camera. What do I do next?
-- Wait, do I have to be on my Raspberry Pi to do the packaging step? Can't I just do it all on my desktop?
-- What command do I run to package the model up?
-- What file does the packaging step create, and what do I do with it?
-- I don't have the packaging tools installed yet. How do I get them?
+Q: Why do I specifically have to do the packaging step on a Raspberry Pi?
+A: Not specified in this section.
+
+Q: How do I install the packaging tools on my Raspberry Pi?
+A: Run sudo apt install imx500-tools to install the necessary packaging tools.
+
+Q: What command do I run to actually package the model into something the camera can use?
+A: Run imx500-package with your packerOut.zip path and an output folder specified.
+
+Q: What file does the packaging step create and what do I do with it?
+A: It creates network.rpk, which you pass to your IMX500 camera applications.

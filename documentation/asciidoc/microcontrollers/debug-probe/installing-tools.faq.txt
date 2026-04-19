@@ -1,24 +1,33 @@
 # Install tools
 
-- What tools do I actually need to use the Debug Probe?
-- Do I need OpenOCD and GDB, or just one of them?
-- I've got a Pico and I want to start debugging. What software do I need to install first?
-- Is there a VS Code extension for Pico development, or do I have to set everything up manually?
-- Does the VS Code extension come with everything bundled, or do I still have to install GDB separately?
-- I'm on a Mac. What's the recommended way to get the debug tools set up?
-- I'm running regular Raspberry Pi OS. Should I use the VS Code extension or install things manually?
-- What's OpenOCD and why do I need it for debugging?
-- Can I install these tools on Windows, or is that not supported?
-- I'm on Windows and I want to set up debugging for my Pico. What should I do?
-- Why don't they recommend manually installing the tools on Windows?
-- Where do I find the getting started guide for the Pico? Is it on the Raspberry Pi website?
-- I don't really want to use VS Code. Can I still install everything manually?
-- What's in the VS Code extension exactly? Like what does it include?
-- I've never used GDB before. Do I need to understand it to debug my Pico, or does the extension handle all that?
+Q: What do I actually need installed to use the Debug Probe?
+A: You need OpenOCD and the GNU Project Debugger, GDB, installed.
+
+Q: I'm on a Mac, what's the easiest way to get set up for debugging with the Pico?
+A: Install the VS Code extension, which bundles OpenOCD, toolchains, GDB, and definitions.
+
+Q: Does Raspberry Pi have an official VS Code extension for Pico development?
+A: Yes, it bundles OpenOCD, Arm toolchains, GDB, and Pico register definitions.
+
+Q: I don't want to use VS Code. Can I install these tools some other way?
+A: Yes, you can manually install tools by following Appendix C in the guide.
+
+Q: I'm on Windows and want to install everything manually. Is that a good idea?
+A: No, manual installation of tools on Windows is not recommended.
+
+Q: Where do I find instructions for setting up the Debug Probe stuff?
+A: Chapter 3 of the Getting Started with Raspberry Pi Pico guide covers this.
+
+Q: Does the VS Code extension work on regular Linux or just Raspberry Pi OS?
+A: It's recommended for Raspberry Pi OS, most Linux variants, macOS, and Windows.
+
+Q: What's OpenOCD? Do I need it just to use the Debug Probe?
+A: Yes, OpenOCD is required along with GDB to use the Debug Probe.
 
 # Whole Document
 
-- I just got a Debug Probe. What do I need to do to get started with it?
-- What's the easiest way to set up a debugging environment for the Raspberry Pi Pico?
-- I'm a beginner and I want to debug my Pico code. Where do I even start with all this?
-- Do I need any special software to use the Debug Probe with my Pico?
+Q: I've got a Debug Probe but no idea where to start. What should I install first?
+A: Install the VS Code extension, which bundles all needed tools for Pico debugging.
+
+Q: Can I use an IDE with the Debug Probe or do I have to use the command line?
+A: An IDE may also be useful alongside OpenOCD and GDB for the Debug Probe.

@@ -1,31 +1,34 @@
 # `rpicam-detect`
 
-What even is `rpicam-detect`? Like what does it actually do?
+Q: Is rpicam-detect included in Raspberry Pi OS by default?
+A: No, but you can build it if you install TensorFlow Lite first.
 
-Is `rpicam-detect` included when I install Raspberry Pi OS, or do I have to get it separately?
+Q: I want to use rpicam-detect but I don't see it on my Pi. Why isn't it there?
+A: Raspberry Pi OS doesn't include it; you need to build it yourself.
 
-So I have to build `rpicam-detect` myself? How do I do that?
+Q: What do I need to install before I can build rpicam-detect?
+A: You need TensorFlow Lite installed before building rpicam-detect.
 
-I heard I need TensorFlow Lite to use `rpicam-detect`. How do I get that set up?
+Q: There's a flag I need to pass when building this thing — what is it?
+A: Pass `-Denable_tflite=enabled` when you run meson to enable TensorFlow Lite.
 
-I keep forgetting — when I'm building this with meson, what's that flag I need to pass to enable TensorFlow Lite?
+Q: What kind of objects can rpicam-detect actually recognize?
+A: It recognizes about 80 object classes, including people, cars, and cats.
 
-What kinds of objects can `rpicam-detect` actually recognize? Like does it know what a cat is?
+Q: What neural network does rpicam-detect use under the hood?
+A: It uses Google MobileNet v1 SSD trained on the Coco dataset.
 
-How does `rpicam-detect` work — does it just record constantly or does it only save stuff when it sees something?
+Q: So what happens when rpicam-detect actually spots something? Does it take a photo or what?
+A: It captures a full-resolution JPEG then returns to monitoring preview mode.
 
-When `rpicam-detect` spots something, what does it actually save? Is it a video clip or just a photo?
+Q: I want to secretly watch my cats while I'm away. Can I do that with this?
+A: Yes, use rpicam-detect with the `--object cat` flag to capture cat photos.
 
-After it takes a photo of something it detected, does it just stop, or does it keep watching?
+Q: What does the `-t 0` part mean in the cat monitoring example?
+A: Not specified in this section.
 
-I want to set up my Pi to secretly take photos of my cats while I'm away. How do I do that with `rpicam-detect`?
+Q: What's the lores width and height set to in the cat example command?
+A: The low-resolution preview is set to 400 wide and 300 tall.
 
-What's the `--object` flag for? Like why do I need to specify the object if it can detect loads of things already?
-
-What's the `--lores-width` and `--lores-height` stuff for in the `rpicam-detect` command?
-
-What's the `object_detect_tf.json` file and where does it come from?
-
-If I want it to run forever and not time out, how do I do that?
-
-How does `rpicam-detect` handle the preview while it's also scanning for objects — is it doing both at the same time?
+Q: Does rpicam-detect just take one photo or does it keep monitoring after?
+A: After capturing a JPEG it returns to monitoring preview mode continuously.

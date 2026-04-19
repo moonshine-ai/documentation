@@ -1,33 +1,33 @@
 # RP3A0
 
-What's a System-in-Package? I keep seeing that term but I don't really know what it means.
+Q: What's the RP3A0 and what makes it different from a regular chip?
+A: It's a System-in-Package combining a BCM2710A1 die with 512MB DRAM.
 
-What chip is inside the RP3A0?
+Q: Which Raspberry Pi actually uses the RP3A0?
+A: The Raspberry Pi Zero 2 W uses the RP3A0.
 
-So the Zero 2 W uses the RP3A0 — what's actually in that package?
+Q: How many cores does the RP3A0 have and what speed does it run at?
+A: It's a quad-core 64-bit Arm Cortex A53 clocked at 1 GHz.
 
-How much RAM does the RP3A0 have?
+Q: Can I overclock the RP3A0 and if so how fast can it go?
+A: With a heat sink or cooling, it can potentially be overclocked to 1.2 GHz.
 
-What's the clock speed on the RP3A0?
+Q: What's the difference between how the Zero 2 W and the original Zero handle their RAM?
+A: The original Zero uses Package-on-Package DRAM soldered directly on the BCM2835.
 
-I've got a Zero 2 W and I want to overclock it. How fast can I push it?
+Q: I want to look up the peripherals for the RP3A0, where should I look?
+A: Refer to the BCM2836 Arm-local peripherals document, which also covers the RP3A0.
 
-Do I need a heat sink to overclock the RP3A0, or can I just do it without any cooling?
+Q: Is the RP3A0 related to anything used on the Raspberry Pi 3?
+A: Yes, it uses the same BCM2710A1 silicon die found inside the Pi 3's BCM2837.
 
-What's the difference between the original Pi Zero and the Zero 2 W in terms of how the memory is attached?
-
-What does Package-on-Package mean? The original Zero uses that apparently.
-
-How many cores does the RP3A0 have?
-
-Is the RP3A0 64-bit?
-
-Where can I find the technical specs for the peripherals on the RP3A0?
+Q: How much RAM does the RP3A0 come with built in?
+A: The RP3A0 includes 512 MB of DRAM within the package.
 
 # Whole Document
 
-What processor does the Raspberry Pi Zero 2 W use?
+Q: So wait, what even is a System-in-Package? Is it different from a normal processor chip?
+A: A SiP combines multiple components, here a processor die and DRAM, in one package.
 
-I've got a Pi 3 and a Zero 2 W — are they using basically the same chip inside?
-
-What's the difference between the BCM2837 and the RP3A0?
+Q: I've got a Zero 2 W — is there any documentation for its processor's peripherals?
+A: Yes, the BCM2836 Arm-local peripherals document covers the RP3A0's peripherals specification.

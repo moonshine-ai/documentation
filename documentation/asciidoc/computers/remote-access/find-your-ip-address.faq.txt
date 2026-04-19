@@ -1,61 +1,98 @@
-# Whole Document
-
-How do I find out what my Raspberry Pi's IP address is so I can connect to it from my laptop?
-
-I need to SSH into my Pi but I don't know its IP address. What are my options for finding it?
-
-I've got my Pi running headless with no screen attached. How do I figure out what IP address it got?
-
 # Desktop
 
-I'm on the Raspberry Pi desktop and I just want to quickly see my IP address. What's the easiest way?
+Q: I've got a monitor plugged in — how do I quickly see my Pi's IP address?
+A: Hover over the network icon in the system tray to see it.
 
-Where do I hover to see my IP address on the desktop? Like is there a little icon somewhere?
+Q: Where exactly do I look on the desktop to find my IP address?
+A: A tooltip over the network icon shows your network name and IP address.
 
-# Command Line
+# Command line
 
-What's the quickest command I can type to see my Pi's IP address?
+Q: What's the quickest command to find my Pi's IP address from the terminal?
+A: Run `hostname -I` and it outputs your local IP address.
 
-# Boot Output
+Q: I just want to type something fast and get my IP. What do I type?
+A: Type `hostname -I` in the terminal to get your local IP address.
 
-I boot my Pi straight to the command line instead of the desktop. Will it show me the IP address somewhere during startup?
+# Boot output
+
+Q: I boot to the command line instead of the desktop — will I still see the IP address somewhere?
+A: Yes, your IP address appears in the last few boot messages before login.
 
 # Network Manager
 
-I want to see more details about my network connection, not just the IP. How do I do that?
+Q: What does `nmcli device show` actually tell me — is that how I find my IP?
+A: Yes, it shows detailed info about all your network interfaces including IP addresses.
 
-I ran that nmcli command and got a bunch of stuff back. How do I figure out which part has my actual IP address in it?
+Q: I ran that nmcli command and got a wall of text. How do I find my actual IP in there?
+A: Look for `IP4.ADDRESS[1]` in the wifi or ethernet block, depending on your connection.
 
-I'm connected over WiFi, not ethernet. Which part of the nmcli output do I look at to find my IP?
+Q: I'm connected over Wi-Fi — which part of the nmcli output do I even look at?
+A: Find the block where `GENERAL.TYPE` says "wifi" and check `IP4.ADDRESS[1]`.
 
-What's the difference between all those network interfaces showing up in the output? Like there's wlan0 and eth0 and lo, what are those?
+Q: What's that slash and number at the end of the IP address in nmcli output?
+A: You can ignore the trailing slash and number, like `/24`, in those fields.
 
 # Resolve `raspberrypi.local` with mDNS
 
-Can I just use a name instead of the IP address to reach my Pi? Like type in something memorable instead of a bunch of numbers?
+Q: Do I actually have to know the IP address or can I just use a name to find my Pi?
+A: You can ping `raspberrypi.local` and it'll show the IP address if reachable.
 
-I changed my Pi's hostname and now raspberrypi.local doesn't work anymore. What address should I be using?
+Q: I changed my Pi's hostname — does that break the dot-local thing?
+A: No, Avahi automatically updates the `.local` mDNS address when you change the hostname.
 
-I don't remember what I called my Pi when I set it up. How do I find it on the network without knowing the hostname?
+Q: I don't remember what I named my Pi. How do I find it on the network?
+A: Install Avahi on another device and use `avahi-browse` to browse all local hosts.
+
+Q: What's the default hostname I'd use with that ping raspberrypi.local trick?
+A: The default hostname on a fresh Raspberry Pi OS install is `raspberrypi`.
 
 # Check your router's list of devices
 
-I don't want to mess with the command line at all. Can I just find my Pi's IP through my router somehow?
+Q: Can I just log into my router to find which device is my Pi?
+A: Yes, log into your router's control panel and browse the connected devices list.
 
-I'm looking at my router's device list but I can't figure out which one is my Pi. Any tips for narrowing it down?
+Q: I can't figure out which device in the router list is my Pi. Any tips?
+A: If wired, filter for wired devices — there should be fewer to sort through.
+
+Q: Where do I even find my router's IP address to log in?
+A: It's often `192.168.1.1`, or check the label printed on your router.
 
 # Find devices with `nmap`
 
-What's nmap and how do I use it to find my Pi on the network?
+Q: I'm on a Mac and want to use nmap — where do I get it?
+A: Download it from the nmap.org download page.
 
-I'm on a Mac and I want to use nmap to scan for my Pi. How do I set that up?
+Q: How do I actually scan my whole network with nmap to find my Pi?
+A: Run `sudo nmap -sn 192.168.1.0/24`, replacing the subnet to match your network.
 
-I ran nmap but I don't know what subnet address to give it. How do I figure that out on Windows?
+Q: The nmap scan is taking forever — is that normal?
+A: It can take up to a minute depending on your local network speed.
 
-How long does the nmap scan usually take? I don't want to sit here forever waiting.
+Q: How do I know what subnet to scan with nmap?
+A: First find your own computer's IP address, then scan that same subnet range.
+
+Q: After running nmap, how do I spot which result is my Raspberry Pi?
+A: Look for the hostname `raspberrypi` in the output — it'll show the IP next to it.
 
 # Find devices with a smartphone app
 
-I don't have a laptop handy, just my phone. Is there an app I can use to find my Pi's IP address?
+Q: Is there an app on my phone I can use to find my Pi's IP address?
+A: Yes, the free Fing app for Android and iOS scans your network for devices.
 
-I've got the Fing app open. What do I actually do to find my Raspberry Pi in the list?
+Q: I'm using Fing — how do I actually find the Pi in the list?
+A: Scroll to the entry with manufacturer "Raspberry Pi" — the IP shows bottom left.
+
+Q: Does Fing show the MAC address too or just the IP?
+A: It shows the IP in the bottom left and the MAC address in the bottom right.
+
+# Whole Document
+
+Q: I don't have a screen connected to my Pi — how do I find its IP address?
+A: Use `hostname -I` via SSH, ping `raspberrypi.local`, nmap, your router, or the Fing app.
+
+Q: Why do I even need to know my Pi's IP address?
+A: You need it to connect remotely using SSH or VNC from another machine.
+
+Q: I've got no display, no keyboard, nothing — what's the easiest way to find my Pi's IP?
+A: Try pinging `raspberrypi.local` from another device on the same network.

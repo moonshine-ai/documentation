@@ -1,33 +1,39 @@
 # Camera Module 2
 
-What's the resolution on the Camera Module 2?
+Q: What sensor is inside the Camera Module 2?
+A: It's built around the Sony IMX219 image sensor.
 
-How many megapixels does the Camera Module 2 have?
+Q: How many megapixels does the Camera Module 2 have?
+A: The Camera Module 2 is an eight-megapixel camera.
 
-What sensor does the Camera Module 2 use?
+Q: What's the resolution on the Camera Module 2?
+A: It captures images at three thousand two hundred eighty by two thousand four hundred sixty-four pixels.
 
-What's the longest exposure time I can set on this camera?
+Q: Does the Camera Module 2 have a fixed focus or can I adjust it?
+A: The Camera Module 2 has adjustable focus built in.
 
-I've heard there are different versions of the Camera Module 2. What's the difference between them?
+Q: How long of an exposure can the Camera Module 2 do?
+A: It can record exposures of up to eleven point seven six seconds.
 
-Why would I want the NoIR version instead of the regular one?
+Q: What's the difference between the standard Camera Module 2 and the NoIR version?
+A: Standard filters out infrared; NoIR captures both visible and infrared light.
 
-Wait, does the regular Camera Module 2 capture infrared light or not?
+Q: I want to film in the dark. Which version of the Camera Module 2 should I get?
+A: Get the NoIR version and pair it with infrared lighting.
 
-I want to do some night vision stuff with my Pi. Which camera module do I need?
+Q: I've got the NoIR camera. Can I still use it for regular photos in daylight?
+A: Yes, it captures visible light too, just without an infrared filter.
 
-What's the blue gel thing that comes with the NoIR camera for?
+Q: What's that little blue square that comes with the NoIR camera for?
+A: It helps monitor the health of green plants when used with the camera.
 
-I'm trying to monitor my plants. Is there a camera that would help with that?
-
-Can the Camera Module 2 see in the dark?
-
-What's the difference between NoIR and the standard camera? I keep seeing both mentioned and I'm confused.
+Q: Where can I find the full technical specs for the Camera Module 2?
+A: Check the hardware specifications section in the camera accessories documentation.
 
 # Whole Document
 
-I'm just getting started with cameras on my Raspberry Pi. What are my options?
+Q: I'm trying to decide between the two Camera Module 2 versions. What are my options?
+A: You can choose between the standard visible-light version or the NoIR infrared version.
 
-Does Raspberry Pi make its own cameras or do I have to use third party ones?
-
-I want to take high quality photos with my Pi. What camera should I get?
+Q: Does the Camera Module 2 come in different versions or is there just one?
+A: It comes in two variants: standard and NoIR, for different lighting needs.

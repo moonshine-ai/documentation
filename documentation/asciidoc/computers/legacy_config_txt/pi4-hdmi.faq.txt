@@ -1,30 +1,25 @@
 # Raspberry Pi 4 HDMI Pipeline
 
-# Whole Document
+Q: My monitor is 1366 by 768 and the Pi 4 won't output to it. What's going on?
+A: Pi 4 can't output HDMI at 1366×768 at 60Hz resolution.
 
-- My Raspberry Pi 4 won't output at the resolution I need. What's going on?
-- I've got a Raspberry Pi 4 and I'm having display problems. Is there anything special about how it handles HDMI?
-- Do these display settings apply to all Raspberry Pi models or just the 4?
+Q: I've got a monitor that supports 1360 by 768. Can I manually set that on my Pi 4?
+A: Yes, add hdmi_group, hdmi_mode, and hdmi_cvt settings to config.txt.
 
-# When Using VC4 KMS Graphics Driver
+Q: What do I put in config.txt to get 1360 by 768 at 60Hz on my Pi 4?
+A: Set hdmi_group=2, hdmi_mode=87, and hdmi_cvt=1360 768 60.
 
-- Wait, I've got the VC4 KMS driver. Do these config.txt settings even apply to me?
-- How do I know which graphics driver I'm using? I don't want to change the wrong settings.
-- I changed stuff in config.txt but my display settings aren't doing anything. Could it be because of my graphics driver?
+Q: Why doesn't my Pi 4 just automatically pick the right resolution for my monitor?
+A: Monitors don't typically advertise 1360×768 via EDID, so it can't auto-select.
 
-# 1366×768 Resolution Limitation
+Q: I'm setting custom HDMI timings manually. Is there anything I need to watch out for?
+A: All horizontal timing parameters must be divisible by two when set manually.
 
-- My monitor is 1366 by 768 and my Pi 4 won't display at 60Hz. Is that a known issue?
-- Why can't the Pi 4 do 1366 by 768 at 60Hz? That's such a common resolution.
-- My monitor looks blurry or the resolution's wrong on my Pi 4. Could it be a resolution compatibility thing?
-- I want to use 1360 by 768 at 60Hz instead of 1366 by 768. What do I add to config.txt to make that work?
-- My monitor doesn't show the right resolution options automatically. How do I force a specific one?
-- So the Pi 4 just can't do 1366 by 768 at 60Hz ever? Or is there a workaround?
+Q: Does the same divisible-by-two rule apply to DPI timings too?
+A: No, DPI timings aren't restricted that way as it runs one pixel per clock.
 
-# Manual Timing Restrictions
+Q: I'm using the VC4 KMS graphics driver. Do these HDMI settings in config.txt apply to me?
+A: No, these settings only apply to legacy FKMS and firmware-based graphics drivers.
 
-- I'm setting custom HDMI timings manually. Is there anything I need to watch out for?
-- I set up hdmi_timings in config.txt and things aren't working right. Is there some rule about the numbers I use?
-- What does it mean that horizontal timing parameters have to be divisible by two? How do I check if mine are?
-- Does the divisible by two rule apply to DPI timings as well, or just HDMI?
-- I'm using dpi_timings instead of hdmi_timings. Do I still have to worry about that even number restriction?
+Q: Wait, these settings don't work with the newer graphics driver?
+A: Correct, with VC4 KMS, Linux manages the display pipeline, not these settings.

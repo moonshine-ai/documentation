@@ -1,46 +1,81 @@
-# Whole Document
-
-- What is rpicam-vid and what does it actually do?
-- I just want to record a video with my Raspberry Pi camera. What's the simplest command to do that?
-- Does rpicam-vid show a preview while it's recording?
-- What file format does rpicam-vid save videos in by default?
-
 # `rpicam-vid`
 
-- I recorded a video with rpicam-vid and now I can't play it back. What player should I use?
-- I tried opening my H.264 file in VLC and it's just showing garbled frames. What's going on?
-- How do I record a ten-second video with rpicam-vid?
-- I want to save my video as an MP4 instead of H.264. How do I do that?
-- I've got a Raspberry Pi 4 and I want to save an MP4 file. Is that possible or is it only on Pi 5?
-- What's the difference between the raw H.264 output and an MP4? Why does it matter?
+Q: What's rpicam-vid actually for, like what does it do?
+A: It captures video, shows a preview, and writes an encoded bitstream to output.
+
+Q: I recorded a video with rpicam-vid and now I can't figure out how to watch it. What do I use?
+A: You can play the resulting H.264 file using ffplay or other video players.
+
+Q: I tried opening my H.264 file in VLC and it's just showing garbled frames. What's going on?
+A: Recent VLC versions don't play H.264 files correctly; use a different player instead.
+
+Q: How do I record a ten second video and save it to a file?
+A: Run rpicam-vid with -t 10s and -o followed by your desired filename.
+
+Q: Can I save directly as an MP4 instead of that raw H.264 thing?
+A: On Pi 5 just use an mp4 file extension; on Pi 4 add the --codec libav flag.
+
+Q: I'm on a Pi 4 and want to save as MP4. How do I do that?
+A: On Pi 4 use rpicam-vid with -t, --codec libav, and -o pointing to an mp4 file.
+
+Q: Does rpicam-vid use hardware encoding or is it doing everything in software?
+A: It uses hardware H.264 encoding when available.
 
 # Encoders
 
-- Can I record video as individual JPEG frames instead of one big video file?
-- What video formats can rpicam-vid actually encode into? Like what are my options?
-- I want to save motion JPEG video. How do I tell rpicam-vid to use that format?
-- Does the file extension matter when I'm saving the video, like does calling it .mp4 actually change the format?
-- How do I split my recording into separate chunk files instead of one long video?
+Q: Can I record in a format other than H.264? Like is there anything else supported?
+A: rpicam-vid also supports motion JPEG and uncompressed unformatted YUV420 encoding.
+
+Q: Does the file extension I use determine what format the video gets saved in?
+A: No, the codec option determines output format, not the file extension.
+
+Q: I want to save a bunch of individual JPEG photos from a video stream. Can I do that?
+A: Yes, use mjpeg codec with --segment 1 and a counter in the output filename.
+
+Q: What does the segment option actually do?
+A: It breaks output files into chunks based on the segment size given in milliseconds.
 
 # Capture high framerate video
 
-- I'm trying to record at over 60fps but I keep dropping frames. What can I do to fix that?
-- How do I record 120fps video on a Raspberry Pi?
-- Does turning off the preview window actually help with high framerate recording?
-- I want to do high framerate video. Should I lower the resolution to make it work?
-- What's that force_turbo setting and do I need it for high speed video?
-- I'm on a Pi 4 and want better video performance. Can I overclock anything to help?
+Q: My high framerate video keeps dropping frames. What can I do to fix that?
+A: Try setting H.264 level to 4.2, disabling denoise, hiding the preview, and lowering resolution.
+
+Q: Should I turn off the preview window when recording fast video?
+A: Yes, disabling the preview frees up extra CPU cycles helpful for high framerate recording.
+
+Q: What resolution should I aim for if I'm trying to hit really high framerates?
+A: Try 1280x720 or lower to achieve your target framerate.
+
+Q: Can I overclock my Pi 4 to get better video performance?
+A: Yes, add gpu_freq=550 or higher in /boot/firmware/config.txt to overclock the GPU.
+
+Q: What's force_turbo and should I set it when recording video?
+A: Setting force_turbo=1 in config.txt prevents the CPU clock from throttling during capture.
+
+Q: How would I actually record 120fps video on a Pi?
+A: Use --level 4.2, --framerate 120, --width 1280, --height 720, and --denoise cdn_off.
 
 # `libav` integration with `rpicam-vid`
 
-- Can rpicam-vid record audio along with the video?
-- How do I record video with sound using rpicam-vid?
-- I want to save an AVI file with audio. How do I do that?
-- What's libav and why would I use it instead of the default encoder?
+Q: Can rpicam-vid record audio too, not just video?
+A: Yes, using the libav backend with --libav-audio enables audio recording alongside video.
+
+Q: What even is libav and why would I use it instead of the default encoder?
+A: It's the ffmpeg codec backend that lets you encode audio and video or stream over a network.
+
+Q: How do I enable libav when recording video?
+A: Pass libav to the codec option, like --codec libav, in your rpicam-vid command.
 
 # Low latency video with the Pi 5
 
-- I'm streaming live video from a Pi 5 and there's too much delay. How do I reduce the latency?
-- I heard the Pi 5 uses software encoding. Does that make it worse for real-time streaming?
-- What does the low-latency option actually do and is there a downside to using it?
-- Will using low latency mode mess up my video quality or framerate?
+Q: I'm streaming live from a Pi 5 and there's too much delay. Is there a way to reduce it?
+A: Add --low-latency to your rpicam-vid command to output encoded frames more quickly.
+
+Q: What's the downside of using low latency mode on the Pi 5?
+A: Coding efficiency drops slightly and CPU cores may be used less efficiently.
+
+Q: Does low latency mode on Pi 5 mean I can't do 1080p anymore?
+A: No, it still easily achieves 1080p30 even with the slight framerate reduction.
+
+Q: Why does Pi 5 have more latency than older Pis when recording video?
+A: Pi 5 uses software video encoders which output frames with longer latency than hardware encoders.

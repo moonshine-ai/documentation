@@ -1,67 +1,178 @@
-# Whole Document
+# Compute Modules (General)
 
-- What's the difference between a Compute Module and a regular Raspberry Pi?
-- I keep hearing about Compute Modules but I don't really get what they're for. Can you explain?
-- What's a CMIO board and do I actually need one?
-- I want to use a Raspberry Pi for an industrial project. Should I use a Compute Module?
-- What Compute Modules are available right now?
-- I'm not sure which Compute Module to buy. What's the newest one?
-- What does "Lite" mean when it comes to Compute Modules?
+Q: What's the difference between a Compute Module and a regular Raspberry Pi?
+A: Compute Modules are compact, lack standard connectors, and target embedded industrial applications.
 
-# Compute Modules
+Q: Why would I pick a Compute Module over a normal Pi board?
+A: They offer compact design, flexibility, and support for on-board eMMC storage.
 
-- What's the difference between CM4 and CM5?
-- Do all Compute Modules come with Wi-Fi built in?
-- I want a Compute Module with wireless connectivity. Which ones support that?
-- How much RAM can I get on a CM5?
-- I need on-board storage on my Compute Module. What are my options?
-- What's eMMC storage and why do Compute Modules use it?
-- I've got an older project using CM3. Is that still supported?
-- My project uses a CM3 and I just heard it's discontinued. What should I switch to?
-- What's the difference between CM4 and CM4S?
-- Why did CM4 change the physical connector layout from the older modules?
+Q: What does "Lite" mean when I see it on a Compute Module name?
+A: Lite means the module has no on-board eMMC storage, for example CM5Lite or CM3L.
+
+Q: Do all Compute Modules have Wi-Fi built in?
+A: Only Compute Modules 4 and 5 offer optional Wi-Fi and Bluetooth connectivity.
+
+Q: Which Compute Modules have fixed RAM and which ones let me choose?
+A: CM1, CM3, and CM3+ have fixed RAM; CM4, CM4S, and CM5 offer different RAM amounts.
+
+# Models
+
+Q: What's the newest Compute Module available?
+A: Compute Module 5, released in 2024, based on Raspberry Pi 5.
+
+Q: I've got a CM4S — what form factor does it use?
+A: CM4S uses the standard DDR2 SODIMM form factor, same as CM1, CM3, and CM3+.
+
+Q: Wait, is CM3 still being made? I wanted to order some.
+A: No, CM3 reached end-of-life on 16 October 2025 due to SoC discontinuation.
+
+Q: What should I use instead of the CM3 now that it's discontinued?
+A: For existing designs use CM3+; for new SODIMM designs use CM4S; otherwise use CM4 or CM5.
+
+Q: How fast is the processor on the CM5?
+A: CM5 has four Cortex-A76 cores running at 2.4 GHz using a Broadcom BCM2712 SoC.
+
+# Compute Module 5
+
+Q: How much storage can I get on a CM5?
+A: CM5 offers zero, 16 GB, 32 GB, or 64 GB of eMMC flash storage options.
+
+Q: Can I get a CM5 with 16 gigs of RAM?
+A: Yes, CM5 is available with 2 GB, 4 GB, 8 GB, or 16 GB of RAM.
+
+Q: Is the CM5 physically compatible with CM4 carrier boards?
+A: Yes, CM5 uses the same dual 100-pin connector form factor as CM4.
+
+# Compute Module 4S
+
+Q: What's the point of the CM4S if there's already a CM4?
+A: CM4S offers CM4 performance in the older DDR2 SODIMM form factor for backward compatibility.
+
+Q: How much RAM and storage does the CM4S support?
+A: CM4S supports 1, 2, 4, or 8 GB RAM and up to 32 GB eMMC storage.
+
+# Compute Module 4
+
+Q: Does the CM4 work in really hot or cold environments?
+A: Standard CM4 handles -20°C to +85°C; wider-range variants handle -40°C to +85°C.
+
+Q: What extra features did CM4 add over the older modules?
+A: CM4 added dual HDMI connectors, PCIe support, and an Ethernet connector.
+
+Q: Why did CM4 change the connector style from the older modules?
+A: The dual 100-pin connector layout gives CM4 a smaller physical footprint than DDR2 SODIMM.
+
+# Compute Module 3+
+
+Q: How much RAM is in the CM3 Plus?
+A: CM3+ has a fixed 1 GB of RAM with no other options available.
+
+Q: What storage options does the CM3 Plus come in?
+A: CM3+ comes with no storage, or 8 GB, 16 GB, or 32 GB of eMMC flash.
+
+# Compute Module 1
+
+Q: How old is the original Compute Module and what are its specs?
+A: CM1 launched in 2014 with 512 MB RAM, 4 GB storage, and a 700 MHz ARM processor.
 
 # IO Boards
 
-- What does an IO board actually do?
-- Will the CM5IO board work with a CM4?
-- Can I use the CM4IO board with a CM5?
-- I've got a CM4S. Which IO board should I use with it?
-- What's the difference between CMIO and CMIO3?
-- How do I power the CM5IO board?
-- Does the CM5IO have a PCIe slot?
-- Can I plug a regular HAT into a Compute Module IO board?
-- Does the CM5IO board support PoE?
-- I want to connect two cameras to my CM4IO. Is that possible?
+Q: What does an IO Board actually do for a Compute Module?
+A: It adds physical connectors, power, GPIO headers, USB, HDMI, and camera and display interfaces.
 
-# CM5 and CM5IO accessories
+Q: Can I use a CM5 with the older CM4 IO board?
+A: Yes, but CM5 on CM4IO works with reduced functionality only.
 
-- What accessories can I get for CM5?
+Q: Will a CM4 work in the CM5 IO board?
+A: Yes, but CM4 on CM5IO also works with reduced functionality only.
+
+Q: Which IO board works with the CM4S?
+A: CM4S is compatible with the CMIO3 board alongside CM1, CM3, and CM3+.
+
+Q: How do I power the CM5IO board?
+A: CM5IO is powered by 5 V through a USB Type-C connector.
+
+# Compute Module 5 IO Board
+
+Q: Does the CM5IO have a slot for an M.2 SSD?
+A: Yes, CM5IO has an M.2 M key PCIe socket supporting 2230, 2242, 2260, and 2280 form factors.
+
+Q: I got a CM5Lite — is there an SD card slot on the CM5IO for it?
+A: Yes, CM5IO has a microSD slot intended for CM5Lite since it has no eMMC.
+
+Q: Does the CM5IO support Power over Ethernet?
+A: Yes, CM5IO has a Gigabit Ethernet RJ45 connector with PoE support.
+
+Q: Can I connect two displays to the CM5IO?
+A: Yes, CM5IO has two HDMI connectors and two combined MIPI DSI/CSI-2 FPC connectors.
+
+# Compute Module 4 IO Board
+
+Q: What voltage does the CM4 IO board accept for power?
+A: CM4IO accepts 5 V through GPIO header or 12 V through a DC barrel jack.
+
+Q: Does the CM4IO have separate connectors for cameras and displays?
+A: Yes, CM4IO has two dedicated MIPI DSI display connectors and two MIPI CSI-2 camera connectors.
+
+# Compute Module IO Board (versions 1 and 3)
+
+Q: What's the difference between CMIO version 1 and version 3?
+A: CMIO3 adds a microSD card slot and supports CM3 and CM3+ in addition to CM1.
+
+Q: How many GPIO pins does the CMIO board give me?
+A: The CMIO board provides 46 GPIO pins.
+
+# CM5 and CM5IO Accessories
+
+Q: What accessories are available for the CM5?
+A: Raspberry Pi offers a CM5IO Case, an antenna for wireless, and a passive CM5 Cooler.
 
 # CM5IO Case
 
-- What's inside the CM5IO case? Like what does it come with?
-- Can I fit an M.2 SSD inside the CM5IO case?
-- Does the CM5IO case have a fan?
-- Can I fit both a cooler and a fan inside the CM5IO case at the same time?
-- I've got the original CM5IO case. Can I use a cooler with it?
-- How do I tell if I have version 1 or version 2 of the CM5IO case?
-- How big is the CM5IO case?
-- How do I assemble the CM5IO case? What order do I do things?
-- My SD card is stuck in the CM5IO case slot. How do I get it out?
-- Can I connect a camera inside the CM5IO case?
+Q: How big is the CM5IO Case once it's put together?
+A: Assembled, the CM5IO Case measures approximately 170 mm × 94 mm × 28 mm.
+
+Q: Does the CM5IO Case come with a fan already in it?
+A: Yes, it comes with a pre-installed controllable fan that you can remove.
+
+Q: Can I fit both a cooler and the fan inside the CM5IO Case?
+A: Only case version 2 fits both; version 1 requires removing the fan to add the cooler.
+
+Q: What's the difference between version 1 and version 2 of the CM5IO Case?
+A: Version 2 moves the fan closer to the short edge, freeing space for both fan and cooler.
+
+Q: How do I remove an SD card from the CM5IO Case?
+A: Push it inward to release it, then pull it out; it's a push-push slot.
 
 # Antenna (CM4 and CM5)
 
-- Can I add an external antenna to boost the Wi-Fi on my CM5?
-- How do I attach the antenna to the CM5 inside the case?
-- How do I actually enable the external antenna in software once it's connected?
-- How long is the antenna cable?
-- Does the antenna work with both CM4 and CM5?
+Q: Does the antenna work for both 2.4 GHz and 5 GHz Wi-Fi?
+A: Yes, the Raspberry Pi Antenna Kit supports dual-band Wi-Fi on CM4 or CM5.
+
+Q: How do I actually enable the external antenna after I've plugged it in?
+A: Add `dtparam=ant2` to the end of `/boot/firmware/config.txt`.
+
+Q: How long is the cable that comes with the antenna kit?
+A: The SMA to U.FL cable is approximately 205 mm long.
 
 # CM5 Cooler
 
-- What is the CM5 Cooler and do I need it?
-- How do I attach the cooler to my CM5?
-- Do I need to screw the cooler down or will it stay on its own?
-- Can I fit the cooler inside the CM5IO case?
+Q: Does the CM5 Cooler need a power connection or is it just a heatsink?
+A: It's a passive aluminium heat sink with no power connection required.
+
+Q: Do I have to screw the cooler down or will it stay on its own?
+A: Screws are optional; the silicone pad bond strengthens over time without them.
+
+Q: What's on the bottom of the cooler that sticks to the CM5?
+A: The cooler has a conductive silicone pad on the bottom that contacts the CM5.
+
+# Whole Document
+
+Q: What kind of projects are Compute Modules actually designed for?
+A: They target industrial and commercial applications like digital signage, thin clients, and process automation.
+
+Q: I want to design my own carrier board — can I use a Raspberry Pi IO board as a starting point?
+A: Yes, IO Boards can serve as a reference design for your own custom carrier board.
+
+Q: What's eMMC storage and why do Compute Modules use it?
+A: eMMC provides persistent storage with low power consumption and built-in reliability features.

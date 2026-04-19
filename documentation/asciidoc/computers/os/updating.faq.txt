@@ -1,62 +1,105 @@
-# Whole Document
-
-- I haven't updated my Pi in a while. How do I get everything up to date?
-- What's the safest way to keep my Raspberry Pi secure from hackers and stuff?
-- I'm new to this. What's the best way to install and manage software on a Raspberry Pi?
-
 # Manage software packages with APT
 
-- What even is APT? Do I need to know about it to install stuff on my Pi?
-- How do I install software on my Raspberry Pi from the command line?
+Q: What's the recommended way to install and remove software on Raspberry Pi OS?
+A: APT, accessed through the `apt` command-line interface, is recommended.
+
+Q: I've never updated my Pi before. Is it actually important to keep it updated?
+A: Yes, updates keep your device secure and give you the latest bug fixes.
 
 # Install updates
 
-- What commands do I run to update everything on my Pi?
-- Wait, what's the difference between `apt upgrade` and `apt full-upgrade`? Which one should I use?
-- Does updating my software also update the firmware and the Linux kernel, or do I have to do that separately?
-- I just did `sudo apt upgrade` but someone told me I should be using a different command. What's the right one for Raspberry Pi?
-- I've got Raspberry Pi OS and there's a new major version out. Will running the update commands switch me over to it?
+Q: What's the difference between `apt update` and `apt full-upgrade`? I always mix those up.
+A: `update` refreshes the package list; `full-upgrade` upgrades all installed packages.
+
+Q: Why do I need to run `apt update` before upgrading? Can't I just skip straight to the upgrade?
+A: `apt update` refreshes your local package list from sources before upgrading anything.
+
+Q: Why should I use `full-upgrade` instead of just `upgrade` on my Pi?
+A: Package dependencies sometimes change in Raspberry Pi OS, so `full-upgrade` handles that.
+
+Q: Will running those update commands upgrade me to a brand new version of Raspberry Pi OS?
+A: No, they won't upgrade you to a new major OS version; follow separate OS upgrade instructions.
+
+Q: Does keeping my software updated also update my Linux kernel and firmware?
+A: Yes, Raspberry Pi distributes the kernel and firmware as Debian packages through `apt`.
 
 # Search for software
 
-- I'm looking for a package but I don't know the exact name. How do I search for it?
-- How do I find out more details about a package before I install it, like who made it and how big it is?
+Q: How do I search for a package if I don't know the exact name?
+A: Run `apt-cache search` followed by a keyword to find matching packages.
+
+Q: I found a package but I want to check who made it and what version it is before installing. How do I do that?
+A: Run `apt-cache show <package-name>` to see maintainer, version, size, and description.
 
 # Install a package
 
-- How do I actually install something using apt? Like what do I type?
-- It keeps asking me to confirm every time I install something. Is there a way to just skip that yes or no question?
+Q: How do I install something with apt without it asking me to confirm every time?
+A: Add the `-y` flag to your `sudo apt install` command to skip confirmation.
 
 # Uninstall a package
 
-- How do I uninstall something I don't want anymore?
-- I removed a package but I think it left some config files behind. How do I get rid of everything completely?
+Q: I removed a package but I think it left some files behind. How do I get rid of everything?
+A: Use `purge` instead of `remove` to completely delete the package including config files.
+
+Q: How do I uninstall a package I don't need anymore?
+A: Run `sudo apt remove <package-name>` and confirm with Y to uninstall it.
 
 # Manage `apt` disk usage
 
-- My Pi is running low on storage. How do I free up space from old downloaded packages?
-- How do I check how much free disk space I've got before doing a big update?
-- Where does apt store all those downloaded packages, and can I delete them to save space?
+Q: My SD card is getting full. How do I check how much space I have left?
+A: Run `df -h` to check your available free disk space.
+
+Q: Where does apt store all the files it downloads, and can I delete them?
+A: Downloads go to `/var/cache/apt/archives`; run `sudo apt clean` to delete them.
 
 # Upgrade your operating system to a new major version
 
-- How do I upgrade to a brand new version of Raspberry Pi OS without losing all my files?
-- Should I back up before doing a major OS upgrade?
+Q: I want to upgrade to the newest version of Raspberry Pi OS. Can I just run apt full-upgrade for that?
+A: No, you need to image a new SD card with the new release instead.
+
+Q: What's the safe way to move to a new major version of Raspberry Pi OS without losing my files?
+A: Image a second SD card, copy your files over, then swap it into your Pi and boot.
+
+Q: Do I need to back up before doing a major OS upgrade?
+A: Yes, you should always make a backup before attempting a major version upgrade.
 
 # Upgrade your firmware
 
-- How do I update the firmware on my Raspberry Pi?
-- I heard about `rpi-update`. Is it safe to just run it whenever I want to update my Pi?
-- What does `rpi-update` actually do? Like what files does it change?
-- Do I need to restart my Pi after updating the firmware?
+Q: Should I regularly run rpi-update to keep my Pi's firmware fresh?
+A: No, don't use `rpi-update` as part of any regular update process; it's not stable.
+
+Q: I saw someone mention rpi-update online. Is it safe to just run it?
+A: Only use `rpi-update` if a Raspberry Pi engineer specifically recommends it to you.
+
+Q: What exactly does rpi-update install on my Pi?
+A: It installs the latest pre-release Linux kernel, modules, device tree files, and VideoCore firmware.
+
+Q: I ran rpi-update but nothing seems to have changed. Do I need to restart?
+A: Yes, you must reboot your Raspberry Pi after running `rpi-update` for changes to take effect.
 
 # Downgrade firmware to the last stable release
 
-- I updated my firmware and now something's broken. How do I go back to the stable version?
+Q: I updated my firmware and now something's broken. Can I roll it back?
+A: Yes, run `sudo apt update` then `sudo apt install --reinstall raspi-firmware` to revert.
 
 # Convert Raspberry Pi OS Lite into Raspberry Pi OS Desktop
 
-- I installed the Lite version but now I want a proper desktop. Can I add it without reinstalling everything?
-- What's the difference between installing Wayland and X for the desktop, and which one should I pick?
-- I added the desktop to my Lite install. Now I want to go back to just the command line. Do I have to reinstall?
-- After I install all the desktop packages on Lite, do I have to restart for it to show up?
+Q: I installed Raspberry Pi OS Lite but now I want a desktop. Do I have to start over?
+A: No, you can install the desktop packages using `apt` without reinstalling from scratch.
+
+Q: Which desktop windowing system should I install on my Pi, Wayland or X?
+A: Wayland is the recommended option for Raspberry Pi OS Desktop.
+
+Q: I added the desktop to my Lite install but now I want to go back. Do I have to wipe everything?
+A: You can remove the desktop packages, or use raspi-config to boot to command line instead.
+
+Q: After installing all the desktop packages, how do I actually get into the desktop?
+A: Run `sudo reboot` to restart your Pi and enter the desktop environment.
+
+# Whole Document
+
+Q: How do I keep my Raspberry Pi secure and up to date?
+A: Regularly run `sudo apt update` and `sudo apt full-upgrade` to keep everything current.
+
+Q: I'm confused — do I need to do anything special to also update the firmware when I update my software?
+A: No, running `apt full-upgrade` keeps your kernel and firmware updated automatically via packages.

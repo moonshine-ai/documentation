@@ -1,16 +1,24 @@
 # Where can I find documentation?
 
-- I just got a Pico and I want to use Python on it. Where do I even start looking for docs?
-- Is there an official guide for using MicroPython on the Pico?
-- I've heard about the Pico W being able to connect to WiFi. Is there documentation for that with MicroPython?
-- What's the RP2 Quick Reference? Is that something I need?
-- Where can I find the official MicroPython docs specifically for the Raspberry Pi Pico?
-- I want to use the rp2 module but I don't know what it does. Where do I find info on that?
-- Is there a guide for getting the Pico W online using MicroPython rather than C?
-- I'm confused about which docs I should be reading for MicroPython on a Pico. There seem to be a few different ones — what's the difference?
+Q: Where do I go to learn about using MicroPython on a Raspberry Pi Pico?
+A: Check the Raspberry Pi Pico Python SDK document at pip.raspberrypi.com.
+
+Q: I've got a Pico W and I want to connect it to the internet using MicroPython. Is there a guide for that?
+A: Yes, "Connecting to the Internet with Raspberry Pi Pico W" covers MicroPython and C++.
+
+Q: What's the RP2 Quick Reference and do I need it?
+A: It's the official MicroPython documentation specifically for the RP2XXX microcontroller port.
+
+Q: I'm trying to use the rp2 module in my MicroPython code but I don't know what it does. Where do I look?
+A: The RP2 Library page at docs.micropython.org covers the rp2 module officially.
+
+Q: I just got a Pico and want to start coding in Python. Where's the best place to start reading?
+A: Start with the Raspberry Pi Pico Python SDK for a MicroPython environment overview.
 
 # Whole Document
 
-- I just want to program my Pico with Python. Where do I find everything I need?
-- What resources are available if I'm trying to learn MicroPython for a Raspberry Pi microcontroller?
-- I don't know where to start with MicroPython on the Pico. What should I read first?
+Q: Are there official Raspberry Pi docs for MicroPython or is it all third-party stuff?
+A: Raspberry Pi publishes official SDK and internet connectivity guides for MicroPython.
+
+Q: I'm not sure if I should read the Raspberry Pi docs or the MicroPython docs. What's the difference?
+A: Raspberry Pi docs cover Pico-specific setup; MicroPython docs cover the RP2 port and library.

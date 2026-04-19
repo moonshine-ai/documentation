@@ -1,17 +1,22 @@
 # Legacy options
 
-- I'm running an older version of Raspberry Pi OS and someone told me to edit config.txt — are all those options still valid?
-- I'm doing bare-metal development on my Pi. Are there config.txt settings I can use even if they're not in the main docs anymore?
-- Some of these config.txt options I found online don't seem to do anything. Could they be legacy settings that got dropped?
-- I'm using an older Pi OS, not Bookworm, and I want to tweak some graphics settings in config.txt. Where do I even start?
-- What does it mean when a config.txt option is called "legacy"? Does that mean I shouldn't use it?
-- I found a guide online that mentions some config.txt settings but I can't find them in the official docs anymore. Did they get removed or something?
-- I'm not on the latest Raspberry Pi OS — should I worry about using these old config.txt options or are they safe?
-- Are the firmware graphics driver settings in config.txt still usable or did they get replaced with something else?
+Q: I'm running an older version of Raspberry Pi OS — are these old config.txt settings still gonna work for me?
+A: Legacy settings may still benefit users of older Raspberry Pi OS versions.
 
-# Whole Document
+Q: Why are some of these config dot txt options not working on my Pi anymore?
+A: These options aren't used by Raspberry Pi OS Bookworm and aren't officially supported.
 
-- I'm on an older Raspberry Pi OS and I'm not sure which config.txt settings actually work anymore. How do I know what's still supported?
-- Someone mentioned there are deprecated config.txt options that still work on older systems. Where can I find info on those?
-- I'm doing bare-metal Pi stuff and I need all the config.txt options I can get, even the unsupported ones. Is there a list somewhere?
-- What's the difference between a supported config.txt option and a legacy one? Do legacy ones still actually work?
+Q: What even are legacy settings? Like, why are they still listed if they don't work?
+A: They're documented for older OS users or people doing bare-metal development.
+
+Q: I'm doing bare-metal programming on my Pi — should I care about these old config options?
+A: Legacy options may still be useful for people doing bare-metal development.
+
+Q: I've got an old Pi running an older OS and some config settings stopped working. What's going on?
+A: Those settings relate to older software like firmware graphics drivers and are deprecated.
+
+Q: Are the legacy config dot txt options still officially supported by Raspberry Pi?
+A: No, these options are no longer officially supported by Raspberry Pi.
+
+Q: I heard some config dot txt stuff got removed in Bookworm. What happened to it?
+A: Those settings are considered legacy and aren't used by Raspberry Pi OS Bookworm.

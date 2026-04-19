@@ -1,33 +1,33 @@
 # About
 
-What is the Sense HAT exactly?
+Q: What sensors does the Sense HAT actually have on it?
+A: It monitors pressure, humidity, temperature, colour, orientation, and movement.
 
-What kind of sensors does the Sense HAT have on it?
+Q: I've got an older Pi with a 40-pin header. Will the Sense HAT work with it?
+A: Yes, the Sense HAT works with any Raspberry Pi with a 40-pin GPIO header.
 
-I've heard of the Sense HAT but I don't really know what it does. Can you give me a quick rundown?
+Q: What's that LED grid on the Sense HAT for?
+A: The 8x8 RGB LED matrix lets you visualise data from the onboard sensors.
 
-Does the Sense HAT work with all Raspberry Pi models?
+Q: Where did the Sense HAT originally come from? Like why was it made?
+A: It was developed for the International Space Station as part of the Astro Pi programme.
 
-What's the LED matrix on the Sense HAT for?
+Q: Who runs the Astro Pi programme the Sense HAT was made for?
+A: The Raspberry Pi Foundation runs it in partnership with the European Space Agency.
 
-I heard the Sense HAT was used in space. Is that actually true?
+Q: What programming language do I use with the Sense HAT?
+A: There's an officially supported Python library for the sensors, LED matrix, and joystick.
 
-What's the Astro Pi programme?
+Q: Does the Sense HAT have any buttons on it?
+A: Yes, it has a five-button joystick for users to interact with projects.
 
-My Pi only has a 26-pin GPIO header. Will the Sense HAT still work with it?
+Q: I want to do a motion-sensing project. Is the Sense HAT any good for that?
+A: Yes, it supports position, motion, orientation, and environmental sensing projects.
 
-What programming language do I use with the Sense HAT?
-
-I want to track movement and orientation in my project. Would the Sense HAT be good for that?
-
-Can I use the Sense HAT to display stuff on a little screen or something?
-
-What's the joystick on the Sense HAT for?
+Q: What's the Sense HAT actually good for beyond just playing around?
+A: It helps with projects requiring position, motion, orientation, or environmental sensing.
 
 # Whole Document
 
-I'm a complete beginner. Is the Sense HAT something I can actually learn to use, or is it too complicated?
-
-Does the Sense HAT need any extra software installed, or does it just work when I plug it in?
-
-I want to build a weather station kind of thing. Could the Sense HAT help with that?
+Q: So what even is the Sense HAT and do I need anything else to use it?
+A: It's an add-on board for Raspberry Pi providing sensing, LEDs, and joystick interaction.

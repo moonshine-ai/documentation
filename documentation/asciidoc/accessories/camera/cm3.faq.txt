@@ -1,41 +1,50 @@
 # Camera Module 3
 
-What's the resolution on the Camera Module 3?
+Q: What's the resolution on the Camera Module 3?
+A: It's 4608 by 2592 pixels, totaling twelve megapixels overall.
 
-How many megapixels is the Camera Module 3?
+Q: What sensor does the Camera Module 3 use?
+A: It uses the Sony IMX708 sensor for image capture.
 
-What sensor does the Camera Module 3 use?
+Q: Does the Camera Module 3 have autofocus or do I have to do that manually?
+A: It has powered autofocus built right in.
 
-Does the Camera Module 3 have autofocus?
+Q: I want to do really long exposure shots. How long can the Camera Module 3 expose for?
+A: It can record an exposure time of up to 112 seconds.
 
-What's the longest exposure time I can get with the Camera Module 3?
+Q: What versions of the Camera Module 3 are there? I'm not sure which one to buy.
+A: There are four variants: standard normal, standard wide, NoIR normal, and NoIR wide.
 
-What's the difference between the standard and NoIR versions of the Camera Module 3?
+Q: What's the difference between the standard camera and the NoIR one?
+A: Standard filters out infrared; NoIR captures both visible light and infrared.
 
-I've got a NoIR camera — why would I use that blue gel square that came with it?
+Q: I want to see in the dark with my Pi camera. Which version do I need?
+A: Use a NoIR camera paired with infrared lighting to see in the dark.
 
-Can the Camera Module 3 see in the dark?
+Q: There's a square of blue gel in the box. What's that for?
+A: It helps the NoIR camera monitor the health of green plants.
 
-What versions of the Camera Module 3 are there? Like, what are all the different options?
+Q: I've got a GPS receiver near my Pi and it's acting weird. Could the camera be causing that?
+A: The Camera Module 3 may emit RFI that interferes with GPS L1 frequencies.
 
-Does the wide angle version have the same sensor as the regular one?
+Q: My GPS stopped working after I plugged in the Camera Module 3. Is there a fix?
+A: There are proposed workarounds discussed in a thread on GitHub.
 
-I want to monitor my plants — which Camera Module 3 should I get?
+# Transmission characteristics
 
-My Camera Module 3 seems to be messing with my GPS. Is that a known thing?
+Q: What does the transmission graph actually show me?
+A: It shows the IMX708 sensor's spectral sensitivity characteristics.
 
-Wait, can the Camera Module 3 actually interfere with GPS? That seems weird.
-
-What frequencies does the Camera Module 3 capture? Like, can it see infrared?
-
-Does the standard Camera Module 3 pick up infrared light at all?
+Q: Is there a graph showing how the NoIR camera handles different light wavelengths?
+A: Not specified in this section.
 
 # Whole Document
 
-What camera options does Raspberry Pi make?
+Q: I'm deciding between the wide and normal field of view. What sensor do both use?
+A: Both use the same Sony IMX708 twelve-megapixel sensor.
 
-I want to do some night vision stuff with my Pi — what camera should I get?
+Q: Where can I find the detailed hardware specs for the Camera Module 3?
+A: Check the hardware specifications section in the camera accessories documentation.
 
-What's the difference between all the Raspberry Pi camera modules?
-
-I'm not sure which Pi camera to buy. What are my options?
+Q: I want to use infrared lighting with my Pi. Which camera module should I get?
+A: Get the NoIR variant, which captures both visible and infrared light.

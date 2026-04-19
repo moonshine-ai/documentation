@@ -1,77 +1,92 @@
 # Frequency management and thermal control
 
-What temperature does a Raspberry Pi throttle at?
+Q: My Pi is getting really hot. What temperature does it start slowing down?
+A: Throttling begins between 80°C and 85°C, with full throttle at 85°C.
 
-My Pi feels really hot. Should I be worried about it breaking?
+Q: Can I set the max temperature higher than 85 degrees on my Pi?
+A: No, you can set it lower than 85°C but not higher than that.
 
-At what point does the Pi actually start slowing itself down to cool off?
-
-Does the Raspberry Pi have any built-in protection against overheating, or do I need to set that up myself?
-
-Can I make my Pi run at a higher temperature than 85 degrees? Like, if I add a big heatsink?
-
-What happens to my Pi when it gets too hot — does it just shut down, or does it slow down first?
+Q: Why does my Pi seem slower when it gets warm?
+A: The Pi reduces CPU and GPU frequencies to lower heat and stay under 85°C.
 
 # Use DVFS
 
-What's DVFS and do I need to care about it on my Pi 4?
+Q: What even is DVFS? Do I need to worry about it?
+A: DVFS lets Pi 4 run cooler by reducing voltage when full speed isn't needed.
 
-Does DVFS work on all Raspberry Pi models or just some of them?
+Q: Which Pi models actually support this DVFS thing?
+A: DVFS applies only to 4-series devices: Pi 4, Compute Module 4, and Pi 400.
 
-My Pi 4 is running kind of hot at idle. Is there a setting to make it use less power when it's not doing much?
+Q: I've got a headless Pi 4 server. Is there a DVFS setting that saves power?
+A: Use dvfs=1 for power savings on headless systems, but it risks PCIe instability.
 
-How do I change the DVFS mode on my Pi 4?
+Q: What's the default DVFS mode on Pi 4?
+A: The default is dvfs=3, which scales voltage up on demand for overclocking.
 
-What's the difference between dvfs=1, dvfs=2, and dvfs=3? Which one should I use?
+Q: I set over_voltage in config.txt and now I'm wondering if DVFS still works.
+A: Setting over_voltage disables dynamic voltage scaling, reverting the system to dvfs=2.
 
-I've got a headless Pi with nothing plugged in. What DVFS setting is best for that?
+Q: How do I switch my Pi to use the powersave CPU governor?
+A: Install cpufrequtils and run sudo cpufreq-set -g powersave in the terminal.
 
-I've got a Pi 5 — do I need to set DVFS in config.txt?
-
-I set over_voltage in config.txt and now I'm wondering if DVFS is still working?
-
-How do I switch my CPU governor to powersave to reduce idle power?
+Q: Does DVFS apply to my Pi 5?
+A: No, DVFS settings are removed on 5-series devices, which always use mode 3.
 
 # Measure temperatures
 
-How do I check the temperature of my Raspberry Pi right now?
+Q: How do I actually check the temperature of my Pi right now?
+A: Run vcgencmd measure_temp in the terminal for an accurate SoC temperature reading.
 
-Is there a command I can run to see how hot my Pi is?
+Q: I tried checking the temp through Linux and got a weird number. Is that normal?
+A: Yes, Linux-based temperature readings can be inaccurate due to SoC architecture.
 
-I heard Linux temperature readings on the Pi aren't very accurate. What should I use instead?
+Q: What's the most accurate way to see my Pi's current temperature?
+A: Use vcgencmd measure_temp, as it communicates directly with the GPU.
 
 # Add heat sinks
 
-Do I actually need a heatsink on my Raspberry Pi?
+Q: Do I actually need a heatsink or will my Pi just fry without one?
+A: Heatsinks aren't necessary thanks to built-in throttling, but they reduce performance slowdowns.
 
-Will adding a heatsink make my Pi faster?
-
-What's the best way to position my Pi for better cooling?
+Q: What's the best way to position my Pi to keep it cool?
+A: Mount your Raspberry Pi vertically for best airflow and slightly improved heat dissipation.
 
 # Fan cases
 
-What fans are officially supported for the Pi 5?
+Q: Does the Pi control the fan speed automatically or do I have to manage it?
+A: Raspberry Pi firmware automatically manages fan speeds for all official fans.
 
-What's the difference between the Active Cooler and the Pi 5 case with a fan?
+Q: I've got a Pi 5 and want to overclock it. Which fan should I get?
+A: The Active Cooler is recommended for overclockers because it provides better cooling performance.
 
-Where does the fan plug in on a Raspberry Pi 5?
+Q: Where does the fan plug into on a Pi 5?
+A: It plugs into the four-pin JST-SH PWM connector between the GPIO header and USB 2 ports.
 
-I want to overclock my Pi 5 — which cooling option should I get?
+Q: At what temperature does the Pi 5 fan actually turn on?
+A: The fan turns on at 30% speed when the Pi 5 reaches 50°C.
 
-At what temperature does the Pi 5 fan kick on?
+Q: My Pi 5 fan was running and then it slowed down. Is something wrong?
+A: No, fan speed decreases when temperature drops 5°C below each speed threshold.
 
-My Pi 5 fan doesn't seem to be spinning even though the Pi is on. Is that normal?
+Q: Can I change when the Pi 5 fan kicks in? Like make it stay off longer?
+A: Yes, use fan_tempN dtoverlay settings in config.txt to adjust temperature thresholds.
 
-How fast does the Pi 5 fan spin at different temperatures?
+Q: What are the four pins on the Pi 5 fan connector?
+A: The four pins are 5V, PWM, GND, and Tach, with red, blue, black, and yellow wires.
 
-Can I change the temperature thresholds for when the Pi 5 fan turns on?
-
-What are the pins on the Pi 5 fan connector?
+Q: How does the Pi 5 know if the fan is actually working?
+A: At boot the fan spins and the tachometer input is checked to confirm it's spinning.
 
 # Whole Document
 
-My Pi is getting hot and slowing down. What are my options to fix that?
+Q: My Pi keeps throttling under heavy load. What are my options to fix that?
+A: Add a heatsink, fan, or mount vertically; these reduce throttling and improve performance.
 
-Is a fan better than a heatsink for keeping my Pi cool?
+Q: I've got a Pi 3 B+. Is there anything special about how it handles heat?
+A: It has better PCB heat dissipation and a soft limit at 60°C that reduces clock speed.
 
-Does the Raspberry Pi automatically manage its temperature, or do I have to do something to set that up?
+Q: What's the soft temperature limit on the Pi 3 B+ and can I change it?
+A: Default soft limit is 60°C; change it using temp_soft_limit in config.txt.
+
+Q: Does the Pi 4 have a soft temperature limit like the Pi 3 B+?
+A: No, there is currently no soft temperature limit defined for the Pi 4.

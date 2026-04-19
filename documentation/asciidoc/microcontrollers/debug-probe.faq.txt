@@ -1,83 +1,122 @@
 # About the Debug Probe
 
-What even is the Raspberry Pi Debug Probe? Like what does it actually do?
+Q: So what exactly is the Raspberry Pi Debug Probe? What does it do?
+A: It's a USB device providing a UART serial port and SWD debug interface.
 
-Do I need to solder anything to use the Debug Probe, or does it just plug in?
+Q: Does the Debug Probe work on Windows and Mac, or just Linux?
+A: It works on Windows, macOS, and Linux platforms without GPIO headers.
 
-What's SWD? I keep seeing it mentioned but I don't know what it is.
+Q: I've heard about CMSIS-DAP — is the Debug Probe compatible with that?
+A: Yes, it's compatible with the CMSIS-DAP standard and works with OpenOCD.
 
-I'm on Windows and want to debug my Pico. Does the Debug Probe work on Windows?
+Q: Can I update the firmware on the Debug Probe if I need to?
+A: Yes, the firmware is open source and easily upgradeable.
 
-What cables come in the box with the Debug Probe?
+# The Debug Probe
 
-I've got the Debug Probe and I'm looking at the wires — what do the different colors mean?
+Q: What voltage does the Debug Probe run at? I don't want to fry anything.
+A: The probe operates at 3.3V nominal I/O voltage.
 
-My Pico is powered from a separate USB cable. Is it safe to just connect the Debug Probe straight away?
+Q: What cables actually come in the box with the Debug Probe?
+A: A USB power cable and three debug cables with JST-SH connectors are included.
 
-What are all the little LEDs on the Debug Probe for?
+Q: What are the wire colors on the debug cables and what do they mean?
+A: Orange is TX/SC output, black is GND, and yellow is RX/SD input.
 
-# Getting Started
+Q: How many LEDs does the Debug Probe have and what are they for?
+A: It has five LEDs: one red power LED and four activity indicator LEDs.
 
-I've got a Pico H with that little JST connector. How do I wire it up to the Debug Probe?
+Q: What do the DAP LEDs do when I connect to a target with OpenOCD?
+A: OpenOCD switches both DAP LEDs on when connected, off on disconnect.
 
-I only have the regular Pico, not the H version, so there's no JST connector. Can I still use the Debug Probe with it?
+Q: I'm connecting the probe to something that has its own power supply. Do I need to be careful about anything?
+A: Connect GND first before any signal lines to avoid damaging the probe.
 
-Wait, so RX goes to TX and TX goes to RX? That seems backwards. Is that right?
+# Getting started
 
-# Install Tools
+Q: I've got a Pico H — how do I wire it up to the Debug Probe?
+A: Connect the D port to the SWD JST-SH connector and U port for UART.
 
-What software do I actually need to install to start using the Debug Probe?
+Q: My Pico doesn't have the JST-SH connector. Can I still use the Debug Probe with it?
+A: Yes, solder a male connector to SWCLK, GND, and SWDIO header pins instead.
 
-I'm on a Mac — what's the easiest way to get everything set up for debugging with the Debug Probe?
+Q: For the UART connection on the Pico H, does RX go to RX and TX go to TX?
+A: No, Debug Probe RX connects to Pico TX, and TX connects to Pico RX.
 
-Is there a way to install all the debugging tools at once instead of doing everything manually?
+# Install tools
 
-I'm on Windows, should I install all the tools by hand or is there a better way?
+Q: What tools do I actually need to install to use the Debug Probe?
+A: You need OpenOCD and GDB; an IDE may also be useful.
+
+Q: Is there an easy way to get everything installed at once rather than doing it manually?
+A: Install the VS Code extension, which bundles OpenOCD, toolchains, GDB, and register definitions.
+
+Q: Can I manually install the tools on Windows if I want to?
+A: Manual installation on Windows is not recommended.
 
 # Starting a Debug Session
 
-Do I still have to hold the BOOTSEL button every time I want to upload new code if I'm using the Debug Probe?
+Q: Do I have to unplug my Pico and hold BOOTSEL every time I want to upload new code with the Debug Probe?
+A: No, the Debug Probe uploads binaries via SWD completely hands-free.
 
-What's the command to upload a program to my Pico using the Debug Probe?
+Q: What file format do I use when uploading through the Debug Probe? Is it the UF2 file?
+A: No, use the ELF file, not the UF2 file used for drag-and-drop.
 
-Wait, do I use the UF2 file or the ELF file when I'm uploading through the Debug Probe?
+Q: What's the command to upload a binary using OpenOCD with the Debug Probe?
+A: Use openocd with cmsis-dap.cfg, rp2040.cfg, adapter speed 5000, and program command.
 
-How do I actually set up breakpoints and step through my code with GDB and the Debug Probe?
+Q: I want to use breakpoints while debugging. Do I need to build my code differently?
+A: Yes, build as Debug type, not Release, to get full debugger information.
 
-I'm trying to debug but I'm not getting much useful info from GDB. What am I doing wrong?
+Q: I'm on a Mac and I need GDB for Arm. Which one should I use?
+A: Use arm-none-eabi-gdb from the Arm GNU toolchain downloads website.
 
-I'm not on a Raspberry Pi, I'm on Linux. Which version of GDB do I need?
+Q: How do I actually attach GDB to the OpenOCD server once it's running?
+A: Start GDB with your ELF file, then run target remote localhost:3333.
 
-I'm on a Mac and want to debug Arm stuff. Which GDB should I use?
+# Serial connections
 
-# Serial Connections
+Q: What pins on the Pico do I connect the Debug Probe's UART to?
+A: Connect to physical pins 3 GND, 1 UART0_TX on GP0, and 2 UART0_RX on GP1.
 
-Which pins on the Pico do I connect the Debug Probe's UART cables to?
+Q: Once I've connected everything, how does the serial port show up on my computer?
+A: On Raspberry Pi it's /dev/ttyACM0; on macOS it appears as /dev/cu.usbmodemXXXX.
 
-Once I've got the Debug Probe connected, how do I actually see the serial output on my computer?
+Q: What program do I use to actually read the serial output from my Pico?
+A: Install minicom and open the port with minicom -b 115200 -o -D /dev/ttyACM0.
 
-I've plugged in the Debug Probe and I'm on a Raspberry Pi. What device name does the serial port show up as?
+Q: How do I quit minicom once I've opened it? I can't figure it out.
+A: Press CTRL-A followed by X to exit minicom.
 
-How do I exit minicom? I'm stuck in it and can't get out.
+Q: Is there a simple test program I can run to check that serial communication is working?
+A: Yes, build and upload the Hello World example; you should see "Hello, world!" printed.
 
-How do I test that my serial connection is actually working?
+# Updating the firmware on the Debug Probe
 
-# Updating the Firmware on the Debug Probe
+Q: How do I know what firmware version my Debug Probe is running?
+A: Run lsusb -v -d 2e8a:000c and grep for bcdDevice to check the version.
 
-How do I check what firmware version my Debug Probe is running?
+Q: What's the latest firmware version for the Debug Probe?
+A: The latest version is 2.2.3.
 
-My Debug Probe isn't working right and I think I might have messed up the firmware. How do I reinstall it?
+Q: How do I actually update the firmware on my Debug Probe?
+A: Hold BOOTSEL while plugging in, copy debugprobe.uf2 to the RPI-RP2 volume.
 
-How do I update the firmware on the Debug Probe?
+Q: OpenOCD says my firmware version is 2.0.0 but I thought I updated it. What's going on?
+A: That line refers to the CMSIS-DAP protocol level, not the Debug Probe firmware version.
+
+# Schematics
+
+Q: Are there schematics available if I want to look at how the Debug Probe is built?
+A: Yes, schematics and a mechanical drawing are available as downloadable PDFs.
 
 # Whole Document
 
-I just got a Debug Probe. Where do I even start?
+Q: What even is the Debug Probe — do I need one or can I just use my regular Pi?
+A: It lets platforms without GPIO headers connect to Pico's UART and SWD port.
 
-What's the difference between the D port and the U port on the Debug Probe?
+Q: I've got a Pico and I want to debug my code properly. Where do I even start?
+A: Get the Debug Probe, install the VS Code extension, and see the Getting Started guide.
 
-Can I use the Debug Probe just for serial output, without doing any actual debugging?
-
-I've never done hardware debugging before. Do I need to know about SWD and OpenOCD or can I just use a GUI for all of this?
-
-Where can I find the schematics for the Debug Probe if I want to look at how it's built?
+Q: Can I use the Debug Probe just for serial output without doing the full SWD debug thing?
+A: Yes, it has a separate UART bridge you can use independently via its U port.

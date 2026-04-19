@@ -1,71 +1,103 @@
-# Whole Document
-
-- I want to build my own kernel for my Raspberry Pi. Where do I even start?
-- What's the difference between building the kernel natively versus cross-compiling it?
-- I'm totally new to this. Do I need Git to build the kernel?
-- Can I build a 64-bit kernel on a 32-bit machine?
-- I've got a regular laptop running Ubuntu. Can I build a Raspberry Pi kernel on that?
-
 # Download kernel source
 
-- How do I download the Raspberry Pi kernel source code?
-- The git clone is taking forever. Is that normal?
-- I only want the latest code, not all the history. How do I do a shallow clone?
-- How do I download a specific branch of the kernel instead of the default one?
-- Where can I see what branches are available for the Raspberry Pi kernel?
+Q: Do I need Git to get the kernel source, or is there another way?
+A: Yes, you need Git installed to download the kernel source code.
+
+Q: How long does cloning the kernel repo take? I don't want to wait forever.
+A: It can take several minutes to download the kernel source.
+
+Q: I only want the latest code, not the whole history. Is there a faster way to clone it?
+A: Use `--depth=1` with `git clone` to download without full history.
+
+Q: How do I grab a specific branch of the kernel instead of the default one?
+A: Add `--branch <branch>` to your `git clone` command when downloading.
+
+Q: If I skip the depth flag, what happens? Does it just take longer?
+A: Yes, it takes much longer and occupies much more storage space.
 
 # Natively build a kernel
 
-- What packages do I need to install before I can build the kernel natively?
-- I've got a Pi 4. What commands do I run to set up the default kernel config?
-- I'm confused — my Pi 4 runs a 32-bit OS but I want a 64-bit kernel. Is that possible?
-- What's the difference between bcm2711_defconfig and bcm2712_defconfig? Which one do I need?
-- I've got a Pi 5. What config do I use?
+Q: What packages do I need to install before I can build the kernel natively?
+A: Install `bc bison flex libssl-dev make` as build dependencies first.
 
-# Build configuration
+Q: I've got a Pi 4 and I want a 64-bit kernel. What commands do I run to configure it?
+A: Run `cd linux`, set `KERNEL=kernel8`, then `make bcm2711_defconfig`.
 
-- Do I have to use the default config or can I customize things?
-- I'm running Raspberry Pi OS on a Pi 4 in 32-bit mode. What kernel variable do I set?
-- Wait, my Pi 4 uses a 64-bit kernel even with the 32-bit OS? How does that work?
+Q: What's the difference in setup between a Pi 5 and a Pi 4 for building the kernel?
+A: Pi 5 uses `KERNEL=kernel_2712` and `bcm2712_defconfig` instead of Pi 4's settings.
 
-# Customise the kernel version using `LOCALVERSION`
+Q: I'm running 32-bit Raspberry Pi OS on a Pi 4. Do I build the same way as 64-bit?
+A: No, set `ARCH=arm` and use `KERNEL=kernel7l` with `bcm2711_defconfig` for 32-bit.
 
-- Why would I want to set a custom kernel version name?
-- I don't want my new kernel to mess up my existing modules. What should I do?
-- How do I add my own name or label to the kernel so I can tell it apart from the stock one?
-- Can I change the local version through a menu instead of editing the config file directly?
+Q: Wait, can a 32-bit Raspberry Pi OS actually run a 64-bit kernel?
+A: Yes, 32-bit Raspberry Pi OS on 4-series devices uses a 64-bit kernel by default.
 
-# Build
+Q: What's LOCALVERSION and why would I want to change it?
+A: It prevents overwriting existing modules and clarifies you're running a custom kernel.
 
-- How long does building the kernel actually take?
-- What command do I use to build a 64-bit kernel on my Pi?
-- What's that `-j6` flag in the make command? Should I change that number?
-- How do I figure out how many cores my Pi has so I can set the right number for make?
-- I've got a Pi with 4 cores. What number should I pass to make -j?
+Q: How do I actually build the kernel once I've configured everything? What command do I run?
+A: Run `make -j6 Image.gz modules dtbs` for 64-bit or `make -j6 zImage modules dtbs` for 32-bit.
 
-# Install the kernel
+Q: My Pi has multiple cores. Can I use them all to speed up the build?
+A: Yes, use `make -j<n>` where n is about 1.5 times your processor count.
 
-- Okay I've built the kernel. How do I actually install it?
-- Should I back up my old kernel before installing the new one?
-- I built the kernel on a different Pi. How do I put it on my other one's SD card?
-- How do I make sure my new kernel doesn't overwrite the old one, just in case it doesn't boot?
-- I want to keep my custom kernel separate and be able to switch back easily. How do I do that?
-- After I install the kernel, what do I do to actually run it?
+Q: How do I find out how many processors my Pi has for that make command?
+A: Run `nproc` to see how many processors you have.
+
+Q: I built the kernel but now I'm worried about losing my old one. Does it back it up automatically?
+A: No, you manually back up by copying `$KERNEL.img` to `$KERNEL-backup.img` yourself.
+
+Q: I want to keep my custom kernel separate so I can switch back if it doesn't boot. How do I do that?
+A: Save it with a different filename and set `kernel=yourfilename.img` in `config.txt`.
+
+Q: After I install everything, how do I actually start using the new kernel?
+A: Run `sudo reboot` to restart and boot into your freshly-compiled kernel.
 
 # Cross-compile the kernel
 
-- I'm on Ubuntu and I want to cross-compile a kernel for my Pi. What do I need to install?
-- What toolchain do I need for a 64-bit Pi kernel when cross-compiling?
-- I want to build a 32-bit kernel from my laptop. Which cross-compile toolchain do I install?
+Q: What OS should I use as my cross-compilation host for building a Pi kernel?
+A: Ubuntu is recommended since it's also Debian-based like Raspberry Pi OS.
 
-# Find your boot media
+Q: What extra packages do I need to install to cross-compile versus a native build?
+A: You also need `libc6-dev` and `libncurses5-dev` on top of the basic dependencies.
 
-- How do I figure out which device name my SD card is after I plug it in?
-- I plugged in the SD card but I'm not sure which /dev entry it is. How do I check?
-- How do I mount the Pi's SD card partitions on my Linux machine so I can copy files over?
+Q: I want to build a 64-bit kernel from my laptop. What toolchain do I install?
+A: Install `crossbuild-essential-arm64` to build a 64-bit kernel via cross-compilation.
 
-# Install the kernel (cross-compiled)
+Q: And if I need a 32-bit kernel instead, what's the toolchain package called?
+A: Install `crossbuild-essential-armhf` for building a 32-bit kernel.
 
-- I cross-compiled the kernel. Now how do I get it onto the SD card?
-- After copying the kernel to the SD card, do I need to unmount it before putting it in the Pi?
-- I want to save my old kernel as a backup before I copy over the new cross-compiled one. How do I do that?
+Q: What's the difference between cross-compiling a 64-bit kernel for a Pi 4 versus a Pi 5?
+A: Pi 5 uses `KERNEL=kernel_2712` and `bcm2712_defconfig`; Pi 4 uses `kernel8` and `bcm2711_defconfig`.
+
+Q: How do I figure out which device is my SD card when I plug it in to install the cross-compiled kernel?
+A: Run `lsblk` before and after connecting; the new device shown is your boot media.
+
+Q: So once I find my SD card in lsblk, what are the two partitions on it?
+A: `sdb1` is the FAT32 boot partition and `sdb2` is the root partition.
+
+Q: I need to mount my SD card partitions to copy the kernel over. What folders should I use?
+A: Mount the boot partition to `mnt/boot` and the root partition to `mnt/root`.
+
+Q: After cross-compiling, I get confused installing the Device Tree blobs for 32-bit. Does the kernel version matter?
+A: Yes, kernels up to 6.4 copy from `dts/*.dtb`, but 6.5 and above use `dts/broadcom/*.dtb`.
+
+Q: Do I need to unmount the partitions after copying everything over?
+A: Yes, run `sudo umount mnt/boot` and `sudo umount mnt/root` when done.
+
+# Whole Document
+
+Q: What's the difference between a native build and cross-compilation? I keep seeing both terms.
+A: Native builds run on the target device; cross-compilation builds for a different target machine.
+
+Q: Can I build a 64-bit kernel from a 32-bit OS? That seems weird.
+A: Yes, cross-compilation lets you build a 64-bit kernel from a 32-bit OS.
+
+Q: I want to make my custom kernel easy to identify in uname. How do I do that?
+A: Adjust `LOCALVERSION` by editing `CONFIG_LOCALVERSION` in your `.config` file.
+
+Q: Can I change the LOCALVERSION thing graphically instead of editing a file?
+A: Yes, use `menuconfig` under General Setup > Local version to change it graphically.
+
+Q: What's the safest way to try a custom kernel without risking being unable to boot?
+A: Save it under a different filename and set that in `config.txt` so stock kernel stays intact.

@@ -1,27 +1,44 @@
 # `rpicam-hello`
 
-- How do I show a preview from my camera on the Raspberry Pi?
-- I just want to test that my camera's working. What's the quickest way to do that?
-- How long does rpicam-hello show the preview for by default?
-- I want the camera preview to stay open forever. How do I stop it from closing automatically?
-- How do I close the camera preview once it's open?
-- Can I set how long the preview window stays open, or does it always do the same time?
+Q: How do I get my Pi camera to show a preview on screen?
+A: Run `rpicam-hello` in a terminal to display a five-second preview.
+
+Q: The preview window just closes really fast. How do I keep it open longer?
+A: Use `--timeout 0` to keep the preview running indefinitely.
+
+Q: I want the camera preview to stay open for like 10 seconds. How do I set that?
+A: Pass the `--timeout` option with a duration value in milliseconds.
+
+Q: How do I close the camera preview once it's running?
+A: Press Ctrl+C in the terminal or click the preview window's close button.
 
 # Display an image sensor preview
 
-- I'm running the desktop and the preview window won't show up. What could be going wrong?
-- What's DRM and why does my camera preview look different when I'm not using a desktop?
-- I'm trying to forward my camera preview over SSH with X forwarding but it's not working. Is that even supported?
-- I'm SSH'd into my Pi and want to see the camera preview on my main computer. Can I do that?
-- What's this qt-preview flag for? When would I actually need it?
-- I'm getting some weird Glib-GObject errors and the Qt preview won't open. What do I do?
-- I don't want the preview window to pop up at all. Is there a way to just run it without showing anything?
-- Can I show information like the camera settings in the preview window title?
-- How do I display the current gain values in the camera preview?
-- What kind of info can I show in that info text thing on the preview window?
+Q: I'm using SSH with X forwarding and the camera preview isn't working. What's going on?
+A: Zero-copy GPU buffer sharing means X forwarding is not supported by default.
+
+Q: I want to use X forwarding for the preview. Is there any workaround?
+A: Pass the `--qt-preview` flag to render the preview in a Qt window instead.
+
+Q: The Qt preview is working but it feels sluggish. Is that normal?
+A: Yes, the Qt preview window uses more resources than the other preview options.
+
+Q: I don't want any preview window at all. How do I just run the camera without showing anything?
+A: Pass the `-n` or `--nopreview` flag to suppress the preview window entirely.
+
+Q: Can I show camera info like gain values in the preview window title?
+A: Yes, use `--info-text` with percent directives like `%rg` and `%bg`.
+
+Q: I'm getting some Glib-GObject errors and the Qt preview won't show up. What do I do?
+A: Edit `/etc/xdg/qt5ct/qt5ct.conf` as root and replace `style=gtk2` with `style=gtk3`.
+
+Q: I don't have a desktop running. Will the camera preview still show up somehow?
+A: Yes, without a desktop the preview draws directly to the display using Linux DRM.
 
 # Whole Document
 
-- I just got a camera module for my Pi. What's the simplest way to check it's connected properly?
-- What's rpicam-hello actually for? Is it just a test thing or can I use it for real stuff?
-- I've never used any of these rpicam apps before. Where do I even start?
+Q: What does rpicam-hello actually do? Like what's it for?
+A: It briefly displays a preview window showing the video feed from your camera.
+
+Q: I just want to test my camera's connected and working. What's the quickest way?
+A: Just run `rpicam-hello` and it'll show a preview window for five seconds.

@@ -1,80 +1,126 @@
-# Whole Document
+# Network File System (NFS)
 
-What's NFS and do I need it on my Raspberry Pi?
-What's the difference between NFS and Samba? Which one should I use?
-I want to share files between my Raspberry Pi and other computers on my network. What's the easiest way to do that?
-I've heard of NAS setups using a Pi. Is NFS a good way to do that?
-Do I need to know anything before I try setting up NFS?
+Q: What's NFS actually used for on a home network?
+A: NFS lets you share a directory from one computer with other networked devices.
+
+Q: I've heard of Samba and NFS. What's the difference, when should I pick one?
+A: NFS suits permanent mounts like home directories; Samba suits guest-accessible shares.
+
+Q: What do I need to already know before I set up NFS?
+A: You should know Linux file permissions and how to mount and unmount filesystems.
 
 # Set up a basic NFS server
 
-How do I install NFS on my Raspberry Pi?
-I want to share my home directories over the network. Where do I start?
-Why do I need to create a separate export directory instead of just sharing the real folder directly?
-What does the `--bind` option do when I'm mounting a directory?
-I don't want to have to remount everything after a reboot. How do I make it permanent?
-What files do I need to edit to configure my NFS server?
-What's the `/etc/exports` file for?
-I'm getting permission errors when I try to access the NFS share from another machine. What do I do?
-What do I put in `/etc/exports` to share to my whole local network?
-What's `fsid=0` mean in the exports file? Do I need it?
-What's `no_subtree_check` and should I care about it?
-What's the difference between `async` and `sync` in the NFS exports options?
+Q: What package do I need to install to make my Pi an NFS server?
+A: Install the `nfs-kernel-server` package using `sudo apt install nfs-kernel-server`.
 
-## Portmap lockdown (optional)
+Q: Why are we creating a separate export folder instead of just sharing the real directory?
+A: Isolating exports in one directory makes the NFS server easier to maintain.
 
-I don't want just anyone on my network accessing my NFS share. How do I lock it down?
-How do I restrict NFS access to only certain IP addresses?
-Why do I have to use IP addresses instead of hostnames when locking down NFS access?
-I set up the portmap lockdown and now NFS won't start. What did I do wrong?
-Do I have to include the localhost address when setting up the allowed IPs for NFS?
+Q: What permissions do I need to set on the export folder so clients can access it?
+A: Set read, write, and execute permissions using `chmod -R 777 /export`.
+
+Q: I don't want to retype the mount command every time I reboot. How do I make it stick?
+A: Add the bind mount line to `/etc/fstab` so it persists across reboots automatically.
+
+Q: What are the three config files I need to know about for the NFS server?
+A: They are `/etc/default/nfs-kernel-server`, `/etc/default/nfs-common`, and `/etc/exports`.
+
+Q: My server and client are showing weird user mapping issues. What file controls that?
+A: The `/etc/idmapd.conf` file must exist on both machines with matching domain names.
+
+Q: How do I actually tell NFS which computers on my network can access the shared folders?
+A: Add your network range and share paths with options to the `/etc/exports` file.
+
+Q: I'm using LDAP authentication. Do I still need to set the permissions to 777?
+A: No, if you plan to use LDAP or NIS authentication, skip the chmod step.
+
+# Portmap lockdown (optional)
+
+Q: How do I stop random devices on my network from accessing my NFS share?
+A: Block all clients in `/etc/hosts.deny`, then whitelist specific IPs in `/etc/hosts.allow`.
+
+Q: Can I use hostnames instead of IP addresses when whitelisting clients in the NFS config?
+A: No, you must use IP addresses because `rpcbind` has a limitation with hostnames.
+
+Q: Do I need to include my Pi's own local address when I whitelist IPs for NFS?
+A: Yes, include `127.0.0.1` or startup scripts using `rpcinfo` may fail to work.
+
+Q: After changing the portmap settings, do I need to restart anything?
+A: Yes, restart the service with `sudo systemctl restart nfs-kernel-server`.
 
 # Configure an NFS client
 
-How do I connect my Pi to an NFS share from another computer?
-What package do I need to install on the client to use NFS?
-How do I mount an NFS share from the command line?
-Can I use a hostname instead of an IP address when mounting an NFS share?
-How do I make an NFS share automatically mount every time my Pi boots up?
-I mounted an NFS share and `umount` is complaining about not finding it. What's going on?
-I'm on NFSv4. Do I still need to specify `/export` in the mount command?
+Q: What package do I install on the client machine to connect to an NFS server?
+A: Install `nfs-common` on the client using `sudo apt install nfs-common`.
+
+Q: How do I actually mount the NFS share on my client machine?
+A: Run `mount -t nfs -o proto=tcp,port=2049 <server-IP>:/ /mnt` on the client.
+
+Q: Can I use the server's hostname instead of its IP address when mounting?
+A: Yes, but you must ensure the hostname resolves to an IP address on the client side.
+
+Q: How do I make the NFS share automatically mount every time the client reboots?
+A: Add the mount entry to the client's `/etc/fstab` file with the `auto` option.
+
+Q: I see double slashes in my mount entry. Does that cause problems?
+A: Yes, you may need to match the slashes in `/etc/fstab` or `umount` may complain.
 
 # Configure a complex NFS server
 
-Why do user permissions get messed up between my NFS server and client?
-How do I make sure users have the same permissions on both the server and the client with NFS?
-There's a user that can't access a directory over NFS even though they should have permission. What could cause that?
-I've got users in a lot of groups. Could that cause problems with NFS?
-What happens if a user is in more than 16 groups and I'm using NFS?
+Q: Why can't my user on the client access files on the NFS server even though they're logged in?
+A: NFS permissions use UIDs, which must match between client and server for access.
 
-## DNS (optional, only if using DNS)
+Q: What are my options for keeping user IDs in sync between the server and clients?
+A: Options include manual password file sync, LDAP, DNS, or NIS.
 
-Should I put my client IPs in `/etc/hosts` even if I'm already using DNS for NFS?
+# Group permissions
 
-## NIS (optional, only if using NIS)
+Q: My user is in lots of groups but can't access some folders over NFS. What's going on?
+A: NFS passes a maximum of 16 groups from client to server, causing unexpected access issues.
 
-What's a netgroup and why would I use one with NFS?
-How do I rebuild the NIS database after making changes?
+Q: Does NFS check what groups I'm in on the server or on my own machine?
+A: File access is determined by group membership on the client, not the server.
 
-## Package installation and configuration
+# Package installation and configuration
 
-How do I share a folder to a specific list of IP addresses with NFS?
-How do I share to everyone on my whole subnet instead of listing individual IPs?
-I edited `/etc/exports` but the changes aren't showing up. Do I need to restart something?
-What does `exportfs -ra` do and when should I run it?
-What's the difference between `rw` and `sync` options in the exports file?
+Q: After I edit the exports file, do I need to restart the whole server or is there a quicker way?
+A: Run `sudo exportfs -ra` after modifying `/etc/exports` to re-export shares immediately.
 
-## Restart services
+Q: What does the `sync` option do in the NFS exports config and is it important?
+A: `sync` makes the server reply only after changes are flushed to disk; it's the safest option.
 
-After changing my NFS config, what do I need to restart for it to take effect?
+Q: Is `async` in NFS exports faster than `sync`? Is it safe to use?
+A: `async` is faster but dangerous; `sync` is strongly recommended as the safer option.
 
-## Security items to consider
+# Restart services
 
-Is NFS actually secure? Should I be worried about people spoofing access to my shares?
-What's IPSec and do I need it with NFS?
+Q: I changed my NFS server config. What do I restart to make it take effect?
+A: Restart both `rpcbind` and `nfs-kernel-server` using `sudo systemctl restart`.
+
+# Security items to consider
+
+Q: Someone could fake being an authorized client and get into my NFS share. How do I stop that?
+A: IPSec is one solution, encrypting traffic so only machines with correct keys can connect.
+
+Q: What's an alternative to IPSec for securing NFS if I don't want to deal with encryption?
+A: A physically separate network with its own switch, Ethernet cards, and physical security.
 
 # Troubleshooting
 
-I've got an encrypted home directory and my NFS share won't mount on boot. What's going on?
-My NFS share works fine when I'm logged in but it's not there after a reboot. What's wrong?
-How do I mount an NFS share if my home directory is encrypted?
+Q: I set up NFS to mount on boot in fstab but it's not working when my Pi starts up. What's wrong?
+A: If the share is inside an encrypted home directory, it can't mount before you log in.
+
+Q: My NFS music folder is inside my encrypted home and won't auto-mount. Is there a workaround?
+A: Create an NFS mount point outside home, then put a symbolic link inside your home directory.
+
+# Whole Document
+
+Q: What's the difference between the server and client in NFS? I keep getting confused.
+A: The server hosts the shared directory; clients connect and mount it into their own filesystem.
+
+Q: Is NFS a good way to build a simple NAS with my Raspberry Pi?
+A: Yes, NFS is a popular way to create a simple NAS in a Linux or Unix environment.
+
+Q: Do I need to do the portmap lockdown stuff or is it optional?
+A: It's optional but recommended as a security measure to restrict access to specific clients.

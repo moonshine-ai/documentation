@@ -1,37 +1,41 @@
 # Connect a Motor
 
-How do I plug in the motor to the Build HAT? It doesn't seem to fit.
+Q: My LPF2 connector won't slide in easily — what should I do?
+A: Rotate the connector 180 degrees and try inserting it again.
 
-My motor connector won't slide in. What am I doing wrong?
-
-Which port should I connect my motor to when I'm just getting started?
+Q: Does it matter which way up I plug the motor connector into the Build HAT?
+A: Yes, LPF2 connectors must be inserted the correct way up.
 
 # Work with Motors
 
-How do I actually get a motor spinning with Python? What's the basic code I need?
+Q: I just ran my first Build HAT program and it paused for ages — is that normal?
+A: Yes, firmware copies to the board first time, causing a few seconds pause.
 
-I just ran my first Build HAT program and it froze for a few seconds. Is that normal or did something break?
+Q: How do I know the firmware's loaded onto the Build HAT? Is there like a light or something?
+A: The red LED turns off and the green LED lights up when firmware loads.
 
-What's the green and red LED thing about on the Build HAT? My red light just turned off.
+Q: Will it always take that long to start up every time I run a program?
+A: No, only the first run after booting pauses; subsequent runs won't need it.
 
-My motor ran but it was really slow. How do I make it go faster?
+Q: How do I make my motor spin faster in Python?
+A: Pass a higher speed value, like speed equals 50, to run_for_seconds.
 
-How do I make the motor spin the other way, like counterclockwise?
+Q: I want the motor to spin backwards. How do I do that?
+A: Use a negative speed value, like speed equals negative 50, to reverse direction.
 
-I want the motor to run for a specific amount of time. How do I do that in Python?
+Q: Can I read the position of the motor shaft while it's turning by hand?
+A: Yes, use get_aposition in a loop to see the shaft position change live.
 
-Can I control the speed when I'm running the motor for a set number of seconds?
-
-How do I read the position of the motor shaft while it's turning? Like, can I track where it is?
-
-I want to print out the motor's angle as I turn it by hand. How would I do that?
+Q: What does get_aposition actually do — like what does it return?
+A: It returns the current angular position of the motor shaft.
 
 # Whole Document
 
-I've got a Build HAT and some LEGO motors. Where do I even start with controlling them from Python?
+Q: Which port do I plug the motor into for these example programs?
+A: The examples use port A on the Build HAT for the motor connection.
 
-What IDE should I use to write Python code for the Build HAT?
+Q: I don't know what IDE to use for writing the Build HAT Python code. Any suggestions?
+A: The documentation uses Thonny IDE for writing and running Build HAT programs.
 
-Why does my Build HAT program take ages to start the first time but then it's faster after that?
-
-I just want a simple example of making a motor move with Python. What does that look like?
+Q: How long does the motor run by default when I call run_for_seconds?
+A: In the example, run_for_seconds runs the motor for five seconds.

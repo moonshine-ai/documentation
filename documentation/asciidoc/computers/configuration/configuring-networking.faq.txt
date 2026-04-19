@@ -1,51 +1,113 @@
-# Whole Document
-
-- I'm trying to get my Raspberry Pi online but I don't know where to start. How do I connect it to WiFi?
-- What's the difference between setting up networking on the desktop version versus the Lite version?
-- Hey, what even is Network Manager and do I need to know about it?
-- I've got an older Pi with an older version of Raspberry Pi OS. Is the WiFi setup any different?
-
 # Connect to a wireless network
 
 ## via the desktop
 
-- There's a network icon in the corner but I'm not sure what to do with it. How do I actually connect to WiFi from there?
-- I clicked the network icon and it just says "No APs found - scanning." Is something broken or do I just wait?
-- My Pi has dual-band wireless but it won't connect to anything. What's going on?
-- I bought a Pi 3B+ and WiFi just refuses to work. Someone mentioned something about a country setting — what's that about?
-- How do I set my wireless country on the desktop? I think that's what's blocking my WiFi.
-- The WiFi list popped up and I clicked my network but nothing happened. Do I need to enter a password somewhere?
+Q: My Pi's got wireless built in but I don't see any networks listed. What do I do?
+A: Wait a few seconds; Network Manager should find your network shortly.
 
-### Connect to a hidden network
+Q: I clicked on a wifi network and nothing happened. Did I miss something?
+A: If the network is secured, a dialogue box will prompt you for the network key.
 
-- My home network is hidden so it won't show up in the list. How do I connect to it anyway?
-- I'm trying to connect to a hidden network on the desktop. Where do I even find that option?
-- What security type should I pick for a hidden network? Like most home routers use WPA2 right?
+Q: I've got a dual-band Pi and the wifi just won't turn on at all. What's going on?
+A: Dual-band devices disable networking until you assign a wireless LAN country in settings.
+
+Q: How do I set my wifi country on the desktop version?
+A: Open Control Centre from Preferences, select Localisation, then choose your country.
+
+## Connect to a hidden network (desktop)
+
+Q: There's a wifi network that doesn't show up in the list. How do I connect to it?
+A: Go to Advanced Options, then Connect to a hidden Wi-Fi network, and enter the SSID.
+
+Q: I'm trying to connect to a hidden network at work. What security type should I pick?
+A: Ask your network administrator; public networks sometimes use WPA and WPA2 enterprise security.
 
 ## via the command line
 
-- I'm running the Lite version with no desktop. How do I connect to WiFi just from the terminal?
-- I just flashed a fresh install and WiFi doesn't work at all from the command line. What do I need to do first?
-- Why do I have to set a country before WiFi works? That seems weird.
-- How do I set the WiFi country from the command line?
-- I ran the WiFi command and it says "disabled." How do I turn WiFi back on?
-- How do I see what WiFi networks are nearby from the terminal?
-- I want to connect to my network from the command line. What's the command for that?
-- I tried connecting and it said "Secrets were required but not provided." What does that mean? Did I mess up my password?
-- How do I check if my Pi is actually connected to WiFi from the terminal?
-- My network doesn't have a password. How do I connect to it from the command line?
-- Should I be worried about connecting to an open WiFi network with my Pi?
-- I'm using a hidden network. How do I connect to it from the command line?
-- My Pi keeps connecting to the wrong WiFi network when there are two it knows about. How do I make it prefer one over the other?
-- How do I check what priority my saved networks have?
-- I want my Pi to always use my home network instead of my neighbor's guest network it somehow learned. How do I set that up?
-- Can I give a network a really low priority so the Pi only uses it as a last resort?
+Q: I'm on Pi OS Lite with no desktop. How do I connect to wifi?
+A: Use nmcli from the command line; no additional software is required.
+
+Q: Does the command line wifi setup work with WPA3?
+A: Yes, the guide should work for WEP, WPA, WPA2, or WPA3 networks.
+
+Q: I just installed Raspberry Pi OS fresh and can't get wifi working. Where do I start?
+A: First set your wireless LAN country using raspi-config, then configure your connection.
+
+Q: How do I check if the wifi radio on my Pi is actually turned on?
+A: Run nmcli radio wifi; it returns either "enabled" or "disabled."
+
+Q: My wifi showed as disabled. How do I turn it back on from the terminal?
+A: Run the command nmcli radio wifi on to enable it.
+
+## Find networks
+
+Q: How do I see what wifi networks are nearby from the terminal?
+A: Run nmcli dev wifi list to scan and display available wireless networks.
+
+Q: What info does the network scan show me?
+A: It shows SSID, signal strength, channel, speed, security type, and connection status.
+
+## Connect to a network
+
+Q: Okay I found my network in the list. How do I actually connect to it?
+A: Run sudo nmcli --ask dev wifi connect followed by your network's SSID name.
+
+Q: I keep getting "Secrets were required but not provided." What does that mean?
+A: It means you entered an incorrect password; run the connect command again carefully.
+
+Q: How do I check if my Pi actually connected to the wifi after running the command?
+A: Run nmcli dev wifi list and look for an asterisk in the IN-USE column.
+
+Q: Can I edit my wifi connection settings manually instead of using commands?
+A: Yes, manually edit connection configs in /etc/NetworkManager/system-connections/ directory.
+
+## Connect to an unsecured network
+
+Q: The network I'm joining has no password. Do I use a different command?
+A: Yes, run sudo nmcli dev wifi connect with the SSID but without the --ask flag.
+
+Q: Is it safe to connect my Pi to an open wifi network?
+A: Unsecured networks risk your personal information; use a secured network or VPN instead.
+
+## Connect to a hidden network (command line)
+
+Q: How do I connect to a hidden network from the terminal?
+A: Add hidden yes to the end of your nmcli dev wifi connect command.
+
+## Set network priority
+
+Q: My Pi keeps connecting to the wrong wifi when there are two networks it knows. How do I fix that?
+A: Set a higher priority on your preferred network using nmcli connection modify with autoconnect-priority.
+
+Q: How do I see what priority my saved networks currently have?
+A: Run nmcli --fields autoconnect-priority,name connection to list priorities.
+
+Q: What happens if I give a network a negative priority number?
+A: Your device only tries that network if no other known network is in range.
 
 # Configure DHCP
 
-- What happens if DHCP fails on my Pi? Does it just have no internet or what?
+Q: Does my Pi automatically get an IP address or do I have to set one up?
+A: Raspberry Pi OS automatically configures all network interfaces by DHCP by default.
+
+Q: What happens if DHCP fails on my Pi's network connection?
+A: It falls back to automatic private addresses in the range 169.254.0.0/16.
 
 # Assign a static IP address
 
-- I want my Pi to always have the same IP address. How do I do that?
-- What's the best way to give my Pi a fixed IP — do I change something on the Pi itself or on my router?
+Q: I want my Pi to always have the same IP address. How do I do that?
+A: Reserve an address on your router by associating your Pi's MAC address with a static IP.
+
+Q: If I reserve an IP on my router, does my Pi still use DHCP?
+A: Yes, your Pi still uses DHCP but will receive the same reserved address each time.
+
+# Whole Document
+
+Q: I'm running Bookworm. What tool manages my network configuration?
+A: Network Manager is the default networking tool starting with Raspberry Pi OS Bookworm.
+
+Q: What did older versions of Raspberry Pi OS use for networking before Network Manager?
+A: Earlier versions used dhcpd and other tools for network configuration.
+
+Q: I've got a headless Pi with no monitor. Can I still set up wifi?
+A: Yes, use nmcli from the command line to set up wireless networking without a desktop.

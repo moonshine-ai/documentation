@@ -1,17 +1,27 @@
-# Whole Document
-
-- How do I change the language on my Raspberry Pi?
-- I set up my Pi in the wrong time zone. How do I fix that?
-- My keyboard's typing the wrong characters, like it thinks it's a UK keyboard but I've got a US one. How do I sort that out?
-- Is there one place I can change all the regional settings, like language and time zone and keyboard?
-
 # Localise your Raspberry Pi
 
-- How do I change the language the desktop uses?
-- I moved to a different country and the time on my Pi is all wrong now. How do I update the time zone?
-- My keyboard layout's wrong and I keep getting weird symbols when I type. How do I fix it?
-- What's raspi-config and how do I open it?
-- I just installed Raspberry Pi OS and I want to switch it to my language. Where do I even start?
-- Can I change the keyboard layout and time zone from the terminal, or do I need a desktop for that?
-- I've got a French keyboard but my Pi keeps acting like it's English. How do I tell it the right layout?
-- How do I get into raspi-config? Do I just type it in the terminal or something?
+Q: How do I change the language on my Raspberry Pi?
+A: Use the raspi-config tool to configure your UI language settings.
+
+Q: My keyboard's typing the wrong characters. How do I fix the layout?
+A: You can change the keyboard layout using the raspi-config tool.
+
+Q: I'm in a different time zone and the clock's wrong. How do I fix that?
+A: Use raspi-config to configure the correct time zone for your Raspberry Pi.
+
+Q: Is there like one tool that handles all the language and region stuff, or do I have to go digging around?
+A: Yes, raspi-config handles language, keyboard layout, and time zone all in one place.
+
+Q: I just set up my Pi and everything's in the wrong language. What do I do?
+A: Open raspi-config and use it to set your preferred UI language.
+
+Q: What's raspi-config? Is that what I use to change regional settings?
+A: Yes, raspi-config is the tool for changing language, keyboard, and time zone.
+
+# Whole Document
+
+Q: I moved to a new country and need to update my Pi's language, keyboard, and clock. Can I do all that in one place?
+A: Yes, raspi-config lets you configure language, keyboard layout, and time zone together.
+
+Q: Don't I need to edit config files manually to change the locale on Raspberry Pi OS?
+A: No, you can use the raspi-config tool to handle localisation settings easily.

@@ -1,51 +1,66 @@
 # Real Time Clock (RTC)
 
-Does the Raspberry Pi 5 have a built-in clock that keeps time when it's turned off?
+Q: Does the Raspberry Pi 5 have a built-in clock that keeps time?
+A: Yes, the Raspberry Pi 5 includes a built-in RTC module.
 
-Where's the battery connector on the Pi 5? I can't find it on the board.
+Q: Where's the battery connector for the clock on the Pi 5? I can't find it.
+A: It's near the left corner, right of the USB-C power connector, labeled J5.
 
-What's the J5 connector for on the Pi 5?
+Q: My Pi doesn't have internet access so it can't get the time from NTP. Is there another way?
+A: The RTC provides the time on boot, visible in dmesg, without NTP access.
 
-I want my Pi to wake up automatically at a certain time and run a script. How do I do that?
+Q: I want my Pi to wake up automatically at a certain time. Is that something it can do?
+A: Yes, you can set a wake alarm that powers the board back on at a set time.
 
-My Pi doesn't have internet access so it can't get the time from NTP. Is there another way it can know what time it is when it boots?
+Q: How much power does it use when it's in that low-power sleep mode waiting for the alarm?
+A: The board uses approximately 3 mA in the low-power wake alarm state.
 
-How low power does the Pi actually get when it's in that wake alarm sleep mode?
+Q: I want to test the wake alarm thing. What do I actually do?
+A: Run the echo plus 600 command, then sudo halt; it wakes after ten minutes.
 
-I want to set up a time-lapse camera with my Pi that takes photos every few hours automatically. What's the best way to do that?
+Q: Do I need to mess with the bootloader to get the wake alarm working?
+A: Yes, edit bootloader config to add POWER_OFF_ON_HALT equals 1 and WAKE_ON_GPIO equals 0.
 
-Can I test the wake alarm thing without waiting hours to see if it works?
-
-How do I make my Pi wake up after 10 minutes using the RTC alarm?
-
-Do I need a battery in the J5 connector for the RTC to work at all?
+Q: I don't have a battery plugged into the J5 connector. Can I still use the RTC?
+A: Yes, the RTC is still usable even without a backup battery attached.
 
 # Add a backup battery
 
-What kind of battery does the Pi 5 RTC use?
+Q: What kind of battery does the Pi 5 RTC use?
+A: It uses a rechargeable lithium manganese coin cell with a two-pin JST-SH plug.
 
-I want to buy the official RTC battery for my Pi 5. What should I be looking for?
+Q: How long will the RTC battery last before it dies?
+A: With single-digit µA draw when powered down, retention time measures in months.
 
-How long will the RTC battery last before it needs replacing?
+Q: Can I just use a regular non-rechargeable lithium battery for the RTC?
+A: No, non-rechargeable lithium cells aren't recommended due to shorter service life.
 
-Can I just use any coin cell battery for the RTC backup, or does it have to be a specific type?
-
-Can I use a regular non-rechargeable lithium battery for the RTC on my Pi 5?
-
-Wait, can I use a lithium ion battery for the RTC? Like one of those 18650 cells?
+Q: What about using a lithium ion battery instead? Would that work?
+A: No, don't use a lithium ion cell for the RTC under any circumstances.
 
 # Enable battery charging
 
-My RTC battery isn't charging. Is charging turned off by default or something?
+Q: I plugged in the RTC battery but it's not charging. Is charging on by default?
+A: No, battery charging is disabled by default and must be enabled manually.
 
-How do I turn on charging for the RTC battery on my Pi 5?
+Q: How do I actually turn on charging for the RTC battery?
+A: Add dtparam equals rtc_bbat_vchg equals your voltage value to config.txt, then reboot.
 
-What voltage should I charge the RTC battery at?
+Q: How do I check if the charging voltage got set correctly after I rebooted?
+A: Check the sysfs files under sys/class/rtc/rtc0 to verify the charging voltage.
 
-How do I check if the RTC battery is actually charging after I set it up?
-
-I added the charging voltage setting to config.txt but I'm not sure it worked. How do I check?
+Q: What's the charging current for the RTC battery?
+A: The RTC charger uses a constant current of 3 mA.
 
 # Disable battery charging
 
-How do I stop the RTC battery from charging if I want to turn that off?
+Q: I want to stop the RTC battery from charging. How do I turn that off?
+A: Remove any lines containing rtc_bbat_vchg from your config.txt file.
+
+# Whole Document
+
+Q: So I've got a Pi 5 and I want it to automatically wake up every hour to take a photo. Is that doable?
+A: Yes, the wake alarm feature is described as useful for periodic jobs like time-lapse imagery.
+
+Q: What's the difference between the RTC on the Pi 5 and just getting the time from the internet?
+A: The RTC provides time on boot locally, useful when NTP internet access isn't available.

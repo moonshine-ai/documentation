@@ -1,35 +1,75 @@
+# Display Parallel Interface (DPI)
+
+Q: What's DPI and why would I use it instead of HDMI on my Raspberry Pi?
+A: DPI lets you connect parallel RGB displays via the 40-pin GPIO connector.
+
+Q: Does my Raspberry Pi even support DPI displays or do I need special hardware?
+A: All Raspberry Pi boards with a 40-pin header and Compute Modules support DPI.
+
+Q: How many bits of color can a DPI display do on the Pi?
+A: DPI supports up to 24-bit parallel RGB, with 565, 666, or 888 modes available.
+
+Q: Who controls the DPI interface, like is it software or hardware?
+A: The GPU firmware controls it, configured via config.txt and a Linux Device Tree overlay.
+
+# GPIO pins
+
+Q: Which GPIO pin is the pixel clock for DPI?
+A: GPIO0 handles the PCLK pixel clock function in DPI alternate function two.
+
+Q: What alternate function number do I need to set for DPI on the GPIO bank?
+A: DPI is available as alternate function two, called ALT2, on GPIO Bank 0.
+
+Q: How many GPIO pins does DPI actually use up? That seems like a lot.
+A: DPI can use up to 28 pins, from GPIO0 through GPIO27, for full 24-bit color.
+
+Q: I want to use RGB565 mode. Which GPIOs carry the color data?
+A: In 565 mode depending on sub-mode, color data spans roughly GPIO4 through GPIO19.
+
+# Disable other GPIO peripherals
+
+Q: I've got I2C enabled on my Pi and I want to add a DPI display. Will that cause problems?
+A: Yes, conflicting GPIO peripherals like I2C and SPI must be disabled in config.txt.
+
+Q: How do I turn off SPI and I2C so they don't clash with my DPI display?
+A: Set dtparam=i2c_arm=off and dtparam=spi=off in your config.txt file.
+
+# Configure a display
+
+Q: Do I have to manually set up a DPI display or does the Pi figure it out on its own?
+A: Auto detect is enabled by default and KMS configures settings automatically if supported.
+
+Q: How do I turn auto detect back on if I accidentally disabled it?
+A: Add display_auto_detect=1 to your config.txt to re-enable auto detection.
+
+Q: I've got a third-party DPI display, not the official one. How do I get it working?
+A: You must add a dtoverlay entry in config.txt using the manufacturer's provided overlay.
+
+Q: My display doesn't have a kernel overlay. Am I just stuck or is there another way?
+A: Use the panel-dpi driver to manually define display timings as device tree parameters.
+
+Q: I keep getting errors because my device tree line is too long. What do I do?
+A: Split the parameter assignment across multiple lines; device tree lines can't exceed 80 characters.
+
+Q: What's the parameter I need to set the display's clock speed in the device tree?
+A: Use the clock-frequency parameter to set display clock frequency in hertz.
+
+Q: Can I control the backlight of my DPI display through the Pi's GPIO?
+A: Yes, use the backlight-gpio parameter to define a GPIO pin for backlight control.
+
+Q: I'm switching to RGB888 mode. Which GPIOs does that use?
+A: RGB888 uses GPIOs 0 through 27 for full 24-bit color output.
+
+Q: What happened to dpi_output_format and dpi_timings in config.txt? They don't seem to work anymore.
+A: In Raspberry Pi OS Bookworm and later, they're superseded by the vc4-kms-dpi-generic overlay.
+
 # Whole Document
 
-- What even is DPI and why would I use it instead of HDMI for a display?
-- I've got a display that doesn't use HDMI or DSI. Can I connect it to a Raspberry Pi somehow?
-- Does every Raspberry Pi support DPI displays or just some of them?
+Q: I want to hook up a cheap parallel LCD to my Raspberry Pi. Is that actually possible?
+A: Yes, parallel RGB displays connect via the 40-pin GPIO using the DPI interface.
 
-# GPIO Pins
+Q: What's the difference between using DSI, HDMI, and DPI for a display on the Pi?
+A: DPI uses the GPIO pins; DSI and HDMI are dedicated ports; all are separate interfaces.
 
-- Which GPIO pins get used up when I'm running a DPI display?
-- I want to use DPI but I also need some GPIO pins for other stuff. Which ones does DPI actually take?
-- What's the difference between RGB565, RGB666, and RGB888 and which one should I pick?
-- I've heard DPI uses alternate functions on the GPIO. What does that mean exactly?
-
-# Disable Other GPIO Peripherals
-
-- I'm trying to set up a DPI display but I also have I2C stuff connected. Will that cause problems?
-- Do I have to turn off SPI and I2C before I can use DPI, or can they all run at the same time?
-- How do I disable I2C in config.txt so it doesn't conflict with my DPI display?
-
-# Configure a Display
-
-- How do I get my Pi to automatically figure out what DPI display I've connected?
-- I connected a DPI display but nothing showed up. Do I need to add something to config.txt?
-- Wait, is auto detect on by default or do I have to turn it on myself?
-- How do I turn off display auto detect if I don't want it?
-
-- I've got a third party DPI display that's not the official Raspberry Pi one. How do I set it up?
-- I'm using Bookworm and I've seen old guides using dpi_output_format in config.txt but I heard that changed. What do I do now instead?
-- My display manufacturer gave me some timing values but I don't know where to put them. How do I configure that manually?
-- I've got a display with no overlay in the kernel. Is there still a way to make it work?
-- I keep getting an error setting up my device tree and I think my config line is too long. What's the limit and how do I fix it?
-- What does the clock-frequency parameter actually do when I'm setting up a DPI display?
-- I need to control the backlight on my DPI display from the Pi. Is there a way to do that?
-- What's the difference between hsync-invert and just regular hsync? When would I need to invert it?
-- How do I tell the Pi what physical size my screen is in millimetres?
+Q: I'm totally new to this. Do I need to edit config.txt to get a DPI display working?
+A: Yes, you need config.txt entries for the overlay and possibly timings to configure DPI.

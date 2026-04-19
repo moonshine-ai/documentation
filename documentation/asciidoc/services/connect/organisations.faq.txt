@@ -1,74 +1,153 @@
-# Whole Document
+# Connect for Organisations
 
-- I've got a bunch of Pis at work and I want multiple people to be able to access them. Is there a way to do that with Raspberry Pi Connect?
-- What's Connect for Organisations and do I need to pay for it?
-- How long is the free trial for Connect organisations?
-- I'm trying to set everything up without clicking around the web interface every time. Is there an API I can use?
+Q: What is Connect for Organisations and why would I want it?
+A: It lets multiple users share remote access to devices together.
+
+Q: Does it cost money to set up an organisation, or is there a free trial?
+A: Creating an organisation automatically starts a free four-week trial.
 
 # Create an organisation
 
-- How do I actually create an organisation in Raspberry Pi Connect?
-- I signed into Connect but I can't figure out how to make a new organisation. Where's that option?
-- When I create an organisation does it automatically make me the admin?
+Q: How do I actually create a new organisation in Connect?
+A: Sign in, select the account switcher icon, then choose New organisation.
+
+Q: Where's the button to make a new organisation? I can't find it.
+A: Select the account switcher icon in the top left of the navigation menu.
 
 # Invite users
 
-- I want to add my colleague to our organisation so they can access our Pis. How do I do that?
-- What's the difference between a Member and an Administrator in a Connect organisation?
-- My teammate doesn't have a Raspberry Pi ID with their work email. Can they still join if I invite that address?
-- So if someone's just a Member, what can they actually do? Can they change any settings?
-- I want someone to help manage our devices but not have full admin access. Is there a middle ground, or is it just Member and Admin?
+Q: I want to add my coworker to my organisation. How do I do that?
+A: Open the Users tab, select Invite someone, choose a role, enter their email.
+
+Q: What's the difference between a Member and an Administrator in an organisation?
+A: Members access devices only; administrators can also change organisation settings.
+
+Q: My coworker doesn't use the email I invited them with. Will they still be able to join?
+A: Yes, they can join using any valid Raspberry Pi ID, not just that email.
+
+Q: Do admins get any special notifications that regular members don't get?
+A: Administrators receive notification emails for sensitive actions like new devices added.
+
+Q: Can a regular member change anything about the organisation, like add users?
+A: No, members can only remotely access devices, not make organisation changes.
 
 # Link a Raspberry Pi device with an organisation
 
-- How do I add a Pi to my organisation?
-- I've already got a Pi linked to my personal Connect account and I want to move it to our organisation. How do I do that?
+Q: Do I need to be an admin to add a Pi to my organisation?
+A: Yes, you must be an administrator to link a device to an organisation.
 
 # Transfer a device
 
-- I set up a Pi on my personal account by mistake and now I need it under our company organisation. How do I move it over?
-- Do I need to be an admin to transfer a device between accounts?
-- Walk me through how to transfer a Pi from one account to another.
+Q: How do I move a Pi that's already on my personal account over to my organisation?
+A: Switch to the device's current account, select it, then choose Transfer from Settings.
+
+Q: I want to transfer a device but I'm not sure where the transfer option is.
+A: Open the Settings dropdown on the device page and select Transfer.
 
 # Set up your subscription
 
-- What happens when my free trial runs out? Do my devices just stop working?
-- How does billing work for Connect organisations? Is it monthly?
-- I still have two weeks left on my trial but I want to set up billing now so I don't forget. Will it charge me straight away?
-- Where do I even go to set up payment for the organisation subscription?
+Q: What happens after my free trial ends? Do I get charged automatically?
+A: After the trial, you're billed monthly in arrears once you set up a subscription.
+
+Q: What happens to my devices if I don't set up billing after the trial ends?
+A: You won't be able to remotely access organisation devices until you subscribe.
+
+Q: I still have trial days left but I'm setting up billing. What happens?
+A: Your trial continues, then monthly billing starts automatically after it ends.
+
+Q: Who can set up the subscription billing for an organisation?
+A: Only administrators can set up a subscription for the organisation.
 
 # View the audit log
 
-- How do I see what's been happening in my organisation, like who accessed what?
-- How far back does the audit log go?
-- Can I filter the audit log to just show remote access sessions?
-- I want to download the activity log as a spreadsheet. Is that possible?
-- What info does each entry in the audit log actually show me?
+Q: How far back does the audit log go? Can I see stuff from six months ago?
+A: The audit log only shows activity from the past 90 days.
+
+Q: What kind of things show up in the audit log?
+A: Device changes, organisation members, API tokens, and remote access sessions.
+
+Q: I want to filter the audit log to just show remote sessions. Can I do that?
+A: Yes, use the Actions dropdown next to Filters to filter by action type.
+
+Q: Can I download the audit log to a spreadsheet or something?
+A: Yes, select Download CSV to download the audit log in CSV format.
+
+Q: What info does each event in the audit log actually include?
+A: Timestamp, source, action, subject, and actor including their country.
+
+Q: Old events from the audit log, do they ever get deleted automatically?
+A: Yes, events older than 90 days are automatically deleted.
 
 # Change organisation settings
 
-- How do I rename my organisation?
-- Will renaming my organisation mess up any of my devices or members?
+Q: If I rename my organisation, will it mess up my devices or kick out my members?
+A: No, renaming won't affect your devices or organisation members.
 
 # Create auth keys
 
-- I want to add Pis to my organisation automatically without going through the website each time. How do I do that?
-- What's an auth key in Connect and why would I need one?
-- I created an auth key but I forgot to copy it and now I can't see it anywhere. Did I lose it?
+Q: What's an auth key and why would I need one?
+A: Auth keys let you link devices to Connect automatically without the web interface.
+
+Q: I created an auth key but forgot to copy it. Can I go back and see it again?
+A: No, the auth key is only shown once and can't be viewed again.
+
+Q: How do I set an expiry time when I create an auth key?
+A: Enter an expiry time in days when creating the key from the Auth keys section.
 
 # Create management API access tokens
 
-- How do I get an API token for managing my Connect organisation programmatically?
-- I want to automate adding devices to our organisation. What do I need to set that up?
-- Same thing as auth keys — if I don't copy my API token right away, can I get it back later?
+Q: What's the management API access token for? Is it different from an auth key?
+A: It's used to create auth keys automatically via the management API, not the web interface.
+
+Q: I made an API access token and didn't copy it. Can I see it again somewhere?
+A: No, the access token is only shown once and can't be viewed again later.
 
 # Management API
 
-- How do I use the API to create an auth key for adding a new device?
-- I'm getting a 401 error when I try to use the management API. What does that mean?
-- I tried to create an auth key through the API and got a 422 response. What went wrong?
-- How do I list all the devices in my organisation using the API?
-- We've got loads of Pis — does the API return all of them at once or do I need to page through them?
-- How do I remove a device from our organisation using the API?
-- What happens to the Pi itself if I delete it from the organisation through the API?
-- I got a 404 when trying to delete a device. What does that mean?
+Q: What's the base URL for the Connect management API?
+A: The base URL is https://api.connect.raspberrypi.com.
+
+Q: Do I need anything special to make requests to the management API?
+A: Yes, requests must be authenticated using a valid management API access token.
+
+# Create an auth key
+
+Q: What response do I get back if my auth key gets created successfully?
+A: You get a 201 Created response with your auth key details in JSON format.
+
+Q: What does the secret field look like in the auth key response?
+A: It's a random token prefixed with rpoak_ .
+
+Q: What happens if I send a bad request to create an auth key?
+A: You get a 422 Unprocessable Content response with a validation error message.
+
+Q: What does the expires_at field in the auth key response actually mean?
+A: It's the date and time when the key expires, in ISO 8601 format.
+
+Q: If I don't set an expiry when creating an auth key via API, what's the default?
+A: The default expiry is one day if you don't specify a ttl_days value.
+
+# List devices
+
+Q: How many devices does the API return at a time when I list my organisation's devices?
+A: It returns up to 100 devices per page, sorted alphabetically by name.
+
+Q: I've got more than 100 devices. How do I get the next page from the API?
+A: Use the page parameter in the query string, like page=2.
+
+Q: What info does the API give me about each device when I list them?
+A: Each device includes its unique ID, name, and serial number.
+
+Q: Can I change how many devices come back per page in the API response?
+A: Yes, use the per_page parameter, with a maximum of 100 per page.
+
+# Delete a device
+
+Q: What actually happens when I delete a device through the API?
+A: The device is deleted from the organisation and signed out of Raspberry Pi Connect.
+
+Q: I tried to delete a device via the API but got a 404 error. What does that mean?
+A: The device ID wasn't found in your organisation.
+
+Q: What response do I get if deleting a device works successfully?
+A: You get a 204 No Content response with an empty response body.

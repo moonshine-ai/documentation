@@ -1,17 +1,30 @@
-# Whole Document
-
-- I'm trying to use rpicam-detect but I don't really know what options are available for it. Where do I even start?
-- Are these detection settings just for rpicam-detect or do they work with the other rpicam tools too?
-- How do I actually pass one of these options when I run the command? Do I just type the name or is there something I need to add?
-
 # Detection options
 
-- I want rpicam-detect to look for a specific object. How do I tell it what to look for?
-- So the object names come from a label file. Does that mean I need to provide my own labels or does it come with some already?
-- What's the `gap` option for? Like why would I want to wait between captures?
-- I don't want my Pi taking a photo every single frame when it spots something. Can I slow it down a bit?
-- How many frames should I set the gap to? Is there a recommended number or do I just pick whatever?
-- Wait, so if I want to detect cats, I just type `--object cat` or something like that? Is it that simple?
-- Do I need quotes around the object name if it's just one word, or is that only if there's a space in it?
-- I've got a label file with my custom objects. How do I point rpicam-detect at it?
-- What happens if I don't set the gap option at all? Does it just capture every single frame it detects something?
+Q: How do I tell rpicam-detect what kind of object to look for?
+A: Use the object option with a name from the model's label file.
+
+Q: Where does rpicam-detect get its list of object names from?
+A: Object names come from the model's label file.
+
+Q: I don't want it taking a photo every single frame. How do I add a delay between captures?
+A: Use the gap option to set minimum frames between captures.
+
+Q: Wait, do these detection options work with any rpicam command or just the one?
+A: Detection options only apply to rpicam-detect, not other rpicam commands.
+
+Q: How do I actually pass these options on the command line? Like what's the format?
+A: Prefix the option name with two dashes, then a space, then the value.
+
+Q: I've got an option with a long name. Is there a quicker way to type it?
+A: Some options have shorthand aliases, like dash-h instead of dash-dash-help.
+
+Q: My file path has a space in it. Will that break the command?
+A: Surround values containing spaces in quotes to avoid issues.
+
+# Whole Document
+
+Q: I'm using rpicam-detect and want it to wait a few frames before capturing again. What do I use?
+A: Use the gap option, which accepts a numeric value for frames between captures.
+
+Q: Can I use the object option with rpicam-vid or is it just for detection?
+A: The object option only works with rpicam-detect, not other rpicam commands.

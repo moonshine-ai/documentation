@@ -1,33 +1,24 @@
 # Further Resources
 
-Where can I find the full documentation for the Build HAT Python library?
+Q: Where can I find the full Python library docs for the Build HAT?
+A: Full Python Library documentation is available on the ReadTheDocs website.
 
-Is there a .NET version of the Build HAT library, or is it only Python?
+Q: I want to use the Build HAT with .NET instead of Python. Is there any info on that?
+A: The .NET IoT GitHub repository has more information on the .NET library.
 
-I want to learn more about the serial protocol for the Build HAT. Where do I find that?
+Q: Are there any fun beginner projects I can follow along with using the Build HAT?
+A: The Raspberry Pi Foundation has five LEGO projects including a robot car and plotter.
 
-Where's the best place to look if I'm stuck with the Python library and need detailed reference docs?
+Q: I'm trying to understand how the Build HAT communicates. Is there any documentation on the protocol it uses?
+A: Yes, you can download the Raspberry Pi Build HAT Serial Protocol documentation online.
 
-Are there any beginner projects I can follow along with to get started with the Build HAT?
-
-I want to build something with LEGO and my Raspberry Pi. Are there any guided projects out there?
-
-What's ReadTheDocs? Is that where I should go for the Python library docs?
-
-I'm more comfortable with .NET than Python. Can I still use the Build HAT?
-
-Is there a LEGO robot project I can build with the Build HAT? Like something that actually drives around?
-
-I want to make a LEGO game controller with my Pi. Does something like that exist already?
+Q: Can I build a game controller using LEGO and the Build HAT? Like is there a guide for that?
+A: Yes, the Raspberry Pi Foundation has a LEGO Game Controller project you can follow.
 
 # Whole Document
 
-What even is the Build HAT and what can I use it for?
+Q: What are the main ways I can get help or learn more about using the Build HAT?
+A: You can access protocol docs, Python library docs, ReadTheDocs, and Raspberry Pi Foundation projects.
 
-I've got a bunch of LEGO Technic motors. Can I control them with a Raspberry Pi somehow?
-
-Do I need to know Python to use the Build HAT, or are there other options?
-
-Where do I even start if I just got a Build HAT and have no idea what I'm doing?
-
-Can I use the Build HAT with .NET, or is it Python only?
+Q: I've got kids who love LEGO — are there any cool projects they could build with the Build HAT?
+A: There are five LEGO projects including a robot face, robot car, game controller, plotter, and data dash.

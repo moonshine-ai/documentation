@@ -1,55 +1,68 @@
 # Use multiple cameras
 
-How many cameras can I connect to a Raspberry Pi 5?
+Q: I've got a Raspberry Pi 5 — can I connect two cameras directly to it?
+A: Yes, Pi 5 has dual MIPI connectors for connecting two cameras directly.
 
-I've got a regular Pi 4, not a Compute Module. Can I still use two cameras at the same time?
+Q: I'm using a regular Pi, not a Compute Module. Can I run two cameras at the same time?
+A: With a Video Mux board, only one camera can be used at a time.
 
-What's a Video Mux board and do I need one?
+Q: How do I see what cameras are connected to my Pi?
+A: Use the list-cameras option to see all available cameras on your platform.
 
-I've got two cameras plugged in but I don't know which one is which. How do I see what cameras are connected?
+Q: I've got two cameras plugged in. How do I pick which one to use?
+A: Pass the camera index to the camera option to choose which one to use.
 
-Can I use two different camera models together, like mix and match?
+Q: Can I sync the 3A settings between two cameras running at the same time?
+A: No, libcamera doesn't support that; use external sync or manual mode instead.
 
 # Software Camera Synchronisation
 
-Do I need to solder anything to sync two cameras together?
+Q: Do I need to solder anything to sync two cameras with software?
+A: No soldering or hardware connections are required for software camera synchronisation.
 
-What's the difference between the server camera and the client camera in this sync setup?
+Q: Will software camera sync work with third-party camera modules, not just official ones?
+A: Yes, as long as their drivers implement frame duration control correctly.
 
-My two cameras are on different Raspberry Pis. Can I still sync them?
+Q: How does the software camera sync actually work? Like what's happening behind the scenes?
+A: One camera is the server broadcasting timing messages; clients adjust frame timing to match.
 
-How accurate is the software sync? Like how close in time will the frames actually be?
+Q: Can I sync cameras that are on totally different Raspberry Pi boards, not just the same one?
+A: Yes, client cameras can be on different Raspberry Pis connected to the same network.
 
-My Pi isn't connected to the internet. Will the camera sync still work without NTP?
+Q: Do both cameras need to be the same model for the sync to work?
+A: No, camera models on clients and server can be different, though sync may be less precise.
 
-# The Server
+Q: How accurate is the sync when both cameras are the same model on the same Pi?
+A: Frame start times should match within several tens of microseconds in normal operation.
 
-How long does the server wait before it starts recording?
+Q: My two cameras are on different Pis. Do I need to worry about clock sync?
+A: Yes, system clocks should be synchronised using NTP or a more precise protocol like PTP.
 
-Can I have more than one server running on the same network?
+Q: Should I start the client or the server first when doing camera sync?
+A: Start clients before the server so they're ready and waiting when the server broadcasts.
 
-# Clients
+Q: How long does the server wait before it decides sync is done and starts recording?
+A: By default the server waits 100 frames before reaching the synchronisation point.
 
-Should I start the client or the server first?
+Q: Can I have more than one server on the same network doing camera sync?
+A: Yes, multiple servers are allowed as long as they broadcast to different network addresses.
 
-What happens if the client isn't ready when the server hits its sync point?
+Q: I'm using rpicam-vid for sync recording. What command do I run for the client side?
+A: Run rpicam-vid with --sync client and it waits until the synchronisation point to record.
 
-# Usage in `rpicam-vid`
+Q: What framerate does rpicam-vid use by default when I'm doing synced recording?
+A: rpicam-vid defaults to a fixed 30 frames per second.
 
-I want to record synced video from two cameras. What commands do I actually run?
+Q: Why can't I set the framerate to the maximum my camera supports when doing sync?
+A: The sync algorithm may need to shorten frames, which fails if the camera's already at maximum.
 
-Which camera should I make the server and which should be the client?
-
-I ran the sync recording but the videos are dropping frames. What can I do about that?
-
-Why does the framerate need to be lower than the camera's max? Can't I just run it as fast as possible?
+Q: I'm getting dropped frames during synced recording. What can I do to fix that?
+A: Try lowering the framerate, increasing buffer count, or reducing system load.
 
 # Whole Document
 
-I've got a Compute Module and two cameras. Can I use both at the same time?
+Q: I want to run two cameras at the same time on a Compute Module. Is that possible?
+A: Yes, you can connect and use two cameras simultaneously on a Compute Module I/O board.
 
-Do the two cameras have to be the same model to sync them?
-
-I want to do 3D or stereo vision with two cameras. Does that work?
-
-How do I pick which camera to use when I've got more than one plugged in?
+Q: What's the difference between how the server and client behave when the sync point is reached?
+A: Both server and client signal the camera application to start using frames at the same moment.

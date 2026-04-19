@@ -1,29 +1,25 @@
 # Legacy Support
 
-How do I know if I've got an original Raspberry Pi or a newer one?
+Q: I've got an old Raspberry Pi and I'm trying to connect a touchscreen. Do I need extra cables or something?
+A: Yes, use the included jumper cables to connect GPIO SCL/SDA pins to the display board.
 
-I've got an old Raspberry Pi and I'm trying to connect the official touchscreen. What's different about setting it up on the original model?
+Q: How do I tell if my Raspberry Pi is old enough to need these legacy instructions?
+A: Only the original model has a 26-pin GPIO header; newer ones have 40 pins.
 
-My original Raspberry Pi has a DSI connector but the touchscreen isn't working. Do I need extra cables or something?
+Q: I plugged in a DSI display on my original Raspberry Pi and nothing's showing up. What's going on?
+A: DSI autodetection is disabled by default; add ignore_lcd=0 to config.txt to enable it.
 
-Which GPIO pins do I connect the jumper cables to for the touchscreen on the original Pi?
+Q: Where exactly do I add that ignore LCD line on my old Pi?
+A: Add ignore_lcd=0 to the /boot/firmware/config.txt file on your Raspberry Pi.
 
-I added the touchscreen but it's not being detected on my old Pi. How do I turn on DSI autodetection?
+Q: Does it matter which USB port I use to power the display on my original Pi?
+A: Use the display board's PWR IN micro-USB connector, not the Raspberry Pi's micro-USB port.
 
-What line do I add to config.txt to get the display to show up on an original Raspberry Pi?
+Q: Why can't I just power everything through the Raspberry Pi's USB port? Seems easier.
+A: The display uses around 400mA, which exceeds the Raspberry Pi's input polyfuse maximum rating.
 
-Wait, should I be powering my Pi through its own micro-USB port when the touchscreen is connected, or does that cause problems?
+Q: I've got a Model B original Pi and the touchscreen isn't working. Could it be a wiring thing?
+A: Original Model A and B lack I2C on DSI, so jumper cables connecting GPIO to display are required.
 
-I accidentally powered my setup through the Pi's micro-USB instead of the display board's. Is that bad?
-
-Why can't I just use the Pi's micro-USB port to power everything when I've got the touchscreen attached?
-
-Which micro-USB port am I supposed to use for power when I've got the official display connected to an original Pi?
-
-The display kit came with jumper cables and I'm not sure what they're for on the old Pi. Do I actually need them?
-
-# Whole Document
-
-I've got an original Raspberry Pi from way back. Are there any special things I need to watch out for when setting up accessories compared to newer models?
-
-How can I tell which version of the Raspberry Pi I have just by looking at it?
+Q: Wait, do Models A and B have the same DSI problem, or is it just one of them?
+A: Both the Raspberry Pi 1 Model A and Model B have this same DSI connector limitation.

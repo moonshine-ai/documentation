@@ -1,104 +1,264 @@
 # Whole Document
 
-- I've never heard of a keyboard computer before. What even is that?
-- What's the difference between the Pi 400 and the Pi 500?
-- I'm trying to decide between the 500 and the 500 plus. What extra stuff do you get with the 500 plus?
-- Do these keyboard computers use the same chip as the regular Pi boards?
-- I bought a Pi 400 kit. What's included in the box?
-- Does the Pi 500 kit come with a microSD card already set up?
-- I just got my keyboard computer. Where do I start?
-- Do I need to install an operating system myself, or does it come pre-installed?
+Q: What's the difference between the Raspberry Pi 400, 500, and 500+?
+A: They differ in processor, RAM, GPU, storage, keys, and extra features.
+
+Q: I want a keyboard computer but don't know which one to get. What are my options?
+A: Raspberry Pi offers three keyboard computers: the 400, 500, and 500+.
+
+Q: Do these keyboard computers come with everything I need to get started?
+A: They're available standalone or as kits including mouse, cable, and microSD card.
+
+Q: Can I get these keyboard computers in different languages?
+A: Yes, they come in regional variants affecting keyboard layout and power supply.
 
 # Features
 
-- What processor does the Pi 500 use compared to the 400?
-- Is the Pi 500 faster than the 400, and if so by how much?
-- How much RAM does the Pi 500 plus have?
-- Can the Pi 400 do HDR video output?
-- How do I turn off the Pi 400 if there's no power button?
-- Wait, how many HDMI ports do these keyboard computers have?
-- Can I run two 4K monitors from a Pi 500?
-- What's the GPU like on the Pi 500 versus the 400?
-- What's the storage situation with the Pi 500 plus? Does it have a built-in drive?
-- How many USB ports does the Pi 500 have?
-- Do any of these keyboard computers have GPIO pins?
+Q: How much faster is the 500 compared to the 400?
+A: The 500 uses a Cortex-A76 at 2.4 GHz versus the 400's Cortex-A72 at 1.8 GHz.
+
+Q: I do a lot of multitasking. Which keyboard computer has the most RAM?
+A: The Raspberry Pi 500+ has the most RAM at 16 GB.
+
+Q: Does the 400 support HDR video output?
+A: No, only the Raspberry Pi 500 and 500+ support HDR on HDMI outputs.
+
+Q: How do I turn off the Raspberry Pi 400 if there's no power button?
+A: Press Fn plus F10 to turn it on and off instead of a dedicated button.
+
+Q: What's special about the 500+ compared to the regular 500?
+A: The 500+ adds mechanical keys, RGB backlighting, replaceable keycaps, and 256 GB SSD.
+
+Q: Do all three keyboard computers have the same dimensions?
+A: No, the 500+ is larger at 312 by 123 by 35 mm versus 286 by 122 by 23 mm.
+
+Q: What kind of storage does the 500+ have that the others don't?
+A: The 500+ includes an internal 256 GB M.2 SSD alongside the microSD card slot.
+
+Q: How many USB ports do these keyboard computers have?
+A: They each have two USB 3.0 ports and one USB 2.0 port.
+
+Q: Do any of these support wireless connectivity?
+A: All three support dual-band Wi-Fi and Bluetooth Low Energy.
+
+Q: How much power does the Raspberry Pi 400 need compared to the 500?
+A: The 400 needs 5V at 3A (15W); the 500 and 500+ need 5V at 5A (25W).
+
+Q: Can I remap keys on the Raspberry Pi 400?
+A: Key remapping is only available on the Raspberry Pi 500 and 500+, not the 400.
 
 # Keyboard computer kits
 
-- Does the Pi 400 kit come with a mouse?
-- What size microSD card comes with the Pi 500 kit?
-- I got the 500 plus standalone, not the kit. Does it still come with the spudger tool for the SSD?
-- Does the Pi 500 plus kit include a microSD card?
+Q: What's included in the Raspberry Pi 500 kit?
+A: It includes the keyboard, 27W power supply, mouse, 32 GB microSD card, cable, and book.
+
+Q: Does the 400 kit come with a microSD card that already has the OS on it?
+A: Yes, the 400 kit includes a 16 GB microSD card pre-programmed with Raspberry Pi OS.
+
+Q: The 500+ kit doesn't seem to include a microSD card. Where does the OS come from?
+A: The 500+ includes an SSD pre-programmed with Raspberry Pi OS instead of a microSD card.
+
+Q: What's the spudger that comes with the 500+ kit for?
+A: It's a plastic opening tool for accessing and replacing the internal M.2 SSD.
+
+Q: Does the 500 kit include a bigger microSD card than the 400 kit?
+A: Yes, the 500 kit includes 32 GB versus the 400 kit's 16 GB microSD card.
+
+# Getting started
+
+Q: I just got my Raspberry Pi 500. Where do I go to get it set up?
+A: Follow the Getting Started with your Raspberry Pi instructions linked in this section.
+
+Q: I bought the 500 kit with the pre-loaded microSD card. Do I need to do the full setup?
+A: No, you can skip ahead to the Set Up your Raspberry Pi section of the instructions.
 
 # Raspberry Pi 500+ mechanical keys
 
-- What kind of switches does the Pi 500 plus use?
-- Are the keycaps on the Pi 500 plus compatible with Cherry MX replacements?
-- Why does the Pi 500 plus feel clicky when I type?
+Q: What kind of switches does the 500+ use under its keys?
+A: It uses Gateron KS-33 low-profile mechanical switches with a custom grey stem.
+
+Q: Are the keycaps on the 500+ compatible with standard third-party keycap sets?
+A: Yes, they use Cherry MX-compatible cross-shaped stems, which is the industry standard.
+
+Q: What type of switches are on the 500+ — clicky, tactile, or linear?
+A: The 500+ uses clicky Gateron KS-33 switches with a custom grey stem.
 
 # Raspberry Pi 500+ customisation
 
-- What can I actually customise on the Pi 500 plus?
-- Can I change the colour of the keyboard lights on my Pi 500 plus?
-- Can I remap keys on the Pi 500?
+Q: What can I actually customise on the 500+?
+A: You can replace the SSD, swap keycaps, and adjust backlighting presets, colours, and brightness.
+
+Q: Can I remap keys on the fly on the 500+?
+A: Yes, advanced users can do on-the-fly key remapping on the Raspberry Pi 500+.
 
 # Replace your M.2 SSD
 
-- How do I replace the SSD in my Pi 500 plus?
-- What tools do I need to open up the Pi 500 plus?
-- What sizes of M.2 SSD will fit in the Pi 500 plus?
-- I want to put a bigger SSD in my 500 plus. Is that possible?
-- Can I put something other than an SSD in the M.2 slot?
+Q: Can I put a bigger SSD in my 500+ if I run out of storage?
+A: Yes, you can replace the M.2 SSD to expand storage capacity.
+
+Q: What M.2 form factors does the 500+ support?
+A: It supports M.2 M key edge connectors in form factors 2230, 2242, 2260, and 2280.
+
+Q: What tools do I need to swap out the SSD in my 500+?
+A: You need a cross head screwdriver, flat head screwdriver, and the provided plastic spudger.
+
+Q: I'm replacing the SSD but worried about breaking the keyboard apart. Any tips?
+A: Fold the top over rather than lifting it; both halves are connected by a flexible cable.
+
+Q: Can I use the M.2 slot for something other than an SSD?
+A: Yes, you can also use that slot to install a different PCIe peripheral.
 
 # Change your keycaps
 
-- How do I pull off the keycaps on my Pi 500 plus without breaking anything?
-- I want to put custom keycaps on my 500 plus. Will third-party ones work?
-- What profiles are recommended for replacement keycaps on the 500 plus?
-- Are SA keycaps okay to use on the Pi 500 plus?
-- Some of my keys look non-standard. Will a typical keycap set cover them all?
-- My keycaps are blocking the backlighting. What kind should I get instead?
+Q: Can I put any third-party keycaps on the 500+?
+A: Most Cherry MX-compatible third-party keycaps work, but avoid taller profiles.
+
+Q: How do I actually pull a keycap off the 500+?
+A: Insert the keycap puller prongs on opposite sides, grip, then gently pull straight up.
+
+Q: Can I take off the keycaps just to clean under them?
+A: Yes, you can remove keycaps to clean underneath them.
+
+Q: What's the right way to put a keycap back on?
+A: Align the cross-shaped stems and press the keycap down firmly until fully seated.
+
+# Keyboard layout
+
+Q: I want to buy a replacement keycap set. Which language layouts are easiest to find?
+A: US layouts are most widely available, followed by UK layouts.
+
+Q: Are all the keys on the 500+ standard so I can replace them easily?
+A: No, several keys like the power key, SysRq, Ins, and function labels are non-standard.
+
+Q: Will a third-party keycap set include the Raspberry Pi logo key?
+A: No, third-party sets typically say Win instead and don't include the Raspberry Pi logo.
+
+# Keycap profiles
+
+Q: What keycap profile should I get for my 500+?
+A: DSA or Cherry profiles are recommended; XDA, OEM, and SA are too tall.
+
+Q: Why can't I use SA keycaps on the 500+?
+A: SA keycaps are taller and can hit the keyboard frame or produce too much noise.
+
+Q: What's the difference between DSA and Cherry keycap profiles?
+A: DSA is flat and swappable across rows; Cherry is sculpted with varying row heights.
+
+# Lighting
+
+Q: Will fully opaque keycaps block the backlighting on the 500+?
+A: Yes, the LEDs light the top half of keycaps, so fully opaque caps might block illumination.
 
 # Customise your backlighting
 
-- What lighting is on by default when I start up my Pi 500 plus?
-- What does the LED behind the power button mean? Mine's red right now.
-- How do I cycle through the different lighting presets on my Pi 500 plus?
-- I want a solid white backlight. Which preset is that?
-- How do I change the brightness of the keyboard lights?
-- How do I change the colour of the backlight?
-- My keyboard does a rainbow animation every time it starts up. Can I turn that off?
+Q: My 500+ keyboard seems to have no lighting. Is that normal?
+A: Yes, most backlighting is off by default; only the power LED and Caps Lock are enabled.
+
+Q: What does the little light behind the power button mean?
+A: It's red when powered but off, green when on, and blinks with SD card activity.
+
+Q: How do I cycle through the different lighting presets?
+A: Press Fn plus F4 to cycle forwards, or Fn plus Shift plus F4 to cycle backwards.
+
+Q: How many lighting presets does the 500+ come with?
+A: It comes with seven presets, numbered 0 through 6.
+
+Q: What's the Typing Heatmap preset?
+A: The more you press a key, the redder it gets, and surrounding keys light up too.
+
+Q: How do I adjust the brightness of the keyboard backlight?
+A: Press Fn plus F5 to reduce brightness or Fn plus F6 to increase brightness.
+
+Q: How do I change the colour of the backlight?
+A: Press Fn plus F3 to cycle forwards through 16 colours, or add Shift to go backwards.
+
+Q: I want the keyboard to light up when I press keys. Which preset does that?
+A: Preset 6, Solid Reactive Simple, lights up keys when you press them.
 
 # Advanced software settings
 
-- What do I need to install to get the advanced keyboard lighting controls working?
-- How do I update the firmware on my Pi 500 plus keyboard?
-- What commands are there for checking the current state of my keyboard before I start changing things?
+Q: I want to do more advanced LED stuff on my 500+. What do I need to install?
+A: Install rpi-keyboard-fw-update and rpi-keyboard-config using the commands provided.
+
+Q: How do I update the keyboard firmware before customising things?
+A: Run sudo apt install rpi-keyboard-fw-update then sudo rpi-keyboard-fw-update.
+
+Q: Wait, there's actually a game on the 500+ keyboard? How do I play it?
+A: Run rpi-keyboard-config game; it uses the LEDs as a screen to play Flappy Bird.
+
+Q: How do I see a list of all the commands available in the keyboard config tool?
+A: Run rpi-keyboard-config help to list all available commands with brief descriptions.
 
 # Advanced LED settings
 
-- Can I control individual keys' colours on the Pi 500 plus?
-- How do I set a specific colour for just one key?
-- How do I save my custom LED setup so it doesn't disappear after a restart?
-- I want to add a lighting effect but only temporarily until I restart. How do I do that?
-- How do I set the speed of a lighting effect?
-- How do I reset all my lighting back to default?
-- How do I assign a lighting effect to one of the presets permanently?
-- Can I change the startup animation for a specific preset?
+Q: Can I control individual LEDs on my 500+ keyboard?
+A: Yes, configure the direct effect to set individual LED colours by row and column.
+
+Q: How do I set a specific LED to a particular colour?
+A: Use rpi-keyboard-config led set with the row and column coordinates and colour value.
+
+Q: I messed up my presets. How do I reset them back to default?
+A: Run rpi-keyboard-config reset-presets to restore default presets and clear LED customisations.
+
+Q: Can I save my custom LED layout and reload it later?
+A: Yes, use rpi-keyboard-config leds save and then leds load to apply it later.
+
+Q: What values can I use for speed, saturation, and hue parameters?
+A: Each parameter takes a number between 0 and 255.
+
+Q: I want no startup animation on my keyboard. How do I turn it off?
+A: Set the startup animation to START_ANIM_NONE for that preset using the config software.
+
+Q: How many different startup animations can I choose from?
+A: There are five startup animation options available for each preset.
 
 # Remap keys on your keyboard
 
-- How do I remap a key on my Pi 500?
-- How do I find out what keycode to use when remapping?
-- How do I check what a key is currently mapped to?
-- Can I watch which keys I'm pressing live in the terminal?
-- I messed up my keyboard layout and now I can't type properly. How do I reset it?
-- I've totally broken my keyboard mapping and I can't type anything on the Pi 500 plus. Is there any way to fix it?
-- What are layers in the key remapping? Do I need to worry about them?
-- Can I use a graphical tool instead of the terminal to remap my keys?
+Q: I want to remap my keys. How do I find out what keycode to use?
+A: Run rpi-keyboard-config list-keycodes to see all possible keycodes.
+
+Q: How do I remap a specific key on the 500+?
+A: Use rpi-keyboard-config key set with the row, column, and the keycode you want.
+
+Q: How do I figure out the row and column number for a specific key?
+A: Run rpi-keyboard-config info --ascii to see a layout diagram with coordinates.
+
+Q: Can I monitor which keys I'm pressing using the config tool?
+A: Yes, run rpi-keyboard-config key watch after unlocking the keyboard first.
+
+Q: How do I unlock the keyboard before watching key presses?
+A: Run rpi-keyboard-config unlock and hold the specified keys until the countdown completes.
+
+Q: I've set up different layers for my keys. How many layers can I have?
+A: You can edit up to four layers, numbered 0 through 3.
+
+Q: Can I use a graphical tool instead of the command line to remap keys?
+A: Yes, the Raspberry Pi 500 and 500+ are compatible with the Vial web interface.
+
+Q: How do I reset my keyboard layout back to the default if I've messed it up?
+A: Run rpi-keyboard-config reset-keymap to restore all default key mappings and layers.
+
+# Return to default settings
+
+Q: I messed up all my settings. How do I reset everything back to factory defaults?
+A: Run sudo rpi-keyboard-fw-update -w -i to wipe all customisations and restore defaults.
+
+Q: My 500+ keyboard is so messed up I can't type anything. Can I still reset it?
+A: Yes, connect an external USB keyboard and enter the reset command from that device.
+
+Q: Will my custom settings survive a reboot or firmware update?
+A: Yes, software-controlled preferences are saved in flash memory and persist through both.
 
 # Flappy Bird game
 
-- Wait, there's a game hidden in the keyboard firmware? How do I play it?
-- How does the Flappy Bird game even work on a keyboard with no screen?
-- How do I quit out of the keyboard game?
+Q: How does the Flappy Bird game work on the 500+ keyboard?
+A: The keyboard backlighting acts as the screen, with lights representing the bird and pipes.
+
+Q: How do I control the bird in the keyboard Flappy Bird game?
+A: Press the space bar to make the bird fly over the pipe obstacles.
+
+Q: How do I know what my score is in the keyboard game?
+A: The number of purple LEDs along the top of the keyboard shows your score.
+
+Q: How do I quit the Flappy Bird game on the keyboard?
+A: Press Q on your keyboard to exit the game.

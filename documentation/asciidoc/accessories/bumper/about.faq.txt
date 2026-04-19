@@ -1,24 +1,38 @@
 # About
 
-- What's the Raspberry Pi Bumper exactly? Like what does it actually do?
-- Does the bumper cover the whole board or just parts of it?
-- I've got a Raspberry Pi 4, will the bumper fit on it?
-- Wait, if I put the bumper on, can I still use the mounting holes?
-- What's the bumper made of?
+Q: What even is the Raspberry Pi Bumper, like what does it do?
+A: It's a snap-on silicone cover protecting the bottom and edges of your board.
+
+Q: Does the bumper cover up the mounting holes? I still need those.
+A: No, the mounting holes stay accessible even when the bumper's attached.
+
+Q: Will this bumper work with my Raspberry Pi 4?
+A: No, the bumper is only compatible with Raspberry Pi 5.
+
+Q: What's the bumper made of?
+A: It's made of silicone.
 
 # Assembly instructions
 
-- Do I need to turn off my Pi before putting the bumper on, or can I just snap it on while it's running?
-- Why do I have to take the SD card out before putting the bumper on?
-- I'm trying to put the bumper on but I'm not sure how to line it up. Any tips?
-- How hard do I need to press to get the bumper to snap on properly?
-- How do I get the bumper off without breaking anything?
-- I'm scared of damaging the components when I'm putting the bumper on. What should I watch out for?
-- Do I have to disconnect power before taking the bumper off, or can I just peel it off?
+Q: Do I need to turn off my Pi before putting the bumper on?
+A: Yes, turn it off and disconnect the power cable before attaching the bumper.
+
+Q: I'm about to snap the bumper on — do I need to take my SD card out first?
+A: Yes, remove the SD card before pressing the board into the bumper.
+
+Q: How hard do I press when putting the bumper on? I don't want to break anything.
+A: Press gently but firmly, avoiding contact between the bumper and board components.
+
+Q: How do I take the bumper off without damaging anything?
+A: Gently but firmly peel it away, avoiding contact with any board components.
+
+Q: After I put the bumper on, what do I do next to get going again?
+A: Reinsert your SD card and then reconnect your Raspberry Pi to power.
 
 # Whole Document
 
-- I just got a Pi 5 and want to protect it. Is the bumper worth getting?
-- Does the bumper protect the top of the board too, or just the bottom and sides?
-- Will the bumper still let me access all the ports and connectors?
-- Is this thing easy to put on and take off, or is it a big hassle?
+Q: I just got this bumper and I'm not sure where to start. What's the basic process?
+A: Turn off your Pi, remove the SD card, then press the board into the bumper.
+
+Q: Can I put the bumper on while my Pi is still running?
+A: No, you must turn off your Pi and disconnect power before attaching it.

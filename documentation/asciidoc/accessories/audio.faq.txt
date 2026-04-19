@@ -1,97 +1,201 @@
 # Overview
 
-What's the difference between all these audio boards? Like which one should I get?
+Q: So what's the difference between the DAC Pro and the DAC Plus? Are they basically the same thing?
+A: DAC Pro adds balanced output and higher SNR; both support 192 kHz audio.
 
-Which board do I need if I want to connect regular hi-fi speakers, not ones with a built-in amp?
+Q: I want to record audio with my Pi. Which of these boards lets me do that?
+A: The Codec Zero has a built-in microphone and supports external mic input.
 
-Does any of these boards have a built-in microphone?
+Q: What's the max audio quality I can get from these boards?
+A: The DAC Pro, DAC Plus, and DigiAMP Plus support up to 192 kHz full HD audio.
 
-What's the highest audio quality I can get from a Raspberry Pi audio board?
+Q: Does the Codec Zero work with headphones?
+A: No, the Codec Zero doesn't have headphone output; it has aux out instead.
 
-I've got headphones with like 80 ohm impedance — will these boards actually drive them properly?
+Q: I've got passive speakers with no built-in amp. Which board do I need?
+A: The DigiAMP Plus supports two passive stereo speakers up to 35 watts each.
 
-What's a balanced output? Do I need that or is it just for studios?
+Q: What's the difference between line out and aux out? They sound like the same thing to me.
+A: Line out delivers up to 2V RMS; aux out delivers a lower 1V RMS signal.
 
-I want to connect my Raspberry Pi audio board to my existing hi-fi amplifier. Which output should I use?
+Q: I want to connect my Pi audio board to studio monitors with XLR cables. Which board supports that?
+A: The DAC Pro supports balanced XLR output via an optional XLR add-on board.
 
-What's the difference between line out and aux out? They both seem to do the same thing.
+Q: Can I plug a microphone into the Codec Zero externally, or is it just the built-in one?
+A: Yes, Codec Zero supports external electret mic; built-in MEMS disables automatically.
 
-What's XLR? I keep seeing it mentioned but I don't know what it is.
+Q: What's the maximum speaker wattage the Codec Zero can drive?
+A: The Codec Zero can drive a mono speaker at 1.2 watts.
 
-I want to record audio from my phone into my Raspberry Pi. Can any of these boards do that?
+Q: Do all four boards fit any Raspberry Pi?
+A: Yes, all four boards fit any Raspberry Pi with a 40-pin GPIO header.
 
-The Codec Zero sounds interesting — what kind of projects is it good for?
+# Raspberry Pi DAC Pro
 
-Can I connect a normal mono speaker, like from a transistor radio, to one of these boards?
+Q: What chip does the DAC Pro use inside?
+A: The DAC Pro uses a Texas Instruments PCM5242 chip.
+
+Q: I want to use the DAC Pro with balanced XLR output. Do I need to buy anything extra?
+A: Yes, an optional separate XLR board is needed for balanced XLR output.
+
+Q: Does the DAC Pro need its own power supply, or does it run off the Pi?
+A: The DAC Pro is powered through the Raspberry Pi's GPIO header.
+
+Q: What's the P10 connector on the DAC Pro for?
+A: P10 is an alternative 5V input that can power the Raspberry Pi in parallel.
+
+# Raspberry Pi DAC+
+
+Q: What resolution audio does the DAC Plus support?
+A: The DAC Plus supports 24-bit audio at up to 192 kHz sample rate.
+
+Q: Does the DAC Plus have a headphone output?
+A: Yes, the DAC Plus includes a dedicated headphone amplifier.
+
+# Raspberry Pi DigiAMP+
+
+Q: My DigiAMP Plus isn't making any sound when I first power it on. Is something broken?
+A: No, the DigiAMP Plus starts up muted by default; software controls unmute.
+
+Q: What power supply does the DigiAMP Plus need? Can I just use the Pi's power?
+A: DigiAMP Plus needs an external 12-24V DC supply; don't use the Pi's own power input.
+
+Q: Can the DigiAMP Plus power my Raspberry Pi too, or do I need a separate power supply for the Pi?
+A: DigiAMP Plus powers the Raspberry Pi through the GPIO header at 5.1V, 2.5A.
+
+Q: What size is the power connector on the DigiAMP Plus?
+A: The barrel connector is 5.5 mm outer diameter by 2.5 mm inner diameter.
+
+# Raspberry Pi Codec Zero
+
+Q: Does the Codec Zero have any LEDs or buttons on it?
+A: Yes, it has green and red LEDs and a tactile programmable button on GPIO27.
+
+Q: What sample rates does the Codec Zero support?
+A: Codec Zero supports common audio sample rates between 8 and 96 kHz.
+
+Q: What kind of projects is the Codec Zero best suited for?
+A: It suits small projects like walkie-talkies, smart doorbells, and smart speakers.
+
+Q: Does the Codec Zero have any kind of EQ built in?
+A: Yes, the Codec Zero includes a built-in five-band equaliser.
 
 # Configuration
 
-I just plugged in my audio HAT and I'm not sure if the Pi detected it. How do I check?
+Q: I just plugged in my audio HAT and nothing's happening. Do I have to do something to set it up?
+A: Audio boards are plug-and-play; Raspberry Pi OS should auto-detect and configure them.
 
-I'm running Raspberry Pi OS headless and there's no desktop. How do I set the audio HAT as the default audio device?
+Q: I'm running my Pi headless with no desktop. How do I set the audio HAT as the main audio device?
+A: Edit `/boot/firmware/config.txt` and comment out the `dtparam=audio=on` line.
 
-How do I switch between the Pi's built-in audio and the HAT audio?
+Q: I edited the config.txt file. Do I need to restart my Pi for it to take effect?
+A: Yes, you need to reboot your Raspberry Pi for the changes to take effect.
 
-I need to disable the onboard audio on my Pi so the HAT takes over. How do I do that?
+Q: I bought a used Pi audio board and it's got a black PCB. Does that matter for setup?
+A: Black PCBs are older IQaudIO-branded boards needing extra config.txt overlay settings.
 
-I edited the config.txt file but I'm not sure I saved it right. What are the steps again?
+Q: How do I check what version my audio board is?
+A: Run `grep -a . /proc/device-tree/hat/*` in the terminal to check board version.
 
-My audio board is the old black IQaudIO one, not the green Raspberry Pi branded one. Do I need to do anything different?
+Q: Do I need to solder anything to attach the HAT to my Pi?
+A: No soldering is required for normal operation; all mounting hardware is included.
 
-How do I tell if my board is the newer Raspberry Pi version or the old IQaudIO version?
+# Extra Codec Zero configuration
 
-I've got the Codec Zero and I want to use the built-in microphone. What do I need to set up?
+Q: I set up my Codec Zero but I'm not sure it'll remember my microphone settings after a reboot. How do I fix that?
+A: Add the alsactl restore command to `/etc/rc.local` to apply settings at every boot.
 
-My Codec Zero settings keep resetting every time I reboot. How do I make them stick?
+Q: Where do I get the preconfigured audio scripts for the Codec Zero?
+A: Download them from GitHub at raspberrypi/Pi-Codec using the git clone command.
 
-I want my Codec Zero to automatically use the right microphone and speaker settings on startup. How do I do that?
+Q: I ran the alsactl restore command and got some weird error messages. Should I be worried?
+A: "Failed to import hw" and "No state is present" warnings are harmless and can be ignored.
 
-I'm using the Codec Zero without a desktop and I want it to be the default audio device. What do I need to do?
+Q: I'm running the Codec Zero headless and audio isn't working. What do I need to do?
+A: Create a `~/.asoundrc` file setting the default card to Zero for headless setups.
 
-Wait, should I create that .asoundrc file or not? I'm confused about when I actually need it.
+Q: Wait, should I always create that .asoundrc file just in case?
+A: Only create it if apps need direct ALSA access; it can interfere with the desktop UI.
 
-I plugged in my external mic to the Codec Zero and now the built-in mic stopped working. Is that normal?
+Q: I want to use the built-in mic on my Codec Zero and play back through the speaker. What command sets that up?
+A: Run `sudo alsactl restore -f` pointing to the OnboardMIC_record_and_SPK_playback.state file.
 
-The DigiAMP+ starts up muted every time. How do I get it to automatically unmute when I start playing audio?
+# Mute and unmute the DigiAMP+
 
-How do I mute and unmute the DigiAMP+ from the command line?
+Q: How do I stop my DigiAMP Plus from starting up muted every time?
+A: Add `unmute_amp` parameter to the dtoverlay line in config.txt for one-shot unmute.
 
-Do I need to solder anything to attach the audio HAT to my Pi?
+Q: Can I make the DigiAMP Plus mute itself automatically when nothing's playing?
+A: Yes, use the `auto_mute_amp` overlay; it mutes five seconds after ALSA device closes.
 
-I'm getting a "Remote I/O error" when I run the alsactl restore command. Is that serious?
+Q: What GPIO pin controls the mute on the DigiAMP Plus?
+A: GPIO22 on the Raspberry Pi controls the DigiAMP Plus mute state.
 
-# Getting Started
+# Create a toy chatter box
 
-I want to build the chatter box project. What hardware do I actually need?
+Q: What does the chatter box project actually do? Like what's the point of it?
+A: It records five-second audio clips and plays them back randomly when a button's pressed.
 
-How does the chatter box know when to record versus when to play something back?
+Q: What board do I need for the chatter box project?
+A: The Codec Zero is used, chosen for its microphone, button, and speaker driver.
 
-How do I make my Python script run automatically every time the Pi boots up?
+Q: How do I make the chatter box script run automatically when the Pi turns on?
+A: Add it to crontab using `@reboot python /home/<username>/chatter_box.py`.
 
-I want to record audio on the Codec Zero. What command do I use?
+Q: How do I delete all the recordings on the chatter box?
+A: Hold the button for more than 20 seconds; a second burp confirms recordings are erased.
 
-The chatter box project sounds cool — can I add an LED that lights up when it's recording?
+Q: What operating system does the chatter box project use?
+A: The example uses Raspberry Pi OS Lite.
 
-# Hardware Information
+# Hardware information
 
-Can I use other GPIO pins for my own sensors if I've got an audio HAT attached?
+Q: What size screws do the Raspberry Pi audio boards use?
+A: All PCB screws are M2.5.
 
-What size screws do I need for mounting these audio boards?
+Q: What GPIO pins do the audio boards use? I want to make sure nothing conflicts.
+A: They use all power and ground pins, GPIO 2/3 for I2C, and GPIO 18-21 for I2S.
 
-What power supply do I need for the DigiAMP+?
+Q: Can I still use the GPIO pins on my Pi if I've got an audio HAT attached?
+A: DAC Pro, DAC Plus, and DigiAMP Plus re-expose Pi signals for additional peripherals.
+
+# Saving AlsaMixer settings
+
+Q: How do I save my AlsaMixer settings so I don't lose them?
+A: Run `sudo alsactl store` or save to a specific file with `sudo alsactl store -f`.
+
+Q: I saved my AlsaMixer settings to a file. How do I load them back?
+A: Run `sudo alsactl restore -f` followed by the path to your saved state file.
+
+# MPD-based audio with volume control
+
+Q: I'm using MPD for music and the volume control isn't working with my DAC. How do I fix it?
+A: Add a `mixer_control "Digital"` line to the audio output section of `/etc/mpd.conf`.
+
+# Updating your firmware
+
+Q: How do I update the firmware on my Raspberry Pi audio board?
+A: Install `rpi-audio-utils` then run `sudo rpi-audio-flash` from the terminal.
+
+Q: I need to update my audio board's EEPROM but there's a write-protect thing. What do I do?
+A: Connect the two write-protect pads with a wire to pull down the write-protect link.
+
+Q: My firmware update failed. What should I try?
+A: Remove and reseat the HAT, then try flashing the firmware again.
+
+Q: Do I need to update my Pi's OS before flashing the audio board firmware?
+A: Yes, update Raspberry Pi OS to the latest version before proceeding with firmware updates.
 
 # Whole Document
 
-I'm a complete beginner. Which Raspberry Pi audio board should I just start with?
+Q: I've got four of these boards to choose from. Which one should I get if I just want the absolute best sound quality?
+A: The DAC Pro offers the highest fidelity with best SNR and balanced output support.
 
-Do these audio boards work with all Raspberry Pi models?
+Q: Do any of these boards need their own separate power supply?
+A: Only the DigiAMP Plus requires an external power supply; others run off the Pi.
 
-Do I need to install any special drivers or do these boards just work when I plug them in?
+Q: I want to build something with a microphone AND a speaker. Which board handles both?
+A: The Codec Zero supports both a built-in microphone and a mono speaker output.
 
-I've heard of ALSA and AlsaMixer but I don't really know what they are. Do I need to understand them to use these boards?
-
-How do I save my audio mixer settings so they don't get lost when I reboot?
-
-I'm using Music Player Daemon and the volume control isn't working with my DAC board. How do I fix that?
-
-How do I update the firmware on my audio HAT?
+Q: Are these boards hard to install physically, or is it pretty straightforward?
+A: They attach to the 40-pin header with included standoffs and screws; no soldering needed.

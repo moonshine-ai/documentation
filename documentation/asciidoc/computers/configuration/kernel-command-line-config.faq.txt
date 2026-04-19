@@ -1,38 +1,96 @@
-# Whole Document
-
-- What's that cmdline dot txt file in my boot partition? What does it actually do?
-- I want to change some kernel settings at boot. Where do I even start?
-- How do I see what kernel options my Pi is actually booting with right now?
-
 # Kernel command line (`cmdline.txt`)
 
-- How do I edit the kernel command line on my Raspberry Pi?
-- I ran cat on cmdline.txt and then checked slash proc slash cmdline and they look different. Is something wrong?
-- Wait, do I need to keep everything on one line in cmdline.txt, or can I put stuff on separate lines?
+Q: Where do I find the kernel command line file on my Raspberry Pi?
+A: It's called cmdline.txt and lives in the boot partition.
+
+Q: How do I edit the kernel command line on my Pi?
+A: Open it with any text editor, like running sudo nano /boot/firmware/cmdline.txt.
+
+Q: I keep adding stuff on new lines in cmdline.txt but it's not working. What am I doing wrong?
+A: All parameters must go on the same single line, never use newlines.
+
+Q: How do I see what command line the kernel actually booted with?
+A: Run cat /proc/cmdline to see what the kernel received at boot.
+
+Q: I checked cmdline.txt and the output of cat /proc/cmdline don't match. Is something wrong?
+A: No, the firmware modifies the command line before launching the kernel, so they differ.
 
 # Command line options
 
-- What do all those entries in cmdline.txt actually mean? Like what's "root" and "quiet" and all that?
-- My Pi shows loads of text during boot and I want to hide it. Is there a way to make it quieter?
-- What does the quiet parameter actually do to my boot messages?
-- There's a "console" entry in my cmdline.txt with two lines. What are those for?
+Q: What's the console entry in cmdline.txt even for?
+A: It defines the serial console, usually with two entries for serial and tty1.
+
+Q: What does the root entry in the kernel command line do?
+A: It defines the location of the root filesystem, like root=/dev/mmcblk0p2.
+
+Q: My Pi boots with a lot of log messages. Is there a way to suppress most of them?
+A: Add the quiet parameter to set log level to KERN_WARNING, suppressing most messages.
+
+Q: What does rootfstype do in cmdline.txt?
+A: It tells the kernel what filesystem type the root partition uses, like ext4.
 
 # Set the KMS display mode
 
-- I'm running Raspberry Pi OS Lite and my display resolution is wrong. How do I fix it?
-- How do I force my Pi to use a specific screen resolution?
-- I want to rotate my display 90 degrees. Can I do that from cmdline.txt?
-- My monitor isn't being detected at the right resolution automatically. Can I override that?
-- What's EDID and why does my Pi care about it?
-- I've got a Pi 4 with two HDMI ports. How do I know which one to put in the video setting, like is it HDMI-A-1 or HDMI-A-2?
-- Can I flip my display horizontally in the kernel command line?
-- I tried adding rotation to my video setting but it's not working. Do I need to also specify the resolution?
+Q: Do I still need FKMS in my cmdline.txt for newer Raspberry Pi OS versions?
+A: No, FKMS is no longer supported; recent OS versions use KMS instead.
+
+Q: If I don't set a video entry in cmdline.txt, what resolution does my Pi use?
+A: It uses the monitor's EDID over HDMI to automatically pick the best supported resolution.
+
+Q: I'm running Raspberry Pi OS Lite and my display resolution is wrong. How do I fix it?
+A: You must manually set a video entry in cmdline.txt to control resolution and rotation.
+
+Q: How do I set my HDMI output to 1080p at 60 hertz in cmdline.txt?
+A: Add video=HDMI-A-1:1920x1080M@60 to your cmdline.txt file.
+
+Q: Can I rotate my display output from the kernel command line?
+A: Yes, add a rotate parameter like rotate=90 alongside your video entry.
+
+Q: I want to rotate my screen but do I need to set the resolution too?
+A: Yes, you must explicitly specify the resolution when using rotation or reflection parameters.
+
+Q: How do I flip the display horizontally from the kernel command line?
+A: Add reflect_x to your video entry, but you must also specify the resolution explicitly.
+
+Q: What's the right video option name if I've got a single HDMI port Pi?
+A: Use HDMI-A-1 for the single HDMI output on single HDMI boards.
+
+Q: I've got a Pi 4B and two HDMI ports. Which video option is for the second port?
+A: Use HDMI-A-2 for HDMI 2, which is labeled HDMI 1 on the Pi 4B silkscreen.
+
+Q: How do I set the display mode for a DSI screen in cmdline.txt?
+A: Use DSI-1 as the display type in your video entry.
 
 # Other entries
 
-- My wireless mouse is really laggy and jumpy. Is there something I can tweak on my Pi to fix that?
-- What does the splash parameter do in cmdline.txt?
-- I've got Plymouth running but now I can't see any boot messages on my serial console. How do I get them back?
-- Should I mess with the dwc underscore otg dot speed setting, or is that just for troubleshooting?
-- My monitor has a terrible built-in EDID and the resolution is all wrong. Can I override it with my own?
-- What does turning off turbo mode on the wired network driver actually do?
+Q: My Pi boots straight to a black screen with no messages. Is there a splash screen thing going on?
+A: The splash entry tells the boot to use a splash screen via the Plymouth module.
+
+Q: Plymouth is hiding my boot messages on the serial console. How do I get them back?
+A: Add plymouth.ignore-serial-consoles to tell Plymouth to ignore all serial consoles.
+
+Q: My wireless mouse is really jumpy and slow. Is there something I can tweak in cmdline.txt?
+A: Try setting usbhid.mousepoll=0 to change the mouse polling interval.
+
+Q: What does dwc_otg.speed do and should I be setting it?
+A: It sets the built-in USB controller speed; only set it when troubleshooting USB device problems.
+
+Q: What does dwc_otg.lpm_enable=0 do exactly?
+A: It turns off Link Power Management in the USB controller driver built into the processor.
+
+Q: How do I override my monitor's built-in EDID from the command line?
+A: Use drm.edid_firmware=HDMI-A-1:edid/your_edid.bin pointing to your firmware EDID file.
+
+Q: How do I turn off turbo mode for the wired network driver?
+A: Add smsc95xx.turbo_mode=N to your cmdline.txt to disable turbo mode.
+
+# Whole Document
+
+Q: I've never touched cmdline.txt before. What is it actually for?
+A: It defines the command line parameters the Linux kernel receives when your Pi boots.
+
+Q: Can I add multiple new parameters to cmdline.txt or is it complicated?
+A: Just add them all on the same single line separated by spaces, using any text editor.
+
+Q: I want to customize my Pi's display rotation and resolution. Where do I start?
+A: Edit cmdline.txt and add a video entry with your resolution, rotation, and reflection settings.

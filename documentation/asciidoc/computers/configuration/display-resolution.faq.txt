@@ -1,37 +1,58 @@
-# Whole Document
-
-- I've got a monitor plugged into my Pi but it's not displaying at the right resolution. How do I fix that?
-- I just got a Raspberry Pi and I'm confused about what cables I actually need for the HDMI. Can you help?
-- What's the difference between how a Pi 4 and a Pi 5 handle 4K displays?
-
 # Support for HDMI monitors
 
-- I've got a Pi Zero and my HDMI cable won't fit. What's going on?
-- I want to use two monitors with my Pi 4. What do I need to make that work?
-- Can I get 4K 60fps out of my Pi 4, or is that not possible?
-- I've got a Pi 5 and I want two 4K monitors. Do I need to change any settings for that or does it just work?
-- I plugged in my HDMI monitor but nothing's showing up. Should I have connected the cable before turning it on?
-- My Pi 4 only has those tiny HDMI ports, not the normal sized ones. Do I need a special adapter?
-- I want 4K at 60 hertz on my Pi 4. What do I need to change in the config file?
+Q: My Pi Zero has a tiny HDMI port and my cable won't fit. What's going on?
+A: The Pi Zero has a mini HDMI port requiring a mini-to-full-size adapter.
+
+Q: I've got a Raspberry Pi 4 and I want 4K at 60Hz. Is that even possible?
+A: Yes, connect to HDMI0 and set hdmi_enable_4kp60=1 in config.txt.
+
+Q: Does my Pi 4 support two 4K monitors at the same time?
+A: Yes, but only at 30Hz refresh rate with two 4K displays simultaneously.
+
+Q: I just got a Pi 5 and want two 4K screens. Do I need to change any settings?
+A: No, Pi 5 supports two 4K displays at 60Hz with no extra configuration.
+
+Q: My Pi 4B has two ports but they're not full size. What cables do I need?
+A: You need micro-HDMI-to-full-size-HDMI leads for each display you attach.
+
+Q: Does Raspberry Pi OS just automatically pick the best resolution for my monitor?
+A: Yes, it uses the highest resolution and refresh rate your monitor supports.
+
+Q: I want to connect two screens to my Pi. Which models actually support that?
+A: Flagship models since Pi 4B, CM4 and later, and Keyboard models support two displays.
 
 # Set resolution and rotation
 
-- How do I change my screen resolution on the Pi desktop?
-- I want to rotate my display. Where do I go to do that?
-- What's the raindrop command do? I've never heard of it.
-- I don't have raindrop installed. How do I get it?
-- I've got this old tool called arandr and I want to switch to the newer one. How do I do that?
+Q: I want to change my screen resolution. Where do I find that setting on the desktop?
+A: Open Control Centre from Preferences, then go to the Screens tab.
 
-# Manually set resolution and rotation
+Q: I changed my resolution but I'm worried I'll mess something up. Can I undo it?
+A: Yes, changes revert automatically if you don't confirm within ten seconds.
 
-- How do I find out what my display is actually called so I can configure it manually?
-- I want to rotate my screen from the command line. How do I do that?
-- I'm trying to rotate my display over SSH but the command isn't working. What am I missing?
-- Can I flip my display and rotate it at the same time?
-- I'm running Wayland, how do I rotate my screen 90 degrees?
+Q: I heard there was something called arandr for display settings. Should I use that?
+A: No, the latest Raspberry Pi OS no longer supports arandr or raindrop.
+
+Q: Will my display settings stick after I restart the Pi?
+A: Yes, settings configured through Control Centre persist across a reboot.
+
+Q: I've got two monitors connected. How do I pick which one to configure?
+A: Right-click the screen outline in the panel or select it from the Screens list.
 
 # Console resolution and rotation
 
-- I'm not running a desktop, just the console. Can I still change the resolution?
-- I've got two monitors but I'm in console mode and they're rotating differently. Wait, is that even possible or do they all have to match?
-- Where do I go to change the rotation when I'm not using the desktop at all?
+Q: I'm running the Lite version with no desktop. How do I change the screen resolution?
+A: Configure Kernel Mode Setting through the kernel command line settings.
+
+Q: I've got two screens in console mode but the rotation is wrong on one. Can I fix just that one?
+A: No, all connected displays share the same rotation settings in console mode.
+
+Q: What's KMS? Do I need to know about it to change resolution without a desktop?
+A: KMS stands for Kernel Mode Setting, used to configure resolution in console mode.
+
+# Whole Document
+
+Q: I've got a Pi 4 and a Pi 5. Which one handles dual 4K displays better?
+A: Pi 5 does 4K at 60Hz on both; Pi 4 maxes out at 30Hz for dual 4K.
+
+Q: I want to rotate my screen. Can I do that through the desktop or do I need the terminal?
+A: Desktop users use Control Centre; terminal-only users configure the kernel command line.

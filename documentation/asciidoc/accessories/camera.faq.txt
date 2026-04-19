@@ -1,113 +1,235 @@
-# Whole Document
-
-- What camera modules are available for the Raspberry Pi?
-- I'm trying to pick a Raspberry Pi camera but I don't know which one to get. Can you give me a quick rundown of what's out there?
-- Do all Raspberry Pi cameras work with every Pi model?
-- What's the difference between a standard camera and a NoIR one?
-- I want to do some night vision stuff with my Pi. Which camera should I get?
-- Which cameras can I use with my own lenses?
-
 # About the Camera Modules
 
-- What happened to the original Camera Module 1? Can I still buy it?
-- What's the AI Camera and how is it different from the regular ones?
-- I want to take photos of fast-moving things. Which Pi camera is best for that?
-- Is there a NoIR version of the High Quality Camera?
-- What's the megapixel count on the Camera Module 3?
-- How many variants does the Camera Module 3 come in?
+Q: What's the difference between a standard camera and a NoIR camera?
+A: Standard filters out infrared light; NoIR captures both visible and infrared light.
 
-# Install a Raspberry Pi Camera
+Q: I want to do night vision stuff. Which Raspberry Pi camera should I get?
+A: Get a NoIR camera — it captures infrared light, works with infrared lighting.
 
-- How do I install a Raspberry Pi camera? Like, physically attach it to the board?
-- There's this blue plastic film on my camera lens. Do I need to take it off?
-- What cable do I need to connect a camera to my Raspberry Pi Zero?
-- I've got a Pi 5 and a camera module. Do I need a special cable for that?
-- Where's the camera connector on a Raspberry Pi 4?
-- I've got a Raspberry Pi 5 and I want to add the active cooler too. Does it matter what order I do things in?
-- I think I messed up plugging in the cable. How do I take it back out?
-- After I've connected the camera, what do I need to do in software to get it working?
-- Do I need to turn off my Pi before connecting the camera?
-- I'm worried about static damaging my camera. Is that actually a real concern and how do I protect against it?
-- Where exactly is the camera port on a Raspberry Pi 5?
-- My camera cable keeps slipping out. How do I make sure it's properly seated?
+Q: Can I still buy the original Camera Module 1?
+A: No, Camera Module 1 is no longer available from Raspberry Pi.
+
+Q: How many megapixels does the Camera Module 3 have?
+A: Camera Module 3 is a 12-megapixel camera built around the Sony IMX708 sensor.
+
+Q: What's the AI Camera actually for?
+A: It provides low-latency, high-performance AI capabilities for deploying neural network models.
+
+Q: Does the High Quality Camera come in a NoIR version?
+A: No, the High Quality Camera is not available as a NoIR version.
+
+Q: Will these cameras work with my older Raspberry Pi that has a CSI connector?
+A: Yes, all Raspberry Pi Camera Modules are compatible with any Pi with a CSI connector.
+
+Q: What makes the Global Shutter Camera different from the others?
+A: It captures light from every pixel at once, ideal for fast-motion photography.
+
+---
+
+# Install a Raspberry Pi camera
+
+Q: I just got a camera module and there's a blue plastic film on the lens. Should I peel that off?
+A: Yes, gently peel it off — it's just protective film added during shipping.
+
+Q: I'm worried about static damaging my camera. What should I do before touching it?
+A: Earth yourself first by touching a sink tap or using an earthing strap.
+
+Q: What cable do I need to connect a camera to a Raspberry Pi 5?
+A: Raspberry Pi 5 uses a mini 22-pin connector, so you need a Standard-Mini camera cable.
+
+Q: Does the Raspberry Pi 4 use the same cable as the Pi 5 for the camera?
+A: No, Pi 4 uses the standard 15-pin cable; Pi 5 needs a Standard-Mini cable.
+
+Q: I've got a Pi Zero. Where's the camera connector on it?
+A: It's on the short edge to the right, opposite the SD card slot.
+
+Q: Where's the camera connector on a Raspberry Pi 4?
+A: It's near the edge closest to you, between the micro HDMI connector and audio jack, labelled CAMERA.
+
+Q: I have a Pi 5 with an Active Cooler. Is there anything special I need to know about connecting the camera?
+A: Connect the camera cable before installing the Active Cooler, as it can block access afterward.
+
+Q: How do I open that little flap on the camera connector without breaking it?
+A: Gently pull the flap out until it stops, then tilt it slightly away from the connector opening.
+
+Q: Which way do the metal contacts face when I'm inserting the cable?
+A: Insert the cable with metallic contacts facing away from the flap.
+
+Q: What software do I need to set up after connecting the camera?
+A: Update your OS and then follow the setup instructions for rpicam-apps.
+
+---
 
 # Camera Module 2
 
-- What sensor does the Camera Module 2 use?
-- How long an exposure can the Camera Module 2 do?
-- What's the difference between Camera Module 2 standard and NoIR?
-- What can I actually do with a NoIR camera? Like what's the blue gel thing about?
+Q: How long can the Camera Module 2 keep its shutter open?
+A: Camera Module 2 can record an exposure time of up to 11.76 seconds.
+
+Q: What sensor is inside the Camera Module 2?
+A: Camera Module 2 is built around the Sony IMX219 sensor.
+
+Q: What's the NoIR version of Camera Module 2 good for?
+A: Use it with infrared lighting to see in the dark or monitor plant health with blue gel.
+
+---
 
 # Camera Module 3
 
-- What's new about the Camera Module 3 compared to the older ones?
-- Does the Camera Module 3 have autofocus?
-- I heard the Camera Module 3 might interfere with GPS. Is that true?
-- What variants of Camera Module 3 can I buy?
-- What's the resolution on the Camera Module 3?
+Q: Does the Camera Module 3 have autofocus?
+A: Yes, Camera Module 3 has powered autofocus.
+
+Q: How many different versions of Camera Module 3 are there?
+A: There are four variants — standard and NoIR, each in normal and wide field of view.
+
+Q: I heard the Camera Module 3 can interfere with GPS. Is that true?
+A: Yes, there's evidence it may emit RFI that interferes with GPS L1 frequencies at 1575 MHz.
+
+Q: What's the maximum exposure time on Camera Module 3?
+A: Camera Module 3 can record an exposure time of up to 112 seconds.
+
+---
 
 # Global Shutter Camera
 
-- What's the difference between a rolling shutter and a global shutter?
-- Why would I want a global shutter camera instead of a regular one?
-- Can I use the Global Shutter Camera for high-speed photography?
-- I want to photograph drone propellers and they always come out blurry. Would the global shutter camera help with that?
-- Can I synchronise two Global Shutter Cameras together?
-- What lens mount does the Global Shutter Camera use?
-- Can I get the Global Shutter Camera without an infrared filter?
+Q: Why would I want a global shutter camera instead of a regular one?
+A: Global shutter captures all pixels simultaneously, eliminating motion distortion in fast subjects.
+
+Q: What's rolling shutter and why does it cause problems?
+A: Rolling shutter scans line-by-line, causing distortion like shimmer in fast-moving objects like propellers.
+
+Q: Can I sync multiple Global Shutter Cameras together?
+A: Yes, you can trigger multiple GS cameras simultaneously using the external trigger connection.
+
+Q: What's the shortest exposure time the Global Shutter Camera can do?
+A: It can operate with exposure times down to 30 µs, given enough light.
+
+Q: Can I remove the infrared filter from the Global Shutter Camera?
+A: Yes, but it's permanent, voids the warranty, and can't be reversed.
+
+---
 
 # High Quality Camera
 
-- What's the maximum exposure time on the HQ Camera?
-- What lens mount does the High Quality Camera come in?
-- Can I trigger the HQ Camera externally somehow?
-- Is there a NoIR version of the High Quality Camera?
+Q: What's the longest exposure time the HQ Camera can handle?
+A: The HQ Camera can record an exposure time of up to 670.74 seconds.
+
+Q: Does the HQ Camera have a built-in lens or do I need to buy one separately?
+A: The HQ Camera uses interchangeable lenses via C/CS- or M12-mount — no lens included.
+
+Q: Can I sync two HQ cameras to shoot at exactly the same moment?
+A: Yes, the HQ Camera supports synchronous captures using its XVS pin.
+
+---
 
 # Recommended Lenses
 
-- What lenses do you recommend for the HQ Camera?
-- Is the Global Shutter Camera compatible with M12 lenses?
-- What's the difference between the 6mm and 16mm lenses for the HQ Camera?
-- Where can I buy the recommended lenses?
+Q: What lenses do you recommend for the HQ camera?
+A: A 6mm wide angle and 16mm telephoto lens made by CGL Electronics are recommended.
+
+Q: Does the Global Shutter Camera support M12 lenses?
+A: No, the GS Camera is only available with a C/CS-mount, not M12.
+
+Q: What's the minimum focus distance for the recommended 6mm and 16mm lenses?
+A: Both the 6mm and 16mm recommended lenses have a minimum focus distance of 0.2 metres.
+
+---
 
 # Synchronous Captures
 
-- Can I run two Pi cameras at exactly the same time?
-- How do I wire up two HQ cameras for synchronised captures?
-- I want to sync a GS Camera and an HQ Camera together. Can I do that?
-- I'm setting up synchronised cameras and they keep timing out before they all start. How do I fix that?
-- Which camera should I start first when doing synchronised capture, the source or the sink?
-- How do I set one camera as the source and another as the sink in the config?
+Q: How do I wire up two HQ cameras to sync them?
+A: Solder wires to the XVS and GND test points on each camera and connect them together.
+
+Q: Can I sync a Global Shutter Camera with an HQ Camera?
+A: No, you can't synchronise a GS Camera and an HQ Camera together.
+
+Q: My synced cameras aren't all starting within a second. What do I do?
+A: Edit a libcamera config file and set the camera timeout value to 60000 milliseconds.
+
+Q: Which camera should I start first when doing synchronised recording, the source or the sink?
+A: Start the sink first to ensure no frames are missed before the source begins.
+
+Q: I'm using GS cameras in sync mode and the frame counts don't match. Is that normal?
+A: Yes, the source records one extra frame — set the sink to record one fewer frame.
+
+---
 
 # External Trigger on the Global Shutter Camera
 
-- How do I trigger the Global Shutter Camera with an external signal?
-- Can I use a Raspberry Pi Pico to trigger the Global Shutter Camera?
-- How does the exposure time work when I'm using external triggering on the GS camera?
-- I want to control the framerate of my GS Camera externally. How does that work?
-- Do I need to remove any components from the GS camera board to use external triggering?
+Q: How does external triggering work on the Global Shutter Camera?
+A: Pulsing the XTR connection captures a frame; framerate equals how often you pulse it.
+
+Q: Can I use a Raspberry Pi Pico to trigger the Global Shutter Camera?
+A: Yes, connect a Pico GPIO pin to XTR via a 1.5kΩ resistor to trigger the camera.
+
+Q: What voltage does the external trigger input on the GS Camera expect?
+A: XTR is a 1.8V input, so you may need a level shifter or potential divider.
+
+Q: How does the exposure time relate to the trigger pulse?
+A: Exposure time equals the low pulse-width time plus an additional 14.26 microseconds.
+
+---
 
 # IR Filter
 
-- Can I remove the IR filter from the HQ or GS camera myself?
-- What happens if I take out the IR filter? What would I use that for?
-- Is removing the IR filter reversible?
-- Will removing the IR filter void my warranty?
-- What's the step-by-step process for taking out the IR filter on the HQ Camera?
+Q: Why would I want to remove the IR filter from my camera?
+A: To enhance colours in plant or sky photography, or to enable night vision with infrared light.
 
-# Hardware Specifications
+Q: If I remove the IR filter, can I put it back later?
+A: No, removing it is permanent — the adhesive won't survive and it may crack during removal.
 
-- What are the video modes supported by Camera Module 3?
-- Which Pi camera has the longest maximum exposure time?
-- What's the pixel size on the Global Shutter Camera compared to others?
-- I want to compare all the Pi cameras side by side. Where do I look?
-- Does the Camera Module 3 have motorised autofocus or do I have to adjust it manually?
-- What sensor does the High Quality Camera use?
+Q: Does removing the IR filter void my warranty?
+A: Yes, removing the IR filter voids the warranty on the product.
 
-# Advanced Information
+---
 
-- Where can I find the mechanical drawings for the HQ Camera?
-- Will the Camera Module 3 fit in the same case as Camera Module 2?
-- Which pin is pin 1 on the camera connector?
-- What's the difference between the 15-pin and 22-pin camera connectors?
-- Which Pi models use the 22-pin camera connector?
+# Hardware specifications
+
+Q: What's the pixel size difference between Camera Module 2 and the Global Shutter Camera?
+A: Camera Module 2 has 1.12µm pixels; Global Shutter Camera has much larger 3.45µm pixels.
+
+Q: Which camera module can do the longest exposure, like for night photography?
+A: The HQ Camera has the longest maximum exposure time at 670.74 seconds.
+
+Q: Does the Camera Module 1 have adjustable focus?
+A: No, Camera Module 1 has fixed focus with a depth of field from approximately 1 metre to infinity.
+
+Q: What video modes does Camera Module 3 support?
+A: It supports 2304×1296p56, 2304×1296p30 HDR, and 1536×864p120.
+
+---
+
+# Advanced information
+
+Q: Where can I find mechanical drawings for the HQ Camera?
+A: They're available on the Raspberry Pi Product Information Portal for the HQ Camera Module.
+
+Q: Is Camera Module 3 physically compatible with the Raspberry Pi Zero camera case lid?
+A: No, the larger sensor module makes it incompatible with the Pi Zero camera case lid.
+
+Q: Which Pi models use the 22-pin camera connector?
+A: Raspberry Pi Zero series, Compute Module IO boards, and flagship models since Raspberry Pi 5.
+
+Q: What voltage are the I2C lines on the camera connector?
+A: The I2C SCL and SDA lines are pulled up to 3.3V on the Raspberry Pi board.
+
+---
+
+# Whole Document
+
+Q: I've never set up a Pi camera before. What are the basic steps?
+A: Connect the cable, then update your OS and set up rpicam-apps software.
+
+Q: I want to shoot fast-moving stuff like drones. Which Raspberry Pi camera is best?
+A: The Global Shutter Camera is ideal for fast-motion photography, minimising distortion.
+
+Q: What's the difference between the HQ Camera and Camera Module 3 in terms of megapixels?
+A: Camera Module 3 has 12 megapixels; HQ Camera has 12.3 megapixels — very similar.
+
+Q: Which cameras support interchangeable lenses?
+A: The HQ Camera and Global Shutter Camera both use lens mounts for interchangeable lenses.
+
+Q: I want to photograph plants in infrared. What do I need?
+A: Get a NoIR camera and use it with the included square of blue gel for plant health monitoring.
+
+Q: Can I use two cameras on the same Raspberry Pi 5?
+A: Yes, Raspberry Pi 5 has two CAM/DISP connectors labelled CAM/DISP0 and CAM/DISP1.

@@ -1,65 +1,64 @@
 # External Trigger on the Global Shutter Camera
 
-What's the XTR connection on the Global Shutter camera for?
+Q: What's the XTR connection on my Global Shutter camera actually for?
+A: It's for triggering the camera externally by pulsing that pin.
 
-How do I sync two Global Shutter cameras together?
+Q: I've got two cameras and I want them to sync up. Can I do that with the GS camera?
+A: Yes, connect both cameras to the same external trigger pulse for synchronisation.
 
-So how long is the actual exposure time when I send a pulse? Like if I pulse it for 10 milliseconds, what do I get?
+Q: How do I control the framerate when using external trigger mode?
+A: The framerate equals how often you pulse the XTR pin.
 
-I want 30 frames per second — how fast do I need to pulse the pin?
-
-I've got the GS camera and I want to use external triggering, but I'm not sure where to even start. What's the basic setup?
+Q: If I send a low pulse of 10000 microseconds, what's my actual exposure time?
+A: It'll be 10014.26 microseconds, adding a fixed 14.26 microseconds to your pulse.
 
 # Preparation
 
-There's a transistor on my board labeled Q2 — do I need to remove anything before I can use external trigger mode?
+Q: I need to remove a component to make external triggering work. What do I take off?
+A: Remove resistor R11 if transistor Q2 is fitted on your board.
 
-Why do I need to remove R11? What happens if I leave it on there?
+Q: Why do I even need to remove R11? What does it do?
+A: R11 connects GP1 to XTR, preventing the camera from working in external trigger mode.
 
-XTR says it's a 1.8 volt input but my Pi puts out 3.3 volts. How do I deal with that?
+Q: What voltage does XTR take? I don't want to fry my camera.
+A: XTR is a 1.8V input, so you may need a level shifter or potential divider.
 
-Can I use a Pico to trigger the Global Shutter camera? How do I wire that up?
+Q: Can I use a Pico to send the external trigger signal?
+A: Yes, connect any Pico GPIO pin to XTR via a 1.5 kΩ resistor.
 
-What resistors do I need when connecting the Pico to the camera's XTR pin?
+Q: Why is there a 1.8 kΩ resistor between XTR and ground in the wiring diagram?
+A: It reduces the high logic level down to the required 1.8V.
 
-I want to set a specific shutter speed and framerate with the Pico. Is there some code I can use for that?
+Q: I want to set 30 frames per second with a 6000 microsecond shutter in the Pico code. How does that work?
+A: Set PWM frequency to 30 and calculate duty cycle using shutter time and frame length.
 
-So the MicroPython code — what does the shutter value actually mean? Is that in milliseconds or what?
+# Camera Driver Configuration
 
-What pin on the Pico connects to XTR in the example?
+Q: Do I need to mess with config.txt for external triggering?
+A: Only if you have more than one camera with XTR wired in parallel.
 
-I'm nervous about the soldering part — is this something a beginner should try?
+Q: What do I actually change in config.txt for multiple cameras on external trigger?
+A: Change camera_auto_detect to 0 and add the dtoverlay equals imx296 always-on line.
 
-# Camera driver configuration
+Q: I'm using the CAM0 port on a Pi 5. Is there anything extra I need to add?
+A: Append comma cam0 without a space to the dtoverlay line for CAM0 port.
 
-Do I have to mess with the config.txt file, or is that only sometimes needed?
+Q: I've got both cameras on the same Pi. How many dtoverlay lines do I need?
+A: You need two dtoverlay lines, with only one of them ending in comma cam0.
 
-I've got two GS cameras wired to the same trigger. What do I need to change in config.txt?
+# Starting the Camera
 
-I'm using the CAM0 port on a Pi 5 — is there anything different I need to add to the overlay line?
+Q: How do I actually enable external trigger mode before running the camera?
+A: Run echo 1 piped into sudo tee slash sys module imx296 parameters trigger_mode.
 
-I've got both cameras on the same Raspberry Pi. Do I need two separate dtoverlay lines?
+Q: What order do things have to happen — do I start the Pico or the camera first?
+A: Run the Pico code first, then start the camera with rpicam-hello afterwards.
 
-My trigger isn't going to start right away when the camera boots up. Is there anything I need to change so it doesn't time out?
+Q: Some of my frames are getting dropped. What's causing that?
+A: Frames drop when gain and awbgains aren't set, letting AGC and AWB algorithms settle.
 
-# Starting the camera
+Q: Does the shutter value I pass to rpicam-apps actually control the exposure in external trigger mode?
+A: No, exposure is controlled by the external trigger pulse, not the shutter value you specify.
 
-How do I actually enable external trigger mode on the GS camera?
-
-Do I start the Pico code first or the camera first?
-
-I'm losing frames even though the trigger is working fine. What's causing that?
-
-Why do I need to set a fixed shutter value when running rpicam-apps, even though the external trigger is controlling the exposure?
-
-If I don't set the gain manually, will I drop frames?
-
-# Whole Document
-
-What even is external triggering on a camera? Why would I want to use it?
-
-I've got two Global Shutter cameras and I want them to capture frames at exactly the same time. How do I do that?
-
-Is this external trigger thing something a total beginner can set up, or does it need soldering and stuff?
-
-What hardware do I need to get external triggering working on the GS camera?
+Q: Why do I have to specify a fixed shutter when running rpicam-apps with external triggering?
+A: It stops the AGC from trying to adjust the camera's shutter speed automatically.

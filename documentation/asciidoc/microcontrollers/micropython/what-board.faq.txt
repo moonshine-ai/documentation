@@ -1,18 +1,22 @@
 # Which hardware am I running on?
 
-- How do I figure out if my code is running on a Pico or a Pico W?
-- Is there a way to tell from inside MicroPython whether I've got a regular Pico or a Pico W?
-- I want my script to behave differently on a Pico W than on a regular Pico. How do I detect which one it's on?
-- I've got two boards that look identical. Can MicroPython tell me which one it's running on?
-- What's the trick for checking if my Pico has WiFi support built into the firmware?
-- How do I use the sys module to check what board my MicroPython firmware was compiled for?
-- I'm not sure if my firmware is the Pico W version or the regular one. How do I check?
-- What does sys dot implementation actually tell me, and how do I read it?
-- If I check for WLAN in the network module, does that tell me I'm on a Pico W?
-- My script needs WiFi but I don't know if the board I'm using supports it. How do I check before it crashes?
+Q: How do I figure out if my MicroPython code is running on a Pico or a Pico W?
+A: Check indirectly via network functionality or inspect the sys.implementation details.
 
-# Whole Document
+Q: There's no direct way to tell what board I'm on in MicroPython, right? So what do I do instead?
+A: Check for WLAN in the network module or inspect sys.implementation._machine string.
 
-- What are the different ways to figure out what Raspberry Pi hardware I'm running MicroPython on?
-- Can MicroPython detect the hardware it's running on automatically, or do I have to do it manually?
-- I just want to know if my Pico supports WiFi. What's the quickest way to check from within Python?
+Q: I want to know if my firmware was built for the Pico W. How do I check that?
+A: Import sys and check if "Pico W" appears in sys.implementation._machine string.
+
+Q: What's that network trick for detecting if I've got a Pico W?
+A: Import network and check if hasattr returns true for the WLAN attribute.
+
+Q: I'm writing a MicroPython script and need it to behave differently on Pico W. How do I detect which board I'm on?
+A: Use network module to check for WLAN, or inspect sys.implementation._machine for "Pico W".
+
+Q: If I do import sys and check sys.implementation, what does it actually show me?
+A: It shows the name, version, machine type, and whether it's compiled for Pico W.
+
+Q: Does MicroPython have a built-in way to just directly tell you what hardware it's running on?
+A: No, there's no direct method; you must check indirectly through network or sys module.

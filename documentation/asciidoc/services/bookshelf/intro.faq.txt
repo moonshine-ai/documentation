@@ -1,27 +1,25 @@
 # Introduction
 
-What is the Bookshelf app? I've never heard of it before.
+Q: What's the Bookshelf app on my Raspberry Pi for?
+A: It gives you access to books and magazines from Raspberry Pi Press.
 
-What kind of books and magazines can I get through Bookshelf?
+Q: I've got the Lite version of Raspberry Pi OS. Does Bookshelf come with that?
+A: No, Bookshelf is only included in Desktop and Full images.
 
-I've got Raspberry Pi OS but I don't see Bookshelf anywhere. Is it even included by default?
+Q: There's a padlock on some of the titles in Bookshelf. What does that mean?
+A: Those are contributor-only titles requiring a Raspberry Pi ID to access.
 
-I'm running the Lite version of Raspberry Pi OS and I can't find Bookshelf. Is it supposed to be there?
+Q: I'm signed into my Raspberry Pi ID but I still can't open some books. Why?
+A: Your ID must be linked to a contribution or print magazine subscription.
 
-Wait, some of the books have a padlock on them. What does that mean?
+Q: How do I know which books I can download for free in Bookshelf?
+A: Free titles are marked with a cloud icon and downloadable by anyone.
 
-I see a cloud icon next to some titles and a padlock next to others. What's the difference?
+Q: When did Bookshelf start including contributor-only titles?
+A: Contributor-only titles were added starting with Raspberry Pi OS Trixie.
 
-I've got a Raspberry Pi ID. Do I get access to more books with it?
+Q: I don't want to pay for anything. Are there any free books in Bookshelf?
+A: Yes, free titles marked with a cloud icon are available to anyone.
 
-How do I get the contributor-only titles? Are they just locked forever or can I unlock them somehow?
-
-Do I need to pay anything to download the free books, or is it completely free?
-
-Some of the locked titles in Bookshelf say they might become free later. How do I know when that happens?
-
-I just updated to Trixie and I'm seeing new stuff in Bookshelf. What changed?
-
-Is Bookshelf only for Raspberry Pi stuff or does it have other kinds of books too?
-
-I have a subscription to the Raspberry Pi print magazine. Does that get me access to the locked titles in Bookshelf?
+Q: Can locked contributor-only titles ever become free later on?
+A: Yes, some contributor-only titles eventually become available to everyone.

@@ -1,127 +1,124 @@
-# kmsprint
+# `kmsprint`
 
-What's that `kmsprint` tool for exactly?
+Q: How do I see what display modes my monitor supports on my Pi?
+A: Run `kmsprint -m` to list all display modes for each monitor.
 
-How do I check what display modes my monitor supports on my Pi?
+Q: I just want to check what monitors are connected to my Pi. What do I run?
+A: Run `kmsprint` to see details of all connected monitors.
 
-I've got a monitor plugged in and I want to see all the resolutions it can do. What command do I run?
+# `vclog`
 
-Where can I find the source code for `kmsprint` if I want to look at it?
+Q: How do I see what my GPU's been logging? Like error messages and stuff?
+A: Run `sudo vclog --msg` for message log or `--assert` for assertion log.
 
-# vclog
+Q: Do I need root to check the VideoCore logs or can I just run it normally?
+A: Yes, `vclog` needs to be run as root using `sudo`.
 
-How do I see the GPU log messages on my Pi?
+# `vcgencmd`
 
-I want to check if the VideoCore is throwing any errors. How do I do that?
+Q: I don't know what commands vcgencmd supports. How do I get a list?
+A: Run `vcgencmd commands` to see all supported commands.
 
-Why do I have to use `sudo` with `vclog`? Can't I just run it normally?
+# `vcos`
 
-What's the difference between `vclog --msg` and `vclog --assert`?
+Q: How do I check what version of firmware my Pi's GPU is running?
+A: Use `vcgencmd vcos version` to display the firmware build date and version.
 
-# vcgencmd
+Q: I want to see if there are any errors in the VideoCore firmware. How do I check?
+A: Run `vcgencmd vcos log status` to display VideoCore firmware error log status.
 
-What even is `vcgencmd` and what can I do with it?
+# `get_throttled`
 
-I can't remember all the things `vcgencmd` can do. How do I get a list of all its commands?
+Q: My Pi might be throttling itself. How do I actually check if that's happening?
+A: Run `vcgencmd get_throttled` — it returns a bit pattern showing throttling status.
 
-# vcos
+Q: I ran get_throttled and got back some weird number. What does it mean?
+A: It's a bit pattern where set bits indicate issues like undervoltage or throttling.
 
-How do I check what version of firmware my Pi's GPU is running?
+Q: What's the difference between "currently throttled" and "throttling has occurred"?
+A: Bit 2 means throttled right now; bit 18 means throttling happened at some point.
 
-I want to see if there are any errors in the VideoCore firmware. How do I check that?
+Q: How do I know if my Pi's been undervolted at some point, even if it's fine now?
+A: Bit 16 with hex value 0x10000 in `get_throttled` means undervoltage has occurred.
 
-# version
+# `measure_temp`
 
-How do I find out when my VideoCore firmware was built?
+Q: How do I check what temperature my Pi's running at?
+A: Run `vcgencmd measure_temp` to get the SoC temperature from its internal sensor.
 
-# get_throttled
+Q: I've got a Pi 4 — can I check the temperature of the PMIC separately?
+A: Yes, use `vcgencmd measure_temp pmic` on Raspberry Pi 4 for PMIC temperature.
 
-My Pi feels sluggish and I think it might be throttling itself. How do I check?
+# `measure_clock [clock]`
 
-What does it mean when `get_throttled` returns something that isn't zero?
+Q: How do I see what speed my Pi's CPU is actually running at right now?
+A: Run `vcgencmd measure_clock arm` to get the current ARM core frequency.
 
-I got a weird number back from `get_throttled` and I don't know what it means. How do I figure out what's going on?
+Q: Can I check what frequency the HDMI is running at using vcgencmd?
+A: Yes, run `vcgencmd measure_clock hdmi` to get the current HDMI clock frequency.
 
-How do I know if my Pi has been throttled at some point, even if it's running fine right now?
+Q: Is there a way to check the speed of the SD card interface on my Pi?
+A: Yes, use `vcgencmd measure_clock emmc` to check the SD card interface frequency.
 
-What's the difference between "currently throttled" and "throttling has occurred"?
+# `measure_volts [block]`
 
-My Pi keeps showing an undervoltage warning. How do I confirm that's actually happening?
+Q: How do I check what voltage the GPU core is running at?
+A: Run `vcgencmd measure_volts core` to display the current VC4 core voltage.
 
-# measure_temp
+Q: Can I check my SDRAM voltage with vcgencmd or something?
+A: Yes, use `measure_volts sdram_c`, `sdram_i`, or `sdram_p` for SDRAM voltages.
 
-How do I check the temperature of my Raspberry Pi?
+# `otp_dump`
 
-Is there a way to check the PMIC temperature on a Pi 4?
+Q: What's OTP memory and can I see what's stored in it on my Pi?
+A: OTP is one-time programmable memory; use `vcgencmd otp_dump` to display its contents.
 
-My Pi feels hot. How do I actually see what temperature it's running at?
+# `get_config [configuration item|int|str]`
 
-# measure_clock
+Q: How do I check how much total RAM my Pi has using the command line?
+A: Run `vcgencmd get_config total_mem` to return total memory in megabytes.
 
-How do I check what speed the CPU is running at right now?
+Q: I want to see all the integer config settings on my Pi. How do I list them?
+A: Run `vcgencmd get_config int` to display all integer configuration items.
 
-Can I see the current HDMI clock frequency?
+# `get_mem type`
 
-I want to know if my Pi is actually running at full speed or if it's been slowed down. What do I check?
+Q: How do I see how much memory is available to the GPU versus the CPU?
+A: Use `vcgencmd get_mem gpu` for GPU memory and `get_mem arm` for ARM memory.
 
-How do I check the GPU core clock speed?
+Q: I've got a Pi with more than a gig of RAM but get_mem arm shows less. Is that a bug?
+A: No, GPU firmware only sees the first 1 GB, so `arm` always returns 1 GB minus GPU memory.
 
-# measure_volts
+# `codec_enabled [type]`
 
-How do I check the voltage my Pi's GPU core is running at?
+Q: How do I check if H264 decoding is enabled on my Pi?
+A: Run `vcgencmd codec_enabled H264` to report whether H264 is enabled.
 
-Is there a way to see what voltage the SDRAM is getting?
+Q: Can I use codec_enabled to check H265 on my Pi 4?
+A: No, the Pi 4's H.265 block isn't part of the VideoCore GPU so this command won't work.
 
-# otp_dump
+# `mem_oom`
 
-What's OTP memory on the Pi and how do I read it?
+Q: My Pi keeps crashing and I think it's running out of GPU memory. How do I check?
+A: Run `vcgencmd mem_oom` to display out-of-memory event statistics in VideoCore memory.
 
-How do I dump the contents of the one-time programmable memory?
+# `mem_reloc_stats`
 
-# get_config
+Q: Is there a way to see stats on how VideoCore memory is being allocated?
+A: Yes, run `vcgencmd mem_reloc_stats` to see relocatable memory allocator statistics.
 
-How do I find out how much total RAM my Pi has using the command line?
+# `read_ring_osc`
 
-I want to see all the integer config settings on my Pi. How do I do that?
-
-How do I check a specific config value on my Pi?
-
-# get_mem
-
-How do I see how much memory the GPU is using versus the CPU?
-
-My Pi only has a gig of RAM but I want to know how it's split between the GPU and the rest. How do I check?
-
-Why does `get_mem arm` only show 1 gig even on a Pi with more RAM than that?
-
-# codec_enabled
-
-How do I check if H.264 is enabled on my Pi?
-
-I want to know if a specific codec is available. How do I check that?
-
-Does `codec_enabled` work for H.265 on the Pi 4?
-
-# mem_oom
-
-How do I tell if my Pi is running out of GPU memory?
-
-What command shows me if there've been any out of memory problems on the VideoCore?
-
-# mem_reloc_stats
-
-How do I check the relocatable memory stats on the VideoCore?
-
-# read_ring_osc
-
-How do I check the ring oscillator speed and temperature all at once?
+Q: What does read_ring_osc actually tell me?
+A: It returns the ring oscillator's current speed, voltage, and temperature.
 
 # Whole Document
 
-What built-in tools does Raspberry Pi OS have for checking what's going on with the hardware?
+Q: What utilities come pre-installed on Raspberry Pi OS for checking system info?
+A: Raspberry Pi OS includes `kmsprint`, `vclog`, and `vcgencmd` as pre-installed utilities.
 
-I want to do some basic diagnostics on my Pi without installing anything extra. What tools have I already got?
+Q: I want to dig into the source code for vcgencmd. Where can I find it?
+A: The `vcgencmd` source code is available on GitHub at the raspberrypi/utils repository.
 
-My Pi seems to be running slow and hot. What command line tools can I use to figure out what's wrong?
-
-Is there a way to check the GPU info from the command line without any extra software?
+Q: Can I use these command-line tools without a desktop, just from the terminal?
+A: Yes, all these utilities are command-line tools usable directly from the terminal.

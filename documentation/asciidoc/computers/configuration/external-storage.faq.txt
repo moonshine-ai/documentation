@@ -1,41 +1,81 @@
-# Whole Document
+# External storage
 
-- I've got a USB hard drive I want to use with my Pi. How do I get started with that?
-- Does the Raspberry Pi support external storage like USB drives and SSDs?
-- I'm using the Lite version of Raspberry Pi OS and my USB drive isn't showing up automatically. Is that normal?
-- What file systems does the Pi actually support for external drives?
+Q: I've got a USB hard drive. Can I just plug it into my Pi and use it?
+A: Yes, plug it into any USB port and mount the file system.
 
-# External Storage
+Q: My Pi is running the Lite version and my USB drive isn't showing up automatically. Is that normal?
+A: Yes, Raspberry Pi OS Lite doesn't implement automatic mounting.
 
-- I plugged in my USB drive and nothing happened. Where does it normally show up?
-- My drive just shows up automatically when I plug it in — where exactly does it mount to?
-- I'm on Pi OS Lite and my USB stick isn't automounting. What do I do?
+Q: What file systems does the Pi automatically recognize when I plug something in?
+A: It automatically mounts FAT, NTFS, and HFS+ file systems by default.
 
-# Mount a Storage Device
+Q: Where does my Pi put my USB drive when it mounts it automatically?
+A: It mounts at `/media/pi/<HARD-DRIVE-LABEL>` by default.
 
-- How do I see what drives are connected to my Pi right now?
-- I want my external drive to always mount to the same folder. How do I do that?
-- I've got an exFAT drive but it's not working. Do I need to install something extra for that?
-- My NTFS drive is read-only and I want to be able to write to it too. How do I fix that?
-- How do I find out what partition name my USB drive got, like sda1 or whatever?
-- I just mounted my drive — how do I check it actually worked?
-- What folder should I put my mount point in? Is there a standard place people use?
+# Mount a storage device
 
-# Automatically Mount a Storage Device
+Q: How do I see what drives are connected to my Pi right now?
+A: Run `sudo lsblk -o UUID,NAME,FSTYPE,SIZE,MOUNTPOINT,LABEL,MODEL` to list them.
 
-- How do I make my external drive mount automatically every time the Pi boots up?
-- What's a UUID and why do I need it to set up automounting?
-- How do I find the UUID of my drive?
-- I want to edit the fstab file but I'm not sure how to open it. What do I do?
-- My Pi takes forever to boot when I forget to plug in my external drive. Is there a way to make it give up faster?
-- I've got a FAT drive and I want all users to be able to read and write to it. Is there something extra I need to add to fstab?
-- If I set up automounting, can I still boot the Pi without the drive plugged in?
+Q: I plugged in a drive and I want to mount it. How do I find out what it's called, like sda1 or whatever?
+A: Use SIZE, LABEL, and MODEL columns from the `lsblk` output to identify it.
 
-# Unmount a Storage Device
+Q: My drive uses exFAT and the Pi won't read it. What do I need to install?
+A: Install the exFAT driver with `sudo apt install exfat-fuse`.
 
-- How do I safely unplug my external drive without just yanking it out?
-- Do I have to unmount my drive before shutting down, or does the Pi handle that for me?
-- I tried to unmount my drive and it said "target is busy." What does that mean?
-- I'm getting a "target is busy" error when I try to unmount. How do I figure out what's using the drive?
-- How do I install lsof and what do I use it for?
-- I closed everything I can think of but my drive still won't unmount. What else can I try?
+Q: I've got an NTFS drive and I want to write files to it, not just read. What do I do?
+A: Install the ntfs-3g driver using `sudo apt install ntfs-3g`.
+
+Q: How do I actually find the device path, like slash dev slash sda1, for my drive?
+A: Run `sudo blkid` to get the location of the disk partition.
+
+Q: I want my USB drive to always mount in the same folder. How do I set that up?
+A: Create a folder with `mkdir` then mount with `sudo mount /dev/sda1 /mnt/mydisk`.
+
+Q: How do I check that my drive actually mounted properly after I ran the mount command?
+A: List the contents with `ls /mnt/mydisk` to verify it mounted successfully.
+
+Q: The folder I'm trying to mount my drive to has to be empty, right?
+A: Yes, the target mount point folder must be empty.
+
+# Automatically mount a storage device
+
+Q: I want my external drive to automatically mount every time my Pi boots up. How do I do that?
+A: Edit the `fstab` file to define where the storage device mounts on startup.
+
+Q: What's a UUID and why do I need it to set up auto-mounting?
+A: UUID is a universally unique identifier used to identify disk partitions in fstab.
+
+Q: How do I find the UUID of my drive?
+A: Run `sudo blkid` and find your partition in the list to note its UUID.
+
+Q: How do I open the fstab file to edit it?
+A: Open it with a command line editor like nano using `sudo nano /etc/fstab`.
+
+Q: I've got a FAT drive and I want everyone to be able to read and write to it. Anything special I need to add?
+A: Add `,umask=000` immediately after `nofail` in the fstab entry.
+
+Q: My Pi takes forever to boot when the drive isn't plugged in. Can I make it faster?
+A: Add `,x-systemd.device-timeout=30` after `nofail` to reduce the wait to thirty seconds.
+
+Q: If I set up auto-mounting in fstab, can I still unplug the drive without it being plugged in at boot?
+A: Yes, but you must shut down or manually unmount the device before unplugging.
+
+# Unmount a storage device
+
+Q: Is it safe to just yank out my USB drive when I'm done, or do I need to do something first?
+A: Shut down the Pi or manually unmount it before unplugging the drive.
+
+Q: How do I safely unmount my drive from the command line?
+A: Run `sudo umount /mnt/mydisk` to unmount it manually.
+
+Q: I tried to unmount my drive and got a "target is busy" error. What does that mean?
+A: It means files on the storage device are still in use by a program.
+
+# Dealing with 'target is busy'
+
+Q: I keep getting "target is busy" when I try to unmount. How do I fix it?
+A: Close any programs with open files and make sure your terminal isn't in that folder.
+
+Q: I closed everything but my drive still won't unmount. How do I find out what's still using it?
+A: Install `lsof` with apt, then run `lsof /mnt/mydisk` to check open files.

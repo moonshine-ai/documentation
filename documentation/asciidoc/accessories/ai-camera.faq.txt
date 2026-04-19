@@ -1,73 +1,143 @@
+# About
+
+Q: What makes the Raspberry Pi AI Camera different from a regular camera?
+A: It uses Sony IMX500 sensor to run AI directly on the camera itself.
+
+Q: Do I need to do a lot of work to get my own neural network running on this camera?
+A: No, tight integration with Raspberry Pi's camera software stack minimizes effort needed.
+
+Q: What software can I use to interpret the AI results from this camera?
+A: You can use rpicam-apps and Picamera2 to interpret inference data from the IMX500.
+
+# Getting started
+
+Q: Which Raspberry Pi boards work with the AI Camera?
+A: It works with Pi 4 Model B, Pi 5, Pi Zero 2 W, and Pi 3 Model B+.
+
+Q: How do I make sure my Pi is up to date before setting up the AI Camera?
+A: Run sudo apt update and sudo apt full-upgrade to update everything first.
+
+Q: What does the imx500-all package actually install on my Pi?
+A: It installs firmware files, neural network models, post-processing stages, and Sony's packaging tools.
+
+Q: Why is the camera taking forever to start up? Is something wrong?
+A: Firmware loading can take several minutes if the neural network model hasn't been cached yet.
+
+Q: Do I need to restart my Pi after installing the IMX500 firmware?
+A: Yes, you need to reboot your Raspberry Pi after installing the prerequisites.
+
+Q: Is there some kind of progress indicator when the firmware is loading?
+A: Yes, a progress bar displays on the console to show firmware loading progress.
+
+# Run example applications
+
+Q: Where are the example JSON config files stored on my Pi?
+A: They're located in /usr/share/rpi-camera-assets/ on your Raspberry Pi.
+
+Q: What does MobileNet SSD actually do? Like what does it detect?
+A: It performs basic object detection, providing bounding boxes and confidence values for found objects.
+
+Q: I want to run object detection with the AI Camera. What command do I use?
+A: Run rpicam-hello with the imx500_mobilenet_ssd.json post-process-file flag specified.
+
+Q: Can I record video with the object detection boxes overlaid on it?
+A: Yes, use rpicam-vid instead of rpicam-hello with the same post-processing JSON file.
+
+Q: How do I limit how many objects the pipeline tries to detect at once?
+A: Set the max_detections parameter in the imx500_object_detection stage config.
+
+Q: The object detection output seems really jittery. Can I smooth it out somehow?
+A: Yes, temporal filtering with hysteresis is applied by default; remove temporal_filter config to disable it.
+
+Q: What's the difference between MobileNet SSD and PoseNet on this camera?
+A: MobileNet detects objects with bounding boxes; PoseNet labels body joints and limbs for pose estimation.
+
+Q: Does pose estimation run entirely on the camera like object detection does?
+A: No, PoseNet's output tensor needs additional post-processing on the host Raspberry Pi.
+
+Q: I want to try pose estimation. What command do I run?
+A: Run rpicam-hello with the imx500_posenet.json post-process-file flag specified.
+
+Q: I want to try the Picamera2 examples. Do I need to install anything extra?
+A: Yes, install python3-opencv and python3-munkres, then download the Picamera2 repository.
+
+Q: How do I run YOLOv8 object detection with Picamera2?
+A: Run imx500_object_detection_demo.py with the model flag pointing to the rpk file.
+
+# Under the hood
+
+Q: Wait, how is the AI Camera different from just plugging in a regular camera and doing AI on the Pi itself?
+A: The IMX500 runs AI inference inside the camera, sending only results to the Pi, not raw images.
+
+Q: What's an input tensor? I keep seeing that word.
+A: It's the part of the sensor image passed to the AI engine for inferencing, prepared by an on-board ISP.
+
+Q: Can I see the input tensor for debugging if I need to?
+A: Yes, it's possible to access the input tensor for debugging purposes.
+
+Q: What's the Region of Interest and can I change it?
+A: It's the sensor image area used for inference; you can query and set it in your application.
+
+Q: By default does the camera use the whole image for AI inference or just part of it?
+A: The default ROI uses the full image received from the sensor, cropping no data.
+
+Q: How does the firmware actually get loaded onto the IMX500? Is it over USB or something?
+A: Firmware transfers over I2C bus, bridged by an RP2040 microcontroller via SPI to the IMX500.
+
+Q: Does the camera remember the firmware so it doesn't have to reload it every time?
+A: Yes, the RP2040 caches firmware files in on-board storage, significantly speeding up subsequent loads.
+
+Q: How does rpicam-apps handle writing a custom post-processing stage for this camera?
+A: Derive a new class from IMX500PostProcessingStage and implement the Process function per frame.
+
+Q: How do I get the output tensor data in my rpicam-apps post-processing code?
+A: Fetch it from completed_request metadata using the CnnOutputTensor control.
+
+Q: What does the ConvertInferenceCoordinates helper function actually do?
+A: It converts output tensor coordinates to equivalent coordinates in the final ISP output image space.
+
+Q: How do I import and set up the IMX500 helper in a Picamera2 Python script?
+A: Import IMX500 from picamera2.devices.imx500 and instantiate it with your model file before Picamera2.
+
+Q: Does the Picamera2 object detection example do the same temporal filtering as rpicam-apps?
+A: No, the Picamera2 example applies no additional hysteresis or temporal filtering.
+
+# Model deployment
+
+Q: What format does my neural network model need to be in to deploy it to the AI Camera?
+A: You need a floating-point model in PyTorch or TensorFlow format to start with.
+
+Q: Do I do all the model conversion steps on my Raspberry Pi?
+A: No, only the final packaging step must run on a Raspberry Pi; other steps suit a desktop or server.
+
+Q: What tools do I need to install to convert and compress my model for the AI Camera?
+A: Install the Edge-MDT package, which includes all quantization, compression, and conversion tools.
+
+Q: Can I install both PyTorch and TensorFlow versions of Edge-MDT at the same time?
+A: No, use two separate Python virtual environments to prevent conflicts between them.
+
+Q: What file formats does the Model Compression Toolkit output after quantizing my model?
+A: It outputs Keras format for TensorFlow and ONNX format for PyTorch models.
+
+Q: Is there a flag I should add to the converter command to make better use of the camera's memory?
+A: Yes, add --no-input-persistency, but note it disables input tensor generation for debugging.
+
+Q: How do I package my converted model into something the AI Camera can actually load?
+A: Install imx500-tools and run imx500-package with your packerOut.zip to create a network.rpk file.
+
+Q: What file do I end up with after packaging, and how do I use it?
+A: You get a network.rpk file, which you pass to your IMX500 camera applications at runtime.
+
 # Whole Document
 
-What's the Raspberry Pi AI Camera and what makes it different from a regular camera module?
+Q: So the AI processing happens on the camera itself and not on the Pi at all?
+A: The IMX500 runs inference on-camera; only output tensors are sent to the Raspberry Pi.
 
-Does the AI processing happen on the camera itself or does my Pi have to do all the work?
+Q: I've never used any AI camera stuff before. What's the easiest way to just see it working?
+A: Install imx500-all, reboot, then run rpicam-hello with the MobileNet SSD JSON config file.
 
-I've got a Raspberry Pi 4 — can I use the AI Camera with it or is it only for the Pi 5?
+Q: Can I use this camera with Python or do I have to write C++ code?
+A: Both are supported; use Picamera2 for Python or rpicam-apps for C++ based post-processing.
 
-Can I run my own neural network on the AI Camera or is it locked to the built-in ones?
-
-# Getting Started
-
-How do I set up the AI Camera? Like what do I physically need to do first?
-
-What software do I need to install to get the AI Camera working?
-
-I just updated my Pi but the camera's still not working. Do I need to install something else on top of the regular updates?
-
-How long does it take to load the firmware when the camera starts up? It seems like it's just hanging.
-
-Why does it take so long to start up the first time? Is that normal?
-
-Do I need to reboot after installing the camera firmware or can I just run it straight away?
-
-# Run Example Applications
-
-How do I run object detection on the AI Camera? Like what's the actual command?
-
-I want to try the demo that detects objects and draws boxes around them. How do I do that?
-
-Can I record a video with the object detection boxes shown in it, not just preview it?
-
-How do I try the pose estimation thing that tracks people's joints and limbs?
-
-What's the difference between the MobileNet SSD demo and the PoseNet demo?
-
-I want to try the Picamera2 examples but I don't know where to get them. Where do I download them from?
-
-Do I need OpenCV installed to run the Picamera2 AI examples?
-
-How do I run the YOLOv8 object detection demo with Picamera2?
-
-Can I change how many objects it tries to detect at once?
-
-There's loads of false detections — it's picking up random stuff. Can I make it less sensitive somehow?
-
-The object detection results are really jumpy and flickery. Is there a way to smooth that out?
-
-# Under the Hood
-
-I don't really get how the AI Camera works differently from just using a normal camera and doing AI on the Pi. Can you explain it?
-
-What's an input tensor? I keep seeing that term.
-
-What's a region of interest and why would I want to change it?
-
-What are output tensors? Is that just the results from the AI?
-
-# Model Deployment
-
-Can I use my own trained neural network model with the AI Camera?
-
-I've got a PyTorch model I trained. What do I need to do to get it running on the AI Camera?
-
-Do I need special Sony software to convert my model for the AI Camera?
-
-Can I do all the model conversion steps on my Raspberry Pi or do I need a separate computer?
-
-What file format does the AI Camera use for neural network models?
-
-I converted my model but I'm not sure how to load it onto the camera. What's the last step I'm missing?
-
-What's an RPK file? Is that what gets loaded onto the camera?
+Q: Do I need an internet connection to download models or does the install package include them?
+A: Installing imx500-all places neural network model firmware files in /usr/share/imx500-models/ locally.

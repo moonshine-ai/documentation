@@ -1,11 +1,21 @@
 # Schematics
 
+Q: Where can I find the schematics for the Debug Probe?
+A: Schematics are available as a PDF at pip.raspberrypi.com/documents/RP-008194-DS.
+
+Q: Is there a mechanical drawing for the Debug Probe? I need the dimensions.
+A: Yes, a mechanical diagram PDF is available at pip.raspberrypi.com/documents/RP-008192-DS.
+
+Q: I'm looking at the schematic and I see these TP labels everywhere. What are those?
+A: TP stands for test points, and their locations are shown in a diagram.
+
+Q: I need to find the test points on my actual Debug Probe board. Is there a diagram showing where they are?
+A: Yes, a diagram shows the physical locations of all test points on the board.
+
 # Whole Document
 
-- Where can I find the schematics for the Debug Probe?
-- Is there a mechanical drawing available for the Debug Probe? Like dimensions and that kind of thing?
-- I'm trying to figure out the physical layout of the Debug Probe. Is there a diagram somewhere?
-- Where are the test points on the Debug Probe? I can see them labeled on the schematic but I don't know where they actually are on the board.
-- I want to make my own enclosure for the Debug Probe. Where do I get the measurements?
-- What's a test point and why would I need to find one on the Debug Probe?
-- I'm looking at the schematic PDF but I can't figure out where the TP labels correspond to on the actual hardware. Is there a diagram that shows that?
+Q: I want to dig into the hardware design of the Debug Probe. What resources are available?
+A: Schematics and a mechanical drawing are both available as PDFs online.
+
+Q: Does Raspberry Pi publish the full hardware details for the Debug Probe?
+A: Yes, both schematics and a mechanical diagram PDF are publicly available for download.

@@ -1,63 +1,95 @@
-# Whole Document
+# Raspberry Pi Monitor (General)
 
-What's the Raspberry Pi Monitor and is it worth getting?
+Q: What size is the Raspberry Pi Monitor and how does it connect?
+A: It's a 15.6-inch 1080p display that connects via HDMI cable.
 
-Does the Raspberry Pi Monitor work with all Raspberry Pi models?
+Q: Does the Raspberry Pi Monitor work with all Raspberry Pi models?
+A: Yes, it's compatible with all Raspberry Pi models that support HDMI output.
 
-What do I need to connect the Raspberry Pi Monitor to my Pi?
+Q: What do I need to power the Raspberry Pi Monitor?
+A: It needs a USB-C power source, ideally USB-PD capable of at least 1.5A.
 
 # Controls
 
-Where are the buttons on the Raspberry Pi Monitor? I don't see any on the front.
+Q: Where are the buttons on this monitor? I can't find them.
+A: The buttons are on the back of the monitor.
 
-How do I adjust the volume on the Raspberry Pi Monitor?
+Q: What can I actually control with the buttons on the back?
+A: You can control standby mode, display brightness, and speaker volume.
 
-How do I put the monitor into standby?
+Q: How do I put the monitor into standby?
+A: Press the button marked with the power symbol to enter or exit standby.
 
 # On Screen Display Messages
 
-My monitor just showed some weird message on screen. What does it mean?
+Q: There's some weird message on my screen, what does it mean when it says no HDMI signal?
+A: It means the monitor isn't detecting an HDMI signal from your connected device.
 
-I'm getting a message about an unsupported resolution. What's that about?
+Q: My monitor just showed a message and went dark. What happened?
+A: It entered standby mode to conserve power after warning you with an OSD message.
 
-The screen says something about power saving mode. Is that bad?
+Q: I'm getting an unsupported resolution message. What does that mean?
+A: Your connected device's display resolution isn't supported by the monitor.
 
-My monitor keeps going into standby on its own. Why does it do that?
+Q: The brightness seems really dim and I can't turn it up much. Is something wrong?
+A: You're likely in Power Saving mode because your power supply can't deliver 1.5A.
 
-I tried to wake my monitor from standby but it just flashed a red light and nothing happened. What's going on?
+Q: I pressed the standby button but the screen stayed off and there was a little red light. What's that about?
+A: The red LED means no HDMI signal was detected, so standby mode couldn't exit.
+
+Q: How does the volume scale work on that little on-screen display thing?
+A: Both brightness and volume show on a scale from 0 to 100.
 
 # Position the Monitor
 
-How do I mount the Raspberry Pi Monitor on a wall?
+Q: Can I mount this monitor on a wall or arm instead of using the stand?
+A: Yes, use the four VESA mount holes on the back of the red rear plastic housing.
 
-Does the Raspberry Pi Monitor have VESA mount support?
+Q: I want to hang the monitor on the wall without a VESA mount. Is there another way?
+A: Flip the stand up, drill two holes 55mm apart, and hang it using the stand slots.
 
-Can I hang the monitor on the wall without buying a separate stand?
+Q: Do I need spacers if I'm using a VESA mount?
+A: Yes, use spacers to ensure adequate space for display and power cable egress.
 
 # Power the Monitor
 
-What kind of power supply does the Raspberry Pi Monitor need?
+Q: Can I just use any USB-C charger to power the monitor?
+A: It needs USB Power Delivery support; many USB-C supplies including official Pi ones work.
 
-Can I just power the monitor directly from my Raspberry Pi?
+Q: What's the difference between Full Power mode and Power Saving mode?
+A: Full Power allows 0-100% brightness and volume; Power Saving limits them to 50% and 60%.
 
-My monitor's brightness only goes up to 50%. Why won't it go higher?
+Q: I'm powering the monitor directly from my Raspberry Pi's USB port. Will that work?
+A: It'll work but only in Power Saving mode, since Pi devices can't provide 1.5A over USB-A.
 
-What's the difference between Full Power mode and Power Saving mode on this monitor?
+Q: My monitor keeps flashing on and off. What's going on?
+A: Your USB power supply can't provide enough current to reliably power the monitor.
 
-My monitor keeps flashing on and off. How do I fix that?
+Q: How do I switch from Power Saving mode to Full Power mode?
+A: Press and hold the increase brightness button for 3 seconds.
 
-The volume won't go above 60. Is something wrong with my monitor?
+Q: I've got a Pi 5 with a 3A power supply and the monitor keeps flickering. How do I fix it?
+A: Reduce brightness and volume, or switch to a different power source or cable.
 
-How do I switch from Power Saving mode to Full Power mode?
-
-Can I use the official Raspberry Pi 5 power supply with this monitor?
+Q: Will the official Raspberry Pi 4 or 5 power supply work with this monitor?
+A: Yes, the official Raspberry Pi 4 and 5 power supplies support USB-PD.
 
 # Specification
 
-Does the Raspberry Pi Monitor have built-in speakers?
+Q: What resolutions does the Raspberry Pi Monitor actually support?
+A: It supports 1920×1080, 1280×720, 720×576, 720×480, and 640×480 at 50 or 60Hz.
 
-What resolutions does the Raspberry Pi Monitor support?
+Q: Does this monitor have built-in speakers?
+A: Yes, it has two 1.2-watt stereo speakers.
 
-Is there a headphone jack on the Raspberry Pi Monitor?
+Q: Is there a headphone jack on this monitor?
+A: Yes, there's a 3.5mm audio jack.
 
-What size is the Raspberry Pi Monitor?
+Q: How much does the Raspberry Pi Monitor weigh?
+A: It weighs 850 grams.
+
+Q: What's the contrast ratio on this monitor?
+A: The contrast ratio is 800:1.
+
+Q: How much power does this monitor actually use?
+A: It uses 4.5 to 6.5 watts during use and under 0.1 watts at idle.

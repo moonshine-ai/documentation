@@ -1,31 +1,25 @@
 # `rpicam-jpeg`
 
-How do I take a photo with my Raspberry Pi camera?
+Q: How do I take a photo with my Raspberry Pi camera and save it?
+A: Run `rpicam-jpeg --output test.jpg` to capture and save a JPEG image.
 
-How do I save a picture to a file using the camera?
+Q: I ran the command and my screen just went weird — what's it doing?
+A: It shows a preview window for five seconds, then captures a full resolution JPEG.
 
-What's the basic command to capture a JPEG image?
+Q: The preview window stays up way too long. Can I make it shorter?
+A: Use the `--timeout` option to change how long the preview window displays.
 
-I want to take a photo but the preview window stays open too long. How do I make it shorter?
+Q: How do I take a lower resolution photo instead of the full size one?
+A: Use `--width` and `--height` options to change the saved image resolution.
 
-The preview is only showing for five seconds and I want it longer. Can I change that?
+Q: What format does rpicam-jpeg save photos in?
+A: It saves photos as full resolution JPEG images.
 
-How do I take a picture at a lower resolution, like 640 by 480?
+Q: I want the preview to only show for like two seconds and save a small photo. How do I do that?
+A: Run `rpicam-jpeg --output test.jpg --timeout 2000 --width 640 --height 480`.
 
-I don't want a full resolution image, just a smaller one. How do I set the size?
+Q: What's the default preview time before it takes the picture?
+A: The preview window displays for five seconds before capturing the image.
 
-I ran the command and a window popped up for a few seconds then closed. Did it actually save a photo or did something go wrong?
-
-What format does rpicam-jpeg save in? Is it always JPEG?
-
-I want to take a quick snapshot without waiting five seconds for the preview. Is there a way to speed that up?
-
-Can I change the filename when I save the image, or is it always test.jpg?
-
-# Whole Document
-
-What even is rpicam-jpeg? Is that how I take photos on a Raspberry Pi?
-
-I've got a Raspberry Pi with a camera module. What's the simplest way to just take a picture?
-
-Is there a way to take a photo from the command line without having a big preview window pop up?
+Q: Can I change the size of the photo it saves?
+A: Yes, use the `--width` and `--height` options to set the saved image resolution.

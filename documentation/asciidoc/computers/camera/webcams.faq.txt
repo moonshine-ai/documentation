@@ -1,39 +1,62 @@
-# Whole Document
-
-- I've got a USB webcam lying around. Can I actually use it with my Raspberry Pi?
-- What's the difference between using a USB webcam and one of those Pi camera modules?
-- I don't have a camera module, just a regular webcam. Will that work for taking photos and videos?
-
 # Install dependencies
 
-- How do I get my Raspberry Pi to recognize my USB webcam?
-- What do I need to install to use a webcam on my Pi?
-- I'm getting a "permission denied" error when I try to use my webcam. What's going on?
-- How do I add myself to the video group? I keep getting errors.
-- How do I check if my username got added to the right group properly?
+Q: I keep getting permission denied errors when using my webcam. What's going on?
+A: Add your username to the video group using the usermod command.
+
+Q: How do I install the software I need to use a USB webcam?
+A: Run sudo apt install fswebcam to install the required package.
+
+Q: I added my user to the video group but I'm not sure it worked. How do I check?
+A: Use the groups command to verify your user was added correctly.
 
 # Take a photo
 
-- How do I take a photo with my webcam from the terminal?
-- I ran the command but I'm not sure where the picture got saved. Where does it go?
-- I see something about "corrupt JPEG data" in the output. Should I be worried about that?
-- The photos my webcam takes look really blurry and small. How do I make them higher quality?
-- How do I set the resolution when I'm taking a picture with my webcam?
-- There's a timestamp banner on all my photos and I hate it. How do I get rid of that?
-- Why does it put that timestamp bar at the bottom of every picture? And how do I turn it off?
+Q: What's the simplest command to just snap a photo with my webcam?
+A: Run fswebcam image.jpg to capture and save a photo.
+
+Q: The photos my webcam takes look really low quality. Can I make them bigger?
+A: Use the -r flag with a resolution like 1280x720 for higher quality.
+
+Q: There's this ugly timestamp bar across the bottom of my photos. How do I get rid of it?
+A: Add the --no-banner flag to your fswebcam command to remove it.
+
+Q: By default what resolution does fswebcam shoot at, is it decent?
+A: No, it uses a low resolution by default, so specify higher resolution manually.
+
+# Remove the banner
+
+Q: Wait so every photo has a banner on it automatically? How do I turn that off?
+A: Use the --no-banner flag when running fswebcam to disable the timestamp banner.
 
 # Automate image capture
 
-- I want to take a bunch of photos without having to rename the file every time. Is there a way to do that automatically?
-- How do I make it so each photo gets saved with the date and time as the filename?
-- I've never written a bash script before. How do I make one to automate my webcam?
-- I made the script but now it says permission denied when I try to run it. What did I miss?
-- How do I make a script executable on my Pi?
+Q: I want each photo to automatically get saved with the date and time in the filename. How do I do that?
+A: Write a Bash script using the date command to generate timestamped filenames automatically.
+
+Q: Does fswebcam automatically name files with timestamps like the camera software does?
+A: No, fswebcam has no built-in timestamp naming, so you need a Bash script instead.
+
+Q: I wrote a bash script for my webcam but it won't run. What am I missing?
+A: Make it executable first by running chmod +x on your script file.
 
 # Capture a time lapse
 
-- I want my Pi to take a photo every minute automatically. How do I set that up?
-- How do I do a time lapse with my webcam on a Raspberry Pi?
-- What's cron and how do I use it to take pictures on a schedule?
-- How do I edit the cron table? I've never done that before.
-- I set up the cron job but I'm not sure if it's actually running. How do I tell?
+Q: I want my Pi to automatically take a photo every minute for a time lapse. How do I set that up?
+A: Use cron to schedule your webcam script to run at regular intervals.
+
+Q: How do I actually edit the cron schedule on my Pi?
+A: Run crontab -e to open the cron table for editing.
+
+Q: What does the cron line actually look like if I want a photo every single minute?
+A: Use five asterisks followed by the full path to your webcam script.
+
+# Whole Document
+
+Q: Can I use a regular USB webcam with my Raspberry Pi or do I need the special camera module?
+A: Yes, a USB webcam works fine for recording pictures and videos on Raspberry Pi.
+
+Q: What software do I need to take photos from a USB webcam on my Pi?
+A: Install fswebcam using apt to capture photos from a USB webcam.
+
+Q: I want to set up a time lapse with my webcam on a Pi. Is that doable without fancy software?
+A: Yes, combine fswebcam with a Bash script and cron scheduling to achieve this.

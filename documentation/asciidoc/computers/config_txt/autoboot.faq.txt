@@ -1,38 +1,80 @@
-# Whole Document
+# `autoboot.txt`
 
-- What's `autoboot.txt` even for? Do I actually need it?
-- I'm trying to set up my Pi so it can safely try a new OS update and roll back if something goes wrong. Where do I start with that?
-- What's the difference between `autoboot.txt` and `config.txt`?
-- How big can `autoboot.txt` be? Is there a size limit?
-- I keep hearing about A/B booting. What is that and why would I want it on my Pi?
+Q: What's autoboot.txt and do I actually need it?
+A: It's optional and specifies the boot partition number for your Pi.
+
+Q: Can I use autoboot.txt to do like a safe OS update where I can roll back if it breaks?
+A: Yes, use it with the tryboot feature to implement A/B booting for upgrades.
+
+Q: How big can autoboot.txt be? Is there a limit?
+A: Yes, autoboot.txt is limited to 512 bytes in size.
+
+Q: What kind of filters does autoboot.txt support?
+A: It supports the all, none, and tryboot conditional filters.
 
 # `boot_partition`
 
-- How do I tell my Pi which partition to boot from?
-- What happens if I set the partition number to zero? Does it just pick one automatically?
-- I ran `sudo reboot 2` to boot into partition 2. Will `autoboot.txt` override that or does the reboot command take priority?
-- Partition numbers — do they start at zero or one? I always get confused about this.
-- My Pi isn't recognizing my partition as bootable. What does a partition actually need to have on it to count as bootable?
-- Do I need a FAT partition for booting? What formats are supported?
+Q: How do I tell the Pi which partition to boot from?
+A: Set the boot_partition number in autoboot.txt to your desired partition.
 
-# The `[tryboot]` Filter
+Q: What happens if I pass a partition number to the reboot command directly?
+A: The reboot command's partition number takes priority over autoboot.txt's setting.
 
-- How do I actually boot into tryboot mode? What's the command?
-- What does the `[tryboot]` section in `autoboot.txt` do exactly?
-- If I reboot normally without the tryboot flag, does the `[tryboot]` section just get ignored?
+Q: Do partition numbers start at zero or one?
+A: Partition numbers start at one, with MBR partitions numbered one through four.
+
+Q: What does it mean if I set boot_partition to zero?
+A: Partition zero means boot from the default first bootable FAT partition.
+
+Q: What format does a partition need to be in to actually be bootable?
+A: Partitions must be FAT12, FAT16, or FAT32 and contain a start.elf file.
+
+Q: My Pi 5 doesn't have a start.elf file. Does that mean my partition isn't bootable?
+A: On Raspberry Pi 5, a config.txt file makes a partition bootable instead.
+
+# The `[tryboot]` filter
+
+Q: How do I actually boot into tryboot mode?
+A: Run sudo reboot "0 tryboot" from the terminal to boot in tryboot mode.
+
+Q: When does the tryboot filter activate?
+A: The tryboot filter passes only when the system booted with the tryboot flag set.
 
 # `tryboot_a_b`
 
-- What does setting `tryboot_a_b` to 1 actually do?
-- I don't really want to have separate `tryboot.txt` files on each partition. Is there a way to use tryboot without doing that?
-- What's the difference between switching at the partition level versus the file level for A/B booting?
+Q: What does setting tryboot_a_b to one actually do?
+A: It loads normal config.txt and boot.img instead of tryboot.txt and tryboot.img.
 
-# Example Update Flow for A/B Booting
+Q: I don't want to modify config files inside each partition for A/B switching. Is there another way?
+A: Yes, set tryboot_a_b to one to switch at partition level without editing partition files.
 
-- Can you walk me through how A/B booting actually works on a Pi? Like step by step?
-- So if my update fails during tryboot, does the Pi just go back to the old partition automatically on the next reboot?
-- How does my Pi know if the update actually worked or not? Does it check something automatically?
-- Where do I check whether tryboot is currently active from within the OS?
-- How do I know which partition my Pi booted from after a tryboot reboot?
-- After my update succeeds and I update `autoboot.txt`, do I have to reboot right away or can I wait?
-- If I've already committed an update by changing `autoboot.txt`, what happens if the update service tries to write to the old partition again? Is that dangerous?
+# Example update flow for A/B booting
+
+Q: Can you walk me through how A/B booting actually works with tryboot?
+A: System boots partition two normally, downloads update to partition three, then tests via tryboot reboot.
+
+Q: So after a successful update, what changes in autoboot.txt?
+A: The boot_partition values swap so partition three becomes the new default boot partition.
+
+Q: What happens if the update fails? Does it just stay on the old partition?
+A: Yes, tryboot flag clears automatically and partition two remains the default boot partition.
+
+Q: Do I have to reboot after editing autoboot.txt to commit an update?
+A: No, rebooting after updating autoboot.txt is not mandatory.
+
+Q: Is there anything I need to be careful about if I don't reboot after updating autoboot.txt?
+A: Avoid overwriting the current partition since autoboot.txt already committed the last update.
+
+Q: How does the update service know whether tryboot is actually active?
+A: Check /proc/device-tree/chosen/bootloader/tryboot equals one to confirm tryboot is active.
+
+# Whole Document
+
+Q: I've never heard of tryboot before. What's the basic idea behind it?
+A: Tryboot lets you test a new OS partition and roll back automatically if it fails.
+
+Q: Can I combine autoboot.txt with other Pi config stuff or does it work on its own?
+A: It works alongside conditional filters like all, none, and tryboot within autoboot.txt.
+
+Q: What's the difference between tryboot.txt and config.txt when using A/B booting?
+A: With tryboot_a_b set to one, normal config.txt loads even when tryboot flag is active.

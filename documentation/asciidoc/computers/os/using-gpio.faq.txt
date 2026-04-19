@@ -1,30 +1,52 @@
-# Whole Document
+# Use GPIO from Python
 
-How do I control GPIO pins from Python on my Raspberry Pi?
-What's the easiest way to get started with GPIO and Python?
-I've heard of GPIO Zero — is that the best library to use for beginners?
+Q: What's the easiest way to control GPIO pins with Python on a Raspberry Pi?
+A: The GPIO Zero library makes it easy to control GPIO devices with Python.
+
+Q: Where do I find the full docs for that GPIO Zero library?
+A: Full GPIO Zero documentation is available at gpiozero.readthedocs.io.
 
 # LED Control
 
-I've got an LED wired up to GPIO17. How do I make it blink with Python?
-What methods can I use to control an LED with GPIO Zero? Like what can I actually do with it?
-I don't just want it to blink — can I just turn an LED on and leave it on?
-How do I make an LED flash on and off repeatedly?
-I'm using Thonny to write my code. Can I control GPIO pins from there?
-Is there a toggle function for LEDs, or do I have to manually switch between on and off?
+Q: I've got an LED wired up and I just want to make it blink. How do I do that in Python?
+A: Import LED from gpiozero, then call led.on() and led.off() in a loop with sleep.
+
+Q: What pin do I connect my LED to for that example code to work?
+A: The example connects the LED to GPIO17.
+
+Q: What are all the things I can make an LED do with GPIO Zero?
+A: LED methods include on(), off(), toggle(), and blink().
+
+Q: Can I just run that LED code in Thonny or do I need to use the terminal?
+A: Yes, you can run it in an IDE like Thonny and the LED will blink repeatedly.
 
 # Read Button State
 
-I've got a button connected to GPIO2. How do I check if it's being pressed in Python?
-How do I know in my code whether someone's holding a button down versus just pressing it?
-Can I set it up so something automatically happens when a button gets pressed, instead of checking it in a loop?
-What's the difference between `when_pressed` and `wait_for_press`? I'm confused about which one to use.
-How do I detect when a button's released, not just when it's pressed?
+Q: I've got a button wired to my Pi and I want to know if it's being pressed. How do I check that in Python?
+A: Use the Button class from gpiozero and check the is_pressed property in a loop.
+
+Q: What GPIO pin does that button example use?
+A: The button example connects the button to GPIO2.
+
+Q: Is there a way to detect if someone's holding a button down, not just pressing it?
+A: Yes, GPIO Zero's Button has an is_held property and a when_held callback for that.
+
+Q: Can I run some code automatically whenever a button gets pressed or released?
+A: Yes, use the when_pressed and when_released callbacks on the Button object.
+
+Q: I want my code to just stop and wait until the button is pressed. Is there a way to do that?
+A: Yes, call button.wait_for_press() and your code will pause until it's pressed.
 
 # Control an LED with a Button
 
-I want to turn an LED on when I press a button and off when I let go. How do I wire that up in code?
-What's the simplest way to link a button to an LED in Python?
-I've seen a few different ways to connect a button to an LED in GPIO Zero — like what's actually the difference between using `wait_for_press` and `when_pressed`?
-Can I do it without a loop? Like just tell it "when button pressed, turn on LED" and leave it at that?
-I'm getting confused by the different approaches to button and LED code. Which one should a beginner start with?
+Q: How do I make an LED turn on when I press a button and off when I let go?
+A: Check button.is_pressed in a loop and call led.on() or led.off() accordingly.
+
+Q: Are there different ways to wire up button and LED control logic in GPIO Zero?
+A: Yes, there are three approaches: a loop with is_pressed, wait_for_press, or when_pressed callbacks.
+
+Q: What's the simplest cleanest way to link a button press to an LED without a big loop?
+A: Assign led.on to button.when_pressed and led.off to button.when_released directly.
+
+Q: In that button-LED example, what GPIO pins are being used for each component?
+A: The LED is on GPIO17 and the button is on GPIO2 in those examples.

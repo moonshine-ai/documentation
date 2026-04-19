@@ -1,71 +1,94 @@
-# Whole Document
+# Build `libcamera` and `rpicam-apps`
 
-Why would I even bother building this stuff myself instead of just using what comes pre-installed?
+Q: Why would I bother building rpicam-apps myself instead of just using the version that came with my Pi?
+A: Building yourself gets latest features, better optimisation, and optional OpenCV or TFLite support.
 
-I've got a Pi Zero and I'm trying to build libcamera but it keeps running out of memory. What do I do?
-
-I'm on a Pi 3 running a 32-bit OS. Is there anything special I should do to get better performance when building?
-
-I want to add OpenCV support to my camera apps. How do I do that from scratch?
-
-I'm totally lost — where do I even start if I want to build and install my own version of the camera software?
+Q: I've got a Pi 3 running a 32-bit OS. Is there any reason to build rpicam-apps from source?
+A: Yes, you can compile with extra optimisations specifically for Pi 3 running a 32-bit OS.
 
 # Remove pre-installed `rpicam-apps`
 
-Before I build my own version, do I need to get rid of the one that came with Raspberry Pi OS first?
+Q: Do I need to uninstall the existing rpicam-apps before I build my own version?
+A: Yes, remove it first using sudo apt remove --purge rpicam-apps before installing your own.
 
-What's the command to completely remove the pre-installed camera apps?
+Q: What's the command to completely get rid of the pre-installed rpicam-apps?
+A: Run sudo apt remove --purge rpicam-apps to fully remove the pre-installed version.
 
 # Building `rpicam-apps` without building `libcamera`
 
-Do I have to rebuild libcamera too, or can I just rebuild the camera apps on their own?
+Q: Can I just build rpicam-apps without having to rebuild libcamera from scratch too?
+A: Yes, install libcamera and libepoxy via apt instead, then just build rpicam-apps.
 
-I'm on Raspberry Pi OS Lite and I need to build rpicam-apps. Do I need to install git separately?
+Q: I don't need that GLES preview window thing. Do I still have to install libepoxy?
+A: No, you can omit libepoxy-dev if you don't need the GLES or EGL preview window.
 
-I want libav support for recording video. What extra packages do I need to install?
+Q: What do I need to install if I want the Qt preview window when building rpicam-apps?
+A: Install qtbase5-dev, libqt5core5a, libqt5gui5, and libqt5widgets5 as additional dependencies.
 
-I don't care about the Qt preview window. Can I skip those packages?
+Q: I want libav support in rpicam-vid. What extra packages do I need?
+A: Install libavcodec-dev, libavdevice-dev, libavformat-dev, and libswresample-dev for libav support.
+
+Q: I'm on Raspberry Pi OS Lite and I don't have git. Do I need it to build this stuff?
+A: Yes, install git with sudo apt install -y git before building on Raspberry Pi OS Lite.
 
 # Building `libcamera`
 
-When should I actually bother building libcamera from scratch instead of just installing it with apt?
+Q: When should I actually bother building libcamera from scratch?
+A: Only build from scratch if you need custom behaviour or features not yet in apt repositories.
 
-What's the full list of stuff I need to install before I can build libcamera?
+Q: I'm on Raspberry Pi OS Lite and want to build libcamera. What do I need first?
+A: Start by installing python3-pip, git, and python3-jinja2 before the other libcamera dependencies.
 
-I'm on Raspberry Pi OS Lite and want to build libcamera. Is there anything extra I need to do first?
+Q: My Pi has only 1 gig of RAM and the libcamera build keeps crashing. What can I do?
+A: Append -j 1 to ninja commands to limit the build to a single process and save memory.
 
-How do I actually download the Raspberry Pi version of libcamera? Do I just grab it from GitHub?
+Q: I just built libcamera. Can I use my old rpicam-apps with it, or do I have to rebuild that too?
+A: Always rebuild rpicam-apps after building libcamera, as libcamera has no stable binary interface.
 
-I want to disable the GStreamer plugin when building libcamera. How do I do that?
-
-My Pi only has 1 gig of RAM and the build keeps crashing. Is there a way to slow it down so it doesn't run out of memory?
-
-Does libcamera have a stable binary interface? Like, can I build rpicam-apps separately later without rebuilding libcamera?
+Q: I don't use GStreamer. Do I still need those glib dependencies when building libcamera?
+A: No, disable gstreamer with -Dgstreamer=disabled and skip libglib2.0-dev and libgstreamer-plugins-base1.0-dev.
 
 # Building `rpicam-apps`
 
-I'm running Raspberry Pi OS Lite with no desktop. Do I use a different build command than someone with a full desktop?
+Q: I'm on Raspberry Pi OS Lite with no desktop. What meson flags should I use when building rpicam-apps?
+A: Disable libav, egl, and qt flags since Lite is headless; keep drm enabled for preview rendering.
 
-After I install my newly built rpicam-apps, how do I check it's actually using my new version and not the old one?
+Q: How do I check that my Pi is actually using the new rpicam-apps I just built?
+A: Run rpicam-still --version and check the output shows your local build's date and time.
 
-I built and installed everything but my system can't find the new rpicam-apps. What might fix that?
+Q: After installing my build, rpicam-apps isn't working right. Someone mentioned ldconfig. What's that about?
+A: Run sudo ldconfig to update the library cache if you're having trouble accessing your new build.
 
-I want TensorFlow Lite support in my camera apps. What flag do I add when building?
+Q: I've got OpenCV installed and want to use it. What flag do I add when building rpicam-apps?
+A: Add -Denable_opencv=enabled to your meson setup command to enable OpenCV post-processing stages.
+
+Q: I want to speed things up on my Pi 3 running 32-bit. Is there a flag for that?
+A: Yes, use -Dneon_flags=armv8-neon to enable optimisations for 32-bit OS on Pi 3 or Pi 4.
+
+Q: My Pi Zero keeps running out of memory during the rpicam-apps build. How do I fix that?
+A: Append -j 1 to meson commands to limit the build to one process and reduce memory usage.
 
 # `rpicam-apps` meson flag reference
 
-What does the neon flag actually do? Is it worth enabling?
+Q: What does the DRM flag actually do when I'm building rpicam-apps?
+A: It enables DRM and KMS preview rendering, used as a preview window without a desktop environment.
 
-What's the difference between setting something to `disabled` versus `auto` in the meson config?
+Q: Why is the Qt preview not recommended even though it's an option?
+A: The Qt-based preview is computationally very expensive, though it does work with X display forwarding.
 
-What does the DRM flag do? Do I need it if I don't have a desktop?
+Q: What values can I actually pass to those meson flags when building rpicam-apps?
+A: Each flag supports enabled, disabled, or auto, where auto enables if dependencies are available.
 
-The Qt preview sounds heavy — why would anyone even use it?
+Q: I enabled TensorFlow Lite but the build isn't finding it correctly. Any suggestions?
+A: You may need to tweak the meson.build file in the post_processing_stages directory for TFLite.
 
-I enabled something in the meson config but it failed because a dependency wasn't there. Is there a way to make it just skip it instead of failing?
+Q: What's the difference between setting a flag to disabled versus auto?
+A: Disabled always skips the option; auto enables it only if the required dependencies are available.
 
 # Building `libepoxy`
 
-Do I really need to rebuild libepoxy, or can I just leave it alone?
+Q: Do I really need to build libepoxy myself, or can I skip that?
+A: Rebuilding libepoxy is normally unnecessary since this library changes only very rarely.
 
-How do I build libepoxy from scratch if I really need to?
+Q: What's the command to actually build libepoxy once I've got everything set up?
+A: Run ninja inside the _build directory to build libepoxy after configuring with meson.

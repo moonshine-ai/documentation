@@ -1,23 +1,35 @@
-# Whole Document
-
-- I've got a visually impaired family member who wants to use a Raspberry Pi. What accessibility options are available?
-- What tools does Raspberry Pi OS have for people with visual impairments?
-- I need help seeing the screen better on my Pi. What are my options?
-
 # Visual aids
 
-- Where do I find accessibility tools in Raspberry Pi OS?
-- I can't see the screen very well. Is there anything built in to help with that?
-- What's in the Recommended Software menu for accessibility?
-- Is there a screen magnifier for Raspberry Pi OS? How do I get it?
+Q: I have trouble seeing the screen. Are there any accessibility tools for Raspberry Pi OS?
+A: Yes, Orca screen reader and a screen magnifier are available for visually impaired users.
+
+Q: Where do I find the accessibility tools in Raspberry Pi OS?
+A: You can find helpful visual aid tools in the Recommended Software menu.
+
+Q: I've heard there's a screen reader for Raspberry Pi. How do I get it?
+A: Install Orca from Recommended Software, or press Ctrl, Alt, and Space.
+
+Q: What's Orca? Is it something I need for my Raspberry Pi?
+A: Orca is a screen reader that helps visually impaired users navigate Raspberry Pi Desktop.
 
 # Orca screen reader
 
-- How do I install the Orca screen reader on my Raspberry Pi?
-- What's the keyboard shortcut to install Orca? I don't want to dig through menus.
-- I just set up a fresh Raspberry Pi and I need a screen reader. What do I do?
-- Wait, does the Pi actually talk to you when you first boot it up? What does it say?
-- I installed a new image and I heard something playing after about thirty seconds. What was that?
-- My friend is blind and wants to use a Raspberry Pi. Is there a screen reader available and how do I get it set up?
-- I pressed Ctrl Alt Space and something started installing. What did I just do?
-- Is Orca already on the Pi or do I have to install it myself?
+Q: I just set up a fresh Raspberry Pi image and I'm not sure how to get the screen reader going. Is there a reminder or something?
+A: After first boot, a spoken reminder plays after thirty seconds with Orca installation instructions.
+
+Q: I can't use a mouse very well. Is there a keyboard shortcut to get the screen reader installed?
+A: Yes, pressing Ctrl, Alt, and Space will automatically install Orca for you.
+
+Q: Does Raspberry Pi OS have anything to make the screen easier to read if my eyesight isn't great?
+A: Raspberry Pi OS offers both a screen reader and a screen magnifier for readability.
+
+Q: I booted up my Pi for the first time and heard some voice thing. What was that?
+A: That's an automatic spoken reminder with instructions on how to install Orca screen reader.
+
+# Whole Document
+
+Q: I don't have great vision. What accessibility stuff does Raspberry Pi OS actually offer?
+A: Raspberry Pi OS offers Orca screen reader and a screen magnifier for visually impaired users.
+
+Q: Where's the best place to look for accessibility tools on my Raspberry Pi?
+A: Check the Recommended Software section in the main Raspberry Pi menu for accessibility tools.

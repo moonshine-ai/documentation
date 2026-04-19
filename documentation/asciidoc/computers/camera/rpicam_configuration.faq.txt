@@ -1,39 +1,56 @@
 # Configuration
 
-I've got a third-party camera attached and it's not working. Do I need to change something in the config?
+Q: I've got a third-party camera and it's not working. Do I need to change any settings?
+A: Check the manufacturer's instructions for any necessary configuration changes needed.
 
-I'm using an older V1 camera module. What do I put in the config file to make it work?
+Q: I'm using an HQ camera. What do I put in config.txt to make it work?
+A: Add `dtoverlay=imx477` to your `/boot/firmware/config.txt` file.
 
-What's the difference between automatic camera detection and setting an overlay manually? When would I need to do the manual one?
+Q: I've got a V2 camera module. What's the overlay I need?
+A: Use `dtoverlay=imx219` in your `/boot/firmware/config.txt` file.
 
-How do I disable automatic camera detection? Like what exactly do I type and where?
+Q: I added an overlay to config.txt but my camera still isn't being detected right. Did I miss a step?
+A: You also need to set `camera_auto_detect=0` and then reboot with `sudo reboot`.
 
-I added an overlay to my config file but nothing changed. Did I forget to reboot or something?
+Q: Wait, if I turn off auto detection, won't it stop finding my camera altogether?
+A: No, you manually specify your camera using the correct dtoverlay in config.txt instead.
 
-I've got a Pi 5 with two camera ports and I want to use the one labeled zero. How do I tell it which connector to use?
+Q: I've got a Raspberry Pi 5 with two camera connectors. How do I tell it which one to use?
+A: Add `,cam0` to your dtoverlay entry to specify connector 0 instead of the default.
 
-Wait, if I don't specify which camera connector to use, which one does it default to?
+Q: My IMX290 camera needs a clock frequency. Where do I find the right one to use?
+A: Check your module vendor's instructions for the correct clock frequency to use.
 
-I have an IMX290 camera and I'm not sure which clock frequency to use. Where do I find that out?
+Q: I just want to make sure — do most cameras need me to mess with config.txt at all?
+A: No, most use cases work automatically with no configuration changes needed.
 
 # Tweak camera behaviour with tuning files
 
-What even is a tuning file? Do I need to mess with one to get my camera working?
+Q: What even is a tuning file? Do I need to worry about it?
+A: It controls algorithms and hardware settings to produce the best image quality.
 
-I bought the NoIR version of the camera module and the colors look really off. Is there something I need to change?
+Q: I've got the NoIR version of the camera. Do I need a different tuning file?
+A: Yes, NoIR sensors use different Auto White Balance settings and need a different tuning file.
 
-How do I use a different tuning file for my camera? Like is there a flag I add to the command?
+Q: How do I use a different tuning file with my camera?
+A: Use the `--tuning-file` option with `rpicam-hello` to specify a different file.
 
-I've got a Pi 4, not a Pi 5. Are the tuning files in a different location or something?
+Q: I'm on a Pi 4, not a Pi 5. Are the tuning files in the same place?
+A: No, use files in `/usr/share/libcamera/ipa/rpi/vc4/` instead on older models.
 
-I want to tweak how my camera processes images. Can I edit the tuning files myself or do I have to use them as-is?
+Q: Can I customize the tuning file or do I have to use the ones that come with it?
+A: You can copy and alter existing tuning files to customize camera behaviour.
 
-I've got a Soho Enterprises camera. Does it have a tuning file I can use, or do I have to make my own?
+Q: I've got a Soho Enterprises SE327M12 camera. Is there a tuning file for that?
+A: Yes, libcamera includes `se327m12.json` as the tuning file for that camera.
+
+Q: Does libcamera only support official Raspberry Pi cameras for tuning files?
+A: No, libcamera maintains tuning files for several cameras including third-party models.
 
 # Whole Document
 
-I just got a new camera module and plugged it in but it's not being detected. Where do I even start troubleshooting?
+Q: I'm setting up a camera module and I don't know if I need to touch anything. When do I actually need to change config.txt?
+A: Only non-standard drivers, overlays, or third-party cameras typically require configuration changes.
 
-Do most cameras just work out of the box, or do I always have to mess with the config file?
-
-I'm not sure if my camera is officially supported or not. How do I find out what I need to do to get it working?
+Q: My camera's a standard official one connected to a Pi 5. Will auto-detection find it okay?
+A: Yes, auto-detection correctly identifies official cameras connected to single-board computers.

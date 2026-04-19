@@ -1,80 +1,105 @@
-# Whole Document
-
-- What are these legacy boot options even for? Are they still worth using?
-- I'm confused about all these boot settings. Where do I even start?
-- Are these settings still supported or are they deprecated?
-
 # `start_x`, `start_debug`
 
-- What's the easiest way to pick a firmware configuration on my Pi?
-- I want to enable the camera or extra codec support. Do I need to set `start_x=1` or something?
-- Does `start_x=1` work differently on a Pi 4 compared to older models?
-- What's `start_debug` actually for? Is it for troubleshooting boot problems?
-- What files does `start_x=1` actually load behind the scenes?
+Q: What does setting start_x equals one actually do under the hood?
+A: It sets start_file to start_x.elf and fixup_file to fixup_x.dat.
+
+Q: I'm on a Pi 4 and used start_x equals one but it's using different files than expected. Why?
+A: Pi 4 uses start4x.elf and fixup4x.dat if those files are present.
+
+Q: What firmware files does start_debug equals one load?
+A: It loads start_db.elf and fixup_db.dat as the firmware files.
 
 # `disable_commandline_tags`
 
-- What are ATAGS and do I ever need to disable them?
-- My kernel's doing something weird with memory at boot. Could the ATAGS be causing that?
+Q: How do I stop start.elf from filling in ATAGS before the kernel launches?
+A: Set disable_commandline_tags to 1 to stop that from happening.
 
 # `arm_control`
 
-- I saw `arm_control` mentioned somewhere. Should I be using that to switch to 64-bit?
-- Wait, is `arm_control` deprecated? What should I use instead to enable a 64-bit kernel?
+Q: I saw arm_control in some old config. Should I still be using it?
+A: No, it's deprecated; use arm_64bit instead to enable 64-bit kernels.
 
 # `arm_peri_high`
 
-- What's high peripheral mode on the Pi 4 and do I need to turn it on manually?
-- I tried enabling `arm_peri_high` and now my Pi won't boot. What did I do wrong?
-- Does the Pi 4 set high peripheral mode automatically or do I have to do it myself?
+Q: How do I turn on high peripheral mode on my Pi 4?
+A: Set arm_peri_high to 1, though it's set automatically with a suitable DTB.
+
+Q: What happens if I enable high peripheral mode without the right device tree?
+A: Your system will fail to boot without a compatible Device Tree loaded.
 
 # `kernel_address`
 
-- Where in memory does the Pi load the kernel by default?
-- I'm loading a custom kernel and need to know what memory address it goes to. How does that work?
-- Does the default kernel load address change between 32-bit and 64-bit?
+Q: Where in memory does the Pi load the kernel by default?
+A: 32-bit kernels load at 0x8000 and 64-bit kernels at 0x200000 by default.
+
+Q: If I set kernel_old, where does the kernel get loaded?
+A: With kernel_old set, kernels are loaded to memory address 0x0.
 
 # `kernel_old`
 
-- What does setting `kernel_old` to 1 actually do?
-- Why would I want to load the kernel at address zero? Is that ever useful?
+Q: I want my kernel loaded at address zero. What do I set?
+A: Set kernel_old to 1 to load the kernel to memory address 0x0.
 
 # `init_uart_baud`
 
-- What's the default baud rate for the UART on a Raspberry Pi?
-- I'm trying to set up a serial connection and need to know what baud rate the Pi starts with. What is it?
+Q: What's the default baud rate for the UART on a Raspberry Pi?
+A: The default initial UART baud rate is 115200.
 
 # `init_uart_clock`
 
-- What's the default UART clock speed on a Raspberry Pi?
-- I'm getting weird baud rate issues with UART. Could the clock frequency be the problem?
-- I'm using a Pi 3 and the UART's behaving strangely. Is the clock different on that model?
-- What's the max baud rate I can actually use on the Pi's UART?
+Q: What's the default UART clock frequency and does it affect all UARTs?
+A: Default is 48 MHz, but it only applies to UART0, not UART1.
+
+Q: What's the max baud rate I can actually get from the UART?
+A: Maximum UART baudrate is limited to one-sixteenth of the clock frequency.
+
+Q: I'm using a Pi 3 and wondering which UART it defaults to.
+A: Pi 3's default UART is UART1, running off the core VPU clock.
 
 # `bootcode_delay`
 
-- My Pi doesn't detect my monitor properly on first boot but it works fine after a restart. What's going on?
-- How do I add a delay before my Pi tries to read the monitor's display info?
-- My Pi and monitor share the same power supply and the display detection's messed up. Is there a fix for that?
+Q: My monitor sometimes doesn't get detected properly on first boot but works after a reboot. Any fix?
+A: Try setting bootcode_delay to add seconds before reading the monitor's EDID.
+
+Q: What does bootcode_delay actually do and what's its default?
+A: It delays bootcode.bin before loading start.elf; default value is zero.
 
 # `boot_delay`
 
-- My Pi sometimes fails to boot from the SD card. Could adding a boot delay help?
-- How do I add a delay before the kernel loads on startup?
-- What's the difference between `boot_delay` and `boot_delay_ms`?
+Q: My SD card takes a while to get ready and Linux won't boot reliably. What can I do?
+A: Set boot_delay to force start.elf to wait before loading the kernel.
+
+Q: How do I calculate the total boot delay if I'm using both boot_delay and boot_delay_ms?
+A: Total milliseconds equals 1000 times boot_delay plus boot_delay_ms combined.
 
 # `boot_delay_ms`
 
-- I need a really precise boot delay in milliseconds. How do I set that?
-- Can I combine `boot_delay` and `boot_delay_ms` together or do I have to pick one?
+Q: What's the difference between boot_delay and boot_delay_ms?
+A: boot_delay_ms adds milliseconds of delay, working together with boot_delay.
 
 # `enable_gic` (Raspberry Pi 4 Only)
 
-- What's the GIC-400 on the Pi 4 and should I be worried about it?
-- If I disable the GIC on my Pi 4, what actually changes with how interrupts work?
+Q: Can I use the old legacy interrupt controller on my Pi 4B instead of the GIC?
+A: Yes, set enable_gic to 0 to route interrupts via the legacy interrupt controller.
+
+Q: What's the default for enable_gic on the Pi 4?
+A: The default value for enable_gic on Raspberry Pi 4B is 1.
 
 # `upstream_kernel`
 
-- What does `upstream_kernel=1` actually do differently compared to normal booting?
-- I want to use upstream Linux kernel DTB files. How do I tell the Pi to prefer those?
-- If the upstream DTB file isn't found, does the Pi just fail to boot or does it fall back to something?
+Q: What does upstream_kernel equals one actually change about how things load?
+A: It sets os_prefix to upstream/ and prefers upstream Linux DTB filenames.
+
+Q: If the upstream DTB file isn't found, does everything just break?
+A: No, firmware loads the downstream variant and automatically applies the upstream overlay.
+
+# Whole Document
+
+Q: These settings all look really old. Are they still the right ones to use?
+A: They're legacy boot options; config.txt boot options are also available for reference.
+
+Q: I'm trying to add a delay before my Pi boots. What options do I have?
+A: You can use bootcode_delay, boot_delay, and boot_delay_ms for different delay stages.
+
+Q: What's the quickest way to pick a firmware configuration on a Raspberry Pi?
+A: Use start_x or start_debug, as they're the recommended shortcut methods for firmware configuration.

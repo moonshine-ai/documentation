@@ -1,29 +1,39 @@
 # Troubleshooting
 
-My camera preview looks really glitchy and slow. Is there something I need to turn on to make it work properly?
+Q: My camera preview is really slow and choppy. How do I speed it up on my older Pi?
+A: Enable Glamor in raspi-config under Advanced Options, then reboot.
 
-I'm getting some kind of display driver error with my camera. What do I do about that?
+Q: I'm getting some display driver error with my camera. What do I do?
+A: Add a vc4-fkms-v3d or vc4-kms-v3d dtoverlay to boot config, then reboot.
 
-The preview window is all torn and flickery on my desktop. Is there a fix for that?
+Q: My Pi 3 is recording video but the preview looks totally corrupted. What's going on?
+A: Pi 3 graphics only support up to 2048 pixels wide; larger images corrupt previews.
 
-I think I plugged the ribbon cable in but the camera still isn't working. What should I check?
+Q: I've got a Pi 4 and my camera preview looks broken when recording. Why's that?
+A: Pi 4 graphics max out at 4096 pixels wide, causing corrupted previews beyond that.
 
-Wait, there are two similar ports on my Pi and I'm not sure I put the cable in the right one. How do I know which one is for the camera?
+Q: My preview window has this weird flickering on the desktop. Is there a fix?
+A: Display tearing in a desktop environment is a known issue with no fix available.
 
-My camera was working fine and now it's not. Could a software update help?
+Q: I think my camera ribbon cable might not be in right. What should I check?
+A: Ensure the FFC is firmly seated, fully inserted, and contacts face the correct direction.
 
-I've got a Pi 3 and when I record video at really high resolution the preview just looks broken. Is that a hardware limit or something I can fix?
+Q: Wait, can the camera cable accidentally go into the wrong port?
+A: Yes, only the CSI port powers the camera, not the DSI port nearby.
 
-My Pi 4 is showing corrupted previews when I record wide video. What's going on there?
+Q: My camera just stopped working randomly. Could it be my power supply?
+A: The camera adds 200-250mA draw; a weak power supply may prevent it from working.
 
-I've tried everything and my camera module still won't work. Where do I go for help?
+Q: I've tried everything and my camera still doesn't work. What now?
+A: Try posting on the Raspberry Pi forums for additional help and support.
 
-Could a bad power supply be causing my camera not to work? Like how would I even know if that's the problem?
-
-I've got an extension cable between my camera and the Pi. Could that be causing issues?
+Q: I'm using an extension connector between my camera and Pi. Anything I should check?
+A: Verify connector ports are firmly seated, fully inserted, and contacts face correctly.
 
 # Whole Document
 
-My camera module just isn't working at all. Where do I even start troubleshooting?
+Q: My camera module just isn't working at all. Where do I even start?
+A: Check the cable, port, power supply, software updates, and Glamor settings first.
 
-I just got a camera module for my Pi and I have no idea if I've set it up right. What are the most common mistakes people make?
+Q: Does updating my software help fix camera problems?
+A: Yes, updating to the latest software is one of the recommended troubleshooting steps.

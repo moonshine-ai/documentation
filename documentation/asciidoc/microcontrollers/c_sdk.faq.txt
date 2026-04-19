@@ -1,42 +1,69 @@
 # SDK Setup
 
-- I'm on a Raspberry Pi and want to start coding for the Pico. What's the quickest way to get the toolchain set up?
-- Is there a setup script I can just run to get everything installed, or do I have to do it all manually?
-- Should I update my Raspberry Pi before running the setup script, or does it matter?
+Q: I'm on a Raspberry Pi and want to start coding for the Pico. What's the quickest way to get set up?
+A: Run the setup script from the command line on your Raspberry Pi.
+
+Q: Do I need to update my Pi before running that setup script?
+A: Yes, make sure your Raspberry Pi OS is up to date first.
 
 # Raspberry Pi Pico C/C++ SDK
 
-- I've never used the Pico SDK before. Where do I even start?
-- Can I use Visual Studio Code with the Pico, or do I have to use the command line?
-- I'm building something for a Pico W, not a regular Pico. Do I need to do anything different when compiling?
-- I've got an Adafruit Feather RP2040, not an actual Pico. Can I still use the C++ SDK with it?
-- Where can I find example projects to look at while I'm learning?
-- Is the SDK source code open or do I have to pay for it?
-- I want to connect my Pico W to WiFi in my C project. How do I pass in my network name and password at build time?
+Q: What IDEs can I use with the Pico C++ SDK? Like does it work with VS Code?
+A: Yes, it works with Visual Studio Code, Eclipse, and CLion.
+
+Q: I'm building for an Adafruit Feather RP2040, not a plain Pico. How do I tell CMake that?
+A: Pass `-DPICO_BOARD=adafruit_feather_rp2040` to CMake when building.
+
+Q: I want to build for Pico W. Is there anything extra I need to pass to CMake?
+A: Pass `-DPICO_BOARD=pico_w` and optionally your WiFi credentials to CMake.
+
+Q: Where can I find the actual SDK source code?
+A: It's open source and available on the pico-sdk GitHub repository.
+
+Q: I want example projects to look at. Where do I find those?
+A: Check the pico-examples repository on GitHub for example projects.
 
 # Your First Binaries
 
-- I just got my Pico and I want to make the LED blink. How do I do that without writing any code yet?
-- How do I get my Pico into bootloader mode so I can drop a file onto it?
-- My Pico isn't showing up as a drive on my computer. What am I supposed to do?
-- What's the LED connected to on a regular Pico versus a Pico W? Are they different?
-- I want to try the Hello World thing but I don't know how to see the output. What do I need to install?
-- I ran the Hello World example but nothing's showing up in my terminal. What command do I use to connect to it?
-- What baud rate do I use when connecting to the Pico over serial?
+Q: The on-board LED on my Pico, which GPIO pin is it connected to?
+A: It's connected to GP25 on the Pico, or WL_GPIO0 on Pico W.
+
+Q: How do I get the blink program onto my Pico without writing any code?
+A: Download the Blink UF2, hold BOOTSEL, plug in, then drag and drop it.
+
+Q: My Pico isn't showing up on my computer. What should it appear as when I plug it in?
+A: It mounts as a Mass Storage Device called RPI-RP2.
+
+Q: I want to try the Hello World example. What do I need to see the output?
+A: Install minicom and connect at 115200 baud to `/dev/ttyACM0`.
+
+Q: What baud rate do I use with minicom for the Hello World example?
+A: Use 115200 baud rate with minicom.
 
 # Quick-start your own project
 
-- I want to start my own C project from scratch for the Pico. What do I actually need to install first?
-- How do I point my project to the Pico SDK? Do I clone it or install it some other way?
-- I don't really understand CMake. What's the bare minimum CMakeLists file I need to get a Pico project building?
-- I built my project and got a .uf2 and an .elf file. What's the difference and which one do I use?
-- How do I build for a Pico W instead of a regular Pico? Do I need to change something in CMake?
-- I want to print output over USB instead of the UART. Is there an example for that somewhere?
-- What's the simplest possible C program I can write for the Pico just to make sure everything's working?
+Q: What version of CMake do I need to build Pico projects?
+A: You need at least CMake version 3.13.
+
+Q: How do I get the Pico SDK onto my machine to start a project?
+A: Clone it locally with `git clone https://github.com/raspberrypi/pico-sdk.git`.
+
+Q: I built my project and now I've got a dot elf and a dot uf2 file. What's the difference?
+A: The ELF loads via a debugger; the UF2 installs via drag and drop.
+
+Q: My project uses USB for output instead of UART. Is there an example for that?
+A: Yes, check the hello-usb example for default USB stdout output.
+
+Q: I want to know what boards are already defined in the SDK. Where do I look?
+A: Check the boards include directory on GitHub; there's a header per board.
 
 # Whole Document
 
-- I'm totally new to microcontrollers. Is the Pico a good place to start and how hard is it to get set up?
-- Do I need a Raspberry Pi to develop for the Pico, or can I use my regular Windows or Mac computer?
-- What programming languages can I use with the Pico? Is C++ the only option?
-- I've been using MicroPython but want to switch to C for my Pico project. Where do I start?
+Q: I've never touched a microcontroller before. What's the very first thing I should try on my Pico?
+A: Blink the on-board LED — it's the first program anyone writes.
+
+Q: Is there a full beginner guide somewhere, not just these quick instructions?
+A: Yes, check the "Getting Started with Raspberry Pi Pico-series" documentation.
+
+Q: I want to connect my Pico W to the internet. Is there a guide for that?
+A: Yes, "Connecting to the Internet with Raspberry Pi Pico W" covers that.

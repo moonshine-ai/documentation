@@ -1,46 +1,96 @@
-# Whole Document
-
-- I just got a Raspberry Pi audio board. Do I need to do anything special to set it up or does it just work?
-- I'm running my Pi without a monitor or keyboard. Can I still use one of these audio HATs?
-- What's the difference between the black audio boards and the green ones?
-
 # Configuration
 
-- I plugged in my audio HAT but the Pi is still using the built-in audio. How do I switch to the HAT?
-- I'm running my Pi headless and there's no desktop, so I can't right-click anything. How do I make the HAT the main audio device?
-- Which file do I need to edit to disable the onboard audio on my Pi?
-- I'm in the config.txt file and I see the dtparam=audio=on line. What do I do with it?
-- I made changes to config.txt but it doesn't seem to have done anything. Do I need to restart?
-- I don't have SSH set up. Can I just edit the config.txt file directly from my computer using the SD card?
+Q: Do I need to install any drivers for my Raspberry Pi audio board?
+A: No, audio boards include a pre-programmed EEPROM for automatic plug-and-play detection.
+
+Q: I don't have a desktop on my Pi. How do I make the audio HAT the main audio device?
+A: Edit `/boot/firmware/config.txt` and comment out the `dtparam=audio=on` line.
+
+Q: What do I put in front of the `dtparam=audio=on` line to disable it?
+A: Add a `#` symbol at the start of the line to comment it out.
+
+Q: After I edit that config file, do I need to restart for it to work?
+A: Yes, you need to reboot your Raspberry Pi for the settings to take effect.
+
+Q: Can I edit the config file without even booting the Pi up?
+A: Yes, edit `config.txt` directly on the microSD card from your regular computer.
+
+Q: I've got a desktop and want to switch audio to my HAT. How do I do that without the terminal?
+A: Right-click the audio settings icon in the top right corner of your screen.
 
 # Attach the HAT
 
-- Do I need to solder anything to attach the audio board to my Pi?
-- What hardware comes included with the audio board? Like do I need to buy screws separately?
-- How tight should I screw the standoffs? I don't want to break anything.
+Q: Do I need to solder anything to attach the audio board to my Pi?
+A: No soldering is required for normal operation on most Raspberry Pi audio boards.
+
+Q: What hardware do I need to mount the audio board onto my Pi?
+A: All necessary spacers, screws, and connectors are included with the audio board.
+
+Q: How tight should I screw in the standoffs when attaching the audio board?
+A: Screw PCB spacers finger-tight only before adding the audio board on top.
 
 # Hardware versions
 
-- How do I know which version of the audio board I have?
-- I ran that grep command and it says IQaudIO Limited. What do I need to do differently?
-- I ran the check command and it says no such file or directory. Does that mean the board is broken?
-- The power LED on my audio card isn't lighting up. Should I be worried?
+Q: How do I tell if I've got an older or newer version of the audio card?
+A: Older IQaudIO boards have a black PCB; newer Raspberry Pi-branded boards are green.
+
+Q: I just attached my audio HAT. How do I know it's actually getting power?
+A: Check that the power LED on your audio card is illuminated, like the Codec Zero's `PWR` LED.
+
+Q: How do I check which version of audio board I've got from the terminal?
+A: Run `grep -a . /proc/device-tree/hat/*` to check the vendor string.
+
+Q: My HAT check says "IQaudIO Limited." Does that mean I need to do extra stuff?
+A: Yes, you'll need additional `dtoverlay` settings in your `config.txt` file.
+
+Q: The HAT check command says "No such file or directory." Is my board broken?
+A: Not necessarily; adding the correct `config.txt` overlay settings may still make it work.
 
 # Extra Codec Zero configuration
 
-- I've got the Codec Zero and I want to use the built-in microphone. How do I set that up?
-- I want to record from an external mic plugged into the Codec Zero. Is that possible?
-- Where do I get those preconfigured scripts for the Codec Zero?
-- I don't have git installed on my Pi. How do I get it?
-- I ran the alsactl command and got a bunch of error messages. Did something go wrong?
-- How do I make sure the Codec Zero uses the right audio settings every time the Pi boots up?
-- I'm using the Codec Zero headless and audio isn't working. Someone mentioned an .asoundrc file — what's that about?
-- Wait, should I actually create that .asoundrc file if I'm running the desktop version of Raspberry Pi OS?
-- I keep seeing ALSA mentioned. What even is ALSA and do I need to deal with it directly?
+Q: What microphone inputs does the Codec Zero support?
+A: It supports a built-in MEMS mic, stereo AUX IN phono sockets, or two external electret mics.
+
+Q: Can I adjust the volume independently for different inputs on the Codec Zero?
+A: Yes, each input and output device has its own mixer for independent level adjustment.
+
+Q: Where do I get the preconfigured audio scripts for the Codec Zero?
+A: Download them from GitHub at `github.com/raspberrypi/Pi-Codec` using git clone.
+
+Q: How do I set up the Codec Zero to use the built-in mic and play through the speaker?
+A: Run `sudo alsactl restore` with the `Codec_Zero_OnboardMIC_record_and_SPK_playback.state` file.
+
+Q: I'm getting "failed to import hw" messages after running the alsactl command. Is that bad?
+A: No, those warnings are harmless in most cases and can safely be ignored.
+
+Q: What warning message from the Codec Zero setup might actually mean a hardware problem?
+A: A "Remote I/O error" warning may indicate a hardware failure or I2C communication issue.
+
+Q: How do I make the Codec Zero settings load automatically every time my Pi boots up?
+A: Add the alsactl restore command to `/etc/rc.local` above the `exit 0` line.
+
+Q: I'm running the Codec Zero headless with no desktop. How do I make it the default audio device?
+A: Create a `.asoundrc` file in your home folder specifying `card Zero` as the default.
+
+Q: Should I create that `.asoundrc` file if I'm running the full Raspberry Pi OS desktop?
+A: No, it can interfere with the desktop audio UI, which may automatically remove it anyway.
+
+Q: When would I actually need to create that `.asoundrc` file?
+A: Only when an app needs direct ALSA access or PulseAudio and PipeWire aren't present.
 
 # Mute and unmute the DigiAMP+
 
-- My DigiAMP+ is just silent. How do I unmute it?
-- Is there a way to make the DigiAMP+ automatically mute itself when nothing's playing?
-- I don't want to use the device tree stuff for muting. Can I just write a script to handle it myself?
-- How do I mute the DigiAMP+ again after I've unmuted it?
+Q: What controls the mute state on the DigiAMP+?
+A: GPIO22 on the Raspberry Pi toggles the DigiAMP+ mute state.
+
+Q: Is there a way to have the DigiAMP+ automatically mute when nothing's playing?
+A: Yes, use the `auto_mute_amp` parameter, which mutes five seconds after the ALSA device closes.
+
+Q: If I use auto mute and something starts playing again quickly, will it stay unmuted?
+A: Yes, reopening the device within the five-second close window cancels the mute.
+
+Q: How do I unmute the DigiAMP+ using a script instead of the device tree?
+A: Export GPIO22, set its direction to out, then write `1` to its value file.
+
+Q: Does the DigiAMP+ start up muted or unmuted by default?
+A: The amp starts up muted by default.

@@ -1,73 +1,87 @@
+# Use Python on a Raspberry Pi
+
+Q: I heard I shouldn't mess with the system Python. What should I use instead to install libraries?
+A: Use apt for system packages or pip inside a Python virtual environment.
+
+Q: My Pi came with Python already, right? I didn't need to install it?
+A: Yes, Raspberry Pi OS comes with Python 3 pre-installed by default.
+
+Q: What are the two ways I can install Python stuff on my Pi?
+A: Use apt for pre-configured packages or pip inside a virtual environment.
+
 # Install Python packages using `apt`
 
-How do I install a Python library on my Raspberry Pi?
+Q: Why would I use apt instead of pip to install Python stuff?
+A: Apt packages are pre-compiled, install faster, and handle all dependencies automatically.
 
-What's the difference between installing Python packages with `apt` versus `pip`?
+Q: I want to install numpy on my Pi. What's it called in apt?
+A: The numpy package is available via apt as python3-numpy.
 
-I'm trying to find a Python package but I don't know what it's called in `apt`. How do I search for it?
+Q: How do I find Python packages I can install with apt?
+A: Use the apt search command; Python packages usually have a python3- prefix.
 
-Why should I use `apt` instead of `pip` when I can?
+Q: I'm worried uninstalling a package will break other things. Does apt help with that?
+A: Yes, apt ensures uninstalling packages won't break your other installed packages.
 
-# Bookworm changes to `pip` installation
+# Install Python libraries using `pip`
 
-I just tried to install something with `pip` and got this "externally managed environment" error. What's going on?
+Q: I tried doing pip install and got some weird error about externally managed environment. What's going on?
+A: Since Bookworm, pip can only install into a virtual environment, not system-wide.
 
-I'm used to just doing `pip install` for everything but now it's not working on my Pi. Did something change?
+Q: I just want to install a library for everyone on the system. How do I do that?
+A: Install it system-wide using apt instead of pip.
 
-I want to install a Python library so every user on my Pi can use it. How do I do that?
+Q: Wait, who actually decided pip couldn't install system-wide anymore — was that Raspberry Pi?
+A: No, that change was introduced by the Python community, not Raspberry Pi.
 
-Wait, why can't I just use `pip` normally anymore? Who decided that?
-
-I got an error that says something about `--break-system-packages`. Should I just use that flag to get past the error?
+Q: What even causes conflicts between apt and pip? Why does this matter?
+A: They conflict over Python API incompatibilities and file ownership of installed packages.
 
 # Use `pip` with virtual environments
 
-What even is a virtual environment? Do I need one just to install a Python library?
+Q: How do I actually create a virtual environment for my project?
+A: Run python -m venv env from your project's root folder to create one.
 
-How do I create a virtual environment on my Pi?
+Q: I made a virtual environment but how do I actually start using it?
+A: Run source env/bin/activate from your project root to enter it.
 
-I created a virtual environment but I'm not sure how to actually start using it. What do I do?
+Q: I'm done working. How do I get out of the virtual environment?
+A: Run the deactivate command from any directory to exit the virtual environment.
 
-How do I know if I'm currently inside a virtual environment or not?
+Q: Should I make a separate virtual environment for every single project or just one for everything?
+A: You can do either — per-project environments or one shared per-user environment both work.
 
-I'm done working on my project. How do I get out of the virtual environment?
-
-Should I make a separate virtual environment for every project, or just one for everything?
-
-I want one virtual environment I can use for all my Python projects instead of making a new one every time. How do I set that up?
-
-I want my virtual environment to already have all my system Python packages in it. Is there a way to do that?
-
-I installed a package inside my virtual environment but I'm worried it'll mess up my system Python. Will it?
+Q: I want one virtual environment for my whole user account, not per project. How do I set that up?
+A: Run python -m venv ~/.env to create a hidden shared environment in your home directory.
 
 # Create a virtual environment
 
-How do I actually make a virtual environment? What's the command?
+Q: I want my virtual environment to already have all my system Python packages in it. Is there a way to do that?
+A: Pass the --system-site-packages flag when creating the virtual environment.
 
 # Enter a virtual environment
 
-How do I activate a virtual environment once I've made it?
+Q: How do I know if I'm actually inside a virtual environment or not?
+A: Your prompt shows the environment name in parentheses when you're inside one.
 
-I activated my virtual environment but I want to double check it's actually working. How do I confirm I'm in it?
+Q: I'm inside my virtual environment but I want to double-check what's installed. How do I do that?
+A: Run pip list to see installed packages; the list will be much shorter than system Python's.
+
+Q: If I install something with pip while I'm in a virtual environment, does it affect the rest of my system?
+A: No, packages installed inside a virtual environment only affect that specific environment.
 
 # Exit a virtual environment
 
-How do I exit a virtual environment when I'm done?
+Q: What's the command to leave a virtual environment when I'm done?
+A: Run deactivate from any directory to exit the virtual environment.
 
 # Use the Thonny editor
 
-I want to write Python on my Pi without using the terminal. What should I use?
+Q: What code editor do they recommend for Python on the Pi?
+A: Raspberry Pi recommends Thonny for editing Python code on the Raspberry Pi.
 
-I'm using Thonny but I want it to use my virtual environment instead of the system Python. How do I switch that?
+Q: I'm using Thonny but I want it to use my virtual environment instead of system Python. How do I switch?
+A: Click the interpreter menu in Thonny's bottom right corner and select your environment.
 
-Does Thonny come with Raspberry Pi OS or do I need to install it?
-
-# Whole Document
-
-I'm totally new to Python on the Pi. What's the right way to install libraries without breaking anything?
-
-I keep hearing I need a virtual environment to install Python stuff now. Is that really necessary or can I get around it?
-
-My Pi is running an older version of Raspberry Pi OS. Does all this virtual environment stuff still apply to me?
-
-What's the safest way to install Python packages on a Raspberry Pi without messing up the operating system?
+Q: Thonny keeps using system Python but I want my venv. Where's the setting for that?
+A: Use the interpreter menu bottom right in Thonny, then choose Configure interpreter.

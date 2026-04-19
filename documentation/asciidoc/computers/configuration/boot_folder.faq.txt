@@ -1,83 +1,124 @@
-# Whole Document
+# `boot` folder contents
 
-What files does my Raspberry Pi load when it boots up?
+Q: Where does Raspberry Pi OS keep its boot files?
+A: Boot files are on the SD card's first FAT-formatted partition.
 
-Where does the Pi store all its boot files?
+Q: I upgraded to Bookworm and now my boot partition path seems different. What happened?
+A: Since Bookworm, the boot partition moved from `/boot/` to `/boot/firmware/`.
 
-I've got an older version of Raspberry Pi OS and someone mentioned the boot partition moved. What changed?
+Q: What file system does the boot partition use?
+A: The boot partition is formatted with the FAT file system.
 
 # `bootcode.bin`
 
-What's bootcode.bin actually for?
+Q: What does bootcode.bin actually do?
+A: It does basic setup then loads one of the `start*.elf` files.
 
-Does my Raspberry Pi 4 use bootcode.bin?
-
-I've got a Pi 5 and I can't find bootcode.bin anywhere. Is that normal?
+Q: I've got a Pi 4 and I heard bootcode.bin isn't used on it. Is that true?
+A: Yes, Pi 4 and 5 replaced it with boot code stored in onboard EEPROM.
 
 # `start*.elf`
 
-There are like a bunch of different start.elf files in my boot folder. What are they all for?
+Q: What's the difference between start.elf and start_x.elf?
+A: `start_x.elf` includes additional codecs; `start.elf` is just the basic firmware.
 
-What's the difference between start.elf and start_x.elf?
+Q: What's start_cd.elf and when would I use it?
+A: It's a cut-down firmware that removes codec, 3D, and debug support, used when `gpu_mem=16` is set.
 
-When would I use start_db.elf?
+Q: Does the Pi 5 use those elf firmware files?
+A: No, Pi 5 firmware is self-contained within the bootloader EEPROM instead.
 
-What does start_cd.elf do and why would I want a cut-down version of the firmware?
+Q: I've got a Pi 4. Do I use the same elf files as a Pi 3?
+A: No, Pi 4-series uses its own files like `start4.elf` and `start4x.elf`.
 
-I have a Pi 4 and I see files called start4.elf. Are those different from the regular start.elf?
-
-Does the Pi 5 use those elf firmware files?
+Q: What's start_db.elf for?
+A: It's the firmware version used specifically for debugging purposes.
 
 # `fixup*.dat`
 
-What are all these fixup.dat files in my boot folder?
+Q: What are those fixup.dat files in my boot folder?
+A: They're linker files that come in matched pairs with the `start*.elf` files.
 
 # `cmdline.txt`
 
-What's cmdline.txt used for?
+Q: What's cmdline.txt used for?
+A: It holds the kernel command line that gets passed into the kernel at boot.
 
 # `config.txt`
 
-What's the config.txt file for? Do I actually need it?
+Q: What's config.txt for on a Raspberry Pi?
+A: It contains many configuration parameters for setting up your Raspberry Pi.
 
-I've got a Pi 5 and heard there's something important about config.txt. What do I need to know?
+Q: Does the Pi 5 need anything special in config.txt?
+A: Yes, Pi 5 requires that config.txt exists and is not empty.
 
 # `issue.txt`
 
-What's issue.txt? Do I need to worry about it?
+Q: What's in the issue.txt file in the boot partition?
+A: It contains the date and git commit ID of the distribution.
 
 # `initramfs*`
 
-What's the initramfs file in my boot folder doing?
+Q: What does the initramfs file do?
+A: It loads a temporary root file system into memory before the real one mounts.
 
-How do I turn on the initial ramdisk on Bookworm?
+Q: How do I turn on initramfs support on Bookworm?
+A: Configure it in `config.txt` using the `auto_initramfs` keyword.
+
+Q: Does Raspberry Pi OS come with an initramfs file included?
+A: Yes, since Bookworm, Raspberry Pi OS includes an `initramfs` file by default.
 
 # `ssh` or `ssh.txt`
 
-I just set up a fresh Pi and SSH isn't working. How do I enable it from the boot partition?
+Q: How do I enable SSH on my Pi without even booting into the desktop?
+A: Just put a file called `ssh` or `ssh.txt` in the boot partition; contents don't matter.
 
-Does the ssh file need anything written in it or can it just be empty?
+Q: Does the ssh file in the boot folder need anything written in it?
+A: No, even a completely empty file is enough to enable SSH at boot.
+
+Q: Is SSH on by default on Raspberry Pi OS?
+A: No, SSH is disabled by default unless the `ssh` file is present at boot.
 
 # Device Tree blob files (`*.dtb`)
 
-What are all those .dtb files in my boot folder?
+Q: What are those .dtb files in my boot folder?
+A: They contain hardware definitions for various Raspberry Pi models.
 
-Do I need to mess with the device tree blob files myself or does the Pi just handle that automatically?
+Q: How does the Pi know which hardware config to load at startup?
+A: The device tree blob files set up the kernel based on the detected Pi model.
 
 # Kernel files (`*.img`)
 
-There are a bunch of different kernel image files in my boot folder. Which one does my Pi actually use?
+Q: Which kernel file does a Pi 4 use?
+A: Pi 4 uses `kernel7l.img` for 32-bit or `kernel8.img` for 64-bit.
 
-What kernel file does a Pi 4 use?
+Q: I've got a Pi 5. Which kernel image does it use?
+A: Pi 5 uses `kernel_2712.img`, which is the Pi 5-optimized 64-bit kernel.
 
-What's the difference between kernel8.img and kernel_2712.img?
+Q: What kernel file does a Pi Zero use?
+A: A Pi Zero uses `kernel.img` with the BCM2835 processor.
 
-My Pi 5 has both kernel8.img and kernel_2712.img. Which one runs?
+Q: I ran lscpu and it says armv7l. Does that mean I'm running 32-bit?
+A: Yes, `armv7l` means a 32-bit kernel; `aarch64` means 64-bit.
 
-I ran lscpu and it says armv7l. Does that mean I'm running a 32-bit kernel?
+Q: Can a Pi 2 run a 64-bit kernel?
+A: Only later Pi 2 revisions with BCM2837 can; earlier BCM2836 versions cannot.
 
 # `overlays` folder
 
-What's in the overlays folder on my boot partition?
+Q: What's the overlays folder in my boot partition for?
+A: It holds Device Tree overlays for configuring hardware like third-party sound boards.
 
-I've got a third-party sound board and someone said I need to use an overlay. Where do I even start?
+Q: How do I actually use one of those overlays for extra hardware?
+A: Add the relevant entry to `config.txt` to select the overlay you need.
+
+# Whole Document
+
+Q: I just got a new Pi and I'm confused — what's actually happening when it boots up?
+A: The SoC loads boot files from the FAT partition to start processors before Linux boots.
+
+Q: Where do I go if I want to change boot settings on my Raspberry Pi?
+A: Edit `config.txt` in the boot partition; see the config.txt documentation for details.
+
+Q: I've got a Pi 4 versus a Pi 3 — are the boot files the same on both?
+A: Pi 4 uses its own `start4*.elf` files and no `bootcode.bin`, unlike Pi 3.

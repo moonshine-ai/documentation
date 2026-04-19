@@ -1,24 +1,35 @@
 # High Quality Camera
 
-What's the megapixel count on the High Quality Camera?
-What sensor does the High Quality Camera use?
-I've heard there are two different versions of the High Quality Camera — what's the difference between the M12 and C/CS mount?
-What's the maximum exposure time on the High Quality Camera?
-Can I use the High Quality Camera with different lenses?
-What resolution does the High Quality Camera shoot at?
+Q: What's the resolution on the High Quality Camera?
+A: The High Quality Camera uses a Sony IMX477 sensor with 4056 by 3040 pixels.
 
-# Transmission Characteristics
+Q: What kind of lens mount does the High Quality Camera use?
+A: It comes with either an M12-mount or a C/CS-mount for lens compatibility.
 
-What's a Hoya CM500 and why does my camera have one?
-I want my camera to pick up more infrared light. Is there a way to do that?
-If I remove the infrared filter, can I put it back later?
-Does removing the IR filter void the warranty?
-What happens to the camera's sensitivity if I take out the IR filter?
-What even is an infrared filter and what does it do to my photos?
+Q: How long of an exposure can the High Quality Camera do?
+A: The High Quality Camera can record an exposure time of up to 670.74 seconds.
+
+Q: I've got two High Quality Cameras and I want them to shoot at the same time. Is that possible?
+A: Yes, you can synchronise multiple High Quality Cameras using an external trigger pulse.
+
+Q: What sensor is inside the High Quality Camera?
+A: The High Quality Camera is built around the Sony IMX477 sensor.
+
+# Transmission characteristics
+
+Q: What infrared filter does the High Quality Camera have in it?
+A: The High Quality Camera uses a Hoya CM500 infrared filter.
+
+Q: I want my High Quality Camera to pick up more infrared light. Can I do that?
+A: You can remove the infrared filter, but it's permanent and voids your warranty.
+
+Q: If I take out the IR filter, can I put it back later?
+A: No, removing the infrared filter is permanent and also voids the warranty.
 
 # Whole Document
 
-Can I use multiple High Quality Cameras at the same time and sync them up somehow?
-I want to trigger the camera from an external signal rather than just from software. Is that possible?
-What's the difference between the High Quality Camera and the regular Raspberry Pi camera?
-I'm trying to pick a camera for a project that needs really long exposures. Would the High Quality Camera work for that?
+Q: I just got the High Quality Camera. Where do I find out about all its hardware specs?
+A: Detailed hardware characteristics and capabilities are covered in the hardware specifications section.
+
+Q: Can the High Quality Camera work with different lenses, or is it stuck with one type?
+A: It supports a broad variety of lenses via its M12-mount or C/CS-mount options.

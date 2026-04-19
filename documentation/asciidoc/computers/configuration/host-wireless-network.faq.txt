@@ -1,29 +1,72 @@
-# Whole Document
+# Host a wireless network from your Raspberry Pi
 
-Can I turn my Raspberry Pi into a Wi-Fi hotspot that other devices can connect to?
-My Pi is connected to the internet through an ethernet cable. Can I share that connection over Wi-Fi to my phone and laptop?
-Which Raspberry Pi models can do the hotspot thing without any extra hardware?
-My Pi doesn't have built-in Wi-Fi. Can I still use it as a hotspot somehow?
+Q: Can my Raspberry Pi create its own Wi-Fi network for other devices to connect to?
+A: Yes, your Raspberry Pi can host its own wireless network using a wireless module.
+
+Q: If I connect my Pi to Ethernet, can devices on its Wi-Fi hotspot use the internet too?
+A: Yes, devices on the wireless network can access the internet through your Raspberry Pi.
+
+Q: Can devices on my Pi's hotspot talk to devices on my wired network?
+A: No, wireless clients exist in a private network separate from the wired network.
+
+Q: I don't have a Pi 4 or 5 — can I still do the hotspot thing?
+A: Models without built-in wireless support this functionality using a separate wireless dongle.
 
 # Enable hotspot
 
-How do I set up a hotspot on my Raspberry Pi from the command line?
-What's the command to create a Wi-Fi network on my Pi? I want to set a custom name and password.
-I set up a hotspot on my Pi but other devices can't get to the internet through it. What might be wrong?
-I connected my phone to my Pi's hotspot but there's no internet. My Pi is plugged into ethernet though, so what's going on?
+Q: What's the command to actually turn on the hotspot on my Pi?
+A: Run sudo nmcli device wifi hotspot ssid your-name password your-password.
+
+Q: How do I set the name and password for the hotspot I'm creating?
+A: Replace the example-network-name and example-password placeholders with your own values.
+
+Q: I've set up the hotspot — how do I actually connect my laptop to it?
+A: Look for a network matching your SSID, enter your password, and connect.
 
 # Disable hotspot
 
-I'm done using my Pi as a hotspot and I want it to connect to my regular Wi-Fi again. How do I switch it back?
-How do I turn off the hotspot on my Pi?
-After I disable the hotspot, my Pi's Wi-Fi just stops working entirely. How do I get it reconnected to my normal network?
+Q: How do I turn off the hotspot when I'm done with it?
+A: Run sudo nmcli device disconnect wlan0 to disable the hotspot network.
+
+Q: After I disable the hotspot, how do I get my Pi back on normal Wi-Fi?
+A: Run sudo nmcli device up wlan0 to reconnect to another Wi-Fi network.
 
 # Use your Raspberry Pi as a network bridge
 
-What's the difference between the regular hotspot mode and bridging? Why would I want one over the other?
-I want devices on my Pi's hotspot to be able to talk to devices on my main home network. Is that possible?
-So by default the hotspot is kind of isolated from everything else on my network, right? How do I fix that?
-How do I set up a network bridge on my Raspberry Pi so my wireless devices can be on the same network as everything else?
-I already set up a hotspot and now I want to add bridging to it. Do I have to start over or can I just modify what I've got?
-How do I check if the bridge and hotspot are actually running after I set everything up?
-Once I'm connected to my Pi's bridged hotspot, how can I tell if I can actually reach other devices on the main network?
+Q: My hotspot devices can't see anything on my main network. What's the deal?
+A: By default the hosted wireless network exists separately from the parent Ethernet network.
+
+Q: What even is a network bridge, and why would I want one on my Pi?
+A: A bridge lets wireless clients communicate with devices on the parent wired network.
+
+Q: If I set up the bridge, do my hotspot devices get their own IP addresses?
+A: Yes, each connected wireless device gets assigned an IP address in the parent network.
+
+Q: What's the first step to setting up a network bridge on my Pi?
+A: First, create a bridge interface with sudo nmcli connection add type bridge con-name Bridge ifname bridge0.
+
+Q: How do I add my Pi's Ethernet connection to the bridge I just created?
+A: Run sudo nmcli connection add type ethernet slave-type bridge con-name Ethernet ifname eth0 master bridge0.
+
+Q: I already made a hotspot earlier — do I need to recreate it for the bridge or can I reuse it?
+A: You can add the existing hotspot to the bridge using sudo nmcli connection modify Hotspot master bridge0.
+
+Q: Once I've set everything up, how do I actually turn the bridge on?
+A: Run sudo nmcli connection up Bridge, then sudo nmcli connection up Hotspot.
+
+Q: How do I check that the bridge and hotspot are actually running after I set them up?
+A: Use the nmcli device command to verify the bridge, Ethernet, and hotspot interfaces are active.
+
+Q: How can I test whether my hotspot devices can actually reach things on the main network?
+A: Use a tool like arp-scan to check if parent network devices are accessible from the hotspot.
+
+# Whole Document
+
+Q: Which Pi models have built-in Wi-Fi for doing this hotspot stuff?
+A: The Pi 5, 4, 3, Zero W, and Zero 2 W all have built-in wireless modules.
+
+Q: So my hotspot devices are totally isolated from my main network by default, right?
+A: Yes, wireless clients cannot directly interact with wired network clients other than the Pi.
+
+Q: Can I have my Pi on a ten-dot network and give hotspot clients a completely different IP range?
+A: Yes, you can serve wireless clients on a separate block like 192.168.x.x.

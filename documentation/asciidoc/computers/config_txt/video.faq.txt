@@ -1,38 +1,80 @@
-# HDMI Mode
+# HDMI mode
 
-- My Pi 4 is connected to a 1366x768 monitor and it's not displaying right. What's going on?
-- Why does my Raspberry Pi 4 drop to 1280x720 when my monitor is 1366x768?
-- Where do I go to change my HDMI resolution on a Raspberry Pi?
-- I heard Pi 4 has some issue with certain resolutions. What's that about?
-- Does the Pi 5 handle weird HDMI timings better than the Pi 4?
+Q: How do I change my HDMI settings on a Raspberry Pi?
+A: Use the Screen Configuration utility or KMS video settings in cmdline.txt.
 
-# Composite Video Mode
+Q: My Pi 4 won't do 1366x768 at 60Hz. What's going on?
+A: Pi 4 can't support DMT mode 81 and drops to the next advertised monitor mode.
 
-- How do I get composite video working on my Pi 4? I'm trying to plug it into an old TV.
-- Where's the composite output on a Raspberry Pi Zero?
-- My Pi 5 doesn't have an RCA jack. How do I connect it to an old TV?
-- I've got a Pi 400 keyboard thing. Can I use composite video with it?
-- How do I turn on composite video output on my Pi 4?
-- Wait, does enabling composite video mean I lose HDMI?
-- I want to use PAL instead of NTSC for my composite output. How do I switch that?
-- What video formats does composite output support? Like can I do PAL or SECAM?
-- Which Raspberry Pi models have composite video built in?
+Q: Why does my Pi 4 drop to 1280x720 instead of my monitor's native resolution?
+A: Your monitor likely uses DMT mode 81, which Pi 4 can't support due to odd timings.
 
-# LCD Displays and Touchscreens
+Q: Does the Pi 5 have the same problem with weird HDMI timings as the Pi 4?
+A: No, Pi 5 has special handling for odd timings and supports those modes directly.
 
-- My official Raspberry Pi touchscreen isn't being detected. How do I fix that?
-- I've got a Pi touchscreen but I don't want it to use the touch part. Can I turn that off?
-- How do I stop my Pi from automatically using the touchscreen display?
+Q: I heard Pi 4 can do 4K at 60fps. Is that true?
+A: Yes, Pi 4 supports up to 4Kp60 using dual displays and two output pixels per clock.
 
-# Generic Display Options
+# Composite video mode
 
-- My Pi is picking a weird resolution that my monitor doesn't support. How do I fix that?
-- What does disable_fw_kms_setup actually do? Should I care about it?
-- Is it true that on Pi 5 the firmware doesn't set the video mode itself? How does that work then?
+Q: Where's the composite video output on a Pi Zero?
+A: The Pi Zero has an unpopulated TV header for composite video output.
+
+Q: I've got an old CRT TV. Can I plug my Raspberry Pi into it?
+A: Yes, most Pi models have composite video output, but Keyboard models do not.
+
+Q: Where do I find the composite output on a Raspberry Pi 5?
+A: It's on the J7 pad located next to the HDMI socket.
+
+Q: Does the Pi 400 have composite video output?
+A: Not specified in this section — Keyboard models have no composite output at all.
+
+# `enable_tvout`
+
+Q: I want to use composite video on my Pi 4 but I can't get it to work. What am I missing?
+A: Set enable_tvout=1 in config.txt, but note this disables HDMI output too.
+
+Q: Can I use both HDMI and composite video at the same time on a Pi 4?
+A: No, enabling composite output on Pi 4 disables HDMI output.
+
+Q: How do I actually turn on composite output on my Pi? Like what do I edit?
+A: Add comma composite to the dtoverlay=vc4-kms-v3d line in /boot/firmware/config.txt.
+
+Q: My Pi is outputting composite in NTSC but I need PAL. How do I switch that?
+A: Add vc4.tv_norm=PAL to the single line in /boot/firmware/cmdline.txt.
+
+Q: What video formats can I use for composite output? Is PAL one of them?
+A: Yes, supported formats include NTSC, PAL, PAL-M, PAL-N, PAL60, SECAM, and others.
+
+Q: What's the default composite video format on Raspberry Pi?
+A: The default composite output format is NTSC video.
+
+# LCD displays and touchscreens
+
+Q: I don't want my Pi to use the touchscreen display even though it's connected. Can I disable it?
+A: Yes, set ignore_lcd=1 to skip detection and prevent the LCD from being used.
+
+Q: How do I turn off just the touch part of my Pi touchscreen but keep the display working?
+A: Set disable_touchscreen=1 to disable only the touchscreen component of the display.
+
+# `disable_fw_kms_setup`
+
+Q: My HDMI display isn't working right and I think the Pi picked the wrong video mode. How do I fix it?
+A: Set disable_fw_kms_setup=1 so the Linux KMS system parses the EDID and picks the mode instead.
+
+Q: What does the firmware actually do with my HDMI display when the Pi boots up?
+A: It reads the EDID, picks a video mode, then passes resolution and frame rate to the Linux kernel.
+
+Q: Does Pi 5 pass video settings to the kernel on boot the same way older Pis do?
+A: No, on Pi 5 disable_fw_kms_setup defaults to 1, so KMS handles mode selection itself.
 
 # Whole Document
 
-- I've got an old TV and a new Pi. What are my options for connecting them?
-- I'm confused about all these display settings. Where do I even start if my screen isn't working right?
-- What's the difference between HDMI and composite output on a Raspberry Pi?
-- I don't really understand KMS. Do I need to know about it to set my resolution?
+Q: I've got a Pi 4 and want to hook it up to an old TV. What are my options?
+A: Enable composite output with enable_tvout=1, but this disables HDMI on Pi 4.
+
+Q: What display options does a Raspberry Pi support in general?
+A: Raspberry Pi supports HDMI, composite video, LCD touchscreens, and various video mode settings.
+
+Q: I'm not sure if my Pi model supports composite video. How do I check?
+A: All models have composite output except Keyboard models like the Pi 400 and Pi 500.

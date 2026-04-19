@@ -1,147 +1,209 @@
-# start_file, fixup_file
+# `start_file`, `fixup_file`
 
-- I want to use custom firmware files to boot my Pi. What settings do I need to change?
-- What's the difference between `start_file` and `fixup_file`?
-- My Pi won't boot after I changed the firmware files. What did I probably do wrong?
-- I heard about cut-down firmware for the Pi — how do I actually enable that?
-- I tried setting `start_file` to the cut-down firmware and now it won't boot. What's going on?
-- What happens if I use mismatched `start_file` and `fixup_file` values?
+Q: What are these start_file and fixup_file things in my config? What do they actually do?
+A: They specify firmware files transferred to the VideoCore GPU before booting.
 
-# cmdline
+Q: I tried setting my own start_file and it won't boot. What did I do wrong?
+A: Start_file and fixup_file must be a matched pair; mismatched files prevent booting.
 
-- How do I change what file the Pi reads its kernel command line from?
-- I don't want to use the default `cmdline.txt`. Can I point it somewhere else?
+Q: Can I use the cut-down firmware by setting start_file to the cd version?
+A: No, cut-down firmware can only be enabled by setting gpu_mem to 16.
 
-# kernel
+Q: I've got a Pi 5. Do I need to worry about these firmware file settings?
+A: Pi 5, 500, 500+, and Compute Module 5 firmware is self-contained in the bootloader EEPROM.
 
-- What's the default kernel filename for a Raspberry Pi 4?
-- I've got a Pi 3 and a Pi 4 — do they use different kernel files?
-- I want to load a custom kernel. How do I tell the Pi to use a different filename?
-- Why does my Pi 5 load a different kernel file than my Pi 4?
+# `cmdline`
 
-# arm_64bit
+Q: Where does the Pi read its kernel command line from by default?
+A: By default the kernel command line is read from cmdline.txt on the boot partition.
 
-- How do I switch my Pi to 64-bit mode?
-- I want to run 32-bit mode on my Pi 4. Can I force that?
-- Does my Pi Zero support 64-bit mode?
-- What kernel does the Pi automatically pick when I turn on 64-bit mode?
-- My Pi 5 is ignoring my `arm_64bit` setting. Is that normal?
+Q: Can I use a different file name instead of cmdline.txt for my kernel command line?
+A: Yes, use the cmdline option in config.txt to specify an alternative filename.
 
-# armstub
+# `kernel`
 
-- What even is an arm stub and do I need to worry about it?
-- Can I load a custom arm stub on boot?
+Q: What kernel file does my Pi 4 load by default?
+A: Raspberry Pi 4 defaults to loading kernel8.img, or kernel7l.img if arm_64bit is zero.
 
-# ramfsfile
+Q: My Pi 5 isn't booting the right kernel. What file does it try to load first?
+A: Pi 5 defaults to kernel_2712.img, falling back to kernel8.img if that's not present.
 
-- How do I load a ramdisk file at boot?
-- Can I load more than one ramfs file at startup?
-- Is there a line length limit if I'm loading multiple ramfs files?
+Q: Can I tell my Pi to boot a completely different kernel file?
+A: Yes, set the kernel option in config.txt to your preferred filename on the boot partition.
 
-# initramfs
+# `arm_64bit`
 
-- What's the difference between `ramfsfile` and `initramfs`?
-- How do I load an initramfs and put it right after the kernel in memory?
-- I keep getting syntax errors with `initramfs`. Do I use an equals sign or not?
-- Can I load multiple initramfs files at once?
+Q: How do I switch my Pi to 64-bit mode?
+A: Set arm_64bit to 1 in config.txt to start the kernel in 64-bit mode.
 
-# auto_initramfs
+Q: Does my Pi 3B support 64-bit mode?
+A: Yes, the Raspberry Pi 3B supports the arm_64bit flag.
 
-- Is there a way to have the Pi automatically find the right initramfs for my kernel?
-- I've got a custom kernel name — will `auto_initramfs` still work with it?
-- What does the Pi look for when `auto_initramfs` is turned on?
+Q: My Pi 5 doesn't seem to care about arm_64bit. Is that normal?
+A: Yes, Pi 5 and newer flagship models only support 64-bit and ignore this flag.
 
-# disable_poe_fan
+Q: What happens if I set arm_64bit to 1 but don't specify a kernel file? Which one loads?
+A: The firmware automatically chooses an appropriate kernel like kernel8.img for 64-bit mode.
 
-- My Pi is slow to boot and I don't have a PoE HAT. Is there something I can turn off to speed things up?
-- What does disabling the PoE fan check actually do to my boot time?
+# `armstub`
 
-# disable_splash
+Q: What is the armstub and do I need to set it up myself?
+A: It's small Arm code run before the kernel; the default is selected automatically from firmware.
 
-- How do I get rid of that rainbow screen when my Pi boots?
+# `ramfsfile`
 
-# enable_uart
+Q: Can I load more than one ramfs file at boot?
+A: Yes, newer firmware supports multiple ramfs files separated by commas on one line.
 
-- How do I turn on the serial console on my Pi?
-- I want to see boot messages over the GPIO pins. What do I need to set up?
+Q: Is there a limit on how long my ramfsfile line can be?
+A: Yes, keep the comma-separated filenames within the 80-character line length limit.
 
-# force_eeprom_read
+# `ramfsaddr`
 
-- How do I stop my Pi from trying to read the HAT EEPROM at startup?
+Q: What does ramfsaddr do exactly?
+A: It specifies the memory address where the ramfs file should be loaded.
 
-# os_prefix
+# `initramfs`
 
-- Can I have multiple kernels on the same SD card and choose between them?
-- How do I set up a prefix so the Pi loads a different kernel from a subfolder?
-- What happens if the Pi can't find the kernel at the prefix I specified?
-- I want overlays to stay shared even when I'm using `os_prefix`. Will that work automatically?
+Q: What's the difference between using ramfsfile and initramfs?
+A: initramfs combines both the filename and load address into one parameter.
 
-# otg_mode
+Q: I'm trying to set initramfs with an equals sign and it's not working. What's wrong?
+A: Don't use the equals sign with initramfs; its syntax is different from all other options.
 
-- What's USB OTG and when would I actually use it on a Pi 4?
-- How do I use the USB-C port on my Pi 4 as a USB host instead of just for power?
+Q: Can I load my initramfs right after the kernel in memory instead of picking an address?
+A: Yes, use followkernel as the address to place the initramfs after the kernel image.
 
-# overlay_prefix
+# `auto_initramfs`
 
-- How do I load overlays from a different folder than the default?
-- If I'm using both `os_prefix` and `overlay_prefix`, which one comes first in the path?
+Q: Is there a way to automatically find my initramfs without spelling it all out in config.txt?
+A: Yes, set auto_initramfs to 1 and the firmware finds the matching initramfs automatically.
 
-# boot_ramdisk
+Q: My kernel is named kernel8.img. What does auto_initramfs expect the initramfs file to be called?
+A: It expects initramfs8, replacing the kernel prefix and removing the file extension.
 
-- What's `boot_ramdisk` for and when would I need it?
-- Is there a size limit on the `boot.img` ramdisk file?
-- How does `boot_ramdisk` work with the tryboot feature?
+# `disable_poe_fan`
 
-# sha256
+Q: My Pi takes a while to boot and I'm not using a PoE HAT. Can I speed things up?
+A: Yes, set disable_poe_fan to 1 to skip the I2C probe and reduce boot time.
 
-- How do I get the Pi to log checksums of the files it loads at boot?
-- I'm debugging a boot problem and want to verify my kernel file is loading correctly. Is there a way to do that?
+# `disable_splash`
 
-# uart_2ndstage
+Q: How do I get rid of that rainbow screen when my Pi boots?
+A: Set disable_splash to 1 in config.txt to suppress the rainbow splash screen.
 
-- How do I get debug logs from the bootloader over UART?
-- What's the difference between `uart_2ndstage` and `BOOT_UART`?
+# `enable_uart`
 
-# erase_eeprom
+Q: How do I get a serial console working on my Pi's GPIO pins?
+A: Set enable_uart to 1 in config.txt and add console=serial0,115200 to cmdline.txt.
 
-- How do I completely wipe my Pi's EEPROM?
+Q: I want to see boot messages over the serial pins. How do I enable that?
+A: Remove the word quiet from cmdline.txt to show kernel boot messages over serial.
 
-# kernel_watchdog_timeout
+# `force_eeprom_read`
 
-- What is a hardware watchdog and why would I want one on my Pi?
-- How do I set up the Pi to automatically reboot if the OS locks up?
-- I set `kernel_watchdog_timeout` but the watchdog doesn't seem to be working. What else do I need to configure?
+Q: Can I stop my Pi from trying to read the HAT EEPROM at startup?
+A: Yes, set force_eeprom_read to 0 to prevent the firmware from reading the I2C HAT EEPROM.
 
-# kernel_watchdog_partition
+# `os_prefix`
 
-- Can I make the Pi boot to a recovery partition if the watchdog fires?
+Q: I've got two different kernel versions on my SD card. Can I choose between them somehow?
+A: Yes, use os_prefix to prepend a path or name to all OS files the firmware loads.
 
-# eeprom_write_protect
+Q: What happens if my os_prefix points to something that doesn't have a kernel there?
+A: The firmware tests the prefix first and ignores it if the expected kernel and dtb aren't found.
 
-- How do I write-protect the EEPROM on my Pi?
-- I write-protected the EEPROM and now I can't update the bootloader. How do I undo that?
+Q: Can I bypass the os_prefix for a specific file?
+A: Yes, start the file path with a slash to use an absolute path, bypassing all prefixes.
 
-# bootloader_update
+# `otg_mode` (Raspberry Pi 4 only)
 
-- How do I stop my Pi from updating its own bootloader automatically?
-- I've got a bunch of Pis on network boot and I don't want them all updating the bootloader. Is there a way to block that per device?
+Q: What does otg_mode do on the Pi 4?
+A: It switches the USB-C connector from device mode to use a more capable XHCI host controller.
 
-# Secure Boot configuration properties
+Q: My Compute Module 4 has otg_mode already enabled. Did someone change that?
+A: Yes, Raspberry Pi OS includes a config.txt line enabling otg_mode on Compute Module 4 by default.
 
-- What is secure boot on the Pi and how does it work?
-- Can I set up secure boot on Raspberry Pi OS?
-- I want to lock down my Pi 4 so it only boots from signed images. Where do I start?
-- What does `program_pubkey` actually do to the Pi?
-- Is it possible to turn off secure boot once it's been enabled?
-- What's `revoke_devkey` for and do I really need to set it?
-- How do I set up RPIBOOT mode on a Pi 4B since it doesn't have a dedicated jumper for it?
-- What does `program_jtag_lock` do and should I be worried about using it?
+# `overlay_prefix`
+
+Q: Where does my Pi look for device tree overlays by default?
+A: By default overlays are loaded from the overlays/ subdirectory on the boot partition.
+
+# `boot_ramdisk`
+
+Q: What's the biggest ramdisk file my Pi's bootloader will accept?
+A: The maximum ramdisk file size is 96 MB.
+
+Q: What format should my boot.img ramdisk file be in?
+A: Use a plain FAT32 partition with no MBR as the recommended format.
+
+# `sha256`
+
+Q: Is there a way to verify the files my Pi loads at boot are correct?
+A: Yes, set sha256 to a non-zero value to log SHA256 hashes of loaded boot files.
+
+Q: If I enable sha256 checking at boot will it slow things down?
+A: Yes, enabling sha256 logging can potentially add many seconds to boot time.
+
+# `uart_2ndstage`
+
+Q: How do I get debug logging from the bootloader over UART?
+A: Set uart_2ndstage to 1 to enable debug logging to UART during the second stage.
+
+# `erase_eeprom`
+
+Q: What does erase_eeprom actually do when I set it to 1?
+A: It causes recovery.bin to erase the entire SPI EEPROM instead of flashing the bootloader.
+
+# `kernel_watchdog_timeout`
+
+Q: Is there a way to automatically reset my Pi if the OS freezes after booting?
+A: Yes, set kernel_watchdog_timeout in seconds to enable a hardware watchdog timer.
+
+Q: I set kernel_watchdog_timeout but my Pi Bookworm isn't resetting when it hangs. Why?
+A: RuntimeWatchdogSec isn't enabled by default on Bookworm; configure it in /etc/systemd/system.conf.
+
+# `eeprom_write_protect`
+
+Q: How do I write-protect my Pi's EEPROM so nobody can flash it accidentally?
+A: Set eeprom_write_protect to 1, but you also need the /WP pin pulled low to activate it.
+
+Q: I want to clear write protection on my Pi's EEPROM. What value do I set?
+A: Set eeprom_write_protect to 0 to clear the write protect regions.
+
+# `bootloader_update`
+
+Q: Can I stop my Pi from updating its own bootloader automatically?
+A: Yes, set bootloader_update to 0 to block self-update without changing the EEPROM config.
+
+# `program_pubkey`
+
+Q: What does program_pubkey do in secure boot setup?
+A: It writes your public key hash to OTP, making the bootloader reject unsigned or differently signed images.
+
+# `revoke_devkey`
+
+Q: If I enable secure boot on my Pi 4, can someone just downgrade the bootloader to turn it off?
+A: No, setting revoke_devkey to 1 writes OTP to prevent loading older non-secure-boot bootloaders.
+
+# `program_jtag_lock`
+
+Q: Should I lock JTAG on my production Pi devices?
+A: Only after full testing, since it prevents failure analysis by disabling VideoCore JTAG permanently.
 
 # Whole Document
 
-- What files do I need on the boot partition to get my Pi to start up?
-- I'm trying to do a custom boot setup on my Pi — what are all the options I can set in `config.txt`?
-- My Pi 5 boots differently than my Pi 4. What's actually different under the hood?
-- What's the difference between bootloader settings in `config.txt` and the EEPROM config?
-- I just want to understand what actually happens when my Pi powers on. Where do the firmware files come in?
-- Can I have my Pi automatically recover if it crashes after booting?
+Q: What's the difference between initramfs and ramfsfile in config.txt? When should I use which?
+A: initramfs handles both filename and address in one parameter; ramfsfile and ramfsaddr are separate.
+
+Q: I'm building a custom setup with multiple Pi versions. Can they all share the same boot partition?
+A: Yes, use os_prefix to separate kernel and device tree files for different models on one card.
+
+Q: Do I need to manually pick a kernel file or does the Pi just figure it out?
+A: The Pi automatically picks the right default kernel for each model unless you specify one explicitly.
+
+Q: What happens to the ramdisk memory once my Pi finishes booting into the OS?
+A: The memory used by the ramdisk filesystem is released before the operating system starts.
+
+Q: I'm not sure whether to use start_file or start_x. Which one should I actually use?
+A: Use start_x or start_debug instead; start_file is an advanced option not recommended for most users.

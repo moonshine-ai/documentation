@@ -1,35 +1,58 @@
-# Whole Document
+# Raspberry Pi DAC Pro
 
-What's the Raspberry Pi DAC Pro and what makes it different from regular audio output?
+Q: What's the DAC Pro and why would I want one for my Pi?
+A: It's a high-fidelity digital to analogue converter HAT for Raspberry Pi.
 
-I want really high quality audio from my Pi. Is there a HAT for that?
+Q: What chip does the DAC Pro use inside?
+A: It uses the Texas Instruments PCM5242 chip for conversion.
 
-Does the DAC Pro work with balanced audio equipment?
+Q: Does the DAC Pro need its own power supply or does it run off the Pi?
+A: It's powered directly by the Raspberry Pi through the GPIO header.
 
-I've got the DAC Pro but I'm not sure what all the connectors on it actually do. Can you explain them?
+Q: What kind of audio outputs does the DAC Pro actually have?
+A: It supports balanced differential output plus phono RCA line-level output.
 
-How does the DAC Pro get its power — does it need its own power supply?
+Q: Does the DAC Pro have a headphone output too, or just line-level?
+A: Yes, it includes a dedicated headphone amplifier as well.
 
 # Pinouts
 
-What's the P1 connector on the DAC Pro for?
+Q: What's coming out of the P1 connector on the DAC Pro?
+A: P1 carries analogue audio, GPIO27, mute signal, and left right grounds.
 
-There's a connector on my DAC Pro labeled P6. What's that one for?
+Q: I see P7 and P9 on the board, what are those for?
+A: They provide differential output, P7 for left and P9 for right.
 
-I see P7 and P9 on my DAC Pro board. What are those headers used for?
+Q: Can I power my Pi through the DAC Pro somehow?
+A: Yes, P10 is an alternative 5V input that powers the Raspberry Pi.
 
-What's P10 on the DAC Pro? Can I actually power my Pi through it?
+Q: What's the P6 connector doing on the DAC Pro?
+A: P6 carries headphone socket signals including left, right, ground, and detect.
 
-What's the voltage output I'd get from the regular phono outputs on the DAC Pro?
-
-I want to use the headphone detect feature. Which connector handles that?
+Q: What's the voltage range I can expect from the regular analogue output?
+A: The analogue output on P1 delivers zero to two volts RMS.
 
 # Optional XLR Board
 
-What's the XLR board that goes with the DAC Pro? Do I need it?
+Q: What even is an XLR connector? Do I need one?
+A: XLR is used in studios and high-end hifi systems, not required.
 
-I've got studio monitors with XLR inputs. Can I connect those to my Raspberry Pi with the DAC Pro?
+Q: I've seen the optional XLR board mentioned. What does it actually do?
+A: It adds balanced XLR socket outputs above the Pi's USB and Ethernet ports.
 
-What kind of audio systems use XLR connectors? Like when would I actually need that?
+Q: Can I use the DAC Pro to drive powered studio monitor speakers?
+A: Yes, the XLR board can drive active monitor speakers used on stage.
 
-I'm setting up a sound system for a gig and I want to use my Pi. Can the DAC Pro handle that kind of thing?
+Q: How does the XLR board connect to the DAC Pro?
+A: It connects via a six-pin header exposed on the DAC Pro.
+
+# Whole Document
+
+Q: I want the best audio quality possible from my Pi. Is this the board to get?
+A: The DAC Pro is described as Raspberry Pi's highest-fidelity DAC HAT.
+
+Q: What's the difference between the differential output and the regular phono output?
+A: Differential output provides zero to four volts RMS versus two volts RMS phono.
+
+Q: I've got a balanced hifi setup at home. Will the DAC Pro work with it?
+A: Yes, the DAC Pro supports balanced differential output for such systems.

@@ -1,35 +1,58 @@
-# Whole Document
-
-- What even is GPIO boot mode and do I need it for my Raspberry Pi?
-- My Pi 3B won't boot after I messed with some settings. Could GPIO boot mode be the problem?
-- Which Raspberry Pi models actually support GPIO boot mode? I've got an older one and I'm not sure if this applies to me.
-- I want to choose how my Pi boots using some hardware I've wired up. Is that actually possible?
-- Once I set this GPIO boot mode stuff, can I undo it later if I change my mind?
-
 # GPIO boot mode
 
-- How do I enable GPIO boot mode on my Raspberry Pi 3B?
-- I added that line to config.txt but now my Pi won't boot at all. What did I do wrong?
-- Wait, so once I set these OTP bits they're permanent? Like I can never undo them?
-- Which GPIO bank should I use? I don't have a Compute Module, just a regular Pi 3B.
-- I set up GPIO boot mode and now my Pi is just dead. How do I get it to boot again?
-- What's the difference between Bank 1 and Bank 2 for GPIO boot mode?
-- I used Bank 1 first and now I'm wondering if I can switch to Bank 2. Is that possible?
-- Can I still use those GPIO pins for other stuff after the Pi has booted, or are they locked out completely?
+Q: Which Raspberry Pi models actually support GPIO boot mode?
+A: Only the 3A+, 3B, 3B+, Compute Module 3, and 3+.
+
+Q: I want to change the boot mode using GPIO pins. How do I even enable that?
+A: Add `program_gpio_bootmode=n` to config.txt, then reboot once.
+
+Q: Once I set those OTP bits for GPIO boot mode, can I undo it later?
+A: No, OTP bits are permanent and cannot be unset once programmed.
+
+Q: How many GPIO pins get locked down when I enable GPIO boot mode?
+A: Five GPIO pins are permanently allocated for boot mode selection.
+
+Q: I enabled GPIO boot mode and now my Pi won't start. What happened?
+A: You must pull up at least one boot-mode GPIO pin for it to boot.
+
+Q: Should I use Bank 1 or Bank 2 for GPIO boot mode on a regular Pi?
+A: Non-Compute Module boards must use Bank 1, GPIOs 22 through 26.
+
+Q: What GPIO pins are in Bank 1 versus Bank 2?
+A: Bank 1 is GPIOs 22-26; Bank 2 is GPIOs 39-43.
+
+Q: Can I switch from Bank 2 back to Bank 1 after I've already programmed it?
+A: No, once Bank 2 is selected you cannot go back to Bank 1.
 
 # Pin assignments
 
-- Which GPIO pin do I pull up to boot from USB on my Pi 3B+?
-- I've got a regular Pi 3B and I want to boot from SD using GPIO boot mode. Which pin controls that?
-- What's the difference between USB device boot and USB host boot in the pin table?
-- I see NAND and SPI listed but it says no Linux support. Does that mean I just can't use those at all?
-- What order does the Pi try the different boot modes when GPIO boot mode is set up?
-- I've got a Pi 3B+ and I'm confused about which pin numbers to use because I've seen two different tables. Which one applies to me?
+Q: What does the USB option actually boot from on older Pi 3B boards?
+A: It selects both USB device boot mode and USB host boot mode.
+
+Q: Does NAND boot work with Linux on a Raspberry Pi 3B?
+A: No, NAND and SPI boot have no Linux support at present.
+
+Q: What order does the Pi try the boot modes when using GPIO boot?
+A: Boot modes are tried in numerical GPIO order: SD0, SD1, NAND, and so on.
+
+Q: I've got a Pi 3B+ — do the GPIO pin numbers match the original 3B for boot mode?
+A: No, the 3B+ uses different pins, like 20-26 for Bank 1 instead.
 
 # Boot flow
 
-- What's the difference between SD0 and SD1 on the Raspberry Pi?
-- I've got a Compute Module Lite and I'm trying to figure out where SD0 connects to. Can you explain that?
-- How strong does my pull-up resistor need to be on the GPIO boot mode pins?
-- I'm trying to pull up a GPIO line for boot mode. What resistance should I use so I don't kill the Pi or drain too much power?
-- What's SD1 used for on Pi models that have built-in WiFi?
+Q: What's SD0 and where does it connect on a regular Pi?
+A: SD0 is Broadcom's SD interface, always connected to the built-in microSD slot.
+
+Q: What pull-up resistor should I use on the GPIO boot mode pins?
+A: A 5 kΩ pull resistance is recommended for GPIO boot mode lines.
+
+Q: Why does my Pi use SD1 for the wireless chip instead of SD0?
+A: All Raspberry Pi models with built-in wireless LAN use SD1 via SDIO.
+
+# Whole Document
+
+Q: I just want to pick my boot device using jumpers on the GPIO header. Is that a thing?
+A: Yes, GPIO boot mode lets hardware on the GPIO connector select boot mode.
+
+Q: Will those GPIO pins I use for boot mode still work for other stuff after the Pi starts?
+A: Yes, you can use them for other functions once the Raspberry Pi has booted.

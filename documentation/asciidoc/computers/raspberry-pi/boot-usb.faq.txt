@@ -1,26 +1,55 @@
-# Whole Document
+# USB boot modes
 
-- What's the difference between USB device boot and USB host boot on a Raspberry Pi?
-- How does my Raspberry Pi decide which USB boot mode to use?
-- What are OTP bits? Do I need to worry about them for USB booting?
+Q: What are the two different USB boot modes on a Raspberry Pi?
+A: The two USB boot modes are USB device boot and USB host boot.
+
+Q: How does my Pi decide which USB boot mode to use?
+A: The firmware chooses between the two modes based on OTP bits at boot.
+
+Q: Can I use GPIO pins to pick the boot mode somehow?
+A: Certain OTP bits allow specific GPIO pins to select the boot modes.
 
 # USB device boot mode
 
-- My Pi won't boot from the SD card. Does it do anything automatically as a fallback?
-- Which Pi models actually support USB device boot? I've got a Zero and I'm not sure if mine works.
-- So when the Pi goes into device boot mode, what actually happens? Like what's it waiting for?
-- Where can I find example code for how the host is supposed to talk to the Pi during device boot?
-- What does it mean when USB device boot returns 0x80? Is that an error?
+Q: Which Pi models actually support USB device boot?
+A: Compute Module series, Zero series, and Model A flagship variants support it.
+
+Q: My Pi can't boot from the SD card. What does it do with USB then?
+A: It puts its USB port into device mode and waits for a USB reset from the host.
+
+Q: What does the Pi send back after USB device boot either works or fails?
+A: It replies with zero for success or zero x eighty for failure.
+
+Q: Where can I find example code for how the host talks to the Pi over USB device boot?
+A: Example code is available on GitHub at the raspberrypi usbboot repository.
 
 # USB host boot mode
 
-- I've got a Raspberry Pi 3B and I want to boot from a USB drive. Do I need to change any settings first?
-- How do I enable USB host boot on my Pi 3B? Like what do I actually need to add to the config file?
-- Does the Pi 3A+ support booting from the network over USB? I thought it did but I'm not sure.
-- Which Pi models support USB host boot without needing to change any settings?
-- Wait, if I change the OTP to enable USB host boot on my 3A+, can I undo that later?
-- My Pi only supports USB 2.0 for host boot? So a USB 3.0 drive won't work at all?
-- How long does the Pi wait for a USB device to show up when it's trying to boot from USB?
-- What's this program_usb_boot_timeout setting? Does it give me more time for a device to connect?
-- I want to boot from a USB hub with multiple drives attached. Does the Pi handle that or does it only look at one device?
-- Does USB host boot try mass storage first, or does it try network booting first?
+Q: I've got a Pi 3B and USB host boot isn't working. Do I need to turn it on somewhere?
+A: Add program underscore usb underscore boot underscore mode equals one to config dot txt.
+
+Q: Which Pi models support USB host boot?
+A: Compute Module 3 and later, Zero 2 W, Pi 2B version 1.2, 3B, and newer flagships.
+
+Q: My Pi 3A+ is connected to a network. Can it boot over the network using USB host boot?
+A: No, the Pi 3A+ supports mass storage boot only, not network boot.
+
+Q: Wait, if I enable USB host boot on my 3A+ can I undo that later?
+A: No, OTP changes are permanent and enabling host boot disables USB device mode forever.
+
+Q: How long does USB host boot wait on each hub port for a device to show up?
+A: It loops for a maximum of two seconds, or five if the timeout setting is enabled.
+
+Q: Does USB host boot work with USB 3 devices?
+A: No, only USB 2.0 devices are supported during USB host boot.
+
+Q: What's the order my Pi tries things in when booting from USB host mode?
+A: It tries mass storage devices first, then Ethernet devices for network boot.
+
+# Whole Document
+
+Q: I've heard about booting a Pi from USB but I don't know if it means from a drive or over a network. What's the difference?
+A: USB host boot supports both mass storage devices and network booting via Ethernet.
+
+Q: Does changing the OTP to enable USB boot cause any permanent issues I should know about?
+A: Yes, OTP changes are permanent and can't be undone, potentially disabling other boot modes.

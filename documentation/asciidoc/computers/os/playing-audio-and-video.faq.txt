@@ -1,56 +1,89 @@
-# Whole Document
+# VLC media player
 
-- Does VLC come already installed on Raspberry Pi OS or do I have to install it myself?
-- I just want to watch a video on my Pi. What's the easiest way to do that?
-- Can I play both audio and video files with VLC, or is it just for video?
+Q: Does VLC come already installed on Raspberry Pi OS?
+A: Yes, VLC media player comes pre-installed on Raspberry Pi OS.
 
-# VLC GUI
+Q: I just want to open a video without using the terminal. Can I do that?
+A: Yes, double-click a file in the file manager to launch VLC automatically.
 
-- I've got a video file on my desktop. How do I open it without using the terminal?
-- My audio is coming out through HDMI but I want it through the headphone jack. How do I change that?
-- Where do I find VLC if I want to open it from the desktop menu?
-- I opened VLC but I can't find my file. How do I navigate to it?
+Q: My audio is coming out of HDMI but I want it through the headphone jack. How do I change that?
+A: Right-click the speaker icon in the system tray and select an option.
 
 # `vlc` CLI
 
-- How do I play a video from the command line with VLC?
-- After my video finishes, VLC just stays open. How do I make it close automatically when it's done?
-- I just want the video to go fullscreen automatically. Is there a flag for that or something?
-- I heard fullscreen can make playback smoother. Is that actually true?
-- How do I download that Big Buck Bunny test clip to my Pi?
+Q: I just want the video to close automatically when it's done. Is there a flag for that or something?
+A: Yes, add the `--play-and-exit` flag when running VLC from the command line.
+
+Q: I just want the video to go fullscreen automatically. Is there a flag for that or something?
+A: Yes, add the `--fullscreen` flag, which can also result in smoother playback.
+
+Q: How do I download that Big Buck Bunny test clip to my Pi?
+A: Run `wget --trust-server-names http://rpltd.co/big-buck-bunny` to download it.
 
 # Use `cvlc` to play media without a GUI
 
-- Can I run VLC without the window popping up, like just from the command line with no interface?
-- What's the difference between `vlc` and `cvlc`? When would I use one over the other?
+Q: Can I run VLC without a desktop, like just from the command line with no window popping up?
+A: Yes, use `cvlc` instead of `vlc` and the GUI won't be shown.
 
 # Play audio and video on Raspberry Pi OS Lite
 
-- I installed the Lite version and there's no VLC. How do I get it?
-- Does VLC work on Pi OS Lite or do I need the full version?
-- I'm on Raspberry Pi OS Lite and I just want to play an MP3. What do I need to install?
+Q: Does VLC work on Pi Lite?
+A: VLC isn't pre-installed on Lite, but you can install it manually.
+
+Q: I installed the Lite version and there's no media player. What do I need to get one?
+A: Install `vlc-bin` and `vlc-plugin-base` using apt with no-install-recommends flag.
+
+Q: I'm on Raspberry Pi OS Lite. Can I play an MP3 from the command line?
+A: Yes, after installing VLC packages, run `cvlc --play-and-exit` with your file.
 
 # Specify an audio output device
 
-- What even is ALSA? Do I need to know about it to force audio to a specific output?
-- How do I make audio come out of the headphone jack instead of HDMI when I'm using the command line?
-- How do I see what audio devices I've got available on my Pi?
-- I've got a Pi 4 with two HDMI ports. How do I tell VLC which one to send audio to?
+Q: What even is ALSA? Do I need to know about it to change my audio output?
+A: ALSA is the audio system used; pass `-A alsa` to VLC to select audio output devices.
+
+Q: How do I force audio out of the headphone jack instead of HDMI?
+A: Use `-A alsa --alsa-audio-device sysdefault:CARD=Headphones` when running cvlc.
+
+Q: How do I see what audio devices I've got?
+A: Run `aplay -L | grep sysdefault` to list all ALSA devices on your Raspberry Pi.
+
+Q: I've got a Pi 4 with two HDMI ports. How do I pick which one the audio comes out of?
+A: Use `sysdefault:CARD=vc4hdmi0` for HDMI0 or `sysdefault:CARD=vc4hdmi1` for HDMI1.
 
 # Specify a video output device
 
-- How do I force a video to play on my touchscreen instead of the HDMI output?
-- I've got two monitors connected to my Pi 4. How do I pick which one the video plays on?
-- How do I see what video outputs my Pi has?
+Q: I've got a touchscreen connected and I want the video to play on that instead of HDMI. How do I do that?
+A: Use `--drm-vout-display DSI-1` to send video output to the Raspberry Pi Touch Display.
+
+Q: How do I find out what video outputs my Pi has?
+A: Run `kmsprint | grep Connector` to list all DRM devices on your Raspberry Pi.
+
+Q: I've got a Pi 4 with two HDMI ports. Which device name is HDMI0 and which is HDMI1?
+A: HDMI-A-1 is HDMI0 and HDMI-A-2 is HDMI1 on Raspberry Pi 4.
 
 # Specify both audio and video output devices
 
-- Can I send audio and video to different outputs at the same time? Like video to the touchscreen but sound through the headphone jack?
-- What's the command to play a video on the touch display with audio through the headphone jack?
+Q: Wait, can I play audio and video at the same time to different outputs?
+A: Yes, you can combine audio and video output options in a single cvlc command.
+
+Q: I want video on my touchscreen but audio out of the headphone jack. Is that possible?
+A: Yes, combine `--drm-vout-display DSI-1` and `--alsa-audio-device sysdefault:CARD=Headphones` together.
 
 # Improve stream playback performance
 
-- I recorded a video with my Pi camera and it plays really badly in VLC. How do I fix that?
-- What's an H.264 stream and why does it play differently than a regular MP4?
-- How do I convert a raw camera recording to MP4 so it plays better?
-- I've got a `.h264` file from my camera module. How do I turn that into an MP4?
+Q: I recorded video with my Pi camera and playback is stuttering in VLC. What can I do?
+A: Wrap the H.264 stream in an MP4 container using ffmpeg to improve playback performance.
+
+Q: How do I convert a raw H.264 file to MP4 using ffmpeg?
+A: Run `ffmpeg -r 30 -i video.h264 -c:v copy video.mp4` to convert at 30fps.
+
+# Whole Document
+
+Q: I just got a Raspberry Pi. What do I use to watch videos on it?
+A: Raspberry Pi OS comes with VLC media player pre-installed, supporting many formats.
+
+Q: Can VLC use the Pi's hardware to speed up video playback?
+A: Yes, VLC uses hardware acceleration in Raspberry Pi OS.
+
+Q: I'm totally new to this. What's the easiest way to just play a video file on my Pi?
+A: Double-click a video file in the file manager and VLC launches automatically.

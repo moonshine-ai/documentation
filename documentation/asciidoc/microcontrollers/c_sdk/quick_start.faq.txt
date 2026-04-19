@@ -1,24 +1,37 @@
-# Whole Document
-
-- I want to start a new Pico project from scratch. Where do I even begin?
-- I've never set up a C project for the Pico before. What's the quickest way to get something running?
-- Do I need special software installed before I can start coding for the Pico?
-
 # Quick-start your own project
 
-- What do I need to install first to start writing C code for the Pico?
-- I'm on Linux and I want to set up a Pico project. What's the install command I need to run?
-- How do I get the Pico SDK onto my computer?
-- So I cloned the SDK, now what? What file do I need to copy into my project?
-- What's the `PICO_SDK_PATH` thing and do I actually need to set it?
-- I've never written a CMakeLists.txt before. What should a basic one look like for a Pico project?
-- What's the simplest possible program I can write for the Pico? Like just a hello world?
-- I wrote my hello world file, what do I add to CMakeLists.txt to actually build it?
-- I want to print to USB instead of the regular serial port. How do I do that?
-- How do I set up the build folder and run CMake?
-- I'm building for a Pico W, not a regular Pico. Do I need to do anything different when I run CMake?
-- How do I tell CMake I'm using a different board? Like what's the actual flag I need?
-- Where can I find a list of all the board names the SDK supports?
-- After CMake is done, how do I actually build my program?
-- I've built my project and I see a `.uf2` file and an `.elf` file. What's the difference and which one do I use?
-- How do I get my compiled program onto the Pico? Do I just drag and drop the file or what?
+Q: I'm on Linux and want to start a Pico C project. What do I need to install first?
+A: Install CMake version 3.13 or higher and the GCC ARM cross compiler.
+
+Q: How do I get the Pico SDK onto my computer?
+A: Clone it from GitHub at github.com/raspberrypi/pico-sdk.
+
+Q: I don't know where to put the PICO_SDK_PATH thing. What are my options?
+A: Set it as an environment variable or pass it directly to the cmake command.
+
+Q: What's the bare minimum C code I need to get a hello world running on the Pico?
+A: Include pico/stdlib.h, call setup_default_uart, then printf your message.
+
+Q: I want my program to print over USB instead of the UART. How do I do that?
+A: Check the hello-usb example, which shows how to use USB for stdout.
+
+Q: After I've written my code, how do I actually build it?
+A: Create a build directory, run cmake inside it, then run make hello_world.
+
+Q: What files do I get after building, and what are they for?
+A: You get a dot-elf for debugging and a dot-uf2 for drag-and-drop installation.
+
+Q: I've got a Pico W, not a regular Pico. Do I need to do anything different when building?
+A: Pass minus DPICO_BOARD equals pico_w to cmake to enable wireless and correct settings.
+
+Q: How does passing the board name to cmake actually help? What does it change?
+A: It sets compiler defines like pin numbers and enables board-specific libraries like wireless.
+
+Q: Where can I find a list of all the boards the SDK supports?
+A: Check the boards include directory in the pico-sdk GitHub repository.
+
+Q: These instructions feel pretty brief. Is there somewhere I can get more detailed help?
+A: The Getting Started and Pico C/C++ SDK books have detailed steps for multiple platforms.
+
+Q: What's pico_add_extra_outputs doing in the CMakeLists file?
+A: It creates additional output formats like map, bin, hex, and uf2 files alongside the ELF.

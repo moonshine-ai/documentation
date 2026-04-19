@@ -1,81 +1,300 @@
+# Getting started
+
+Q: How do I open raspi-config from the desktop?
+A: Go to Preferences then Control Centre to open the configuration tool.
+
+Q: What's the terminal command to open raspi-config?
+A: Run sudo raspi-config in the terminal to open the configuration tool.
+
+Q: I'm trying to navigate raspi-config in the terminal and I don't know how to move around. Can you walk me through it?
+A: Use arrow keys to scroll, Tab or Right arrow to reach Select or Finish.
+
+Q: I keep seeing Control Centre mentioned but on my older Pi it's got a different name. What's going on?
+A: Older versions of Raspberry Pi OS called it Raspberry Pi Configuration instead.
+
+Q: Does raspi-config change actual system files, or is it just a front end?
+A: It modifies config.txt and other configuration files on your system.
+
+Q: I heard some settings are only in the terminal version of raspi-config and not the desktop one. Is that true?
+A: Yes, some advanced configuration is only available in the raspi-config CLI.
+
+# System options
+
+Q: How do I connect my Pi to WiFi using raspi-config?
+A: Use the Wireless LAN option to configure your Wi-Fi SSID and passphrase.
+
+Q: I want to change where my audio comes out. Is that somewhere in raspi-config?
+A: Yes, the Audio option under System Options lets you specify the audio output destination.
+
+Q: Can I change my login password through raspi-config?
+A: Yes, the Password option in System options lets you change your password.
+
+Q: How do I change the name my Pi shows up as on the network?
+A: Use the Hostname option in System options to set the mDNS name.
+
+Q: I want my Pi to boot straight to the desktop without me having to log in every time. How do I set that up?
+A: Use Boot/Auto login in System options to boot to desktop with automatic login.
+
+Q: My Pi sometimes fails to connect to the network early on in boot. Can I make it wait for a connection?
+A: Yes, the Network at boot option makes the Pi wait for a network connection before continuing.
+
+Q: How do I turn off that splash screen that shows up when my Pi boots?
+A: Use the Splash screen option in System options to enable or disable it.
+
+Q: Can I change what the power LED does on my Pi?
+A: Yes, if your model supports it, the Power LED option lets you change its behaviour.
+
+Q: I want to set a different default web browser. Can raspi-config do that?
+A: Yes, the Browser option in System options lets you change the default web browser.
+
+# Display options
+
+Q: My display has this annoying black border around everything. How do I get rid of it?
+A: Disable overscan in Display options to make the picture fill the whole screen.
+
+Q: I'm running Wayland and the underscan option is greyed out. Is that a bug?
+A: No, the Underscan option is unavailable when running Wayland, that's by design.
+
+Q: Can I stop my Pi's screen from going blank after a while?
+A: Yes, the Screen blanking option in Display options lets you enable or disable it.
+
+Q: I'm running my Pi headless without a monitor and VNC looks blurry. How do I set the resolution?
+A: Use the VNC resolution option in Display options to define the headless video resolution.
+
+Q: How do I enable 4K 60fps output over HDMI on my Pi?
+A: Use the 4Kp60 HDMI option in Display options to enable it.
+
+# Interface options
+
+Q: How do I turn on SSH so I can connect to my Pi remotely?
+A: Go to Interface options in raspi-config and enable SSH there.
+
+Q: Is SSH on by default on my Raspberry Pi?
+A: No, SSH is disabled by default on Raspberry Pi.
+
+Q: What's Raspberry Pi Connect and how's it different from regular remote access?
+A: Raspberry Pi Connect lets you access your Pi remotely with no manual network configuration needed.
+
+Q: How do I enable VNC on my Raspberry Pi?
+A: Go to Interface options in raspi-config and enable the VNC option there.
+
+Q: I'm trying to use a temperature sensor with my Pi. I think it needs 1-Wire. How do I turn that on?
+A: Enable the 1-Wire option under Interface options in raspi-config.
+
+Q: Can I enable I2C through raspi-config?
+A: Yes, the I2C option in Interface options enables the interface and loads the kernel module.
+
+Q: How do I allow remote access to the GPIO pins?
+A: Enable the Remote GPIO option under Interface options in raspi-config.
+
+# Performance options
+
+Q: Can I overclock my Pi through raspi-config?
+A: Yes, if your model supports it, the Overclock option lets you overclock the CPU.
+
+Q: I overclocked my Pi and now it's unstable. How do I temporarily turn off overclocking without going into the settings?
+A: Hold the Shift key during boot to temporarily disable overclocking.
+
+Q: Is overclocking safe for my Pi? I don't want to break it.
+A: Overclocking may reduce the lifetime of your Raspberry Pi, so be cautious with the level.
+
+Q: How do I change how much memory the GPU gets on my Pi?
+A: Use the GPU memory option under Performance options in raspi-config.
+
+Q: I want to set up a read-only filesystem on my Pi. Is that possible through raspi-config?
+A: Yes, the Overlay file system option lets you enable a read-only filesystem.
+
+Q: Can I control the fan on my Raspberry Pi 4 case through raspi-config?
+A: Yes, the Fan option lets you customise behaviour of the Raspberry Pi 4 Case Fan.
+
+# Localisation options
+
+Q: How do I set the correct timezone on my Pi?
+A: Use the Time zone option under Localisation options, in the format Region/City.
+
+Q: My keyboard is set to the wrong layout and I'm getting the wrong characters when I type. How do I fix it?
+A: Open the Keyboard option in Localisation options to select the correct keyboard layout.
+
+Q: I changed the keyboard layout but it doesn't seem to have worked yet. Do I need to reboot?
+A: Changes usually take effect immediately but may require a reboot.
+
+Q: How do I set the WLAN country on my Pi?
+A: Use the WLAN country option in Localisation options to set your country code.
+
+Q: How do I jump to Europe quickly when scrolling through the timezone list?
+A: Type E to jump ahead alphabetically to entries starting with Europe in the list.
+
+# Advanced options
+
+Q: I cloned my Pi's SD card to a bigger one but it's not using all the space. How do I fix that?
+A: Use the Expand filesystem option in Advanced options and then reboot your Pi.
+
+Q: I clicked expand filesystem by accident. Is there a confirmation before it starts?
+A: No, there is no confirmation step and partition expansion begins immediately.
+
+Q: Can I set my Pi 4 to boot from USB if there's no SD card in?
+A: Yes, use the Boot order option in Advanced options on Raspberry Pi 4 and later.
+
+Q: My Pi 4 had a bootloader update and now it's acting weird. Can I go back to the old one?
+A: Yes, use the Bootloader version option to revert to the factory default bootloader.
+
+Q: How do I switch my Pi from X11 to Wayland or back?
+A: Use the Wayland option in Advanced options to switch between X11 and Wayland backends.
+
+Q: What's the default display system on Raspberry Pi OS Bookworm?
+A: Since Bookworm, all Raspberry Pi models run Wayland using the labwc window manager by default.
+
+Q: How do I switch from PulseAudio to PipeWire on my Pi?
+A: Use the Audio config option in Advanced options to switch between audio backends.
+
+Q: I'm on an older Pi that's not a 4, can I use Wayland?
+A: Yes, but for pre-Pi-4 models on older OS, add wayland=on to /boot/firmware/cmdline.txt.
+
+# Update
+
+Q: How do I update raspi-config itself to the latest version?
+A: Use the Update option in raspi-config or run sudo raspi-config nonint do_update.
+
+# Finish
+
+Q: I made some changes in raspi-config and now I'm not sure if I need to restart. Do I?
+A: When implementing changes for the first time, reboot to ensure your changes take effect.
+
+# non-interactive `raspi-config`
+
+Q: Can I use raspi-config without the menu, like just from a script?
+A: Yes, raspi-config supports non-interactive commands run entirely from the command line.
+
+Q: What's the basic format for running raspi-config non-interactively?
+A: Run sudo raspi-config nonint followed by the command and its arguments.
+
+Q: I'm confused about whether 0 means on or off in raspi-config commands. Is there a rule?
+A: The meaning of 0 and 1 varies between options, so always check the documentation first.
+
+# System options (non-interactive)
+
+Q: How do I connect to WiFi from the command line using raspi-config?
+A: Use sudo raspi-config nonint do_wifi_ssid_passphrase with your SSID and passphrase.
+
+Q: My WiFi network has a hidden SSID. How do I connect to it with the raspi-config command?
+A: Pass 1 as the hidden argument after your SSID and passphrase in the wifi command.
+
+Q: How do I change the audio output to the headphone jack from the command line on a Pi 4?
+A: Run sudo raspi-config nonint do_audio 0 to select the bcm2835 headphone jack.
+
+Q: How do I change the hostname of my Pi from the command line?
+A: Run sudo raspi-config nonint do_hostname followed by your desired hostname.
+
+Q: I want my Pi to boot to the desktop and log in automatically. What's the command for that?
+A: Run sudo raspi-config nonint do_boot_behaviour B4 to boot to desktop automatically.
+
+Q: How do I make my Pi wait for the network before it finishes booting, using the command line?
+A: Run sudo raspi-config nonint do_boot_wait 1 to wait for network connection at boot.
+
+Q: How do I disable the boot splash screen from a script?
+A: Run sudo raspi-config nonint do_boot_splash 1 to disable the splash screen.
+
+Q: Can I change what the power LED does from the command line?
+A: Run sudo raspi-config nonint do_leds with 0 to flash for disk activity or 1 to keep lit.
+
+Q: How do I set Firefox as the default browser using the non-interactive raspi-config?
+A: Run sudo raspi-config nonint do_browser firefox to set Firefox as default.
+
+# Display options (non-interactive)
+
+Q: How do I disable screen blanking from the command line?
+A: Run sudo raspi-config nonint do_blanking 1 to disable screen blanking.
+
+Q: How do I set the VNC resolution from the command line for my headless Pi?
+A: Run sudo raspi-config nonint do_vnc_resolution followed by width x height.
+
+Q: How do I enable composite video output on a Pi 4 from the command line?
+A: Run sudo raspi-config nonint do_pi4video V2 to enable composite video on Pi 4.
+
+# Interface options (non-interactive)
+
+Q: How do I enable SSH from the command line?
+A: Run sudo raspi-config nonint do_ssh 0 to enable SSH on your Raspberry Pi.
+
+Q: How do I turn on VNC from a terminal command?
+A: Run sudo raspi-config nonint do_vnc 0 to enable the VNC server.
+
+Q: How do I enable I2C from a script or the terminal?
+A: Run sudo raspi-config nonint do_i2c 0 to enable I2C and load the kernel module.
+
+Q: How do I enable 1-wire from the command line for my temperature sensor?
+A: Run sudo raspi-config nonint do_onewire 0 to enable the Dallas 1-wire interface.
+
+Q: How do I enable SPI from the command line?
+A: Run sudo raspi-config nonint do_spi 0 to enable SPI and load the kernel module.
+
+Q: How do I enable remote GPIO access from the terminal?
+A: Run sudo raspi-config nonint do_rgpio 0 to enable remote GPIO access.
+
+Q: How do I enable Raspberry Pi Connect from the command line?
+A: Run sudo raspi-config nonint do_rpi_connect 0 to enable Raspberry Pi Connect.
+
+# Performance options (non-interactive)
+
+Q: How do I overclock my Pi from the command line?
+A: Run sudo raspi-config nonint do_overclock followed by a setting like Modest or High.
+
+Q: What overclock settings are available in raspi-config?
+A: Options are None, Modest, Medium, High, and Turbo, going up to 125% of maximum.
+
+Q: How do I set the GPU memory from the command line?
+A: Run sudo raspi-config nonint do_memory_split followed by the amount in megabytes.
+
+Q: How do I configure the fan temperature threshold from the command line?
+A: Run sudo raspi-config nonint do_fan 0 with optional GPIO and temperature in Celsius.
+
+Q: What's the default temperature the Pi 4 case fan turns on at?
+A: The default onTemp is 80 degrees Celsius.
+
+# Localisation options (non-interactive)
+
+Q: How do I set the timezone from the command line on my Pi?
+A: Run sudo raspi-config nonint do_change_timezone followed by Region/City format.
+
+Q: How do I set the keyboard layout from the terminal?
+A: Run sudo raspi-config nonint do_configure_keyboard followed by your keymap value.
+
+Q: How do I set the locale from the command line?
+A: Run sudo raspi-config nonint do_change_locale followed by your locale like en_GB.UTF-8.
+
+Q: How do I set the WLAN country code from the terminal?
+A: Run sudo raspi-config nonint do_wifi_country followed by your country code.
+
+# Advanced options (non-interactive)
+
+Q: How do I expand the filesystem from the command line?
+A: Run sudo raspi-config nonint do_expand_rootfs and then reboot to complete it.
+
+Q: How do I switch my Pi 4 to boot from NVMe first instead of SD card?
+A: Run sudo raspi-config nonint do_boot_order B2 to prioritise NVMe then USB boot.
+
+Q: How do I update the bootloader to the latest version from the command line?
+A: Run sudo raspi-config nonint do_boot_rom E1 to use the latest boot ROM.
+
+Q: How do I switch to Wayland from the command line?
+A: Run sudo raspi-config nonint do_wayland W2 to use labwc with the Wayland backend.
+
+Q: How do I switch to PipeWire audio from the command line?
+A: Run sudo raspi-config nonint do_audioconf 2 to switch to the PipeWire backend.
+
+Q: How do I switch back to PulseAudio from PipeWire using the command line?
+A: Run sudo raspi-config nonint do_audioconf 1 to switch back to PulseAudio.
+
 # Whole Document
 
-- What's raspi-config and do I actually need it?
-- I've got a fresh Raspberry Pi set up. What's the easiest way to configure it?
-- Does raspi-config change my config.txt file or does it have its own settings somewhere?
-- I don't see raspi-config in the menu anywhere. How do I get to it?
-- Wait, is there a difference between raspi-config in the terminal and the Control Centre thing in the desktop?
+Q: What's the difference between the GUI version of raspi-config and the terminal version?
+A: Some advanced configuration is only available in the CLI, not the Control Centre GUI.
 
-# Getting Started
+Q: I made a bunch of changes in raspi-config and exited. Do I need to restart my Pi?
+A: raspi-config will ask you to reboot on exit if necessary; reboot to ensure changes take effect.
 
-- How do I open raspi-config from the desktop?
-- I'm in the terminal. How do I launch the config tool?
-- How do I navigate raspi-config? My mouse isn't doing anything.
-- I'm in raspi-config and I can't figure out how to confirm my selection. What do I press?
-- Is there a quick way to jump to a specific thing in raspi-config instead of scrolling through everything?
+Q: Does raspi-config work the same on all Pi models?
+A: Available options may differ between Raspberry Pi models.
 
-# System Options
-
-- I want to connect my Pi to Wi-Fi. Where do I do that in raspi-config?
-- How do I change where my audio comes out of?
-- I want to change my Pi's password. Where's that in raspi-config?
-- My Pi shows up with a weird name on the network. How do I rename it?
-- I want my Pi to boot straight to the desktop without me having to log in. How do I set that up?
-- Can I make my Pi wait until it's connected to the internet before it finishes booting?
-- How do I turn off that boot splash screen? I want to see what's happening when it starts up.
-- Is there a way to change what the power LED does on my Pi?
-- How do I change the default web browser on my Pi?
-
-# Display Options
-
-- The edges of my screen are getting cut off. How do I fix that?
-- How do I stop my Pi's screen from going blank when I'm not using it?
-- I'm running my Pi without a monitor. How do I set the resolution for VNC?
-- How do I enable 4K 60fps output on my Pi?
-
-# Interface Options
-
-- How do I turn on SSH so I can connect to my Pi remotely?
-- I want to enable VNC on my Pi. Where do I do that?
-- How do I enable I2C on my Pi? I'm trying to connect a sensor.
-- I want to use SPI on my Pi. How do I turn that on?
-- I've got a temperature sensor that uses the 1-wire interface. How do I enable that?
-- How do I turn on remote GPIO access?
-- What's Raspberry Pi Connect and how do I enable it?
-
-# Performance Options
-
-- Can I overclock my Pi through raspi-config? Is it safe?
-- I overclocked my Pi and now it's unstable. How do I turn off overclocking without being able to boot properly?
-- How do I give my GPU more memory?
-- I want my Pi's fan to turn on at a different temperature. Can I change that?
-
-# Localisation Options
-
-- How do I change the timezone on my Pi?
-- My keyboard is typing the wrong characters. How do I change the keyboard layout?
-- How do I change the language or locale on my Pi?
-- I can't get Wi-Fi to work and I heard something about setting a country code. How do I do that?
-
-# Advanced Options
-
-- I cloned my Pi's SD card to a bigger one but it's not using all the space. How do I fix that?
-- Will it ask me to confirm before it expands the filesystem? I don't want to accidentally mess things up.
-- How do I change what order my Pi tries to boot from? Like USB first instead of SD card.
-- My Pi updated its bootloader and now something's broken. Can I go back to the old version?
-- How do I switch between X11 and Wayland on my Pi?
-- How do I switch from PulseAudio to PipeWire?
-
-# Non-Interactive raspi-config
-
-- Can I run raspi-config without the interactive menu? Like just from a script?
-- I'm trying to connect my Pi to Wi-Fi from the command line without any menus. How do I do that?
-- I've got a hidden Wi-Fi network. How do I connect my Pi to it from the terminal?
-- How do I enable SSH from the command line without going through the raspi-config menus?
-- I want to set the timezone from a script. What's the command for that?
-- How do I turn on I2C without using the interactive raspi-config menu?
-- I'm scripting a Pi setup and I need to set the hostname automatically. How do I do that?
-- How do I expand the filesystem from the command line?
-- I want to set my Pi to boot to desktop automatically using a script. What command do I use?
-- How do I overclock my Pi from the command line?
-- Can I update raspi-config itself from the terminal without going through the menus?
+Q: I'm worried about touching the advanced options in raspi-config. Should I be?
+A: Yes, advanced options changes may prevent your Pi from working; avoid unless instructed by an engineer.

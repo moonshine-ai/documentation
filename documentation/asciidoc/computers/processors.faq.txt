@@ -1,61 +1,131 @@
-# Whole Document
-
-What chips have been used in Raspberry Pi boards over the years?
-What's the difference between all the different Broadcom chips in the Raspberry Pi lineup?
-I'm trying to figure out what processor my Pi has. How do I know which chip is in my model?
-Is the Raspberry Pi 5 way more powerful than the Pi 4?
-
 # BCM2835
 
-What chip is in the original Raspberry Pi?
-My Pi Zero — what processor does it actually have inside it?
-I heard the BCM2835 datasheet has errors in it. Is there somewhere I can find a list of what's wrong?
-What kind of processor core does the BCM2835 use?
+Q: What Raspberry Pi models actually use the BCM2835 chip?
+A: Pi 1 Models A, A+, B, B+, Pi Zero, Zero W, and Compute Module 1.
+
+Q: What processor is inside the BCM2835?
+A: The BCM2835 contains a single-core ARM1176JZF-S processor.
+
+Q: I'm reading the BCM2835 spec sheet and something seems wrong. Is it just me?
+A: No, the peripheral specification document contains a number of known errors.
 
 # BCM2836
 
-What's different between the BCM2835 and the BCM2836?
-I've got an early Raspberry Pi 2. What chip does it have, and how many cores does it have?
-Wait, I heard the BCM2836 was discontinued. What does that mean for my Pi 2?
+Q: What's actually different between the BCM2836 and BCM2835? Like are they totally different chips?
+A: Only the processor changed — BCM2836 swaps in a quad-core Cortex-A7 cluster.
+
+Q: I've got an early Raspberry Pi 2. What chip is in it?
+A: Early Raspberry Pi 2 Model B boards use the BCM2836 chip.
+
+Q: I'm trying to find parts for a BCM2836-based project. Is that chip still being made?
+A: No, the BCM2836 SoC is discontinued.
 
 # BCM2837
 
-My Raspberry Pi 3 — how much faster is it than the Pi 2?
-What processor core does the Pi 3 use, and is it 64-bit?
-I've got a Compute Module 3. What chip is inside it?
-Is the BCM2837 still being made, or was it discontinued?
+Q: What boards use the BCM2837?
+A: Early Pi 3 Model B, some Pi 2 Model B versions, and Compute Module 3.
+
+Q: How much faster is a Pi 3 compared to Pi 2, roughly?
+A: The BCM2837's ARM cores run about 50% faster than Raspberry Pi 2.
+
+Q: What speed does the BCM2837 run at?
+A: The ARM cores run at 1.2 GHz, and the VideoCore IV runs at 400 MHz.
+
+Q: Is the BCM2837 still in production? Can I still get boards with it?
+A: No, this SoC is discontinued; affected devices are End-of-Life or use a different chip.
 
 # BCM2837B0
 
-What's different between the BCM2837 and the BCM2837B0?
-Why is the Pi 3 B+ faster than the original Pi 3?
-I heard the Pi 3 B+ runs cooler than earlier Pi 3 models. Why is that?
-How fast can the BCM2837B0 run compared to the regular BCM2837?
+Q: What's the difference between the BCM2837 and BCM2837B0?
+A: Same architecture, but BCM2837B0 has a higher rated frequency and includes a heat spreader.
+
+Q: My Pi 3B+ seems faster than my old Pi 3. Why's that?
+A: The BCM2837B0 runs ARM cores up to 1.4 GHz, about 17% faster than original Pi 3.
+
+Q: Why does the BCM2837B0 have that metal lid thing on top?
+A: It includes a heat spreader for better thermals, allowing higher clock speeds and temperature control.
+
+Q: Is the VideoCore in the BCM2837B0 64-bit like the ARM core?
+A: No, the ARM core is 64-bit but the VideoCore IV is 32-bit.
 
 # BCM2711
 
-What's so different about the chip in the Pi 4 compared to older Pis?
-Does the Pi 4 support 4K video?
-How much RAM can the Pi 4 handle?
-My Pi 4 has USB 3. How does that work — is it built into the chip?
-What GPU does the Pi 4 use, and how does it compare to the Pi 3's GPU?
-Does the Pi 4 have built-in Ethernet on the chip itself?
+Q: What chip is inside the Raspberry Pi 4?
+A: The Raspberry Pi 4 Model B uses the Broadcom BCM2711 chip.
+
+Q: How much faster is Pi 4 compared to Pi 3B+?
+A: The Pi 4 is about 50% faster than the Raspberry Pi 3B+.
+
+Q: Can the Pi 4 do 4K video?
+A: Yes, it supports H.265 4Kp60 decode and H.264 1080p60 decode.
+
+Q: How much RAM can the BCM2711 handle?
+A: It can access up to 8 GB of LPDDR4-2400 SDRAM depending on the model.
+
+Q: Does the Pi 4 have USB 3? And how does that work internally?
+A: Yes, USB 3 ports connect via a PCIe link incorporated into the BCM2711.
+
+Q: I want to connect two HDMI monitors to my Pi 4. Does the chip actually support that?
+A: Yes, the BCM2711 supports dual HDMI video output.
 
 # BCM2712
 
-What chip is in the Raspberry Pi 5?
-How much faster is the Pi 5 compared to the Pi 4?
-Does the Raspberry Pi 5 support Vulkan?
-Can the Pi 5 do 4K at 60fps on two displays at once?
-I've heard there are security vulnerabilities in the Pi 5's processor. Should I be worried?
-How do I check what security vulnerabilities my Pi 5 has and whether they're fixed?
-What's that command to see if my Pi's CPU vulnerabilities are patched?
-Does H264 decoding on the Pi 5 use a lot of CPU compared to the Pi 4?
-What's the RP1 chip I keep hearing about in relation to the Pi 5?
+Q: What chip is in the Raspberry Pi 5?
+A: Raspberry Pi 5 uses the Broadcom BCM2712 16nm application processor.
+
+Q: How much faster is Pi 5 compared to Pi 4?
+A: BCM2712 delivers roughly 2 to 3 times the performance of Raspberry Pi 4.
+
+Q: What CPU cores does the Pi 5 use?
+A: It uses a quad-core Arm Cortex-A76 cluster clocked at up to 2.4 GHz.
+
+Q: Does Pi 5 support Vulkan?
+A: Yes, the VideoCore VII supports OpenGL ES 3.1 and Vulkan 1.3.
+
+Q: Can the Pi 5 drive two 4K screens at 60fps?
+A: Yes, the improved display pipeline supports dual 4Kp60 output.
+
+Q: Is H.264 hardware decoded on Pi 5 or does it use the CPU?
+A: H.264 runs in software; 1080p60 decode uses roughly 50 to 60 percent CPU.
+
+## BCM2712 Vulnerabilities and mitigations
+
+Q: I heard the Pi 5's processor has some security vulnerabilities. Should I be worried?
+A: Known vulnerabilities exist but are all mitigated in Raspberry Pi OS.
+
+Q: How do I check what security vulnerabilities my Pi 5 has?
+A: Run `lscpu | grep Vulnerability | grep -v "Not affected"` in the terminal.
+
+Q: I'm running a third-party OS on my Pi 5. Are the security fixes still there?
+A: Not necessarily — third-party OSes may not include all latest mitigations in their kernel.
+
+Q: Wait, does Pi 5 use microcode updates for security fixes like a regular PC?
+A: No, Raspberry Pi ARM processors don't use microcode; all mitigations are at the kernel level.
 
 # RP3A0
 
-What chip is inside the Pi Zero 2 W?
-Can I overclock the Pi Zero 2 W, and if so how fast can it go?
-What's a System-in-Package — is that what the Zero 2 W uses?
-How is the Zero 2 W different from the original Pi Zero internally?
+Q: What chip is in the Pi Zero 2 W?
+A: The Pi Zero 2 W uses the Raspberry Pi RP3A0 System-in-Package chip.
+
+Q: What even is the RP3A0? I've never heard of it.
+A: It's Raspberry Pi's first System-in-Package, combining a BCM2710A1 die with 512 MB DRAM.
+
+Q: Can I overclock the Pi Zero 2 W?
+A: With a heat sink or cooling, it can potentially be overclocked from 1 GHz to 1.2 GHz.
+
+Q: How is the original Pi Zero different from the Zero 2 W in terms of memory setup?
+A: Original Pi Zero uses Package-on-Package DRAM soldered directly on top of the BCM2835.
+
+# Whole Document
+
+Q: I've got a bunch of different Pis. Is there an easy way to know which chip each one has?
+A: Not specified in this section.
+
+Q: Which Pi processor is the most powerful out of all these?
+A: The BCM2712 in Pi 5 is the most powerful, delivering 2 to 3 times Pi 4 performance.
+
+Q: Do all these Broadcom chips share the same basic architecture?
+A: Later chips build on earlier ones; BCM2836, 2837, and 2837B0 share the same underlying architecture.
+
+Q: I'm trying to find peripheral specs for my Pi. Where should I even start?
+A: Start with the BCM2836 Arm-local peripherals document, which applies to several chips.

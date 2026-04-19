@@ -1,45 +1,58 @@
-# Whole Document
-
-I want to customize my Raspberry Pi's kernel. Where do I even start?
-
-I've heard you can configure the Linux kernel but it sounds really complicated. Is there a menu-based way to do it instead of editing files by hand?
-
-I'm an advanced user and I want to enable support for some new hardware in my kernel. What's the general process for doing that?
-
 # Prepare to configure
 
-I'm trying to run menuconfig but it's throwing errors right away. What do I need to install first?
+Q: What do I need to install before I can use menuconfig?
+A: Install libncurses5-dev headers using sudo apt install libncurses5-dev.
 
-What's ncurses and why do I need it just to configure the kernel?
+Q: I'm trying to run menuconfig but it won't compile. What am I missing?
+A: You're probably missing the ncurses development headers; install libncurses5-dev first.
 
-I've got my kernel source downloaded. What do I need to do before I can actually start changing settings?
+Q: Do I need to download the kernel source before configuring anything?
+A: Yes, download kernel sources and install the default build configuration first.
 
-# menuconfig
+# `menuconfig`
 
-How do I actually launch the menuconfig thing once everything's installed?
+Q: How do I actually open the kernel configuration menu?
+A: Just run make menuconfig in your terminal to open the configuration utility.
 
-I'm trying to cross-compile a 64-bit kernel for my Pi. What's the menuconfig command for that?
+Q: I'm cross-compiling a 64-bit kernel. What command do I use for menuconfig?
+A: Run make ARCH=arm64 CROSS_COMPILE=aarch64-linux-gnu- menuconfig for 64-bit cross-compilation.
 
-Wait, is the command different if I'm building a 32-bit kernel versus a 64-bit one?
+Q: What about cross-compiling a 32-bit kernel, is the command different?
+A: Yes, run make ARCH=arm CROSS_COMPILE=arm-linux-gnueabihf- menuconfig for 32-bit.
 
-I've got menuconfig open but I don't know how to move around in it. How do I navigate the menus?
+Q: How do I move around inside menuconfig? I don't see a mouse cursor or anything.
+A: Use arrow keys to navigate, Enter to go into submenus, and Escape twice to go back.
 
-How do I go back to the previous menu in menuconfig? I keep accidentally going deeper into submenus.
+Q: How do I turn an option on or off in menuconfig?
+A: Press the space bar to toggle binary options on or off.
 
-I see options with arrows next to them in menuconfig. How do I open those?
+Q: I'm lost in a submenu. How do I get back out?
+A: Press Escape twice to go up a level or exit the current menu.
 
-How do I turn an option on or off in menuconfig?
+Q: Is there a help button if I don't understand what an option does?
+A: Yes, press the H key to get help on any option or menu.
 
-I don't understand what one of the options in menuconfig does. Is there a way to get more info on it?
-
-I just opened menuconfig for the first time and there are like a million options. Should I just start enabling everything I think sounds useful?
+Q: I want to enable a bunch of things right away. Is that okay?
+A: No, start small; it's relatively easy to break your configuration on the first attempt.
 
 # Save your changes
 
-I've finished making my changes in menuconfig. How do I save everything before I close it?
+Q: How do I save my changes when I'm done in menuconfig?
+A: Keep pressing Escape until prompted to save; it saves to the .config file by default.
 
-Where does menuconfig actually save my configuration to?
+Q: Can I back up my kernel config somehow so I don't lose it?
+A: Yes, just copy the .config file to save and reload your configuration anytime.
 
-Can I back up my kernel config so I can reuse it later or share it with someone?
+Q: After I've saved my kernel config, what's the next step?
+A: After customising and saving, you're ready to go ahead and build the kernel.
 
-I saved my kernel config and now I want to build the kernel. What do I do next?
+# Whole Document
+
+Q: Why would I even want to mess with the kernel configuration? What's the point?
+A: You can enable new hardware support or experimental network protocols through kernel configuration.
+
+Q: Is there an easier way to configure the kernel than editing config files by hand?
+A: Yes, menuconfig is the recommended interface; editing .config manually is harder.
+
+Q: I've never touched kernel settings before. Is this something a beginner should do?
+A: It's for advanced users; beginners should start small and get comfortable with the process.

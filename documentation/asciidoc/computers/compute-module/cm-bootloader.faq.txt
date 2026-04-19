@@ -1,39 +1,71 @@
+# Compute Module EEPROM bootloader
+
+Q: What's different about the bootloader on Compute Module 4 compared to older ones?
+A: CM4 uses an EEPROM bootloader stored on-board, not the boot partition.
+
+Q: I'm getting ready to ship a product using a Compute Module. What should I do first?
+A: Select a specific bootloader release, configure boot device, and enable write-protection.
+
+Q: How do I set which device the Compute Module boots from?
+A: Configure the boot device by setting the BOOT_ORDER in bootloader configuration.
+
+Q: Why should I enable write protection on the bootloader EEPROM before deploying a device?
+A: It prevents the bootloader being modified on remote or inaccessible embedded devices.
+
+# Flash Compute Module bootloader EEPROM
+
+Q: What's the command to actually flash the bootloader EEPROM on a Compute Module?
+A: Run `./rpiboot -d recovery` to write pieeprom.bin to the bootloader EEPROM.
+
+Q: Do I need to do anything special with the EEPROM_nWP pin when flashing?
+A: Make sure EEPROM_nWP is not pulled low before flashing, then pull it low after.
+
+# Flash storage devices other than SD cards
+
+Q: Can I flash NVMe drives on a Compute Module, or is it just SD cards?
+A: Yes, mass-storage-gadget supports flashing NVMe, eMMC, and USB block devices.
+
+Q: Is there a faster way to flash storage on a Compute Module than the normal rpiboot method?
+A: Yes, mass-storage-gadget writes devices faster than the firmware-based rpiboot mechanism.
+
+Q: I need to debug my Compute Module while flashing. Is there a way to get a console?
+A: Yes, mass-storage-gadget provides a UART console to the device for debugging.
+
+# Update the Compute Module bootloader
+
+Q: Why can't I just update the Compute Module bootloader the same way as a regular Pi?
+A: Compute Modules disable rpi-eeprom-update by default because eMMC isn't removable.
+
+Q: I heard there's a self-update mode for the bootloader. Is it safe to use?
+A: Be careful — a power failure during self-update could corrupt the EEPROM entirely.
+
+Q: Can I update the Compute Module bootloader over the network?
+A: Yes, self-update mode allows bootloader updates from USB MSD or network boot.
+
+# Modify the bootloader configuration
+
+Q: What boot order code do I use if I want my Compute Module to boot from the network?
+A: For network boot, set BOOT_ORDER to 0xf2 in the boot.conf file.
+
+Q: I want my Compute Module to try USB first and then fall back to eMMC. What setting is that?
+A: Use BOOT_ORDER=0xf15 for USB boot failing over to eMMC.
+
+Q: How do I set my Compute Module to boot from NVMe?
+A: Edit boot.conf and set BOOT_ORDER=0xf6 for NVMe boot.
+
+Q: After I edit the boot config file, what do I run to actually apply the changes?
+A: Run ./update-pieeprom.sh to generate a new pieeprom.bin image file.
+
+Q: How do I lock down the EEPROM so nobody can change the bootloader config later?
+A: Add eeprom_write_protect=1 to config.txt, then pull the EEPROM_nWP pin low.
+
 # Whole Document
 
-- What's different about the bootloader on Compute Module 4 compared to older ones?
-- I'm setting up Compute Modules for a product. What should I make sure to do before shipping them?
-- Where does the EEPROM bootloader actually live on the Compute Module?
+Q: What even is an EEPROM bootloader and why does it matter for Compute Modules?
+A: It's a bootloader stored on small on-board storage instead of the boot partition.
 
-# Compute Module EEPROM Bootloader Best Practices
+Q: I've got a Compute Module 4 project going to production. What are the big things I need to worry about?
+A: Pin a bootloader release, set BOOT_ORDER, and enable EEPROM hardware write-protection.
 
-- I've got a bunch of Compute Modules and I need them all running the same bootloader. How do I make sure they're consistent?
-- My Compute Modules are going into devices I can't physically access later. How do I protect the bootloader from being changed?
-- Where's the most stable bootloader version I can grab?
-
-# Flash Compute Module Bootloader EEPROM
-
-- How do I actually flash the bootloader EEPROM on a Compute Module?
-- Is setting up the hardware for flashing the EEPROM the same as flashing the eMMC?
-- What happens to the write protection pin after I'm done flashing the EEPROM?
-
-# Flash Storage Devices Other Than SD Cards
-
-- Can I flash NVMe or eMMC with something faster than the basic rpiboot tool?
-- I'm trying to debug my Compute Module during flashing. Is there a way to get a console output while I do it?
-- What's mass-storage-gadget and why would I use it instead of regular rpiboot?
-
-# Update the Compute Module Bootloader
-
-- Why isn't the EEPROM update service running on my Compute Module? Did something go wrong?
-- I want to update the bootloader without physically touching the device. Can I do that?
-- What's self-update mode and when would I use it?
-- I heard updating the bootloader over the network can be risky. What could go wrong?
-
-# Modify the Bootloader Configuration
-
-- I want my Compute Module to boot from the network. What do I set the boot order to?
-- How do I change the boot order on a Compute Module's EEPROM bootloader?
-- I want it to try USB first and then fall back to eMMC if that doesn't work. What's the boot order setting for that?
-- How do I turn on write protection for the EEPROM so nobody can mess with the bootloader?
-- After I edit the boot config, what do I run to actually apply the changes to the EEPROM image?
-- What file do I edit to change how the Compute Module boots?
+Q: Where can I find a stable bootloader release for my Compute Module?
+A: The usbboot repo always contains a recent stable bootloader release.

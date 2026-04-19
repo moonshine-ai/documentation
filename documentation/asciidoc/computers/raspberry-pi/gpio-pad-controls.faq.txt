@@ -1,59 +1,85 @@
 # GPIO pads control
 
-What even is GPIO drive strength? I thought it was just how much current a pin can put out.
+Q: What's the difference between GPIO drive strength and maximum current? Aren't they the same thing?
+A: Drive strength is max current where pad still meets spec, not a limit.
 
-So drive strength isn't a current limit? Then what does it actually mean?
-
-I'm connecting a device to a GPIO pin — how do I know what drive strength to set it to?
+Q: I've got a device connected to a GPIO pin and it's not working right. Could the drive strength be wrong?
+A: Yes, you should set drive strength to match the connected device's requirements.
 
 # Control drive strength
 
-How does it work under the hood when I change the drive strength setting?
+Q: How does changing the drive strength actually work inside the chip?
+A: More parallel drivers are enabled as drive strength increases, raising output current.
 
-I've got a Pi 4 and the drive strength numbers seem off compared to what I've read online. Is there something different about the 4-series?
+Q: I've got a Raspberry Pi 5 and the drive strength values look off. Is there something different about newer ones?
+A: On 4-series devices, current level is half the value shown in the diagram.
 
 # Current value
 
-Wait, if drive strength isn't the current the pin delivers, what IS it?
+Q: I set my GPIO drive strength to 16mA — does that mean it'll always output exactly 16mA?
+A: No, it's the maximum current where output voltage still meets specification.
 
-I set my GPIO pin high but it's not reading as high on the other end. Could the drive strength be the problem?
+Q: What voltage does a GPIO pin try to reach when you set it high?
+A: The pad tries to drive output to the rail voltage, which is 3point3 volts.
 
-What happens if I short a GPIO pin to ground while it's trying to drive high? Will it break?
+Q: What happens if I accidentally short a GPIO pin that's set high to ground?
+A: The pad tries to deliver maximum current and will eventually fail over time.
 
-Can a GPIO pin actually get damaged if it's fighting against a voltage on the line?
+Q: What are VOL and VOH and why do they matter?
+A: They're guaranteed minimum high and maximum low output voltage levels for GPIO.
 
-What are those VOL and VOH values? Do I need to care about them as a beginner?
+Q: I set drive strength to 2mA but I'm drawing 16mA from the pin. Will the voltage still be correct?
+A: No, output voltage won't meet the high-level guarantee and may not register correctly.
 
-I set my drive strength to 2mA but I need to pull more current than that — is that going to fry the pin?
+Q: Can I change the 3.3V reference voltage on a regular Pi to affect those GPIO voltage levels?
+A: Only Compute Module devices support changing VDD IO from the standard 3point3 volts.
+
+Q: I've got like 17 GPIO pins all running at once. Could that cause problems with my SD card?
+A: Yes, overloading GPIO can collapse the 3point3 volt supply and interfere with the SD card.
+
+Q: What's the maximum current the 3.3V supply was designed to handle per GPIO pin?
+A: The 3point3 volt supply was designed for a maximum of around 3mA per pin.
 
 # Safe current
 
-So what's the maximum safe current I can pull from a GPIO pin without killing my Pi?
+Q: How much current can I pull from a GPIO pin before I actually damage the Pi?
+A: Sixteen milliamps is the safe value that won't damage the device.
 
-I accidentally drew too much current from a pin — did I damage it? What's the safe limit?
+Q: Wait, so even if I set drive strength low but somehow draw 16mA, it won't break anything?
+A: Correct, drawing 16mA even at low drive strength settings won't damage the device.
 
 # GPIO addresses
 
-I want to configure the GPIO pads directly using registers. Where do I find the addresses for that?
+Q: What's the memory address I need for controlling GPIO pins 0 through 27?
+A: The pad control address for GPIO 0 to 27 is 0x7e10002c.
 
-What's that password field in the GPIO pad register? Do I have to include it every time I write to it?
+Q: What's the password I have to include when writing to the GPIO pad registers?
+A: You must write 0x5A in bits 31 to 24 as accidental write protection.
 
-What does the slew rate setting actually do, and should I mess with it?
+Q: What's the default setting for slew rate on GPIO pads, limited or not?
+A: Default slew rate setting is zero, meaning slew rate is limited by default.
 
-What's input hysteresis on GPIO? Is it on by default?
+Q: Is input hysteresis turned on or off by default on GPIO pins?
+A: Input hysteresis is enabled by default, with a reset value of one.
 
 # Drive strength list
 
-So what are the actual drive strength values I can set? Like what number maps to what current?
+Q: What number do I set if I want 8mA drive strength on a GPIO pin?
+A: Set drive strength to 3 for 8mA output.
 
-How do I set a GPIO pin to 16mA drive strength? What value do I write?
+Q: What's the highest drive strength value I can set and what current does that give?
+A: The highest setting is 7, which gives 16mA drive strength.
+
+Q: I want 12mA on my GPIO pin. What value do I write to the drive strength register?
+A: Write the value 5 to the drive strength register for 12mA.
 
 # Whole Document
 
-I've got a bunch of GPIO pins all switching at the same time and my Pi's acting weird. Could that be a power problem?
+Q: I'm worried about lots of GPIO pins switching at the same time. Is that a real problem?
+A: Yes, simultaneous switching outputs have limitations depending on PCB quality and load type.
 
-I'm powering several things off GPIO and I'm worried about the 3.3V rail. How much can I safely pull total?
+Q: So basically GPIO pins are voltage sources not current sources, right? What does that actually mean?
+A: Yes, pads drive toward a voltage and deliver whatever current the load demands.
 
-My SD card keeps having issues and I've got a lot of GPIO stuff going on. Could the GPIO be causing interference somehow?
-
-I'm new to GPIO — do I really need to understand all this drive strength stuff, or can I just leave it at defaults?
+Q: Is there any risk to my Pi if I load up too many GPIO pins with high current draws?
+A: Yes, total high current draw can collapse the 3point3 volt supply and cause instability.

@@ -1,75 +1,86 @@
-# Getting Started
+# Getting started
 
-What Raspberry Pi boards work with the AI Camera?
+Q: What boards can I use with the AI Camera?
+A: Use Raspberry Pi 4 Model B, Pi 5, Zero 2 W, or Pi 3 Model B+.
 
-I've got a Raspberry Pi Zero 2 W — can I use the AI Camera with that or is it only for Pi 5?
+Q: I just got my AI Camera, what's the first thing I should do software-wise?
+A: Update your Raspberry Pi software with sudo apt update and full-upgrade.
 
-How do I attach the AI Camera to my Raspberry Pi?
+Q: Do I need to do anything special to connect the AI Camera physically?
+A: Follow the Install a Raspberry Pi Camera instructions for your board.
 
-Do I need to update my Pi before setting up the AI Camera?
+# Install the IMX500 firmware
 
-What's the first thing I should do after plugging in the AI Camera?
+Q: What does installing imx500-all actually do? Like what gets put on my Pi?
+A: It installs firmware files, neural network models, post-processing stages, and Sony packaging tools.
 
-# Install the IMX500 Firmware
+Q: My camera's taking forever to start up after I installed everything. Is that normal?
+A: Yes, firmware loading can take several minutes if not previously cached.
 
-What's IMX500 firmware and why do I need it?
+Q: Where does it put all those neural network model files?
+A: Neural network model firmware files go into slash usr slash share slash imx500-models.
 
-How do I install the firmware for the AI Camera?
+Q: Do I have to reboot after installing the firmware or can I just keep going?
+A: Yes, you need to restart your Raspberry Pi after installing the prerequisites.
 
-My camera is taking forever to start up — is that normal or did something go wrong?
+# Object detection
 
-What does the `imx500-all` package actually install on my Pi?
+Q: How do I get bounding boxes showing up on my camera feed?
+A: Run rpicam-hello with the imx500_mobilenet_ssd.json post-processing file flag.
 
-Where does it put the neural network model files when I install the firmware?
+Q: What's actually doing the object detection, my Pi or the camera itself?
+A: All object detection runs directly on the AI Camera, not your Raspberry Pi.
 
-Why does my Pi show a progress bar when the camera starts?
+Q: I want to record video with the object detection boxes visible. Can I do that?
+A: Yes, use rpicam-vid instead of rpicam-hello with the same post-processing file.
 
-After installing everything do I need to restart my Pi or can I just run it straight away?
+Q: The detection output looks really jumpy and noisy. Is there a way to smooth that out?
+A: Temporal filtering and hysteresis are applied by default; remove temporal_filter config to disable.
 
-# Run Example Applications
+Q: How do I limit how many objects it tries to detect at once?
+A: Set the max_detections parameter in the imx500_object_detection stage configuration.
 
-What example apps can I run with the AI Camera?
+Q: It's detecting things it shouldn't. Can I make it more strict about what counts as an object?
+A: Yes, raise the threshold value to require higher confidence before detecting an object.
 
-# rpicam-apps
+# Pose estimation
 
-How do I run object detection on the AI Camera?
+Q: What does PoseNet actually track on a person's body?
+A: It labels key points associated with joints and limbs on the body.
 
-What's the command to start the live camera view with bounding boxes around objects?
+Q: Does pose estimation all happen on the camera like object detection does?
+A: No, PoseNet's output tensor needs additional post-processing on your host Raspberry Pi.
 
-I want to record a video with object detection boxes showing on it — how do I do that?
+Q: What command do I run to see pose estimation working on my camera feed?
+A: Run rpicam-hello with the imx500_posenet.json post-processing file at 1920x1080.
 
-How do I limit how many objects it tries to detect at once?
-
-The object detection seems really jumpy and noisy — is there a way to smooth that out?
-
-How do I turn off the temporal filtering on the object detection?
-
-What confidence threshold does the object detection use, and can I change it?
-
-How do I try the pose estimation thing that tracks body joints?
-
-What's the difference between how object detection and pose estimation work on the AI Camera — does it all run on the camera itself?
-
-What JSON files do I need for the post-processing and where are they stored?
+Q: Can I limit how many people it tries to track at once?
+A: Yes, set max_detections in the imx500_posenet stage to limit tracked bodies.
 
 # Picamera2
 
-How do I run the AI Camera examples using Picamera2?
+Q: Does Picamera2 support the AI Camera too, or is it just rpicam-apps?
+A: Yes, Picamera2 supports image classification, object detection, segmentation, and pose estimation.
 
-I want to try the Picamera2 object detection demo — what do I need to install first?
+Q: I want to use Picamera2 with the AI Camera. Do I need to install anything extra?
+A: Install python3-opencv and python3-munkres for the OpenCV-dependent examples.
 
-How do I get the Picamera2 example scripts onto my Pi?
+Q: How do I run YOLOv8 object detection with Picamera2?
+A: Run imx500_object_detection_demo.py with the imx500_network_ssd_mobilenetv2 model flag.
 
-What's the command to run YOLOv8 object detection with Picamera2?
-
-How do I try pose estimation using Picamera2?
+Q: Where do I find the Picamera2 AI Camera examples?
+A: Download the picamera2 GitHub repository; examples are in the root directory.
 
 # Whole Document
 
-I just got the Raspberry Pi AI Camera — where do I even start?
+Q: I've never used a Raspberry Pi camera before. Is this gonna be super complicated to set up?
+A: Setup involves attaching hardware, updating software, installing firmware, and rebooting.
 
-Do I need any special software to use the AI Camera or does it work out of the box?
+Q: What two neural network models come pre-packaged for the AI Camera?
+A: MobileNet SSD for object detection and PoseNet for pose estimation come pre-packaged.
 
-What kind of AI stuff can the Raspberry Pi AI Camera actually do?
+Q: What software frameworks work with the Raspberry Pi AI Camera?
+A: The AI Camera works with libcamera, rpicam-apps, and Picamera2.
 
-Does the AI processing happen on the camera itself or does my Pi have to do all the work?
+Q: Where are the post-processing JSON config files stored on my Pi?
+A: They're located in slash usr slash share slash rpi-camera-assets.

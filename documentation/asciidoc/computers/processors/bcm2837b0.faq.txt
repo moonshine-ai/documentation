@@ -1,29 +1,33 @@
 # BCM2837B0
 
-What's the difference between the BCM2837 and the BCM2837B0?
+Q: What Raspberry Pi models actually use the BCM2837B0 chip?
+A: Later Pi 2B, later Pi 3B, Pi 3A+, 3B+, and Compute Module 3+.
 
-Which Raspberry Pi models actually use the BCM2837B0 chip?
+Q: I've got a Pi 3B+ — how much faster is it than the original Pi 3?
+A: The 3B+ and 3A+ are about 17% faster than the original Pi 3.
 
-So the 3B+ is faster than the original Pi 3? Like how much faster are we talking?
+Q: What's the max speed the processor can run at in the BCM2837B0?
+A: The Arm cores can run at up to 1.4 GHz on the BCM2837B0.
 
-What speed can the ARM cores run at on the BCM2837B0?
+Q: Is the BCM2837B0 totally different from the BCM2837 or basically the same thing?
+A: The architecture is identical; only the clock frequency rating is higher.
 
-I keep hearing about the VideoCore IV — what speed does it run at on the Pi 3B+?
+Q: Why does my Pi 3B+ seem to run cooler than my older Pi 3? Is there a hardware reason?
+A: The BCM2837B0 includes a heat spreader for better thermal management.
 
-Is the ARM core on the BCM2837B0 64-bit or 32-bit?
+Q: Does the BCM2837B0 have a 64-bit processor or 32-bit?
+A: The Arm core is 64-bit, while the VideoCore IV is 32-bit.
 
-Why does the 3B+ run cooler than older Pi 3 models? Is there something different about the chip?
+Q: What speed does the VideoCore run at on this chip?
+A: The VideoCore IV runs at 400 MHz on the BCM2837B0.
 
-What's that metal thing on top of the BCM2837B0 chip? Is it just for looks or does it actually do something?
-
-Does the Compute Module 3+ use the same chip as the Pi 3B+?
+Q: Why does the Pi 3B+ handle higher clock speeds than the older Pi 3?
+A: The heat spreader allows higher clock frequencies and better temperature control.
 
 # Whole Document
 
-What chip is inside the Raspberry Pi 3B+?
+Q: I'm trying to figure out if my Pi has the BCM2837 or BCM2837B0 — what's the actual difference?
+A: BCM2837B0 has higher rated frequency, a heat spreader, and better thermal monitoring.
 
-I've got a Pi 3 Model A+ — what processor is in it?
-
-How is the BCM2837B0 different from what's in the older Pi 3 models?
-
-Why does the Pi 3B+ handle heat better than the original Pi 3?
+Q: So the BCM2837B0 is just a better-packaged version of the same chip basically?
+A: Yes, same underlying architecture, but packaged differently with a heat spreader added.

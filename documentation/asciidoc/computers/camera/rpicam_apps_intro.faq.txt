@@ -1,26 +1,53 @@
 # `rpicam-apps`
 
-What are all these rpicam apps that come with the Pi? Like what does each one do?
-My Pi is running an older version of Raspberry Pi OS and the rpicam commands aren't working. What's going on?
-I keep seeing both libcamera and rpicam mentioned everywhere. Are they the same thing or different?
-I just set up a fresh Pi with a camera — do I need to install anything to start taking photos, or is it already there?
-I want to capture raw sensor data from my camera, not like a processed image. Is there an app for that?
-I want the camera to automatically take a photo when it sees something, like object detection. How do I set that up?
+Q: I've seen both `libcamera-still` and `rpicam-still` mentioned. Are they the same thing?
+A: Yes, symbolic links let old `libcamera-*` names still work for now.
+
+Q: What's the difference between `rpicam-still` and `rpicam-jpeg`? They sound the same to me.
+A: `rpicam-jpeg` runs a preview then captures stills; `rpicam-still` emulates `raspistill`.
+
+Q: I just got a fresh Pi. Do I need to install anything to use the camera apps?
+A: No, fresh Raspberry Pi OS installs include the five basic `rpicam-apps` already.
+
+Q: What's `rpicam-hello` actually do? Is it just a test thing?
+A: It starts a camera preview stream and displays it on screen, like a hello world.
+
+Q: I want to capture raw unprocessed frames from the sensor. Is there an app for that?
+A: Yes, `rpicam-raw` captures raw Bayer frames directly from the camera sensor.
+
+Q: Can I build my own camera app based on this stuff, or is it locked down?
+A: Yes, `rpicam-apps` source is freely available under a BSD-2-Clause licence.
+
+Q: What about `rpicam-detect`? I don't see it on my Pi.
+A: It's not built by default; you need TensorFlow Lite installed to build it.
 
 # `libcamera`
 
-What even is libcamera? Do I need to understand it to just use my Pi camera?
-I heard most of the camera stuff runs on the GPU. Is that still true with libcamera or did that change?
-Does my Pi camera model work with libcamera? I've got the V2 module.
-I bought a third-party camera sensor and I'm not sure if it's supported. Where do I check?
-I want to write my own camera app for the Pi. Where do I even start?
-So libcamera handles things like auto exposure and white balance automatically? I don't have to set those up myself?
-My camera's not on the supported list. Is there any way to get it working, or am I just stuck?
+Q: What even is `libcamera`? Do I need to know about it to use the camera?
+A: It's an open-source library supporting cameras directly from Linux on Arm processors.
+
+Q: Does `libcamera` handle displaying my photos or encoding video itself?
+A: No, use `rpicam-apps` for encoding and displaying; `libcamera` doesn't do that itself.
+
+Q: I've got a third-party IMX519 sensor. Will it work with this?
+A: Yes, the IMX519 is listed as a supported third-party sensor in `libcamera`.
+
+Q: My camera has an IMX290 sensor in it. Is that going to be supported?
+A: Yes, the IMX290 is listed among supported third-party sensors.
+
+Q: What kind of auto-adjustment stuff does `libcamera` handle automatically?
+A: It handles auto exposure, gain control, auto white balance, and auto lens-shading correction.
+
+Q: I want to add support for a sensor that's not on the list. How do I do that?
+A: Contribute the new sensor support directly to the upstream `libcamera` project.
+
+Q: Does the Raspberry Pi use the exact same `libcamera` as everyone else, or is it different?
+A: Raspberry Pi OS uses a fork of `libcamera` to control updates separately.
 
 # Whole Document
 
-What's the difference between rpicam-still and rpicam-jpeg? They both take photos, right?
-I used to use raspistill on my old Pi setup. Is that still a thing or has it been replaced?
-Can I make my own custom camera application, or am I limited to the built-in rpicam tools?
-I just want to do a quick test to see if my camera's working. What's the easiest way to do that?
-What's the simplest rpicam app just to check everything's connected right?
+Q: I'm on an older Raspberry Pi OS before Bookworm. Should I use `rpicam` or `libcamera` commands?
+A: Versions before Bookworm still use the `libcamera-*` naming for camera applications.
+
+Q: What's the actual difference between `libcamera` and `rpicam-apps`? I keep confusing them.
+A: `libcamera` is the underlying library; `rpicam-apps` are the example CLI applications built on top.

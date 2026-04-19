@@ -1,55 +1,82 @@
-# Whole Document
+# RP1 I/O Controller
 
-What's RP1? I keep seeing it mentioned in Raspberry Pi 5 stuff but I don't really know what it is.
+Q: What exactly is RP1 and what does it do?
+A: RP1 is an in-house chip managing USB, Ethernet, GPIO, and storage interfaces.
 
-So is RP1 like a separate chip I can buy on its own?
+Q: Does RP1 work on its own, like can I buy it separately?
+A: No, RP1 isn't sold separately; it's built into Raspberry Pi 5 and Compute Module 5.
 
-Wait, is RP1 the same thing as the original Raspberry Pi? Like the first one they ever made?
-
-Why does Raspberry Pi even need two chips? Why not just put everything in one?
-
-I've got a Raspberry Pi 5 — does it have RP1 in it?
+Q: Wait, is RP1 the same as the original Raspberry Pi Model B?
+A: No, RP1 is not short for the first Raspberry Pi single-board computer.
 
 # RP1 Overview
 
-How big is RP1 physically? Like is it tiny or what?
+Q: How does RP1 connect to the main processor?
+A: RP1 connects to BCM2712 over a PCIe 2.0 x4 link on Raspberry Pi 5.
 
-How does RP1 actually talk to the main processor?
+Q: How big is the RP1 chip physically?
+A: RP1 measures approximately 12 by 12 millimetres in a BGA package.
 
-So what's BCM2712? Is that the main CPU in the Pi 5?
+Q: Why does Raspberry Pi even use a separate chip for I/O instead of just the main CPU?
+A: It offloads I/O tasks, continuing Raspberry Pi's traditional two-chip architecture.
 
 # Peripheral Interfaces
 
-What kind of USB ports does RP1 give you? Like how many and what speeds?
+Q: What USB ports does RP1 actually give you?
+A: Each USB host controller provides one USB 3.0 port and one USB 2.0 port.
 
-I've heard the Pi 5 has better USB than the Pi 4. Is that true and why?
+Q: I've heard RP1 improves USB bandwidth compared to older Pis. Is that true?
+A: Yes, RP1 provides more than twice the usable USB bandwidth compared to Raspberry Pi 4.
 
-Does RP1 handle the GPIO pins?
+Q: Does RP1 support cameras and displays?
+A: Yes, via two 4-lane MIPI transceivers supporting DSI and CSI-2 interfaces.
 
-So does RP1 manage the Ethernet too, or is that separate?
+Q: What low-speed interfaces does RP1 support?
+A: RP1 supports SPI, UART, I2C, PWM, GPIO, and I2S low-speed peripherals.
 
-What's MIPI? I keep seeing that term when I look at camera and display stuff for the Pi.
-
-Does RP1 support I2C and SPI? I want to connect some sensors.
+Q: Does RP1 have Ethernet built in?
+A: Yes, RP1 includes a Gigabit Ethernet MAC.
 
 # Internal Features
 
-What processors are actually inside RP1 itself?
+Q: What processors are inside RP1?
+A: RP1 integrates two Cortex M3 processors with tightly-coupled memories.
 
-Does RP1 have its own memory, or does it just use the main system RAM?
+Q: Does RP1 have any kind of analog input, like for reading sensor voltages?
+A: Yes, RP1 includes a 12-bit ADC with a built-in temperature sensor.
 
-What's DMA and why does it matter that RP1 has it?
+Q: How much onboard memory does RP1 have?
+A: RP1 has 64 kilobytes of shared SRAM.
 
 # Multimedia and Audio Components
 
-Can the Pi 5 do composite video output? Like the old yellow RCA connector?
+Q: Can RP1 do audio without needing extra hardware?
+A: Yes, RP1 supports delta-sigma PWM audio out without external codecs.
 
-Does RP1 handle the camera interface, or is that done by the main chip?
+Q: Does RP1 support composite video output?
+A: Yes, it has a 3-channel video DAC, but only one composite channel is used on Raspberry Pi 5.
 
-I want to connect a display directly to the GPIO pins. Is there hardware support for that or do I have to do it all in software?
+Q: I want to connect a microphone directly. Does RP1 support that?
+A: RP1 includes a PDM microphone clock generator and stereo bitstream input.
 
-Does RP1 support microphone input? I want to do some audio recording without buying extra stuff.
+Q: Can RP1 drive a display connected directly to GPIO pins?
+A: Yes, RP1 includes a DPI video frame generator for GPIO-connected displays.
 
 # RP1 Naming
 
-Why is it called RP1? What does the name actually mean?
+Q: Why is it called RP1? Does that mean it's the first Raspberry Pi?
+A: RP1 refers to Raspberry Pi's first embedded I/O controller chip, not the first Pi.
+
+Q: How does Raspberry Pi name its silicon chips?
+A: Names start with RP for Raspberry Pi, followed by a number indicating chip generation.
+
+# Whole Document
+
+Q: Which Raspberry Pi models actually have RP1 in them?
+A: RP1 is built into Raspberry Pi 5 and Compute Module 5.
+
+Q: I'm writing software that talks to RP1. Where should I start?
+A: Not specified in this section.
+
+Q: So is RP1 more like a microcontroller or something else?
+A: RP1 is an I/O controller, not a standalone microcontroller like Raspberry Pi microcontrollers.

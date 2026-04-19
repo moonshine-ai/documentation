@@ -1,45 +1,88 @@
 # Whole Document
 
-- I've got a Compute Module and I want to put an OS on it. Where do I even start?
-- What's the difference between a regular Compute Module and a Lite one when it comes to flashing?
-- I'm trying to flash my Compute Module but my computer isn't recognizing it. What should I do?
-- Can I use a Windows PC to flash a Compute Module or do I need Linux?
-- What do I actually need to buy or have before I can flash a Compute Module?
-- I want to flash the same image onto a bunch of Compute Modules at once. Is there a way to do that without doing them one at a time?
+Q: What even is eMMC and why do Compute Modules use it instead of a regular SD card?
+A: eMMC is on-board storage connected to the primary SD card interface on Compute Modules.
+
+Q: I've got a bunch of Compute Modules I need to flash all at once. Is there a faster way than doing them one by one?
+A: Use Raspberry Pi Secure Boot Provisioner to flash the same image to multiple modules.
+
+Q: Do all Compute Modules have built-in storage or not?
+A: Lite variants don't have on-board eMMC; other models include it as standard.
+
+# Prerequisites
+
+Q: What do I actually need to flash a Compute Module? Like what hardware and cables?
+A: You need a host computer, the matching IO Board, and a micro USB or USB-C cable.
+
+Q: Can I use my Windows laptop to flash a Compute Module or does it have to be Linux?
+A: You can use Linux, Windows 11, or macOS as your host device for flashing.
+
+Q: My computer isn't recognizing the Compute Module when I plug it in. What should I try?
+A: Try connecting the Compute Module directly to the host device, bypassing any USB hubs.
+
+Q: I've got a CM5. Do I need a specific IO board for it or will any of them work?
+A: You need the IO board that corresponds to your specific Compute Module model.
 
 # Set up the IO Board
 
-- I've got a CM5 IO board. How do I set it up to flash the eMMC?
-- What's that jumper thing I need to set before flashing? Like where does it go?
-- I have a CM4 IO board. Do I use USB-C or micro USB to connect it to my computer?
-- I connected everything up but my host computer still doesn't see the Compute Module. Could it be the USB hub causing problems?
-- The Compute Module doesn't seem to be sitting flat on the IO board. Is that a problem?
+Q: How do I set up a CM4 IO board to flash the eMMC? Like what do I need to do physically?
+A: Connect the module flat, fit nRPI_BOOT to J2, then connect micro USB port J11 to host.
+
+Q: What's the jumper setting I need to change on the CM5 IO board before I can flash it?
+A: Fit nRPI_BOOT to J2, which disables eMMC boot, on the IO board jumper.
+
+Q: I've got the older Compute Module IO board, not CM4 or CM5. How do I set it up differently?
+A: Set J4 USB SLAVE BOOT ENABLE to 1-2 equals USB BOOT ENABLED, then connect J15.
+
+Q: When I slot the Compute Module into the older IO board, how do I know it's properly connected?
+A: It should lie parallel to the board with engagement clips firmly clicked into place.
 
 # Set up the host device
 
-- I'm on a Mac and I want to flash a Compute Module. What do I need to install first?
-- How do I install rpiboot on Linux?
-- I ran rpiboot but now what? How do I know if the Compute Module showed up as a storage device?
-- I'm on Windows 11. Do I need to install any special drivers to get this working?
-- What's rpiboot even do? Why do I need it?
-- After I run rpiboot on my Mac it says the disk isn't readable. Did I do something wrong or is that normal?
-- Which Raspberry Pi should I use as a host device if I have a choice?
+Q: What's the best computer to use as the host when flashing a Compute Module?
+A: A Raspberry Pi 4 or newer running 64-bit Raspberry Pi OS is recommended.
+
+Q: How do I install rpiboot on my Linux machine?
+A: Run sudo apt install rpiboot to install it, or build it from source.
+
+Q: After I run rpiboot on Linux, how do I know the Compute Module showed up properly?
+A: Check the /dev/ directory for a new device, likely /dev/sda or /dev/sdb.
+
+Q: I'm on a Mac and I ran rpiboot and now it's saying the disk isn't readable. Did I mess something up?
+A: That's normal — just click Ignore and the Compute Module will appear as mass storage.
+
+Q: I'm on Windows and just installed rpiboot. What do I actually run to get the Compute Module to show up?
+A: Select rpiboot Mass Storage Gadget from the start menu after connecting the IO board.
+
+Q: During the Windows installation it opened some driver windows. Should I close them?
+A: Don't close any driver installation windows that appear during the installation process.
 
 # Flash the eMMC
 
-- Can I just use Raspberry Pi Imager to flash the Compute Module like I would a normal SD card?
-- How do I use dd to write an image to the Compute Module's eMMC?
-- After I flash it, how do I know it worked? Like what should I see?
-- I flashed the image but I want to edit some files on it before I boot. Can I mount the partitions?
+Q: Can I just use Raspberry Pi Imager to write to a Compute Module or do I need special tools?
+A: Yes, you can use Raspberry Pi Imager to flash an OS image to a Compute Module.
+
+Q: How do I use dd to write an image to the Compute Module's eMMC?
+A: Run sudo dd if equals your image of equals /dev/sdX with bs equals 4MiB.
+
+Q: After I've flashed the image, how do I check it worked and the partitions are there?
+A: Disconnect and reconnect the module; you should see /dev/sdX1 and /dev/sdX2 appear.
 
 # Boot from eMMC
 
-- Okay I've flashed the image, now how do I get it to actually boot from the eMMC?
-- I set the jumper to disable eMMC boot for flashing. What do I change it back to so it boots normally?
-- Do I need to unplug the USB cable before it'll boot from the eMMC?
+Q: I've finished flashing. What do I need to change to make it boot from eMMC now?
+A: Disconnect nRPI_BOOT from J2 on the IO board jumper, then power-cycle the board.
+
+Q: Once I've changed the jumper settings back, how do I actually start it up?
+A: Disconnect the USB slave port and power-cycle the IO board to boot from eMMC.
 
 # Known issues
 
-- My CM3 won't boot after I flashed it. Is that a known problem?
-- I'm having boot problems with my CM3 and someone mentioned something about the FAT32 partition. How do I fix that?
-- Is the USB bug with CM1 boards something I need to worry about?
+Q: My CM3 won't boot after I flashed it. Is that a known problem or did I do something wrong?
+A: A small percentage of CM3 devices have boot problems likely due to CPU and eMMC timing differences.
+
+Q: Is there a workaround for CM3 not booting? Like can I fix the partition myself?
+A: Yes, manually create partitions using parted and mkfs.vfat commands as a workaround.
+
+Q: I heard there's a USB bug with the original Compute Module 1. What's the deal with that?
+A: CM1 sends a slightly incorrect USB packet; most hosts ignore it but some ports don't work.

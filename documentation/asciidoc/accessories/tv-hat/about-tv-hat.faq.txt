@@ -1,38 +1,73 @@
-# Whole Document
-
-- What's the TV HAT actually for? Like what can I do with it?
-- I'm in the US. Will this TV HAT work for me?
-- Can I use this HAT with my older Raspberry Pi, like a Pi 1?
-- Does the TV HAT work with all Raspberry Pi models?
-
 # About
 
-- What tuner chip does the TV HAT use?
-- What TV standards does it support? Like DVB-T2 and stuff?
-- I want to watch TV directly on my Pi. Is that gonna work okay or will it be slow?
-- Can I use this thing as a TV server to stream to other devices, or does it only work on the Pi itself?
-- What frequencies does this thing pick up?
+Q: What's this TV HAT thing and what does it actually do?
+A: It lets you receive, view, or stream digital terrestrial TV on your Pi.
+
+Q: Can I use the TV HAT to stream TV to other devices on my network?
+A: Yes, you can use it as a TV server to stream to other network devices.
+
+Q: What Pi do I need if I want to watch TV directly on the Pi itself?
+A: Raspberry Pi 2 or later is recommended for viewing TV on the Pi.
+
+Q: What tuner chip is in the TV HAT?
+A: It uses a Sony CXD2880 TV tuner chip.
+
+Q: What channel bandwidths does DVB-T2 support on this thing?
+A: DVB-T2 supports 1.7, 5, 6, 7, and 8 MHz channel bandwidths.
 
 # About DVB-T
 
-- I'm in Canada. Will this TV HAT work for me?
-- What even is DVB-T? Do I need to understand it to use the HAT?
-- Does this thing support ATSC? That's what we use in North America.
-- Which countries can actually use this TV HAT?
+Q: Does this work in the US? I'm in North America.
+A: No, the TV HAT doesn't support ATSC, the North American digital TV standard.
+
+Q: What is DVB-T even? I keep seeing it mentioned.
+A: It's the European consortium standard for digital terrestrial television broadcast transmission.
+
+Q: My country doesn't use DVB-T. Will the HAT still work for me?
+A: Only DVB-T and DVB-T2 are supported, so it depends on your country's standard.
 
 # Install
 
-- How do I install the TV HAT onto my Pi? Like do I just push it on?
-- What software do I need to install to actually watch TV with this thing?
-- How do I install TVHeadend? What's the command?
-- It's asking me for an admin username and password during the TVHeadend install. Do I need to remember this?
-- I've got TVHeadend installed. How do I actually open it up?
-- I'm trying to connect to TVHeadend from another computer. What address do I type in?
-- It's asking me to set up user access in TVHeadend and I don't really know what to put. Can I just leave it open?
-- I don't know which TV transmitter to pick in the setup. How do I find my local one?
-- How long does the channel scan take?
-- I tried watching TV in the browser but it's really jerky and stuttery. What can I do?
-- Can I watch TV through VLC instead of the browser?
-- I've got an iPhone. Is there an app that works with TVHeadend?
-- What's a mux? I keep seeing that word and I don't know what it means.
-- The TV HAT can only do one mux at a time. Does that mean I can only watch one channel?
+Q: How do I actually install the software to get TV working?
+A: Run sudo apt update then sudo apt install tvheadend in the terminal.
+
+Q: I've got the HAT physically connected. Which way does it go on?
+A: Point the aerial adaptor away from the USB ports, then press gently onto GPIO pins.
+
+Q: I set up tvheadend but now I can't remember what password I chose. What do I do?
+A: Not specified in this section.
+
+Q: How do I connect to tvheadend from another computer?
+A: Open a browser and go to http://raspberrypi.local:9981/extjs.html on your network.
+
+Q: I don't know what to put in the allowed network field during setup. Can I just leave it?
+A: Leave Allowed Network blank and enter an asterisk in username and password fields.
+
+Q: I finished scanning and it found muxes but I don't see any channels yet. What's next?
+A: In Service Mapping, tick all three boxes to map services and create tags.
+
+Q: The video in my browser is really jerky. Is that normal?
+A: Yes, browser playback can be jerky; using a local media player is recommended instead.
+
+Q: How do I watch a channel in VLC instead of the browser?
+A: Click the i icon on a channel to get a downloadable stream file for VLC.
+
+Q: I don't know which TV transmitter to pick during setup. How do I find out?
+A: Use the Freeview website and enter your postcode to find your best local transmitter.
+
+Q: Can the TV HAT tune into multiple channels at once?
+A: No, it can only decode one mux at a time, though each mux contains several channels.
+
+Q: Is there an app I can use on my phone to watch TV from my Pi?
+A: Yes, tvheadend supports numerous apps including TvhClient for iOS.
+
+# Whole Document
+
+Q: I just got a TV HAT, what's the minimum Pi I should use?
+A: Any 40-pin Pi works as a server, but Pi 2 or later is best for local viewing.
+
+Q: Do I need a TV aerial to use this thing?
+A: Yes, you connect your TV aerial cable to the HAT's aerial adaptor.
+
+Q: What operating system do I need on my Pi for this to work?
+A: You need the newest version of Raspberry Pi OS installed on your Pi.

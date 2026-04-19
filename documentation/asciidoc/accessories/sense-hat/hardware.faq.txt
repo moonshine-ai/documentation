@@ -1,47 +1,47 @@
 # Features
 
-What sensors does the Sense HAT have on it?
+Q: What sensors does the Sense HAT actually have on it?
+A: It has gyroscope, accelerometer, magnetometer, temperature, pressure, humidity, and colour sensors.
 
-Does the Sense HAT have any buttons or controls, or is it just sensors?
+Q: Does the Sense HAT have any buttons or is it just sensors?
+A: It has a five-button joystick in addition to all the sensors.
 
-I've got a Sense HAT — does it measure temperature and humidity or just one of those?
+Q: I want the technical drawings for my Sense HAT. Where do I find those?
+A: Download schematics and mechanical drawings from the Raspberry Pi Product Information Portal.
 
-Wait, does the Sense HAT do colour detection too? I didn't know that was a thing.
-
-Where can I download the schematics for the Sense HAT?
-
-Is there a difference between the Sense HAT and the Sense HAT V2? Like are the specs different?
+Q: What's the difference between the Sense HAT and Sense HAT V2?
+A: Not specified in this section.
 
 # LED matrix
 
-So the LED grid on the Sense HAT — how does my code actually talk to it?
+Q: What kind of display is the LED grid on the Sense HAT?
+A: It's an RGB565 framebuffer with the device ID RPi-Sense FB.
 
-I want to write pixels to the LED matrix. How does that work at a low level?
+Q: How do I actually write to the LED matrix, like what's the method?
+A: Write to it like a standard file or use mmap on the appropriate device node.
 
-What's the framebuffer ID for the Sense HAT's LED display?
+Q: Is there example code showing how to use the LED display?
+A: Yes, the included snake example demonstrates how to access the framebuffer.
 
-I've heard there's a snake example included with the Sense HAT. What does it actually show you how to do?
-
-Is the LED matrix full colour or just single colour?
+Q: How many LEDs does the Sense HAT have?
+A: It has an eight by eight RGB LED matrix, totalling sixty-four LEDs.
 
 # Joystick
 
-How do I read button presses from the joystick on the Sense HAT?
+Q: How does the joystick show up to my Raspberry Pi, like what does the system see it as?
+A: It shows up as an input event device named Raspberry Pi Sense HAT Joystick.
 
-What's the joystick actually mapped to — like what keys does it show up as?
+Q: What keys does the joystick map to?
+A: The joystick maps to the arrow keys and the Enter key.
 
-I want to use pygame to handle the joystick input on my Sense HAT. Will that work?
+Q: I want to use pygame with the Sense HAT joystick. Will that work?
+A: Yes, pygame is listed as a suitable library for handling the joystick input.
 
-What libraries can I use to read input from the Sense HAT joystick?
+Q: What libraries can I use to read the joystick input?
+A: SDL, pygame, and python-evdev are all suitable libraries for joystick input.
 
-My game needs to detect when someone presses the little joystick button in the middle. What does that map to?
+Q: I don't want to use a library, I just want to read the joystick directly. Can I do that?
+A: Yes, you can access it directly through the evdev interface.
 
-The Sense HAT joystick — does it show up as a regular input device or do I need some special driver for it?
-
-# Whole Document
-
-I just got a Sense HAT. What can it actually do, like what's the full list of stuff?
-
-I'm a beginner and I want to start playing with the Sense HAT. Is there example code somewhere to get me started?
-
-Can I use the Sense HAT to build a weather station kind of thing?
+Q: Is there sample code for getting the joystick working?
+A: Yes, the included snake example shows how to access the joystick directly.

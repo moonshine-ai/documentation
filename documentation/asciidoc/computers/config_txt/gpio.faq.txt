@@ -1,43 +1,59 @@
-# GPIO control
+# `gpio`
 
-## `gpio`
+Q: How do I set a GPIO pin to a specific mode at boot without making a custom dt-blob.bin file?
+A: Use the `gpio` directive in `config.txt` to set pins at boot.
 
-How do I set a GPIO pin to a specific mode when the Pi boots up?
+Q: Can I set multiple GPIO pins at once, or do I have to do them one at a time?
+A: You can set a single pin, a range, or a comma-separated list together.
 
-I want GPIO 12 to be an output and start high at boot. How do I do that in config.txt?
+Q: I want GPIO12 to be an output that starts high. How do I write that?
+A: Use `gpio=12=op,dh` to set GPIO12 as a high output.
 
-Can I set a whole range of GPIO pins at once, or do I have to do them one by one?
+Q: What's the difference between `pu` and `pd` in the gpio directive?
+A: `pu` means pull up and `pd` means pull down for a pin.
 
-I used to need a custom dt-blob.bin file to set up GPIO at boot. Is there an easier way now?
+Q: If I have two gpio lines that both affect the same pin, which one wins?
+A: Settings appearing later in the file override those appearing earlier.
 
-What's the difference between `pu` and `pd` when setting GPIO pins?
+Q: I set a GPIO pin in config.txt but it's not showing up in sysfs. Is that normal?
+A: Yes, gpio directive changes don't export pins to the sysfs interface.
 
-If I set the same GPIO pin twice in config.txt, which one wins?
+Q: Can I use different GPIO settings depending on which Pi model I'm running?
+A: Yes, the gpio directive respects conditional filters like model or serial number.
 
-Can I use different GPIO settings depending on which Raspberry Pi model I'm using?
+Q: I powered on my Pi but the GPIO changes didn't seem to happen right away. What's going on?
+A: There's a delay of a few seconds before gpio directive changes take effect at boot.
 
-I set up a GPIO pin in config.txt but it doesn't show up in sysfs. Why not?
+Q: Will the GPIO settings I put in config.txt get overridden by anything?
+A: Yes, Device Tree pinctrl entries and utilities like pinctrl can override them.
 
-My GPIO settings in config.txt aren't kicking in right at boot — there seems to be a delay. Is that normal?
+Q: I'm booting my Pi over the network and the GPIO changes seem really slow to kick in. Is that expected?
+A: Yes, network or USB boot causes a longer delay before gpio changes take effect.
 
-The delay before my GPIO settings take effect is even longer than usual. I'm booting from USB. Could that be why?
+Q: How do I set pins 18 and 20 to use a pull-up resistor?
+A: Use `gpio=18,20=pu` in your config.txt file.
 
-Can my GPIO settings from config.txt get overridden by something else later?
+# `enable_jtag_gpio`
 
-How do I set a pin as an input with no pull resistor?
+Q: How do I enable the JTAG interface on my Raspberry Pi?
+A: Add `enable_jtag_gpio=1` to config.txt to enable the JTAG interface.
 
-I want to configure pins 17 through 21 all as inputs. Do I have to list them separately or can I do them all at once?
+Q: Which GPIO pins get used when I enable JTAG on the Pi?
+A: JTAG uses GPIO pins 22 through 27 in Alt4 mode.
 
-## `enable_jtag_gpio`
+Q: Does the JTAG GPIO thing work on all Pi models or just certain ones?
+A: It works on all models of Raspberry Pi.
 
-How do I enable the JTAG interface on my Raspberry Pi?
-
-Which GPIO pins get used when I turn on JTAG?
-
-Does `enable_jtag_gpio` work on all Raspberry Pi models or just certain ones?
+Q: Which pin is ARM_TDI when I've got JTAG enabled?
+A: GPIO26 is the ARM_TDI pin when JTAG is enabled.
 
 # Whole Document
 
-What do I put in config.txt to control GPIO pins at startup without writing custom firmware?
+Q: I want to configure GPIO at boot time without writing any extra code. Is that possible?
+A: Yes, use the `gpio` directive in config.txt to configure pins at boot.
 
-I don't want to write a dt-blob.bin file just to set up some GPIO pins. Is there another way?
+Q: Do GPIO changes in config.txt affect what the Linux kernel sees?
+A: No, they have no direct effect on the kernel at all.
+
+Q: Can I use alt modes like Alt2 or Alt4 through the gpio directive in config.txt?
+A: Yes, use attributes like `a2` or `a4` to select alternate pin modes.

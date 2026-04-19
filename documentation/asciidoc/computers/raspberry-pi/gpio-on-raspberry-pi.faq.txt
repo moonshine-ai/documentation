@@ -1,68 +1,105 @@
-# Whole Document
-
-- I just got my Raspberry Pi and there's this row of pins along the edge. What are those for?
-- Do all Raspberry Pi boards have GPIO pins?
-- I've got a Pi Zero — does it have GPIO pins or not?
-- What's the difference between GPIO on the regular Zero and the Zero H?
-
 # GPIO and the 40-pin header
 
-- How many pins are on the Raspberry Pi GPIO header?
-- Why aren't the GPIO pin numbers in order? That's really confusing.
-- What's the spacing between the pins on the GPIO header?
-- I see GPIO pins 0 and 1 mentioned but they seem weird — can I use those for my project?
+Q: Does every Raspberry Pi have those GPIO pins along the edge?
+A: All current Raspberry Pi boards have a 40-pin GPIO header.
+
+Q: My Pi Zero doesn't seem to have any pins soldered on. Is that normal?
+A: Zero devices without the "H" suffix ship unpopulated, with no headers soldered.
+
+Q: What can I actually do with the GPIO pins?
+A: Pins work as general-purpose input, output, or up to six alternate functions.
+
+Q: Wait, the pin numbers don't seem to go in order. Am I reading the diagram wrong?
+A: No, the GPIO numbering scheme is genuinely not in numerical order.
 
 # Outputs
 
-- So if I set a GPIO pin as an output, what voltages can it actually give me?
-- My GPIO pin is set as an output. How do I make it go high?
+Q: So when a GPIO pin is set to high, what voltage does it actually output?
+A: A high output pin is set to 3.3V; low is 0V.
 
 # Inputs
 
-- How do I read whether a GPIO pin is on or off?
-- What are pull-up and pull-down resistors and do I need to worry about them?
-- Which GPIO pins have built-in pull-up resistors that I can't change?
+Q: How do I read whether a GPIO pin is on or off?
+A: Input pins read as high at 3.3V or low at 0V.
+
+Q: Do I need to add my own pull-up resistors, or does the Pi handle that?
+A: You can configure pull-up or pull-down resistors in software for most pins.
+
+Q: I heard GPIO2 and GPIO3 are different from the other pins. What's special about them?
+A: GPIO2 and GPIO3 have fixed pull-up resistors that can't be changed.
 
 # View a GPIO pinout for your Raspberry Pi
 
-- I keep forgetting which pin is which. Is there a quick way to look that up right on the Pi?
-- How do I see the GPIO pin layout without looking it up online?
-- I've heard of GPIO Zero — what actually is that, and do I need to install it?
+Q: I can never remember which pin is which. Is there a quick way to check on the Pi itself?
+A: Run the `pinout` command in a terminal to see a GPIO reference.
+
+Q: Where does that pinout command come from? Do I need to install something?
+A: It's provided by the GPIO Zero Python library, installed by default in Raspberry Pi OS.
 
 # Permissions
 
-- I made a new user account and now they can't use the GPIO pins. How do I fix that?
-- Do I need to do anything special to get permission to use the GPIO pins?
-- What group do I need to be in to use GPIO?
+Q: I added a new user and now they can't use the GPIO pins. What's going on?
+A: New users must be manually added to the `gpio` group using `sudo usermod`.
+
+Q: What's the exact command to give a user access to GPIO?
+A: Run `sudo usermod -a -G gpio <username>` replacing username with theirs.
+
+Q: Does the default Pi user already have GPIO access or do I have to set that up?
+A: The default user account is already a member of the `gpio` group.
 
 # GPIO pads
 
-- What does "pad" mean when people talk about GPIO? I keep seeing that word.
-- Can I change how much current a GPIO pin can output?
-- What's Schmitt-trigger filtering and do I need to worry about it for basic stuff?
+Q: I keep seeing the word "pads" in datasheets. Is that the same as the GPIO pins?
+A: Yes, "pads" is a semiconductor term meaning the chip's connections to the outside world.
+
+Q: What settings can I actually control on the GPIO pads?
+A: You can configure pull-up/pull-down, drive strength, and Schmitt-trigger input filtering.
 
 # Power-on states
 
-- When I restart my Pi, do the GPIO pins stay in whatever state I left them in?
-- What happens to all the GPIO pins when the Pi first boots up?
+Q: When I restart my Pi, do the GPIO pins stay in whatever mode I set them to?
+A: No, all GPIO pins revert to general-purpose inputs on power-on reset.
 
 # Interrupts
 
-- Can a GPIO pin tell my program when something happens instead of me constantly checking it?
-- What's the difference between edge detection and level detection on a GPIO interrupt?
-- Why would I use asynchronous edge detection instead of the regular kind?
+Q: Can a GPIO pin trigger something automatically when its state changes?
+A: Yes, GPIO input pins can be configured as interrupt sources for the Arm processor.
+
+Q: What kinds of events can trigger a GPIO interrupt?
+A: Interrupts can trigger on high/low levels, rising/falling edges, or asynchronous edges.
 
 # Alternative functions
 
-- I want to use I2C on my Pi — which pins do I use for that?
-- Which pins support hardware PWM? I know software PWM works everywhere but I want the real thing.
-- Can I use SPI on my Raspberry Pi and if so which pins?
-- What's the difference between software PWM and hardware PWM?
-- I want to do serial communication with my Pi — which GPIO pins are TX and RX?
+Q: Can I use GPIO pins for I2C or SPI, or are those totally separate?
+A: GPIO pins support alternate functions including I2C, SPI, PWM, and serial communication.
+
+Q: Which pins support hardware PWM? I don't want to mess with software PWM.
+A: Hardware PWM is available on GPIO12, GPIO13, GPIO18, and GPIO19.
+
+Q: I want to set up I2C. Which GPIO pins do I use for that?
+A: I2C data is on GPIO2 and clock is on GPIO3.
+
+Q: What GPIO pins are used for serial TX and RX?
+A: Serial TX is on GPIO14 and RX is on GPIO15.
 
 # Voltage specifications
 
-- The GPIO pins are 3.3V right? So I can't just plug in a 5V sensor directly?
-- How much current can I actually pull from a GPIO output pin without breaking anything?
-- I've got a Pi 4 — are the GPIO voltage specs the same as older Pis?
-- What's the maximum current a GPIO pin can handle on a Pi 4?
+Q: I've got a 5V sensor. Can I just plug it into a GPIO pin?
+A: No, GPIO pins are 3.3V-tolerant; don't connect 5V components directly.
+
+Q: What's the maximum current I can pull from a GPIO output pin?
+A: At maximum drive strength the output current is 18mA low and 17mA high.
+
+Q: Are the voltage specs the same for a Pi 4 as older Pi models?
+A: No, BCM2711-based Pi 4 series devices have different voltage specifications than older models.
+
+# Whole Document
+
+Q: I want to connect an LED directly to a GPIO pin. Anything I should watch out for?
+A: Always use a resistor with LEDs to limit the current through them.
+
+Q: Can I plug a motor straight into the GPIO pins?
+A: No, use an H-bridge circuit or motor controller board instead.
+
+Q: I'm totally new to this. What's the easiest way to get started with GPIO on a Pi?
+A: Start with the `pinout` command and GPIO Zero library, installed by default in Raspberry Pi OS.

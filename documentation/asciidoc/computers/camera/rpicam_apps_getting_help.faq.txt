@@ -1,27 +1,22 @@
 # Getting help
 
-Where do I go if I'm having trouble with my Raspberry Pi camera?
+Q: My camera keeps crashing and I don't know who to ask. Where should I go for help?
+A: Post on the Raspberry Pi Camera forum or file a GitHub issue.
 
-There's a forum for camera stuff, right? How do I find it?
+Q: I'm about to post on the forum but I'm not sure what info I need to include. What should I have ready?
+A: Include OS version, libcamera version, camera model, Pi model, and console output.
 
-My camera app keeps crashing and I don't know who to ask. What should I do?
+Q: How do I find out what version of libcamera I've got installed?
+A: Run `rpicam-hello --version` to check your libcamera and rpicam-apps versions.
 
-I want to post on the forum about my camera problem but I'm not sure what information to include. What do they need to know?
+Q: I bought a third-party camera module and it's not working. Will the Raspberry Pi team help me?
+A: No, they don't support third-party camera module vendor software.
 
-How do I find out what version of libcamera I've got installed?
+Q: I think I found a bug in the camera software, not just a setup problem. Is there somewhere I can report that?
+A: Yes, create an issue in the rpicam-apps GitHub repository with full details.
 
-I'm using a third party camera module and I'm having issues. Will Raspberry Pi support help me with that?
+Q: What command do I run to check my operating system version before posting for help?
+A: Run `uname -a` to get your operating system version information.
 
-What's the command to check my operating system version before posting on the forum?
-
-Should I post on the forum or file a GitHub issue if my camera app is crashing?
-
-I want to report a bug in rpicam-apps. Where do I do that?
-
-# Whole Document
-
-My camera isn't working and I have no idea where to start. Who can help?
-
-I'm totally stuck with my Pi camera setup. What's the best way to get help?
-
-What info do I need to gather before asking for help with a camera problem?
+Q: I want to post on the forum but I don't know my Pi's memory size. Does that actually matter?
+A: Yes, you should report your Raspberry Pi model including its memory size.

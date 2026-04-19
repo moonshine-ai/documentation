@@ -1,53 +1,108 @@
-# Whole Document
-
-How do I make my Raspberry Pi more secure? Like what are the basics I should set up?
-I'm running my Pi as a server. What should I do to protect it from attacks?
-I'm new to this and worried about security. Where do I even start?
-
 # Require a password for `sudo` commands
 
-By default do I need a password to run sudo commands on my Pi?
-I want sudo to ask for my password every time. How do I set that up?
-How do I edit that sudoers file to require a password for sudo?
+Q: My Pi doesn't ask for a password when I run sudo. How do I make it require one?
+A: Edit the `010_pi-nopasswd` sudoers file and change your username entry to require a password.
+
+Q: I want sudo to stop working without a password. What file do I need to change?
+A: Edit `/etc/sudoers.d/010_pi-nopasswd` using `sudo visudo` to require a password.
+
+Q: After I change the sudo password setting, do I need to reboot for it to kick in?
+A: No reboot needed; your new sudo password preference takes effect immediately after saving.
 
 # Update Raspberry Pi OS
 
-How often should I be updating my Pi's operating system?
-Does keeping my Pi updated actually help with security?
+Q: Does keeping my Pi updated actually matter for security or is it just for new features?
+A: Only the latest OS distribution contains all the latest security fixes for your Pi.
+
+Q: How often should I be updating my Pi if I care about keeping it secure?
+A: Always keep your Pi updated to the latest version of Raspberry Pi OS for security fixes.
 
 # Automatically update your SSH server
 
-I use SSH to connect to my Pi. Is there a way to keep it updated automatically so I don't have to think about it?
-How do I set up a cron job to auto-update my SSH server?
+Q: I use SSH a lot. Is there a way to keep it automatically patched without thinking about it?
+A: Add a daily cron job running `apt install openssh-server` to keep SSH security fixes current.
+
+Q: Why would I need a separate cron job just for SSH if I'm already updating my whole system?
+A: It ensures you get the latest SSH security fixes promptly, independent of your normal update process.
 
 # Improve SSH security
 
-I'm connecting to my Pi over SSH with just a username and password. Is that safe enough or should I do something more?
-What's key-based authentication and is it better than using a password for SSH?
+Q: I'm using SSH with just a username and password. Is there something more secure I can do?
+A: Use key-based authentication instead of a username and password for more secure SSH access.
 
-## Enable and disable SSH users
+Q: What's the most basic way SSH is protected by default on a Raspberry Pi?
+A: By default, SSH requires a username and password to connect to your Raspberry Pi.
 
-I want to stop certain users from being able to log in over SSH. How do I do that?
-How do I allow only specific users to connect via SSH and block everyone else?
-I added some SSH restrictions but they don't seem to be working. Do I need to restart something?
-I've got multiple user accounts and I only want one of them to be able to SSH in. How do I set that up?
+# Enable and disable SSH users
+
+Q: I want to make it so only certain people can SSH into my Pi. How do I do that?
+A: Edit `/etc/ssh/sshd_config` and add an `AllowUsers` line listing the usernames you want.
+
+Q: Can I block specific usernames from logging in over SSH without blocking everyone else?
+A: Yes, add a `DenyUsers` line in `/etc/ssh/sshd_config` with the usernames you want blocked.
+
+Q: I edited the SSH config file but nothing changed. Did I forget a step?
+A: You need to restart the `sshd` service with `sudo systemctl restart ssh` after making changes.
 
 # Use a firewall
 
-Should I bother setting up a firewall on my Raspberry Pi?
-What's UFW? Is that easier than iptables for setting up a firewall?
-How do I install and turn on a firewall on my Pi?
-I set up UFW but I'm worried it's going to block my SSH connection. How do I make sure port 22 stays open?
-How do I check what rules my firewall currently has?
-Can I test what a UFW command would do without actually changing anything?
-I want to block a specific IP address from accessing my Pi. Can UFW do that?
-Someone keeps trying to brute-force my SSH login. Is there a way to limit how many times they can try to connect?
+Q: What firewall software would you recommend for a beginner on a Raspberry Pi?
+A: Uncomplicated Firewall, or UFW, offers a simpler interface than iptables and is easy to install.
+
+Q: Is iptables already on my Pi or do I need to install it?
+A: iptables is installed on Raspberry Pi OS by default but is not set up out of the box.
+
+Q: How do I install UFW on my Raspberry Pi?
+A: Run `sudo apt install ufw` to install UFW on your Raspberry Pi.
+
+Q: If I enable the firewall, will it stay on after I restart my Pi?
+A: Yes, enabling UFW with `sudo ufw enable` also ensures it starts up on every boot.
+
+Q: How do I open a specific port in the firewall so my app can get through?
+A: Use `sudo ufw allow` followed by the port number to allow access through that port.
+
+Q: I want to block a specific IP address from reaching a port. Can UFW do that?
+A: Yes, use `sudo ufw deny from` with the IP address and port number to block it.
+
+Q: I want to see what rules my firewall currently has. How do I check that?
+A: Run `sudo ufw status` to list all current firewall settings and rules.
+
+Q: Can I test what a UFW command would do without actually applying it?
+A: Yes, add `--dry-run` to any UFW command to see results without making actual changes.
+
+Q: I'm worried about people hammering my SSH port. Is there a way to limit that with UFW?
+A: Use `sudo ufw limit ssh/tcp` to deny connections after six attempts in thirty seconds.
+
+Q: Can I block just TCP traffic on a port or does the firewall have to block everything?
+A: Yes, you can specify TCP specifically, for example using `sudo ufw deny 22/tcp`.
 
 # Block suspicious activity with `fail2ban`
 
-What's fail2ban and do I need it?
-Someone keeps trying to log into my Pi over SSH with wrong passwords. How do I automatically block them?
-How do I install and set up fail2ban on my Raspberry Pi?
-I want to permanently ban anyone who fails to log in more than three times. How do I configure fail2ban to do that?
-How many failed login attempts does fail2ban allow by default before it blocks someone?
-Where's the fail2ban config file and how do I edit it?
+Q: What even is fail2ban and do I need it if I already have a firewall?
+A: Fail2ban checks log files for suspicious activity like brute-force logins and updates your firewall automatically.
+
+Q: How do I install fail2ban on my Pi?
+A: Run `sudo apt install fail2ban` to install it on your Raspberry Pi.
+
+Q: I installed fail2ban but I'm not sure if it's actually doing anything. How do I turn it on?
+A: Copy `jail.conf` to `jail.local` to enable Fail2ban after installation.
+
+Q: How many failed login attempts does fail2ban allow before it bans someone by default for SSH?
+A: The example SSH configuration allows six retries before Fail2ban blocks further activity.
+
+Q: Can I make fail2ban permanently ban someone after just a few failed attempts?
+A: Yes, set `maxretry` to three and `bantime` to a negative number for a permanent ban.
+
+Q: What does fail2ban actually do when it detects too many failed logins — does it just log it?
+A: It updates iptables via the configured ban action to block the offending IP address on all ports.
+
+# Whole Document
+
+Q: I just set up my Pi and I want to make it more secure. Where do I even start?
+A: Start with requiring a sudo password, keeping the OS updated, and securing or disabling SSH.
+
+Q: I'm running my Pi as a server exposed to the internet. What security things should I really have?
+A: Use a firewall like UFW, install fail2ban, secure SSH with key-based authentication, and keep it updated.
+
+Q: Do I need to know a lot about Linux networking to secure my Raspberry Pi?
+A: Not specified in this section.

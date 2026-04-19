@@ -1,69 +1,103 @@
-# Change the Default Pin Configuration
+# Change the default pin configuration
 
-What's the deal with custom pin configurations being deprecated? Does that mean I shouldn't bother with dt-blob anymore?
+Q: I heard custom pin configs via Device Tree blobs are going away. Is that true?
+A: Yes, custom default pin configurations via user-provided Device Tree blobs are deprecated.
 
-# Device Pins During Boot Sequence
+# Device pins during boot sequence
 
-My peripheral isn't responding right when the Pi boots up. Could it be a GPIO pin thing during startup?
+Q: What actually happens to the GPIO pins when my Pi boots up?
+A: Pins go through multiple configuration stages, from power-on defaults through kernel setup.
 
-So the GPIO pins change state multiple times during boot? Like, what order does all that happen in?
+Q: My peripheral isn't behaving right during boot. What's going on?
+A: GPIO pins may not be in the expected state until the full boot sequence completes.
 
-I've got something connected to a GPIO pin and it's acting weird on startup. What should I do to fix that?
+Q: I've got a peripheral that freaks out during boot because the pin state is wrong. What can I do about it?
+A: Choose a pin with correct default pulls, delay startup, or add a pull-up or pull-down resistor.
 
-What's the difference between a power-on reset and a soft reset for the GPIO pins?
+Q: Does a soft reset treat the GPIO pins the same way as a full power-on?
+A: Soft reset follows the same procedure, except default pulls only apply on power-on reset.
 
-My attached device needs a specific pin state right away on boot but the Pi takes a second to set things up. What are my options?
+Q: How long does it take for all the GPIO pin setup stuff to finish during boot?
+A: The process may take a few seconds to complete during bootup.
 
-# Provide a Custom Device Tree Blob
+# Provide a custom Device Tree blob
 
-How do I turn a `.dts` file into a `.dtb` file? Do I need a special tool for that?
+Q: How do I compile a dot dts file into a dot dtb file?
+A: Install device-tree-compiler and use the dtc command to compile the source file.
 
-I've got a Device Tree blob and I want to look at what's inside it. Can I convert it back to something readable?
+Q: What package do I need to install to compile Device Tree source files?
+A: Run sudo apt install device-tree-compiler to get the dtc tool.
 
-What do I need to install to compile a Device Tree source file?
+Q: Can I go the other way and convert a dtb file back to a dts file?
+A: Yes, use dtc with the -I dtb and -O dts flags to convert it back.
+
+Q: Where does the compiled dt-blob.bin file need to go?
+A: The output file goes to /boot/firmware/dt-blob.bin on your Pi.
 
 # Sections of the `dt-blob`
 
-What's the `dt-blob.bin` file actually for? Is it used by Linux or something else?
+Q: What's dt-blob.bin actually used for? Does Linux use it?
+A: It configures the VideoCore binary blob at boot time; Linux kernel doesn't currently use it.
 
-I've got a Compute Module 4 — is there a specific section in the dt-blob I need to use for it?
+Q: Can one dt-blob file work across different Pi models including Compute Modules?
+A: Yes, dt-blob can configure all Raspberry Pi versions including Compute Modules.
 
-What's the difference between `pins_rev1` and `pins_rev2`? Why are there separate sections for different Pi models?
+Q: What are the main sections you'd put inside a dt-blob file?
+A: The main sections are videocore, pins_*, pin_config, pin_defines, and pin at pinname.
 
-# `pin_config`
+Q: I've got a Pi 3 Model B+. What's the pins section called for my board?
+A: Use the pins_3bplus section for the Raspberry Pi 3 Model B+.
 
-So if I don't specifically set up a pin in `pin_config`, what happens to it? Is there some kind of default?
+Q: I'm using a Raspberry Pi Zero W. Which pins section do I use in the blob file?
+A: Use the pins_pi0w section for the Raspberry Pi Zero W.
 
-# `pin@pinname`
+Q: What's the difference between pins_rev1 and pins_rev2?
+A: Rev1 has moved I2C pins; Rev2 adds codec pins on P5.
 
-What settings can I actually configure for an individual GPIO pin in the Device Tree blob?
+Q: I want to set a default for any pin I haven't specifically named. How do I do that?
+A: Use the pin@default section inside pin_config for unnamed pins.
 
-I want to set a pin to be pulled up on boot. How do I do that in the Device Tree source?
+Q: What kinds of things can I actually configure for an individual pin?
+A: You can set polarity, termination, startup state, function, and drive strength.
 
-What drive strength values are valid for GPIO pins in the dt-blob?
+Q: What drive strength values are valid for pins in the blob file?
+A: Only 8 mA and 16 mA are valid drive strength values.
 
-# `pin_defines`
+Q: Can I set different drive strengths for individual pins in a bank?
+A: No, you can only specify a single drive strength for the whole bank.
 
-I want to move the HDMI hotplug pin to a different GPIO. Can I actually do that, and where do I set it?
+Q: What functions can I assign to a pin in the dt-blob?
+A: Functions include input, output, sdcard, i2c, spi, uart, pwm, pcm, dpi, and others.
 
-What's `pin_defines` for? How's it different from `pin_config`?
+Q: What's the pin_defines section for? What kind of stuff goes in there?
+A: It maps VideoCore functionality like camera power enable or HDMI hotplug to specific pins.
 
-# Clock Configuration
+Q: Can I move which pin controls the HDMI hotplug using the dt-blob?
+A: Yes, pin_defines lets you move the HDMI hotplug position to a different pin.
 
-Can I change clock frequencies through the Device Tree blob? Like, is that something that actually works reliably?
+# Clock configuration
 
-I need to give an audio codec a specific clock frequency. Can the Pi do that through the Device Tree?
+Q: Can I change the clock settings through the dt-blob file?
+A: Yes, but clock configuration is very complex and results can be hard to predict.
 
-How complicated is it to set up custom clock routing on a Raspberry Pi? I don't really know where to start.
+Q: How many PLLs does the Pi's clocking system have?
+A: There are five separate PLLs, each with its own VCO frequency.
 
-# Sample Device Tree Source File
+Q: I need to give my audio codec exactly 12288000 Hz. Can the Pi do that?
+A: Yes, the example configuration sets GPCLK0 to 12288000Hz for 48000 range audio codecs.
 
-Is there a sample Device Tree file I can look at to understand the format before writing my own?
+Q: What's the valid frequency range for PLLA's VCO?
+A: PLLA's VCO supports frequencies between 600 MHz and 2.4 GHz.
+
+# Sample Device Tree source file
+
+Q: Is there an example dt-blob file I can look at to get started?
+A: Yes, the firmware repository on GitHub contains a master Raspberry Pi blob file.
 
 # Whole Document
 
-I've never touched Device Tree files before. What's the basic idea of what they do on a Raspberry Pi?
+Q: I just want to understand the big picture. What is dt-blob.bin and why would I need it?
+A: It configures VideoCore GPIO pin states and functionality at boot before Linux takes over.
 
-I want to customize my GPIO pin setup at boot time. What's the recommended way to do that now that dt-blob is kind of deprecated?
-
-What files are involved in controlling GPIO pin states during the Pi's boot process?
+Q: Do I need to worry about all this Device Tree blob stuff for a normal Pi setup?
+A: Custom default pin configurations via dt-blob are deprecated, so probably not for most users.

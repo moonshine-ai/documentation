@@ -1,33 +1,51 @@
 # Change a user's password
 
-How do I change my password on the Raspberry Pi?
-I forgot what password I set up. Can I reset it from the command line?
-What's the quickest way to change the password without opening raspi-config?
+Q: How do I change my password on the Raspberry Pi?
+A: Use raspi-config or run the passwd command in the terminal.
+
+Q: I want to change my password but I don't know where to start. Is there like a menu option for that?
+A: Run raspi-config, then select option 2 and follow the instructions.
+
+Q: What's the quickest command to change my password without going through menus?
+A: Just run passwd in the terminal to change your current user's password.
 
 # Add a user
 
-How do I add a new user account on my Pi?
-I want to set up a separate account for my kid. How do I do that?
-Where does a new user's files get stored?
-I added a new user but they can't run sudo. How do I fix that?
-I made a new account but I'm not sure if it has the right permissions. How do I check?
-My new user seems to have the wrong keyboard layout after I added them. How do I fix that?
+Q: How do I add a new user account to my Pi?
+A: Run sudo adduser followed by the username you want to create.
+
+Q: I added a new user but they can't run sudo commands. How do I fix that?
+A: Run usermod to add them to groups including sudo, adm, and others listed.
+
+Q: Where does the new user's home folder end up when I create an account?
+A: It's created at /home/ followed by the new username you chose.
+
+Q: How do I check if the permissions actually worked after I added the new user?
+A: Run sudo su followed by the username; success means permissions are configured correctly.
+
+Q: My new user's keyboard is typing the wrong characters. What's going on?
+A: Sign in as that user and run sudo raspi-config nonint update_labwc_keyboard to fix it.
 
 # Delete a user
 
-How do I delete a user account I don't need anymore?
-I want to remove a user but keep their files. Can I do that?
-Does deleting a user also wipe out all their files?
+Q: I want to completely remove a user and all their files. What do I run?
+A: Run sudo deluser with the remove-home option to delete user and their directory.
+
+Q: Can I delete a user but keep their home folder just in case?
+A: Yes, run deluser without the remove-home option to preserve their home directory.
 
 # Change the default user
 
-How do I change which user automatically logs in when the Pi starts up?
-I don't want it to log in as the default user on boot. Can I change that?
-I switched the auto-login user but nothing changed. Do I need to reboot or something?
+Q: How do I make a different user log in automatically when the Pi boots up?
+A: Run raspi-config, select option 1 Boot/Auto login, then reboot your Pi.
+
+Q: I changed the auto login user but nothing happened. Did I do something wrong?
+A: You need to reboot your Pi after changing the setting in raspi-config.
 
 # Whole Document
 
-Wait, do I need to be an admin to do any of this user stuff?
-What's the difference between using raspi-config and just typing commands directly to manage users?
-I'm setting up a Pi for multiple people. What do I need to know about managing separate accounts?
-How do I make sure a new user has all the same access as the main account?
+Q: Is there a graphical way to manage users or is it all command line stuff?
+A: Not specified in this section.
+
+Q: I've never used sudo before. Do I need it for most of these user commands?
+A: Yes, most user management commands like adduser, deluser, and usermod require sudo.

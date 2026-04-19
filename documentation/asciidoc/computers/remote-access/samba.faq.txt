@@ -1,53 +1,70 @@
-# Whole Document
-
-What's Samba and do I need it on my Pi?
-How do I share files between my Raspberry Pi and my Windows computer?
-Does Raspberry Pi OS come with Samba already installed, or do I have to set it up myself?
-Can I use Samba to share files between my Pi and a Mac too, or is it just for Windows?
-
 # Install Samba on your Raspberry Pi
 
-How do I install Samba on my Raspberry Pi?
-I want to share folders between my Pi and my Windows PC. What do I need to install first?
-What's the command to get Samba up and running on Raspberry Pi OS?
+Q: Does Raspberry Pi OS come with Samba already installed?
+A: No, Samba is not included by default in Raspberry Pi OS.
+
+Q: How do I install Samba on my Pi?
+A: Run sudo apt update then sudo apt install samba samba-common-bin smbclient cifs-utils.
+
+Q: What does installing Samba actually give me, like what can I do with it?
+A: You can share folders between Windows, macOS, and Linux machines.
 
 # Mount a folder shared from Windows
 
-I've got a folder on my Windows PC and I want to access it from my Pi. How do I do that?
+Q: I want to access a folder from my Windows PC on my Pi. Where do I even start?
+A: First you need to enable sharing on your Windows device before mounting.
 
-## Turn on sharing
+Q: I'm trying to mount a Windows share but I'm not sure what the command looks like. What do I type?
+A: Use sudo mount.cifs followed by the hostname, share name, mount point, and username.
 
-Before I can access my Windows folder from the Pi, do I need to change any settings on the Windows side first?
-My Pi can't see my Windows shared folder. Did I forget to turn something on in Windows?
+Q: What info do I actually need to mount a Windows folder on my Pi?
+A: You need the Windows PC hostname or IP address, share name, and a Windows username.
 
-## Share the folder
+Q: After I mount the Windows share, how do I check it worked?
+A: Run ls windowshare/ to view the contents of the mounted Windows share.
 
-How do I actually share a specific folder from Windows so my Pi can see it?
-I right-clicked my folder but I'm not sure I set the permissions right. What should the permissions be for sharing with my Pi?
+Q: I'm getting a "host is down" error when trying to mount a Windows share. What's going on?
+A: SMB protocol versions don't match; append a version like vers=1.0 to your mount command.
 
-## Windows 10 Sharing Wizard
+Q: My NAS is giving me a host is down error. What version should I try?
+A: Older devices like some NAS may require version 1.0; try appending vers=1.0.
 
-Is there an easier way to share a folder on Windows 10? Like a wizard or something?
+Q: What SMB version does my Raspberry Pi use by default?
+A: Raspberry Pi OS uses SMB versions 2.1 and above by default, compatible with Windows 7.
 
-## Mount the folder on the Raspberry Pi
+Q: What SMB version do I need for a Windows 10 machine?
+A: Windows 10 uses SMBv3.1.1, which corresponds to version 3.11.
 
-Okay so I've shared the folder on Windows. Now how do I actually get it to show up on my Pi?
-What does "mounting" even mean? I keep seeing that word.
-What's the command to mount a Windows shared folder on my Raspberry Pi?
-Do I need to know my Windows username to mount the folder on my Pi?
-
-## "Host is down" error
-
-I'm getting a "host is down" error when I try to mount my Windows share, but the computer is definitely on. What's going on?
-My NAS says host is down when I try to mount it. Is there a fix for that?
-How do I know which SMB version to use when I'm getting that host is down error?
-I've got an older NAS and the mount command keeps failing. Could it be an SMB version mismatch?
+Q: I've got a Windows 7 PC. What SMB version should I be using?
+A: Windows 7 uses the SMBv2.1 protocol, corresponding to version 2.1.
 
 # Sharing a Folder from your Raspberry Pi
 
-How do I share a folder from my Pi so my Windows computer can see it?
-I want my Windows PC to be able to access files on my Raspberry Pi. Where do I start?
-What do I need to edit to make Samba share a folder from my Pi?
-I set up the shared folder but Windows is asking for a username and password. What do I put in?
-Where's the Samba config file on Raspberry Pi OS?
-My Windows PC can't see my Pi's shared folder. Could it be a workgroup name issue?
+Q: How do I share a folder from my Pi so Windows or Mac computers can see it?
+A: Create a shared folder, set a Samba password, and add the folder config to smb.conf.
+
+Q: I set up the shared folder but Windows still can't connect. What credentials do I use?
+A: Enter your Raspberry Pi username and password to mount the shared folder.
+
+Q: Where do I add the folder sharing settings in Samba?
+A: Add the share configuration at the end of the file /etc/samba/smb.conf.
+
+Q: Will people connecting to my shared Pi folder be able to write files, or just read them?
+A: The configuration sets read only to no and writable to yes, allowing read and write.
+
+Q: I've got a Windows workgroup set up. Do I need to configure that in Samba anywhere?
+A: Yes, find the workgroup line in smb.conf and change it to match your Windows network.
+
+Q: What's the smbpasswd command for and when do I need to run it?
+A: It sets your Samba password for the user account that will be used to access the shared folder.
+
+# Whole Document
+
+Q: What even is Samba? Do I need it to share files between my Pi and my Windows PC?
+A: Samba is a free reimplementation of SMB protocol for sharing folders across different operating systems.
+
+Q: Can I use my Pi to both access Windows shares and share its own folders?
+A: Yes, installing Samba supports both running a Samba server and a Samba client.
+
+Q: I just want to share files between my Pi and my Mac. Will Samba work for that?
+A: Yes, Samba lets you share folders between Windows, macOS, and Linux machines.

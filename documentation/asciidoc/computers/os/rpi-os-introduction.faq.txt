@@ -1,43 +1,50 @@
 # Introduction
 
-What's Raspberry Pi OS actually based on?
+Q: What's Raspberry Pi OS actually based on, like what's it built from?
+A: Raspberry Pi OS is a free, Debian-based operating system optimised for Raspberry Pi.
 
-How often do they release new versions of Raspberry Pi OS?
+Q: How often do they release new versions of Raspberry Pi OS?
+A: New releases happen roughly every two years, following Debian's release cycle.
 
-What's the difference between Raspberry Pi OS and regular Debian?
+Q: What's the newest version of Raspberry Pi OS right now?
+A: The latest version is based on Debian Trixie; the previous was Bookworm.
 
-Is Raspberry Pi OS free?
-
-What version of Raspberry Pi OS is the latest one?
+Q: I heard Raspberry Pi OS supports a ton of packages. How many are we talking?
+A: Raspberry Pi OS supports over 35,000 Debian packages.
 
 # Get Raspberry Pi OS
 
-What's the difference between the regular desktop version and the full version?
+Q: Where do I even download Raspberry Pi OS from?
+A: Get it through Raspberry Pi Imager or from raspberrypi.com/software/operating-systems.
 
-I want LibreOffice on my Pi. Which version of the OS should I download?
+Q: What's the difference between the regular desktop version and the full version?
+A: The full version adds LibreOffice, KiCad, Scratch, and many other applications.
 
-Does the desktop version come with a web browser already installed?
+Q: I just want a basic setup without a desktop. Is there a version for that?
+A: Raspberry Pi OS Lite has no graphical desktop, suited for headless servers.
 
-What's included in Raspberry Pi OS with desktop? Like what apps does it come with?
+Q: Does Raspberry Pi OS Lite come with a browser and VLC and stuff?
+A: No, Lite doesn't include a desktop, browser, VLC, or those bundled applications.
 
-I've got a Raspberry Pi Zero. Which version of the OS should I use?
+Q: I've got a Pi Zero — which version of Raspberry Pi OS should I be using?
+A: Raspberry Pi OS Lite is recommended for Pi 1, 2, and Zero computers.
 
-What's the Lite version for? Is it just a stripped down version with no desktop?
+Q: I'm on an older version and want to upgrade to the latest. Can I just do it in place?
+A: No, start fresh with a new image instead of doing an in-place upgrade.
 
-I'm setting up a headless server. Which version of Raspberry Pi OS should I pick?
+Q: Does Raspberry Pi OS come in both 32-bit and 64-bit?
+A: Yes, both 64-bit and 32-bit versions are available in all three editions.
 
-I see there's 32-bit and 64-bit versions. How do I know which one to get?
-
-I'm running an older version of Raspberry Pi OS and I want to upgrade to the latest one. Can I just do that in place or do I need to reinstall?
-
-I tried to update to the new major version and someone told me not to do an in-place upgrade. Why not?
-
-Where do I actually download Raspberry Pi OS? Like what's the website?
+Q: The desktop version — does it actually come with a web browser already installed?
+A: Yes, it includes both Chromium and Firefox web browsers out of the box.
 
 # Whole Document
 
-So is Raspberry Pi OS just Debian but tweaked for the Pi, or is it something completely different?
+Q: What is Raspberry Pi OS and do I need to pay for it?
+A: Raspberry Pi OS is free, Debian-based, and optimised for Raspberry Pi hardware.
 
-I've never set up a Pi before. What version of the OS should I start with?
+Q: I want to do Python stuff on my Pi. Does the desktop version have anything for that?
+A: Yes, the desktop edition includes the Thonny Python environment pre-installed.
 
-Does Raspberry Pi OS have access to normal Debian software packages?
+Q: Which edition of Raspberry Pi OS shows up by default when I open the Imager?
+A: Raspberry Pi OS with desktop is the default version shown in Raspberry Pi Imager.

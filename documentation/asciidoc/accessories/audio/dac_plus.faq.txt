@@ -1,33 +1,38 @@
 # Raspberry Pi DAC+
 
-What exactly is the DAC+ and what does it do?
+Q: What's the audio quality like on the DAC plus, like what's the max resolution?
+A: The DAC+ supports 24-bit audio at up to 192 kHz sample rate.
 
-What does 24-bit 192 kHz mean for audio quality? Is that actually better than what I'd normally get?
+Q: Does the DAC plus need its own power supply or does it run off the Pi?
+A: It's powered directly through the Raspberry Pi's GPIO header.
 
-I've got phono connectors on my DAC+ — what are those for exactly?
+Q: What kind of output connectors does the DAC plus have?
+A: It has phono connectors for analogue audio output.
 
-Does the DAC+ need its own power supply or does it just run off the Pi?
+Q: I've got a DAC plus and want to plug in headphones. Does it support that?
+A: Yes, it has a dedicated headphone amplifier built in.
 
-What chip does the DAC+ use for the audio?
+Q: What chip does the DAC plus use inside?
+A: It uses a Texas Instruments PCM5122 chip for analogue audio delivery.
 
-So the DAC+ has a headphone amp built in? How does that work?
+# Pinouts
 
-What's the voltage output on the analogue out? I'm trying to figure out if it'll work with my amp.
+Q: What's the P1 connector on the DAC plus actually for?
+A: P1 carries analogue audio out, GPIO27, mute signal, and ground connections.
 
-What's the MUTE signal on the P1 connector? Is that something I need to worry about?
+Q: What's the voltage range on the analogue output from P1?
+A: The analogue output on P1 is zero to two volts RMS.
 
-I'm looking at the P6 connector — what are all those pins for?
+Q: I'm trying to wire up headphones to the P6 connector. Which pin is left audio?
+A: Pin one on P6 is the left channel audio signal.
 
-How does the headphone detect feature work on this thing?
+Q: What does pin five on the P6 headphone connector do?
+A: Pin five on P6 is the detect signal for headphone detection.
 
 # Whole Document
 
-I want really high quality audio from my Raspberry Pi. Is the DAC+ the right thing to get?
+Q: So the DAC plus sits on top of the Pi, right? How does it connect?
+A: It connects via the Raspberry Pi GPIO header as a HAT.
 
-Can I use the DAC+ with any Raspberry Pi or just certain models?
-
-I want to connect my Pi to my stereo system with proper RCA cables. Will this let me do that?
-
-Does this replace the Pi's built-in audio, or does it work alongside it?
-
-I'm not great with electronics — is the DAC+ hard to set up or does it just plug in and work?
+Q: I want clean audio out of my Pi project. Would the DAC plus work for that?
+A: Yes, it delivers high-resolution 24-bit 192 kHz analogue audio output.

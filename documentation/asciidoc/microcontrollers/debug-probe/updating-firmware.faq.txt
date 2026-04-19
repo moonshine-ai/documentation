@@ -1,31 +1,31 @@
-# Whole Document
-
-How do I update the firmware on my Debug Probe?
-
-What's the latest version of the Debug Probe firmware?
-
-I think I accidentally overwrote my Debug Probe firmware. How do I fix that?
-
 # Updating the firmware on the Debug Probe
 
-How do I check what firmware version my Debug Probe is running?
+Q: How do I check what firmware version my Debug Probe is running?
+A: Run `lsusb -v -d 2e8a:000c | grep bcdDevice` to check the firmware version.
 
-I ran that lsusb command and it says bcdDevice 2.23 — what version is that actually?
+Q: Where do I download the latest Debug Probe firmware?
+A: Download it from the debugprobe GitHub repository at github.com/raspberrypi/debugprobe/releases/latest.
 
-When I check openocd it says FW Version 2.0.0 — does that mean my firmware is out of date?
+Q: What's the latest version of the Debug Probe firmware?
+A: The latest version of the Debug Probe firmware is version 2.2.3.
 
-Wait, the version number openocd reports is different from what lsusb shows. Which one's the real firmware version?
+Q: I accidentally wiped my Debug Probe firmware. How do I fix it?
+A: Download the latest UF2 file and flash it onto the Debug Probe via BOOTSEL mode.
 
-Where do I download the firmware update for the Debug Probe?
+Q: How do I actually update the firmware on my Debug Probe? Like what are the steps?
+A: Download the UF2, hold BOOTSEL while plugging in, then copy the file onto RPI-RP2.
 
-So I've got the UF2 file downloaded. How do I actually get it onto the Debug Probe?
+Q: OpenOCD says my firmware version is 2.0.0 but I just updated it. What's going on?
+A: That line shows the CMSIS-DAP protocol level, not the actual Debug Probe firmware version.
 
-I plugged in my Debug Probe but nothing's showing up as a drive. What am I doing wrong?
+Q: How do I get into bootloader mode on the Debug Probe to flash new firmware?
+A: Hold the BOOTSEL button while plugging the Debug Probe into your computer.
 
-Do I need to hold the BOOTSEL button the whole time I'm copying the file, or just when I plug it in?
+Q: After I copy the firmware file over, do I have to do anything else to finish the update?
+A: No, the volume dismounts automatically and the Debug Probe reboots with updated firmware.
 
-After I copy the file over, does it install automatically or do I have to do something else?
+Q: My lsusb command shows bcdDevice 2.23 — is that version 2.2.3 or something different?
+A: Yes, bcdDevice 2.23 means your Debug Probe is running firmware version 2.2.3.
 
-The RPI-RP2 volume disappeared while I was copying — did something go wrong or is that supposed to happen?
-
-How do I open up the Debug Probe casing to get to the BOOTSEL button?
+Q: I can't open my Debug Probe to get to the BOOTSEL button. How do I get inside it?
+A: Pinch the enclosure to remove the top and access the BOOTSEL button inside.

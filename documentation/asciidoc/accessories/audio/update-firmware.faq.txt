@@ -1,27 +1,41 @@
 # Whole Document
 
-- What even is an EEPROM and why would I need to update it on my audio board?
-- I just got a Raspberry Pi audio board and I'm wondering if I need to do anything to it before using it.
-- How do I update the firmware on my Raspberry Pi audio HAT?
+Q: What's the EEPROM for on a Raspberry Pi audio board?
+A: It stores info the Raspberry Pi uses to select the right driver at boot.
 
-# Updating your firmware
+Q: Do I need to do anything to my Pi before updating the audio board firmware?
+A: Yes, update Raspberry Pi OS to the latest version first before proceeding.
 
-- Do I need to do anything to my Pi before I start updating the audio board firmware?
-- I want to update my audio board's EEPROM but I don't know where to start.
+Q: I've got a Raspberry Pi audio board and want to update the firmware. How do I do that?
+A: Install rpi-audio-utils, then run sudo rpi-audio-flash from a terminal.
 
 # The EEPROM write-protect link
 
-- There are two little pads on my audio board — do I need to connect them to do anything?
-- Wait, do I actually have to solder something to update the firmware? What's the write-protect link thing about?
-- My Codec Zero board already has a tiny resistor bridging those two pads. Does that mean I don't need to do anything extra before flashing?
+Q: What's that write-protect link thing? Why do I need to mess with it?
+A: You must short the two pads to allow writing to the EEPROM during programming.
+
+Q: Do I always need to add a wire to those pads, or is it sometimes already done?
+A: Some boards like the Codec Zero already have a zero-ohm resistor bridging those pads.
+
+Q: I don't see two separate pads on my board, it looks like they're already connected. Is that okay?
+A: Yes, some boards have a resistor already fitted to bridge the write-protect link.
 
 # Program the EEPROM
 
-- Okay so how do I actually flash the firmware once the write-protect is dealt with?
-- What's the command to install the audio flashing tools?
-- I ran the flash tool and it's asking me to pick my hardware but I'm not sure which one to choose. Is there a list somewhere?
-- It says no HAT is present but I definitely have one plugged in. What do I do?
-- The firmware already says it's up to date — do I still need to flash it or can I just skip it?
-- My firmware failed to install and I got an error. What should I try first?
-- I seated the HAT again like it said but it's still failing. Is there anything else I can try?
-- How do I know when the firmware update is actually done?
+Q: What commands do I actually type to flash the firmware?
+A: Run sudo apt update, sudo apt install rpi-audio-utils, then sudo rpi-audio-flash.
+
+Q: I ran the flash tool and it's asking me to confirm something scary. Should I just say yes?
+A: Select Yes on the warning screen to proceed with flashing the firmware.
+
+Q: My audio board isn't showing up in the menu when I try to flash it. What's going on?
+A: You'll get an error screen if no HAT is present or it's not a Raspberry Pi Audio board.
+
+Q: It says the firmware is already updated on my board. Do I have to keep going?
+A: No, the tool will inform you that you don't have to continue if firmware is current.
+
+Q: The firmware failed to install. What should I try?
+A: Remove and reseat the HAT, then try running the flash process again.
+
+Q: How do I know when the flashing is done and it worked?
+A: A screen will display telling you the new firmware has been successfully installed.

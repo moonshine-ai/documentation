@@ -1,18 +1,28 @@
-# Whole Document
-
-- I want to compile a kernel module but I'm not sure what I need installed first. What do I need?
-- What even are kernel headers? Do I need them for something specific?
-- I'm trying to build a kernel module and it's failing. Could missing kernel headers be the problem?
-
 # Kernel headers
 
-- How do I install the kernel headers on my Raspberry Pi?
-- I've got a 64-bit Raspberry Pi OS. What's the command to get the kernel headers?
-- Wait, how do I know if I'm running 32-bit or 64-bit Raspberry Pi OS? The install command seems different for each.
-- I cloned the whole kernel from GitHub already. Do I still need to install the headers separately?
-- I just ran the apt command to install the kernel headers and nothing's happening. Is it frozen or something?
-- My kernel just updated and now my module won't compile. Could the headers be out of date?
-- I heard there's a delay before the headers on apt match the latest kernel. How do I get the newest ones right away?
-- I don't want to download the entire kernel source just to get the headers. Is there a smaller package I can install?
-- How long does it take to install the kernel headers? It's just sitting there with no output.
-- I'm on a 32-bit Pi and trying to install the headers but I'm not sure which package to use. What's the right one?
+Q: I'm trying to build a kernel module and it says I'm missing kernel headers. How do I get those?
+A: Install them with apt or clone the entire kernel from GitHub instead.
+
+Q: Do I already have the kernel headers if I cloned the kernel from GitHub?
+A: Yes, the headers are already included in the full kernel source tree.
+
+Q: What's the command to install kernel headers on the 64-bit version of Raspberry Pi OS?
+A: Run sudo apt install linux-headers-rpi-v8 on 64-bit Raspberry Pi OS.
+
+Q: I've got the 32-bit version of Pi OS. What do I run to get the kernel headers?
+A: Run sudo apt install linux-headers-rpi-{v6,v7,v7l} for 32-bit Raspberry Pi OS.
+
+Q: I ran the install command and nothing seems to be happening. Is it frozen?
+A: Installation takes several minutes and shows no progress indicator, so just wait.
+
+Q: I updated my kernel and now my module won't compile. Could it be a headers mismatch?
+A: Yes, you need headers matching your exact kernel version after any update.
+
+Q: I want the absolute latest kernel headers. Should I use apt or something else?
+A: Clone the kernel from GitHub directly for the most up-to-date header versions.
+
+Q: Why does apt have older headers than what my kernel is actually running?
+A: It can take several weeks for the apt package to reflect the latest kernel version.
+
+Q: Do I need the full kernel source just to compile a module, or is there a smaller option?
+A: You can install just the kernel headers with apt instead of the full source.

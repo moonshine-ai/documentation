@@ -1,67 +1,131 @@
-# Screen Blanking
+# Screen blanking
 
-How do I stop my Raspberry Pi from turning off the screen when I'm not using it?
+Q: My screen keeps going black after a while. How do I stop that from happening?
+A: Disable screen blanking via Control Centre or raspi-config command-line tool.
 
-My screen keeps going black after a few minutes. How do I turn that off?
+Q: How long does it take before the screen blanks by default?
+A: Raspberry Pi OS blanks the screen after ten minutes of inactivity.
 
-Where do I find screen blanking settings in the desktop?
-
-I don't have a desktop, just the command line. Can I still control screen blanking?
-
-How long does it take before the screen blanks by default?
+Q: I'm not sure if I should use the desktop settings or the terminal to change screen blanking. What's the difference?
+A: Desktop environment uses graphical tools; console mode uses kernel parameters instead.
 
 # Desktop
 
-I'm on the desktop environment. What's the easiest way to turn off screen blanking?
+Q: I want to turn off screen blanking but I don't really want to use the terminal. Is there another way?
+A: Use the Control Centre graphical app to toggle screen blanking on or off.
 
-Wait, I thought it was called Raspberry Pi Configuration, but I can't find it. Has it been renamed or something?
+Q: I'm using SSH to connect remotely and I need to change the screen blanking setting. How do I do that?
+A: Use raspi-config from the terminal; it's useful for remote SSH access.
 
-How do I get to the Control Centre? I can't find it.
+Q: I can't find Raspberry Pi Configuration anywhere. Did they rename it or something?
+A: Yes, it was renamed from Raspberry Pi Configuration to Control Centre.
 
-I'd rather use the terminal than click through menus. How do I turn off screen blanking from the command line?
+# Control Centre
 
-I'm SSH'd into my Pi and want to change the screen blanking setting. Can I do that without being at the desktop?
+Q: How do I turn on screen blanking using the desktop menus?
+A: Go to Preferences, Control Centre, Display tab, then toggle Screen Blanking on.
+
+Q: I opened Control Centre but I don't know where to find the screen blanking option.
+A: Open the Display tab inside the Control Centre window to find it.
+
+# CLI
+
+Q: What's the command I need to run to change screen blanking from the terminal?
+A: Run sudo raspi-config, then navigate to Display Options, then Screen Blanking.
+
+Q: I ran raspi-config but I don't know how to get around in it. What do I press?
+A: Use the arrow keys to navigate and press Enter or Return to select options.
 
 # Console
 
-I'm running my Pi without a desktop, just a terminal. How do I change how long before the screen blanks?
+Q: I'm running my Pi without a desktop, just a text terminal. How do I control screen blanking in that case?
+A: Use the consoleblank kernel parameter in the kernel command line.
 
-What's this consoleblank thing and how do I use it?
+Q: Does the screen blanking setting in raspi-config also work when I'm in text-only console mode?
+A: No, raspi-config only affects desktop sessions, not text-only console mode.
 
-I want my Pi's screen to never turn off when I'm in console mode. How do I do that?
+Q: What does consoleblank actually do?
+A: It specifies how long the console waits before turning off the screen.
 
-How do I check what the current screen blanking timeout is set to?
+# Set console mode screen blanking
 
-Do I need to reboot after changing the consoleblank setting, or does it take effect right away?
+Q: How do I stop the console from ever blanking the screen?
+A: Add consoleblank=0 to your cmdline.txt file to never blank the screen.
 
-I edited the cmdline.txt file but nothing changed. Did I forget something?
+Q: I edited the cmdline.txt file but nothing changed. Did I forget something?
+A: You need to reboot with sudo reboot for the changes to take effect.
 
-# Custom Fullscreen Splash Image
+Q: I want the console to blank after ten minutes. What value do I put in?
+A: Add consoleblank=600 to cmdline.txt to blank after 600 seconds.
 
-Can I show a custom image when my Raspberry Pi boots up instead of all that text?
+Q: Where's the file I need to edit for console screen blanking?
+A: Edit the file located at slash boot slash firmware slash cmdline.txt.
 
-What format does the splash screen image need to be in? Can I just use a regular PNG?
+# View the current screen blanking setting
 
-My image is bigger than my screen. Will it get scaled down automatically?
+Q: How do I check what my current screen blanking timeout is set to?
+A: Run cat /sys/module/kernel/parameters/consoleblank to see it in seconds.
 
-Is there an easy way to set up a boot splash screen, or do I have to do a bunch of manual config?
+# Custom fullscreen splash image
 
-What's this rpi-splash-screen-support package and do I need it for a splash screen?
+Q: Can I show a custom image when my Pi boots up instead of all those text messages?
+A: Yes, you can configure a fullscreen splash image to display during boot.
 
-My splash image shows up upside down when the Pi boots. How do I fix that?
+# File requirements
 
-I want to set up a boot splash but I don't want to use the apt package, I'd rather do it manually. How do I do that?
+Q: What image format does the splash screen need to be in?
+A: It must be an uncompressed TGA file, no other formats are supported.
 
-The splash screen shows up but then disappears and I get a login prompt. Is that normal?
+Q: My splash image is bigger than my screen. What happens to it?
+A: The image gets clipped and centred if the screen is smaller than the image.
 
-How do I convert my PNG to the right format for the splash screen?
+Q: How many colors can my splash screen image have?
+A: The image is limited to a maximum of 224 unique colours.
 
-I added the splash image but the cursor is still flashing on top of it. How do I get rid of that?
+Q: My image is smaller than the screen. Will it get stretched to fill it?
+A: No scaling is applied; remaining area fills with the color from the top-left pixel.
 
-# Whole Document
+Q: What's the maximum size my splash image can be?
+A: Maximum dimensions are 1920 by 1080 pixels.
 
-How do I stop my Pi's screen from going to sleep?
+Q: How do I convert my PNG image into the right format for the splash screen?
+A: Use ImageMagick's convert command with the correct flags to produce a TGA file.
 
-Can I show a custom image when my Raspberry Pi starts up?
+Q: Does the splash image support transparency?
+A: No, the format requires no alpha channel; transparency isn't supported.
 
-What's the difference between screen blanking on the desktop versus console mode?
+# Set up a fullscreen splash image
+
+Q: What are my options for setting up a boot splash screen? I'm not super technical.
+A: Use the apt package method for simpler setup, or manually edit cmdline.txt.
+
+Q: What's easier, using the apt package or editing the config file myself for the splash screen?
+A: The apt package method is more straightforward with minimal configuration needed.
+
+# Use the apt package
+
+Q: What package do I need to install to get a splash screen working easily?
+A: Install the rpi-splash-screen-support package to simplify splash screen setup.
+
+Q: I installed the splash screen package. Now what do I run to actually set my image?
+A: Run sudo configure-splash followed by the path to your TGA image file.
+
+Q: My splash image is showing upside down on boot. How do I fix that?
+A: Add the minus flip flag to the convert command, then rerun configure-splash.
+
+# Edit the `cmdline.txt` system file
+
+Q: I want to do the splash screen setup manually. What do I need to remove from cmdline.txt?
+A: Remove console=tty1, quiet, and any plymouth references from cmdline.txt.
+
+Q: What parameters do I need to add to cmdline.txt to enable the fullscreen splash?
+A: Add fullscreen_logo_name=logo.tga, fullscreen_logo=1, and vt.global_cursor_default=0.
+
+Q: Where does the Pi expect to find my splash image TGA file?
+A: The kernel expects the image file in the /lib/firmware directory.
+
+Q: My splash image shows during boot but disappears when the login prompt comes up. Is that normal?
+A: Yes, getty clears the splash and writes the login prompt when the system is ready.
+
+Q: Why do I need to add vt.global_cursor_default=0 to the kernel parameters?
+A: It removes the flashing cursor that would otherwise appear over your splash image.

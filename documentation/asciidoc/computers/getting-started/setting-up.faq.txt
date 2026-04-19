@@ -1,66 +1,103 @@
-# Whole Document
-
-- I just got a Raspberry Pi, what do I actually need to get it up and running?
-- What's the bare minimum I need to start using my Raspberry Pi?
-- I want to set up my Pi without a monitor or keyboard, is that possible?
-- I've never used a Raspberry Pi before, where do I even start?
-
 # Getting started with your Raspberry Pi
 
-- Do I need a keyboard and mouse for my Raspberry Pi or can I set it up without them?
-- What's a headless setup? I keep seeing that word and I'm not sure what it means.
-- If I'm doing a headless setup, what can I actually configure before I boot it up for the first time?
+Q: I just got a Raspberry Pi, what do I actually need to get it running?
+A: You need a power supply and boot media like a microSD card.
+
+Q: What's a headless setup? Do I need a monitor for that?
+A: Headless means network-only access, so no monitor or peripherals needed.
+
+Q: I don't want to plug in a keyboard or screen. Can I still use it?
+A: Yes, preconfigure hostname, user, network, and SSH during OS installation.
 
 # Power supply
 
-- What power supply do I need for my Raspberry Pi 5?
-- I've got an old phone charger lying around, can I use that to power my Raspberry Pi?
-- My Pi 4 keeps showing a lightning bolt on screen. Is it not getting enough power?
-- What's the difference between powering a Pi 5 with 5 amps versus 3 amps?
-- Which port do I plug the power into? There's a few ports that look the same on my Zero.
-- I've got a Pi 3 — does it use USB-C or micro USB for power?
+Q: What power supply does a Raspberry Pi 5 need?
+A: It needs a 5V/5A supply, like the official 27W USB-C power supply.
+
+Q: I've got a Pi 4, what charger should I be using for it?
+A: Raspberry Pi 4 needs a 5V/3A supply, like the 15W USB-C power supply.
+
+Q: My Pi Zero won't turn on. Am I using the wrong power supply?
+A: Pi Zero needs 5V/2.5A, use the official 12.5W Micro USB power supply.
+
+Q: I've got a Pi 5 but only a 3A charger. Will that cause problems?
+A: Yes, 5V/3A on a Pi 5 limits USB peripherals to only 600mA total.
+
+Q: There are two USB ports that look the same on my Pi. Which one do I plug power into?
+A: Use the port marked "POWER IN", "PWR IN", or "PWR" for power.
 
 # Boot media
 
-- Does the Raspberry Pi have any built-in storage or do I need to bring my own?
-- Can I boot my Raspberry Pi from a USB drive instead of an SD card?
-- What size SD card do I need for Raspberry Pi OS?
-- I'm installing the Lite version, how much storage do I actually need on my SD card?
-- Is there a maximum SD card size I should stick to?
-- My Raspberry Pi Zero won't boot and I'm using a 512 GB SD card, could that be the problem?
-- Does a faster SD card actually make a difference on a Raspberry Pi?
+Q: Does the Raspberry Pi have built-in storage or do I need to bring my own?
+A: Raspberry Pi models lack onboard storage, so you must supply your own.
 
-# Keyboard
+Q: Can I boot from a USB stick instead of an SD card?
+A: Yes, USB storage is supported, but only on more recent Raspberry Pi models.
 
-- Can I use a Bluetooth keyboard with my Raspberry Pi?
-- I don't have a USB keyboard, can I connect a wireless one?
+Q: What size SD card do I need for Raspberry Pi OS?
+A: At least 32 GB is recommended for Raspberry Pi OS installations.
 
-# Mouse
+Q: I'm installing the Lite version. Can I get away with a smaller SD card?
+A: Yes, Raspberry Pi OS Lite only needs at least 16 GB of storage.
 
-- What kind of mouse works with a Raspberry Pi?
-- Can I use my wireless Bluetooth mouse with a Pi?
+Q: I've got a 4TB SD card lying around. Will that work in a Pi?
+A: No, cards above 2TB aren't supported due to MBR limitations.
+
+Q: My Pi Zero won't boot from my big SD card. What's going on?
+A: Pi Zero only boots from a boot partition of 256 GB or less due to hardware limits.
+
+Q: Does a faster SD card actually make a difference?
+A: Yes, faster read and write speeds improve performance on your Raspberry Pi.
 
 # Display
 
-- My monitor doesn't have a micro HDMI port, how do I connect it to my Pi 5?
-- I've got two HDMI ports on my Pi 4, which one should I use for my main screen?
-- Can I connect my Raspberry Pi to a monitor using USB-C?
-- Does the Raspberry Pi Zero use a regular HDMI cable?
-- I want to connect my Pi to an old TV, can I do that?
-- My Pi 5 has two micro HDMI ports, can I run two monitors at the same time?
+Q: What kind of display port does the Raspberry Pi 5 have?
+A: Raspberry Pi 5 has two micro HDMI ports for display output.
+
+Q: My monitor doesn't have a micro HDMI port. Can I still connect it to my Pi 5?
+A: Yes, use a micro-HDMI-to-HDMI cable to connect to any standard HDMI display.
+
+Q: I've got two HDMI ports on my Pi. Which one should my main monitor go into?
+A: Plug your primary monitor into the port marked HDMI0.
+
+Q: Can I connect my monitor through the USB-C port on my Pi?
+A: No, no Raspberry Pi models support video over USB-C DisplayPort alt mode.
+
+Q: Does the Pi 4 have a headphone jack or audio out?
+A: Yes, it has a 3.5mm TRRS jack for audio and composite output.
 
 # Audio
 
-- How do I get audio out of my Raspberry Pi?
-- Does the Raspberry Pi have a headphone jack?
-- Can I connect Bluetooth headphones to my Raspberry Pi?
-- I've got a Pi 5 but I can't find a headphone jack on it, where did it go?
-- Can I get audio through the HDMI cable on my Raspberry Pi?
+Q: Can I get audio out of a Raspberry Pi without a headphone jack?
+A: Yes, all Pi models with HDMI support audio output over HDMI.
+
+Q: Does Raspberry Pi support Bluetooth speakers?
+A: Yes, all Raspberry Pi models equipped with Bluetooth support Bluetooth audio.
+
+Q: The audio from the headphone jack on my Pi seems really quiet. Is that normal?
+A: Yes, the 3.5mm jack may require amplification for sufficient output volume.
+
+Q: What ways can I get sound out of a Raspberry Pi?
+A: You can use HDMI, USB, Bluetooth, or the 3.5mm jack depending on your model.
 
 # Networking
 
-- Does my Raspberry Pi have built-in WiFi?
-- Which Raspberry Pi models have Bluetooth?
-- My Pi doesn't have an Ethernet port, can I still connect it to a wired network somehow?
-- Does the Raspberry Pi Zero have WiFi?
-- I've got a Pi 3 Model A, does it have an Ethernet port?
+Q: Does every Raspberry Pi have Wi-Fi built in?
+A: No, only flagship models since Pi 3B, Keyboard models, Zero W, and Pico W models.
+
+Q: My Pi doesn't have an Ethernet port. Can I still plug it into my router?
+A: Yes, you can connect via wired Ethernet using a USB-to-Ethernet adapter.
+
+Q: What does the "Model A" versus "Model B" naming actually mean?
+A: Model B includes an Ethernet port; Model A does not have one.
+
+# Whole Document
+
+Q: Do I need a mouse and keyboard to set up a Raspberry Pi?
+A: Only if using it directly with a desktop; headless setup needs neither.
+
+Q: I'm totally new to this. What's the bare minimum I need to buy to get started?
+A: At minimum you need a power supply and a microSD card with an OS.
+
+Q: Can I use any old Bluetooth keyboard and mouse with a Raspberry Pi?
+A: Yes, connect any Bluetooth keyboard or mouse using a USB Bluetooth receiver.

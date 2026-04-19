@@ -1,35 +1,71 @@
 # Whole Document
 
-- I've got a Raspberry Pi 5 — do I need to worry about any of these GPU memory settings?
-- What even is GPU memory? Like, why does the Pi need to reserve some of its RAM just for graphics?
-- I'm confused about whether changing GPU memory actually makes my Pi faster. Does it?
+Q: Do these GPU memory settings do anything on a Raspberry Pi 5?
+A: No, Raspberry Pi 5 doesn't allocate GPU memory on behalf of the OS.
+
+Q: I've got different Pi models and I don't want to keep editing config.txt for each one. Is there a way around that?
+A: Use gpu_mem_256, gpu_mem_512, or gpu_mem_1024 for per-RAM-size settings.
+
+Q: What even is gpu_mem and why would I need to change it?
+A: It reserves megabytes of memory exclusively for the GPU, leaving the rest for Linux.
 
 # `gpu_mem`
 
-- What's the default GPU memory on a Raspberry Pi with 1 gig of RAM?
-- I'm trying to get the best performance out of Linux on my Pi. Should I set GPU memory high or low?
-- My graphics aren't working right — could it be a GPU memory issue? How do I fix it?
-- I've got a Pi 4. Can I use less GPU memory than on older Pis?
-- What's the lowest I can set GPU memory to, and what breaks if I go that low?
-- I set GPU memory really high and now my Pi won't boot. What happened?
-- I'm using the camera on my Pi — do I need to bump up the GPU memory for that?
-- What's the maximum GPU memory I should set on a Pi with 512 megs of RAM?
+Q: What's the default GPU memory on my Pi if it has less than a gig of RAM?
+A: The default is 64 megabytes for Pis with less than one gigabyte of RAM.
+
+Q: Should I set GPU memory higher to get better graphics performance like on a normal PC?
+A: No, bigger gpu_mem values don't help and can actually hurt performance on Pi.
+
+Q: How low should I set the GPU memory to get the best performance out of Linux?
+A: Set gpu_mem to the lowest possible value for best Linux performance.
+
+Q: My graphics aren't working right. Could it be the GPU memory setting?
+A: Try increasing gpu_mem if a graphics feature isn't working, watching recommended maximums.
+
+Q: I've got a Pi 4 — does it handle GPU memory differently than older models?
+A: Yes, the Pi 4's 3D component uses dynamic Linux memory instead of gpu_mem allocation.
+
+Q: What's the maximum GPU memory I should set on a Pi with 512 megabytes of RAM?
+A: The recommended maximum for a 512MB Pi is 384 megabytes.
+
+Q: What's the highest I should set gpu_mem on a Pi 4 with a gig or more of RAM?
+A: The recommended maximum on Raspberry Pi 4 with 1GB or more is 76 megabytes.
+
+Q: I'm using libcamera for the camera. Do I need to bump up my GPU memory for that?
+A: No, libcamera uses Linux CMA memory for buffers, not GPU memory.
+
+Q: What's the minimum I can set gpu_mem to, and is there a catch?
+A: The minimum is 16, but that disables certain GPU features on your Pi.
+
+Q: Can setting GPU memory too high actually break things?
+A: Yes, setting it too large can cause problems including preventing Linux from booting.
 
 # `gpu_mem_256`
 
-- I'm swapping the same SD card between different Pis with different amounts of RAM. Do I have to keep editing the config file every time?
-- What does `gpu_mem_256` actually do differently from just setting `gpu_mem`?
+Q: I've got a Pi with 256 megs of RAM. What setting do I use for just that model?
+A: Use gpu_mem_256 to set GPU memory specifically for 256MB Raspberry Pis.
+
+Q: Does gpu_mem_256 do anything if my Pi actually has 512 megs of RAM?
+A: No, gpu_mem_256 is ignored if your Pi doesn't have exactly 256MB of memory.
 
 # `gpu_mem_512`
 
-- If I set `gpu_mem_512` but I'm running it in a Pi with 1 gig of RAM, does it do anything?
+Q: What happens to gpu_mem_512 if my Pi has a gig of RAM instead of 512 megs?
+A: It's ignored — gpu_mem_512 only applies to Pis with exactly 512MB of memory.
 
 # `gpu_mem_1024`
 
-- I've got a Pi with 2 gigs of RAM. Which GPU memory setting applies to me — is it the 1024 one?
+Q: Does gpu_mem_1024 work on a Pi with exactly 512 megs of RAM?
+A: No, gpu_mem_1024 is ignored if your Pi has less than one gigabyte of memory.
 
 # `disable_l2cache`
 
-- What's the L2 cache and why would I ever want to disable it?
-- My Pi uses a BCM2835 chip — what's the default setting for the L2 cache thing?
-- Do I need to do anything special to disable the L2 cache, like use a different kernel?
+Q: What does disable_l2cache actually do?
+A: It disables the CPU's access to the GPU's L2 cache when set to one.
+
+Q: What's the default for disable_l2cache on older BCM2835 based Pis?
+A: The default on BCM2835 is zero, meaning L2 cache access is enabled.
+
+Q: Why is disable_l2cache set to one by default on newer Pi models?
+A: BCM2836 and newer Arm CPUs have their own L2 cache, so GPU cache access isn't needed.

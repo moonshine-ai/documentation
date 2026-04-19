@@ -1,39 +1,37 @@
 # About the Camera Modules
 
-# Whole Document
+Q: What's the difference between the standard camera module and the NoIR version?
+A: NoIR versions capture both visible light and infrared, standard captures visible light only.
 
-- What camera modules does Raspberry Pi make?
-- I'm trying to pick a camera for my Pi project. What are my options?
-- Are Raspberry Pi cameras compatible with all Pi models?
+Q: I'm looking at camera modules and I see Camera Module 1 but I can't find it to buy. Is it discontinued?
+A: Yes, Camera Module 1 is no longer available from Raspberry Pi.
 
-# Camera Module 1
+Q: How many megapixels is the Camera Module 3?
+A: Camera Module 3 is a 12-megapixel camera with four different variants available.
 
-- I've got an old Camera Module 1 — can I still buy one of those new?
+Q: What's special about the Global Shutter Camera? Why would I want it over a regular one?
+A: It captures all pixels at once, making it ideal for fast-motion photography.
 
-# Camera Module 2
+Q: Does the High Quality Camera come in a NoIR version?
+A: No, the High Quality Camera is unavailable as a NoIR version.
 
-- What's the megapixel count on the Camera Module 2?
-- Does the Camera Module 2 come in a version that can see infrared?
+Q: I want to use my own lens with a camera module. Which ones support that?
+A: The High Quality Camera and Global Shutter Camera both support external lenses via mounts.
 
-# Camera Module 3
+Q: Can I use a camera module with any Raspberry Pi?
+A: Camera modules work with all Raspberry Pi computers that have CSI connectors.
 
-- What's different about the Camera Module 3 versus the Camera Module 2?
-- I want a wider angle on my camera shots. Does the Camera Module 3 come in a wide version?
-- How many versions of the Camera Module 3 are there? I keep seeing different ones listed.
+Q: What's the AI Camera and why would I use it instead of a regular camera module?
+A: It offers low-latency AI capabilities and easy neural network model deployment for camera applications.
 
-# High Quality Camera
+Q: How many variants does the Camera Module 3 come in exactly?
+A: Camera Module 3 comes in four variants: standard and wide FoV in standard and NoIR.
 
-- What's the High Quality Camera and how's it different from the regular camera modules?
-- I want to use my own lens with a Pi camera. Which one lets me do that?
-- Does the High Quality Camera come in a NoIR version?
+Q: I want to do fast action shots. Which Raspberry Pi camera should I get?
+A: The Global Shutter Camera is ideal for fast-motion photography due to its global shutter mechanism.
 
-# AI Camera
+Q: What's the resolution difference between Camera Module 2 and Camera Module 3?
+A: Camera Module 2 is 8 megapixels and Camera Module 3 is 12 megapixels.
 
-- What's the AI Camera? Like, what makes it different from the other ones?
-- I want to run a neural network on my Pi camera feed. Is there a camera that makes that easier?
-
-# Global Shutter Camera
-
-- What's a global shutter and why would I want it?
-- I'm photographing fast-moving stuff and getting blurry images. Is there a Pi camera that handles that better?
-- How many megapixels does the Global Shutter Camera have?
+Q: Where can I find out how all these cameras compare in terms of specs?
+A: Check the hardware specifications page to compare all camera module characteristics.

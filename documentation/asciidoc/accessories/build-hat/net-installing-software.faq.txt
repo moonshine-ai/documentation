@@ -1,29 +1,46 @@
-# Whole Document
-
-- I want to control a Build HAT using .NET on my Raspberry Pi. Where do I even start?
-- Is .NET available through apt on Raspberry Pi or do I have to install it some other way?
-- I'm trying to use a Build HAT with C# but I don't know how to get started. What do I need to install first?
-
 # Install the .NET Framework
 
-- I tried to install .NET with apt and it didn't work. How am I supposed to get it on my Pi?
-- There's this install script I found online but I'm nervous about running it as root. Should I be worried?
-- How do I actually install .NET on a Raspberry Pi? Microsoft's instructions seem really complicated.
-- After I get .NET installed, how do I create a new project for my Build HAT?
-- What are those nuget packages I need and how do I install them?
-- I've got .NET set up and I made a project, but what directory do I need to be in to keep working?
-- Wait, why do I need those System.Device.Gpio and Iot.Device.Bindings packages? What do they actually do?
+Q: Why can't I just use apt to install .NET on my Raspberry Pi?
+A: The .NET framework from Microsoft isn't available via apt on Raspberry Pi.
+
+Q: I want to use .NET on my Pi but I'm not sure where to start. Is there like an easy way to get it installed?
+A: There's a third-party simplified route or you can follow Microsoft's official instructions.
+
+Q: There's this install script I need to run as root and I'm nervous about it. Should I just go ahead?
+A: Read it first, understand what it does, or follow Microsoft's official instructions manually instead.
+
+Q: Okay I installed .NET, now how do I actually create a new project for the Build HAT?
+A: Run `dotnet new console --name buildhat` to create your project.
+
+Q: What packages do I need to add after creating my Build HAT project?
+A: You need System.Device.Gpio version 2.1.0 and Iot.Device.Bindings version 2.1.0.
+
+Q: After I make my project folder, do I need to go into it before doing anything else?
+A: Yes, you need to change into the buildhat subdirectory to continue.
 
 # Run C# Code
 
-- How do I actually run my C# program once I've written it?
-- I just set everything up and want to test it's working. What should I see when I run it for the first time?
-- I keep seeing `dotnet run` mentioned. Is that literally all I have to type every time I want to run my code?
+Q: How do I actually run my program once I've written it?
+A: Just run `dotnet run` in your project directory to execute the program.
+
+Q: I want to make sure everything's set up right after installing. How do I test it?
+A: Run `dotnet run` and it should print "Hello World!" if everything works.
 
 # Edit C# Code
 
-- What file am I actually supposed to be editing when I write my Build HAT code?
-- I don't have any fancy IDE installed. Can I just use a basic text editor for C# code?
-- Does VS Code work on Raspberry Pi? I'm used to coding with that.
-- Where does the C# file get created when I make a new dotnet project?
-- I've got Geany already installed on my Pi. Can I use that to write C# or do I need something else?
+Q: Which file am I actually supposed to be editing when I write my Build HAT code?
+A: You'll be editing the file `buildhat/Program.cs` for your C# code.
+
+Q: I don't have a fancy code editor installed. Can I still write C# on my Pi?
+A: Any text editor works, including Geany which comes pre-installed on Raspberry Pi.
+
+Q: I've heard VS Code is good for this stuff. Does it work on a Raspberry Pi?
+A: Yes, Visual Studio Code is a popular option and supports Raspberry Pi.
+
+# Whole Document
+
+Q: I'm totally new to this. Can I use .NET with the Build HAT on a Raspberry Pi?
+A: Yes, after installing .NET and required nuget packages, you can use it with Build HAT.
+
+Q: What's the quickest way to get the whole .NET setup done and start coding for my Build HAT?
+A: Use the third-party install script, create a project, then add the two required nuget packages.

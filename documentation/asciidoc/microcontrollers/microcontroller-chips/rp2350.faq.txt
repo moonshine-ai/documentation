@@ -1,53 +1,101 @@
-# Whole Document
+# RP2350
 
-- What's the RP2350 chip and what's it used for?
-- How does the RP2350 compare to the RP2040? Is it much better?
-- I'm trying to pick between RP2350 and RP2040 for my project. What's actually different between them?
-- Is the RP2350 the chip inside the Pico 2?
+Q: What's the RP2350 and what makes it better than the RP2040?
+A: RP2350 has faster clocks, double SRAM, stronger cores, and better security.
+
+Q: Which Raspberry Pi boards actually use the RP2350 chip?
+A: Pico 2, Pico 2 W, Pico 2 with headers, and Pico 2 W with headers.
+
+Q: Where can I find more detailed technical info about the RP2350?
+A: The full RP2350 datasheet is available at the Raspberry Pi pip website.
 
 # RP2350 variants
 
-- What's the difference between all the RP2350 variants? Like which one should I get?
-- Does the RP2350 come with built-in flash memory or do I have to add my own?
-- What's the difference between the A and B versions of the RP2350?
-- How many GPIO pins does the RP2350 have? Does it depend on which version I get?
-- I need more analog inputs for my project. Which RP2350 variant gives me the most?
-- What's the physical size difference between the RP2350A and RP2350B packages?
-- Which RP2350 variants have built-in flash and which ones don't?
+Q: So what's the difference between all the RP2350 versions? Like how many are there?
+A: There are four variants differing by package size and whether flash memory is included.
+
+Q: I'm trying to pick between RP2350A and RP2350B. What's the actual difference?
+A: RP2350A is a 7x7mm QFN-60 with 30 GPIO pins; RP2350B is larger with 48.
+
+Q: Does the RP2354A have built-in flash or do I need to add my own?
+A: RP2354A includes 2 MB of stacked flash memory built right in.
+
+Q: How many analog inputs does the RP2350B have compared to the RP2350A?
+A: RP2350B has 8 analogue inputs while RP2350A only has 4.
 
 # RP2350 naming
 
-- Why is it called RP2350? Does the number actually mean something?
-- What does the A or B at the end of RP2350A or RP2350B mean?
-- What's the difference between RP2350 and RP2354? Why the different number?
-- So if I see an RP2354B, what does each part of that name tell me about the chip?
-- How much RAM does the RP2350 have? I heard the name tells you somehow?
+Q: Why is it called RP2350? What do all those numbers and letters actually mean?
+A: Each character encodes core count, processor type, RAM amount, flash, and package size.
+
+Q: What does the 2 at the start of RP2350 stand for?
+A: The 2 refers to the number of processor cores on the chip.
+
+Q: I see some chips end in A and some end in B. What's that about?
+A: A means a smaller 60-pin package with 30 GPIO pins; B means 80 pins with 48.
+
+Q: Why do some versions say RP2354 instead of RP2350? What's the 4 mean?
+A: The 4 means the chip has 2 MB of stacked flash memory built in.
+
+Q: What's the RAM situation on the RP2350? How much does it have?
+A: The 5 in the name corresponds to 520 kB of on-chip SRAM.
 
 # RP2350 features
 
-- What's the clock speed on the RP2350?
-- How much RAM does the RP2350 have?
-- I've heard it has RISC-V cores. Does that mean I can use RISC-V instead of Arm?
-- What's PIO and why would I care about it?
-- Does the RP2350 have built-in USB support?
-- Can the RP2350 do video output? I want to drive a display with it.
-- What serial communication stuff is built into the RP2350? Like does it support I2C and SPI?
-- Does the RP2350 have any security features? I need to protect my firmware.
-- Can I connect external RAM to the RP2350 if I need more memory?
-- What's OTP memory and should I be careful about using it?
-- How many PWM channels does the RP2350 have?
-- Does the RP2350 have a temperature sensor built in?
+Q: How fast can the RP2350 actually run?
+A: Its dual-core processor can run tasks in parallel at up to 150 MHz.
+
+Q: Can I use RISC-V on the RP2350 or is it just ARM?
+A: You can choose between dual-core Arm Cortex-M33 or dual-core RISC-V Hazard3.
+
+Q: How much RAM does the RP2350 have and is it fast?
+A: It has 520 kB of on-chip SRAM in ten independent banks for fast access.
+
+Q: Can the RP2350 connect to external RAM, not just flash?
+A: Yes, it can connect to external PSRAM chips through the QMI interface.
+
+Q: What's PIO on the RP2350 and why should I care about it?
+A: PIO lets you implement custom hardware peripherals using three blocks of state machines.
+
+Q: Does the RP2350 have built-in USB support?
+A: Yes, it has a USB 1.1 controller and PHY with both host and device support.
+
+Q: I want to do video output with the RP2350. Does it support that?
+A: Yes, it includes an HSTX peripheral designed for high-speed digital output like video.
+
+Q: What security stuff does the RP2350 have built in?
+A: It includes signed boot, SHA-256 acceleration, a true random number generator, and TrustZone.
+
+Q: Can I permanently store boot code on the RP2350 without external flash?
+A: Yes, using one-time programmable OTP memory, but it's irreversible once written.
+
+Q: Does the RP2350 have a temperature sensor on it?
+A: Yes, there's an on-board temperature sensor included in the ADC block.
+
+Q: How many PWM channels does the RP2350 have?
+A: The RP2350 has 16 PWM channels built in as fixed-function peripherals.
 
 # Architecture switching
 
-- Can I actually run RISC-V code on the RP2350 or is it Arm only?
-- How do I switch between Arm and RISC-V mode on the RP2350?
-- If I use RISC-V mode on the RP2350, do I lose any features?
-- Does the RP2350 automatically know whether to boot into Arm or RISC-V mode?
+Q: I heard you can switch the RP2350 between ARM and RISC-V. How does that work exactly?
+A: The boot ROM detects which architecture your binary targets and reboots into that mode.
+
+Q: If I use RISC-V mode on the RP2350, do I lose any features?
+A: Most features work, but some security features and the double-precision float accelerator are unavailable.
+
+Q: Do I have to manually tell the RP2350 which CPU mode to use, or is it automatic?
+A: The boot ROM can auto-detect and switch to the correct architecture automatically.
 
 # RP2350-based boards
 
-- What boards can I use with the RP2350?
-- Can I use the Pico 2 as a starting point for designing my own RP2350 board?
-- Where can I find reference designs for building something with the RP2350?
-- Are there third-party boards that use the RP2350, and where do I find info about them?
+Q: I want to build my own board using RP2350. Are there any reference designs I can look at?
+A: Raspberry Pi offers Minimal Viable Board and VGA Carrier Board design files in KiCad.
+
+Q: Why are there two files in the Minimal Viable Board download?
+A: There are two design files because RP2350 comes in two different package sizes.
+
+Q: I'm looking at third-party RP2350 boards. Where can I find discussions about those?
+A: Check the Raspberry Pi forums, which have a dedicated section for third-party RP2350 boards.
+
+Q: Can I use the Pico 2 as a reference design for my own RP2350 project?
+A: Yes, the Pico 2 family is intended as both development boards and reference designs.

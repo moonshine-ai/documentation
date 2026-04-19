@@ -1,81 +1,172 @@
 # Whole Document
 
-- What's the difference between the Pico and the Pico 2?
-- I'm trying to decide which Pico to buy. What are all the different versions?
-- Does the Pico run Linux?
-- What programming languages can I use with the Raspberry Pi Pico?
-- I've never used a microcontroller before. How do you actually put a program onto a Pico?
-- What's the difference between the H and non-H versions of the Pico?
-- Does the Pico have Wi-Fi built in, or do I need to add something?
-- I want to build an IoT thing. Which Pico should I get?
+Q: What languages can I use to program a Raspberry Pi Pico?
+A: Raspberry Pi Pico supports MicroPython, C, and C++ programming languages.
+
+Q: Does the Pico run Linux like other Raspberry Pi boards?
+A: No, Raspberry Pi Pico doesn't run Linux or support removable storage.
+
+Q: What's the difference between Pico 1 and Pico 2?
+A: Pico 1 uses the RP2040 chip; Pico 2 uses the newer RP2350 chip.
+
+Q: I'm confused about all these Pico variants. What's the difference between them all?
+A: Variants differ by wireless connectivity and whether headers are presoldered.
+
+Q: Does the Pico W have Bluetooth or just Wi-Fi?
+A: Pico W includes both Wi-Fi and Bluetooth 5.2 connectivity.
+
+Q: Can I use my Pico 1 code on a Pico 2?
+A: Pico 2 offers hardware and software compatibility with Raspberry Pi Pico 1.
+
+---
 
 # Raspberry Pi Pico
 
-- What chip is inside the original Raspberry Pi Pico?
-- So the Pico W and the Pico WH, are they basically the same board except one has the pins already soldered on?
-- How many GPIO pins does the Pico have?
-- How fast is the processor on the original Pico?
-- How much memory does the Pico have?
-- Does the Pico support Bluetooth or just Wi-Fi?
-- I want to connect my Pico W to a Wi-Fi network. What security protocols does it support?
-- How many devices can connect to the Pico W if I use it as a hotspot?
-- What's WPA3? Do I need that for my Pico W project?
-- Can I use the Pico's design files to make my own board? Like is that allowed?
-- Where can I find the technical datasheet for the Pico?
-- What's a PIO state machine and why does the Pico have eight of them?
-- Can the Pico pretend to be an SD card or VGA device?
-- How much flash storage does the original Pico have?
-- I want to use Fritzing to design a circuit with my Pico. Is there a part for that?
+Q: What chip is inside the original Raspberry Pi Pico?
+A: The first-generation Raspberry Pi Pico is based on the RP2040 microcontroller chip.
+
+Q: How many GPIO pins does the Pico have?
+A: Raspberry Pi Pico has 26 multi-function GPIO pins.
+
+Q: How fast can the Pico's processor run?
+A: The RP2040's flexible clock runs up to 133 MHz.
+
+Q: How much memory does the Pico have built in?
+A: The Pico has 264 kB of SRAM and 2 MB of on-board flash memory.
+
+Q: Can I just drag and drop files to program my Pico?
+A: Yes, Pico supports drag-and-drop programming using mass storage over USB.
+
+Q: What's the difference between the Pico and the Pico H?
+A: Pico H has presoldered header pins and a different debug connector style.
+
+Q: How many PWM channels does the original Pico have?
+A: The original Raspberry Pi Pico has 16 PWM channels.
+
+Q: Can I use the Pico design files to make my own board?
+A: Yes, design files are openly available and freely usable for any purpose.
+
+---
+
+# Non-wireless Raspberry Pi Pico boards
+
+Q: Are the Pico and Pico H basically the same board hardware-wise?
+A: Yes, Pico and Pico H offer identical hardware capabilities otherwise.
+
+Q: Does the Pico have any way to read analog inputs?
+A: Yes, the Pico has three 12-bit ADC peripheral interfaces.
+
+Q: What serial interfaces does the Pico support?
+A: Pico supports two SPI, two I2C, two UART, three ADC, and 16 PWM channels.
+
+---
+
+# Wireless Raspberry Pi Pico boards
+
+Q: What Wi-Fi standard does the Pico W use?
+A: Pico W supports Wi-Fi 802.11n, single-band at 2.4 GHz.
+
+Q: Can I make my Pico W act as a Wi-Fi hotspot?
+A: Yes, it supports a soft access point supporting up to four clients.
+
+Q: What version of Bluetooth does the Pico W support?
+A: Pico W supports Bluetooth 5.2, including both Classic and BLE.
+
+---
 
 # Raspberry Pi Pico 2
 
-- What chip does the Pico 2 use, is it still the RP2040?
-- How is the Pico 2 better than the original Pico?
-- Does the Pico 2 work with code I wrote for the original Pico?
-- How much RAM does the Pico 2 have compared to the first one?
-- I heard the Pico 2 can run RISC-V. Is that true?
-- How fast can the Pico 2 run?
-- How much built-in flash does the Pico 2 have?
-- Does the Pico 2 W support Bluetooth?
-- The Pico 2 with headers, does it have the same pin layout as the original Pico?
-- How many PWM channels does the Pico 2 have?
+Q: How much RAM does the Pico 2 have compared to the original?
+A: Pico 2 has 520 kB of SRAM, versus 264 kB on the original Pico.
+
+Q: Does the Pico 2 use the same pinout as the original Pico?
+A: Yes, Pico 2 shares the same pinout and board layout as Pico 1.
+
+Q: How fast can the Pico 2 run?
+A: The RP2350's flexible clock runs up to 150 MHz.
+
+Q: Does the Pico 2 have more flash memory than the original?
+A: Yes, Pico 2 has 4 MB of on-board flash, double the original Pico's 2 MB.
+
+Q: I heard the Pico 2 can run RISC-V. Is that true?
+A: Yes, it supports a dual-core Hazard3 RISC-V processor as an architecture option.
+
+Q: How many PWM channels does the Pico 2 have?
+A: Raspberry Pi Pico 2 has 24 PWM channels.
+
+---
+
+# Wireless Raspberry Pi Pico 2 boards
+
+Q: Does the Pico 2 W support WPA3?
+A: Yes, Pico 2 W supports WPA3 as a modern wireless security protocol.
+
+Q: What's the difference between the Pico 2 W and Pico 2 W with headers?
+A: Pico 2 W with headers has presoldered pins and a different debug connector style.
+
+---
 
 # Wireless models
 
-- What wireless chip is inside the Pico W?
-- I'm getting bad Wi-Fi range on my Pico W. Could the antenna be the problem?
-- Should I keep metal away from the Pico W's antenna?
-- Can I use the Pico W's wireless features in a commercial product for free?
-- What's the deal with the wireless software license? Do I have to pay for it?
-- I'm reading about the Pico W's pins and it says the ADC can't read VSYS during SPI. Why is that?
+Q: What wireless chip does the Pico W use inside?
+A: Wireless Pico models use the Infineon CYW43439 wireless chip.
+
+Q: Can I put the Pico W's antenna right next to a metal enclosure?
+A: No, placing metal near the antenna can significantly reduce signal gain and bandwidth.
+
+Q: Do I have to pay for a license to use Wi-Fi on the Pico W in a commercial product?
+A: No, commercial use is free for projects built with wireless Raspberry Pi Pico boards.
+
+Q: Is there any catch with the wireless chip sharing pins with other stuff?
+A: Yes, the SPI clock shares with the VSYS monitor, limiting ADC reads during SPI transactions.
+
+---
 
 # Board layouts
 
-- Where's the BOOTSEL button on the Pico?
-- Where's the USB port on the Pico board?
-- How do I turn off the Pico using one of its pins?
-- What pin do I use to reset the Pico?
-- What's the VSYS pin for, and what voltage range does it accept?
-- Where's the LED on the Pico, and what pin controls it?
-- On the wireless Pico, what pin controls the LED?
-- What's the ADC_VREF pin for?
-- How many pins total are on the edge of the Pico board?
+Q: Where's the BOOTSEL button on the Pico?
+A: The BOOTSEL button is located under the USB port and to the left side.
+
+Q: Where's the USB port on the Pico board?
+A: The Micro USB port is located at the top edge of the board.
+
+Q: How many pins total are on the sides of a Pico board?
+A: There are 40 pins total, 20 on each side of the board.
+
+Q: How do I turn off a Pico from software?
+A: Pulling pin 37, labeled 3V3_EN, to ground turns off the Raspberry Pi Pico.
+
+---
 
 # Debug connector (SWD)
 
-- What's the SWD connector for on the Pico?
-- Does the debug connector have a power pin on it?
-- My Pico H, does it have a different debug connector than the regular Pico?
-- Where's the debug connector on the Pico W? Is it in the same place as on the regular Pico?
-- Can I use the Raspberry Pi Debug Probe with any Pico board?
-- What does SWD actually stand for and what does it do?
+Q: What pins does the SWD debug connector carry?
+A: The three-pin connector carries SWDIO, GND, and SWCLK signals.
+
+Q: Does the debug connector supply power to the Pico?
+A: No, there's no power pin; the board must be powered separately over USB or VSYS.
+
+Q: What type of debug connector does the Pico H have?
+A: Pico H uses a keyed three-pin JST-style connector at the bottom edge.
+
+Q: Where's the debug connector on the Pico W compared to the regular Pico?
+A: On Pico W it's central, just below the microcontroller chip, not at the bottom edge.
+
+---
 
 # Software utilities
 
-- I picked up a Pico and I don't know what's on it. How do I find out what program is running?
-- Can I use one Pico to debug another Pico?
-- How do I set up a Pico as a debugger for another Pico?
-- I think I flashed something bad to my Pico. Can I wipe it and start over?
-- Can I permanently break a Pico by flashing bad code to it?
-- How do I erase the flash memory on my Pico completely?
-- Where do I find the MicroPython SDK documentation for the Pico?
+Q: How do I find out what's currently programmed on my Pico?
+A: Use the picotool command-line tool to extract and display program metadata.
+
+Q: Can I use one Pico to debug another one?
+A: Yes, run debugprobe firmware to use one Pico as a USB-to-SWD and UART converter.
+
+Q: I messed up my Pico's flash with bad code. Can I brick it permanently?
+A: No, BOOTSEL mode is in read-only memory and can't be overwritten by software.
+
+Q: How do I completely wipe my Pico's flash memory and start fresh?
+A: Copy a special UF2 flash-erase file to the Pico while it's in BOOTSEL mode.
+
+Q: How do I install debugprobe on my Pico to use it as a debugger?
+A: Hold BOOTSEL while connecting, copy the debugprobe UF2 file to the mounted volume.

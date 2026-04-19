@@ -1,23 +1,43 @@
-# Whole Document
+# Contribute
 
-- I wrote some code for my Raspberry Pi and I want to share it with everyone. How do I do that?
-- I fixed a bug in the kernel. Where do I even start if I want to contribute that back?
-- What's the difference between contributing to the Raspberry Pi kernel versus the regular Linux kernel?
-- I've never contributed to an open source project before. Is it hard to get changes into the Raspberry Pi kernel?
+Q: I fixed a bug that's specific to the Raspberry Pi. Where do I send it?
+A: Submit a pull request directly to the Raspberry Pi kernel repository.
+
+Q: I wrote a new driver that works on any Linux system, not just Pi. Where does that go?
+A: Submit it to the upstream Linux kernel first, then Pi receives it.
+
+Q: What kinds of things are worth contributing back to the kernel?
+A: Pi-specific code, generic drivers, or Pi-specific or general bug fixes.
 
 # Contribute to the Raspberry Pi Kernel
 
-- I wrote a Raspberry Pi specific fix. How do I actually submit it?
-- So I fork the repo and make my changes — then what? How does it get reviewed?
-- How long does it take for my pull request to get merged into the Pi kernel?
-- Who reviews the pull requests I send to the Raspberry Pi kernel repo?
-- Once my change gets approved, does it go out right away or do I have to wait for a stable release?
+Q: How do I actually get my changes into the Raspberry Pi kernel? Like what's the process?
+A: Fork the repo, clone it, make changes, then submit a pull request.
 
-# Contribute to the Linux Kernel
+Q: I submitted a pull request to the Pi kernel. What happens next?
+A: Raspberry Pi engineers review it, suggest improvements, then merge if approved.
 
-- I wrote a driver that could work on any Linux system, not just Raspberry Pi. Should I still submit it to the Pi repo?
-- Wait, the Linux kernel doesn't use GitHub? How do I submit my changes then?
-- I heard you have to use mailing lists for the Linux kernel. How does that actually work?
-- I submitted something to the upstream Linux kernel. Will it eventually get into the Raspberry Pi kernel too?
-- Are there any style rules or guidelines I need to follow before submitting to the Linux kernel?
-- So if my change gets into the main Linux kernel, how long before it actually shows up in Raspberry Pi OS?
+Q: Once my change gets merged, how long before it's in the stable Pi kernel release?
+A: After merging, changes eventually make their way to the stable release.
+
+# Contribute to the Linux kernel
+
+Q: I want to contribute to the main Linux kernel. Do I use GitHub for that?
+A: No, Linux kernel development happens on mailing lists, not GitHub.
+
+Q: How do I actually submit a patch to the Linux kernel community?
+A: Email your change as a patch following the official submitting patches guide.
+
+Q: I got my change accepted into Linux. Will it automatically come to the Pi kernel too?
+A: Yes, after compatibility testing it'll reach a stable Raspberry Pi kernel release.
+
+Q: Are there coding style rules I need to follow when submitting to the Linux kernel?
+A: Yes, follow the official Linux kernel coding style documentation.
+
+# Whole Document
+
+Q: I've never contributed to open source before. Is there a review process or do they just merge whatever?
+A: Both Pi engineers and Linux contributors review and suggest improvements before merging.
+
+Q: I fixed a Pi bug but I'm not sure if it's Pi-specific or a general Linux thing. Does it matter where I submit it?
+A: Yes, Pi-specific fixes go to Pi kernel; general fixes go upstream to Linux first.

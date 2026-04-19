@@ -1,27 +1,44 @@
 # Become a contributor (Raspberry Pi OS Trixie and later)
 
-How do I unlock all the titles in Bookshelf? Like, what do I need to do to get contributor access?
+Q: How do I get access to the contributor-only titles in Bookshelf?
+A: Sign in with a Raspberry Pi ID linked to a magazine subscription or contribution.
 
-I've got a subscription to the print magazine. Does that mean I already get access to the contributor titles, or do I still have to do something else?
+Q: I've got a magazine subscription. Do I get the extra Bookshelf titles automatically or do I have to do something?
+A: Sign in to Bookshelf with a Raspberry Pi ID associated with your subscription email.
 
-What's a monthly contribution? Is that like a paid subscription or something?
+Q: I don't have a Raspberry Pi ID yet. Can I make one when I'm setting up my contribution?
+A: Yes, you can create a Raspberry Pi ID during the monthly contribution sign-up process.
 
-I don't have a Raspberry Pi ID yet. Can I make one during the contributor sign-up process, or do I have to set it up separately first?
+Q: I just signed up for the monthly contribution. What do I do next to unlock the titles?
+A: Select "Sign in to Bookshelf" to store your ID and unlock all available titles.
 
-I went through the contributor sign-up on the website but Bookshelf still looks the same. What did I miss?
+Q: How do I know if the contributor thing worked? Is there something that changes on screen?
+A: The "Contribute..." button disappears and all titles become available for download.
 
-After I sign up as a contributor, how do I actually tell Bookshelf that I'm a contributor? Like, is there a button I tap or something?
+Q: I've got two Raspberry Pis. Can I use my contributor account on both of them?
+A: Yes, you can sign in and access titles from any number of devices.
 
-I set up my account on one Pi but I just got a new one. Do I have to pay again or can I just sign in and get my titles back?
-
-I flashed a fresh Raspberry Pi OS onto my SD card and now Bookshelf doesn't show my titles anymore. How do I get them back?
+Q: I just reflashed my SD card and now I can't see my titles. What do I do?
+A: Sign in with your Raspberry Pi ID again and re-download your favourite titles.
 
 # Download titles
 
-How do I actually download a book in Bookshelf? Do I just click on it or is there more to it?
+Q: How do I actually download one of the magazines? Do I just click on it?
+A: Double-click any available title to download it as a PDF and open it.
 
-If I cancel my monthly contribution, do I lose all the stuff I already downloaded?
+Q: Where does Bookshelf save the PDFs on my Pi?
+A: PDFs are stored in the Bookshelf folder inside your home directory.
 
-Where does Bookshelf save the PDFs on my Pi? I want to find them in the file manager.
+Q: I'm thinking of cancelling my monthly contribution. Will I lose all the issues I've already downloaded?
+A: No, you keep any titles already downloaded even after stopping your contribution.
 
-I've downloaded some titles but I don't want to open them in Bookshelf. Can I just access the PDF files directly?
+Q: If I cancel my subscription, can I still open the PDFs I already have through Bookshelf?
+A: Yes, downloaded PDFs remain accessible through Bookshelf after cancellation.
+
+# Whole Document
+
+Q: So what even is Bookshelf on Raspberry Pi? Is it just for reading the official magazine?
+A: Bookshelf lets contributors download and read magazine titles as PDFs on their Pi.
+
+Q: Do I need to pay anything to get the extra titles, or is there a free option?
+A: You need either a print magazine subscription or a monthly contribution payment.

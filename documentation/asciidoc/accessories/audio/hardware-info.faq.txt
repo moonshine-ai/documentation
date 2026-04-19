@@ -1,55 +1,77 @@
 # Hardware Information
 
-What size screws do I need for the PCB?
+Q: What size screws does the PCB use?
+A: All PCB screws are M2.5 size.
 
-What are the standoffs for connecting a Raspberry Pi to an audio board?
+Q: I'm building a case for my Pi audio board. What standoffs do I need?
+A: Use 5 mm male/female standoffs for the case attachment.
 
-I'm trying to mount my audio board in a case. What standoffs should I be using?
+Q: What standoffs go between the Raspberry Pi and the audio boards?
+A: Use 9 mm female/female standoffs between Raspberry Pi and audio boards.
 
-What kind of power connector does the DigiAMP+ use?
+Q: What power supply should I use for the DigiAMP Plus?
+A: Use a 12V to 24V, 3A supply like the XPPower VEC65US19.
 
-What voltage does the DigiAMP+ need? I want to make sure I get the right power supply.
+Q: What's the barrel connector size for powering the DigiAMP Plus?
+A: The barrel connector is 2.5 mm inner diameter, 5.5 mm outer diameter, 11 mm.
 
-Can I use any rotary encoder with these audio boards or does it have to be a specific one?
+Q: What thickness wire can I use with the Codec Zero speaker terminal?
+A: It accepts wires between 14 to 26 AWG, maximum 1.6 mm diameter.
 
-What wire gauge can I use with the Codec Zero speaker terminal?
+Q: What rotary encoders are compatible with these audio boards?
+A: Tested encoders include Alpha RE160F-40E3-20A-24P, ALPS EC12E2430804, and Bourns ECW0JB24-AC0006L.
 
 # GPIO Usage
 
-Which GPIO pins do the audio boards use? I want to make sure nothing conflicts with my other stuff.
+Q: Which GPIO pins get taken up by the audio boards?
+A: Power, ground, GPIO 2/3 for I2C, and GPIO 18 through 21 for I2S.
 
-I've got a sensor I want to add alongside my audio board. Which pins are free to share?
+Q: I want to add a volume knob. Which GPIO pins does the rotary encoder use?
+A: The rotary encoder uses GPIO 23/24, with the push switch on GPIO 27.
 
-Does the audio board take over all the GPIO pins or just some of them?
+Q: Does the IR sensor use a GPIO pin?
+A: Yes, the IR sensor uses GPIO 25.
 
-What pins are only for the audio board and can't be shared with anything else?
+Q: Can I share GPIO pins between the audio board and other sensors?
+A: Some pins like I2C can be shared, but I2S and EEPROM pins are exclusive use.
+
+Q: What's GPIO 22 used for on the DigiAMP Plus?
+A: GPIO 22 handles mute and unmute support for the DigiAMP Plus.
 
 # DAC PRO, DAC+, DigiAMP+, Codec Zero
 
-Can I still use other sensors and stuff if I've got a DAC board plugged in?
-
-I've got a DAC PRO and I want to add something to the I2C bus. Is that going to work or will it conflict?
+Q: Can I still connect other stuff to GPIO when I've got the audio board on?
+A: Yes, the boards re-expose Raspberry Pi signals for adding sensors and peripherals easily.
 
 # Saving AlsaMixer Settings
 
-I changed my audio settings in AlsaMixer but I'm worried they'll reset when I reboot. How do I save them?
+Q: I got my audio settings just right. How do I save them so they don't reset?
+A: Run sudo alsactl store from the command line to save your settings.
 
-How do I restore my AlsaMixer settings after a reboot?
+Q: I want to reload my audio settings on startup. How do I save them to a file?
+A: Run sudo alsactl store -f /home/username/usecase.state to save settings.
 
-I want to save my mixer settings to a file so I can reload them later. How do I do that?
+Q: How do I restore my saved AlsaMixer settings from a file?
+A: Run sudo alsactl restore -f /home/username/usecase.state to restore saved settings.
 
 # MPD-Based Audio with Volume Control
 
-I'm using MPD and I can't control the volume through it. How do I fix that?
+Q: My MPD music player can't control the volume on my DAC board. How do I fix that?
+A: Add a mixer_control line to the audio output section in /etc/mpd.conf.
 
-I've got a DAC+ and MPD isn't seeing the volume control. What do I need to change in the config?
+Q: What should the mixer control name be set to for the DAC Pro or DigiAMP Plus?
+A: Set mixer_control to "Digital" for Texas Instruments-based boards like DAC PRO and DigiAMP Plus.
 
-What do I need to add to my MPD config file to get volume control working with these audio boards?
+Q: Which config file do I edit to get MPD working with my audio board's volume?
+A: Edit the /etc/mpd.conf file to add the correct mixer_control line.
 
 # Whole Document
 
-I just got a DigiAMP+ and I'm trying to figure out what power supply to buy. What do I need?
+Q: I've got a DAC Plus and want to add extra sensors. Is that possible?
+A: Yes, the DAC Plus re-exposes Raspberry Pi signals so you can add sensors easily.
 
-I'm setting up one of these Raspberry Pi audio boards for the first time. Which GPIO pins are going to be taken up?
+Q: What connectors does the DigiAMP Plus use for speakers?
+A: The DigiAMP Plus uses CamdenBoss two-part connectors, specifically CTBP9350/2AO on the PCB.
 
-Can I use more than one of these audio boards at the same time, or will they conflict?
+Q: Do these audio boards work with the official 7-inch Raspberry Pi display?
+A: Yes, use 5 mm male/female standoffs for the official 7-inch Raspberry Pi display.

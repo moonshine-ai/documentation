@@ -1,39 +1,72 @@
 # Whole Document
 
-- I just got a Raspberry Pi camera. How do I set it up?
-- Do I need any special tools to connect a camera to my Pi?
-- I'm not sure if my Pi even has a camera connector. How do I figure that out?
-- What's the difference between all the camera cable types? I don't know which one I need.
+Q: I just got a Raspberry Pi camera. What do I actually need to set it up?
+A: You need a Pi board with camera connector, a camera, and the right cable.
+
+Q: Do I need to worry about static electricity when handling the camera?
+A: Yes, earth yourself before touching the camera PCB to avoid static damage.
+
+Q: Is the camera installation process different depending on which Pi I have?
+A: The process is broadly the same, but connectors differ between boards.
 
 # Step 1. Prepare
 
-- I just opened my camera and there's this blue plastic film on the lens. Do I leave that on or take it off?
-- How do I avoid breaking the camera from static electricity? I don't have one of those special wrist straps.
-- I've got a Raspberry Pi 5. Do I need a special cable for the camera or can I use any cable?
-- Wait, I have a Pi Zero. Is the camera cable the same as a regular Pi?
-- I have a Compute Module IO board. What cable do I need for connecting a camera?
+Q: There's a blue plastic film on my camera lens. Should I take it off?
+A: Yes, it's just protective shipping film — gently peel it off before use.
+
+Q: What cable do I need for a Raspberry Pi 5 camera?
+A: Raspberry Pi 5 uses a mini 22-pin connector, so use a Standard-Mini cable.
+
+Q: I've got a Pi 4. What camera cable do I need?
+A: Pi 4 uses the standard 15-pin connector, so use the Standard-Standard cable.
+
+Q: What about Pi Zero — what cable does that take?
+A: Pi Zero uses the mini 22-pin connector, so get a Standard-Mini camera cable.
+
+Q: I don't have an earthing strap. How do I ground myself before touching the camera?
+A: Just touch a sink tap or something similar to earth yourself before handling it.
 
 # Step 2. Connect the cable to your Raspberry Pi
 
-- Does my Pi need to be powered off before I plug in the camera cable?
-- I have a Pi 5 with the Active Cooler on it and I can't reach the camera connector. What should I have done differently?
-- Where exactly is the camera port on a Pi 4? I can't find it.
-- Where's the camera connector on a Pi Zero? I'm looking at the board and I'm not sure which slot it is.
-- I've got a Pi 5 and there are two connectors that look the same. Which one do I use for the camera?
-- How do I open that little flap thing on the camera connector without breaking it?
-- Which way does the cable go in? Like, which side do the metal contacts face?
-- I pushed the cable in but I'm not sure it's in right. How do I know if it's seated properly?
-- How do I take the camera cable back out without damaging anything?
+Q: Where exactly is the camera connector on a Pi 4?
+A: It's on the edge closest to you, between the micro HDMI connector and audio jack.
+
+Q: I have a Pi 5 and can't figure out where the camera connector is.
+A: On Pi 5, camera connectors are between the micro HDMI and Ethernet port, labelled CAM/DISP0 and CAM/DISP1.
+
+Q: I've got a Pi 5 with an Active Cooler. Does that affect connecting the camera?
+A: Connect the camera cable before installing the Active Cooler, as it blocks access afterwards.
+
+Q: Do I need to turn my Pi off before plugging in the camera cable?
+A: Yes, shut down and disconnect from power before connecting the camera cable.
+
+Q: Which way do the metal contacts face when I insert the cable?
+A: Insert the cable with metallic contacts facing away from the flap.
+
+Q: On Pi 5 there are two camera connectors. Does it matter which one I use?
+A: No, you can use either CAM/DISP0 or CAM/DISP1 for your camera.
+
+Q: Where's the camera connector on an older Pi, like a Pi 3?
+A: It's near the edge closest to you, between the HDMI connector and audio jack, labelled CAMERA.
+
+Q: Where is the camera port on a Pi Zero? I can't find it.
+A: It's on the short right edge of the board, opposite the SD card slot.
 
 # Step 3. Connect the cable to the camera
 
-- My camera came with a cable already attached but I want to use a different one. Can I swap it out?
-- Which side of the camera module has the connector on it? I don't want to bend it the wrong way.
-- The metal contacts on the cable — do they face toward the camera board or away from it when I plug it in?
+Q: Which side of the camera board is the connector on?
+A: The connector is on the opposite side of the board from the camera lens.
+
+Q: My camera already came with a cable attached. Do I need to redo the connection?
+A: No, cameras come with the Standard-Standard cable already attached — just use it.
+
+Q: How do I know the cable is properly connected to the camera?
+A: Push the flap down until it clicks, ensuring the cable is straight and contacts are aligned.
 
 # Step 4. Prepare the software
 
-- Okay I've plugged in the camera, now what do I do to get it working in software?
-- Do I need to update my Pi before the camera will work?
-- What's rpicam-apps and do I need it for the camera to work?
-- I want to use Python with my camera. What library do I need to install?
+Q: I've plugged the camera in. Now what do I do to get it working?
+A: Update your system, then follow the setup instructions for rpicam-apps to get started.
+
+Q: Can I use Python with the Raspberry Pi camera?
+A: Yes, optionally install the Picamera2 Python library following its setup instructions.

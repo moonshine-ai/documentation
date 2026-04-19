@@ -1,39 +1,54 @@
-# Whole Document
-
-What's the power button actually do on a Raspberry Pi 5?
-
-Does the Raspberry Pi 5 have a power button or do I just unplug it to turn it off?
-
-When I first plug in my Pi, do I need to press the power button to turn it on?
-
 # Power button
 
-I'm running Raspberry Pi Desktop and I want to shut it down cleanly. Do I just press the power button?
+Q: Do I need to press the power button to start my Raspberry Pi 5 the first time?
+A: No, it automatically turns on and boots when you plug it in.
 
-How do I shut down without just yanking the power cord?
+Q: I pressed the power button on my Pi 5 and a window popped up. What is that?
+A: It's asking whether you want to shutdown, reboot, or logout.
 
-Wait, so if I'm running the desktop I press the power button twice to shut down, but if I'm on the Lite version I only press it once? Did I get that right?
+Q: How do I properly shut down my Pi 5 without just yanking the power?
+A: Briefly press the power button and select shutdown from the window that appears.
 
-I pressed the power button and a window popped up. What are my options there?
+Q: I've got the desktop version running. How do I quickly shut it down with the power button?
+A: Press the power button twice quickly to shut down from the desktop.
 
-I'm on Raspberry Pi OS Lite with no desktop and I want to shut it down using the power button. How do I do that?
+Q: I'm running the Lite version without a desktop. How do I shut it down with the button?
+A: Press the power button a single time to initiate a shutdown.
 
 # Restart
 
-My Pi is off but still plugged in. Can I turn it back on without unplugging it?
+Q: My Pi is off but still plugged in. Can I turn it back on with the power button?
+A: Yes, pressing the power button restarts a powered-off but connected board.
 
-I've got a HAT I want to connect. Is there anything I need to watch out for before I plug it in?
+Q: I just connected a HAT and now my Pi restarted on its own. What happened?
+A: Connecting a HAT can reset the PMIC, which restarts the board.
 
-Wait, what's a PMIC? And why does connecting a HAT mess with it?
+Q: Is it safe to connect a HAT while the Pi is still plugged in?
+A: No, always disconnect from the power supply before connecting a HAT.
 
 # Hard shutdown
 
-My Pi is totally frozen and not responding. How do I force it to turn off?
+Q: My Pi is completely frozen and won't respond. How do I force it off?
+A: Press and hold the power button to force a hard shutdown.
 
 # Add your own power button
 
-I want to add my own power button to my Raspberry Pi 5. Is that something I can actually do?
+Q: Can I add my own power button to my Raspberry Pi 5?
+A: Yes, use the J2 jumper by bridging its two pads with a momentary switch.
 
-What's the J2 jumper and where do I find it on the board?
+Q: Where is that J2 jumper located on the Pi 5?
+A: It's between the RTC battery connector and the board edge.
 
-What kind of switch do I need if I want to wire up my own power button to the Pi 5?
+Q: What kind of switch do I need if I want to add my own power button?
+A: You need a Normally Open momentary switch bridging the two J2 pads.
+
+Q: If I wire up my own button to the J2 jumper, will it do the same thing as the built-in button?
+A: Yes, briefly closing that switch performs the same actions as the onboard button.
+
+# Whole Document
+
+Q: Does any of this power button stuff work on older Pi models like the Pi 4?
+A: No, this only applies to Raspberry Pi models that have a power button, like Pi 5.
+
+Q: Wait, so there's no clean shutdown option if I'm on Lite without a desktop?
+A: On Lite, a single power button press initiates a clean shutdown directly.

@@ -1,66 +1,91 @@
 # Overclocking options
 
-What's the default CPU governor on a Raspberry Pi and how does it work?
-My Pi's CPU is always running at full speed even when it's idle. How do I make it slow down when it's not busy?
-What temperature does the Pi throttle at, and can I change that?
-I want to disable dynamic clock scaling and just keep my Pi at a fixed speed. How do I do that?
-Will overclocking void my warranty or mess up my Pi permanently?
+Q: My Pi keeps throttling itself down. What temperature does that happen at?
+A: Overclocking and overvoltage disable at 85°C to cool the SoC down.
+
+Q: I want to turn off dynamic clocking and just run at a fixed speed. How do I do that?
+A: Apply a static scaling governor like powersave or performance, or use force_turbo=1.
+
+Q: Does overclocking void my warranty or leave some kind of mark on the Pi?
+A: Overclocking outside raspi-config may set a permanent bit detectable on the SoC.
+
+Q: My Pi is getting low voltage warnings. At what voltage does it start throttling?
+A: Below 4.63V the Arm cores and GPU get throttled and a kernel log message appears.
 
 # Overclocking
 
-What's the difference between `arm_freq` and `arm_boost`? Should I use one or the other?
-I want to overclock my Pi 4. Where do I even start?
-What's `gpu_freq` and is it different from `core_freq`?
-Can I overclock the SDRAM on my Pi 4?
-What does `force_turbo` actually do and should I be worried about enabling it?
-I'm overclocking my Pi 3B+ and it's getting really hot. Is there a soft thermal limit I can set?
-What's the default temp limit before the Pi starts throttling?
-I've got a Pi 5. What's the default CPU speed on that?
-What's `over_voltage` and do I need to mess with it when overclocking?
-I just want to bump up my Pi's performance a little without doing anything risky. What's the safest way?
-What does `initial_turbo` do?
-Can I set a minimum CPU speed so it never goes below a certain frequency?
+Q: What's arm_boost and should I turn it on?
+A: arm_boost increases arm_freq to the highest supported frequency for your board.
 
-# force_turbo
+Q: I want to overclock just the video decoder, not everything. Is there a setting for that?
+A: Use h264_freq to individually override the GPU freq setting for the video block.
 
-What actually happens when I set `force_turbo` to 1?
-Does `force_turbo` permanently damage anything or set some kind of flag?
-If I enable `force_turbo` but don't touch the voltage settings, will it still set the warranty bit?
+Q: What's the default CPU speed on a Pi 5?
+A: The Pi 5 defaults to 2400 MHz arm_freq.
+
+Q: Can I overclock the SDRAM on my Pi 4?
+A: SDRAM overclocking is not supported on Raspberry Pi 4 or newer devices.
+
+Q: I want to set a minimum CPU frequency so it never clocks down too low. What do I use?
+A: Use arm_freq_min to set the minimum value for dynamic frequency clocking.
+
+Q: What does force_turbo actually do, and will it mess up my warranty?
+A: It forces maximum frequencies always; setting it with over_voltage sets the warranty bit.
+
+Q: What temperature does the Pi 3B+ start slowing down before it hits the hard limit?
+A: The soft limit is 60°C by default, reducing clock from 1.4 GHz to 1.2 GHz.
+
+Q: What's the over_voltage range I'm allowed to set?
+A: The range is negative 16 to 8, equating to 0.95V through 1.55V in 0.025V steps.
+
+Q: I want the core clock to stay fixed so my peripherals run at a consistent speed. How?
+A: Set core_freq_fixed to 1 to disable active scaling and maintain a consistent clock speed.
 
 # Clocks relationship
 
-How do I check what speed my Pi's CPU is actually running at right now?
-I want to see my Pi's current clock frequency. What command do I run?
-Is the frequency shown by the system the actual real speed or just what the kernel requested?
+Q: How do I check what speed my Pi is actually running at right now?
+A: Run cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq and divide by 1000.
+
+Q: Can the CPU and GPU run at totally different speeds on a Pi 4?
+A: Yes, the GPU core, CPU, SDRAM, and GPU each have their own independent PLLs.
 
 # Monitoring core temperature
 
-How do I check my Pi's temperature from the terminal?
-My Pi feels really hot. How do I tell if it's actually overheating?
-At what temperature does the Pi start throttling the CPU?
-What happens if my Pi goes over 85 degrees? Is it going to break?
-Will a heat sink actually help keep my Pi from throttling?
-What's the difference between what happens at 80 degrees versus 85 degrees?
+Q: How do I check the temperature of my Pi from the terminal?
+A: Run cat /sys/class/thermal/thermal_zone0/temp and divide the result by 1000.
+
+Q: Will my Pi get damaged if it hits 85 degrees?
+A: Hitting the limit isn't harmful to the SoC, but the CPU will throttle.
+
+Q: At what temperature does the GPU start getting throttled back too, not just the CPU?
+A: Above 85°C both the Arm cores and the GPU get throttled back.
+
+Q: I've got my Pi in a case and it's running hot. What can I do?
+A: A heat sink helps control temperature; airflow over the heat sink makes cooling more efficient.
 
 # Monitoring voltage
 
-What voltage does my Pi need to run reliably?
-My Pi keeps randomly crashing. Could it be a power issue?
-How do I check if my Pi's power supply voltage is dropping too low?
-Can I check the voltage on a Pi 5 without a multimeter?
-What happens if the voltage drops below the minimum on a Pi?
-I'm using a cheap USB charger to power my Pi. Could that cause problems?
+Q: What's the minimum voltage I need to keep my Pi running reliably?
+A: Keep supply voltage above 4.8V for reliable performance.
+
+Q: How do I actually measure the voltage going to my Pi?
+A: Use a multimeter to measure between the VCC and GND pins on the GPIO.
+
+Q: I've got a Pi 5. Is there a command to check the voltage without a multimeter?
+A: Run vcgencmd pmic_read_adc EXT5V_V to view the current supply voltage on Pi 5.
 
 # Overclocking problems
 
-I overclocked my Pi and now it won't boot. How do I fix it?
-I pushed my overclock too far and the Pi won't start anymore. What do I do to get it back?
-My Pi crashed after overclocking. Do I need to reflash the whole SD card or is there an easier fix?
+Q: I pushed the overclock too far and now my Pi won't boot. What do I do?
+A: Remove clock overrides from config.txt, increase core voltage with over_voltage_delta, then reapply carefully.
 
 # Whole Document
 
-What's the difference between overclocking and turbo mode on a Raspberry Pi?
-I'm a complete beginner. Is overclocking my Pi worth it or is it too risky?
-Do I need to add a fan or heat sink if I'm going to overclock?
-Does overclocking work the same on all Pi models or is it different for each one?
-What's the safest way to overclock without risking my Pi?
+Q: I'm new to this. What's the safest way to overclock my Pi without permanently messing it up?
+A: Use raspi-config for overclocking; settings outside it may set a permanent bit on the SoC.
+
+Q: Does the Pi automatically adjust voltage when I overclock it?
+A: Yes, latest firmware auto-scales voltage when overclocked; manually setting over_voltage disables that.
+
+Q: I'm overclocking a Pi 4 and wondering if I should use gpu_freq or individual settings. Which is better?
+A: Use individual frequency settings like isp_freq and v3d_freq since max stable frequencies differ per block.

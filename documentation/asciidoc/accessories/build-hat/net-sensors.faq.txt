@@ -1,63 +1,112 @@
-# Whole Document
-
-- What's the difference between active and passive sensors when I'm using .NET with the Build HAT?
-- I've got a bunch of LEGO sensors — which ones are considered passive and which are active?
-- Do I need to do anything special to wait for a sensor to connect before I use it in my code?
-
 # Button/Touch Passive Sensor
 
-- How do I detect when a button sensor gets pressed in my .NET code?
-- I want my program to stop when someone presses the button sensor. How do I set that up?
-- What property do I check to see if a button sensor is currently being pressed?
-- How do events work with the button sensor? Like, how do I listen for when it gets pressed?
+Q: How do I know when a button sensor gets pressed in my code?
+A: Check the `IsPressed` property; it becomes true when button is pressed.
+
+Q: I want my program to stop when someone presses a button. How would I set that up?
+A: Use `PropertyChanged` event, check `IsPressed` property, then set a stop flag.
+
+Q: What's the `IsPressed` property and when does it change?
+A: It's set to true specifically when the button sensor is pressed.
 
 # Passive Light
 
-- I've got one of those LEGO train light attachments. Can I control the brightness of it from .NET?
-- How do I turn on a passive light and then dim it a bit after a couple seconds?
-- What's the difference between using `light.On(50)` and setting `light.Brightness` directly?
+Q: Can I control how bright the train lights are, or is it just on and off?
+A: You can control brightness, either via `On(value)` or the `Brightness` property.
+
+Q: I've got the passive light connected. How do I turn it on and set brightness to fifty percent?
+A: Call `light.On(50)` to switch it on at fifty percent brightness.
+
+Q: How do I turn the passive light off when I'm done with it?
+A: Call the `light.Off()` method to switch the passive light off.
 
 # Active Sensor
 
-- What's this `ValueAsString` property on active sensors? When would I actually need that?
-- I want to change what measurement mode my sensor is running. How do I do that without breaking things?
-- Wait, if I switch modes on an active sensor, does it stop the old mode automatically?
-- What are Combi modes? Do I need to worry about them for basic sensor reading?
+Q: What's the `ValueAsString` property even for? I don't get it.
+A: It contains the last measurement as a collection of parsed string values.
+
+Q: If I switch the measurement mode on an active sensor, does the old mode keep running?
+A: No, changing or setting a new mode will stop the previous mode.
+
+Q: What does a raw measurement string look like from an active sensor?
+A: It looks like `P0C0: +23 -42 0`, split into separate string parts.
+
+Q: How do I find out which modes I can combine together for a Combi mode?
+A: Check the `CombiModes` property; it lists all combinable modes available.
 
 # WeDo Tilt Sensor
 
-- How do I read the tilt values from a WeDo tilt sensor in .NET?
-- What range of values does the WeDo tilt sensor give back? Like, is it degrees or something else?
-- I want to keep reading tilt data continuously in a loop. Do I need to set something up first?
+Q: What values does the tilt sensor give me, and what do they mean?
+A: X and Y tilt values from negative forty-five to positive forty-five degrees.
+
+Q: I want continuous tilt readings without polling manually. How do I do that?
+A: Set `ContinuousMeasurement = true` on the `WeDoTiltSensor` instance.
+
+Q: The tilt sensor's giving me values over forty-five degrees. Is that right?
+A: No, values are capped at plus or minus forty-five degrees maximum.
 
 # WeDoDistance Sensor
 
-- How do I get the distance reading from a WeDo distance sensor?
-- What units does the WeDo distance sensor use — is it centimetres or millimetres or what?
+Q: What unit does the WeDo distance sensor use, like inches or centimetres?
+A: The WeDo Distance Sensor returns distance in millimetres via the `Distance` property.
+
+Q: Does the WeDo distance sensor support continuous readings?
+A: Yes, set `ContinuousMeasurement = true` to get continuous distance readings.
 
 # SPIKE Prime Force Sensor
 
-- How do I check if someone's pressing down on the SPIKE force sensor?
-- Can I read how hard someone's pressing on the force sensor, not just whether it's pressed?
-- I want my loop to keep running until the force sensor gets pressed. How do I write that?
+Q: My force sensor, does it just tell me if something's pressed or can it measure actual pressure?
+A: It measures both pressure via `Force` and whether it's pressed via `IsPressed`.
+
+Q: I want my loop to keep running until someone presses the force sensor. How do I do that?
+A: Use `while(!force.IsPressed)` to loop until the sensor detects a press.
 
 # SPIKE Essential 3×3 Colour Light Matrix
 
-- How do I light up individual LEDs on that little 3×3 matrix display?
-- Can I show a progress bar on the 3×3 LED matrix? How does that work?
-- I want to cycle through different colours on the whole 3×3 matrix. Is there an easy way to do that?
-- How do I set each pixel on the matrix to a different brightness?
+Q: Can I control each individual LED on that little three by three display separately?
+A: Yes, use `DisplayColorPerPixel` with brightness and colour arrays for each LED.
+
+Q: I want to show a progress bar on the three by three matrix. Is there a built-in way?
+A: Yes, call `matrix.DisplayProgressBar(value)` with a value from zero to nine.
+
+Q: Can I make all nine LEDs the same colour at once on the matrix?
+A: Yes, call `matrix.DisplayColor(LedColor)` to set all LEDs to one colour.
 
 # SPIKE Prime Colour Sensor and Colour and Distance Sensor
 
-- How do I read the colour from a SPIKE colour sensor in my .NET code?
-- What's the difference between reflected light and ambient light on the colour sensor?
-- I want to count objects passing in front of my sensor. Can the colour and distance sensor do that?
-- What's the maximum distance the colour and distance sensor can actually measure?
-- Why shouldn't I switch measurement modes really quickly on the colour sensor?
-- Does the colour and distance sensor support continuous measurement mode?
+Q: What can the colour and distance sensor actually measure? Like what properties does it have?
+A: It measures colour, reflected light, ambient light, distance, and counts passing objects.
+
+Q: I want to count how many objects pass in front of my sensor. Can I do that?
+A: Yes, the `Counter` property automatically counts objects going in and out of range.
+
+Q: What's the maximum distance the colour and distance sensor can detect things at?
+A: The distance is limited from zero to ten centimetres.
+
+Q: I keep switching modes really fast on the colour sensor and the readings seem off. What's wrong?
+A: Rapid mode switching isn't recommended; colour integration may not complete properly.
+
+Q: Does the colour sensor have a built-in continuous measurement mode?
+A: No, this class doesn't implement continuous measurement; use `SelectModeAndRead` instead.
 
 # SPIKE Prime Ultrasonic Distance Sensor
 
-- How do I use the SPIKE ultrasonic distance sensor to get a distance reading in millimetres?
-- Does the SPIKE ultrasonic sensor support continuous measurement, or do I have to keep polling it?
+Q: Does the ultrasonic distance sensor support continuous mode like some of the other sensors?
+A: Yes, set `ContinuousMeasurement = true` for continuous ultrasonic distance readings.
+
+Q: What unit does the ultrasonic distance sensor give readings in?
+A: It returns distance in millimetres via the `Distance` property.
+
+# Whole Document
+
+Q: What's the difference between active and passive sensors in this setup?
+A: Passive sensors are lights and buttons; active ones include distance and colour sensors.
+
+Q: I'm confused — do motors count as active sensors in this framework?
+A: Yes, active motors inherit from the active sensor class along with other active sensors.
+
+Q: I've got a sensor connected but my code doesn't seem to see it. What should I call first?
+A: Call `brick.WaitForSensorToConnect(SensorPort.PortA)` before trying to use the sensor.
+
+Q: How do I actually get a sensor object I can use after connecting it?
+A: Call `brick.GetSensor(SensorPort.PortA)` and cast it to the appropriate sensor type.

@@ -1,37 +1,45 @@
-# Whole Document
-
-What even is an IR filter and why does my camera have one?
-
-Does the High Quality Camera have an IR filter built in?
-
-I want to take photos of plants and I heard removing the IR filter makes the colours better. Is that true?
-
-Can I use my Pi camera for night vision?
-
 # IR Filter
 
-Wait, if I remove the IR filter can I put it back later?
+Q: Why would I even want to remove the IR filter from my camera?
+A: It enhances plant photos and enables night vision using infrared light.
 
-I tried to remove the IR filter and it cracked. Is there any way to fix it?
+Q: I've got the High Quality Camera — does it have an IR filter built in?
+A: Yes, both the HQ and Global Shutter cameras include an IR filter.
 
-Does removing the IR filter void the warranty?
+Q: Wait, if I remove the filter can I just glue it back later?
+A: No, the adhesive won't survive removal, making reinstallation difficult or impossible.
 
-What size hex key do I need to take apart the HQ camera?
+Q: Does taking the IR filter off void my warranty?
+A: Yes, removing the IR filter voids the warranty on the product entirely.
 
-I'm worried about dust getting on the sensor when I open up the camera. What should I do?
+# Filter Removal
 
-I'm trying to separate the board from the housing but it's really stuck. What can I do to loosen it?
+Q: What size hex key do I need to open up the HQ camera?
+A: You need a 1.5 mm hex key to unscrew the two lock keys.
 
-So once I get the board off, where do I put it down without damaging the sensor?
+Q: The board's really stuck and won't come apart. What can I do?
+A: Try isopropyl alcohol or gentle heat around twenty to thirty degrees Celsius.
 
-What's the safest way to push the filter out without breaking it? I don't want to crack it.
+Q: I'm worried about cracking the filter when I push it out. Any tips?
+A: Push only at the very edges using a soft plastic item like a pen top.
 
-I removed the filter but now I'm worried about dust getting into the sensor cavity. Is there something I can put over it?
+Q: My sensor's going to be exposed while I do this. Should I be worried about dust?
+A: Work in a clean, dust-free environment to protect the exposed sensor.
 
-I'm putting the camera back together and I've got these washers but I'm not sure what order they go in. Which one goes on first?
+Q: Can I put anything over the sensor to keep dust out after removing the filter?
+A: You can affix a clear filter like OHP plastic to minimise dust entering.
 
-Do I need to tighten the hex screws really hard when I put it back together?
+Q: What order do I put the washers back in when I'm reassembling the camera?
+A: Apply the nylon washer first, then the steel washer, then screw down the hex keys.
 
-Can I glue the IR filter back in if I change my mind?
+Q: Do I need to tighten the hex screws really hard when I put it back together?
+A: No, as long as washers are fitted correctly, they don't need tightening very much.
 
-Does this work the same way on the Global Shutter Camera, or is it different?
+Q: I accidentally laid the board flat. Is it okay if the sensor touched the surface?
+A: No, you must ensure the sensor doesn't touch the surface during reassembly.
+
+Q: I want to do IR photography of plants and water. Will removing the filter actually help?
+A: Yes, filter removal enhances colours in photos of plants, water, and sky.
+
+Q: Does removing the filter work on the Global Shutter Camera too, or just the HQ one?
+A: You can remove the filter from both the HQ and GS cameras.

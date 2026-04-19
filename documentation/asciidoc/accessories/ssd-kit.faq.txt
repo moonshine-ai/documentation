@@ -1,27 +1,35 @@
 # About
 
-What's actually in the Raspberry Pi SSD Kit? Like what do you get in the box?
+Q: What's actually included in the Raspberry Pi SSD Kit?
+A: It bundles an M.2 HAT+ with a Raspberry Pi SSD together.
 
-Does the SSD kit come with everything I need or do I have to buy extra parts?
+Q: I've got a Pi 5 with an Active Cooler already on it. Can I still fit the SSD Kit?
+A: Yes, it includes a stacking header, spacers, and screws for that.
 
-Can I use the Raspberry Pi SSD Kit with a Pi 5, or is it only for certain models?
+Q: What's the stacking header size that comes with the kit?
+A: The kit includes a 16 mm stacking header for installation.
 
-Will the SSD kit fit alongside the Active Cooler, or do I have to choose one or the other?
+Q: Is the SSD Kit just the drive, or does it come with the HAT too?
+A: It bundles both the M.2 HAT+ and a Raspberry Pi SSD together.
 
-What's the M.2 HAT+ thing that comes with the SSD kit? Do I need to know what that is?
+Q: I'm not sure what an M.2 HAT+ is. What does it do for my Pi?
+A: Not specified in this section.
 
 # Install
 
-How do I actually install the SSD kit? Like where do I even start?
+Q: How do I actually install this SSD Kit? Is there a guide somewhere?
+A: Follow the installation instructions provided for the Raspberry Pi M.2 HAT+.
 
-I just got the SSD kit in the mail. What do I do first to set it up?
-
-Is the setup for the SSD kit different from setting up the M.2 HAT+ on its own, or is it the same process?
+Q: Do the SSD Kit instructions differ from the regular M.2 HAT+ instructions?
+A: No, you follow the same M.2 HAT+ installation instructions for the kit.
 
 # Whole Document
 
-I want to add an SSD to my Raspberry Pi 5. Is this kit the easiest way to do that?
+Q: I just bought the SSD Kit. What sizes does it come in?
+A: Not specified in this section.
 
-What's the difference between just buying an SSD and buying this whole kit?
+Q: Does the SSD Kit work on any Raspberry Pi or just the Pi 5?
+A: The kit is designed to fit on Raspberry Pi 5 specifically.
 
-I've never added storage to a Pi before. Is this kit beginner friendly or is it complicated to set up?
+Q: Wait, I already have an Active Cooler on my Pi 5. Does the kit handle that situation?
+A: Yes, it includes a stacking header, spacers, and screws for that.

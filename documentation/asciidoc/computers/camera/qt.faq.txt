@@ -1,29 +1,28 @@
-# Use libcamera with Qt
+# Use `libcamera` with Qt
 
-What's this error I'm getting when I try to use libcamera and Qt together in my project?
+Q: I'm trying to use libcamera with Qt and getting weird errors. What's going on?
+A: Qt defines macros like `slot` and `emit` that conflict with libcamera symbols.
 
-I keep getting compile errors mixing Qt and libcamera. Is there a known fix for this?
+Q: How do I stop Qt from clashing with libcamera in my project?
+A: Include libcamera files before any Qt header files whenever possible.
 
-Why does Qt cause problems with libcamera? Like what's actually going wrong?
+Q: I can't avoid mixing Qt and libcamera includes. What do I replace `signals:` with?
+A: Replace `signals:` with `Q_SIGNALS:` to avoid the macro conflicts.
 
-I'm building a Qt app with camera support and it just won't compile. Where do I even start?
+Q: What's the quick fix I can add at the top of my libcamera include files to stop the errors?
+A: Add `#undef signals`, `#undef slots`, `#undef emit`, and `#undef foreach`.
 
-So I have to include libcamera headers before Qt headers? Is that always going to fix it?
+Q: I'm using qmake for my project. How do I fix the Qt and libcamera keyword conflict?
+A: Add `CONFIG += no_keywords` to your qmake project file.
 
-I'm using qmake for my project. What do I add to get rid of these libcamera conflicts with Qt?
+Q: I'm using cmake instead of qmake. What do I add to fix the Qt keyword conflicts?
+A: Add `SET(QT_NO_KEYWORDS ON)` to your cmake project.
 
-My project uses cmake instead of qmake. Is there a different setting I need for the Qt and libcamera keyword problem?
+Q: Does rpicam-apps support using Qt for the preview window?
+A: Yes, rpicam-apps includes an option to use Qt for camera preview.
 
-What does it mean that Qt defines things like `emit` and `slot` as macros? Why does that break things?
+Q: Is this Qt and libcamera conflict only a Raspberry Pi problem or does it happen everywhere?
+A: This conflict is common to all platforms using both Qt and libcamera.
 
-I tried including the headers in different orders and it's still broken. What else can I try?
-
-Can I just undefine those Qt keywords at the top of my file to fix the conflict with libcamera?
-
-# Whole Document
-
-I'm trying to use libcamera in a Qt app and it's a mess. What are my options for fixing the conflicts?
-
-Does rpicam-apps work with Qt at all, or is it too buggy?
-
-I've never had to deal with macro conflicts before. Can you explain why Qt and libcamera clash like this?
+Q: I need to use `emit` in my Qt app but libcamera keeps breaking it. What do I do?
+A: Replace `emit` with `Q_EMIT` and `foreach` with `Q_FOREACH` in your files.

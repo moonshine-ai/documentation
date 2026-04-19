@@ -1,31 +1,35 @@
 # Introduction
 
-What even is the Raspberry Pi kernel? Is it the same as the regular Linux kernel?
+Q: Where's the Raspberry Pi kernel code actually hosted?
+A: The Raspberry Pi kernel is hosted on GitHub at raspberrypi/linux.
 
-Why does the Raspberry Pi kernel seem to be behind the latest Linux version? Is something wrong or is that normal?
+Q: Is the Raspberry Pi kernel always up to date with the main Linux kernel?
+A: No, Raspberry Pi kernel updates lag behind the upstream Linux kernel.
 
-I heard there's a `next` branch for the kernel. What's that for exactly?
+Q: How does Raspberry Pi decide when to update their kernel version?
+A: They integrate long-term Linux releases, tested via a next branch before merging.
 
-Who maintains the Raspberry Pi kernel? Is it the same people as regular Linux?
+Q: What's this "next" branch I keep seeing mentioned in the Raspberry Pi firmware repo?
+A: It's created for each long-term Linux release, merged after extensive testing and discussion.
 
 # Update
 
-My Pi's kernel, does it update automatically or do I have to do something myself?
+Q: Do I need to manually update my kernel or does it just happen automatically?
+A: The normal Raspberry Pi OS update process automatically updates your kernel.
 
-I just ran `sudo apt upgrade` — did that update my kernel too, or is that separate?
+Q: I want to try the newest kernel even if it's not totally stable. How do I do that?
+A: You can manually update using the rpi-update process to get the latest unstable kernel.
 
-I want to try the newest kernel even if it's not fully stable yet. How do I do that?
+Q: My Pi's kernel seems old. Will just doing a normal system update fix that?
+A: Yes, the usual Raspberry Pi OS update process updates your kernel automatically.
 
-What's the difference between the stable kernel and the test kernel? Is it risky to try the unstable one?
-
-I've heard about `rpi-update`. What does that actually do? Is it safe to run?
+Q: What's the difference between the stable kernel and the test kernel on Raspberry Pi?
+A: Stable updates automatically; the unstable test kernel requires a manual update process.
 
 # Whole Document
 
-Where does Raspberry Pi even get its kernel from? Like what's the source?
+Q: So Raspberry Pi makes their own version of Linux? How does that even work?
+A: They take long-term Linux releases, test them in a next branch, then merge them.
 
-Is the Raspberry Pi kernel open source? Can I look at the code somewhere?
-
-I'm totally new to this — do I need to worry about the kernel at all, or does it just take care of itself?
-
-How far behind is the Raspberry Pi kernel compared to mainline Linux? Like is it months, years?
+Q: I just want to know if my kernel will stay updated without me doing anything.
+A: Yes, the standard Raspberry Pi OS update process keeps your kernel at the latest stable release.

@@ -1,85 +1,132 @@
-# Whole Document
+# Image options
 
-- What are these image-only options for — like, do they work with video too?
-- I keep forgetting to put the two dashes before option names. Is that always required?
-- Some of these options don't take a value and some do. How do I know which is which?
+Q: How do I pass these options on the command line, like what's the format?
+A: Prefix the option name with two dashes, then pass the value after it.
+
+Q: My option value has a space in it and it's not working. What do I do?
+A: Surround any value containing a space in quotes when passing it.
 
 # `quality`
 
-- What's the default JPEG quality when I take a photo, and how do I change it?
-- My photos are too big. Can I lower the quality to make the file size smaller?
-- What's the shorthand for the quality option? I don't want to type out the whole thing.
+Q: What's the default JPEG quality when I take a still photo?
+A: The default JPEG quality is ninety-three out of one hundred.
+
+Q: Can I crank up the JPEG quality to the maximum? What do I set it to?
+A: Yes, set quality to one hundred for maximum JPEG quality.
 
 # `exif`
 
-- How do I add EXIF data to my photos, like who took them or what camera settings were used?
-- I tried adding an EXIF tag and it printed a warning in the terminal. Should I be worried about that?
-- I want to tag my photos with the artist name. How do I do that?
-- Can I add any EXIF tag I want, or are some of them not supported?
+Q: I want to add my name as the artist in the photo's EXIF data. How do I do that?
+A: Use the exif option, like `--exif IDO0.Artist=Someone` with rpicam-still.
+
+Q: Can I add EXIF tags that aren't related to camera settings?
+A: Yes, add non-camera tags after recording using the external tool ExifTool.
+
+Q: I'm seeing warnings in the terminal about EXIF tags being formatted wrong. Should I worry?
+A: It's a known libexif library limitation; many tags are incorrectly formatted as ASCII.
 
 # `timelapse`
 
-- I want to take a photo every 30 seconds for an hour. How do I set that up?
-- How do I save each timelapse photo as a separate file instead of overwriting the same one?
-- My timelapse is saving everything to the same file. What do I need to do to get numbered files?
+Q: I want to take a photo every five seconds for a minute. How do I set that up?
+A: Use timelapse with an interval in milliseconds combined with the timeout option.
+
+Q: How do I make each timelapse photo save as a separate file instead of overwriting the last one?
+A: Use string formatting in the filename, like `test%d.jpg`, to get separate files.
 
 # `framestart`
 
-- My timelapse filenames start at zero. Can I make them start at a different number?
-- What does the frame counter thing do exactly, and why would I want to change the starting number?
+Q: The frame counter in my filenames starts at zero. Can I make it start at a different number?
+A: Yes, use framestart to set a custom integer starting value for the frame counter.
 
 # `datetime`
 
-- I want my photos to automatically get the date and time in the filename. Is there an option for that?
-- What format does the datetime option use for the filename? I want to know what to expect.
+Q: I want my photos to automatically be named with the date and time. Is there an option for that?
+A: Yes, use the datetime option; it names files in MMDDhhmmss.jpg format automatically.
+
+Q: What format does the datetime option use for the filename? Like what order is it?
+A: It uses month, day, hour, minute, second in the format MMDDhhmmss.jpg.
 
 # `timestamp`
 
-- Can I use a Unix timestamp as the filename for my photos?
-- What's the difference between the datetime option and the timestamp one?
+Q: Can I name my photos with a Unix timestamp instead of a regular date?
+A: Yes, the timestamp option uses the current Unix system time as the filename.
 
 # `restart`
 
-- What are JPEG restart markers? Do I need them for anything?
-- I heard restart markers help with corrupted images. How do I enable that?
+Q: What does the restart marker thing do for JPEG files? Why would I use it?
+A: Restart markers limit corruption impact and enable multi-threaded JPEG encoding and decoding.
 
 # `immediate`
 
-- I don't want any delay when I take a photo. How do I make it capture right away?
+Q: I don't want any delay before my photo is taken. Is there a way to capture right away?
+A: Yes, use the immediate option to capture the image as soon as the app runs.
 
 # `keypress`
 
-- Can I set it up so a photo gets taken when I press Enter?
-- How do I exit without actually capturing a photo when I'm in keypress mode?
+Q: I want to press Enter to take a photo instead of having it happen automatically. Can I do that?
+A: Yes, the keypress option captures when you press Enter or when timeout expires.
+
+Q: How do I quit without actually taking a photo when I'm using keypress mode?
+A: Press the x key and then Enter to exit without capturing an image.
 
 # `signal`
 
-- I want to trigger a photo from a script using a signal. How does that work?
-- What's the difference between SIGUSR1 and SIGUSR2 in this context?
+Q: Can I trigger a photo from another script using a signal instead of a keypress?
+A: Yes, send SIGUSR1 to trigger a capture, or SIGUSR2 to exit without capturing.
 
 # `thumb`
 
-- How do I change the size of the thumbnail that gets embedded in my JPEG?
-- Can I turn off the thumbnail entirely? I don't need it.
+Q: How do I turn off the thumbnail that gets embedded in my JPEG photos?
+A: Pass `none` to the thumb option to omit the thumbnail entirely.
+
+Q: What's the default thumbnail size and quality when I take a still?
+A: The default thumbnail is three hundred twenty by two hundred forty pixels at quality seventy.
 
 # `encoding`
 
-- How do I save photos as PNG instead of JPEG?
-- Does the file extension I give it actually determine the format, or do I have to set the encoding separately?
-- What encoding options are available? Can it do BMP or PNG or just JPEG?
+Q: I want to save my photos as PNG instead of JPEG. How do I change that?
+A: Use the encoding option with the value `png` to switch to PNG output.
+
+Q: Does the file extension I put in the filename actually control what format gets saved?
+A: No, the encoding option always determines the format, overriding the file extension.
+
+Q: What image formats can I save to with rpicam-still?
+A: You can save as JPEG, PNG, BMP, uncompressed RGB, or uncompressed YUV420.
 
 # `raw`
 
-- How do I save a RAW version of my photo at the same time as the JPEG?
-- What information gets stored in the DNG raw file?
-- Can I open the raw files from my Pi camera in something like RawTherapee?
+Q: Can I save a raw file at the same time as my normal JPEG? Like for editing later?
+A: Yes, the raw option saves a DNG file alongside your regular output image.
+
+Q: What editing tools can I use to process the raw DNG files from my Pi camera?
+A: You can process the DNG files with tools like dcraw or RawTherapee.
+
+Q: What info gets stored in the EXIF data of those raw DNG files?
+A: Exposure time, analogue gain, white balance gains, and the ISP colour matrix are stored.
+
+Q: Does the raw file have any processing applied to it from the camera?
+A: No, raw file data comes straight from the sensor with no ISP processing applied.
 
 # `latest`
 
-- I want to always know which photo was taken most recently without sorting by date. Is there a way to do that automatically?
+Q: I'm doing timelapse and I always want a symlink pointing to the newest photo. How do I do that?
+A: Use the latest option and pass your desired symbolic link name as the value.
 
 # `autofocus-on-capture`
 
-- Can I make the camera autofocus right before it takes a shot?
-- I've got a Camera Module 3. Does autofocus on capture work with that?
-- What's the difference between autofocus-on-capture and just setting the autofocus mode to continuous?
+Q: Can I make the camera refocus right before it takes each photo?
+A: Yes, autofocus-on-capture runs an autofocus cycle just before capturing an image.
+
+Q: Does the autofocus-on-capture thing work with all Pi camera modules?
+A: No, it's only supported by some modules like the Raspberry Pi Camera Module 3.
+
+Q: I've got continuous autofocus mode on. Will autofocus-on-capture do anything extra?
+A: No, continuous autofocus mode ignores autofocus-on-capture and focuses throughout preview instead.
+
+# Whole Document
+
+Q: I've never used these camera options before. How do I even know what shorthand aliases are available?
+A: Each option lists its alias, like `-q` for quality or `-e` for encoding.
+
+Q: I want to just take a photo quick from the command line. What's the simplest way to control the quality?
+A: Use `-q` followed by a number between one and one hundred for JPEG quality.

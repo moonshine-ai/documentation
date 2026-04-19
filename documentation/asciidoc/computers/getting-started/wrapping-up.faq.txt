@@ -1,29 +1,40 @@
 # Whole Document
 
-- I just got my Raspberry Pi set up. What do I do next?
-- I'm new to this. Where do I even start after the initial setup?
+Q: My Pi's all set up, what should I do next to get started?
+A: Install recommended software, follow tutorials, and visit the Raspberry Pi forums.
+
+Q: Where do I even find extra apps to install on my Raspberry Pi?
+A: Click the raspberry icon, then go to Preferences and Recommended Software.
+
+Q: I don't want to use the terminal to install stuff. Is there another way?
+A: Yes, use the package manager GUI found under Preferences and Recommended Software.
 
 # Recommended Software
 
-- What apps come pre-installed on Raspberry Pi OS?
-- How do I find and install extra software on my Raspberry Pi?
-- Where's the package manager? I can't find it anywhere.
-- I want to install some extra stuff. Is there like an app store or something on Raspberry Pi OS?
-- I need to write documents on my Pi. Is there anything like Microsoft Word available?
-- Is LibreOffice free to install on the Raspberry Pi?
-- I have trouble seeing the screen clearly. Are there any accessibility tools I can get for Raspberry Pi OS?
-- What's Orca and do I need it?
-- I clicked the raspberry icon but I'm not sure where to go from there. How do I get to the recommended software list?
+Q: I want to write documents on my Pi. Is there anything like Microsoft Word I can use?
+A: LibreOffice is available for writing and editing documents and spreadsheets.
+
+Q: Wait, is the extra software free or do I have to pay for it?
+A: You can install a wide variety of recommended software for free.
+
+Q: I've got someone who needs a screen reader on the Pi. Is that a thing?
+A: Yes, the Orca screen reader is available under Universal Access in recommended software.
+
+Q: My vision isn't great. Are there any accessibility tools I can get for Raspberry Pi OS?
+A: A screen magnifier and Orca screen reader are available under Universal Access.
 
 # Tutorials
 
-- I want to learn to code on my Raspberry Pi. Where should I start?
-- Are there beginner projects I can follow along with?
-- I want to do something fun with my Pi, like build a project or something. Where do I find ideas?
-- Can my Raspberry Pi control external devices? How would I even learn to do that?
+Q: I've never coded before. Is there somewhere I can learn using my Pi?
+A: Raspberry Pi tutorials can teach you coding, external device control, and project building.
+
+Q: I want to do cool projects with my Pi. Where do I go for ideas?
+A: Visit raspberrypi.com/tutorials for projects involving coding and controlling external devices.
 
 # Support
 
-- I'm having trouble with my Raspberry Pi and I don't know who to ask. Where can I get help?
-- Is there a community forum where I can talk to other Raspberry Pi users?
-- Where do I go if something's not working right with my Pi?
+Q: I'm having trouble with my Pi and I don't know who to ask. Where should I go?
+A: Visit the Raspberry Pi forums for support and to connect with other users.
+
+Q: Is there like a community of other Pi users I can talk to if I get stuck?
+A: Yes, the Raspberry Pi forums let you connect with other Raspberry Pi users.

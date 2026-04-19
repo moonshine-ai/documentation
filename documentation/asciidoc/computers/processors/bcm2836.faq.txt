@@ -1,29 +1,22 @@
 # BCM2836
 
-What chip is in the early Raspberry Pi 2 Model B?
+Q: What Pi model used the BCM2836 chip?
+A: BCM2836 was used in early models of the Raspberry Pi 2 Model B.
 
-How is the BCM2836 different from the BCM2835?
+Q: What's the difference between the BCM2835 and BCM2836 chips?
+A: BCM2836 replaces the ARM1176JZF-S with a quad-core Cortex-A7 cluster.
 
-The BCM2836 has a quad-core Cortex-A7 — what does that mean compared to the older single-core processor?
+Q: I've got an older Pi 2 and I'm trying to find technical docs for it. Where do I look?
+A: Check the BCM2836 ARM-local peripherals and Cortex-A7 MPcore Processor Reference Manual.
 
-I've got an early Pi 2, what processor is actually inside it?
+Q: Is the BCM2836 still being made or is it discontinued?
+A: BCM2836 is discontinued; later Pi 2 Model B revisions use a different chip.
 
-Where can I find the technical docs for the BCM2836?
+Q: My Pi 2 doesn't seem to match what I'm reading about BCM2836. What's going on?
+A: Later Raspberry Pi 2 Model B revisions use a different SoC, not BCM2836.
 
-Is the BCM2836 still being made, or is it discontinued?
+Q: Is the BCM2836 basically the same as the BCM2835 under the hood?
+A: Yes, the underlying architecture of BCM2836 is identical to BCM2835.
 
-I'm trying to find the ARM-local peripherals documentation for the BCM2836, where do I look?
-
-What's the Cortex-A7 MPcore reference manual and do I need it for Pi development?
-
-# Whole Document
-
-Wait, so not all Raspberry Pi 2 Model B boards use the same chip?
-
-I have a Raspberry Pi 2 and I'm not sure which version it is — does it matter what SoC is inside?
-
-What's a SoC anyway, and why does it matter which one my Pi has?
-
-My Pi 2 is an older one — how do I find out if things have changed in newer revisions of the same board?
-
-Where do I find out about hardware changes between different versions of the same Raspberry Pi model?
+Q: Where can I find the reference manual for the processor inside the BCM2836?
+A: The Cortex-A7 MPcore Processor Reference Manual is available at the ARM developer site.

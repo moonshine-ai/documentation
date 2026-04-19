@@ -1,77 +1,125 @@
 # Raspberry Pi Touch Display
 
-What Pi models work with the official touch display? Like, does it work with the Pi Zero?
+Q: What's the resolution on the Raspberry Pi touch display?
+A: The display has an 800 by 480 pixel RGB LCD screen.
 
-What's the resolution on the official Pi touch display?
+Q: Does the touch display work with a Pi Zero?
+A: No, the Zero series lacks a DSI connector and isn't compatible.
 
-How many touch points does the Pi touchscreen support — is it proper multi-touch?
+Q: How many touch points does the Raspberry Pi touch display support?
+A: It supports 10-point multi-touch input on the touchscreen.
 
-How long is the backlight supposed to last on the Pi touch display?
+Q: How long does the backlight last before it wears out?
+A: The backlight has a rated lifetime of 20,000 hours.
 
-How much power does the touch display use?
+Q: What are the operating temperatures for this display?
+A: It operates in temperatures from negative 20 to positive 70 degrees Celsius.
 
-What are the actual dimensions of the Pi touch display?
+Q: How much power does the touch display use?
+A: It typically draws 200 milliamps at 5 volts at maximum brightness.
 
 # Mount the Touch Display
 
-How do I physically attach my Pi to the back of the touch display?
+Q: How do I attach my Pi to the back of the touch display?
+A: Mount the Pi using the display's stand-offs and connect the appropriate cables.
 
-I'm setting up my touch display and I just see a solid color or nothing at all. What's wrong?
+Q: I connected the display but there's nothing showing up. What should I check first?
+A: Always double-check that the Flat Flexible Cable is fully and correctly inserted.
 
-When I'm connecting that ribbon cable, which way do the contacts face? I don't want to put it in backwards.
+Q: Which way do the contacts face when I plug in the ribbon cable?
+A: Contacts face away from the display on the display end, inward on the Pi end.
+
+Q: I'm putting the display in a separate case. Can I still do that?
+A: Yes, you can mount the display in a separate chassis with longer cables.
 
 # Power the Touch Display
 
-What's the easiest way to power the touch display — do I need a separate power supply or can the Pi do it?
+Q: What's the best way to power the touch display?
+A: Raspberry Pi recommends powering the display from the Pi's GPIO pins.
 
-I want to power the touch display from the Pi's GPIO pins. Which pins do I use?
+Q: Which GPIO pins do I use to power the touch display from my Pi?
+A: Connect pin four for 5V and pin six for ground on the Pi's GPIO header.
 
-What if pin 4 on my Pi is already being used? Can I connect the display's 5V to a different pin?
+Q: Can I use a different ground pin if pin six is taken?
+A: Yes, any available ground pin works for the black wire connection.
 
-I don't want to use GPIO to power my screen. Can I just plug a USB cable into it instead?
+Q: I don't want to use GPIO for power. Can I just use a USB power supply instead?
+A: Yes, you can use a separate micro USB power supply for the display instead.
 
-Wait, if I'm powering the display with its own USB cable, do I still need to connect the GPIO pins too?
+Q: If I'm powering the display with micro USB, do I still connect the GPIO pins?
+A: No, with micro USB power, only the Flat Flexible Cable should connect the two boards.
+
+Q: What power supply do you recommend for powering the display over micro USB?
+A: Raspberry Pi recommends the official 12.5 watt micro USB power supply.
 
 # Use an on-screen keyboard
 
-I connected the touch display but there's no keyboard showing up when I tap a text box. How do I get an on-screen keyboard?
+Q: I've got a touchscreen but there's no keyboard showing up. How do I get one?
+A: Raspberry Pi OS Bookworm includes Squeekboard, which appears automatically when needed.
 
-I want the on-screen keyboard to always be visible, not just pop up automatically. How do I do that?
+Q: The keyboard isn't popping up automatically in my app. How do I show it manually?
+A: Tap the keyboard icon at the right end of the taskbar to show or hide it.
 
-I'm running an older version of Raspberry Pi OS and there's no Squeekboard. What should I use instead?
+Q: Can I just leave the on-screen keyboard showing all the time?
+A: Yes, permanently show or hide it in the Display tab of Control Centre.
 
-# Change Screen Orientation
+Q: I'm running an older version of Raspberry Pi OS. What keyboard should I use?
+A: Use matchbox-keyboard on releases prior to Bookworm, or wvkbd for wayfire compositor.
 
-My touch display is mounted upside down. How do I rotate the screen to fix it?
+# Change screen orientation
 
-I'm running Pi OS without a desktop and I need to rotate the screen. How do I do that without a GUI?
+Q: My display is mounted upside down. How do I rotate it in the software?
+A: Open Screen Configuration from Preferences, right-click the display, and choose Orientation.
 
-I rotated my screen but now the touch input is all wrong — like I tap in one corner and it registers in the wrong spot. How do I fix the touch rotation?
+Q: I'm running without a desktop. How do I rotate the screen?
+A: Edit cmdline.txt and add the video equals DSI-1 line with your desired rotation value.
 
-Can I rotate just the touchscreen display without rotating my HDMI output at the same time?
+Q: What rotation values can I actually use in cmdline.txt?
+A: You can use 0, 90, 180, or 270 degrees of rotation.
 
-I want to flip the touch coordinates but I'm worried it'll mess with my input library. Should I use the device tree overlay or is there a safer way?
+Q: I've got both HDMI and the DSI display running. Can I rotate them separately?
+A: No, both displays share the same rotation value when used simultaneously via cmdline.txt.
 
-How do I completely disable touch input on the Pi touch display?
+# Rotate touch input
 
-How do I change the resolution of the touch display through the config file?
+Q: My screen is rotated but touch input is still wrong. How do I fix that?
+A: Add a dtoverlay instruction with invx and invy in your config.txt file.
+
+Q: Do I need to change anything else in config.txt when I add the touch rotation overlay?
+A: Yes, remove the display_auto_detect equals 1 line from config.txt if it exists.
+
+Q: Is rotating the touch input the same as rotating the display?
+A: No, touch input rotation is independent from the display's orientation setting.
+
+# Touch Display device tree option reference
+
+Q: Can I change the resolution of the touch display in software?
+A: Yes, use sizex and sizey parameters in the dtoverlay line in config.txt.
+
+Q: How do I turn off touch completely if I don't need it?
+A: Add disable_touch to your dtoverlay line in config.txt to disable touch entirely.
+
+Q: I want to flip both X and Y and also set a custom width. How do I write that line?
+A: Add sizex equals your value then invx and invy separated by commas in dtoverlay.
 
 # Installation on Compute Module based devices
 
-I'm using a Compute Module and my touch display isn't being detected automatically. Why not, and how do I fix it?
+Q: Why doesn't the touch display auto-detect on my Compute Module like it does on a regular Pi?
+A: Compute Modules disable autodetection since integrators may use any GPIO for custom purposes.
+
+Q: How do I get the touch display working on a Compute Module then?
+A: Add a dtoverlay entry in config.txt, use a custom base DT file, or use a HAT EEPROM.
 
 # Legacy Support
 
-I've got an original Raspberry Pi Model A and I'm trying to get the touch display working. What's different about setting it up compared to a newer Pi?
+Q: I've got an original Model B Pi. Can I use the touch display with it?
+A: Yes, but you need extra jumper cables for SCL and SDA connections to the GPIO header.
 
-I'm using an old Pi Model B with the touch display. Should I power it through the Pi's USB port or the display's USB port?
+Q: Why does the original Pi need extra cables that newer Pis don't?
+A: The original Pi's DSI connector lacks I2C connections needed for touchscreen and DSI controllers.
 
-The touch display isn't being detected on my original Pi. How do I turn on detection for it?
+Q: My original Pi isn't detecting the display. Is there a setting I need to turn on?
+A: Add ignore_lcd equals 0 to your config.txt to enable display detection.
 
-# Whole Document
-
-Does the Pi touch display work right out of the box with Raspberry Pi OS or do I need to configure a bunch of stuff first?
-
-I bought the official Pi touch display but I'm not sure which models it works with. Will it fit any Pi?
-
-What's the viewing angle like on the Pi touch display? Is it actually usable from the side?
+Q: Can I power the display setup through the Pi's micro USB on the original Model B?
+A: No, power through the display's PWR IN connector; the display draws too much current otherwise.

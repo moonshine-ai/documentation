@@ -1,97 +1,208 @@
 # Whole Document
 
-- What's the difference between a Raspberry Pi microcontroller and a regular Raspberry Pi?
-- I'm just getting started. Should I get a Pico with RP2040 or RP2350?
-- What languages can I use to program a Pico?
-- Is MicroPython or C++ better for a beginner?
-- What's a microcontroller even used for? Like when would I use one instead of a regular Pi?
-- Can I use both RP2040 and RP2350 with the same code?
+Q: What languages can I use to program a Raspberry Pi Pico?
+A: You can program it using C, C++, or MicroPython.
 
-# Microcontroller overview
+Q: What's the difference between RP2040 and RP2350? Which one should I get?
+A: RP2350 is faster, has more RAM, better security, and more features than RP2040.
 
-- What's the difference between RP2040 and RP2350?
-- Both chips have two cores — what does that actually mean for my project?
-- What's PIO? I keep seeing it mentioned but I don't know what it does.
-- Does the Pico have built-in USB? Like can it show up as a USB device on my computer?
-- What's SRAM and why does it matter how much the chip has?
-- Do both chips support MicroPython and C++?
-- Can I do PWM on either of these chips?
-- I keep seeing I2C and SPI mentioned — are those built into the chip or do I need extra hardware?
-- What's the clock speed on RP2040 versus RP2350?
+Q: I've never heard of a microcontroller before. What does it actually do?
+A: Microcontrollers handle specific real-time tasks like controlling motors or reading sensors.
+
+Q: Do both chips support MicroPython or just the newer one?
+A: Both RP2040 and RP2350 support programming with C/C++ SDK and MicroPython.
+
+---
+
+# Microcontroller Overview
+
+Q: So there are two Raspberry Pi microcontrollers? What are they called?
+A: Raspberry Pi offers two microcontrollers: RP2040 and the more powerful RP2350.
+
+Q: What makes the RP2350 better than the RP2040 exactly?
+A: RP2350 is higher performance with advanced features, more memory, and better security.
+
+Q: Do both chips have two cores?
+A: Yes, both RP2040 and RP2350 have dual-core processors for parallel processing.
+
+Q: What's PIO? I keep seeing it mentioned but I don't know what it is.
+A: PIO is a unique Raspberry Pi feature providing extended peripheral support through programmable hardware.
+
+Q: Does the Pico support USB? Like can I plug it into my computer directly?
+A: Yes, the built-in USB controller lets the microcontroller act as USB device or host.
+
+Q: What kind of stuff can the GPIO pins do besides just input and output?
+A: GPIO pins can be configured for UART, SPI, I2C, or PWM peripheral functions.
+
+Q: Can I run these chips off a battery? Will they drain it super fast?
+A: Both chips have low-power modes to support extended operation on battery power.
+
+---
+
+# Key Features
+
+Q: How do I program the chip without having to write complicated code? Is there drag and drop or something?
+A: Yes, there's a UF2 bootloader in ROM that supports drag-and-drop programming.
+
+Q: What's the clock speed on these chips?
+A: RP2040 runs up to 133 MHz; RP2350 runs up to 150 MHz.
+
+Q: How much RAM does the RP2040 have?
+A: RP2040 has 264 kB of on-chip SRAM split across six independent banks.
+
+---
+
+# Feature Comparison
+
+Q: Does the RP2040 have any built-in flash storage?
+A: No, RP2040 has no on-chip flash but supports up to 16 MB of external flash.
+
+Q: How many GPIO pins does the RP2350 have?
+A: Depending on the variant, RP2350 has either 30 or 48 GPIO pins.
+
+Q: Does the RP2040 have any security features built in?
+A: No, RP2040 has no security features; it's described as a basic MCU.
+
+Q: Does the RP2350 support PSRAM? I need more working memory for my project.
+A: Yes, RP2350 supports external PSRAM through a QMI memory interface using the QSPI bus.
+
+Q: How many PIO state machines does the RP2350 have compared to the RP2040?
+A: RP2040 has eight total PIO state machines; RP2350 has twelve total.
+
+---
 
 # RP2040
 
-- What boards use the RP2040 chip?
-- Does the RP2040 have built-in flash memory or do I need to add it?
-- What does the name RP2040 actually mean? Like why is it called that?
-- How much RAM does the RP2040 have?
-- Can the RP2040 run at higher than 133 MHz if I overclock it?
-- What's the RP2040 package size? I'm trying to fit it on a custom PCB.
+Q: What boards actually use the RP2040 chip?
+A: RP2040 powers Pico, Pico W, Pico H, Pico WH, and other third-party RP2040 boards.
 
-## Internal temperature sensor
+Q: What kind of projects is the RP2040 designed for?
+A: RP2040 suits motor control, signal processing, human-machine interfaces, and embedded data acquisition.
 
-- Does the RP2040 have a built-in temperature sensor?
-- I'm trying to use the temperature sensor on my Pico but the readings seem way off. What's going on?
-- Do I need to calibrate the temperature sensor on the RP2040?
-- Why does the temperature reading change so much? Is the sensor just bad?
+---
 
-## Sleep mode power
+# RP2040 Naming
 
-- How much power does the RP2040 use when it's sleeping?
-- I'm running a Pico on batteries and it's draining too fast even in sleep mode. What can I do?
-- What does deep sleep actually do on the RP2040? Does it save much power?
+Q: Why is it called RP2040? Does the name actually mean something?
+A: Yes, each digit encodes core count, processor type, RAM amount, and flash storage.
 
-## RP2040-based boards
+Q: What does the zero at the end of RP2040 mean?
+A: The final zero means there's no on-board flash memory on the RP2040.
 
-- Can I design my own board using the RP2040 chip?
-- Are the Pico design files free to use for my own project?
-- Where can I find the schematic for the Raspberry Pi Pico?
-- I want to make a product based on the RP2040. Is that allowed?
+---
+
+# RP2040 Features
+
+Q: Does the RP2040 have hardware for serial communication or do I have to implement it myself?
+A: RP2040 has two built-in UARTs, two SPI controllers, and two I2C controllers.
+
+Q: How many PWM channels does the RP2040 have?
+A: RP2040 has 16 built-in PWM channels.
+
+Q: Does the RP2040 have a temperature sensor built in?
+A: Yes, RP2040 has an internal temperature sensor accessed through its 4-channel ADC.
+
+---
+
+# Internal Temperature Sensor
+
+Q: I tried using the built-in temperature sensor on my Pico and the readings seem way off. What's going on?
+A: The sensor is user-calibrated; without calibration, accurate readings are unlikely.
+
+Q: Does the RP2040 have a built-in reference voltage for the temperature sensor?
+A: No, RP2040 has no internal fixed voltage reference, so VREF must be measured or provided externally.
+
+Q: Wait, does the temperature sensor voltage go up or down as it gets hotter?
+A: The RP2040 sensor voltage falls as temperature rises.
+
+---
+
+# Sleep Mode Power
+
+Q: How much power does the RP2040 use when it's in deep sleep?
+A: RP2040 draws a typical around 180 μA even in deep sleep.
+
+Q: I need my project to use as little power as possible. What's the best approach for the RP2040?
+A: Raspberry Pi recommends completely powering off the RP2040 part of the system for minimal current draw.
+
+---
+
+# RP2040-Based Boards
+
+Q: Can I use the Pico's design files to make my own board based on the RP2040?
+A: Yes, Raspberry Pi freely grants permission to use, copy, modify, and distribute Pico design files.
+
+Q: Where can I talk to other people building their own RP2040-based boards?
+A: Discussions about third-party RP2040-based boards happen on the Raspberry Pi forums.
+
+---
 
 # RP2350
 
-- What's new in the RP2350 compared to the RP2040?
-- How many variants of the RP2350 are there?
-- Does the RP2350 have any security features?
-- Can the RP2350 connect to external RAM?
+Q: How many variants of the RP2350 are there?
+A: RP2350 comes in four variants differing by package size and whether flash memory is included.
 
-## RP2350 variants
+Q: What boards use the RP2350?
+A: RP2350 powers Pico 2, Pico 2 W, Pico 2 with headers, Pico 2 W with headers, and other boards.
 
-- What's the difference between RP2350A and RP2350B?
-- Which RP2350 variant has built-in flash memory?
-- I need more GPIO pins. Which RP2350 should I get?
-- What's the difference between the RP2350 and RP2354?
-- How big is the RP2350B chip package? I'm designing a PCB and need to know.
+---
 
-## RP2350 naming
+# RP2350 Variants
 
-- Why is it called RP2350? What does each number mean?
-- What does the A or B at the end of RP2350A mean?
-- If I see RP2354B, what does that tell me about the chip?
+Q: I want more GPIO pins on my RP2350 project. Which variant should I get?
+A: The RP2350B or RP2354B variants have 48 GPIO pins and 8 analogue inputs.
 
-## RP2350 features
+Q: Which RP2350 variants have built-in flash memory?
+A: RP2354A and RP2354B both include 2 MB of stacked flash memory.
 
-- Does the RP2350 have more PIO state machines than the RP2040?
-- Does the RP2350 have HDMI or video output of any kind?
-- Can the RP2350B do more analog inputs than the A version?
-- Does the RP2350 support one-time programmable memory?
+Q: What's the difference between RP2350A and RP2350B?
+A: RP2350A is a smaller 7x7mm chip with 30 GPIO pins; RP2350B is larger with 48 GPIO pins.
 
-## Architecture switching
+---
 
-- Can I run RISC-V code on the RP2350?
-- How do I switch the RP2350 to RISC-V mode?
-- If I use RISC-V mode on the RP2350, do I lose any features?
-- Can the RP2350 automatically figure out which processor architecture my code is for?
+# RP2350 Naming
 
-## RP2350-based boards
+Q: What does the letter at the end of RP2350A or RP2350B mean?
+A: The letter indicates package size: A is smaller with 60 pins, B is larger with 80 pins.
 
-- Which Pico board uses the RP2350 chip?
-- Are there reference designs available for building my own RP2350 board?
+Q: What does the number 5 in RP2350 stand for?
+A: The 5 represents the amount of RAM, corresponding to 520 kB of on-chip SRAM.
 
-# USB identifiers
+---
 
-- I'm making my own board with the RP2040 and I need a USB product ID. How do I get one?
-- Do I need a unique USB PID for my custom Pico-based device?
-- My third-party RP2040 board needs a Windows driver. Do I need a special USB ID for that?
-- Can I just use Raspberry Pi's vendor ID for my own RP2040 product?
-- What if I don't need a unique USB PID — can I still tell my device apart from others?
+# RP2350 Features
+
+Q: Does the RP2350 have any video output capability?
+A: Yes, RP2350 includes an HSTX peripheral for high-speed digital output including video.
+
+Q: What security features does the RP2350 have that the RP2040 doesn't?
+A: RP2350 has TrustZone, signed boot, SHA-256 acceleration, a true random number generator, and encrypted boot.
+
+Q: Can I use RISC-V on the RP2350 or is it Arm only?
+A: RP2350 supports either dual-core Arm Cortex-M33 or dual-core open-source RISC-V Hazard3.
+
+Q: Does the RP2354A or RP2354B store programs internally?
+A: Yes, both RP2354A and RP2354B include 2 MB of stacked on-chip flash memory.
+
+---
+
+# Architecture Switching
+
+Q: How do I switch my RP2350 between Arm and RISC-V mode?
+A: The boot ROM auto-detects the binary's architecture and reboots the chip into the appropriate mode.
+
+Q: Are there any features I lose if I run my RP2350 in RISC-V mode?
+A: In RISC-V mode, some security features and the double-precision floating-point accelerator aren't available.
+
+---
+
+# USB Identifiers
+
+Q: I'm building my own board using the RP2040. Do I need my own USB product ID?
+A: You need a unique USB PID if you need a custom Windows driver or want your device uniquely identifiable.
+
+Q: How do I get a USB product ID for my RP2040-based board?
+A: Follow the instructions in the Raspberry Pi USB PID Git repository to reserve a PID.
+
+Q: What if I don't need a unique USB PID for my custom board? Can I still tell my device apart?
+A: Yes, you can distinguish devices using the iManufacturer, iProduct, or iSerial USB text fields.

@@ -1,28 +1,53 @@
-# Whole Document
-
-- I'm having trouble getting my Pi to boot and I'm not sure where to start. What are the different ways a Pi can boot?
-- Does every Raspberry Pi boot the same way or are there different methods depending on the model?
-- I've got a Pi 4 and a Pi 2 — do they boot differently from each other?
-
 # Special `bootcode.bin`-only boot mode
 
-- My Pi 1 isn't booting from USB. Is there a way to get it working?
-- I want to boot my Pi over the network but I'm not sure if my model supports it. Which ones can actually do that?
-- My Pi 3B keeps failing to boot. Is there anything I can try to fix it?
-- Wait, does the Pi 4 even use bootcode.bin? I thought all Pis used the same boot files.
-- I formatted an SD card and put bootcode.bin on it but it's still not booting. What am I missing?
-- My USB drive isn't being detected when I boot. Is there anything I can do to give it more time to initialize?
-- I've got a Pi 3A+ and I want to boot it over the network. Can I do that?
-- What format does the SD card need to be for the bootcode.bin method to work?
-- So if I have a Pi 4, do I just ignore all the bootcode.bin stuff completely?
+Q: Which Raspberry Pi models can do USB host and ethernet boot?
+A: BCM2837-based models: Pi 2B v1.2, Pi 3B, and Pi 3B+ support it.
+
+Q: Why can't the Pi 3A+ do network booting?
+A: The Pi 3A+ lacks a built-in Ethernet interface, so net boot isn't supported.
+
+Q: My Pi 4 doesn't seem to use bootcode.bin at all. Is that normal?
+A: Yes, Pi 4 and newer flagships use a bootloader stored in an on-board EEPROM chip.
+
+Q: What format does the SD card need to be for the bootcode.bin boot method?
+A: You need to format the SD card as FAT32 before copying bootcode.bin over.
+
+Q: Do I still need the SD card in my Pi when using bootcode.bin USB boot?
+A: Yes, the SD card must be present for the Pi to load bootcode.bin.
+
+Q: My Pi 3 keeps failing to boot. Could bootcode.bin help with that?
+A: Yes, the latest bootcode.bin includes extra bugfixes specifically for the Pi 3B.
+
+Q: My USB drive still isn't being detected even with bootcode.bin on the SD card. What do I do?
+A: Add a file called "timeout" to the SD card to extend the wait time to six seconds.
 
 # `bootcode.bin` UART Enable
 
-- My Pi isn't booting and I want to see what's going wrong. How do I get some kind of debug output during boot?
-- How do I know if my version of bootcode.bin even supports UART?
-- I want to enable UART in bootcode.bin — is that something I have to edit manually or is there a command for it?
-- What pins do I need to connect to for serial output on my Raspberry Pi?
-- I'm on Windows and I want to connect to the Pi's serial output. What program do I use?
-- What baud rate do I need to set to read the bootcode.bin serial output?
-- I've enabled UART in bootcode.bin but I'm not sure what to connect it to on my laptop. What's the easiest way to do this?
-- Does the UART debug stuff work on Pi 4 or just older models?
+Q: I'm trying to debug why my Pi won't boot. Can I get some serial output early in the process?
+A: Yes, you can enable an early stage UART in bootcode.bin to debug booting issues.
+
+Q: How do I check if my bootcode.bin actually supports UART?
+A: Run `strings bootcode.bin | grep BOOT_UART` to check if UART is supported.
+
+Q: How do I actually turn on UART in bootcode.bin?
+A: Use the sed command to change BOOT_UART=0 to BOOT_UART=1 inside bootcode.bin.
+
+Q: Which pins do I connect the serial cable to on my Raspberry Pi for UART debugging?
+A: Use pins 6, 8, and 10, which are GND, GPIO14, and GPIO15 respectively.
+
+Q: What serial settings do I need to read the bootcode.bin output?
+A: Set your serial connection to receive at 115200-8-N-1 to read the output.
+
+Q: I'm on Windows and want to connect to the Pi's serial output. What app should I use?
+A: On Windows, use PuTTY to connect to the serial output from your Pi.
+
+Q: Does this UART thing work on Pi 4?
+A: No, this bootcode.bin UART method only applies to boards released before Pi 4.
+
+# Whole Document
+
+Q: I've got a Pi 1 and want to boot from USB. Is that even possible?
+A: Yes, Pi 1 models can use the bootcode.bin-only method to enable USB host boot.
+
+Q: What's the difference between how older Pis boot versus the Pi 4?
+A: Older Pis use bootcode.bin on SD card; Pi 4 uses a bootloader in on-board EEPROM.

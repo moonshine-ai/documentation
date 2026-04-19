@@ -1,35 +1,60 @@
+# Whole Document
+
+Q: My Pi won't boot and the little LED is blinking. What does that mean?
+A: The LED flashes long and short patterns to indicate specific failure statuses.
+
+Q: How does the LED blink pattern actually work? Like what am I looking at?
+A: It blinks long flashes then short flashes, repeating after a two-second gap.
+
+Q: The light on my Pi keeps flashing over and over. Is that normal when something's wrong?
+A: Yes, the pattern repeats after a two-second gap to help you identify the error.
+
 # LED warning flash codes
 
-My Pi won't boot and the little light is blinking. What does that mean?
+Q: My Pi's LED is doing three short flashes and nothing else. What's wrong with it?
+A: Three short flashes with no long flashes means a generic failure to boot.
 
-How do I read the LED flash codes? Like what am I supposed to be counting?
+Q: I'm getting four short blinks on startup. What does that mean?
+A: Four short flashes means the start.elf file wasn't found on your card.
 
-The LED is doing some long flashes and then some short ones. How do I figure out what that means?
+Q: The LED is flashing seven times short. Do I have a kernel problem?
+A: Yes, seven short flashes means the kernel image wasn't found.
 
-My Pi's light is just blinking 3 times over and over. What's wrong with it?
+Q: I see eight short flashes. Is my RAM fried or something?
+A: Eight short flashes indicates an SDRAM failure on your Raspberry Pi.
 
-The LED is flashing 4 short times and then repeating. What does that mean?
+Q: What's the difference between eight short flashes and nine short flashes?
+A: Eight means SDRAM failure; nine means there's insufficient SDRAM available.
 
-My Pi won't start and the light blinks a bunch. Is there a list somewhere of what all those patterns mean?
+Q: My Pi's LED does one long flash then two short ones. What's going on?
+A: One long and two short flashes means SD card overcurrent was detected.
 
-What does it mean if my Pi flashes once long and then twice short?
+Q: I'm getting two long flashes then one short flash. What does that mean?
+A: Two long, one short flash means the partition isn't formatted as FAT.
 
-I'm seeing two long flashes and one short flash on my Pi. What does that tell me?
+Q: Two long flashes and two short ones — is that a corrupted SD card?
+A: That pattern means the Pi failed to read from the partition on your card.
 
-The light on my Pi is doing two long and two short blinks. Is that a SD card problem?
+Q: I've got a Pi 4 and it's doing two long flashes then four short ones. What's that?
+A: That means there's a file signature or hash mismatch, specific to Pi 4 and 5.
 
-What does zero long flashes and eight short flashes mean? Is that a memory problem?
+Q: Three long and one short flash on my Pi 4 — is that an EEPROM issue?
+A: Yes, three long and one short flash indicates an SPI EEPROM error on Pi 4 and 5.
 
-My Pi 4 is blinking three times long and then once short. What's going on?
+Q: What does three long flashes and two short ones mean on a Pi 5?
+A: It means the SPI EEPROM is write protected, specific to Pi 4 and Pi 5.
 
-I see four long flashes and then three short ones. What does RP1 not found even mean?
+Q: My Pi's blinking four long and three short. I can't find anything about RP1. What's wrong?
+A: Four long, three short flashes means the RP1 chip was not found.
 
-What does it mean if the LED flashes four long and four short? Is my Pi totally broken?
+Q: Four long flashes and four short ones — what's an unsupported board type mean exactly?
+A: Not specified in this section.
 
-I'm getting what looks like a power failure error from the LED. What's the difference between power failure type A and type B?
+Q: I'm seeing four long and six short flashes. Is my Pi not getting enough power?
+A: Four long, six short flashes indicates a Power failure type A on your Pi.
 
-Does the LED pattern just keep repeating or does it stop after a while?
+Q: What's the difference between power failure type A and type B on the LED codes?
+A: Type A is four long, six short flashes; type B is four long, seven short flashes.
 
-My Pi shows two long and four short flashes. It's a Pi 4 — is that some kind of file corruption thing?
-
-What does it mean when the Pi is in a HALT state? That's the zero long ten short pattern right?
+Q: My Pi shows ten short flashes. Does that mean it's just turned off on purpose?
+A: Ten short flashes means the Pi is in a HALT state.

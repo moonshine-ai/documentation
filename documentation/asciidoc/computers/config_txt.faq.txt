@@ -1,112 +1,270 @@
-# What is config.txt?
+# What is `config.txt`?
 
-- What even is config.txt? Is it like the BIOS for Raspberry Pi?
-- Where does the Pi store its config.txt file?
-- My Pi is running an older OS, where would I find the boot partition?
-- How do I edit config.txt, do I have to take the SD card out to do it?
-- I changed something in config.txt but nothing happened. Do I need to restart?
-- How do I check what settings are actually active right now?
-- What's the command to see all my current config settings?
-- I want to check what my arm_freq is set to. How do I do that?
+Q: What's config dot txt and why do I need it on my Raspberry Pi?
+A: It's a configuration file that replaces the BIOS found on conventional PCs.
+
+Q: Where does the Pi actually look for the config dot txt file?
+A: Raspberry Pi OS looks for it in the boot partition at slash boot slash firmware.
+
+Q: I've got an older Pi OS version — where's the boot partition on that?
+A: Prior to Bookworm, Raspberry Pi OS stored the boot partition at slash boot.
+
+Q: Do I need to reboot after changing something in config dot txt?
+A: Yes, changes to config dot txt only take effect after a reboot.
+
+Q: How do I check what the current config settings actually are without rebooting?
+A: Use vcgencmd get_config to display specific or all active config values.
+
+Q: I want to see all the integer settings that are turned on. What do I run?
+A: Run vcgencmd get_config int to list all non-zero integer config options.
+
+Q: Can I check any config setting using vcgencmd?
+A: No, not all config settings can be retrieved using vcgencmd.
 
 # File format
 
-- How do I add a comment to config.txt?
-- What format does config.txt use? Like how do I write settings in it?
-- Is there a limit on how long a line in config.txt can be?
+Q: What's the format for entries in config dot txt? Like how do I write them?
+A: Use a single property equals value statement on each line, integers or strings.
+
+Q: Can I add comments to my config dot txt file?
+A: Yes, start a line with the hash character to add comments or disable settings.
+
+Q: Is there a limit to how long a line can be in config dot txt?
+A: Yes, there's a 98-character line length limit; anything past that is ignored.
 
 # Advanced features
 
-- Can I split my config.txt into multiple files somehow?
-- I want to include another config file inside my config.txt. Is that possible?
-- Are there settings that won't work if I put them in an included file instead of the main config.txt?
+Q: Can I split my config across multiple files instead of one big config dot txt?
+A: Yes, use the include directive to insert another file's content into config dot txt.
 
-# autoboot.txt
+Q: I want to use the include directive for boot settings like gpu_mem. Will that work?
+A: No, bootloader settings like gpu_mem must be in config dot txt itself, not included files.
 
-- What's autoboot.txt for?
-- How do I make my Pi boot from a specific partition?
-- I want to set up A/B booting so I can test updates safely. Where do I start?
+Q: Does the bootcode.bin bootloader support the include directive?
+A: No, neither bootcode.bin nor EEPROM bootloaders support the include directive.
+
+# `autoboot.txt`
+
+Q: What's autoboot dot txt for? I've never heard of it.
+A: It's an optional file used to specify the boot partition number for booting.
+
+Q: How big can my autoboot dot txt file be?
+A: It's limited to 512 bytes.
+
+Q: Can I use autoboot dot txt to do A/B booting for OS updates?
+A: Yes, it can be used with the tryboot feature to implement A/B booting.
+
+# `boot_partition`
+
+Q: What partition numbers can I actually use in autoboot dot txt?
+A: Partition numbers start at 1, with MBR partitions 1 to 4; 0 means default FAT partition.
+
+Q: What format does a bootable partition need to be in for the bootloader to recognize it?
+A: It must be formatted as FAT12, FAT16, or FAT32 and contain a start.elf or config.txt file.
+
+# The `[tryboot]` filter
+
+Q: How do I actually boot into tryboot mode from the command line?
+A: Run sudo reboot with the argument zero tryboot in quotes.
+
+# `tryboot_a_b`
+
+Q: What does setting tryboot_a_b to 1 actually do?
+A: It loads normal config.txt and boot.img instead of tryboot.txt when tryboot flag is set.
 
 # Common display options
 
-- I've got a 4K monitor and my Pi 4 is only outputting at 30Hz. How do I get 60Hz?
+Q: My Pi 4 is connected to a 4K monitor but it's only running at 30Hz. How do I get 60Hz?
+A: Set hdmi_enable_4kp60 in config dot txt to allow 60Hz refresh rate selection.
+
+Q: If I enable 4K 60Hz on my Pi 4, can I run it on both HDMI ports at the same time?
+A: No, the Pi 4 does not support 4Kp60 output on both micro HDMI ports simultaneously.
+
+Q: Does turning on hdmi_enable_4kp60 have any downsides?
+A: Yes, enabling it increases power consumption and temperature.
 
 # Common hardware configuration options
 
-- My camera isn't being detected automatically. Is there a setting in config.txt to fix that?
-- How do I disable the automatic camera overlay loading?
-- What does dtoverlay do in config.txt?
-- I want to enable I2C on my Pi. Is that done through config.txt?
-- I've got a Pi 400 and I heard there's a way to boost the clock speed. How do I enable that?
+Q: What does camera_auto_detect actually do?
+A: When enabled, the firmware automatically loads overlays for recognised CSI cameras.
 
-# Onboard analogue audio
+Q: I don't want the camera overlay loading automatically. How do I turn that off?
+A: Set camera_auto_detect equals 0, or remove the camera_auto_detect equals 1 line.
 
-- The audio coming out of my headphone jack sounds kind of bad. Is there a setting to improve it?
-- I'm hearing a faint hiss from the audio output even when nothing's playing. How do I get rid of that?
-- What's the default audio quality mode for the 3.5mm jack?
+Q: What's the dtoverlay option in config dot txt for?
+A: It requests firmware to load a named Device Tree overlay to enable hardware support.
+
+Q: I want to enable SPI on my Pi. Which config dot txt setting do I use?
+A: Use dtparam to supply Device Tree parameters like enabling SPI and I2C interfaces.
+
+Q: What's the arm_boost option and which Pi models support it?
+A: It increases the default turbo clock from 1.5GHz to 1.8GHz on supported Pi 4 revisions.
+
+# Onboard analogue audio (3.5 mm jack)
+
+Q: Is there a difference in quality between audio modes for the 3.5mm jack?
+A: Yes, audio_pwm_mode equals 1 is legacy low-quality; mode 2 is high quality and the default.
+
+Q: I'm getting a hiss from my headphone jack even when nothing is playing. How do I fix that?
+A: Set disable_audio_dither to 1 to turn off the dither that can cause audible background hiss.
+
+Q: What does the pwm_sample_bits setting do and should I change it?
+A: It adjusts the bit depth of analogue audio output; generally only useful for demonstrating quantisation noise.
 
 # HDMI audio
 
-- How do I turn off HDMI audio on my Pi?
+Q: How do I disable HDMI audio output on my Raspberry Pi?
+A: Append comma noaudio to the dtoverlay equals vc4-kms-v3d line in config dot txt.
 
-# Boot options
+Q: Is HDMI audio on by default for all Raspberry Pis?
+A: Yes, HDMI audio output is enabled by default on all Raspberry Pi models with HDMI output.
 
-- Can I tell the Pi to load a different kernel file at boot?
-- My Pi 4 is running a 32-bit kernel. How do I switch to 64-bit?
-- I want to disable that rainbow screen when the Pi boots up. Is there a setting for that?
-- How do I enable serial console output on the GPIO pins?
-- What does initramfs do and how do I set it up in config.txt?
-- Is there a watchdog timer I can set up so the Pi reboots if it freezes?
+# Boot Options
+
+Q: Can I change which kernel file gets loaded at boot?
+A: Yes, use the kernel option in config dot txt to specify an alternative kernel filename.
+
+Q: What kernel does the Pi 5 load by default?
+A: It defaults to loading kernel_2712.img, which has Pi 5-specific optimisations like 16K page size.
+
+Q: How do I enable 64-bit mode on my Raspberry Pi?
+A: Set arm_64bit equals 1 in config dot txt to start the kernel in 64-bit mode.
+
+Q: Which Raspberry Pi models support the arm_64bit flag?
+A: Models including Pi 2B rev 1.2, 3B, 3A+, 3B+, 4B, 400, Zero 2 W, and various Compute Modules.
+
+Q: What's the initramfs option and how's it different from ramfsfile?
+A: It specifies both the ramfs filename and load address in one parameter, combining both options.
+
+Q: I don't want the rainbow splash screen when my Pi boots. How do I turn it off?
+A: Set disable_splash equals 1 in config dot txt to hide the rainbow splash screen.
+
+Q: What does disable_poe_fan do and when would I use it?
+A: Setting it to 1 disables PoE HAT fan control via I2C, which can reduce boot time.
+
+Q: What's the cmdline option in config dot txt for?
+A: It specifies an alternative filename to read the kernel command line string from.
+
+Q: I want the Pi to boot from a specific partition. How do I set that up?
+A: Use os_prefix to prepend a directory or name to all operating system files loaded by firmware.
+
+Q: What's the difference between start_file and fixup_file?
+A: start_file specifies the VideoCore firmware; fixup_file fixes memory locations to match GPU memory split.
+
+Q: Can I use start_file and fixup_file with mismatched files?
+A: No, using unmatched start_file and fixup_file will stop the board from booting.
 
 # GPIO control
 
-- Can I set up GPIO pins to be in a specific state right when the Pi boots, before Linux starts?
-- How do I make a GPIO pin pull up at boot using config.txt?
+Q: Can I set GPIO pins to specific states at boot without writing custom code?
+A: Yes, use the gpio directive in config dot txt to set pin modes and values at boot time.
+
+Q: Does the gpio directive in config dot txt affect how the kernel sees those pins?
+A: No, gpio changes don't directly affect the kernel or export pins to the sysfs interface.
+
+Q: Can I set different GPIO states depending on which Pi model it is?
+A: Yes, the gpio directive respects the conditional filters like model filters in config dot txt.
 
 # Overclocking options
 
-- How do I overclock my Raspberry Pi?
-- What's the max safe temperature for a Pi before it starts throttling?
-- My Pi is overheating and throttling. What temperature does that kick in at?
-- I overclocked my Pi and now it won't boot. How do I fix it?
-- What's force_turbo and should I use it?
-- How do I check what clock speed my Pi is actually running at?
-- Does overclocking void the warranty on a Raspberry Pi?
-- What voltage does my Pi need to run stably? I want to make sure my power supply is good enough.
+Q: Is it safe to overclock my Raspberry Pi and what happens if it gets too hot?
+A: Overclocking disables automatically when the SoC reaches 85 degrees Celsius to cool down.
+
+Q: I want to see my Pi's current CPU frequency. What command do I run?
+A: Run cat /sys/devices/system/cpu/cpu0/cpufreq/scaling_cur_freq and divide by 1000 for MHz.
+
+Q: What does force_turbo do and does it void my warranty?
+A: It forces maximum frequencies always; it can set a warranty bit if over_voltage is also set.
+
+Q: My Pi 3B+ is throttling. What's the soft temperature limit and can I change it?
+A: It defaults to 60 degrees Celsius; you can raise it to a maximum of 70 in config dot txt.
+
+Q: How do I check the temperature of my Raspberry Pi?
+A: Run cat /sys/class/thermal/thermal_zone0/temp and divide by 1000 for degrees Celsius.
+
+Q: What voltage does my Pi need to run reliably and what happens if it drops too low?
+A: Keep supply voltage above 4.8V; below 4.63V, cores throttle and a kernel log message appears.
+
+Q: My Pi won't boot after I overclocked it. What do I do to fix it?
+A: Remove clock frequency overrides from config dot txt, then gradually reapply overclocking parameters.
+
+Q: Does overclocking the SDRAM work on Pi 4?
+A: No, SDRAM overclocking is not supported on Raspberry Pi 4 or newer devices.
 
 # Conditional filters
 
-- I've got one SD card I use in different Pi models. Can I set different settings for each model in the same config.txt?
-- How do I make a setting only apply to my Pi 4 and not my Pi 3?
-- I want different overclocking settings depending on which Pi I boot from. Is that possible?
-- Can I apply settings only to one specific Pi using its serial number?
-- How do I find my Pi's serial number?
-- I've got two different monitors and I want different settings for each one. Can config.txt handle that?
-- How do I find the EDID name for my monitor?
-- Can I set a GPIO pin to decide which settings get loaded at boot?
-- What's the `[all]` filter for?
-- What's `[none]` for in config.txt?
+Q: Can I use one SD card across different Pi models with different settings for each?
+A: Yes, use conditional filters in config dot txt to apply settings only to specific hardware.
+
+Q: How do I make a setting apply to all my hardware after using filters?
+A: Add the all filter at the end of your filtered settings to reset all previous filters.
+
+Q: Can I make settings apply only to one specific Raspberry Pi using its serial number?
+A: Yes, use the serial number as a filter in brackets to target that specific device only.
+
+Q: Can I combine different types of conditional filters together?
+A: Yes, list different filter types one after another; they're combined with logical AND.
+
+Q: How do I apply settings based on which HDMI monitor is connected?
+A: Use the EDID filter with the monitor's manufacturer and product name to target it specifically.
+
+Q: How do I find the EDID name of my connected monitor?
+A: Run edid-decode against the edid file in /sys/class/drm and look for Manufacturer and Display Product Name.
+
+Q: I want different settings depending on which GPIO pin is high or low. Is that possible?
+A: Yes, use the GPIO filter in config dot txt, for example gpio4 equals 1 in brackets.
+
+Q: Can I use conditional filters to apply settings based on the current boot count?
+A: Yes, the boot_count variable works as a conditional filter on Raspberry Pi 5 and newer.
 
 # Memory options
 
-- Can I limit how much RAM the Pi uses even if it has more installed?
+Q: Can I limit how much RAM my Raspberry Pi uses even if it has more installed?
+A: Yes, set total_mem in config dot txt to the megabytes of RAM you want it to use.
 
 # Licence key and codec options
 
-- Do I need a codec licence to play MPEG2 videos on a Pi 4?
-- I bought codec licences for several Pis. Can I put them all in one config.txt?
+Q: Do I need to buy a codec licence key to play MPEG2 on my Raspberry Pi 4?
+A: No, the Pi 4 has permanently disabled hardware decoders; software decoding works well enough.
+
+Q: Do I need a licence key to use HEVC hardware decoding on my Pi 5?
+A: No, H.265 HEVC hardware decoding is enabled by default on Raspberry Pi 5.
+
+Q: I've got multiple Raspberry Pis with codec licences. Do I need separate SD cards?
+A: No, you can list up to eight licence keys in a single config dot txt file.
 
 # Video options
 
-- How do I enable composite video output on my Pi 4?
-- My Pi is connected to a TV and I need PAL output instead of NTSC. How do I set that?
-- I've got the official touchscreen but I want to disable it. Is there a config.txt setting for that?
-- How do I stop the camera LED from turning on when I take a photo?
+Q: How do I enable composite video output on my Pi 4?
+A: Append comma composite to the dtoverlay equals vc4-kms-v3d line in config dot txt.
+
+Q: Can I use composite video on my Pi 400 keyboard model?
+A: No, composite video output is not available on Keyboard models.
+
+Q: I want PAL output instead of NTSC for composite video. How do I change that?
+A: Append vc4.tv_norm equals PAL to the single line in slash boot slash firmware slash cmdline dot txt.
+
+# Camera settings
+
+Q: The camera LED keeps turning on when I'm recording. Can I disable it?
+A: Yes, set disable_camera_led to 1 in config dot txt to prevent the red LED turning on.
+
+Q: I've got a NoIR camera and the colours look wrong. Is there a setting to fix that?
+A: Set awb_auto_is_greyworld to 1 to switch auto white balance to use the greyworld algorithm.
 
 # Whole Document
 
-- What's the difference between config.txt and cmdline.txt?
-- I'm new to Raspberry Pi. What kind of things would I actually change in config.txt?
-- Can I edit config.txt from a Windows PC if I take out the SD card?
-- I messed up my config.txt and now my Pi won't boot. How do I recover?
-- Is there a way to have different config settings for different situations on the same Pi?
+Q: I just got a new Raspberry Pi — what's the first thing I should know about config dot txt?
+A: It's like a BIOS replacement; the GPU reads it before the CPU and Linux even start.
+
+Q: Can I edit config dot txt from another computer, like without booting into the Pi?
+A: Yes, remove the storage device and edit files in the boot partition from a separate computer.
+
+Q: I'm trying to do an A/B boot setup for safe OS updates. Where do I even start?
+A: Use autoboot dot txt with the tryboot feature to specify alternate boot partitions safely.
+
+Q: What happens if my Pi overheats while overclocking — will it get damaged?
+A: No damage, but clocks and voltages reset to defaults; a heat sink helps control temperature.
+
+Q: I'm running my Pi headless and want serial console access. What do I set?
+A: Set enable_uart equals 1 and add console equals serial0 comma 115200 to cmdline dot txt.

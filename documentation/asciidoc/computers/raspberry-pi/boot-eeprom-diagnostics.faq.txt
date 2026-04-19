@@ -1,39 +1,40 @@
 # Boot diagnostics
 
-How do I get my Raspberry Pi to show me diagnostic info when it boots?
+Q: My Pi won't boot and I'm seeing some weird screen with info on it. What is that?
+A: It's the bootloader diagnostics screen showing boot troubleshooting information.
 
-My Pi won't boot and I just get a black screen. Is there a way to see what's going wrong?
+Q: How do I get the diagnostics screen to show up on purpose?
+A: Power down, disconnect your boot media like an SD card, then power back up.
 
-I took out the SD card and now there's some weird screen showing up on my monitor. What is that?
+Q: I disconnected my SD card and got this diagnostics screen. How do I get back to normal booting?
+A: Reconnect your boot media, then power cycle or press the power button.
 
-What's that screen with all the text that shows up when my Pi can't find anything to boot from?
+Q: There's a QR code on my Pi's boot screen. What does it link to?
+A: It links to the Raspberry Pi software downloads page.
 
-I see a QR code on the boot screen. What's that for?
+Q: What does the "boot" line on the diagnostics screen actually tell me?
+A: It shows current boot mode, boot order, retry count, and restart cycles.
 
-My Pi is stuck on the diagnostics page. How do I get it to reboot from there?
+Q: I want to check if my SD card is being detected. Is there somewhere on that diagnostics screen that shows that?
+A: Yes, the SD line shows whether your SD card is detected or not detected.
 
-I don't have a power button on my Pi. How do I restart it when it's showing the diagnostics screen?
+Q: My Pi's doing network boot and I want to see the TFTP server address. Where do I find that?
+A: The tftp line on the diagnostics screen shows the TFTP server IP address.
 
-What does the "boot" line on the diagnostics screen actually tell me?
+Q: I don't want this diagnostics screen showing up every time. How do I turn it off?
+A: Use the DISABLE_HDMI option in your bootloader configuration settings.
 
-I'm seeing the diagnostics page but I don't know what half of it means. What does the SD line tell me?
+Q: I'm doing network boot and I can't tell if my connection is up. Does the diagnostics screen show that?
+A: Yes, the net line shows link status, client IP, subnet, and default gateway.
 
-My Pi's showing diagnostics and the SD card says "not detected." Does that mean my card is dead?
+Q: Does this boot diagnostics thing work on all Raspberry Pi models?
+A: No, it only works on Raspberry Pi 4 or later flagship models.
 
-What's the difference between the retry count and the restart count on the boot screen?
+Q: What info does the "board" line show on the diagnostics screen?
+A: It shows board revision, serial number, and the Ethernet MAC address.
 
-I can see something about network boot on the diagnostics screen. What info does it show for that?
+Q: How do I know if my HDMI display is being detected properly during boot?
+A: The display line shows hotplug detection and whether EDID was read successfully.
 
-The display line on my diagnostics screen shows HPD equals zero. What does that mean?
-
-My EEPROM is write protected. Where would I see that on the diagnostics screen?
-
-I don't want this diagnostics screen showing up at all. How do I turn it off?
-
-Does this boot diagnostics thing work on all Raspberry Pi models or just certain ones?
-
-# Whole Document
-
-My Pi won't boot and I don't know where to start troubleshooting. What can I do to figure out what's wrong?
-
-If my Pi can't find a bootable SD card or network, what happens exactly?
+Q: When would this diagnostics screen pop up automatically without me doing anything?
+A: It appears automatically when the bootloader can't boot from any media or network.

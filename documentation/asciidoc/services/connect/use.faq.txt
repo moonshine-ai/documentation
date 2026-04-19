@@ -1,74 +1,141 @@
 # Link a Raspberry Pi device with a Connect account
 
-- I just set up my Pi and I want to link it to my Connect account. How do I do that from the desktop?
-- I don't have a desktop, I'm just using the terminal. How do I sign into Connect from the command line?
-- What's an auth key and why would I need one instead of just signing in normally?
-- I've got multiple Pis I want to add to Connect. Do I need a separate auth key for each one?
-- My auth key expired before I got a chance to use it. What do I do?
-- I saved my auth key to a file. How do I use that file to sign in instead of typing the key out?
-- Where do I put my auth key file so Connect just picks it up automatically?
-- I don't have a Raspberry Pi ID yet. Where do I go to make one?
-- I linked my device but I got an email saying something I don't recognize signed in. What should I do?
-- Does Connect still work if I move my SD card to a different Pi?
+Q: How do I link my Pi to my Raspberry Pi Connect account from the desktop?
+A: Click the Connect icon, select Turn On, then sign in with your Raspberry Pi ID.
+
+Q: I don't have a Raspberry Pi ID yet. Can I still use Connect?
+A: Yes, select the "create one for free" link to create a Raspberry Pi ID.
+
+Q: I don't have a desktop, I'm using the terminal. How do I sign into Connect?
+A: Run `rpi-connect signin` to generate a verification URL to visit and sign in.
+
+Q: What even is an auth key and do I need one?
+A: It's a single-use temporary token that links a device to Connect automatically, without a browser.
+
+Q: I've got multiple Pis. Can I use the same auth key for all of them?
+A: No, you need a unique auth key for each device.
+
+Q: My auth key expired before I could use it. What should I do?
+A: Boot your Pi and connect to the internet before the auth key's expiry time shown on the website.
+
+Q: I saved my auth key to a file. How do I use it with the signin command?
+A: Run `rpi-connect signin --auth-key=@/full/path/to/your/auth.key` in the terminal.
+
+Q: Is there a way Connect just picks up my auth key automatically without me running a command?
+A: Save it to `.config/com.raspberrypi.connect/auth.key` in your home directory and Connect detects it.
 
 # Finish linking your Raspberry Pi
 
-- After I sign in, do I have to give my Pi a name or is that optional?
-- I'm an admin for an organization. Can I add my Pi to the organization's account instead of my personal one?
-- How do I know if my Pi actually connected successfully? Is there some indicator?
+Q: After I sign in, what happens next? Do I need to do anything else?
+A: Assign a unique name to your device, then select Create device and sign in.
+
+Q: How do I know my Pi is actually signed in to Connect?
+A: The Connect icon in your menu bar turns blue when your device is signed in.
+
+Q: I got an email saying an unknown device signed into my Connect account. What should I do?
+A: Change your Raspberry Pi ID password immediately and remove the unrecognised device from Connect.
+
+Q: I moved my SD card to a different Pi. Now I'm signed out of Connect. Is that normal?
+A: Yes, Connect signs communication using your device's serial number, so swapping SD cards signs you out.
+
+Q: I'm an admin of an organisation. Can I add my Pi to that organisation instead of my personal account?
+A: Yes, you can choose to add the device to your personal account or a specific organisation.
 
 # Screen sharing
 
-- Can I share my Pi's screen through a browser without installing anything extra?
-- I'm on Raspberry Pi OS Lite and I want to use screen sharing. Will that work?
-- I need to copy some text from my Pi's screen to my laptop. Is there a way to do that through Connect?
-- How do I know if someone is currently screen sharing my Pi?
-- I want to stop people from being able to screen share my Pi but keep it connected to Connect. How do I do that?
-- I turned off screen sharing from the command line. How do I turn it back on again?
+Q: Can I share my Pi's screen through Connect?
+A: Yes, screen sharing lets you view and use your Pi's desktop from any browser.
+
+Q: Does screen sharing work on Raspberry Pi OS Lite?
+A: No, screen sharing is not compatible with Raspberry Pi OS Lite.
+
+Q: My Pi is running an older OS. Will screen sharing work?
+A: Screen sharing requires Wayland, which is the default from Raspberry Pi OS Bookworm onwards.
+
+Q: How do I copy and paste text between my computer and my Pi's remote screen?
+A: Use the Copy from remote and Paste to remote buttons above the remote desktop.
+
+Q: How do I turn off screen sharing without signing out of Connect entirely?
+A: Deselect Allow Screen Sharing from the Connect icon menu, or run `rpi-connect vnc off`.
+
+Q: I disabled screen sharing before. How do I turn it back on?
+A: Select Allow Screen Sharing from the Connect menu, or run `rpi-connect vnc on`.
+
+Q: How do I actually close the screen sharing session when I'm done?
+A: Click the Disconnect button above the remote desktop to end the session.
 
 # Remote shell
 
-- Can I get a terminal on my Pi through just a browser, without SSH or anything like that?
-- I'm trying to copy and paste in the remote shell but Ctrl+C isn't working. What do I do instead?
-- I ran a background process in a remote shell session and then closed it. Did that process keep running?
-- How do I close a remote shell session when I'm done?
-- I want to disable remote shell access on my Pi but keep it signed into Connect. How do I do that?
+Q: I just want a terminal on my Pi remotely. Can I do that without screen sharing?
+A: Yes, use the Remote shell option from the Connect via menu in the Connect dashboard.
+
+Q: I pressed Ctrl+C in the remote shell and it didn't work. What do I do?
+A: Some browsers intercept that shortcut; try the right-click menu or Ctrl+Insert to copy instead.
+
+Q: I started something in the remote shell and closed the window. Is it still running?
+A: No, each remote shell is a new connection; use `screen` or `tmux` to persist background commands.
+
+Q: How do I close a remote shell session?
+A: Run the `exit` command or just close the browser window.
+
+Q: How do I stop people from being able to open a remote shell on my Pi?
+A: Deselect Allow Remote Shell Access from the Connect menu, or run `rpi-connect shell off`.
+
+Q: I turned off remote shell access before. How do I turn it back on?
+A: Choose Allow Remote Shell Access from the Connect system tray icon, or run `rpi-connect shell on`.
 
 # Enable remote shell at all times
 
-- My Pi rebooted and now I can't connect to it remotely. What went wrong and how do I fix it?
-- I've got a headless Pi with no automatic login. How do I make sure Connect still works after a reboot?
-- What's user-lingering and why do I need it for Connect?
+Q: My Pi rebooted and now I can't reach it through Connect. What happened?
+A: Connect only works when you're logged in; enable user-lingering with `loginctl enable-linger`.
+
+Q: I've got a headless Pi Lite setup. How do I make sure Connect keeps working after a reboot?
+A: Run `loginctl enable-linger` to keep Connect running even when nobody is logged in.
 
 # Disable the animated icon
 
-- The Connect icon keeps spinning when I'm in a session and it's driving me crazy. Can I turn that off?
+Q: The Connect icon spins when I'm in a session and it's driving me crazy. Can I turn that off?
+A: Right-click the Connect icon, select Configure Plugin, then toggle off Animate Icon.
 
 # Manage devices
 
-- I've got a bunch of Pis in my Connect dashboard. How do I tell them apart or rename them?
-- How do I completely remove a Pi from my Connect account?
-- If I delete a device from the Connect dashboard, does it automatically sign out on the Pi too?
+Q: How do I rename my Pi in the Connect dashboard?
+A: Open the device details page by selecting the device name, then edit the device name there.
+
+Q: I removed a device from the Connect dashboard. What happens on the Pi itself?
+A: Deleting a device automatically signs it out of Connect and the icon turns grey.
 
 # Update
 
-- How do I update Connect to the latest version?
-- I've got Connect Lite installed, not the regular version. Does the update command work the same way?
+Q: How do I update Raspberry Pi Connect to the latest version?
+A: Run `sudo apt update` then `sudo apt install --only-upgrade rpi-connect` in the terminal.
+
+Q: I installed Connect Lite, not the regular version. Does the update command change?
+A: Yes, replace `rpi-connect` with `rpi-connect-lite` in the update command.
 
 # Disconnect a device from Connect
 
-- How do I sign my Pi out of Connect without uninstalling it?
+Q: How do I sign my Pi out of Connect from the terminal?
+A: Run `rpi-connect signout` to sign out of your Raspberry Pi ID on that device.
 
 # Uninstall
 
-- How do I completely remove Connect from my Pi?
-- I uninstalled Connect but my Pi still shows up in the dashboard. Is that normal?
-- I reinstalled Connect on my Pi with a fresh SD card. Will it show up as a new device or use the old name?
+Q: How do I completely remove Connect from my Pi?
+A: Run `sudo apt remove --purge rpi-connect` to stop and remove Connect.
+
+Q: I uninstalled Connect and then reinstalled it. Will it remember my old device name?
+A: Yes, if it's the same device it reuses the existing device name from the Connect dashboard.
+
+Q: I uninstalled Connect but my Pi still shows up in the dashboard. How do I get rid of it?
+A: Remove the device from the Connect dashboard to fully sever the link.
 
 # Whole Document
 
-- What even is Raspberry Pi Connect and why would I use it instead of just SSH-ing in?
-- Do I need anything besides a browser to remotely access my Pi through Connect?
-- Does Connect work on the Lite version of Raspberry Pi OS?
-- I want to access my Pi from anywhere without setting up port forwarding or a VPN. Is Connect the right tool for that?
-- What's the difference between screen sharing and remote shell in Connect?
+Q: Do I need a Raspberry Pi ID to use Connect?
+A: Yes, you sign in with a Raspberry Pi ID to link and access devices through Connect.
+
+Q: I set up my Pi with Imager. Do I still need to manually link it to Connect?
+A: You might have already linked it during setup; check the Imager installation instructions for details.
+
+Q: Can I access my Pi from any computer using Connect?
+A: Yes, once linked you can access your device from anywhere using just a browser.

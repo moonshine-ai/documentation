@@ -1,105 +1,156 @@
 # Configure UARTs
 
-What even is a UART? Do I need one for my Raspberry Pi project?
+Q: What's the difference between PL011 and mini UART on the Raspberry Pi?
+A: PL011 is broadly 16550-compatible; mini UART has a reduced feature set.
 
-Are the UARTs on a Raspberry Pi safe to connect to a 5V device?
+Q: I connected my Pi's UART to a 5V system and now it's acting weird. What happened?
+A: All Raspberry Pi UARTs are 3.3V only; connecting to 5V causes damage.
 
-I want to connect my Pi's UART to something that runs on 5V. How do I do that without frying it?
+Q: Can I use my Pi's serial pins with a 5V device at all?
+A: Yes, use an adapter or a low-cost USB to 3.3V serial adapter.
 
 # Raspberry Pi Zero, 1, 2 and 3
 
-How many UARTs does a Raspberry Pi 3 have?
-
-What types of UART does the Pi Zero have?
+Q: How many UARTs does a Raspberry Pi 3 have?
+A: It has two UARTs: UART0 which is PL011, and UART1 which is mini UART.
 
 # Raspberry Pi 4 and 400
 
-How many UARTs does the Pi 4 have, and are they all turned on by default?
+Q: Does the Pi 4 have more serial ports than the Pi 3?
+A: Yes, Pi 4 has six UARTs total, though four extra PL011s are disabled by default.
 
-I've got a Pi 4 and I need more serial ports. How do I enable the extra UARTs?
+Q: I've got a Pi 400 and need more than two serial ports. Is that possible?
+A: Yes, four additional PL011 UARTs exist but are disabled by default.
 
 # Raspberry Pi 5
 
-Does the Pi 5 have a mini UART?
+Q: Does the Pi 5 have a mini UART like older Pi models?
+A: No, Raspberry Pi 5 does not have a mini UART.
 
-How many UARTs does the Pi 5 have?
+Q: How many UARTs does the Pi 5 have?
+A: Raspberry Pi 5 has five UARTs, all PL011 type.
 
 # CM1, CM3, CM3+ and CM4
 
-I'm using a Compute Module and I can't seem to use the UART. Why isn't it working?
+Q: I'm using a Compute Module and can't find any serial ports. Are they disabled?
+A: Yes, on all Compute Module models UARTs are disabled by default.
 
-How do I enable a UART on a Compute Module and pick which GPIO pins it uses?
+Q: How do I enable a UART on a Compute Module and pick which GPIO pins to use?
+A: Use a Device Tree overlay in config.txt, specifying GPIO pins like txd1_pin and rxd1_pin.
 
 # Primary UART
 
-Which GPIO pins does the primary UART show up on?
+Q: Which GPIO pins does the primary UART use on a regular Pi?
+A: The primary UART uses GPIO 14 for transmit and GPIO 15 for receive.
 
-I'm confused — which pin number on the header is GPIO 14?
+Q: Where does the primary UART show up on a Pi 5?
+A: On Raspberry Pi 5, the primary UART appears on the Debug header.
 
-Where does the primary UART appear on a Pi 5? It doesn't seem to be on the main GPIO header.
+Q: What's GPIO 14 called on the actual pin header?
+A: GPIO 14 is pin 8, and GPIO 15 is pin 10 on the GPIO header.
 
 # Secondary UART
 
-Why can't I see the secondary UART on my GPIO pins?
+Q: What's the secondary UART used for by default?
+A: By default it's connected to the Bluetooth side of the wireless LAN and Bluetooth controller.
 
-What's the secondary UART connected to by default on a Pi that has Bluetooth?
+Q: Is the secondary UART available on the GPIO pins?
+A: No, the secondary UART is not normally present on the GPIO connector.
 
 # Primary and Secondary UART
 
-On a Pi 4, which UART is the one connected to Bluetooth?
+Q: On a Pi 3, which UART is the primary one and which handles Bluetooth?
+A: On Pi 3, UART1 is primary and UART0 handles Bluetooth.
 
-I've got a Pi 3 and I want to use UART0 — is that the console one or the Bluetooth one?
+Q: What Linux device file do I use to talk to the primary UART?
+A: Use /dev/serial0, which is a symbolic link to the primary UART.
 
-What's the difference between `/dev/serial0` and `/dev/ttyAMA0`?
+Q: What's /dev/ttyAMA0 exactly?
+A: It's the first PL011, which is UART0.
 
-I want to use `/dev/serial1` but it doesn't exist on my Pi. What happened to it and how do I get it back?
+Q: I'm on Bookworm and /dev/serial1 doesn't exist. Is that normal?
+A: Yes, due to Bookworm changes serial1 doesn't exist by default.
+
+Q: How do I bring back /dev/serial1 on Bookworm?
+A: Add dtparam=krnbt=off to config.txt to re-enable serial1.
+
+Q: What's /dev/ttyAMA10 for?
+A: It's the Raspberry Pi 5 Debug UART device.
 
 # Mini-UART and CPU Core Frequency
 
-Why does my baud rate keep changing when I use the mini UART?
+Q: My mini UART baud rate keeps changing on its own. What's going on?
+A: Mini UART clock is linked to VPU core clock, so baud rate changes when core clock changes.
 
-I'm trying to use the mini UART but it seems disabled. How do I turn it on?
+Q: How do I get the mini UART working properly without it going haywire?
+A: Fix the VPU core clock frequency using enable_uart or core_freq in config.txt.
 
-What do I put in `config.txt` to fix the clock speed so the mini UART works properly?
+Q: If I set enable_uart equals 1, what clock speed does the core get locked to?
+A: The core clock gets fixed to 250MHz, unless force_turbo=1 is set.
+
+Q: Is the mini UART on by default?
+A: No, mini UART is disabled by default if it's the primary or when Bluetooth is disabled.
 
 # Disabling the Linux Serial Console
 
-I want to use the serial port for my own project but Linux keeps using it as a console. How do I stop that?
+Q: I want to use the serial pins for my own project but they seem to be running a Linux console. How do I stop that?
+A: Use raspi-config, go to Interface Options, then Serial Port, and disable the login shell.
 
-How do I turn off the serial console using raspi-config?
+Q: Do I need to reboot after turning off the serial console in raspi-config?
+A: Yes, exit raspi-config and reboot for the changes to take effect.
 
 # Enabling early console for Linux
 
-My Pi is crashing really early in the boot process and I can't see any error messages. How do I get kernel logs from that early?
+Q: My Pi is crashing really early on boot and I can't see any error messages. Is there a way to get logs sooner?
+A: Enable earlycon support by adding the appropriate option to cmdline.txt.
 
-How do I enable earlycon on a Pi 4? What do I add to `cmdline.txt`?
+Q: What baud rate does earlycon use by default?
+A: The baudrate defaults to 115200bps.
 
-I picked the wrong earlycon setting and now my Pi won't boot. What did I do wrong?
+Q: I picked the wrong earlycon option and now my Pi won't boot. Is that a known thing?
+A: Yes, selecting the wrong early console option can prevent the Pi from booting.
+
+Q: Where does earlycon output show up on a Pi 5?
+A: On Pi 5, earlycon output only appears on the 3-pin debug connector.
 
 # UARTs and Device Tree
 
-I want to disable Bluetooth and use UART0 as the main serial port. How do I do that?
+Q: I want to free up the main UART from Bluetooth on my Pi. What overlay do I use?
+A: Use the disable-bt overlay, which makes UART0 the primary and disables Bluetooth.
 
-What does the `miniuart-bt` overlay actually do?
+Q: What does the miniuart-bt overlay actually do?
+A: It switches Bluetooth to use mini UART and makes PL011 UART0 the primary UART.
 
-How do I enable UART2, UART3, UART4, or UART5 on a Pi 4?
+Q: If I use miniuart-bt, do I need to do anything else?
+A: Yes, also set VPU core clock to a fixed frequency using force_turbo=1 or core_freq=250.
 
-How do I apply a UART device tree overlay? Where do I put it?
+Q: How do I enable the extra UARTs on a Pi 4?
+A: Add uart2, uart3, uart4, or uart5 overlays in config.txt to enable them.
+
+Q: If the overlay file is called disable-bt-overlay.dts, what do I actually write in config.txt?
+A: Write dtoverlay=disable-bt, dropping the -overlay.dts part of the filename.
+
+Q: After adding disable-bt, do I need to do anything else?
+A: Yes, disable the modem service with sudo systemctl disable hciuart.
 
 # PL011 and mini-UART
 
-What's the practical difference between a PL011 and a mini UART? Should I care which one I use?
+Q: Why does my mini UART keep dropping characters at higher speeds?
+A: Mini UART has smaller FIFOs and no flow control, making it prone to losing characters.
 
-Why does the mini UART keep dropping characters at high baud rates?
+Q: What features is the mini UART missing compared to PL011?
+A: Mini UART lacks break detection, framing error detection, parity bit, and receive timeout interrupt.
 
-Does the mini UART support parity checking?
+Q: Does the Pi's PL011 support DCD or DTR signals?
+A: No, neither mini UART nor the BCM2835 PL011 implementation supports DCD, DSR, DTR, or RI.
 
 # Whole Document
 
-I'm totally new to serial communication on the Pi. Where do I even start?
+Q: I've got a Pi Zero W. Which UART is the primary one?
+A: On Pi Zero W, UART1 is the primary console and UART0 handles Bluetooth.
 
-I've got a GPS module that talks over serial. What's the best way to connect it to my Pi?
+Q: What's the difference in UART count between a Pi 3 and a Pi 4?
+A: Pi 3 has two UARTs; Pi 4 has six UARTs, with four extra PL011s disabled by default.
 
-How do I know which `/dev` device to use for the serial port on my Pi?
-
-My Pi has Bluetooth — does that interfere with the serial port?
+Q: I just want to use serial on my Pi but I don't know where to start. What device file should I open?
+A: Use /dev/serial0 for the primary UART; it's a symbolic link to the correct device.

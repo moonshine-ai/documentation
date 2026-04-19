@@ -1,75 +1,105 @@
-# Whole Document
-
-- I want to control my Raspberry Pi from my laptop. Where do I even start?
-- What's SSH and do I need it to access my Pi remotely?
-- I don't want to plug a monitor into my Pi every time. Can I just use my main computer to control it?
-- Is SSH already set up on a fresh Raspberry Pi or do I have to turn it on myself?
-
 # Enable the SSH server
 
-- SSH is off by default? How do I switch it on?
-- I've got my Pi running on the desktop. How do I enable SSH from there?
-- I'm setting up a brand new Pi with Imager. Can I turn SSH on before I even boot it for the first time?
-- I don't have a monitor for my Pi yet. How do I enable SSH so I can connect to it right away?
-- I'm in the terminal on my Pi. What's the quickest way to turn on SSH?
-- What's raspi-config and how do I use it to turn on SSH?
-- I heard you can just create a file to enable SSH. How does that work?
-- After I create that SSH file in the boot partition, do I need to restart for it to work?
-- When I'm flashing the OS with Imager, should I use password login or the key thing for SSH?
+Q: SSH is turned off on my Pi by default, right? How do I turn it on?
+A: Enable SSH via desktop Control Centre, raspi-config, Imager, or manually.
+
+Q: I'm setting up a brand new Pi. Can I enable SSH before I even boot it for the first time?
+A: Yes, enable SSH during Imager setup under the Customisation Remote Access tab.
+
+Q: How do I turn on SSH using just the terminal, without touching any desktop settings?
+A: Run sudo raspi-config, select Interfacing Options, then navigate to SSH and choose Yes.
+
+Q: I don't want to use raspi-config. Is there a manual way to enable SSH without any menus?
+A: Create an empty file named ssh in the boot partition, then reboot the machine.
+
+Q: When I'm flashing a new image with Imager, where exactly do I find the SSH toggle?
+A: It's under the Customisation Remote Access tab in Raspberry Pi Imager.
 
 # Connect to an SSH server
 
-- Okay SSH is enabled, now how do I actually connect to my Pi from my other computer?
-- What's the command to SSH into my Pi? I know I need the IP address but I'm not sure of the format.
-- I got a security warning when I first tried to connect. Is that normal or did something go wrong?
-- I keep getting "connection timed out" when I try to SSH in. What did I mess up?
-- How do I find out what IP address my Pi is on so I can SSH into it?
-- I connected over SSH but can I only use the terminal, or can I open apps with a window too?
+Q: Okay I've enabled SSH, now how do I actually connect to my Pi from another computer?
+A: Open a terminal and run ssh username at the Pi's IP address.
+
+Q: I'm trying to SSH in and I keep getting connection timed out. What's going on?
+A: You may have entered the wrong IP address for your Raspberry Pi.
+
+Q: The first time I connected over SSH it showed some security warning. Is that normal?
+A: Yes, just type yes to continue; you'll only see it on the first connection.
+
+Q: Do I need to be on the same network as my Pi to use SSH?
+A: Yes, SSH works between computers on the same network.
 
 # Forward X11 over SSH
 
-- I want to open a graphical app on my Pi but see it on my laptop's screen. Is that possible over SSH?
-- What's X11 forwarding and do I need it?
-- I'm on a Mac and I want to use X11 forwarding. Do I need to install something extra first?
-- What flag do I add to the SSH command to get graphical apps working?
+Q: Can I run graphical apps on my Pi from my laptop over SSH?
+A: Yes, use ssh -Y to forward X11 and open graphical windows remotely.
+
+Q: I'm on a Mac and want to use X11 forwarding over SSH. Do I need anything extra?
+A: Yes, macOS requires a third-party X server to use X11 forwarding.
+
+Q: What flag do I add to SSH to get graphical windows working?
+A: Pass the -Y flag to forward an X session over SSH.
 
 # Configure SSH without a password
 
-- I'm sick of typing my password every time I SSH into my Pi. How do I stop that?
-- What's an SSH key and why would I use one instead of a password?
+Q: I'm sick of typing my password every time I SSH into my Pi. Can I skip that?
+A: Yes, set up an SSH keypair so you can connect without a password each time.
 
 # Preconfigure an OS image with Raspberry Pi Imager
 
-- Can I set up SSH keys when I'm first flashing the SD card with Imager?
-- I already have SSH keys on my laptop. Will Imager automatically use those when I set up a new Pi?
+Q: Can I set up SSH keys during the initial Imager setup so I don't have to do it later?
+A: Yes, enable SSH and select public key authentication in Imager's Remote Access tab.
+
+Q: If I already have an SSH key on my computer, will Imager pick it up automatically?
+A: Yes, if id_rsa.pub exists in tilde/.ssh, Imager automatically prefills it for you.
 
 # Check for existing SSH public keys
 
-- How do I know if I already have SSH keys on my computer before I go making new ones?
-- What files should I be looking for to see if I've got an existing SSH key?
+Q: How do I know if I've already got an SSH key on my computer before making a new one?
+A: Run ls tilde/.ssh and look for files like id_ed25519.pub or id_rsa.pub.
 
 # Generate new SSH keypair
 
-- I don't have any SSH keys yet. How do I make some?
-- What's the difference between the id_rsa file and the id_rsa.pub file?
-- Do I need a passphrase when I generate SSH keys or can I just leave it blank?
-- I've heard Ed25519 is more secure than RSA for SSH keys. How do I generate one of those instead?
-- After I run ssh-keygen, where do the key files actually get saved?
+Q: I don't have any SSH keys yet. How do I make a new pair?
+A: Run ssh-keygen, press Enter for default location, and Enter again for no passphrase.
+
+Q: Where does ssh-keygen save my keys by default?
+A: The default save location is tilde/.ssh/id_rsa for the private key.
+
+Q: Which file is my public key and which is my private key after running ssh-keygen?
+A: id_rsa is your private key; id_rsa.pub is your public key to share.
+
+Q: Is RSA the only option for generating SSH keys, or can I use something else?
+A: You can also generate an Ed25519 key by passing -t ed25519 to ssh-keygen.
 
 # Add the SSH key to your list of SSH identities
 
-- What's the SSH agent and do I need to mess with it?
-- How do I add my new SSH key so my computer actually uses it when connecting?
+Q: After generating my SSH key, do I need to do anything before I can use it?
+A: Start the SSH agent and add your key with ssh-add tilde/.ssh/id_rsa.
 
 # Copy a public key to your Raspberry Pi
 
-- I've got my SSH keys set up. Now how do I get my Pi to recognize them so I don't need a password?
-- What's the easiest way to copy my public key over to my Pi?
-- Do I still need my password once to run ssh-copy-id, or does it work without it?
+Q: How do I get my public key onto my Pi so I can log in without a password?
+A: Run ssh-copy-id username at the Pi's IP address from your computer.
 
 # Manually copy a public key to your Raspberry Pi
 
-- ssh-copy-id isn't working on my system. Is there another way to copy my key to the Pi?
-- I'm trying to manually copy my public key to the Pi but I'm not sure what folder to put it in or what to name the file.
-- I already have some keys set up on my Pi and I don't want to wipe them. How do I add a new one without breaking the old ones?
-- What permissions do I need to set on the authorized_keys file for SSH to work properly?
+Q: My system doesn't have ssh-copy-id. How else can I get my public key onto my Pi?
+A: Use scp to copy your public key to .ssh/authorized_keys on your Raspberry Pi.
+
+Q: What permissions should I set on the .ssh folder and authorized_keys file on my Pi?
+A: Set .ssh to 700 and authorized_keys to 644.
+
+Q: I already have SSH keys set up on my Pi and want to add another one without wiping the old ones.
+A: Append the new public key as a new line in the existing authorized_keys file.
+
+# Whole Document
+
+Q: What even is SSH? Why would I want to use it with my Pi?
+A: SSH lets you access your Raspberry Pi's terminal remotely from another computer.
+
+Q: I want to control my Pi from my laptop without plugging in a keyboard or monitor. What do I need?
+A: Use SSH to access the Pi's terminal remotely over your network.
+
+Q: Do I need a password to connect via SSH, or can I set it up to just log straight in?
+A: You can use password authentication or set up SSH keys to skip the password.

@@ -1,133 +1,274 @@
-# Whole Document
-
-- What's the difference between a Compute Module and a regular Raspberry Pi?
-- I'm trying to decide between a Compute Module and a standard Pi. Which one should I get?
-- What's a CMIO board and do I need one?
-- I'm building an embedded project. Should I be using a Compute Module instead of a regular Pi?
-- What Compute Modules are still being made and supported?
-- I've got a CM4 but I want to upgrade to a CM5. Are they compatible with each other?
-- What does the Lite version of a Compute Module mean?
-
 # Compute Modules
 
-- So what's the actual difference between all the Compute Module versions?
-- Does the CM5 have Wi-Fi built in?
-- I want to use a Compute Module but I need wireless. Which ones have Wi-Fi?
-- What's the most RAM I can get on a CM5?
-- Can I still buy a CM3? I thought I saw it was being discontinued.
-- What form factor does the CM5 use? Is it the same as the older ones?
-- I have a board designed for the old DDR2 SODIMM form factor. Can I drop a CM4 in there?
-- What's the difference between CM4 and CM4S?
-- Why did they switch away from the SODIMM form factor on CM4?
-- My project needs to work in really cold conditions, like minus 40 degrees. Is there a Compute Module that handles that?
-- How much storage does the CM1 have? Can I upgrade it?
+Q: What's the difference between a Compute Module and a regular Raspberry Pi?
+A: Compute Modules are compact, lack standard connectors, and target industrial applications.
+
+Q: Why would I pick a Compute Module over a regular Pi board?
+A: Compute Modules offer compact design, flexibility, and support for on-board eMMC storage.
+
+Q: What does "CM5Lite" mean? What's the Lite version?
+A: Lite variants have no on-board eMMC storage, indicated by the suffix Lite or L.
+
+Q: Do all Compute Modules support Wi-Fi and Bluetooth?
+A: Only Compute Modules 4 and 5 offer optional Wi-Fi and Bluetooth connectivity.
+
+Q: Which Compute Modules have a fixed amount of RAM and which let me choose?
+A: CM1, CM3, CM3+ have fixed RAM; CM4, CM4S, and CM5 offer multiple RAM options.
+
+# Compute Module 5
+
+Q: What processor does the CM5 use?
+A: CM5 uses the Broadcom BCM2712 processor.
+
+Q: How much storage can I get on the CM5?
+A: CM5 offers zero, 16, 32, or 64 GB of eMMC flash storage options.
+
+Q: Is the CM5 a different size from the CM4? Can I swap them?
+A: CM5 uses the same dual 100-pin connector form factor as CM4.
+
+# Compute Module 4S
+
+Q: What's the CM4S and how's it different from regular CM4?
+A: CM4S has CM4 internals but uses the older DDR2 SODIMM form factor like CM1 and CM3.
+
+Q: How much RAM can I get in a CM4S?
+A: CM4S is available with 1, 2, 4, or 8 GB of RAM.
+
+# Compute Module 4
+
+Q: Does CM4 work at extreme temperatures?
+A: Standard CM4 handles -20°C to +85°C; wider variants support -40°C to +85°C.
+
+Q: What new stuff did CM4 add that older Compute Modules didn't have?
+A: CM4 added dual HDMI, PCIe support, and an Ethernet connector over earlier modules.
+
+Q: What storage options does the CM4 have?
+A: CM4 offers zero, 8, 16, or 32 GB of eMMC storage options.
+
+# Compute Module 3+
+
+Q: What processor is in the CM3+?
+A: CM3+ uses the Broadcom BCM2837B0 processor.
+
+Q: How much RAM does the CM3+ have?
+A: CM3+ has a fixed 1 GB of RAM.
+
+# Compute Module 3
+
+Q: I have a CM3 — is it still supported?
+A: CM3 reached end-of-life on 16 October 2025 due to SoC discontinuation.
+
+Q: My project uses CM3 and it's going end-of-life. What should I switch to?
+A: For SODIMM form factor use CM4S; for other new designs use CM4 or CM5.
+
+# Compute Module 1
+
+Q: How much storage does the CM1 have?
+A: CM1 has a fixed 4 GB of eMMC flash storage.
+
+Q: How much RAM is in the original Compute Module 1?
+A: CM1 has 512 MB of RAM.
 
 # IO Boards
 
-- What does an IO board actually do for a Compute Module?
-- Can I use a CM5 with the CM4 IO board?
-- I've got an old CMIO board lying around. Will a CM4 work with it?
-- What's the power difference between the CM5IO and CM4IO boards?
-- Does the CM5IO have PCIe? I want to attach an NVMe SSD.
-- Can I plug a regular HAT into a Compute Module IO board?
-- Does the CM4IO board support PoE?
-- What USB ports does the CM5IO have?
-- I want to use two cameras at the same time. Which IO boards support that?
-- My project only needs a couple of connectors. Do I have to use the full IO board?
-- Can I attach an M.2 SSD to the CM5IO?
+Q: What does an IO Board actually do for a Compute Module?
+A: It provides power, connectors, GPIO headers, USB, HDMI, and camera and display interfaces.
+
+Q: Can I use a CM5 with the CM4 IO Board?
+A: Yes, but CM5 on CM4IO works with reduced functionality.
+
+Q: I've got a CM4S — which IO Board should I use with it?
+A: CM4S is compatible with the CMIO3 IO Board.
+
+Q: Does the CM4 IO Board support PCIe?
+A: Yes, CM4IO exposes PCIe Gen 2 through a connector.
+
+# Compute Module 5 IO Board
+
+Q: How do I power the CM5 IO Board?
+A: Power it via USB-C at 5V, either 5A for 25W or 3A for 15W.
+
+Q: Does the CM5 IO Board have an M.2 slot for an SSD?
+A: Yes, it has an M.2 M key PCIe socket compatible with 2230, 2242, 2260, and 2280 sizes.
+
+Q: The CM5 has no eMMC — can I use an SD card on the CM5IO?
+A: Yes, the microSD slot works only with CM5Lite variants that have no eMMC.
+
+Q: Does the CM5 IO Board have PoE support?
+A: Yes, it has a Gigabit Ethernet RJ45 connector with PoE support.
+
+# Compute Module 4 IO Board
+
+Q: What voltage can I use to power the CM4 IO Board?
+A: 5V through the GPIO header or 12V through the barrel jack, up to 26V if PCIe is unused.
+
+Q: Does the CM4IO support cameras and displays?
+A: Yes, it has two MIPI DSI display and two MIPI CSI-2 camera FPC connectors each.
+
+# Compute Module IO Board (versions 1 and 3)
+
+Q: What's the difference between CMIO version 1 and version 3?
+A: Version 3 adds a microSD card slot and supports CM3 and CM3+ in addition to CM1.
+
+Q: How many GPIO pins does the CMIO board expose?
+A: The CMIO and CMIO3 boards expose 46 GPIO pins.
 
 # CM5 and CM5IO accessories
 
-- Is there an official case for the CM5IO?
-- Does the CM5 case come with a fan?
-- Can I add an external antenna to a CM5 to improve Wi-Fi?
-- What's the CM5 cooler and do I actually need it?
-- My CM5 is running hot. What cooling options do I have?
-- Does the antenna work with both CM4 and CM5?
+Q: What accessories are available for the CM5?
+A: Raspberry Pi offers a CM5IO case, an antenna, and a passive CM5 cooler.
 
-## CM5IO Case
+# CM5IO Case
 
-- How big is the CM5IO case?
-- I've got the original version of the CM5IO case. Can I fit a cooler inside without removing the fan?
-- What's the difference between version 1 and version 2 of the CM5IO case?
-- Can I run a camera cable out of the CM5IO case?
-- How do I put my CM5IO board into the case? What order do I do things?
-- I want to fit an M.2 SSD inside the CM5IO case. Is there room for it?
-- How do I get the SD card out of the case? Do I just pull it?
+Q: What are the dimensions of the CM5IO Case?
+A: Assembled, the CM5IO Case measures approximately 170mm × 94mm × 28mm.
 
-## Antenna (CM4 and CM5)
+Q: Can I fit both a cooler and the fan inside the CM5IO Case at the same time?
+A: Only version 2 of the case provides space for both the fan and cooler simultaneously.
 
-- How long is the antenna cable?
-- Does the antenna support both 2.4 and 5 gigahertz Wi-Fi?
-- After I plug in the antenna, do I need to change anything in the software to use it?
-- How do I actually attach the antenna when it's inside the case?
+Q: I want to add an M.2 SSD to my CM5IO Case — is there room for it?
+A: Yes, newer version 2 of the case has space for accessories like M.2 SSDs.
 
-## CM5 Cooler
+Q: How do I attach the CM5 to the CM5IO before putting it in the case?
+A: Rotate CM5 90 degrees right to align the dual 100-pin connectors, then press firmly.
 
-- How do I attach the cooler to my CM5?
-- Do I need screws to attach the cooler or does it just stick?
-- What's the cooler made of?
+Q: How is the SD card slot on the CM5IO Case released? It's stuck.
+A: Push the SD card inward to release it, then pull it out of the push-push slot.
+
+# Antenna (CM4 and CM5)
+
+Q: Does the antenna work with both 2.4 GHz and 5 GHz Wi-Fi?
+A: Yes, the Raspberry Pi Antenna Kit supports dual-band Wi-Fi on CM4 or CM5.
+
+Q: How do I actually enable the external antenna in software?
+A: Add `dtparam=ant2` to the end of `/boot/firmware/config.txt`.
+
+Q: How long is the antenna cable?
+A: The SMA to U.FL cable is approximately 205mm long.
+
+# CM5 Cooler
+
+Q: What's the CM5 Cooler made of?
+A: It's an aluminium heat sink with a conductive silicone pad on the bottom.
+
+Q: Do I need screws to attach the CM5 Cooler?
+A: Screws are optional; the silicone bond improves over time without them.
+
+Q: How big is the CM5 Cooler?
+A: The CM5 Cooler is approximately 41mm × 56mm × 12.7mm.
 
 # Flash an image to a Compute Module
 
-- How do I get an OS onto a Compute Module? It doesn't have an SD card slot.
-- What do I need to flash an image to a CM5?
-- Can I use a Mac to flash a Compute Module?
-- I'm using Windows. How do I flash my Compute Module?
-- What's rpiboot and why do I need it?
-- After I've flashed the eMMC, how do I get the Compute Module to actually boot from it?
-- Can I use Raspberry Pi Imager to flash a Compute Module?
-- My computer isn't recognising the Compute Module when I plug it in. What do I do?
-- I'm having trouble booting my CM3. Is there a known issue with that?
-- What jumper do I need to set before flashing? I keep forgetting.
-- What's the difference between flashing a Lite Compute Module versus one with eMMC?
+Q: I've got a CM5Lite with no eMMC — how do I install an OS on it?
+A: Follow the standard Raspberry Pi OS installation procedure for a storage device.
+
+Q: What computers can I use as the host to flash a Compute Module?
+A: You can use Linux, Windows 11, or macOS as the host device.
+
+Q: My computer isn't recognizing the Compute Module when I try to flash it. What should I do?
+A: Try connecting the Compute Module directly to the host without a USB hub.
+
+Q: How do I install rpiboot on Linux to flash my Compute Module?
+A: Run `sudo apt install rpiboot` to install it on your Linux host.
+
+Q: Can I use Raspberry Pi Imager to flash a Compute Module?
+A: Yes, you can use Raspberry Pi Imager to flash an OS image to a Compute Module.
+
+Q: I want to flash the same image to a bunch of Compute Modules at once. Is there a tool for that?
+A: Use the Raspberry Pi Secure Boot Provisioner from the rpi-sb-provisioner GitHub repo.
 
 # Compute Module EEPROM bootloader
 
-- What's different about the bootloader on CM4 and newer compared to older ones?
-- How do I update the bootloader on a CM4?
-- I want my Compute Module to boot from the network. How do I set that up?
-- Can I lock the bootloader so nobody can change it? Like for a deployed product?
-- What's the BOOT_ORDER setting and how do I change it?
-- Is it risky to update the EEPROM on a Compute Module?
-- I want it to try USB first and then fall back to eMMC. What BOOT_ORDER value do I use?
+Q: Which Compute Modules use an EEPROM bootloader?
+A: Compute Module 4 and later use an EEPROM bootloader instead of a boot partition.
+
+Q: I want to set my CM4 to boot from NVMe. What BOOT_ORDER value do I use?
+A: Use `BOOT_ORDER=0xf6` for NVMe boot.
+
+Q: How do I set up network boot on a Compute Module?
+A: Set `BOOT_ORDER=0xf2` in the bootloader configuration for network boot.
+
+Q: Is it safe to use self-update mode to update the bootloader? What could go wrong?
+A: A power failure during update could corrupt the EEPROM; self-update is not atomic.
 
 # Wire peripherals
 
-- I'm designing my own carrier board for a CM5. What do I need to provide at minimum?
-- Which GPIO banks on the Compute Module are safe to use? Are any off limits?
-- What's a dt-blob.bin and do I need to worry about it?
-- How do Device Tree overlays work on a Compute Module?
-- I've added an overlay to config.txt but I'm not sure if it's working. How do I check?
-- What's the difference between a full Device Tree and an overlay? Which should I use?
-- How do I wire an I2C device to the Compute Module IO board?
-- I've wired up an SPI Ethernet chip. What do I put in config.txt to make it work?
-- How do I debug Device Tree problems on my Compute Module?
-- Can I use pinctrl to check what my GPIO pins are doing?
+Q: Which GPIO banks on the BCM283x can I use safely with a Compute Module?
+A: Use Bank 0 or Bank 1; avoid Bank 2 as it controls eMMC, HDMI, and USB boot.
+
+Q: What is dt-blob.bin and do I need to create one?
+A: It tells the GPU how to set up GPIO pin states; a built-in default exists if absent.
+
+Q: How does the Compute Module boot — what happens step by step?
+A: GPU DSP boots first, loads second-stage bootloader, then start.elf boots the Arm CPU.
+
+Q: Should I create a full custom Device Tree or use overlays for my Compute Module project?
+A: Overlays are recommended so you can still use standard Raspberry Pi OS images.
+
+Q: How do I check if my Device Tree is working and the GPIO pins are set correctly?
+A: Use `pinctrl` to check GPIO voltage and function on your device.
+
+Q: I want to attach an I2C device to my Compute Module. What do I need to do in the config?
+A: Edit dt-blob.dts to set GPIO pins as I2C with pull-ups, compile it, and add an overlay.
+
+Q: How do I debug Device Tree issues on a Compute Module?
+A: Run `dtc -I fs -O dts -o proc-dt.dts /proc/device-tree` to dump the assembled tree.
 
 # Attach a Camera Module
 
-- How do I connect a camera to a Compute Module?
-- I've got a CM4 and a Camera Module v3. What do I need to do to get it working?
-- Can I use two cameras at the same time on a Compute Module?
-- Do I need to add jumper wires on the IO board to use a camera?
-- I've connected my camera but it's not showing up. How do I check if it's detected?
-- How do I tell the system which camera to use if I have two connected?
-- How do I take a photo from the command line on a Compute Module?
-- How do I record a video with the camera on a Compute Module?
-- What's the difference between setting up a camera on a CM5 versus a CM1 or CM3?
-- My camera driver isn't loading. Do I need to change something in config.txt?
+Q: I want to connect a v3 camera to my CM5. What directive do I add to config.txt?
+A: Add `dtoverlay=imx708` to `/boot/firmware/config.txt` for the v3 camera.
+
+Q: Can I connect two cameras to a Compute Module at the same time?
+A: Yes, Compute Modules have two CSI-2 interfaces, CAM1 and CAM0, for two cameras.
+
+Q: How do I check that my camera was detected after connecting it to the Compute Module?
+A: Run `rpicam-hello --list` to see a list of detected cameras.
+
+Q: I've got two cameras connected. How do I tell rpicam which one to use?
+A: Use `--camera 0` or `--camera 1` with the index from `rpicam-hello --list-cameras`.
+
+Q: How do I quickly take a photo from the command line on a Compute Module with a camera?
+A: Run `rpicam-still --datetime -e png` to save a PNG with a date-based filename.
+
+Q: I want to record a ten-second video from my Compute Module camera. What's the command?
+A: Run `rpicam-vid -t 10000 -o video.h264` to record ten seconds in h264.
 
 # Attaching the Touch Display LCD panel
 
-- Can I connect the official Raspberry Pi touchscreen to a Compute Module?
-- What do I add to config.txt to enable the 7-inch touchscreen on a CM?
-- I want to use the display but disable the touch part. How do I do that?
-- How do I connect the display to DISP0 instead of DISP1?
-- Can I just completely ignore the display even if it's plugged in?
+Q: How do I enable the 7-inch touch display on DISP1 on my Compute Module?
+A: Add `dtoverlay=vc4-kms-dsi-7inch` to `/boot/firmware/config.txt` and reboot.
+
+Q: I don't want to use the touchscreen part of the display but I still want the screen. Can I disable just the touch?
+A: Add `disable_touchscreen=1` to `/boot/firmware/config.txt`.
+
+Q: Can I use a Raspberry Pi Zero camera cable instead of the RPI-DISPLAY adapter for the display?
+A: No, the Zero camera cable has different wiring and can't substitute for the RPI-DISPLAY adapter.
+
+Q: How do I completely ignore a connected LCD display on my Compute Module?
+A: Add `ignore_lcd=1` to `/boot/firmware/config.txt`.
 
 # Attaching the Touch Display 2 LCD panel
 
-- I've got the newer Touch Display 2. Is the setup different from the original?
-- What overlay do I use for the 5-inch version of Touch Display 2 on a Compute Module?
-- How do I use Touch Display 2 on the DISP0 port instead of DISP1?
+Q: I've got a 5-inch Touch Display 2. What overlay do I add for DISP1?
+A: Add `dtoverlay=vc4-kms-dsi-ili9881-5inch` to `/boot/firmware/config.txt`.
+
+Q: Does Touch Display 2 connect the same way as the original Touch Display on Compute Modules?
+A: Yes, it connects the same way but needs a different overlay in config.txt.
+
+# Whole Document
+
+Q: What's the point of an IO Board — can't I just use the Compute Module by itself?
+A: The IO Board provides power, connectors, and interfaces needed to use the Compute Module.
+
+Q: I'm starting a new project and can't decide between CM4 and CM5. What are the main differences?
+A: CM5 has a faster BCM2712 processor, more RAM options up to 16GB, and more storage.
+
+Q: Do Compute Modules use the same connectors as regular DDR2 memory SO-DIMMs?
+A: They share the form factor but the pinout is not the same as SODIMM memory modules.
+
+Q: I want to build my own carrier board for a Compute Module. Where do I start?
+A: Your board must provide at least 3.3V and 1.8V power and connect required peripheral pins.
+
+Q: What's the difference between CM3 and CM3+ and which should I use?
+A: CM3 is discontinued; CM3+ offers same footprint, better thermals, and a BCM2837B0 chip.
